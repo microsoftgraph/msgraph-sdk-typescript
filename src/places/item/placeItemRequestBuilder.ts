@@ -2,9 +2,8 @@ import {Place} from '../../models/';
 import {createPlaceFromDiscriminatorValue} from '../../models/createPlaceFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphRoomRequestBuilder} from './microsoftGraphRoom/microsoftGraphRoomRequestBuilder';
+import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
 import {PlaceItemRequestBuilderDeleteRequestConfiguration} from './placeItemRequestBuilderDeleteRequestConfiguration';
-import {PlaceItemRequestBuilderGetRequestConfiguration} from './placeItemRequestBuilderGetRequestConfiguration';
 import {PlaceItemRequestBuilderPatchRequestConfiguration} from './placeItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -13,8 +12,8 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PlaceItemRequestBuilder {
     /** Casts the previous resource to room. */
-    public get microsoftGraphRoom(): MicrosoftGraphRoomRequestBuilder {
-        return new MicrosoftGraphRoomRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphRoom(): GraphRoomRequestBuilder {
+        return new GraphRoomRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -30,7 +29,7 @@ export class PlaceItemRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/places/{place%2Did}{?%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/places/{place%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
@@ -49,23 +48,6 @@ export class PlaceItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Get the properties and relationships of a place object specified by either its ID or email address. The **place** object can be one of the following types: Both **room** and **roomList** are derived from the place object.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Place
-     * @see {@link https://docs.microsoft.com/graph/api/place-get?view=graph-rest-1.0|Find more info here}
-     */
-    public get(requestConfiguration?: PlaceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Place | undefined> {
-        const requestInfo = this.toGetRequestInformation(
-            requestConfiguration
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<Place>(requestInfo, createPlaceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
@@ -98,24 +80,6 @@ export class PlaceItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.DELETE;
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.addRequestOptions(requestConfiguration.options);
-        }
-        return requestInfo;
-    };
-    /**
-     * Get the properties and relationships of a place object specified by either its ID or email address. The **place** object can be one of the following types: Both **room** and **roomList** are derived from the place object.
-     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @returns a RequestInformation
-     */
-    public toGetRequestInformation(requestConfiguration?: PlaceItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers["Accept"] = ["application/json"];
-        if (requestConfiguration) {
-            requestInfo.addRequestHeaders(requestConfiguration.headers);
-            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         return requestInfo;

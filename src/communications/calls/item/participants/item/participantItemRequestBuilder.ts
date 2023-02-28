@@ -2,12 +2,12 @@ import {Participant} from '../../../../../models/';
 import {createParticipantFromDiscriminatorValue} from '../../../../../models/createParticipantFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphMuteRequestBuilder} from './microsoftGraphMute/microsoftGraphMuteRequestBuilder';
-import {MicrosoftGraphStartHoldMusicRequestBuilder} from './microsoftGraphStartHoldMusic/microsoftGraphStartHoldMusicRequestBuilder';
-import {MicrosoftGraphStopHoldMusicRequestBuilder} from './microsoftGraphStopHoldMusic/microsoftGraphStopHoldMusicRequestBuilder';
+import {MuteRequestBuilder} from './mute/muteRequestBuilder';
 import {ParticipantItemRequestBuilderDeleteRequestConfiguration} from './participantItemRequestBuilderDeleteRequestConfiguration';
 import {ParticipantItemRequestBuilderGetRequestConfiguration} from './participantItemRequestBuilderGetRequestConfiguration';
 import {ParticipantItemRequestBuilderPatchRequestConfiguration} from './participantItemRequestBuilderPatchRequestConfiguration';
+import {StartHoldMusicRequestBuilder} from './startHoldMusic/startHoldMusicRequestBuilder';
+import {StopHoldMusicRequestBuilder} from './stopHoldMusic/stopHoldMusicRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -15,21 +15,21 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class ParticipantItemRequestBuilder {
     /** Provides operations to call the mute method. */
-    public get microsoftGraphMute(): MicrosoftGraphMuteRequestBuilder {
-        return new MicrosoftGraphMuteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the startHoldMusic method. */
-    public get microsoftGraphStartHoldMusic(): MicrosoftGraphStartHoldMusicRequestBuilder {
-        return new MicrosoftGraphStartHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the stopHoldMusic method. */
-    public get microsoftGraphStopHoldMusic(): MicrosoftGraphStopHoldMusicRequestBuilder {
-        return new MicrosoftGraphStopHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get mute(): MuteRequestBuilder {
+        return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the startHoldMusic method. */
+    public get startHoldMusic(): StartHoldMusicRequestBuilder {
+        return new StartHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the stopHoldMusic method. */
+    public get stopHoldMusic(): StopHoldMusicRequestBuilder {
+        return new StopHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

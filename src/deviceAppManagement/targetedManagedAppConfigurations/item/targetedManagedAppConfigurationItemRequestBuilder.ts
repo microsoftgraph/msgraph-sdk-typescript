@@ -4,11 +4,11 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppsRequestBuilder} from './apps/appsRequestBuilder';
 import {ManagedMobileAppItemRequestBuilder} from './apps/item/managedMobileAppItemRequestBuilder';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilder} from './assignments/item/targetedManagedAppPolicyAssignmentItemRequestBuilder';
 import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
-import {MicrosoftGraphAssignRequestBuilder} from './microsoftGraphAssign/microsoftGraphAssignRequestBuilder';
-import {MicrosoftGraphTargetAppsRequestBuilder} from './microsoftGraphTargetApps/microsoftGraphTargetAppsRequestBuilder';
+import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
 import {TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration';
@@ -22,6 +22,10 @@ export class TargetedManagedAppConfigurationItemRequestBuilder {
     public get apps(): AppsRequestBuilder {
         return new AppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the assign method. */
+    public get assign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppConfiguration entity. */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -30,18 +34,14 @@ export class TargetedManagedAppConfigurationItemRequestBuilder {
     public get deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the assign method. */
-    public get microsoftGraphAssign(): MicrosoftGraphAssignRequestBuilder {
-        return new MicrosoftGraphAssignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the targetApps method. */
-    public get microsoftGraphTargetApps(): MicrosoftGraphTargetAppsRequestBuilder {
-        return new MicrosoftGraphTargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the targetApps method. */
+    public get targetApps(): TargetAppsRequestBuilder {
+        return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

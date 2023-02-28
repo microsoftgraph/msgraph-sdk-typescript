@@ -2,6 +2,7 @@ import {MailFolder} from '../../../../../../models/';
 import {createMailFolderFromDiscriminatorValue} from '../../../../../../models/createMailFolderFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {MailFolderItemRequestBuilderDeleteRequestConfiguration} from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
 import {MailFolderItemRequestBuilderGetRequestConfiguration} from './mailFolderItemRequestBuilderGetRequestConfiguration';
 import {MailFolderItemRequestBuilderPatchRequestConfiguration} from './mailFolderItemRequestBuilderPatchRequestConfiguration';
@@ -9,8 +10,7 @@ import {MessageRuleItemRequestBuilder} from './messageRules/item/messageRuleItem
 import {MessageRulesRequestBuilder} from './messageRules/messageRulesRequestBuilder';
 import {MessageItemRequestBuilder} from './messages/item/messageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {MicrosoftGraphCopyRequestBuilder} from './microsoftGraphCopy/microsoftGraphCopyRequestBuilder';
-import {MicrosoftGraphMoveRequestBuilder} from './microsoftGraphMove/microsoftGraphMoveRequestBuilder';
+import {MoveRequestBuilder} from './move/moveRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
@@ -21,6 +21,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
  */
 export class MailFolderItemRequestBuilder {
+    /** Provides operations to call the copy method. */
+    public get copy(): CopyRequestBuilder {
+        return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity. */
     public get messageRules(): MessageRulesRequestBuilder {
         return new MessageRulesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,13 +33,9 @@ export class MailFolderItemRequestBuilder {
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copy method. */
-    public get microsoftGraphCopy(): MicrosoftGraphCopyRequestBuilder {
-        return new MicrosoftGraphCopyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the move method. */
-    public get microsoftGraphMove(): MicrosoftGraphMoveRequestBuilder {
-        return new MicrosoftGraphMoveRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get move(): MoveRequestBuilder {
+        return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {

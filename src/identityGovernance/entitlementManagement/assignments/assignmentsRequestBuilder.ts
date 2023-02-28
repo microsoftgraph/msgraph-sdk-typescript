@@ -3,25 +3,25 @@ import {createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue} f
 import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AdditionalAccessRequestBuilder} from './additionalAccess/additionalAccessRequestBuilder';
+import {AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder} from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId/additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder';
 import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAdditionalAccessRequestBuilder} from './microsoftGraphAdditionalAccess/microsoftGraphAdditionalAccessRequestBuilder';
-import {MicrosoftGraphAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder} from './microsoftGraphAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId/microsoftGraphAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder';
-import {MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder} from './microsoftGraphFilterByCurrentUserWithOn/microsoftGraphFilterByCurrentUserWithOnRequestBuilder';
+import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
  */
 export class AssignmentsRequestBuilder {
+    /** Provides operations to call the additionalAccess method. */
+    public get additionalAccess(): AdditionalAccessRequestBuilder {
+        return new AdditionalAccessRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the additionalAccess method. */
-    public get microsoftGraphAdditionalAccess(): MicrosoftGraphAdditionalAccessRequestBuilder {
-        return new MicrosoftGraphAdditionalAccessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -29,6 +29,17 @@ export class AssignmentsRequestBuilder {
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /**
+     * Provides operations to call the additionalAccess method.
+     * @param accessPackageId Usage: accessPackageId='{accessPackageId}'
+     * @param incompatibleAccessPackageId Usage: incompatibleAccessPackageId='{incompatibleAccessPackageId}'
+     * @returns a additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder
+     */
+    public additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId(accessPackageId: string | undefined, incompatibleAccessPackageId: string | undefined) : AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder {
+        if(!accessPackageId) throw new Error("accessPackageId cannot be undefined");
+        if(!incompatibleAccessPackageId) throw new Error("incompatibleAccessPackageId cannot be undefined");
+        return new AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder(this.pathParameters, this.requestAdapter, accessPackageId, incompatibleAccessPackageId);
+    };
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -41,6 +52,15 @@ export class AssignmentsRequestBuilder {
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
+    };
+    /**
+     * Provides operations to call the filterByCurrentUser method.
+     * @param on Usage: on='{on}'
+     * @returns a filterByCurrentUserWithOnRequestBuilder
+     */
+    public filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
      * In Azure AD entitlement management, retrieve a list of accessPackageAssignment objects. For directory-wide administrators, the resulting list includes all the assignments, current and well as expired, that the caller has access to read, across all catalogs and access packages.  If the caller is on behalf of a delegated user who is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`.
@@ -58,26 +78,6 @@ export class AssignmentsRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AccessPackageAssignmentCollectionResponse>(requestInfo, createAccessPackageAssignmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the additionalAccess method.
-     * @param accessPackageId Usage: accessPackageId='{accessPackageId}'
-     * @param incompatibleAccessPackageId Usage: incompatibleAccessPackageId='{incompatibleAccessPackageId}'
-     * @returns a microsoftGraphAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder
-     */
-    public microsoftGraphAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageId(accessPackageId: string | undefined, incompatibleAccessPackageId: string | undefined) : MicrosoftGraphAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder {
-        if(!accessPackageId) throw new Error("accessPackageId cannot be undefined");
-        if(!incompatibleAccessPackageId) throw new Error("incompatibleAccessPackageId cannot be undefined");
-        return new MicrosoftGraphAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder(this.pathParameters, this.requestAdapter, accessPackageId, incompatibleAccessPackageId);
-    };
-    /**
-     * Provides operations to call the filterByCurrentUser method.
-     * @param on Usage: on='{on}'
-     * @returns a microsoftGraphFilterByCurrentUserWithOnRequestBuilder
-     */
-    public microsoftGraphFilterByCurrentUserWithOn(on: string | undefined) : MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder {
-        if(!on) throw new Error("on cannot be undefined");
-        return new MicrosoftGraphFilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
      * Create new navigation property to assignments for identityGovernance

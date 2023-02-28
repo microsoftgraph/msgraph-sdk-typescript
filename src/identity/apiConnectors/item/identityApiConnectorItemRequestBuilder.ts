@@ -5,21 +5,21 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration} from './identityApiConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityApiConnectorItemRequestBuilderGetRequestConfiguration} from './identityApiConnectorItemRequestBuilderGetRequestConfiguration';
 import {IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration} from './identityApiConnectorItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphUploadClientCertificateRequestBuilder} from './microsoftGraphUploadClientCertificate/microsoftGraphUploadClientCertificateRequestBuilder';
+import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
  */
 export class IdentityApiConnectorItemRequestBuilder {
-    /** Provides operations to call the uploadClientCertificate method. */
-    public get microsoftGraphUploadClientCertificate(): MicrosoftGraphUploadClientCertificateRequestBuilder {
-        return new MicrosoftGraphUploadClientCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the uploadClientCertificate method. */
+    public get uploadClientCertificate(): UploadClientCertificateRequestBuilder {
+        return new UploadClientCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

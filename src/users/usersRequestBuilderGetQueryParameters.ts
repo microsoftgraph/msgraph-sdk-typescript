@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of user object.
+ * Retrieve a list of user objects.
  */
 export class UsersRequestBuilderGetQueryParameters {
     /** Include count of items */
@@ -15,8 +15,6 @@ export class UsersRequestBuilderGetQueryParameters {
     public search?: string | undefined;
     /** Select properties to be returned */
     public select?: string[] | undefined;
-    /** Skip the first n items */
-    public skip?: number | undefined;
     /** Show only the first n items */
     public top?: number | undefined;
     /**
@@ -33,7 +31,6 @@ export class UsersRequestBuilderGetQueryParameters {
             case "orderby": return "%24orderby";
             case "search": return "%24search";
             case "select": return "%24select";
-            case "skip": return "%24skip";
             case "top": return "%24top";
             default: return originalName;
         }

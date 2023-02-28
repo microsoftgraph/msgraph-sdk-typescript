@@ -1,5 +1,6 @@
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
 import {createApiApplicationFromDiscriminatorValue} from './createApiApplicationFromDiscriminatorValue';
+import {createAppManagementPolicyFromDiscriminatorValue} from './createAppManagementPolicyFromDiscriminatorValue';
 import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
 import {createCertificationFromDiscriminatorValue} from './createCertificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
@@ -19,7 +20,7 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssu
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
 import {createWebApplicationFromDiscriminatorValue} from './createWebApplicationFromDiscriminatorValue';
-import {AddIn, ApiApplication, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequestSignatureVerification, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
+import {AddIn, ApiApplication, AppManagementPolicy, AppRole, Certification, DirectoryObject, ExtensionProperty, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OptionalClaims, ParentalControlSettings, PasswordCredential, PublicClientApplication, RequestSignatureVerification, RequiredResourceAccess, SpaApplication, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher, WebApplication} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Application extends DirectoryObject implements Parsable {
@@ -31,6 +32,8 @@ export class Application extends DirectoryObject implements Parsable {
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). */
     private _applicationTemplateId?: string | undefined;
+    /** The appManagementPolicies property */
+    private _appManagementPolicies?: AppManagementPolicy[] | undefined;
     /** The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     private _appRoles?: AppRole[] | undefined;
     /** Specifies the certification status of the application. */
@@ -164,6 +167,20 @@ export class Application extends DirectoryObject implements Parsable {
         this._applicationTemplateId = value;
     };
     /**
+     * Gets the appManagementPolicies property value. The appManagementPolicies property
+     * @returns a appManagementPolicy
+     */
+    public get appManagementPolicies() {
+        return this._appManagementPolicies;
+    };
+    /**
+     * Sets the appManagementPolicies property value. The appManagementPolicies property
+     * @param value Value to set for the appManagementPolicies property.
+     */
+    public set appManagementPolicies(value: AppManagementPolicy[] | undefined) {
+        this._appManagementPolicies = value;
+    };
+    /**
      * Gets the appRoles property value. The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
      * @returns a appRole
      */
@@ -192,7 +209,7 @@ export class Application extends DirectoryObject implements Parsable {
         this._certification = value;
     };
     /**
-     * Instantiates a new application and sets the default values.
+     * Instantiates a new Application and sets the default values.
      */
     public constructor() {
         super();
@@ -320,6 +337,7 @@ export class Application extends DirectoryObject implements Parsable {
             "api": n => { this.api = n.getObjectValue<ApiApplication>(createApiApplicationFromDiscriminatorValue); },
             "appId": n => { this.appId = n.getStringValue(); },
             "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
+            "appManagementPolicies": n => { this.appManagementPolicies = n.getCollectionOfObjectValues<AppManagementPolicy>(createAppManagementPolicyFromDiscriminatorValue); },
             "appRoles": n => { this.appRoles = n.getCollectionOfObjectValues<AppRole>(createAppRoleFromDiscriminatorValue); },
             "certification": n => { this.certification = n.getObjectValue<Certification>(createCertificationFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
@@ -637,6 +655,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeObjectValue<ApiApplication>("api", this.api);
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
+        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", this.appManagementPolicies);
         writer.writeCollectionOfObjectValues<AppRole>("appRoles", this.appRoles);
         writer.writeObjectValue<Certification>("certification", this.certification);
         writer.writeDateValue("createdDateTime", this.createdDateTime);

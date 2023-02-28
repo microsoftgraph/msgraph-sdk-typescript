@@ -4,7 +4,7 @@ import {createParticipantFromDiscriminatorValue} from '../../../../models/create
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphInviteRequestBuilder} from './microsoftGraphInvite/microsoftGraphInviteRequestBuilder';
+import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
 import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -18,8 +18,8 @@ export class ParticipantsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the invite method. */
-    public get microsoftGraphInvite(): MicrosoftGraphInviteRequestBuilder {
-        return new MicrosoftGraphInviteRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get invite(): InviteRequestBuilder {
+        return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

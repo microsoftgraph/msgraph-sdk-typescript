@@ -5,17 +5,17 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {BrandingRequestBuilder} from './branding/brandingRequestBuilder';
 import {CertificateBasedAuthConfigurationRequestBuilder} from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
 import {CertificateBasedAuthConfigurationItemRequestBuilder} from './certificateBasedAuthConfiguration/item/certificateBasedAuthConfigurationItemRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {MicrosoftGraphCheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/microsoftGraphCheckMemberGroupsRequestBuilder';
-import {MicrosoftGraphCheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/microsoftGraphCheckMemberObjectsRequestBuilder';
-import {MicrosoftGraphGetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/microsoftGraphGetMemberGroupsRequestBuilder';
-import {MicrosoftGraphGetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/microsoftGraphGetMemberObjectsRequestBuilder';
-import {MicrosoftGraphRestoreRequestBuilder} from './microsoftGraphRestore/microsoftGraphRestoreRequestBuilder';
-import {MicrosoftGraphSetMobileDeviceManagementAuthorityRequestBuilder} from './microsoftGraphSetMobileDeviceManagementAuthority/microsoftGraphSetMobileDeviceManagementAuthorityRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {OrganizationItemRequestBuilderDeleteRequestConfiguration} from './organizationItemRequestBuilderDeleteRequestConfiguration';
 import {OrganizationItemRequestBuilderGetRequestConfiguration} from './organizationItemRequestBuilderGetRequestConfiguration';
 import {OrganizationItemRequestBuilderPatchRequestConfiguration} from './organizationItemRequestBuilderPatchRequestConfiguration';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {SetMobileDeviceManagementAuthorityRequestBuilder} from './setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -30,38 +30,38 @@ export class OrganizationItemRequestBuilder {
     public get certificateBasedAuthConfiguration(): CertificateBasedAuthConfigurationRequestBuilder {
         return new CertificateBasedAuthConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the checkMemberGroups method. */
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberObjects method. */
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the extensions property of the microsoft.graph.organization entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkMemberGroups method. */
-    public get microsoftGraphCheckMemberGroups(): MicrosoftGraphCheckMemberGroupsRequestBuilder {
-        return new MicrosoftGraphCheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberObjects method. */
-    public get microsoftGraphCheckMemberObjects(): MicrosoftGraphCheckMemberObjectsRequestBuilder {
-        return new MicrosoftGraphCheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the getMemberGroups method. */
-    public get microsoftGraphGetMemberGroups(): MicrosoftGraphGetMemberGroupsRequestBuilder {
-        return new MicrosoftGraphGetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getMemberObjects method. */
-    public get microsoftGraphGetMemberObjects(): MicrosoftGraphGetMemberObjectsRequestBuilder {
-        return new MicrosoftGraphGetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the restore method. */
-    public get microsoftGraphRestore(): MicrosoftGraphRestoreRequestBuilder {
-        return new MicrosoftGraphRestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setMobileDeviceManagementAuthority method. */
-    public get microsoftGraphSetMobileDeviceManagementAuthority(): MicrosoftGraphSetMobileDeviceManagementAuthorityRequestBuilder {
-        return new MicrosoftGraphSetMobileDeviceManagementAuthorityRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the restore method. */
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setMobileDeviceManagementAuthority method. */
+    public get setMobileDeviceManagementAuthority(): SetMobileDeviceManagementAuthorityRequestBuilder {
+        return new SetMobileDeviceManagementAuthorityRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

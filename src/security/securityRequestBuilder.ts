@@ -10,13 +10,13 @@ import {AttackSimulationRequestBuilder} from './attackSimulation/attackSimulatio
 import {CasesRequestBuilder} from './cases/casesRequestBuilder';
 import {IncidentsRequestBuilder} from './incidents/incidentsRequestBuilder';
 import {IncidentItemRequestBuilder} from './incidents/item/incidentItemRequestBuilder';
-import {MicrosoftGraphSecurityRunHuntingQueryRequestBuilder} from './microsoftGraphSecurityRunHuntingQuery/microsoftGraphSecurityRunHuntingQueryRequestBuilder';
 import {SecureScoreControlProfileItemRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
 import {SecureScoreItemRequestBuilder} from './secureScores/item/secureScoreItemRequestBuilder';
 import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuilder';
 import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
+import {SecurityRunHuntingQueryRequestBuilder} from './securityRunHuntingQuery/securityRunHuntingQueryRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -43,10 +43,6 @@ export class SecurityRequestBuilder {
     public get incidents(): IncidentsRequestBuilder {
         return new IncidentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the runHuntingQuery method. */
-    public get microsoftGraphSecurityRunHuntingQuery(): MicrosoftGraphSecurityRunHuntingQueryRequestBuilder {
-        return new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
@@ -58,6 +54,10 @@ export class SecurityRequestBuilder {
     /** Provides operations to manage the secureScores property of the microsoft.graph.security entity. */
     public get secureScores(): SecureScoresRequestBuilder {
         return new SecureScoresRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the runHuntingQuery method. */
+    public get securityRunHuntingQuery(): SecurityRunHuntingQueryRequestBuilder {
+        return new SecurityRunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;

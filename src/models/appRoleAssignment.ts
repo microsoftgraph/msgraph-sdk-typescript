@@ -31,7 +31,7 @@ export class AppRoleAssignment extends DirectoryObject implements Parsable {
         this._appRoleId = value;
     };
     /**
-     * Instantiates a new appRoleAssignment and sets the default values.
+     * Instantiates a new AppRoleAssignment and sets the default values.
      */
     public constructor() {
         super();

@@ -1,7 +1,8 @@
 import {createAdministrativeUnitFromDiscriminatorValue} from './createAdministrativeUnitFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentityProviderBaseFromDiscriminatorValue';
-import {AdministrativeUnit, DirectoryObject, Entity, IdentityProviderBase} from './index';
+import {createOnPremisesDirectorySynchronizationFromDiscriminatorValue} from './createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
+import {AdministrativeUnit, DirectoryObject, Entity, IdentityProviderBase, OnPremisesDirectorySynchronization} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Directory extends Entity implements Parsable {
@@ -11,6 +12,8 @@ export class Directory extends Entity implements Parsable {
     private _deletedItems?: DirectoryObject[] | undefined;
     /** Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol. */
     private _federationConfigurations?: IdentityProviderBase[] | undefined;
+    /** A container for on-premises directory synchronization functionalities that are available for the organization. */
+    private _onPremisesSynchronization?: OnPremisesDirectorySynchronization[] | undefined;
     /**
      * Gets the administrativeUnits property value. Conceptual container for user and group directory objects.
      * @returns a administrativeUnit
@@ -68,7 +71,22 @@ export class Directory extends Entity implements Parsable {
             "administrativeUnits": n => { this.administrativeUnits = n.getCollectionOfObjectValues<AdministrativeUnit>(createAdministrativeUnitFromDiscriminatorValue); },
             "deletedItems": n => { this.deletedItems = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "federationConfigurations": n => { this.federationConfigurations = n.getCollectionOfObjectValues<IdentityProviderBase>(createIdentityProviderBaseFromDiscriminatorValue); },
+            "onPremisesSynchronization": n => { this.onPremisesSynchronization = n.getCollectionOfObjectValues<OnPremisesDirectorySynchronization>(createOnPremisesDirectorySynchronizationFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the onPremisesSynchronization property value. A container for on-premises directory synchronization functionalities that are available for the organization.
+     * @returns a onPremisesDirectorySynchronization
+     */
+    public get onPremisesSynchronization() {
+        return this._onPremisesSynchronization;
+    };
+    /**
+     * Sets the onPremisesSynchronization property value. A container for on-premises directory synchronization functionalities that are available for the organization.
+     * @param value Value to set for the onPremisesSynchronization property.
+     */
+    public set onPremisesSynchronization(value: OnPremisesDirectorySynchronization[] | undefined) {
+        this._onPremisesSynchronization = value;
     };
     /**
      * Serializes information the current object
@@ -80,5 +98,6 @@ export class Directory extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", this.administrativeUnits);
         writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", this.deletedItems);
         writer.writeCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", this.federationConfigurations);
+        writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", this.onPremisesSynchronization);
     };
 }

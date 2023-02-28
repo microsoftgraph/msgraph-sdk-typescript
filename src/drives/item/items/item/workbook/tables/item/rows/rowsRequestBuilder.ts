@@ -3,10 +3,9 @@ import {createWorkbookTableRowCollectionResponseFromDiscriminatorValue} from '..
 import {createWorkbookTableRowFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookTableRowFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAddRequestBuilder} from './microsoftGraphAdd/microsoftGraphAddRequestBuilder';
-import {MicrosoftGraphCountRequestBuilder} from './microsoftGraphCount/microsoftGraphCountRequestBuilder';
-import {MicrosoftGraphItemAtWithIndexRequestBuilder} from './microsoftGraphItemAtWithIndex/microsoftGraphItemAtWithIndexRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {RowsRequestBuilderGetRequestConfiguration} from './rowsRequestBuilderGetRequestConfiguration';
 import {RowsRequestBuilderPostRequestConfiguration} from './rowsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -15,17 +14,13 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
  */
 export class RowsRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
-    public get count(): CountRequestBuilder {
-        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the add method. */
-    public get microsoftGraphAdd(): MicrosoftGraphAddRequestBuilder {
-        return new MicrosoftGraphAddRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get add(): AddRequestBuilder {
+        return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the count method. */
-    public get microsoftGraphCount(): MicrosoftGraphCountRequestBuilder {
-        return new MicrosoftGraphCountRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -51,7 +46,7 @@ export class RowsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableRowCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tablerow-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/table-list-rows?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RowsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,11 +61,11 @@ export class RowsRequestBuilder {
     /**
      * Provides operations to call the itemAt method.
      * @param index Usage: index={index}
-     * @returns a microsoftGraphItemAtWithIndexRequestBuilder
+     * @returns a itemAtWithIndexRequestBuilder
      */
-    public microsoftGraphItemAtWithIndex(index: number | undefined) : MicrosoftGraphItemAtWithIndexRequestBuilder {
+    public itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder {
         if(!index) throw new Error("index cannot be undefined");
-        return new MicrosoftGraphItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
+        return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
      * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a `504 HTTP` error. The appropriate response to this error is to repeat the request.

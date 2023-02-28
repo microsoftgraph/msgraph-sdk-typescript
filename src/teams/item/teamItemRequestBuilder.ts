@@ -4,8 +4,11 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllChannelsRequestBuilder} from './allChannels/allChannelsRequestBuilder';
 import {ChannelItemRequestBuilder as Icf114396fb81475b8d9ce385f2cc70e4c0eaf886b18392a08b4e16ab9eb28ec4} from './allChannels/item/channelItemRequestBuilder';
+import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
 import {ChannelItemRequestBuilder as I3a22bf31ea115153498d060c70df9e9b78c7178d4508be327a717c10a0ce6e8a} from './channels/item/channelItemRequestBuilder';
+import {CloneRequestBuilder} from './clone/cloneRequestBuilder';
+import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
 import {IncomingChannelsRequestBuilder} from './incomingChannels/incomingChannelsRequestBuilder';
 import {ChannelItemRequestBuilder as Ie19e9c752da0af7521b61999d30001f8459fe510e7393c96a650b3f7a61ac5ec} from './incomingChannels/item/channelItemRequestBuilder';
@@ -13,22 +16,19 @@ import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestB
 import {TeamsAppInstallationItemRequestBuilder} from './installedApps/item/teamsAppInstallationItemRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {MicrosoftGraphArchiveRequestBuilder} from './microsoftGraphArchive/microsoftGraphArchiveRequestBuilder';
-import {MicrosoftGraphCloneRequestBuilder} from './microsoftGraphClone/microsoftGraphCloneRequestBuilder';
-import {MicrosoftGraphCompleteMigrationRequestBuilder} from './microsoftGraphCompleteMigration/microsoftGraphCompleteMigrationRequestBuilder';
-import {MicrosoftGraphSendActivityNotificationRequestBuilder} from './microsoftGraphSendActivityNotification/microsoftGraphSendActivityNotificationRequestBuilder';
-import {MicrosoftGraphUnarchiveRequestBuilder} from './microsoftGraphUnarchive/microsoftGraphUnarchiveRequestBuilder';
 import {TeamsAsyncOperationItemRequestBuilder} from './operations/item/teamsAsyncOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {PhotoRequestBuilder} from './photo/photoRequestBuilder';
 import {PrimaryChannelRequestBuilder} from './primaryChannel/primaryChannelRequestBuilder';
 import {ScheduleRequestBuilder} from './schedule/scheduleRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TeamworkTagItemRequestBuilder} from './tags/item/teamworkTagItemRequestBuilder';
 import {TagsRequestBuilder} from './tags/tagsRequestBuilder';
 import {TeamItemRequestBuilderDeleteRequestConfiguration} from './teamItemRequestBuilderDeleteRequestConfiguration';
 import {TeamItemRequestBuilderGetRequestConfiguration} from './teamItemRequestBuilderGetRequestConfiguration';
 import {TeamItemRequestBuilderPatchRequestConfiguration} from './teamItemRequestBuilderPatchRequestConfiguration';
 import {TemplateRequestBuilder} from './template/templateRequestBuilder';
+import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -39,9 +39,21 @@ export class TeamItemRequestBuilder {
     public get allChannels(): AllChannelsRequestBuilder {
         return new AllChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the archive method. */
+    public get archive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the channels property of the microsoft.graph.team entity. */
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the clone method. */
+    public get clone(): CloneRequestBuilder {
+        return new CloneRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the completeMigration method. */
+    public get completeMigration(): CompleteMigrationRequestBuilder {
+        return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the group property of the microsoft.graph.team entity. */
     public get group(): GroupRequestBuilder {
@@ -58,26 +70,6 @@ export class TeamItemRequestBuilder {
     /** Provides operations to manage the members property of the microsoft.graph.team entity. */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the archive method. */
-    public get microsoftGraphArchive(): MicrosoftGraphArchiveRequestBuilder {
-        return new MicrosoftGraphArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the clone method. */
-    public get microsoftGraphClone(): MicrosoftGraphCloneRequestBuilder {
-        return new MicrosoftGraphCloneRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the completeMigration method. */
-    public get microsoftGraphCompleteMigration(): MicrosoftGraphCompleteMigrationRequestBuilder {
-        return new MicrosoftGraphCompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sendActivityNotification method. */
-    public get microsoftGraphSendActivityNotification(): MicrosoftGraphSendActivityNotificationRequestBuilder {
-        return new MicrosoftGraphSendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unarchive method. */
-    public get microsoftGraphUnarchive(): MicrosoftGraphUnarchiveRequestBuilder {
-        return new MicrosoftGraphUnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the operations property of the microsoft.graph.team entity. */
     public get operations(): OperationsRequestBuilder {
@@ -99,6 +91,10 @@ export class TeamItemRequestBuilder {
     public get schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the sendActivityNotification method. */
+    public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the tags property of the microsoft.graph.team entity. */
     public get tags(): TagsRequestBuilder {
         return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -106,6 +102,10 @@ export class TeamItemRequestBuilder {
     /** Provides operations to manage the template property of the microsoft.graph.team entity. */
     public get template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unarchive method. */
+    public get unarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;

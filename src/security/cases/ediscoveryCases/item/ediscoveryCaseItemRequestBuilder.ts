@@ -7,8 +7,6 @@ import {EdiscoveryCustodianItemRequestBuilder} from './custodians/item/ediscover
 import {EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryCaseItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilderGetRequestConfiguration} from './ediscoveryCaseItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration} from './ediscoveryCaseItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphSecurityCloseRequestBuilder} from './microsoftGraphSecurityClose/microsoftGraphSecurityCloseRequestBuilder';
-import {MicrosoftGraphSecurityReopenRequestBuilder} from './microsoftGraphSecurityReopen/microsoftGraphSecurityReopenRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodialDataSources/item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialDataSourcesRequestBuilder} from './noncustodialDataSources/noncustodialDataSourcesRequestBuilder';
 import {CaseOperationItemRequestBuilder} from './operations/item/caseOperationItemRequestBuilder';
@@ -17,6 +15,8 @@ import {EdiscoveryReviewSetItemRequestBuilder} from './reviewSets/item/ediscover
 import {ReviewSetsRequestBuilder} from './reviewSets/reviewSetsRequestBuilder';
 import {EdiscoverySearchItemRequestBuilder} from './searches/item/ediscoverySearchItemRequestBuilder';
 import {SearchesRequestBuilder} from './searches/searchesRequestBuilder';
+import {SecurityCloseRequestBuilder} from './securityClose/securityCloseRequestBuilder';
+import {SecurityReopenRequestBuilder} from './securityReopen/securityReopenRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {EdiscoveryReviewTagItemRequestBuilder} from './tags/item/ediscoveryReviewTagItemRequestBuilder';
 import {TagsRequestBuilder} from './tags/tagsRequestBuilder';
@@ -29,14 +29,6 @@ export class EdiscoveryCaseItemRequestBuilder {
     /** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
     public get custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the close method. */
-    public get microsoftGraphSecurityClose(): MicrosoftGraphSecurityCloseRequestBuilder {
-        return new MicrosoftGraphSecurityCloseRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reopen method. */
-    public get microsoftGraphSecurityReopen(): MicrosoftGraphSecurityReopenRequestBuilder {
-        return new MicrosoftGraphSecurityReopenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity. */
     public get noncustodialDataSources(): NoncustodialDataSourcesRequestBuilder {
@@ -57,6 +49,14 @@ export class EdiscoveryCaseItemRequestBuilder {
     /** Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity. */
     public get searches(): SearchesRequestBuilder {
         return new SearchesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the close method. */
+    public get securityClose(): SecurityCloseRequestBuilder {
+        return new SecurityCloseRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reopen method. */
+    public get securityReopen(): SecurityReopenRequestBuilder {
+        return new SecurityReopenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity. */
     public get settings(): SettingsRequestBuilder {

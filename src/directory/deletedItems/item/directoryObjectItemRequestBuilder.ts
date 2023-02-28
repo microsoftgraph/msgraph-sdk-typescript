@@ -2,59 +2,59 @@ import {DirectoryObject} from '../../../models/';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../../models/createDirectoryObjectFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectoryObjectItemRequestBuilderDeleteRequestConfiguration} from './directoryObjectItemRequestBuilderDeleteRequestConfiguration';
 import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
 import {DirectoryObjectItemRequestBuilderPatchRequestConfiguration} from './directoryObjectItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphApplicationRequestBuilder} from './microsoftGraphApplication/microsoftGraphApplicationRequestBuilder';
-import {MicrosoftGraphCheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/microsoftGraphCheckMemberGroupsRequestBuilder';
-import {MicrosoftGraphCheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/microsoftGraphCheckMemberObjectsRequestBuilder';
-import {MicrosoftGraphGetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/microsoftGraphGetMemberGroupsRequestBuilder';
-import {MicrosoftGraphGetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/microsoftGraphGetMemberObjectsRequestBuilder';
-import {MicrosoftGraphGroupRequestBuilder} from './microsoftGraphGroup/microsoftGraphGroupRequestBuilder';
-import {MicrosoftGraphRestoreRequestBuilder} from './microsoftGraphRestore/microsoftGraphRestoreRequestBuilder';
-import {MicrosoftGraphUserRequestBuilder} from './microsoftGraphUser/microsoftGraphUserRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
+import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
+import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
+import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
  */
 export class DirectoryObjectItemRequestBuilder {
-    /** Casts the previous resource to application. */
-    public get microsoftGraphApplication(): MicrosoftGraphApplicationRequestBuilder {
-        return new MicrosoftGraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the checkMemberGroups method. */
-    public get microsoftGraphCheckMemberGroups(): MicrosoftGraphCheckMemberGroupsRequestBuilder {
-        return new MicrosoftGraphCheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the checkMemberObjects method. */
-    public get microsoftGraphCheckMemberObjects(): MicrosoftGraphCheckMemberObjectsRequestBuilder {
-        return new MicrosoftGraphCheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getMemberGroups method. */
-    public get microsoftGraphGetMemberGroups(): MicrosoftGraphGetMemberGroupsRequestBuilder {
-        return new MicrosoftGraphGetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getMemberObjects method. */
-    public get microsoftGraphGetMemberObjects(): MicrosoftGraphGetMemberObjectsRequestBuilder {
-        return new MicrosoftGraphGetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to application. */
+    public get graphApplication(): GraphApplicationRequestBuilder {
+        return new GraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to group. */
-    public get microsoftGraphGroup(): MicrosoftGraphGroupRequestBuilder {
-        return new MicrosoftGraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the restore method. */
-    public get microsoftGraphRestore(): MicrosoftGraphRestoreRequestBuilder {
-        return new MicrosoftGraphRestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphGroup(): GraphGroupRequestBuilder {
+        return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to user. */
-    public get microsoftGraphUser(): MicrosoftGraphUserRequestBuilder {
-        return new MicrosoftGraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphUser(): GraphUserRequestBuilder {
+        return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the restore method. */
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

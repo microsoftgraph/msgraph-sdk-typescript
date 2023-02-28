@@ -5,21 +5,21 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {DeviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementPartnerItemRequestBuilderGetRequestConfiguration} from './deviceManagementPartnerItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './deviceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphTerminateRequestBuilder} from './microsoftGraphTerminate/microsoftGraphTerminateRequestBuilder';
+import {TerminateRequestBuilder} from './terminate/terminateRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceManagementPartnerItemRequestBuilder {
-    /** Provides operations to call the terminate method. */
-    public get microsoftGraphTerminate(): MicrosoftGraphTerminateRequestBuilder {
-        return new MicrosoftGraphTerminateRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the terminate method. */
+    public get terminate(): TerminateRequestBuilder {
+        return new TerminateRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

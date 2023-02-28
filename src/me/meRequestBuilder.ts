@@ -8,6 +8,7 @@ import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreeme
 import {AgreementAcceptanceItemRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceItemRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
 import {AppRoleAssignmentItemRequestBuilder} from './appRoleAssignments/item/appRoleAssignmentItemRequestBuilder';
+import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestBuilder';
 import {AuthenticationRequestBuilder} from './authentication/authenticationRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
 import {CalendarGroupsRequestBuilder} from './calendarGroups/calendarGroupsRequestBuilder';
@@ -16,8 +17,11 @@ import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
 import {CalendarItemRequestBuilder} from './calendars/item/calendarItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
 import {EventItemRequestBuilder as Ic0012b44e83dbd54f9a85dde6d61ab21bc695dc55c3a599e4d5357af115bb944} from './calendarView/item/eventItemRequestBuilder';
+import {ChangePasswordRequestBuilder} from './changePassword/changePasswordRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
 import {ChatItemRequestBuilder} from './chats/item/chatItemRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ContactFoldersRequestBuilder} from './contactFolders/contactFoldersRequestBuilder';
 import {ContactFolderItemRequestBuilder} from './contactFolders/item/contactFolderItemRequestBuilder';
 import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
@@ -33,10 +37,20 @@ import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
 import {EventItemRequestBuilder as Iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4} from './events/item/eventItemRequestBuilder';
+import {ExportDeviceAndAppManagementDataRequestBuilder} from './exportDeviceAndAppManagementData/exportDeviceAndAppManagementDataRequestBuilder';
+import {ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder} from './exportDeviceAndAppManagementDataWithSkipWithTop/exportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder';
+import {ExportPersonalDataRequestBuilder} from './exportPersonalData/exportPersonalDataRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
+import {FindMeetingTimesRequestBuilder} from './findMeetingTimes/findMeetingTimesRequestBuilder';
 import {FollowedSitesRequestBuilder} from './followedSites/followedSitesRequestBuilder';
 import {SiteItemRequestBuilder} from './followedSites/item/siteItemRequestBuilder';
+import {GetMailTipsRequestBuilder} from './getMailTips/getMailTipsRequestBuilder';
+import {GetManagedAppDiagnosticStatusesRequestBuilder} from './getManagedAppDiagnosticStatuses/getManagedAppDiagnosticStatusesRequestBuilder';
+import {GetManagedAppPoliciesRequestBuilder} from './getManagedAppPolicies/getManagedAppPoliciesRequestBuilder';
+import {GetManagedDevicesWithAppFailuresRequestBuilder} from './getManagedDevicesWithAppFailures/getManagedDevicesWithAppFailuresRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {InferenceClassificationRequestBuilder} from './inferenceClassification/inferenceClassificationRequestBuilder';
 import {InsightsRequestBuilder} from './insights/insightsRequestBuilder';
 import {TeamItemRequestBuilder} from './joinedTeams/item/teamItemRequestBuilder';
@@ -56,28 +70,6 @@ import {MeRequestBuilderGetRequestConfiguration} from './meRequestBuilderGetRequ
 import {MeRequestBuilderPatchRequestConfiguration} from './meRequestBuilderPatchRequestConfiguration';
 import {MessageItemRequestBuilder} from './messages/item/messageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {MicrosoftGraphAssignLicenseRequestBuilder} from './microsoftGraphAssignLicense/microsoftGraphAssignLicenseRequestBuilder';
-import {MicrosoftGraphChangePasswordRequestBuilder} from './microsoftGraphChangePassword/microsoftGraphChangePasswordRequestBuilder';
-import {MicrosoftGraphCheckMemberGroupsRequestBuilder} from './microsoftGraphCheckMemberGroups/microsoftGraphCheckMemberGroupsRequestBuilder';
-import {MicrosoftGraphCheckMemberObjectsRequestBuilder} from './microsoftGraphCheckMemberObjects/microsoftGraphCheckMemberObjectsRequestBuilder';
-import {MicrosoftGraphExportDeviceAndAppManagementDataRequestBuilder} from './microsoftGraphExportDeviceAndAppManagementData/microsoftGraphExportDeviceAndAppManagementDataRequestBuilder';
-import {MicrosoftGraphExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder} from './microsoftGraphExportDeviceAndAppManagementDataWithSkipWithTop/microsoftGraphExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder';
-import {MicrosoftGraphExportPersonalDataRequestBuilder} from './microsoftGraphExportPersonalData/microsoftGraphExportPersonalDataRequestBuilder';
-import {MicrosoftGraphFindMeetingTimesRequestBuilder} from './microsoftGraphFindMeetingTimes/microsoftGraphFindMeetingTimesRequestBuilder';
-import {MicrosoftGraphGetMailTipsRequestBuilder} from './microsoftGraphGetMailTips/microsoftGraphGetMailTipsRequestBuilder';
-import {MicrosoftGraphGetManagedAppDiagnosticStatusesRequestBuilder} from './microsoftGraphGetManagedAppDiagnosticStatuses/microsoftGraphGetManagedAppDiagnosticStatusesRequestBuilder';
-import {MicrosoftGraphGetManagedAppPoliciesRequestBuilder} from './microsoftGraphGetManagedAppPolicies/microsoftGraphGetManagedAppPoliciesRequestBuilder';
-import {MicrosoftGraphGetManagedDevicesWithAppFailuresRequestBuilder} from './microsoftGraphGetManagedDevicesWithAppFailures/microsoftGraphGetManagedDevicesWithAppFailuresRequestBuilder';
-import {MicrosoftGraphGetMemberGroupsRequestBuilder} from './microsoftGraphGetMemberGroups/microsoftGraphGetMemberGroupsRequestBuilder';
-import {MicrosoftGraphGetMemberObjectsRequestBuilder} from './microsoftGraphGetMemberObjects/microsoftGraphGetMemberObjectsRequestBuilder';
-import {MicrosoftGraphReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphReminderViewWithStartDateTimeWithEndDateTime/microsoftGraphReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder';
-import {MicrosoftGraphRemoveAllDevicesFromManagementRequestBuilder} from './microsoftGraphRemoveAllDevicesFromManagement/microsoftGraphRemoveAllDevicesFromManagementRequestBuilder';
-import {MicrosoftGraphReprocessLicenseAssignmentRequestBuilder} from './microsoftGraphReprocessLicenseAssignment/microsoftGraphReprocessLicenseAssignmentRequestBuilder';
-import {MicrosoftGraphRestoreRequestBuilder} from './microsoftGraphRestore/microsoftGraphRestoreRequestBuilder';
-import {MicrosoftGraphRevokeSignInSessionsRequestBuilder} from './microsoftGraphRevokeSignInSessions/microsoftGraphRevokeSignInSessionsRequestBuilder';
-import {MicrosoftGraphSendMailRequestBuilder} from './microsoftGraphSendMail/microsoftGraphSendMailRequestBuilder';
-import {MicrosoftGraphTranslateExchangeIdsRequestBuilder} from './microsoftGraphTranslateExchangeIds/microsoftGraphTranslateExchangeIdsRequestBuilder';
-import {MicrosoftGraphWipeManagedAppRegistrationsByDeviceTagRequestBuilder} from './microsoftGraphWipeManagedAppRegistrationsByDeviceTag/microsoftGraphWipeManagedAppRegistrationsByDeviceTagRequestBuilder';
 import {OAuth2PermissionGrantItemRequestBuilder} from './oauth2PermissionGrants/item/oAuth2PermissionGrantItemRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
@@ -97,13 +89,21 @@ import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
 import {PresenceRequestBuilder} from './presence/presenceRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7} from './registeredDevices/item/directoryObjectItemRequestBuilder';
 import {RegisteredDevicesRequestBuilder} from './registeredDevices/registeredDevicesRequestBuilder';
+import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from './reminderViewWithStartDateTimeWithEndDateTime/reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder';
+import {RemoveAllDevicesFromManagementRequestBuilder} from './removeAllDevicesFromManagement/removeAllDevicesFromManagementRequestBuilder';
+import {ReprocessLicenseAssignmentRequestBuilder} from './reprocessLicenseAssignment/reprocessLicenseAssignmentRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {RevokeSignInSessionsRequestBuilder} from './revokeSignInSessions/revokeSignInSessionsRequestBuilder';
 import {ScopedRoleMembershipItemRequestBuilder} from './scopedRoleMemberOf/item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedRoleMemberOfRequestBuilder} from './scopedRoleMemberOf/scopedRoleMemberOfRequestBuilder';
+import {SendMailRequestBuilder} from './sendMail/sendMailRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {TeamworkRequestBuilder} from './teamwork/teamworkRequestBuilder';
 import {TodoRequestBuilder} from './todo/todoRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as If0cd9385b2b0e89a82e916808c7cb33b5b4a89044783321b6c1cff3257bee48e} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
+import {TranslateExchangeIdsRequestBuilder} from './translateExchangeIds/translateExchangeIdsRequestBuilder';
+import {WipeManagedAppRegistrationsByDeviceTagRequestBuilder} from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -121,6 +121,10 @@ export class MeRequestBuilder {
     /** Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity. */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the assignLicense method. */
+    public get assignLicense(): AssignLicenseRequestBuilder {
+        return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the authentication property of the microsoft.graph.user entity. */
     public get authentication(): AuthenticationRequestBuilder {
@@ -142,9 +146,21 @@ export class MeRequestBuilder {
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the changePassword method. */
+    public get changePassword(): ChangePasswordRequestBuilder {
+        return new ChangePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the chats property of the microsoft.graph.user entity. */
     public get chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberGroups method. */
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the checkMemberObjects method. */
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the contactFolders property of the microsoft.graph.user entity. */
     public get contactFolders(): ContactFoldersRequestBuilder {
@@ -178,13 +194,49 @@ export class MeRequestBuilder {
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the exportDeviceAndAppManagementData method. */
+    public get exportDeviceAndAppManagementData(): ExportDeviceAndAppManagementDataRequestBuilder {
+        return new ExportDeviceAndAppManagementDataRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the exportPersonalData method. */
+    public get exportPersonalData(): ExportPersonalDataRequestBuilder {
+        return new ExportPersonalDataRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the extensions property of the microsoft.graph.user entity. */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the findMeetingTimes method. */
+    public get findMeetingTimes(): FindMeetingTimesRequestBuilder {
+        return new FindMeetingTimesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the followedSites property of the microsoft.graph.user entity. */
     public get followedSites(): FollowedSitesRequestBuilder {
         return new FollowedSitesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMailTips method. */
+    public get getMailTips(): GetMailTipsRequestBuilder {
+        return new GetMailTipsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getManagedAppDiagnosticStatuses method. */
+    public get getManagedAppDiagnosticStatuses(): GetManagedAppDiagnosticStatusesRequestBuilder {
+        return new GetManagedAppDiagnosticStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getManagedAppPolicies method. */
+    public get getManagedAppPolicies(): GetManagedAppPoliciesRequestBuilder {
+        return new GetManagedAppPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getManagedDevicesWithAppFailures method. */
+    public get getManagedDevicesWithAppFailures(): GetManagedDevicesWithAppFailuresRequestBuilder {
+        return new GetManagedDevicesWithAppFailuresRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberGroups method. */
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getMemberObjects method. */
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity. */
     public get inferenceClassification(): InferenceClassificationRequestBuilder {
@@ -225,86 +277,6 @@ export class MeRequestBuilder {
     /** Provides operations to manage the messages property of the microsoft.graph.user entity. */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the assignLicense method. */
-    public get microsoftGraphAssignLicense(): MicrosoftGraphAssignLicenseRequestBuilder {
-        return new MicrosoftGraphAssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the changePassword method. */
-    public get microsoftGraphChangePassword(): MicrosoftGraphChangePasswordRequestBuilder {
-        return new MicrosoftGraphChangePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberGroups method. */
-    public get microsoftGraphCheckMemberGroups(): MicrosoftGraphCheckMemberGroupsRequestBuilder {
-        return new MicrosoftGraphCheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the checkMemberObjects method. */
-    public get microsoftGraphCheckMemberObjects(): MicrosoftGraphCheckMemberObjectsRequestBuilder {
-        return new MicrosoftGraphCheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the exportDeviceAndAppManagementData method. */
-    public get microsoftGraphExportDeviceAndAppManagementData(): MicrosoftGraphExportDeviceAndAppManagementDataRequestBuilder {
-        return new MicrosoftGraphExportDeviceAndAppManagementDataRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the exportPersonalData method. */
-    public get microsoftGraphExportPersonalData(): MicrosoftGraphExportPersonalDataRequestBuilder {
-        return new MicrosoftGraphExportPersonalDataRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the findMeetingTimes method. */
-    public get microsoftGraphFindMeetingTimes(): MicrosoftGraphFindMeetingTimesRequestBuilder {
-        return new MicrosoftGraphFindMeetingTimesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMailTips method. */
-    public get microsoftGraphGetMailTips(): MicrosoftGraphGetMailTipsRequestBuilder {
-        return new MicrosoftGraphGetMailTipsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getManagedAppDiagnosticStatuses method. */
-    public get microsoftGraphGetManagedAppDiagnosticStatuses(): MicrosoftGraphGetManagedAppDiagnosticStatusesRequestBuilder {
-        return new MicrosoftGraphGetManagedAppDiagnosticStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getManagedAppPolicies method. */
-    public get microsoftGraphGetManagedAppPolicies(): MicrosoftGraphGetManagedAppPoliciesRequestBuilder {
-        return new MicrosoftGraphGetManagedAppPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getManagedDevicesWithAppFailures method. */
-    public get microsoftGraphGetManagedDevicesWithAppFailures(): MicrosoftGraphGetManagedDevicesWithAppFailuresRequestBuilder {
-        return new MicrosoftGraphGetManagedDevicesWithAppFailuresRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberGroups method. */
-    public get microsoftGraphGetMemberGroups(): MicrosoftGraphGetMemberGroupsRequestBuilder {
-        return new MicrosoftGraphGetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the getMemberObjects method. */
-    public get microsoftGraphGetMemberObjects(): MicrosoftGraphGetMemberObjectsRequestBuilder {
-        return new MicrosoftGraphGetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the removeAllDevicesFromManagement method. */
-    public get microsoftGraphRemoveAllDevicesFromManagement(): MicrosoftGraphRemoveAllDevicesFromManagementRequestBuilder {
-        return new MicrosoftGraphRemoveAllDevicesFromManagementRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reprocessLicenseAssignment method. */
-    public get microsoftGraphReprocessLicenseAssignment(): MicrosoftGraphReprocessLicenseAssignmentRequestBuilder {
-        return new MicrosoftGraphReprocessLicenseAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the restore method. */
-    public get microsoftGraphRestore(): MicrosoftGraphRestoreRequestBuilder {
-        return new MicrosoftGraphRestoreRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the revokeSignInSessions method. */
-    public get microsoftGraphRevokeSignInSessions(): MicrosoftGraphRevokeSignInSessionsRequestBuilder {
-        return new MicrosoftGraphRevokeSignInSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sendMail method. */
-    public get microsoftGraphSendMail(): MicrosoftGraphSendMailRequestBuilder {
-        return new MicrosoftGraphSendMailRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the translateExchangeIds method. */
-    public get microsoftGraphTranslateExchangeIds(): MicrosoftGraphTranslateExchangeIdsRequestBuilder {
-        return new MicrosoftGraphTranslateExchangeIdsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method. */
-    public get microsoftGraphWipeManagedAppRegistrationsByDeviceTag(): MicrosoftGraphWipeManagedAppRegistrationsByDeviceTagRequestBuilder {
-        return new MicrosoftGraphWipeManagedAppRegistrationsByDeviceTagRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity. */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
@@ -356,11 +328,31 @@ export class MeRequestBuilder {
     public get registeredDevices(): RegisteredDevicesRequestBuilder {
         return new RegisteredDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the removeAllDevicesFromManagement method. */
+    public get removeAllDevicesFromManagement(): RemoveAllDevicesFromManagementRequestBuilder {
+        return new RemoveAllDevicesFromManagementRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the reprocessLicenseAssignment method. */
+    public get reprocessLicenseAssignment(): ReprocessLicenseAssignmentRequestBuilder {
+        return new ReprocessLicenseAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the restore method. */
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the revokeSignInSessions method. */
+    public get revokeSignInSessions(): RevokeSignInSessionsRequestBuilder {
+        return new RevokeSignInSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity. */
     public get scopedRoleMemberOf(): ScopedRoleMemberOfRequestBuilder {
         return new ScopedRoleMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sendMail method. */
+    public get sendMail(): SendMailRequestBuilder {
+        return new SendMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the settings property of the microsoft.graph.user entity. */
     public get settings(): SettingsRequestBuilder {
@@ -378,8 +370,16 @@ export class MeRequestBuilder {
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the translateExchangeIds method. */
+    public get translateExchangeIds(): TranslateExchangeIdsRequestBuilder {
+        return new TranslateExchangeIdsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /** Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method. */
+    public get wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
+        return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Provides operations to manage the activities property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
@@ -548,6 +548,17 @@ export class MeRequestBuilder {
         return new Iae02e6049890a306e0da37d8ea3286086c0c6a3750c636f16fb94b8f099458b4(urlTplParams, this.requestAdapter);
     };
     /**
+     * Provides operations to call the exportDeviceAndAppManagementData method.
+     * @param skip Usage: skip={skip}
+     * @param top Usage: top={top}
+     * @returns a exportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder
+     */
+    public exportDeviceAndAppManagementDataWithSkipWithTop(skip: number | undefined, top: number | undefined) : ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder {
+        if(!skip) throw new Error("skip cannot be undefined");
+        if(!top) throw new Error("top cannot be undefined");
+        return new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(this.pathParameters, this.requestAdapter, skip, top);
+    };
+    /**
      * Provides operations to manage the extensions property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ExtensionItemRequestBuilder
@@ -570,11 +581,11 @@ export class MeRequestBuilder {
         return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Retrieve the properties and relationships of user object.
+     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
-     * @see {@link https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -662,28 +673,6 @@ export class MeRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["message%2Did"] = id
         return new MessageItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to call the exportDeviceAndAppManagementData method.
-     * @param skip Usage: skip={skip}
-     * @param top Usage: top={top}
-     * @returns a microsoftGraphExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder
-     */
-    public microsoftGraphExportDeviceAndAppManagementDataWithSkipWithTop(skip: number | undefined, top: number | undefined) : MicrosoftGraphExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder {
-        if(!skip) throw new Error("skip cannot be undefined");
-        if(!top) throw new Error("top cannot be undefined");
-        return new MicrosoftGraphExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder(this.pathParameters, this.requestAdapter, skip, top);
-    };
-    /**
-     * Provides operations to call the reminderView method.
-     * @param EndDateTime Usage: EndDateTime='{EndDateTime}'
-     * @param StartDateTime Usage: StartDateTime='{StartDateTime}'
-     * @returns a microsoftGraphReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder
-     */
-    public microsoftGraphReminderViewWithStartDateTimeWithEndDateTime(endDateTime: string | undefined, startDateTime: string | undefined) : MicrosoftGraphReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
-        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
-        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
-        return new MicrosoftGraphReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
      * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
@@ -782,6 +771,17 @@ export class MeRequestBuilder {
         return new I0023e0ed37f7c34111ba15d8368632614c1196b1169f66678176dca31de74ac7(urlTplParams, this.requestAdapter);
     };
     /**
+     * Provides operations to call the reminderView method.
+     * @param EndDateTime Usage: EndDateTime='{EndDateTime}'
+     * @param StartDateTime Usage: StartDateTime='{StartDateTime}'
+     * @returns a reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder
+     */
+    public reminderViewWithStartDateTimeWithEndDateTime(endDateTime: string | undefined, startDateTime: string | undefined) : ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
+        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
+        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
+        return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
+    };
+    /**
      * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
      * @param id Unique identifier of the item
      * @returns a ScopedRoleMembershipItemRequestBuilder
@@ -793,7 +793,7 @@ export class MeRequestBuilder {
         return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Retrieve the properties and relationships of user object.
+     * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

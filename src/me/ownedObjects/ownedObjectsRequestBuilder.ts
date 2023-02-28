@@ -3,9 +3,9 @@ import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphApplicationRequestBuilder} from './microsoftGraphApplication/microsoftGraphApplicationRequestBuilder';
-import {MicrosoftGraphGroupRequestBuilder} from './microsoftGraphGroup/microsoftGraphGroupRequestBuilder';
-import {MicrosoftGraphServicePrincipalRequestBuilder} from './microsoftGraphServicePrincipal/microsoftGraphServicePrincipalRequestBuilder';
+import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
+import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
+import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import {OwnedObjectsRequestBuilderGetRequestConfiguration} from './ownedObjectsRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -18,16 +18,16 @@ export class OwnedObjectsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to application. */
-    public get microsoftGraphApplication(): MicrosoftGraphApplicationRequestBuilder {
-        return new MicrosoftGraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphApplication(): GraphApplicationRequestBuilder {
+        return new GraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to group. */
-    public get microsoftGraphGroup(): MicrosoftGraphGroupRequestBuilder {
-        return new MicrosoftGraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphGroup(): GraphGroupRequestBuilder {
+        return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to servicePrincipal. */
-    public get microsoftGraphServicePrincipal(): MicrosoftGraphServicePrincipalRequestBuilder {
-        return new MicrosoftGraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
+        return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

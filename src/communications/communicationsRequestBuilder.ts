@@ -8,7 +8,7 @@ import {CallsRequestBuilder} from './calls/callsRequestBuilder';
 import {CallItemRequestBuilder} from './calls/item/callItemRequestBuilder';
 import {CommunicationsRequestBuilderGetRequestConfiguration} from './communicationsRequestBuilderGetRequestConfiguration';
 import {CommunicationsRequestBuilderPatchRequestConfiguration} from './communicationsRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphGetPresencesByUserIdRequestBuilder} from './microsoftGraphGetPresencesByUserId/microsoftGraphGetPresencesByUserIdRequestBuilder';
+import {GetPresencesByUserIdRequestBuilder} from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
 import {OnlineMeetingItemRequestBuilder} from './onlineMeetings/item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
 import {PresenceItemRequestBuilder} from './presences/item/presenceItemRequestBuilder';
@@ -28,8 +28,8 @@ export class CommunicationsRequestBuilder {
         return new CallsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getPresencesByUserId method. */
-    public get microsoftGraphGetPresencesByUserId(): MicrosoftGraphGetPresencesByUserIdRequestBuilder {
-        return new MicrosoftGraphGetPresencesByUserIdRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getPresencesByUserId(): GetPresencesByUserIdRequestBuilder {
+        return new GetPresencesByUserIdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity. */
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {

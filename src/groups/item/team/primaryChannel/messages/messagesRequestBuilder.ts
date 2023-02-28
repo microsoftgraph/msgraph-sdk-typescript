@@ -4,9 +4,9 @@ import {createChatMessageFromDiscriminatorValue} from '../../../../../models/cre
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {MicrosoftGraphDeltaRequestBuilder} from './microsoftGraphDelta/microsoftGraphDeltaRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,8 +18,8 @@ export class MessagesRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the delta method. */
-    public get microsoftGraphDelta(): MicrosoftGraphDeltaRequestBuilder {
-        return new MicrosoftGraphDeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -58,12 +58,12 @@ export class MessagesRequestBuilder {
         return this.requestAdapter?.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Send a new chatMessage in the specified channel or a chat.
+     * Send a new chatMessage in the specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage | undefined, requestConfiguration?: MessagesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -95,7 +95,7 @@ export class MessagesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Send a new chatMessage in the specified channel or a chat.
+     * Send a new chatMessage in the specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

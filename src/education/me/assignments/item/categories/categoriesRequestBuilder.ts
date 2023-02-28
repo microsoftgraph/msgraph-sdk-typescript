@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {CategoriesRequestBuilderGetRequestConfiguration} from './categoriesRequestBuilderGetRequestConfiguration';
 import {CategoriesRequestBuilderPostRequestConfiguration} from './categoriesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphDeltaRequestBuilder} from './microsoftGraphDelta/microsoftGraphDeltaRequestBuilder';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -19,8 +19,8 @@ export class CategoriesRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the delta method. */
-    public get microsoftGraphDelta(): MicrosoftGraphDeltaRequestBuilder {
-        return new MicrosoftGraphDeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

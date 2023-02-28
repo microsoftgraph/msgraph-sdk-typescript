@@ -4,7 +4,7 @@ import {createOnlineMeetingFromDiscriminatorValue} from '../../models/createOnli
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphCreateOrGetRequestBuilder} from './microsoftGraphCreateOrGet/microsoftGraphCreateOrGetRequestBuilder';
+import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder';
 import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -18,8 +18,8 @@ export class OnlineMeetingsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the createOrGet method. */
-    public get microsoftGraphCreateOrGet(): MicrosoftGraphCreateOrGetRequestBuilder {
-        return new MicrosoftGraphCreateOrGetRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get createOrGet(): CreateOrGetRequestBuilder {
+        return new CreateOrGetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

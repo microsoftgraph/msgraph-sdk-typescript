@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SharePointOneDriveOptions implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The includeContent property */
+    /** The type of search content. The possible values are: sharedContent, privateContent, unknownFutureValue. Read-only. */
     private _includeContent?: SearchContent | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -39,14 +39,14 @@ export class SharePointOneDriveOptions implements AdditionalDataHolder, Parsable
         };
     };
     /**
-     * Gets the includeContent property value. The includeContent property
+     * Gets the includeContent property value. The type of search content. The possible values are: sharedContent, privateContent, unknownFutureValue. Read-only.
      * @returns a searchContent
      */
     public get includeContent() {
         return this._includeContent;
     };
     /**
-     * Sets the includeContent property value. The includeContent property
+     * Sets the includeContent property value. The type of search content. The possible values are: sharedContent, privateContent, unknownFutureValue. Read-only.
      * @param value Value to set for the includeContent property.
      */
     public set includeContent(value: SearchContent | undefined) {

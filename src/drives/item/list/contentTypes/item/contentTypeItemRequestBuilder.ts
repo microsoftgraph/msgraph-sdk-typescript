@@ -2,6 +2,7 @@ import {ContentType} from '../../../../../models/';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../models/createContentTypeFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder as I0b2e055424deca4cc95f62bb1b91e492b7caa4f3696c5b7b03ad6c1d41ddb196} from './baseTypes/item/contentTypeItemRequestBuilder';
@@ -14,17 +15,20 @@ import {ColumnDefinitionItemRequestBuilder as Ieba30cb76ca76407441a01ab7abbaf3b5
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphAssociateWithHubSitesRequestBuilder} from './microsoftGraphAssociateWithHubSites/microsoftGraphAssociateWithHubSitesRequestBuilder';
-import {MicrosoftGraphCopyToDefaultContentLocationRequestBuilder} from './microsoftGraphCopyToDefaultContentLocation/microsoftGraphCopyToDefaultContentLocationRequestBuilder';
-import {MicrosoftGraphIsPublishedRequestBuilder} from './microsoftGraphIsPublished/microsoftGraphIsPublishedRequestBuilder';
-import {MicrosoftGraphPublishRequestBuilder} from './microsoftGraphPublish/microsoftGraphPublishRequestBuilder';
-import {MicrosoftGraphUnpublishRequestBuilder} from './microsoftGraphUnpublish/microsoftGraphUnpublishRequestBuilder';
+import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContentLocation/copyToDefaultContentLocationRequestBuilder';
+import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
+import {PublishRequestBuilder} from './publish/publishRequestBuilder';
+import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
  */
 export class ContentTypeItemRequestBuilder {
+    /** Provides operations to call the associateWithHubSites method. */
+    public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
+        return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the base property of the microsoft.graph.contentType entity. */
     public get base(): BaseRequestBuilder {
         return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -45,30 +49,26 @@ export class ContentTypeItemRequestBuilder {
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the associateWithHubSites method. */
-    public get microsoftGraphAssociateWithHubSites(): MicrosoftGraphAssociateWithHubSitesRequestBuilder {
-        return new MicrosoftGraphAssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the copyToDefaultContentLocation method. */
-    public get microsoftGraphCopyToDefaultContentLocation(): MicrosoftGraphCopyToDefaultContentLocationRequestBuilder {
-        return new MicrosoftGraphCopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
+        return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isPublished method. */
-    public get microsoftGraphIsPublished(): MicrosoftGraphIsPublishedRequestBuilder {
-        return new MicrosoftGraphIsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the publish method. */
-    public get microsoftGraphPublish(): MicrosoftGraphPublishRequestBuilder {
-        return new MicrosoftGraphPublishRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unpublish method. */
-    public get microsoftGraphUnpublish(): MicrosoftGraphUnpublishRequestBuilder {
-        return new MicrosoftGraphUnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isPublished(): IsPublishedRequestBuilder {
+        return new IsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the publish method. */
+    public get publish(): PublishRequestBuilder {
+        return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the unpublish method. */
+    public get unpublish(): UnpublishRequestBuilder {
+        return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

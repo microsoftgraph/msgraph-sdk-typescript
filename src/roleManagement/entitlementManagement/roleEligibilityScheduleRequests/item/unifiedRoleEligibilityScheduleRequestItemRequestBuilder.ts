@@ -3,8 +3,8 @@ import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from 
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
+import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
 import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
-import {MicrosoftGraphCancelRequestBuilder} from './microsoftGraphCancel/microsoftGraphCancelRequestBuilder';
 import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
 import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
 import {TargetScheduleRequestBuilder} from './targetSchedule/targetScheduleRequestBuilder';
@@ -21,13 +21,13 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {
     public get appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the cancel method. */
+    public get cancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
     public get directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the cancel method. */
-    public get microsoftGraphCancel(): MicrosoftGraphCancelRequestBuilder {
-        return new MicrosoftGraphCancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

@@ -4,8 +4,8 @@ import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from '.
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphGetOrderRequestBuilder} from './microsoftGraphGetOrder/microsoftGraphGetOrderRequestBuilder';
-import {MicrosoftGraphSetOrderRequestBuilder} from './microsoftGraphSetOrder/microsoftGraphSetOrderRequestBuilder';
+import {GetOrderRequestBuilder} from './getOrder/getOrderRequestBuilder';
+import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
 import {UserAttributeAssignmentsRequestBuilderGetRequestConfiguration} from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
 import {UserAttributeAssignmentsRequestBuilderPostRequestConfiguration} from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -19,17 +19,17 @@ export class UserAttributeAssignmentsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getOrder method. */
-    public get microsoftGraphGetOrder(): MicrosoftGraphGetOrderRequestBuilder {
-        return new MicrosoftGraphGetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setOrder method. */
-    public get microsoftGraphSetOrder(): MicrosoftGraphSetOrderRequestBuilder {
-        return new MicrosoftGraphSetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getOrder(): GetOrderRequestBuilder {
+        return new GetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the setOrder method. */
+    public get setOrder(): SetOrderRequestBuilder {
+        return new SetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

@@ -4,9 +4,9 @@ import {createManagedAppRegistrationFromDiscriminatorValue} from '../../models/c
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
 import {ManagedAppRegistrationsRequestBuilderGetRequestConfiguration} from './managedAppRegistrationsRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationsRequestBuilderPostRequestConfiguration} from './managedAppRegistrationsRequestBuilderPostRequestConfiguration';
-import {MicrosoftGraphGetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './microsoftGraphGetUserIdsWithFlaggedAppRegistration/microsoftGraphGetUserIdsWithFlaggedAppRegistrationRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,8 +18,8 @@ export class ManagedAppRegistrationsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getUserIdsWithFlaggedAppRegistration method. */
-    public get microsoftGraphGetUserIdsWithFlaggedAppRegistration(): MicrosoftGraphGetUserIdsWithFlaggedAppRegistrationRequestBuilder {
-        return new MicrosoftGraphGetUserIdsWithFlaggedAppRegistrationRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getUserIdsWithFlaggedAppRegistration(): GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
+        return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

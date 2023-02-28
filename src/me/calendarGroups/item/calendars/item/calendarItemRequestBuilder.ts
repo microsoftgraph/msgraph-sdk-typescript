@@ -2,6 +2,7 @@ import {Calendar} from '../../../../../models/';
 import {createCalendarFromDiscriminatorValue} from '../../../../../models/createCalendarFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarItemRequestBuilderDeleteRequestConfiguration} from './calendarItemRequestBuilderDeleteRequestConfiguration';
 import {CalendarItemRequestBuilderGetRequestConfiguration} from './calendarItemRequestBuilderGetRequestConfiguration';
 import {CalendarItemRequestBuilderPatchRequestConfiguration} from './calendarItemRequestBuilderPatchRequestConfiguration';
@@ -11,8 +12,7 @@ import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuil
 import {EventItemRequestBuilder as I159d499e2bca7a6fb8d98e39269bf28e22d02bdad0a346b0a25d336d3b78faea} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
 import {EventItemRequestBuilder as I45b6cdd1f543555f5e80e718ccf5b92eda2904ddb75cb7287c9fbd05c34ff2c4} from './events/item/eventItemRequestBuilder';
-import {MicrosoftGraphAllowedCalendarSharingRolesWithUserRequestBuilder} from './microsoftGraphAllowedCalendarSharingRolesWithUser/microsoftGraphAllowedCalendarSharingRolesWithUserRequestBuilder';
-import {MicrosoftGraphGetScheduleRequestBuilder} from './microsoftGraphGetSchedule/microsoftGraphGetScheduleRequestBuilder';
+import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
@@ -36,8 +36,8 @@ export class CalendarItemRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getSchedule method. */
-    public get microsoftGraphGetSchedule(): MicrosoftGraphGetScheduleRequestBuilder {
-        return new MicrosoftGraphGetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getSchedule(): GetScheduleRequestBuilder {
+        return new GetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity. */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
@@ -53,6 +53,15 @@ export class CalendarItemRequestBuilder {
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /**
+     * Provides operations to call the allowedCalendarSharingRoles method.
+     * @param User Usage: User='{User}'
+     * @returns a allowedCalendarSharingRolesWithUserRequestBuilder
+     */
+    public allowedCalendarSharingRolesWithUser(user: string | undefined) : AllowedCalendarSharingRolesWithUserRequestBuilder {
+        if(!user) throw new Error("user cannot be undefined");
+        return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.pathParameters, this.requestAdapter, user);
+    };
     /**
      * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
      * @param id Unique identifier of the item
@@ -129,15 +138,6 @@ export class CalendarItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to call the allowedCalendarSharingRoles method.
-     * @param User Usage: User='{User}'
-     * @returns a microsoftGraphAllowedCalendarSharingRolesWithUserRequestBuilder
-     */
-    public microsoftGraphAllowedCalendarSharingRolesWithUser(user: string | undefined) : MicrosoftGraphAllowedCalendarSharingRolesWithUserRequestBuilder {
-        if(!user) throw new Error("user cannot be undefined");
-        return new MicrosoftGraphAllowedCalendarSharingRolesWithUserRequestBuilder(this.pathParameters, this.requestAdapter, user);
     };
     /**
      * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.

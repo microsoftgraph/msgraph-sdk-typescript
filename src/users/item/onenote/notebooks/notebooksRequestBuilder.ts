@@ -4,8 +4,8 @@ import {createNotebookFromDiscriminatorValue} from '../../../../models/createNot
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphGetNotebookFromWebUrlRequestBuilder} from './microsoftGraphGetNotebookFromWebUrl/microsoftGraphGetNotebookFromWebUrlRequestBuilder';
-import {MicrosoftGraphGetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './microsoftGraphGetRecentNotebooksWithIncludePersonalNotebooks/microsoftGraphGetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
+import {GetNotebookFromWebUrlRequestBuilder} from './getNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
+import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './getRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
 import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -19,8 +19,8 @@ export class NotebooksRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getNotebookFromWebUrl method. */
-    public get microsoftGraphGetNotebookFromWebUrl(): MicrosoftGraphGetNotebookFromWebUrlRequestBuilder {
-        return new MicrosoftGraphGetNotebookFromWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get getNotebookFromWebUrl(): GetNotebookFromWebUrlRequestBuilder {
+        return new GetNotebookFromWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -61,11 +61,11 @@ export class NotebooksRequestBuilder {
     /**
      * Provides operations to call the getRecentNotebooks method.
      * @param includePersonalNotebooks Usage: includePersonalNotebooks={includePersonalNotebooks}
-     * @returns a microsoftGraphGetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder
+     * @returns a getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder
      */
-    public microsoftGraphGetRecentNotebooksWithIncludePersonalNotebooks(includePersonalNotebooks: boolean | undefined) : MicrosoftGraphGetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
+    public getRecentNotebooksWithIncludePersonalNotebooks(includePersonalNotebooks: boolean | undefined) : GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
         if(!includePersonalNotebooks) throw new Error("includePersonalNotebooks cannot be undefined");
-        return new MicrosoftGraphGetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(this.pathParameters, this.requestAdapter, includePersonalNotebooks);
+        return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(this.pathParameters, this.requestAdapter, includePersonalNotebooks);
     };
     /**
      * Create a new OneNote notebook.

@@ -2,375 +2,375 @@ import {WorkbookFunctions} from '../../../../../../models/';
 import {createWorkbookFunctionsFromDiscriminatorValue} from '../../../../../../models/createWorkbookFunctionsFromDiscriminatorValue';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AbsRequestBuilder} from './abs/absRequestBuilder';
+import {AccrIntRequestBuilder} from './accrInt/accrIntRequestBuilder';
+import {AccrIntMRequestBuilder} from './accrIntM/accrIntMRequestBuilder';
+import {AcosRequestBuilder} from './acos/acosRequestBuilder';
+import {AcoshRequestBuilder} from './acosh/acoshRequestBuilder';
+import {AcotRequestBuilder} from './acot/acotRequestBuilder';
+import {AcothRequestBuilder} from './acoth/acothRequestBuilder';
+import {AmorDegrcRequestBuilder} from './amorDegrc/amorDegrcRequestBuilder';
+import {AmorLincRequestBuilder} from './amorLinc/amorLincRequestBuilder';
+import {AndRequestBuilder} from './and/andRequestBuilder';
+import {ArabicRequestBuilder} from './arabic/arabicRequestBuilder';
+import {AreasRequestBuilder} from './areas/areasRequestBuilder';
+import {AscRequestBuilder} from './asc/ascRequestBuilder';
+import {AsinRequestBuilder} from './asin/asinRequestBuilder';
+import {AsinhRequestBuilder} from './asinh/asinhRequestBuilder';
+import {AtanRequestBuilder} from './atan/atanRequestBuilder';
+import {Atan2RequestBuilder} from './atan2/atan2RequestBuilder';
+import {AtanhRequestBuilder} from './atanh/atanhRequestBuilder';
+import {AveDevRequestBuilder} from './aveDev/aveDevRequestBuilder';
+import {AverageRequestBuilder} from './average/averageRequestBuilder';
+import {AverageARequestBuilder} from './averageA/averageARequestBuilder';
+import {AverageIfRequestBuilder} from './averageIf/averageIfRequestBuilder';
+import {AverageIfsRequestBuilder} from './averageIfs/averageIfsRequestBuilder';
+import {BahtTextRequestBuilder} from './bahtText/bahtTextRequestBuilder';
+import {BaseRequestBuilder} from './base/baseRequestBuilder';
+import {BesselIRequestBuilder} from './besselI/besselIRequestBuilder';
+import {BesselJRequestBuilder} from './besselJ/besselJRequestBuilder';
+import {BesselKRequestBuilder} from './besselK/besselKRequestBuilder';
+import {BesselYRequestBuilder} from './besselY/besselYRequestBuilder';
+import {Beta_DistRequestBuilder} from './beta_Dist/beta_DistRequestBuilder';
+import {Beta_InvRequestBuilder} from './beta_Inv/beta_InvRequestBuilder';
+import {Bin2DecRequestBuilder} from './bin2Dec/bin2DecRequestBuilder';
+import {Bin2HexRequestBuilder} from './bin2Hex/bin2HexRequestBuilder';
+import {Bin2OctRequestBuilder} from './bin2Oct/bin2OctRequestBuilder';
+import {Binom_Dist_RangeRequestBuilder} from './binom_Dist_Range/binom_Dist_RangeRequestBuilder';
+import {Binom_DistRequestBuilder} from './binom_Dist/binom_DistRequestBuilder';
+import {Binom_InvRequestBuilder} from './binom_Inv/binom_InvRequestBuilder';
+import {BitandRequestBuilder} from './bitand/bitandRequestBuilder';
+import {BitlshiftRequestBuilder} from './bitlshift/bitlshiftRequestBuilder';
+import {BitorRequestBuilder} from './bitor/bitorRequestBuilder';
+import {BitrshiftRequestBuilder} from './bitrshift/bitrshiftRequestBuilder';
+import {BitxorRequestBuilder} from './bitxor/bitxorRequestBuilder';
+import {Ceiling_MathRequestBuilder} from './ceiling_Math/ceiling_MathRequestBuilder';
+import {Ceiling_PreciseRequestBuilder} from './ceiling_Precise/ceiling_PreciseRequestBuilder';
+import {CharRequestBuilder} from './char/charRequestBuilder';
+import {ChiSq_Dist_RTRequestBuilder} from './chiSq_Dist_RT/chiSq_Dist_RTRequestBuilder';
+import {ChiSq_DistRequestBuilder} from './chiSq_Dist/chiSq_DistRequestBuilder';
+import {ChiSq_Inv_RTRequestBuilder} from './chiSq_Inv_RT/chiSq_Inv_RTRequestBuilder';
+import {ChiSq_InvRequestBuilder} from './chiSq_Inv/chiSq_InvRequestBuilder';
+import {ChooseRequestBuilder} from './choose/chooseRequestBuilder';
+import {CleanRequestBuilder} from './clean/cleanRequestBuilder';
+import {CodeRequestBuilder} from './code/codeRequestBuilder';
+import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
+import {CombinRequestBuilder} from './combin/combinRequestBuilder';
+import {CombinaRequestBuilder} from './combina/combinaRequestBuilder';
+import {ComplexRequestBuilder} from './complex/complexRequestBuilder';
+import {ConcatenateRequestBuilder} from './concatenate/concatenateRequestBuilder';
+import {Confidence_NormRequestBuilder} from './confidence_Norm/confidence_NormRequestBuilder';
+import {Confidence_TRequestBuilder} from './confidence_T/confidence_TRequestBuilder';
+import {ConvertRequestBuilder} from './convert/convertRequestBuilder';
+import {CosRequestBuilder} from './cos/cosRequestBuilder';
+import {CoshRequestBuilder} from './cosh/coshRequestBuilder';
+import {CotRequestBuilder} from './cot/cotRequestBuilder';
+import {CothRequestBuilder} from './coth/cothRequestBuilder';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {CountARequestBuilder} from './countA/countARequestBuilder';
+import {CountBlankRequestBuilder} from './countBlank/countBlankRequestBuilder';
+import {CountIfRequestBuilder} from './countIf/countIfRequestBuilder';
+import {CountIfsRequestBuilder} from './countIfs/countIfsRequestBuilder';
+import {CoupDayBsRequestBuilder} from './coupDayBs/coupDayBsRequestBuilder';
+import {CoupDaysRequestBuilder} from './coupDays/coupDaysRequestBuilder';
+import {CoupDaysNcRequestBuilder} from './coupDaysNc/coupDaysNcRequestBuilder';
+import {CoupNcdRequestBuilder} from './coupNcd/coupNcdRequestBuilder';
+import {CoupNumRequestBuilder} from './coupNum/coupNumRequestBuilder';
+import {CoupPcdRequestBuilder} from './coupPcd/coupPcdRequestBuilder';
+import {CscRequestBuilder} from './csc/cscRequestBuilder';
+import {CschRequestBuilder} from './csch/cschRequestBuilder';
+import {CumIPmtRequestBuilder} from './cumIPmt/cumIPmtRequestBuilder';
+import {CumPrincRequestBuilder} from './cumPrinc/cumPrincRequestBuilder';
+import {DateRequestBuilder} from './date/dateRequestBuilder';
+import {DatevalueRequestBuilder} from './datevalue/datevalueRequestBuilder';
+import {DaverageRequestBuilder} from './daverage/daverageRequestBuilder';
+import {DayRequestBuilder} from './day/dayRequestBuilder';
+import {DaysRequestBuilder} from './days/daysRequestBuilder';
+import {Days360RequestBuilder} from './days360/days360RequestBuilder';
+import {DbRequestBuilder} from './db/dbRequestBuilder';
+import {DbcsRequestBuilder} from './dbcs/dbcsRequestBuilder';
+import {DcountRequestBuilder} from './dcount/dcountRequestBuilder';
+import {DcountARequestBuilder} from './dcountA/dcountARequestBuilder';
+import {DdbRequestBuilder} from './ddb/ddbRequestBuilder';
+import {Dec2BinRequestBuilder} from './dec2Bin/dec2BinRequestBuilder';
+import {Dec2HexRequestBuilder} from './dec2Hex/dec2HexRequestBuilder';
+import {Dec2OctRequestBuilder} from './dec2Oct/dec2OctRequestBuilder';
+import {DecimalRequestBuilder} from './decimal/decimalRequestBuilder';
+import {DegreesRequestBuilder} from './degrees/degreesRequestBuilder';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {DevSqRequestBuilder} from './devSq/devSqRequestBuilder';
+import {DgetRequestBuilder} from './dget/dgetRequestBuilder';
+import {DiscRequestBuilder} from './disc/discRequestBuilder';
+import {DmaxRequestBuilder} from './dmax/dmaxRequestBuilder';
+import {DminRequestBuilder} from './dmin/dminRequestBuilder';
+import {DollarRequestBuilder} from './dollar/dollarRequestBuilder';
+import {DollarDeRequestBuilder} from './dollarDe/dollarDeRequestBuilder';
+import {DollarFrRequestBuilder} from './dollarFr/dollarFrRequestBuilder';
+import {DproductRequestBuilder} from './dproduct/dproductRequestBuilder';
+import {DstDevRequestBuilder} from './dstDev/dstDevRequestBuilder';
+import {DstDevPRequestBuilder} from './dstDevP/dstDevPRequestBuilder';
+import {DsumRequestBuilder} from './dsum/dsumRequestBuilder';
+import {DurationRequestBuilder} from './duration/durationRequestBuilder';
+import {DvarRequestBuilder} from './dvar/dvarRequestBuilder';
+import {DvarPRequestBuilder} from './dvarP/dvarPRequestBuilder';
+import {Ecma_CeilingRequestBuilder} from './ecma_Ceiling/ecma_CeilingRequestBuilder';
+import {EdateRequestBuilder} from './edate/edateRequestBuilder';
+import {EffectRequestBuilder} from './effect/effectRequestBuilder';
+import {EoMonthRequestBuilder} from './eoMonth/eoMonthRequestBuilder';
+import {Erf_PreciseRequestBuilder} from './erf_Precise/erf_PreciseRequestBuilder';
+import {ErfRequestBuilder} from './erf/erfRequestBuilder';
+import {ErfC_PreciseRequestBuilder} from './erfC_Precise/erfC_PreciseRequestBuilder';
+import {ErfCRequestBuilder} from './erfC/erfCRequestBuilder';
+import {Error_TypeRequestBuilder} from './error_Type/error_TypeRequestBuilder';
+import {EvenRequestBuilder} from './even/evenRequestBuilder';
+import {ExactRequestBuilder} from './exact/exactRequestBuilder';
+import {ExpRequestBuilder} from './exp/expRequestBuilder';
+import {Expon_DistRequestBuilder} from './expon_Dist/expon_DistRequestBuilder';
+import {F_Dist_RTRequestBuilder} from './f_Dist_RT/f_Dist_RTRequestBuilder';
+import {F_DistRequestBuilder} from './f_Dist/f_DistRequestBuilder';
+import {F_Inv_RTRequestBuilder} from './f_Inv_RT/f_Inv_RTRequestBuilder';
+import {F_InvRequestBuilder} from './f_Inv/f_InvRequestBuilder';
+import {FactRequestBuilder} from './fact/factRequestBuilder';
+import {FactDoubleRequestBuilder} from './factDouble/factDoubleRequestBuilder';
+import {FalseRequestBuilder} from './falseEscaped/falseRequestBuilder';
+import {FindRequestBuilder} from './find/findRequestBuilder';
+import {FindBRequestBuilder} from './findB/findBRequestBuilder';
+import {FisherRequestBuilder} from './fisher/fisherRequestBuilder';
+import {FisherInvRequestBuilder} from './fisherInv/fisherInvRequestBuilder';
+import {FixedRequestBuilder} from './fixed/fixedRequestBuilder';
+import {Floor_MathRequestBuilder} from './floor_Math/floor_MathRequestBuilder';
+import {Floor_PreciseRequestBuilder} from './floor_Precise/floor_PreciseRequestBuilder';
 import {FunctionsRequestBuilderDeleteRequestConfiguration} from './functionsRequestBuilderDeleteRequestConfiguration';
 import {FunctionsRequestBuilderGetRequestConfiguration} from './functionsRequestBuilderGetRequestConfiguration';
 import {FunctionsRequestBuilderPatchRequestConfiguration} from './functionsRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphAbsRequestBuilder} from './microsoftGraphAbs/microsoftGraphAbsRequestBuilder';
-import {MicrosoftGraphAccrIntRequestBuilder} from './microsoftGraphAccrInt/microsoftGraphAccrIntRequestBuilder';
-import {MicrosoftGraphAccrIntMRequestBuilder} from './microsoftGraphAccrIntM/microsoftGraphAccrIntMRequestBuilder';
-import {MicrosoftGraphAcosRequestBuilder} from './microsoftGraphAcos/microsoftGraphAcosRequestBuilder';
-import {MicrosoftGraphAcoshRequestBuilder} from './microsoftGraphAcosh/microsoftGraphAcoshRequestBuilder';
-import {MicrosoftGraphAcotRequestBuilder} from './microsoftGraphAcot/microsoftGraphAcotRequestBuilder';
-import {MicrosoftGraphAcothRequestBuilder} from './microsoftGraphAcoth/microsoftGraphAcothRequestBuilder';
-import {MicrosoftGraphAmorDegrcRequestBuilder} from './microsoftGraphAmorDegrc/microsoftGraphAmorDegrcRequestBuilder';
-import {MicrosoftGraphAmorLincRequestBuilder} from './microsoftGraphAmorLinc/microsoftGraphAmorLincRequestBuilder';
-import {MicrosoftGraphAndRequestBuilder} from './microsoftGraphAnd/microsoftGraphAndRequestBuilder';
-import {MicrosoftGraphArabicRequestBuilder} from './microsoftGraphArabic/microsoftGraphArabicRequestBuilder';
-import {MicrosoftGraphAreasRequestBuilder} from './microsoftGraphAreas/microsoftGraphAreasRequestBuilder';
-import {MicrosoftGraphAscRequestBuilder} from './microsoftGraphAsc/microsoftGraphAscRequestBuilder';
-import {MicrosoftGraphAsinRequestBuilder} from './microsoftGraphAsin/microsoftGraphAsinRequestBuilder';
-import {MicrosoftGraphAsinhRequestBuilder} from './microsoftGraphAsinh/microsoftGraphAsinhRequestBuilder';
-import {MicrosoftGraphAtanRequestBuilder} from './microsoftGraphAtan/microsoftGraphAtanRequestBuilder';
-import {MicrosoftGraphAtan2RequestBuilder} from './microsoftGraphAtan2/microsoftGraphAtan2RequestBuilder';
-import {MicrosoftGraphAtanhRequestBuilder} from './microsoftGraphAtanh/microsoftGraphAtanhRequestBuilder';
-import {MicrosoftGraphAveDevRequestBuilder} from './microsoftGraphAveDev/microsoftGraphAveDevRequestBuilder';
-import {MicrosoftGraphAverageRequestBuilder} from './microsoftGraphAverage/microsoftGraphAverageRequestBuilder';
-import {MicrosoftGraphAverageARequestBuilder} from './microsoftGraphAverageA/microsoftGraphAverageARequestBuilder';
-import {MicrosoftGraphAverageIfRequestBuilder} from './microsoftGraphAverageIf/microsoftGraphAverageIfRequestBuilder';
-import {MicrosoftGraphAverageIfsRequestBuilder} from './microsoftGraphAverageIfs/microsoftGraphAverageIfsRequestBuilder';
-import {MicrosoftGraphBahtTextRequestBuilder} from './microsoftGraphBahtText/microsoftGraphBahtTextRequestBuilder';
-import {MicrosoftGraphBaseRequestBuilder} from './microsoftGraphBase/microsoftGraphBaseRequestBuilder';
-import {MicrosoftGraphBesselIRequestBuilder} from './microsoftGraphBesselI/microsoftGraphBesselIRequestBuilder';
-import {MicrosoftGraphBesselJRequestBuilder} from './microsoftGraphBesselJ/microsoftGraphBesselJRequestBuilder';
-import {MicrosoftGraphBesselKRequestBuilder} from './microsoftGraphBesselK/microsoftGraphBesselKRequestBuilder';
-import {MicrosoftGraphBesselYRequestBuilder} from './microsoftGraphBesselY/microsoftGraphBesselYRequestBuilder';
-import {MicrosoftGraphBeta_DistRequestBuilder} from './microsoftGraphBeta_Dist/microsoftGraphBeta_DistRequestBuilder';
-import {MicrosoftGraphBeta_InvRequestBuilder} from './microsoftGraphBeta_Inv/microsoftGraphBeta_InvRequestBuilder';
-import {MicrosoftGraphBin2DecRequestBuilder} from './microsoftGraphBin2Dec/microsoftGraphBin2DecRequestBuilder';
-import {MicrosoftGraphBin2HexRequestBuilder} from './microsoftGraphBin2Hex/microsoftGraphBin2HexRequestBuilder';
-import {MicrosoftGraphBin2OctRequestBuilder} from './microsoftGraphBin2Oct/microsoftGraphBin2OctRequestBuilder';
-import {MicrosoftGraphBinom_Dist_RangeRequestBuilder} from './microsoftGraphBinom_Dist_Range/microsoftGraphBinom_Dist_RangeRequestBuilder';
-import {MicrosoftGraphBinom_DistRequestBuilder} from './microsoftGraphBinom_Dist/microsoftGraphBinom_DistRequestBuilder';
-import {MicrosoftGraphBinom_InvRequestBuilder} from './microsoftGraphBinom_Inv/microsoftGraphBinom_InvRequestBuilder';
-import {MicrosoftGraphBitandRequestBuilder} from './microsoftGraphBitand/microsoftGraphBitandRequestBuilder';
-import {MicrosoftGraphBitlshiftRequestBuilder} from './microsoftGraphBitlshift/microsoftGraphBitlshiftRequestBuilder';
-import {MicrosoftGraphBitorRequestBuilder} from './microsoftGraphBitor/microsoftGraphBitorRequestBuilder';
-import {MicrosoftGraphBitrshiftRequestBuilder} from './microsoftGraphBitrshift/microsoftGraphBitrshiftRequestBuilder';
-import {MicrosoftGraphBitxorRequestBuilder} from './microsoftGraphBitxor/microsoftGraphBitxorRequestBuilder';
-import {MicrosoftGraphCeiling_MathRequestBuilder} from './microsoftGraphCeiling_Math/microsoftGraphCeiling_MathRequestBuilder';
-import {MicrosoftGraphCeiling_PreciseRequestBuilder} from './microsoftGraphCeiling_Precise/microsoftGraphCeiling_PreciseRequestBuilder';
-import {MicrosoftGraphCharRequestBuilder} from './microsoftGraphChar/microsoftGraphCharRequestBuilder';
-import {MicrosoftGraphChiSq_Dist_RTRequestBuilder} from './microsoftGraphChiSq_Dist_RT/microsoftGraphChiSq_Dist_RTRequestBuilder';
-import {MicrosoftGraphChiSq_DistRequestBuilder} from './microsoftGraphChiSq_Dist/microsoftGraphChiSq_DistRequestBuilder';
-import {MicrosoftGraphChiSq_Inv_RTRequestBuilder} from './microsoftGraphChiSq_Inv_RT/microsoftGraphChiSq_Inv_RTRequestBuilder';
-import {MicrosoftGraphChiSq_InvRequestBuilder} from './microsoftGraphChiSq_Inv/microsoftGraphChiSq_InvRequestBuilder';
-import {MicrosoftGraphChooseRequestBuilder} from './microsoftGraphChoose/microsoftGraphChooseRequestBuilder';
-import {MicrosoftGraphCleanRequestBuilder} from './microsoftGraphClean/microsoftGraphCleanRequestBuilder';
-import {MicrosoftGraphCodeRequestBuilder} from './microsoftGraphCode/microsoftGraphCodeRequestBuilder';
-import {MicrosoftGraphColumnsRequestBuilder} from './microsoftGraphColumns/microsoftGraphColumnsRequestBuilder';
-import {MicrosoftGraphCombinRequestBuilder} from './microsoftGraphCombin/microsoftGraphCombinRequestBuilder';
-import {MicrosoftGraphCombinaRequestBuilder} from './microsoftGraphCombina/microsoftGraphCombinaRequestBuilder';
-import {MicrosoftGraphComplexRequestBuilder} from './microsoftGraphComplex/microsoftGraphComplexRequestBuilder';
-import {MicrosoftGraphConcatenateRequestBuilder} from './microsoftGraphConcatenate/microsoftGraphConcatenateRequestBuilder';
-import {MicrosoftGraphConfidence_NormRequestBuilder} from './microsoftGraphConfidence_Norm/microsoftGraphConfidence_NormRequestBuilder';
-import {MicrosoftGraphConfidence_TRequestBuilder} from './microsoftGraphConfidence_T/microsoftGraphConfidence_TRequestBuilder';
-import {MicrosoftGraphConvertRequestBuilder} from './microsoftGraphConvert/microsoftGraphConvertRequestBuilder';
-import {MicrosoftGraphCosRequestBuilder} from './microsoftGraphCos/microsoftGraphCosRequestBuilder';
-import {MicrosoftGraphCoshRequestBuilder} from './microsoftGraphCosh/microsoftGraphCoshRequestBuilder';
-import {MicrosoftGraphCotRequestBuilder} from './microsoftGraphCot/microsoftGraphCotRequestBuilder';
-import {MicrosoftGraphCothRequestBuilder} from './microsoftGraphCoth/microsoftGraphCothRequestBuilder';
-import {MicrosoftGraphCountRequestBuilder} from './microsoftGraphCount/microsoftGraphCountRequestBuilder';
-import {MicrosoftGraphCountARequestBuilder} from './microsoftGraphCountA/microsoftGraphCountARequestBuilder';
-import {MicrosoftGraphCountBlankRequestBuilder} from './microsoftGraphCountBlank/microsoftGraphCountBlankRequestBuilder';
-import {MicrosoftGraphCountIfRequestBuilder} from './microsoftGraphCountIf/microsoftGraphCountIfRequestBuilder';
-import {MicrosoftGraphCountIfsRequestBuilder} from './microsoftGraphCountIfs/microsoftGraphCountIfsRequestBuilder';
-import {MicrosoftGraphCoupDayBsRequestBuilder} from './microsoftGraphCoupDayBs/microsoftGraphCoupDayBsRequestBuilder';
-import {MicrosoftGraphCoupDaysRequestBuilder} from './microsoftGraphCoupDays/microsoftGraphCoupDaysRequestBuilder';
-import {MicrosoftGraphCoupDaysNcRequestBuilder} from './microsoftGraphCoupDaysNc/microsoftGraphCoupDaysNcRequestBuilder';
-import {MicrosoftGraphCoupNcdRequestBuilder} from './microsoftGraphCoupNcd/microsoftGraphCoupNcdRequestBuilder';
-import {MicrosoftGraphCoupNumRequestBuilder} from './microsoftGraphCoupNum/microsoftGraphCoupNumRequestBuilder';
-import {MicrosoftGraphCoupPcdRequestBuilder} from './microsoftGraphCoupPcd/microsoftGraphCoupPcdRequestBuilder';
-import {MicrosoftGraphCscRequestBuilder} from './microsoftGraphCsc/microsoftGraphCscRequestBuilder';
-import {MicrosoftGraphCschRequestBuilder} from './microsoftGraphCsch/microsoftGraphCschRequestBuilder';
-import {MicrosoftGraphCumIPmtRequestBuilder} from './microsoftGraphCumIPmt/microsoftGraphCumIPmtRequestBuilder';
-import {MicrosoftGraphCumPrincRequestBuilder} from './microsoftGraphCumPrinc/microsoftGraphCumPrincRequestBuilder';
-import {MicrosoftGraphDateRequestBuilder} from './microsoftGraphDate/microsoftGraphDateRequestBuilder';
-import {MicrosoftGraphDatevalueRequestBuilder} from './microsoftGraphDatevalue/microsoftGraphDatevalueRequestBuilder';
-import {MicrosoftGraphDaverageRequestBuilder} from './microsoftGraphDaverage/microsoftGraphDaverageRequestBuilder';
-import {MicrosoftGraphDayRequestBuilder} from './microsoftGraphDay/microsoftGraphDayRequestBuilder';
-import {MicrosoftGraphDaysRequestBuilder} from './microsoftGraphDays/microsoftGraphDaysRequestBuilder';
-import {MicrosoftGraphDays360RequestBuilder} from './microsoftGraphDays360/microsoftGraphDays360RequestBuilder';
-import {MicrosoftGraphDbRequestBuilder} from './microsoftGraphDb/microsoftGraphDbRequestBuilder';
-import {MicrosoftGraphDbcsRequestBuilder} from './microsoftGraphDbcs/microsoftGraphDbcsRequestBuilder';
-import {MicrosoftGraphDcountRequestBuilder} from './microsoftGraphDcount/microsoftGraphDcountRequestBuilder';
-import {MicrosoftGraphDcountARequestBuilder} from './microsoftGraphDcountA/microsoftGraphDcountARequestBuilder';
-import {MicrosoftGraphDdbRequestBuilder} from './microsoftGraphDdb/microsoftGraphDdbRequestBuilder';
-import {MicrosoftGraphDec2BinRequestBuilder} from './microsoftGraphDec2Bin/microsoftGraphDec2BinRequestBuilder';
-import {MicrosoftGraphDec2HexRequestBuilder} from './microsoftGraphDec2Hex/microsoftGraphDec2HexRequestBuilder';
-import {MicrosoftGraphDec2OctRequestBuilder} from './microsoftGraphDec2Oct/microsoftGraphDec2OctRequestBuilder';
-import {MicrosoftGraphDecimalRequestBuilder} from './microsoftGraphDecimal/microsoftGraphDecimalRequestBuilder';
-import {MicrosoftGraphDegreesRequestBuilder} from './microsoftGraphDegrees/microsoftGraphDegreesRequestBuilder';
-import {MicrosoftGraphDeltaRequestBuilder} from './microsoftGraphDelta/microsoftGraphDeltaRequestBuilder';
-import {MicrosoftGraphDevSqRequestBuilder} from './microsoftGraphDevSq/microsoftGraphDevSqRequestBuilder';
-import {MicrosoftGraphDgetRequestBuilder} from './microsoftGraphDget/microsoftGraphDgetRequestBuilder';
-import {MicrosoftGraphDiscRequestBuilder} from './microsoftGraphDisc/microsoftGraphDiscRequestBuilder';
-import {MicrosoftGraphDmaxRequestBuilder} from './microsoftGraphDmax/microsoftGraphDmaxRequestBuilder';
-import {MicrosoftGraphDminRequestBuilder} from './microsoftGraphDmin/microsoftGraphDminRequestBuilder';
-import {MicrosoftGraphDollarRequestBuilder} from './microsoftGraphDollar/microsoftGraphDollarRequestBuilder';
-import {MicrosoftGraphDollarDeRequestBuilder} from './microsoftGraphDollarDe/microsoftGraphDollarDeRequestBuilder';
-import {MicrosoftGraphDollarFrRequestBuilder} from './microsoftGraphDollarFr/microsoftGraphDollarFrRequestBuilder';
-import {MicrosoftGraphDproductRequestBuilder} from './microsoftGraphDproduct/microsoftGraphDproductRequestBuilder';
-import {MicrosoftGraphDstDevRequestBuilder} from './microsoftGraphDstDev/microsoftGraphDstDevRequestBuilder';
-import {MicrosoftGraphDstDevPRequestBuilder} from './microsoftGraphDstDevP/microsoftGraphDstDevPRequestBuilder';
-import {MicrosoftGraphDsumRequestBuilder} from './microsoftGraphDsum/microsoftGraphDsumRequestBuilder';
-import {MicrosoftGraphDurationRequestBuilder} from './microsoftGraphDuration/microsoftGraphDurationRequestBuilder';
-import {MicrosoftGraphDvarRequestBuilder} from './microsoftGraphDvar/microsoftGraphDvarRequestBuilder';
-import {MicrosoftGraphDvarPRequestBuilder} from './microsoftGraphDvarP/microsoftGraphDvarPRequestBuilder';
-import {MicrosoftGraphEcma_CeilingRequestBuilder} from './microsoftGraphEcma_Ceiling/microsoftGraphEcma_CeilingRequestBuilder';
-import {MicrosoftGraphEdateRequestBuilder} from './microsoftGraphEdate/microsoftGraphEdateRequestBuilder';
-import {MicrosoftGraphEffectRequestBuilder} from './microsoftGraphEffect/microsoftGraphEffectRequestBuilder';
-import {MicrosoftGraphEoMonthRequestBuilder} from './microsoftGraphEoMonth/microsoftGraphEoMonthRequestBuilder';
-import {MicrosoftGraphErf_PreciseRequestBuilder} from './microsoftGraphErf_Precise/microsoftGraphErf_PreciseRequestBuilder';
-import {MicrosoftGraphErfRequestBuilder} from './microsoftGraphErf/microsoftGraphErfRequestBuilder';
-import {MicrosoftGraphErfC_PreciseRequestBuilder} from './microsoftGraphErfC_Precise/microsoftGraphErfC_PreciseRequestBuilder';
-import {MicrosoftGraphErfCRequestBuilder} from './microsoftGraphErfC/microsoftGraphErfCRequestBuilder';
-import {MicrosoftGraphError_TypeRequestBuilder} from './microsoftGraphError_Type/microsoftGraphError_TypeRequestBuilder';
-import {MicrosoftGraphEvenRequestBuilder} from './microsoftGraphEven/microsoftGraphEvenRequestBuilder';
-import {MicrosoftGraphExactRequestBuilder} from './microsoftGraphExact/microsoftGraphExactRequestBuilder';
-import {MicrosoftGraphExpRequestBuilder} from './microsoftGraphExp/microsoftGraphExpRequestBuilder';
-import {MicrosoftGraphExpon_DistRequestBuilder} from './microsoftGraphExpon_Dist/microsoftGraphExpon_DistRequestBuilder';
-import {MicrosoftGraphF_Dist_RTRequestBuilder} from './microsoftGraphF_Dist_RT/microsoftGraphF_Dist_RTRequestBuilder';
-import {MicrosoftGraphF_DistRequestBuilder} from './microsoftGraphF_Dist/microsoftGraphF_DistRequestBuilder';
-import {MicrosoftGraphF_Inv_RTRequestBuilder} from './microsoftGraphF_Inv_RT/microsoftGraphF_Inv_RTRequestBuilder';
-import {MicrosoftGraphF_InvRequestBuilder} from './microsoftGraphF_Inv/microsoftGraphF_InvRequestBuilder';
-import {MicrosoftGraphFactRequestBuilder} from './microsoftGraphFact/microsoftGraphFactRequestBuilder';
-import {MicrosoftGraphFactDoubleRequestBuilder} from './microsoftGraphFactDouble/microsoftGraphFactDoubleRequestBuilder';
-import {MicrosoftGraphFalseRequestBuilder} from './microsoftGraphFalse/microsoftGraphFalseRequestBuilder';
-import {MicrosoftGraphFindRequestBuilder} from './microsoftGraphFind/microsoftGraphFindRequestBuilder';
-import {MicrosoftGraphFindBRequestBuilder} from './microsoftGraphFindB/microsoftGraphFindBRequestBuilder';
-import {MicrosoftGraphFisherRequestBuilder} from './microsoftGraphFisher/microsoftGraphFisherRequestBuilder';
-import {MicrosoftGraphFisherInvRequestBuilder} from './microsoftGraphFisherInv/microsoftGraphFisherInvRequestBuilder';
-import {MicrosoftGraphFixedRequestBuilder} from './microsoftGraphFixed/microsoftGraphFixedRequestBuilder';
-import {MicrosoftGraphFloor_MathRequestBuilder} from './microsoftGraphFloor_Math/microsoftGraphFloor_MathRequestBuilder';
-import {MicrosoftGraphFloor_PreciseRequestBuilder} from './microsoftGraphFloor_Precise/microsoftGraphFloor_PreciseRequestBuilder';
-import {MicrosoftGraphFvRequestBuilder} from './microsoftGraphFv/microsoftGraphFvRequestBuilder';
-import {MicrosoftGraphFvscheduleRequestBuilder} from './microsoftGraphFvschedule/microsoftGraphFvscheduleRequestBuilder';
-import {MicrosoftGraphGamma_DistRequestBuilder} from './microsoftGraphGamma_Dist/microsoftGraphGamma_DistRequestBuilder';
-import {MicrosoftGraphGamma_InvRequestBuilder} from './microsoftGraphGamma_Inv/microsoftGraphGamma_InvRequestBuilder';
-import {MicrosoftGraphGammaRequestBuilder} from './microsoftGraphGamma/microsoftGraphGammaRequestBuilder';
-import {MicrosoftGraphGammaLn_PreciseRequestBuilder} from './microsoftGraphGammaLn_Precise/microsoftGraphGammaLn_PreciseRequestBuilder';
-import {MicrosoftGraphGammaLnRequestBuilder} from './microsoftGraphGammaLn/microsoftGraphGammaLnRequestBuilder';
-import {MicrosoftGraphGaussRequestBuilder} from './microsoftGraphGauss/microsoftGraphGaussRequestBuilder';
-import {MicrosoftGraphGcdRequestBuilder} from './microsoftGraphGcd/microsoftGraphGcdRequestBuilder';
-import {MicrosoftGraphGeoMeanRequestBuilder} from './microsoftGraphGeoMean/microsoftGraphGeoMeanRequestBuilder';
-import {MicrosoftGraphGeStepRequestBuilder} from './microsoftGraphGeStep/microsoftGraphGeStepRequestBuilder';
-import {MicrosoftGraphHarMeanRequestBuilder} from './microsoftGraphHarMean/microsoftGraphHarMeanRequestBuilder';
-import {MicrosoftGraphHex2BinRequestBuilder} from './microsoftGraphHex2Bin/microsoftGraphHex2BinRequestBuilder';
-import {MicrosoftGraphHex2DecRequestBuilder} from './microsoftGraphHex2Dec/microsoftGraphHex2DecRequestBuilder';
-import {MicrosoftGraphHex2OctRequestBuilder} from './microsoftGraphHex2Oct/microsoftGraphHex2OctRequestBuilder';
-import {MicrosoftGraphHlookupRequestBuilder} from './microsoftGraphHlookup/microsoftGraphHlookupRequestBuilder';
-import {MicrosoftGraphHourRequestBuilder} from './microsoftGraphHour/microsoftGraphHourRequestBuilder';
-import {MicrosoftGraphHyperlinkRequestBuilder} from './microsoftGraphHyperlink/microsoftGraphHyperlinkRequestBuilder';
-import {MicrosoftGraphHypGeom_DistRequestBuilder} from './microsoftGraphHypGeom_Dist/microsoftGraphHypGeom_DistRequestBuilder';
-import {MicrosoftGraphIfRequestBuilder} from './microsoftGraphIf/microsoftGraphIfRequestBuilder';
-import {MicrosoftGraphImAbsRequestBuilder} from './microsoftGraphImAbs/microsoftGraphImAbsRequestBuilder';
-import {MicrosoftGraphImaginaryRequestBuilder} from './microsoftGraphImaginary/microsoftGraphImaginaryRequestBuilder';
-import {MicrosoftGraphImArgumentRequestBuilder} from './microsoftGraphImArgument/microsoftGraphImArgumentRequestBuilder';
-import {MicrosoftGraphImConjugateRequestBuilder} from './microsoftGraphImConjugate/microsoftGraphImConjugateRequestBuilder';
-import {MicrosoftGraphImCosRequestBuilder} from './microsoftGraphImCos/microsoftGraphImCosRequestBuilder';
-import {MicrosoftGraphImCoshRequestBuilder} from './microsoftGraphImCosh/microsoftGraphImCoshRequestBuilder';
-import {MicrosoftGraphImCotRequestBuilder} from './microsoftGraphImCot/microsoftGraphImCotRequestBuilder';
-import {MicrosoftGraphImCscRequestBuilder} from './microsoftGraphImCsc/microsoftGraphImCscRequestBuilder';
-import {MicrosoftGraphImCschRequestBuilder} from './microsoftGraphImCsch/microsoftGraphImCschRequestBuilder';
-import {MicrosoftGraphImDivRequestBuilder} from './microsoftGraphImDiv/microsoftGraphImDivRequestBuilder';
-import {MicrosoftGraphImExpRequestBuilder} from './microsoftGraphImExp/microsoftGraphImExpRequestBuilder';
-import {MicrosoftGraphImLnRequestBuilder} from './microsoftGraphImLn/microsoftGraphImLnRequestBuilder';
-import {MicrosoftGraphImLog10RequestBuilder} from './microsoftGraphImLog10/microsoftGraphImLog10RequestBuilder';
-import {MicrosoftGraphImLog2RequestBuilder} from './microsoftGraphImLog2/microsoftGraphImLog2RequestBuilder';
-import {MicrosoftGraphImPowerRequestBuilder} from './microsoftGraphImPower/microsoftGraphImPowerRequestBuilder';
-import {MicrosoftGraphImProductRequestBuilder} from './microsoftGraphImProduct/microsoftGraphImProductRequestBuilder';
-import {MicrosoftGraphImRealRequestBuilder} from './microsoftGraphImReal/microsoftGraphImRealRequestBuilder';
-import {MicrosoftGraphImSecRequestBuilder} from './microsoftGraphImSec/microsoftGraphImSecRequestBuilder';
-import {MicrosoftGraphImSechRequestBuilder} from './microsoftGraphImSech/microsoftGraphImSechRequestBuilder';
-import {MicrosoftGraphImSinRequestBuilder} from './microsoftGraphImSin/microsoftGraphImSinRequestBuilder';
-import {MicrosoftGraphImSinhRequestBuilder} from './microsoftGraphImSinh/microsoftGraphImSinhRequestBuilder';
-import {MicrosoftGraphImSqrtRequestBuilder} from './microsoftGraphImSqrt/microsoftGraphImSqrtRequestBuilder';
-import {MicrosoftGraphImSubRequestBuilder} from './microsoftGraphImSub/microsoftGraphImSubRequestBuilder';
-import {MicrosoftGraphImSumRequestBuilder} from './microsoftGraphImSum/microsoftGraphImSumRequestBuilder';
-import {MicrosoftGraphImTanRequestBuilder} from './microsoftGraphImTan/microsoftGraphImTanRequestBuilder';
-import {MicrosoftGraphIntRequestBuilder} from './microsoftGraphInt/microsoftGraphIntRequestBuilder';
-import {MicrosoftGraphIntRateRequestBuilder} from './microsoftGraphIntRate/microsoftGraphIntRateRequestBuilder';
-import {MicrosoftGraphIpmtRequestBuilder} from './microsoftGraphIpmt/microsoftGraphIpmtRequestBuilder';
-import {MicrosoftGraphIrrRequestBuilder} from './microsoftGraphIrr/microsoftGraphIrrRequestBuilder';
-import {MicrosoftGraphIsErrRequestBuilder} from './microsoftGraphIsErr/microsoftGraphIsErrRequestBuilder';
-import {MicrosoftGraphIsErrorRequestBuilder} from './microsoftGraphIsError/microsoftGraphIsErrorRequestBuilder';
-import {MicrosoftGraphIsEvenRequestBuilder} from './microsoftGraphIsEven/microsoftGraphIsEvenRequestBuilder';
-import {MicrosoftGraphIsFormulaRequestBuilder} from './microsoftGraphIsFormula/microsoftGraphIsFormulaRequestBuilder';
-import {MicrosoftGraphIsLogicalRequestBuilder} from './microsoftGraphIsLogical/microsoftGraphIsLogicalRequestBuilder';
-import {MicrosoftGraphIsNARequestBuilder} from './microsoftGraphIsNA/microsoftGraphIsNARequestBuilder';
-import {MicrosoftGraphIsNonTextRequestBuilder} from './microsoftGraphIsNonText/microsoftGraphIsNonTextRequestBuilder';
-import {MicrosoftGraphIsNumberRequestBuilder} from './microsoftGraphIsNumber/microsoftGraphIsNumberRequestBuilder';
-import {MicrosoftGraphIso_CeilingRequestBuilder} from './microsoftGraphIso_Ceiling/microsoftGraphIso_CeilingRequestBuilder';
-import {MicrosoftGraphIsOddRequestBuilder} from './microsoftGraphIsOdd/microsoftGraphIsOddRequestBuilder';
-import {MicrosoftGraphIsoWeekNumRequestBuilder} from './microsoftGraphIsoWeekNum/microsoftGraphIsoWeekNumRequestBuilder';
-import {MicrosoftGraphIspmtRequestBuilder} from './microsoftGraphIspmt/microsoftGraphIspmtRequestBuilder';
-import {MicrosoftGraphIsrefRequestBuilder} from './microsoftGraphIsref/microsoftGraphIsrefRequestBuilder';
-import {MicrosoftGraphIsTextRequestBuilder} from './microsoftGraphIsText/microsoftGraphIsTextRequestBuilder';
-import {MicrosoftGraphKurtRequestBuilder} from './microsoftGraphKurt/microsoftGraphKurtRequestBuilder';
-import {MicrosoftGraphLargeRequestBuilder} from './microsoftGraphLarge/microsoftGraphLargeRequestBuilder';
-import {MicrosoftGraphLcmRequestBuilder} from './microsoftGraphLcm/microsoftGraphLcmRequestBuilder';
-import {MicrosoftGraphLeftRequestBuilder} from './microsoftGraphLeft/microsoftGraphLeftRequestBuilder';
-import {MicrosoftGraphLeftbRequestBuilder} from './microsoftGraphLeftb/microsoftGraphLeftbRequestBuilder';
-import {MicrosoftGraphLenRequestBuilder} from './microsoftGraphLen/microsoftGraphLenRequestBuilder';
-import {MicrosoftGraphLenbRequestBuilder} from './microsoftGraphLenb/microsoftGraphLenbRequestBuilder';
-import {MicrosoftGraphLnRequestBuilder} from './microsoftGraphLn/microsoftGraphLnRequestBuilder';
-import {MicrosoftGraphLogRequestBuilder} from './microsoftGraphLog/microsoftGraphLogRequestBuilder';
-import {MicrosoftGraphLog10RequestBuilder} from './microsoftGraphLog10/microsoftGraphLog10RequestBuilder';
-import {MicrosoftGraphLogNorm_DistRequestBuilder} from './microsoftGraphLogNorm_Dist/microsoftGraphLogNorm_DistRequestBuilder';
-import {MicrosoftGraphLogNorm_InvRequestBuilder} from './microsoftGraphLogNorm_Inv/microsoftGraphLogNorm_InvRequestBuilder';
-import {MicrosoftGraphLookupRequestBuilder} from './microsoftGraphLookup/microsoftGraphLookupRequestBuilder';
-import {MicrosoftGraphLowerRequestBuilder} from './microsoftGraphLower/microsoftGraphLowerRequestBuilder';
-import {MicrosoftGraphMatchRequestBuilder} from './microsoftGraphMatch/microsoftGraphMatchRequestBuilder';
-import {MicrosoftGraphMaxRequestBuilder} from './microsoftGraphMax/microsoftGraphMaxRequestBuilder';
-import {MicrosoftGraphMaxARequestBuilder} from './microsoftGraphMaxA/microsoftGraphMaxARequestBuilder';
-import {MicrosoftGraphMdurationRequestBuilder} from './microsoftGraphMduration/microsoftGraphMdurationRequestBuilder';
-import {MicrosoftGraphMedianRequestBuilder} from './microsoftGraphMedian/microsoftGraphMedianRequestBuilder';
-import {MicrosoftGraphMidRequestBuilder} from './microsoftGraphMid/microsoftGraphMidRequestBuilder';
-import {MicrosoftGraphMidbRequestBuilder} from './microsoftGraphMidb/microsoftGraphMidbRequestBuilder';
-import {MicrosoftGraphMinRequestBuilder} from './microsoftGraphMin/microsoftGraphMinRequestBuilder';
-import {MicrosoftGraphMinARequestBuilder} from './microsoftGraphMinA/microsoftGraphMinARequestBuilder';
-import {MicrosoftGraphMinuteRequestBuilder} from './microsoftGraphMinute/microsoftGraphMinuteRequestBuilder';
-import {MicrosoftGraphMirrRequestBuilder} from './microsoftGraphMirr/microsoftGraphMirrRequestBuilder';
-import {MicrosoftGraphModRequestBuilder} from './microsoftGraphMod/microsoftGraphModRequestBuilder';
-import {MicrosoftGraphMonthRequestBuilder} from './microsoftGraphMonth/microsoftGraphMonthRequestBuilder';
-import {MicrosoftGraphMroundRequestBuilder} from './microsoftGraphMround/microsoftGraphMroundRequestBuilder';
-import {MicrosoftGraphMultiNomialRequestBuilder} from './microsoftGraphMultiNomial/microsoftGraphMultiNomialRequestBuilder';
-import {MicrosoftGraphNRequestBuilder} from './microsoftGraphN/microsoftGraphNRequestBuilder';
-import {MicrosoftGraphNaRequestBuilder} from './microsoftGraphNa/microsoftGraphNaRequestBuilder';
-import {MicrosoftGraphNegBinom_DistRequestBuilder} from './microsoftGraphNegBinom_Dist/microsoftGraphNegBinom_DistRequestBuilder';
-import {MicrosoftGraphNetworkDays_IntlRequestBuilder} from './microsoftGraphNetworkDays_Intl/microsoftGraphNetworkDays_IntlRequestBuilder';
-import {MicrosoftGraphNetworkDaysRequestBuilder} from './microsoftGraphNetworkDays/microsoftGraphNetworkDaysRequestBuilder';
-import {MicrosoftGraphNominalRequestBuilder} from './microsoftGraphNominal/microsoftGraphNominalRequestBuilder';
-import {MicrosoftGraphNorm_DistRequestBuilder} from './microsoftGraphNorm_Dist/microsoftGraphNorm_DistRequestBuilder';
-import {MicrosoftGraphNorm_InvRequestBuilder} from './microsoftGraphNorm_Inv/microsoftGraphNorm_InvRequestBuilder';
-import {MicrosoftGraphNorm_S_DistRequestBuilder} from './microsoftGraphNorm_S_Dist/microsoftGraphNorm_S_DistRequestBuilder';
-import {MicrosoftGraphNorm_S_InvRequestBuilder} from './microsoftGraphNorm_S_Inv/microsoftGraphNorm_S_InvRequestBuilder';
-import {MicrosoftGraphNotRequestBuilder} from './microsoftGraphNot/microsoftGraphNotRequestBuilder';
-import {MicrosoftGraphNowRequestBuilder} from './microsoftGraphNow/microsoftGraphNowRequestBuilder';
-import {MicrosoftGraphNperRequestBuilder} from './microsoftGraphNper/microsoftGraphNperRequestBuilder';
-import {MicrosoftGraphNpvRequestBuilder} from './microsoftGraphNpv/microsoftGraphNpvRequestBuilder';
-import {MicrosoftGraphNumberValueRequestBuilder} from './microsoftGraphNumberValue/microsoftGraphNumberValueRequestBuilder';
-import {MicrosoftGraphOct2BinRequestBuilder} from './microsoftGraphOct2Bin/microsoftGraphOct2BinRequestBuilder';
-import {MicrosoftGraphOct2DecRequestBuilder} from './microsoftGraphOct2Dec/microsoftGraphOct2DecRequestBuilder';
-import {MicrosoftGraphOct2HexRequestBuilder} from './microsoftGraphOct2Hex/microsoftGraphOct2HexRequestBuilder';
-import {MicrosoftGraphOddRequestBuilder} from './microsoftGraphOdd/microsoftGraphOddRequestBuilder';
-import {MicrosoftGraphOddFPriceRequestBuilder} from './microsoftGraphOddFPrice/microsoftGraphOddFPriceRequestBuilder';
-import {MicrosoftGraphOddFYieldRequestBuilder} from './microsoftGraphOddFYield/microsoftGraphOddFYieldRequestBuilder';
-import {MicrosoftGraphOddLPriceRequestBuilder} from './microsoftGraphOddLPrice/microsoftGraphOddLPriceRequestBuilder';
-import {MicrosoftGraphOddLYieldRequestBuilder} from './microsoftGraphOddLYield/microsoftGraphOddLYieldRequestBuilder';
-import {MicrosoftGraphOrRequestBuilder} from './microsoftGraphOr/microsoftGraphOrRequestBuilder';
-import {MicrosoftGraphPdurationRequestBuilder} from './microsoftGraphPduration/microsoftGraphPdurationRequestBuilder';
-import {MicrosoftGraphPercentile_ExcRequestBuilder} from './microsoftGraphPercentile_Exc/microsoftGraphPercentile_ExcRequestBuilder';
-import {MicrosoftGraphPercentile_IncRequestBuilder} from './microsoftGraphPercentile_Inc/microsoftGraphPercentile_IncRequestBuilder';
-import {MicrosoftGraphPercentRank_ExcRequestBuilder} from './microsoftGraphPercentRank_Exc/microsoftGraphPercentRank_ExcRequestBuilder';
-import {MicrosoftGraphPercentRank_IncRequestBuilder} from './microsoftGraphPercentRank_Inc/microsoftGraphPercentRank_IncRequestBuilder';
-import {MicrosoftGraphPermutRequestBuilder} from './microsoftGraphPermut/microsoftGraphPermutRequestBuilder';
-import {MicrosoftGraphPermutationaRequestBuilder} from './microsoftGraphPermutationa/microsoftGraphPermutationaRequestBuilder';
-import {MicrosoftGraphPhiRequestBuilder} from './microsoftGraphPhi/microsoftGraphPhiRequestBuilder';
-import {MicrosoftGraphPiRequestBuilder} from './microsoftGraphPi/microsoftGraphPiRequestBuilder';
-import {MicrosoftGraphPmtRequestBuilder} from './microsoftGraphPmt/microsoftGraphPmtRequestBuilder';
-import {MicrosoftGraphPoisson_DistRequestBuilder} from './microsoftGraphPoisson_Dist/microsoftGraphPoisson_DistRequestBuilder';
-import {MicrosoftGraphPowerRequestBuilder} from './microsoftGraphPower/microsoftGraphPowerRequestBuilder';
-import {MicrosoftGraphPpmtRequestBuilder} from './microsoftGraphPpmt/microsoftGraphPpmtRequestBuilder';
-import {MicrosoftGraphPriceRequestBuilder} from './microsoftGraphPrice/microsoftGraphPriceRequestBuilder';
-import {MicrosoftGraphPriceDiscRequestBuilder} from './microsoftGraphPriceDisc/microsoftGraphPriceDiscRequestBuilder';
-import {MicrosoftGraphPriceMatRequestBuilder} from './microsoftGraphPriceMat/microsoftGraphPriceMatRequestBuilder';
-import {MicrosoftGraphProductRequestBuilder} from './microsoftGraphProduct/microsoftGraphProductRequestBuilder';
-import {MicrosoftGraphProperRequestBuilder} from './microsoftGraphProper/microsoftGraphProperRequestBuilder';
-import {MicrosoftGraphPvRequestBuilder} from './microsoftGraphPv/microsoftGraphPvRequestBuilder';
-import {MicrosoftGraphQuartile_ExcRequestBuilder} from './microsoftGraphQuartile_Exc/microsoftGraphQuartile_ExcRequestBuilder';
-import {MicrosoftGraphQuartile_IncRequestBuilder} from './microsoftGraphQuartile_Inc/microsoftGraphQuartile_IncRequestBuilder';
-import {MicrosoftGraphQuotientRequestBuilder} from './microsoftGraphQuotient/microsoftGraphQuotientRequestBuilder';
-import {MicrosoftGraphRadiansRequestBuilder} from './microsoftGraphRadians/microsoftGraphRadiansRequestBuilder';
-import {MicrosoftGraphRandRequestBuilder} from './microsoftGraphRand/microsoftGraphRandRequestBuilder';
-import {MicrosoftGraphRandBetweenRequestBuilder} from './microsoftGraphRandBetween/microsoftGraphRandBetweenRequestBuilder';
-import {MicrosoftGraphRank_AvgRequestBuilder} from './microsoftGraphRank_Avg/microsoftGraphRank_AvgRequestBuilder';
-import {MicrosoftGraphRank_EqRequestBuilder} from './microsoftGraphRank_Eq/microsoftGraphRank_EqRequestBuilder';
-import {MicrosoftGraphRateRequestBuilder} from './microsoftGraphRate/microsoftGraphRateRequestBuilder';
-import {MicrosoftGraphReceivedRequestBuilder} from './microsoftGraphReceived/microsoftGraphReceivedRequestBuilder';
-import {MicrosoftGraphReplaceRequestBuilder} from './microsoftGraphReplace/microsoftGraphReplaceRequestBuilder';
-import {MicrosoftGraphReplaceBRequestBuilder} from './microsoftGraphReplaceB/microsoftGraphReplaceBRequestBuilder';
-import {MicrosoftGraphReptRequestBuilder} from './microsoftGraphRept/microsoftGraphReptRequestBuilder';
-import {MicrosoftGraphRightRequestBuilder} from './microsoftGraphRight/microsoftGraphRightRequestBuilder';
-import {MicrosoftGraphRightbRequestBuilder} from './microsoftGraphRightb/microsoftGraphRightbRequestBuilder';
-import {MicrosoftGraphRomanRequestBuilder} from './microsoftGraphRoman/microsoftGraphRomanRequestBuilder';
-import {MicrosoftGraphRoundRequestBuilder} from './microsoftGraphRound/microsoftGraphRoundRequestBuilder';
-import {MicrosoftGraphRoundDownRequestBuilder} from './microsoftGraphRoundDown/microsoftGraphRoundDownRequestBuilder';
-import {MicrosoftGraphRoundUpRequestBuilder} from './microsoftGraphRoundUp/microsoftGraphRoundUpRequestBuilder';
-import {MicrosoftGraphRowsRequestBuilder} from './microsoftGraphRows/microsoftGraphRowsRequestBuilder';
-import {MicrosoftGraphRriRequestBuilder} from './microsoftGraphRri/microsoftGraphRriRequestBuilder';
-import {MicrosoftGraphSecRequestBuilder} from './microsoftGraphSec/microsoftGraphSecRequestBuilder';
-import {MicrosoftGraphSechRequestBuilder} from './microsoftGraphSech/microsoftGraphSechRequestBuilder';
-import {MicrosoftGraphSecondRequestBuilder} from './microsoftGraphSecond/microsoftGraphSecondRequestBuilder';
-import {MicrosoftGraphSeriesSumRequestBuilder} from './microsoftGraphSeriesSum/microsoftGraphSeriesSumRequestBuilder';
-import {MicrosoftGraphSheetRequestBuilder} from './microsoftGraphSheet/microsoftGraphSheetRequestBuilder';
-import {MicrosoftGraphSheetsRequestBuilder} from './microsoftGraphSheets/microsoftGraphSheetsRequestBuilder';
-import {MicrosoftGraphSignRequestBuilder} from './microsoftGraphSign/microsoftGraphSignRequestBuilder';
-import {MicrosoftGraphSinRequestBuilder} from './microsoftGraphSin/microsoftGraphSinRequestBuilder';
-import {MicrosoftGraphSinhRequestBuilder} from './microsoftGraphSinh/microsoftGraphSinhRequestBuilder';
-import {MicrosoftGraphSkew_pRequestBuilder} from './microsoftGraphSkew_p/microsoftGraphSkew_pRequestBuilder';
-import {MicrosoftGraphSkewRequestBuilder} from './microsoftGraphSkew/microsoftGraphSkewRequestBuilder';
-import {MicrosoftGraphSlnRequestBuilder} from './microsoftGraphSln/microsoftGraphSlnRequestBuilder';
-import {MicrosoftGraphSmallRequestBuilder} from './microsoftGraphSmall/microsoftGraphSmallRequestBuilder';
-import {MicrosoftGraphSqrtRequestBuilder} from './microsoftGraphSqrt/microsoftGraphSqrtRequestBuilder';
-import {MicrosoftGraphSqrtPiRequestBuilder} from './microsoftGraphSqrtPi/microsoftGraphSqrtPiRequestBuilder';
-import {MicrosoftGraphStandardizeRequestBuilder} from './microsoftGraphStandardize/microsoftGraphStandardizeRequestBuilder';
-import {MicrosoftGraphStDev_PRequestBuilder} from './microsoftGraphStDev_P/microsoftGraphStDev_PRequestBuilder';
-import {MicrosoftGraphStDev_SRequestBuilder} from './microsoftGraphStDev_S/microsoftGraphStDev_SRequestBuilder';
-import {MicrosoftGraphStDevARequestBuilder} from './microsoftGraphStDevA/microsoftGraphStDevARequestBuilder';
-import {MicrosoftGraphStDevPARequestBuilder} from './microsoftGraphStDevPA/microsoftGraphStDevPARequestBuilder';
-import {MicrosoftGraphSubstituteRequestBuilder} from './microsoftGraphSubstitute/microsoftGraphSubstituteRequestBuilder';
-import {MicrosoftGraphSubtotalRequestBuilder} from './microsoftGraphSubtotal/microsoftGraphSubtotalRequestBuilder';
-import {MicrosoftGraphSumRequestBuilder} from './microsoftGraphSum/microsoftGraphSumRequestBuilder';
-import {MicrosoftGraphSumIfRequestBuilder} from './microsoftGraphSumIf/microsoftGraphSumIfRequestBuilder';
-import {MicrosoftGraphSumIfsRequestBuilder} from './microsoftGraphSumIfs/microsoftGraphSumIfsRequestBuilder';
-import {MicrosoftGraphSumSqRequestBuilder} from './microsoftGraphSumSq/microsoftGraphSumSqRequestBuilder';
-import {MicrosoftGraphSydRequestBuilder} from './microsoftGraphSyd/microsoftGraphSydRequestBuilder';
-import {MicrosoftGraphT_Dist_2TRequestBuilder} from './microsoftGraphT_Dist_2T/microsoftGraphT_Dist_2TRequestBuilder';
-import {MicrosoftGraphT_Dist_RTRequestBuilder} from './microsoftGraphT_Dist_RT/microsoftGraphT_Dist_RTRequestBuilder';
-import {MicrosoftGraphT_DistRequestBuilder} from './microsoftGraphT_Dist/microsoftGraphT_DistRequestBuilder';
-import {MicrosoftGraphT_Inv_2TRequestBuilder} from './microsoftGraphT_Inv_2T/microsoftGraphT_Inv_2TRequestBuilder';
-import {MicrosoftGraphT_InvRequestBuilder} from './microsoftGraphT_Inv/microsoftGraphT_InvRequestBuilder';
-import {MicrosoftGraphTRequestBuilder} from './microsoftGraphT/microsoftGraphTRequestBuilder';
-import {MicrosoftGraphTanRequestBuilder} from './microsoftGraphTan/microsoftGraphTanRequestBuilder';
-import {MicrosoftGraphTanhRequestBuilder} from './microsoftGraphTanh/microsoftGraphTanhRequestBuilder';
-import {MicrosoftGraphTbillEqRequestBuilder} from './microsoftGraphTbillEq/microsoftGraphTbillEqRequestBuilder';
-import {MicrosoftGraphTbillPriceRequestBuilder} from './microsoftGraphTbillPrice/microsoftGraphTbillPriceRequestBuilder';
-import {MicrosoftGraphTbillYieldRequestBuilder} from './microsoftGraphTbillYield/microsoftGraphTbillYieldRequestBuilder';
-import {MicrosoftGraphTextRequestBuilder} from './microsoftGraphText/microsoftGraphTextRequestBuilder';
-import {MicrosoftGraphTimeRequestBuilder} from './microsoftGraphTime/microsoftGraphTimeRequestBuilder';
-import {MicrosoftGraphTimevalueRequestBuilder} from './microsoftGraphTimevalue/microsoftGraphTimevalueRequestBuilder';
-import {MicrosoftGraphTodayRequestBuilder} from './microsoftGraphToday/microsoftGraphTodayRequestBuilder';
-import {MicrosoftGraphTrimRequestBuilder} from './microsoftGraphTrim/microsoftGraphTrimRequestBuilder';
-import {MicrosoftGraphTrimMeanRequestBuilder} from './microsoftGraphTrimMean/microsoftGraphTrimMeanRequestBuilder';
-import {MicrosoftGraphTrueRequestBuilder} from './microsoftGraphTrue/microsoftGraphTrueRequestBuilder';
-import {MicrosoftGraphTruncRequestBuilder} from './microsoftGraphTrunc/microsoftGraphTruncRequestBuilder';
-import {MicrosoftGraphTypeRequestBuilder} from './microsoftGraphType/microsoftGraphTypeRequestBuilder';
-import {MicrosoftGraphUnicharRequestBuilder} from './microsoftGraphUnichar/microsoftGraphUnicharRequestBuilder';
-import {MicrosoftGraphUnicodeRequestBuilder} from './microsoftGraphUnicode/microsoftGraphUnicodeRequestBuilder';
-import {MicrosoftGraphUpperRequestBuilder} from './microsoftGraphUpper/microsoftGraphUpperRequestBuilder';
-import {MicrosoftGraphUsdollarRequestBuilder} from './microsoftGraphUsdollar/microsoftGraphUsdollarRequestBuilder';
-import {MicrosoftGraphValueRequestBuilder} from './microsoftGraphValue/microsoftGraphValueRequestBuilder';
-import {MicrosoftGraphVar_PRequestBuilder} from './microsoftGraphVar_P/microsoftGraphVar_PRequestBuilder';
-import {MicrosoftGraphVar_SRequestBuilder} from './microsoftGraphVar_S/microsoftGraphVar_SRequestBuilder';
-import {MicrosoftGraphVarARequestBuilder} from './microsoftGraphVarA/microsoftGraphVarARequestBuilder';
-import {MicrosoftGraphVarPARequestBuilder} from './microsoftGraphVarPA/microsoftGraphVarPARequestBuilder';
-import {MicrosoftGraphVdbRequestBuilder} from './microsoftGraphVdb/microsoftGraphVdbRequestBuilder';
-import {MicrosoftGraphVlookupRequestBuilder} from './microsoftGraphVlookup/microsoftGraphVlookupRequestBuilder';
-import {MicrosoftGraphWeekdayRequestBuilder} from './microsoftGraphWeekday/microsoftGraphWeekdayRequestBuilder';
-import {MicrosoftGraphWeekNumRequestBuilder} from './microsoftGraphWeekNum/microsoftGraphWeekNumRequestBuilder';
-import {MicrosoftGraphWeibull_DistRequestBuilder} from './microsoftGraphWeibull_Dist/microsoftGraphWeibull_DistRequestBuilder';
-import {MicrosoftGraphWorkDay_IntlRequestBuilder} from './microsoftGraphWorkDay_Intl/microsoftGraphWorkDay_IntlRequestBuilder';
-import {MicrosoftGraphWorkDayRequestBuilder} from './microsoftGraphWorkDay/microsoftGraphWorkDayRequestBuilder';
-import {MicrosoftGraphXirrRequestBuilder} from './microsoftGraphXirr/microsoftGraphXirrRequestBuilder';
-import {MicrosoftGraphXnpvRequestBuilder} from './microsoftGraphXnpv/microsoftGraphXnpvRequestBuilder';
-import {MicrosoftGraphXorRequestBuilder} from './microsoftGraphXor/microsoftGraphXorRequestBuilder';
-import {MicrosoftGraphYearRequestBuilder} from './microsoftGraphYear/microsoftGraphYearRequestBuilder';
-import {MicrosoftGraphYearFracRequestBuilder} from './microsoftGraphYearFrac/microsoftGraphYearFracRequestBuilder';
-import {MicrosoftGraphYieldRequestBuilder} from './microsoftGraphYield/microsoftGraphYieldRequestBuilder';
-import {MicrosoftGraphYieldDiscRequestBuilder} from './microsoftGraphYieldDisc/microsoftGraphYieldDiscRequestBuilder';
-import {MicrosoftGraphYieldMatRequestBuilder} from './microsoftGraphYieldMat/microsoftGraphYieldMatRequestBuilder';
-import {MicrosoftGraphZ_TestRequestBuilder} from './microsoftGraphZ_Test/microsoftGraphZ_TestRequestBuilder';
+import {FvRequestBuilder} from './fv/fvRequestBuilder';
+import {FvscheduleRequestBuilder} from './fvschedule/fvscheduleRequestBuilder';
+import {Gamma_DistRequestBuilder} from './gamma_Dist/gamma_DistRequestBuilder';
+import {Gamma_InvRequestBuilder} from './gamma_Inv/gamma_InvRequestBuilder';
+import {GammaRequestBuilder} from './gamma/gammaRequestBuilder';
+import {GammaLn_PreciseRequestBuilder} from './gammaLn_Precise/gammaLn_PreciseRequestBuilder';
+import {GammaLnRequestBuilder} from './gammaLn/gammaLnRequestBuilder';
+import {GaussRequestBuilder} from './gauss/gaussRequestBuilder';
+import {GcdRequestBuilder} from './gcd/gcdRequestBuilder';
+import {GeoMeanRequestBuilder} from './geoMean/geoMeanRequestBuilder';
+import {GeStepRequestBuilder} from './geStep/geStepRequestBuilder';
+import {HarMeanRequestBuilder} from './harMean/harMeanRequestBuilder';
+import {Hex2BinRequestBuilder} from './hex2Bin/hex2BinRequestBuilder';
+import {Hex2DecRequestBuilder} from './hex2Dec/hex2DecRequestBuilder';
+import {Hex2OctRequestBuilder} from './hex2Oct/hex2OctRequestBuilder';
+import {HlookupRequestBuilder} from './hlookup/hlookupRequestBuilder';
+import {HourRequestBuilder} from './hour/hourRequestBuilder';
+import {HyperlinkRequestBuilder} from './hyperlink/hyperlinkRequestBuilder';
+import {HypGeom_DistRequestBuilder} from './hypGeom_Dist/hypGeom_DistRequestBuilder';
+import {IfRequestBuilder} from './ifEscaped/ifRequestBuilder';
+import {ImAbsRequestBuilder} from './imAbs/imAbsRequestBuilder';
+import {ImaginaryRequestBuilder} from './imaginary/imaginaryRequestBuilder';
+import {ImArgumentRequestBuilder} from './imArgument/imArgumentRequestBuilder';
+import {ImConjugateRequestBuilder} from './imConjugate/imConjugateRequestBuilder';
+import {ImCosRequestBuilder} from './imCos/imCosRequestBuilder';
+import {ImCoshRequestBuilder} from './imCosh/imCoshRequestBuilder';
+import {ImCotRequestBuilder} from './imCot/imCotRequestBuilder';
+import {ImCscRequestBuilder} from './imCsc/imCscRequestBuilder';
+import {ImCschRequestBuilder} from './imCsch/imCschRequestBuilder';
+import {ImDivRequestBuilder} from './imDiv/imDivRequestBuilder';
+import {ImExpRequestBuilder} from './imExp/imExpRequestBuilder';
+import {ImLnRequestBuilder} from './imLn/imLnRequestBuilder';
+import {ImLog10RequestBuilder} from './imLog10/imLog10RequestBuilder';
+import {ImLog2RequestBuilder} from './imLog2/imLog2RequestBuilder';
+import {ImPowerRequestBuilder} from './imPower/imPowerRequestBuilder';
+import {ImProductRequestBuilder} from './imProduct/imProductRequestBuilder';
+import {ImRealRequestBuilder} from './imReal/imRealRequestBuilder';
+import {ImSecRequestBuilder} from './imSec/imSecRequestBuilder';
+import {ImSechRequestBuilder} from './imSech/imSechRequestBuilder';
+import {ImSinRequestBuilder} from './imSin/imSinRequestBuilder';
+import {ImSinhRequestBuilder} from './imSinh/imSinhRequestBuilder';
+import {ImSqrtRequestBuilder} from './imSqrt/imSqrtRequestBuilder';
+import {ImSubRequestBuilder} from './imSub/imSubRequestBuilder';
+import {ImSumRequestBuilder} from './imSum/imSumRequestBuilder';
+import {ImTanRequestBuilder} from './imTan/imTanRequestBuilder';
+import {IntRequestBuilder} from './int/intRequestBuilder';
+import {IntRateRequestBuilder} from './intRate/intRateRequestBuilder';
+import {IpmtRequestBuilder} from './ipmt/ipmtRequestBuilder';
+import {IrrRequestBuilder} from './irr/irrRequestBuilder';
+import {IsErrRequestBuilder} from './isErr/isErrRequestBuilder';
+import {IsErrorRequestBuilder} from './isError/isErrorRequestBuilder';
+import {IsEvenRequestBuilder} from './isEven/isEvenRequestBuilder';
+import {IsFormulaRequestBuilder} from './isFormula/isFormulaRequestBuilder';
+import {IsLogicalRequestBuilder} from './isLogical/isLogicalRequestBuilder';
+import {IsNARequestBuilder} from './isNA/isNARequestBuilder';
+import {IsNonTextRequestBuilder} from './isNonText/isNonTextRequestBuilder';
+import {IsNumberRequestBuilder} from './isNumber/isNumberRequestBuilder';
+import {Iso_CeilingRequestBuilder} from './iso_Ceiling/iso_CeilingRequestBuilder';
+import {IsOddRequestBuilder} from './isOdd/isOddRequestBuilder';
+import {IsoWeekNumRequestBuilder} from './isoWeekNum/isoWeekNumRequestBuilder';
+import {IspmtRequestBuilder} from './ispmt/ispmtRequestBuilder';
+import {IsrefRequestBuilder} from './isref/isrefRequestBuilder';
+import {IsTextRequestBuilder} from './isText/isTextRequestBuilder';
+import {KurtRequestBuilder} from './kurt/kurtRequestBuilder';
+import {LargeRequestBuilder} from './large/largeRequestBuilder';
+import {LcmRequestBuilder} from './lcm/lcmRequestBuilder';
+import {LeftRequestBuilder} from './left/leftRequestBuilder';
+import {LeftbRequestBuilder} from './leftb/leftbRequestBuilder';
+import {LenRequestBuilder} from './len/lenRequestBuilder';
+import {LenbRequestBuilder} from './lenb/lenbRequestBuilder';
+import {LnRequestBuilder} from './ln/lnRequestBuilder';
+import {LogRequestBuilder} from './log/logRequestBuilder';
+import {Log10RequestBuilder} from './log10/log10RequestBuilder';
+import {LogNorm_DistRequestBuilder} from './logNorm_Dist/logNorm_DistRequestBuilder';
+import {LogNorm_InvRequestBuilder} from './logNorm_Inv/logNorm_InvRequestBuilder';
+import {LookupRequestBuilder} from './lookup/lookupRequestBuilder';
+import {LowerRequestBuilder} from './lower/lowerRequestBuilder';
+import {MatchRequestBuilder} from './match/matchRequestBuilder';
+import {MaxRequestBuilder} from './max/maxRequestBuilder';
+import {MaxARequestBuilder} from './maxA/maxARequestBuilder';
+import {MdurationRequestBuilder} from './mduration/mdurationRequestBuilder';
+import {MedianRequestBuilder} from './median/medianRequestBuilder';
+import {MidRequestBuilder} from './mid/midRequestBuilder';
+import {MidbRequestBuilder} from './midb/midbRequestBuilder';
+import {MinRequestBuilder} from './min/minRequestBuilder';
+import {MinARequestBuilder} from './minA/minARequestBuilder';
+import {MinuteRequestBuilder} from './minute/minuteRequestBuilder';
+import {MirrRequestBuilder} from './mirr/mirrRequestBuilder';
+import {ModRequestBuilder} from './mod/modRequestBuilder';
+import {MonthRequestBuilder} from './month/monthRequestBuilder';
+import {MroundRequestBuilder} from './mround/mroundRequestBuilder';
+import {MultiNomialRequestBuilder} from './multiNomial/multiNomialRequestBuilder';
+import {NRequestBuilder} from './n/nRequestBuilder';
+import {NaRequestBuilder} from './na/naRequestBuilder';
+import {NegBinom_DistRequestBuilder} from './negBinom_Dist/negBinom_DistRequestBuilder';
+import {NetworkDays_IntlRequestBuilder} from './networkDays_Intl/networkDays_IntlRequestBuilder';
+import {NetworkDaysRequestBuilder} from './networkDays/networkDaysRequestBuilder';
+import {NominalRequestBuilder} from './nominal/nominalRequestBuilder';
+import {Norm_DistRequestBuilder} from './norm_Dist/norm_DistRequestBuilder';
+import {Norm_InvRequestBuilder} from './norm_Inv/norm_InvRequestBuilder';
+import {Norm_S_DistRequestBuilder} from './norm_S_Dist/norm_S_DistRequestBuilder';
+import {Norm_S_InvRequestBuilder} from './norm_S_Inv/norm_S_InvRequestBuilder';
+import {NotRequestBuilder} from './not/notRequestBuilder';
+import {NowRequestBuilder} from './now/nowRequestBuilder';
+import {NperRequestBuilder} from './nper/nperRequestBuilder';
+import {NpvRequestBuilder} from './npv/npvRequestBuilder';
+import {NumberValueRequestBuilder} from './numberValue/numberValueRequestBuilder';
+import {Oct2BinRequestBuilder} from './oct2Bin/oct2BinRequestBuilder';
+import {Oct2DecRequestBuilder} from './oct2Dec/oct2DecRequestBuilder';
+import {Oct2HexRequestBuilder} from './oct2Hex/oct2HexRequestBuilder';
+import {OddRequestBuilder} from './odd/oddRequestBuilder';
+import {OddFPriceRequestBuilder} from './oddFPrice/oddFPriceRequestBuilder';
+import {OddFYieldRequestBuilder} from './oddFYield/oddFYieldRequestBuilder';
+import {OddLPriceRequestBuilder} from './oddLPrice/oddLPriceRequestBuilder';
+import {OddLYieldRequestBuilder} from './oddLYield/oddLYieldRequestBuilder';
+import {OrRequestBuilder} from './or/orRequestBuilder';
+import {PdurationRequestBuilder} from './pduration/pdurationRequestBuilder';
+import {Percentile_ExcRequestBuilder} from './percentile_Exc/percentile_ExcRequestBuilder';
+import {Percentile_IncRequestBuilder} from './percentile_Inc/percentile_IncRequestBuilder';
+import {PercentRank_ExcRequestBuilder} from './percentRank_Exc/percentRank_ExcRequestBuilder';
+import {PercentRank_IncRequestBuilder} from './percentRank_Inc/percentRank_IncRequestBuilder';
+import {PermutRequestBuilder} from './permut/permutRequestBuilder';
+import {PermutationaRequestBuilder} from './permutationa/permutationaRequestBuilder';
+import {PhiRequestBuilder} from './phi/phiRequestBuilder';
+import {PiRequestBuilder} from './pi/piRequestBuilder';
+import {PmtRequestBuilder} from './pmt/pmtRequestBuilder';
+import {Poisson_DistRequestBuilder} from './poisson_Dist/poisson_DistRequestBuilder';
+import {PowerRequestBuilder} from './power/powerRequestBuilder';
+import {PpmtRequestBuilder} from './ppmt/ppmtRequestBuilder';
+import {PriceRequestBuilder} from './price/priceRequestBuilder';
+import {PriceDiscRequestBuilder} from './priceDisc/priceDiscRequestBuilder';
+import {PriceMatRequestBuilder} from './priceMat/priceMatRequestBuilder';
+import {ProductRequestBuilder} from './product/productRequestBuilder';
+import {ProperRequestBuilder} from './proper/properRequestBuilder';
+import {PvRequestBuilder} from './pv/pvRequestBuilder';
+import {Quartile_ExcRequestBuilder} from './quartile_Exc/quartile_ExcRequestBuilder';
+import {Quartile_IncRequestBuilder} from './quartile_Inc/quartile_IncRequestBuilder';
+import {QuotientRequestBuilder} from './quotient/quotientRequestBuilder';
+import {RadiansRequestBuilder} from './radians/radiansRequestBuilder';
+import {RandRequestBuilder} from './rand/randRequestBuilder';
+import {RandBetweenRequestBuilder} from './randBetween/randBetweenRequestBuilder';
+import {Rank_AvgRequestBuilder} from './rank_Avg/rank_AvgRequestBuilder';
+import {Rank_EqRequestBuilder} from './rank_Eq/rank_EqRequestBuilder';
+import {RateRequestBuilder} from './rate/rateRequestBuilder';
+import {ReceivedRequestBuilder} from './received/receivedRequestBuilder';
+import {ReplaceRequestBuilder} from './replace/replaceRequestBuilder';
+import {ReplaceBRequestBuilder} from './replaceB/replaceBRequestBuilder';
+import {ReptRequestBuilder} from './rept/reptRequestBuilder';
+import {RightRequestBuilder} from './right/rightRequestBuilder';
+import {RightbRequestBuilder} from './rightb/rightbRequestBuilder';
+import {RomanRequestBuilder} from './roman/romanRequestBuilder';
+import {RoundRequestBuilder} from './round/roundRequestBuilder';
+import {RoundDownRequestBuilder} from './roundDown/roundDownRequestBuilder';
+import {RoundUpRequestBuilder} from './roundUp/roundUpRequestBuilder';
+import {RowsRequestBuilder} from './rows/rowsRequestBuilder';
+import {RriRequestBuilder} from './rri/rriRequestBuilder';
+import {SecRequestBuilder} from './sec/secRequestBuilder';
+import {SechRequestBuilder} from './sech/sechRequestBuilder';
+import {SecondRequestBuilder} from './second/secondRequestBuilder';
+import {SeriesSumRequestBuilder} from './seriesSum/seriesSumRequestBuilder';
+import {SheetRequestBuilder} from './sheet/sheetRequestBuilder';
+import {SheetsRequestBuilder} from './sheets/sheetsRequestBuilder';
+import {SignRequestBuilder} from './sign/signRequestBuilder';
+import {SinRequestBuilder} from './sin/sinRequestBuilder';
+import {SinhRequestBuilder} from './sinh/sinhRequestBuilder';
+import {Skew_pRequestBuilder} from './skew_p/skew_pRequestBuilder';
+import {SkewRequestBuilder} from './skew/skewRequestBuilder';
+import {SlnRequestBuilder} from './sln/slnRequestBuilder';
+import {SmallRequestBuilder} from './small/smallRequestBuilder';
+import {SqrtRequestBuilder} from './sqrt/sqrtRequestBuilder';
+import {SqrtPiRequestBuilder} from './sqrtPi/sqrtPiRequestBuilder';
+import {StandardizeRequestBuilder} from './standardize/standardizeRequestBuilder';
+import {StDev_PRequestBuilder} from './stDev_P/stDev_PRequestBuilder';
+import {StDev_SRequestBuilder} from './stDev_S/stDev_SRequestBuilder';
+import {StDevARequestBuilder} from './stDevA/stDevARequestBuilder';
+import {StDevPARequestBuilder} from './stDevPA/stDevPARequestBuilder';
+import {SubstituteRequestBuilder} from './substitute/substituteRequestBuilder';
+import {SubtotalRequestBuilder} from './subtotal/subtotalRequestBuilder';
+import {SumRequestBuilder} from './sum/sumRequestBuilder';
+import {SumIfRequestBuilder} from './sumIf/sumIfRequestBuilder';
+import {SumIfsRequestBuilder} from './sumIfs/sumIfsRequestBuilder';
+import {SumSqRequestBuilder} from './sumSq/sumSqRequestBuilder';
+import {SydRequestBuilder} from './syd/sydRequestBuilder';
+import {T_Dist_2TRequestBuilder} from './t_Dist_2T/t_Dist_2TRequestBuilder';
+import {T_Dist_RTRequestBuilder} from './t_Dist_RT/t_Dist_RTRequestBuilder';
+import {T_DistRequestBuilder} from './t_Dist/t_DistRequestBuilder';
+import {T_Inv_2TRequestBuilder} from './t_Inv_2T/t_Inv_2TRequestBuilder';
+import {T_InvRequestBuilder} from './t_Inv/t_InvRequestBuilder';
+import {TRequestBuilder} from './t/tRequestBuilder';
+import {TanRequestBuilder} from './tan/tanRequestBuilder';
+import {TanhRequestBuilder} from './tanh/tanhRequestBuilder';
+import {TbillEqRequestBuilder} from './tbillEq/tbillEqRequestBuilder';
+import {TbillPriceRequestBuilder} from './tbillPrice/tbillPriceRequestBuilder';
+import {TbillYieldRequestBuilder} from './tbillYield/tbillYieldRequestBuilder';
+import {TextRequestBuilder} from './text/textRequestBuilder';
+import {TimeRequestBuilder} from './time/timeRequestBuilder';
+import {TimevalueRequestBuilder} from './timevalue/timevalueRequestBuilder';
+import {TodayRequestBuilder} from './today/todayRequestBuilder';
+import {TrimRequestBuilder} from './trim/trimRequestBuilder';
+import {TrimMeanRequestBuilder} from './trimMean/trimMeanRequestBuilder';
+import {TrueRequestBuilder} from './trueEscaped/trueRequestBuilder';
+import {TruncRequestBuilder} from './trunc/truncRequestBuilder';
+import {TypeRequestBuilder} from './type/typeRequestBuilder';
+import {UnicharRequestBuilder} from './unichar/unicharRequestBuilder';
+import {UnicodeRequestBuilder} from './unicode/unicodeRequestBuilder';
+import {UpperRequestBuilder} from './upper/upperRequestBuilder';
+import {UsdollarRequestBuilder} from './usdollar/usdollarRequestBuilder';
+import {ValueRequestBuilder} from './value/valueRequestBuilder';
+import {Var_PRequestBuilder} from './var_P/var_PRequestBuilder';
+import {Var_SRequestBuilder} from './var_S/var_SRequestBuilder';
+import {VarARequestBuilder} from './varA/varARequestBuilder';
+import {VarPARequestBuilder} from './varPA/varPARequestBuilder';
+import {VdbRequestBuilder} from './vdb/vdbRequestBuilder';
+import {VlookupRequestBuilder} from './vlookup/vlookupRequestBuilder';
+import {WeekdayRequestBuilder} from './weekday/weekdayRequestBuilder';
+import {WeekNumRequestBuilder} from './weekNum/weekNumRequestBuilder';
+import {Weibull_DistRequestBuilder} from './weibull_Dist/weibull_DistRequestBuilder';
+import {WorkDay_IntlRequestBuilder} from './workDay_Intl/workDay_IntlRequestBuilder';
+import {WorkDayRequestBuilder} from './workDay/workDayRequestBuilder';
+import {XirrRequestBuilder} from './xirr/xirrRequestBuilder';
+import {XnpvRequestBuilder} from './xnpv/xnpvRequestBuilder';
+import {XorRequestBuilder} from './xor/xorRequestBuilder';
+import {YearRequestBuilder} from './year/yearRequestBuilder';
+import {YearFracRequestBuilder} from './yearFrac/yearFracRequestBuilder';
+import {YieldRequestBuilder} from './yield/yieldRequestBuilder';
+import {YieldDiscRequestBuilder} from './yieldDisc/yieldDiscRequestBuilder';
+import {YieldMatRequestBuilder} from './yieldMat/yieldMatRequestBuilder';
+import {Z_TestRequestBuilder} from './z_Test/z_TestRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -378,1475 +378,1475 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class FunctionsRequestBuilder {
     /** Provides operations to call the abs method. */
-    public get microsoftGraphAbs(): MicrosoftGraphAbsRequestBuilder {
-        return new MicrosoftGraphAbsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get abs(): AbsRequestBuilder {
+        return new AbsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the accrInt method. */
-    public get microsoftGraphAccrInt(): MicrosoftGraphAccrIntRequestBuilder {
-        return new MicrosoftGraphAccrIntRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get accrInt(): AccrIntRequestBuilder {
+        return new AccrIntRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the accrIntM method. */
-    public get microsoftGraphAccrIntM(): MicrosoftGraphAccrIntMRequestBuilder {
-        return new MicrosoftGraphAccrIntMRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get accrIntM(): AccrIntMRequestBuilder {
+        return new AccrIntMRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the acos method. */
-    public get microsoftGraphAcos(): MicrosoftGraphAcosRequestBuilder {
-        return new MicrosoftGraphAcosRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get acos(): AcosRequestBuilder {
+        return new AcosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the acosh method. */
-    public get microsoftGraphAcosh(): MicrosoftGraphAcoshRequestBuilder {
-        return new MicrosoftGraphAcoshRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get acosh(): AcoshRequestBuilder {
+        return new AcoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the acot method. */
-    public get microsoftGraphAcot(): MicrosoftGraphAcotRequestBuilder {
-        return new MicrosoftGraphAcotRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get acot(): AcotRequestBuilder {
+        return new AcotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the acoth method. */
-    public get microsoftGraphAcoth(): MicrosoftGraphAcothRequestBuilder {
-        return new MicrosoftGraphAcothRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get acoth(): AcothRequestBuilder {
+        return new AcothRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the amorDegrc method. */
-    public get microsoftGraphAmorDegrc(): MicrosoftGraphAmorDegrcRequestBuilder {
-        return new MicrosoftGraphAmorDegrcRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get amorDegrc(): AmorDegrcRequestBuilder {
+        return new AmorDegrcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the amorLinc method. */
-    public get microsoftGraphAmorLinc(): MicrosoftGraphAmorLincRequestBuilder {
-        return new MicrosoftGraphAmorLincRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get amorLinc(): AmorLincRequestBuilder {
+        return new AmorLincRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the and method. */
-    public get microsoftGraphAnd(): MicrosoftGraphAndRequestBuilder {
-        return new MicrosoftGraphAndRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get and(): AndRequestBuilder {
+        return new AndRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the arabic method. */
-    public get microsoftGraphArabic(): MicrosoftGraphArabicRequestBuilder {
-        return new MicrosoftGraphArabicRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get arabic(): ArabicRequestBuilder {
+        return new ArabicRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the areas method. */
-    public get microsoftGraphAreas(): MicrosoftGraphAreasRequestBuilder {
-        return new MicrosoftGraphAreasRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get areas(): AreasRequestBuilder {
+        return new AreasRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the asc method. */
-    public get microsoftGraphAsc(): MicrosoftGraphAscRequestBuilder {
-        return new MicrosoftGraphAscRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get asc(): AscRequestBuilder {
+        return new AscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the asin method. */
-    public get microsoftGraphAsin(): MicrosoftGraphAsinRequestBuilder {
-        return new MicrosoftGraphAsinRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get asin(): AsinRequestBuilder {
+        return new AsinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the asinh method. */
-    public get microsoftGraphAsinh(): MicrosoftGraphAsinhRequestBuilder {
-        return new MicrosoftGraphAsinhRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get asinh(): AsinhRequestBuilder {
+        return new AsinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the atan method. */
-    public get microsoftGraphAtan(): MicrosoftGraphAtanRequestBuilder {
-        return new MicrosoftGraphAtanRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get atan(): AtanRequestBuilder {
+        return new AtanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the atan2 method. */
-    public get microsoftGraphAtan2(): MicrosoftGraphAtan2RequestBuilder {
-        return new MicrosoftGraphAtan2RequestBuilder(this.pathParameters, this.requestAdapter);
+    public get atan2(): Atan2RequestBuilder {
+        return new Atan2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the atanh method. */
-    public get microsoftGraphAtanh(): MicrosoftGraphAtanhRequestBuilder {
-        return new MicrosoftGraphAtanhRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get atanh(): AtanhRequestBuilder {
+        return new AtanhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the aveDev method. */
-    public get microsoftGraphAveDev(): MicrosoftGraphAveDevRequestBuilder {
-        return new MicrosoftGraphAveDevRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get aveDev(): AveDevRequestBuilder {
+        return new AveDevRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the average method. */
-    public get microsoftGraphAverage(): MicrosoftGraphAverageRequestBuilder {
-        return new MicrosoftGraphAverageRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get average(): AverageRequestBuilder {
+        return new AverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the averageA method. */
-    public get microsoftGraphAverageA(): MicrosoftGraphAverageARequestBuilder {
-        return new MicrosoftGraphAverageARequestBuilder(this.pathParameters, this.requestAdapter);
+    public get averageA(): AverageARequestBuilder {
+        return new AverageARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the averageIf method. */
-    public get microsoftGraphAverageIf(): MicrosoftGraphAverageIfRequestBuilder {
-        return new MicrosoftGraphAverageIfRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get averageIf(): AverageIfRequestBuilder {
+        return new AverageIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the averageIfs method. */
-    public get microsoftGraphAverageIfs(): MicrosoftGraphAverageIfsRequestBuilder {
-        return new MicrosoftGraphAverageIfsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get averageIfs(): AverageIfsRequestBuilder {
+        return new AverageIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bahtText method. */
-    public get microsoftGraphBahtText(): MicrosoftGraphBahtTextRequestBuilder {
-        return new MicrosoftGraphBahtTextRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bahtText(): BahtTextRequestBuilder {
+        return new BahtTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the base method. */
-    public get microsoftGraphBase(): MicrosoftGraphBaseRequestBuilder {
-        return new MicrosoftGraphBaseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get base(): BaseRequestBuilder {
+        return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the besselI method. */
-    public get microsoftGraphBesselI(): MicrosoftGraphBesselIRequestBuilder {
-        return new MicrosoftGraphBesselIRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get besselI(): BesselIRequestBuilder {
+        return new BesselIRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the besselJ method. */
-    public get microsoftGraphBesselJ(): MicrosoftGraphBesselJRequestBuilder {
-        return new MicrosoftGraphBesselJRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get besselJ(): BesselJRequestBuilder {
+        return new BesselJRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the besselK method. */
-    public get microsoftGraphBesselK(): MicrosoftGraphBesselKRequestBuilder {
-        return new MicrosoftGraphBesselKRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get besselK(): BesselKRequestBuilder {
+        return new BesselKRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the besselY method. */
-    public get microsoftGraphBesselY(): MicrosoftGraphBesselYRequestBuilder {
-        return new MicrosoftGraphBesselYRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get besselY(): BesselYRequestBuilder {
+        return new BesselYRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the beta_Dist method. */
-    public get microsoftGraphBeta_Dist(): MicrosoftGraphBeta_DistRequestBuilder {
-        return new MicrosoftGraphBeta_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get beta_Dist(): Beta_DistRequestBuilder {
+        return new Beta_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the beta_Inv method. */
-    public get microsoftGraphBeta_Inv(): MicrosoftGraphBeta_InvRequestBuilder {
-        return new MicrosoftGraphBeta_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get beta_Inv(): Beta_InvRequestBuilder {
+        return new Beta_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bin2Dec method. */
-    public get microsoftGraphBin2Dec(): MicrosoftGraphBin2DecRequestBuilder {
-        return new MicrosoftGraphBin2DecRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bin2Dec(): Bin2DecRequestBuilder {
+        return new Bin2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bin2Hex method. */
-    public get microsoftGraphBin2Hex(): MicrosoftGraphBin2HexRequestBuilder {
-        return new MicrosoftGraphBin2HexRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bin2Hex(): Bin2HexRequestBuilder {
+        return new Bin2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bin2Oct method. */
-    public get microsoftGraphBin2Oct(): MicrosoftGraphBin2OctRequestBuilder {
-        return new MicrosoftGraphBin2OctRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bin2Oct(): Bin2OctRequestBuilder {
+        return new Bin2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the binom_Dist method. */
-    public get microsoftGraphBinom_Dist(): MicrosoftGraphBinom_DistRequestBuilder {
-        return new MicrosoftGraphBinom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get binom_Dist(): Binom_DistRequestBuilder {
+        return new Binom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the binom_Dist_Range method. */
-    public get microsoftGraphBinom_Dist_Range(): MicrosoftGraphBinom_Dist_RangeRequestBuilder {
-        return new MicrosoftGraphBinom_Dist_RangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get binom_Dist_Range(): Binom_Dist_RangeRequestBuilder {
+        return new Binom_Dist_RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the binom_Inv method. */
-    public get microsoftGraphBinom_Inv(): MicrosoftGraphBinom_InvRequestBuilder {
-        return new MicrosoftGraphBinom_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get binom_Inv(): Binom_InvRequestBuilder {
+        return new Binom_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bitand method. */
-    public get microsoftGraphBitand(): MicrosoftGraphBitandRequestBuilder {
-        return new MicrosoftGraphBitandRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bitand(): BitandRequestBuilder {
+        return new BitandRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bitlshift method. */
-    public get microsoftGraphBitlshift(): MicrosoftGraphBitlshiftRequestBuilder {
-        return new MicrosoftGraphBitlshiftRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bitlshift(): BitlshiftRequestBuilder {
+        return new BitlshiftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bitor method. */
-    public get microsoftGraphBitor(): MicrosoftGraphBitorRequestBuilder {
-        return new MicrosoftGraphBitorRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bitor(): BitorRequestBuilder {
+        return new BitorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bitrshift method. */
-    public get microsoftGraphBitrshift(): MicrosoftGraphBitrshiftRequestBuilder {
-        return new MicrosoftGraphBitrshiftRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bitrshift(): BitrshiftRequestBuilder {
+        return new BitrshiftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the bitxor method. */
-    public get microsoftGraphBitxor(): MicrosoftGraphBitxorRequestBuilder {
-        return new MicrosoftGraphBitxorRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get bitxor(): BitxorRequestBuilder {
+        return new BitxorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the ceiling_Math method. */
-    public get microsoftGraphCeiling_Math(): MicrosoftGraphCeiling_MathRequestBuilder {
-        return new MicrosoftGraphCeiling_MathRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ceiling_Math(): Ceiling_MathRequestBuilder {
+        return new Ceiling_MathRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the ceiling_Precise method. */
-    public get microsoftGraphCeiling_Precise(): MicrosoftGraphCeiling_PreciseRequestBuilder {
-        return new MicrosoftGraphCeiling_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ceiling_Precise(): Ceiling_PreciseRequestBuilder {
+        return new Ceiling_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the char method. */
-    public get microsoftGraphChar(): MicrosoftGraphCharRequestBuilder {
-        return new MicrosoftGraphCharRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get char(): CharRequestBuilder {
+        return new CharRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the chiSq_Dist method. */
-    public get microsoftGraphChiSq_Dist(): MicrosoftGraphChiSq_DistRequestBuilder {
-        return new MicrosoftGraphChiSq_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get chiSq_Dist(): ChiSq_DistRequestBuilder {
+        return new ChiSq_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the chiSq_Dist_RT method. */
-    public get microsoftGraphChiSq_Dist_RT(): MicrosoftGraphChiSq_Dist_RTRequestBuilder {
-        return new MicrosoftGraphChiSq_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get chiSq_Dist_RT(): ChiSq_Dist_RTRequestBuilder {
+        return new ChiSq_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the chiSq_Inv method. */
-    public get microsoftGraphChiSq_Inv(): MicrosoftGraphChiSq_InvRequestBuilder {
-        return new MicrosoftGraphChiSq_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get chiSq_Inv(): ChiSq_InvRequestBuilder {
+        return new ChiSq_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the chiSq_Inv_RT method. */
-    public get microsoftGraphChiSq_Inv_RT(): MicrosoftGraphChiSq_Inv_RTRequestBuilder {
-        return new MicrosoftGraphChiSq_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get chiSq_Inv_RT(): ChiSq_Inv_RTRequestBuilder {
+        return new ChiSq_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the choose method. */
-    public get microsoftGraphChoose(): MicrosoftGraphChooseRequestBuilder {
-        return new MicrosoftGraphChooseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get choose(): ChooseRequestBuilder {
+        return new ChooseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the clean method. */
-    public get microsoftGraphClean(): MicrosoftGraphCleanRequestBuilder {
-        return new MicrosoftGraphCleanRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get clean(): CleanRequestBuilder {
+        return new CleanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the code method. */
-    public get microsoftGraphCode(): MicrosoftGraphCodeRequestBuilder {
-        return new MicrosoftGraphCodeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get code(): CodeRequestBuilder {
+        return new CodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the columns method. */
-    public get microsoftGraphColumns(): MicrosoftGraphColumnsRequestBuilder {
-        return new MicrosoftGraphColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get columns(): ColumnsRequestBuilder {
+        return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the combin method. */
-    public get microsoftGraphCombin(): MicrosoftGraphCombinRequestBuilder {
-        return new MicrosoftGraphCombinRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get combin(): CombinRequestBuilder {
+        return new CombinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the combina method. */
-    public get microsoftGraphCombina(): MicrosoftGraphCombinaRequestBuilder {
-        return new MicrosoftGraphCombinaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get combina(): CombinaRequestBuilder {
+        return new CombinaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the complex method. */
-    public get microsoftGraphComplex(): MicrosoftGraphComplexRequestBuilder {
-        return new MicrosoftGraphComplexRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get complex(): ComplexRequestBuilder {
+        return new ComplexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the concatenate method. */
-    public get microsoftGraphConcatenate(): MicrosoftGraphConcatenateRequestBuilder {
-        return new MicrosoftGraphConcatenateRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get concatenate(): ConcatenateRequestBuilder {
+        return new ConcatenateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the confidence_Norm method. */
-    public get microsoftGraphConfidence_Norm(): MicrosoftGraphConfidence_NormRequestBuilder {
-        return new MicrosoftGraphConfidence_NormRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get confidence_Norm(): Confidence_NormRequestBuilder {
+        return new Confidence_NormRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the confidence_T method. */
-    public get microsoftGraphConfidence_T(): MicrosoftGraphConfidence_TRequestBuilder {
-        return new MicrosoftGraphConfidence_TRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get confidence_T(): Confidence_TRequestBuilder {
+        return new Confidence_TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the convert method. */
-    public get microsoftGraphConvert(): MicrosoftGraphConvertRequestBuilder {
-        return new MicrosoftGraphConvertRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get convert(): ConvertRequestBuilder {
+        return new ConvertRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the cos method. */
-    public get microsoftGraphCos(): MicrosoftGraphCosRequestBuilder {
-        return new MicrosoftGraphCosRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get cos(): CosRequestBuilder {
+        return new CosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the cosh method. */
-    public get microsoftGraphCosh(): MicrosoftGraphCoshRequestBuilder {
-        return new MicrosoftGraphCoshRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get cosh(): CoshRequestBuilder {
+        return new CoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the cot method. */
-    public get microsoftGraphCot(): MicrosoftGraphCotRequestBuilder {
-        return new MicrosoftGraphCotRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get cot(): CotRequestBuilder {
+        return new CotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the coth method. */
-    public get microsoftGraphCoth(): MicrosoftGraphCothRequestBuilder {
-        return new MicrosoftGraphCothRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get coth(): CothRequestBuilder {
+        return new CothRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the count method. */
-    public get microsoftGraphCount(): MicrosoftGraphCountRequestBuilder {
-        return new MicrosoftGraphCountRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the countA method. */
-    public get microsoftGraphCountA(): MicrosoftGraphCountARequestBuilder {
-        return new MicrosoftGraphCountARequestBuilder(this.pathParameters, this.requestAdapter);
+    public get countA(): CountARequestBuilder {
+        return new CountARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the countBlank method. */
-    public get microsoftGraphCountBlank(): MicrosoftGraphCountBlankRequestBuilder {
-        return new MicrosoftGraphCountBlankRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get countBlank(): CountBlankRequestBuilder {
+        return new CountBlankRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the countIf method. */
-    public get microsoftGraphCountIf(): MicrosoftGraphCountIfRequestBuilder {
-        return new MicrosoftGraphCountIfRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get countIf(): CountIfRequestBuilder {
+        return new CountIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the countIfs method. */
-    public get microsoftGraphCountIfs(): MicrosoftGraphCountIfsRequestBuilder {
-        return new MicrosoftGraphCountIfsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get countIfs(): CountIfsRequestBuilder {
+        return new CountIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the coupDayBs method. */
-    public get microsoftGraphCoupDayBs(): MicrosoftGraphCoupDayBsRequestBuilder {
-        return new MicrosoftGraphCoupDayBsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get coupDayBs(): CoupDayBsRequestBuilder {
+        return new CoupDayBsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the coupDays method. */
-    public get microsoftGraphCoupDays(): MicrosoftGraphCoupDaysRequestBuilder {
-        return new MicrosoftGraphCoupDaysRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get coupDays(): CoupDaysRequestBuilder {
+        return new CoupDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the coupDaysNc method. */
-    public get microsoftGraphCoupDaysNc(): MicrosoftGraphCoupDaysNcRequestBuilder {
-        return new MicrosoftGraphCoupDaysNcRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get coupDaysNc(): CoupDaysNcRequestBuilder {
+        return new CoupDaysNcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the coupNcd method. */
-    public get microsoftGraphCoupNcd(): MicrosoftGraphCoupNcdRequestBuilder {
-        return new MicrosoftGraphCoupNcdRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get coupNcd(): CoupNcdRequestBuilder {
+        return new CoupNcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the coupNum method. */
-    public get microsoftGraphCoupNum(): MicrosoftGraphCoupNumRequestBuilder {
-        return new MicrosoftGraphCoupNumRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get coupNum(): CoupNumRequestBuilder {
+        return new CoupNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the coupPcd method. */
-    public get microsoftGraphCoupPcd(): MicrosoftGraphCoupPcdRequestBuilder {
-        return new MicrosoftGraphCoupPcdRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get coupPcd(): CoupPcdRequestBuilder {
+        return new CoupPcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the csc method. */
-    public get microsoftGraphCsc(): MicrosoftGraphCscRequestBuilder {
-        return new MicrosoftGraphCscRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get csc(): CscRequestBuilder {
+        return new CscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the csch method. */
-    public get microsoftGraphCsch(): MicrosoftGraphCschRequestBuilder {
-        return new MicrosoftGraphCschRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get csch(): CschRequestBuilder {
+        return new CschRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the cumIPmt method. */
-    public get microsoftGraphCumIPmt(): MicrosoftGraphCumIPmtRequestBuilder {
-        return new MicrosoftGraphCumIPmtRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get cumIPmt(): CumIPmtRequestBuilder {
+        return new CumIPmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the cumPrinc method. */
-    public get microsoftGraphCumPrinc(): MicrosoftGraphCumPrincRequestBuilder {
-        return new MicrosoftGraphCumPrincRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get cumPrinc(): CumPrincRequestBuilder {
+        return new CumPrincRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the date method. */
-    public get microsoftGraphDate(): MicrosoftGraphDateRequestBuilder {
-        return new MicrosoftGraphDateRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get date(): DateRequestBuilder {
+        return new DateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the datevalue method. */
-    public get microsoftGraphDatevalue(): MicrosoftGraphDatevalueRequestBuilder {
-        return new MicrosoftGraphDatevalueRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get datevalue(): DatevalueRequestBuilder {
+        return new DatevalueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the daverage method. */
-    public get microsoftGraphDaverage(): MicrosoftGraphDaverageRequestBuilder {
-        return new MicrosoftGraphDaverageRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get daverage(): DaverageRequestBuilder {
+        return new DaverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the day method. */
-    public get microsoftGraphDay(): MicrosoftGraphDayRequestBuilder {
-        return new MicrosoftGraphDayRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get day(): DayRequestBuilder {
+        return new DayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the days method. */
-    public get microsoftGraphDays(): MicrosoftGraphDaysRequestBuilder {
-        return new MicrosoftGraphDaysRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get days(): DaysRequestBuilder {
+        return new DaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the days360 method. */
-    public get microsoftGraphDays360(): MicrosoftGraphDays360RequestBuilder {
-        return new MicrosoftGraphDays360RequestBuilder(this.pathParameters, this.requestAdapter);
+    public get days360(): Days360RequestBuilder {
+        return new Days360RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the db method. */
-    public get microsoftGraphDb(): MicrosoftGraphDbRequestBuilder {
-        return new MicrosoftGraphDbRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get db(): DbRequestBuilder {
+        return new DbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dbcs method. */
-    public get microsoftGraphDbcs(): MicrosoftGraphDbcsRequestBuilder {
-        return new MicrosoftGraphDbcsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dbcs(): DbcsRequestBuilder {
+        return new DbcsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dcount method. */
-    public get microsoftGraphDcount(): MicrosoftGraphDcountRequestBuilder {
-        return new MicrosoftGraphDcountRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dcount(): DcountRequestBuilder {
+        return new DcountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dcountA method. */
-    public get microsoftGraphDcountA(): MicrosoftGraphDcountARequestBuilder {
-        return new MicrosoftGraphDcountARequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dcountA(): DcountARequestBuilder {
+        return new DcountARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the ddb method. */
-    public get microsoftGraphDdb(): MicrosoftGraphDdbRequestBuilder {
-        return new MicrosoftGraphDdbRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ddb(): DdbRequestBuilder {
+        return new DdbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dec2Bin method. */
-    public get microsoftGraphDec2Bin(): MicrosoftGraphDec2BinRequestBuilder {
-        return new MicrosoftGraphDec2BinRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dec2Bin(): Dec2BinRequestBuilder {
+        return new Dec2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dec2Hex method. */
-    public get microsoftGraphDec2Hex(): MicrosoftGraphDec2HexRequestBuilder {
-        return new MicrosoftGraphDec2HexRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dec2Hex(): Dec2HexRequestBuilder {
+        return new Dec2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dec2Oct method. */
-    public get microsoftGraphDec2Oct(): MicrosoftGraphDec2OctRequestBuilder {
-        return new MicrosoftGraphDec2OctRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dec2Oct(): Dec2OctRequestBuilder {
+        return new Dec2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the decimal method. */
-    public get microsoftGraphDecimal(): MicrosoftGraphDecimalRequestBuilder {
-        return new MicrosoftGraphDecimalRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get decimal(): DecimalRequestBuilder {
+        return new DecimalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the degrees method. */
-    public get microsoftGraphDegrees(): MicrosoftGraphDegreesRequestBuilder {
-        return new MicrosoftGraphDegreesRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get degrees(): DegreesRequestBuilder {
+        return new DegreesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the delta method. */
-    public get microsoftGraphDelta(): MicrosoftGraphDeltaRequestBuilder {
-        return new MicrosoftGraphDeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the devSq method. */
-    public get microsoftGraphDevSq(): MicrosoftGraphDevSqRequestBuilder {
-        return new MicrosoftGraphDevSqRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get devSq(): DevSqRequestBuilder {
+        return new DevSqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dget method. */
-    public get microsoftGraphDget(): MicrosoftGraphDgetRequestBuilder {
-        return new MicrosoftGraphDgetRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dget(): DgetRequestBuilder {
+        return new DgetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the disc method. */
-    public get microsoftGraphDisc(): MicrosoftGraphDiscRequestBuilder {
-        return new MicrosoftGraphDiscRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get disc(): DiscRequestBuilder {
+        return new DiscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dmax method. */
-    public get microsoftGraphDmax(): MicrosoftGraphDmaxRequestBuilder {
-        return new MicrosoftGraphDmaxRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dmax(): DmaxRequestBuilder {
+        return new DmaxRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dmin method. */
-    public get microsoftGraphDmin(): MicrosoftGraphDminRequestBuilder {
-        return new MicrosoftGraphDminRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dmin(): DminRequestBuilder {
+        return new DminRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dollar method. */
-    public get microsoftGraphDollar(): MicrosoftGraphDollarRequestBuilder {
-        return new MicrosoftGraphDollarRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dollar(): DollarRequestBuilder {
+        return new DollarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dollarDe method. */
-    public get microsoftGraphDollarDe(): MicrosoftGraphDollarDeRequestBuilder {
-        return new MicrosoftGraphDollarDeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dollarDe(): DollarDeRequestBuilder {
+        return new DollarDeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dollarFr method. */
-    public get microsoftGraphDollarFr(): MicrosoftGraphDollarFrRequestBuilder {
-        return new MicrosoftGraphDollarFrRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dollarFr(): DollarFrRequestBuilder {
+        return new DollarFrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dproduct method. */
-    public get microsoftGraphDproduct(): MicrosoftGraphDproductRequestBuilder {
-        return new MicrosoftGraphDproductRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dproduct(): DproductRequestBuilder {
+        return new DproductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dstDev method. */
-    public get microsoftGraphDstDev(): MicrosoftGraphDstDevRequestBuilder {
-        return new MicrosoftGraphDstDevRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dstDev(): DstDevRequestBuilder {
+        return new DstDevRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dstDevP method. */
-    public get microsoftGraphDstDevP(): MicrosoftGraphDstDevPRequestBuilder {
-        return new MicrosoftGraphDstDevPRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dstDevP(): DstDevPRequestBuilder {
+        return new DstDevPRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dsum method. */
-    public get microsoftGraphDsum(): MicrosoftGraphDsumRequestBuilder {
-        return new MicrosoftGraphDsumRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dsum(): DsumRequestBuilder {
+        return new DsumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the duration method. */
-    public get microsoftGraphDuration(): MicrosoftGraphDurationRequestBuilder {
-        return new MicrosoftGraphDurationRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get duration(): DurationRequestBuilder {
+        return new DurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dvar method. */
-    public get microsoftGraphDvar(): MicrosoftGraphDvarRequestBuilder {
-        return new MicrosoftGraphDvarRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dvar(): DvarRequestBuilder {
+        return new DvarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the dvarP method. */
-    public get microsoftGraphDvarP(): MicrosoftGraphDvarPRequestBuilder {
-        return new MicrosoftGraphDvarPRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get dvarP(): DvarPRequestBuilder {
+        return new DvarPRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the ecma_Ceiling method. */
-    public get microsoftGraphEcma_Ceiling(): MicrosoftGraphEcma_CeilingRequestBuilder {
-        return new MicrosoftGraphEcma_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ecma_Ceiling(): Ecma_CeilingRequestBuilder {
+        return new Ecma_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the edate method. */
-    public get microsoftGraphEdate(): MicrosoftGraphEdateRequestBuilder {
-        return new MicrosoftGraphEdateRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get edate(): EdateRequestBuilder {
+        return new EdateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the effect method. */
-    public get microsoftGraphEffect(): MicrosoftGraphEffectRequestBuilder {
-        return new MicrosoftGraphEffectRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get effect(): EffectRequestBuilder {
+        return new EffectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the eoMonth method. */
-    public get microsoftGraphEoMonth(): MicrosoftGraphEoMonthRequestBuilder {
-        return new MicrosoftGraphEoMonthRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get eoMonth(): EoMonthRequestBuilder {
+        return new EoMonthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the erf method. */
-    public get microsoftGraphErf(): MicrosoftGraphErfRequestBuilder {
-        return new MicrosoftGraphErfRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get erf(): ErfRequestBuilder {
+        return new ErfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the erf_Precise method. */
-    public get microsoftGraphErf_Precise(): MicrosoftGraphErf_PreciseRequestBuilder {
-        return new MicrosoftGraphErf_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get erf_Precise(): Erf_PreciseRequestBuilder {
+        return new Erf_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the erfC method. */
-    public get microsoftGraphErfC(): MicrosoftGraphErfCRequestBuilder {
-        return new MicrosoftGraphErfCRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get erfC(): ErfCRequestBuilder {
+        return new ErfCRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the erfC_Precise method. */
-    public get microsoftGraphErfC_Precise(): MicrosoftGraphErfC_PreciseRequestBuilder {
-        return new MicrosoftGraphErfC_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get erfC_Precise(): ErfC_PreciseRequestBuilder {
+        return new ErfC_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the error_Type method. */
-    public get microsoftGraphError_Type(): MicrosoftGraphError_TypeRequestBuilder {
-        return new MicrosoftGraphError_TypeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get error_Type(): Error_TypeRequestBuilder {
+        return new Error_TypeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the even method. */
-    public get microsoftGraphEven(): MicrosoftGraphEvenRequestBuilder {
-        return new MicrosoftGraphEvenRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get even(): EvenRequestBuilder {
+        return new EvenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the exact method. */
-    public get microsoftGraphExact(): MicrosoftGraphExactRequestBuilder {
-        return new MicrosoftGraphExactRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get exact(): ExactRequestBuilder {
+        return new ExactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the exp method. */
-    public get microsoftGraphExp(): MicrosoftGraphExpRequestBuilder {
-        return new MicrosoftGraphExpRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get exp(): ExpRequestBuilder {
+        return new ExpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the expon_Dist method. */
-    public get microsoftGraphExpon_Dist(): MicrosoftGraphExpon_DistRequestBuilder {
-        return new MicrosoftGraphExpon_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get expon_Dist(): Expon_DistRequestBuilder {
+        return new Expon_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the f_Dist method. */
-    public get microsoftGraphF_Dist(): MicrosoftGraphF_DistRequestBuilder {
-        return new MicrosoftGraphF_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get f_Dist(): F_DistRequestBuilder {
+        return new F_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the f_Dist_RT method. */
-    public get microsoftGraphF_Dist_RT(): MicrosoftGraphF_Dist_RTRequestBuilder {
-        return new MicrosoftGraphF_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get f_Dist_RT(): F_Dist_RTRequestBuilder {
+        return new F_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the f_Inv method. */
-    public get microsoftGraphF_Inv(): MicrosoftGraphF_InvRequestBuilder {
-        return new MicrosoftGraphF_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get f_Inv(): F_InvRequestBuilder {
+        return new F_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the f_Inv_RT method. */
-    public get microsoftGraphF_Inv_RT(): MicrosoftGraphF_Inv_RTRequestBuilder {
-        return new MicrosoftGraphF_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get f_Inv_RT(): F_Inv_RTRequestBuilder {
+        return new F_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the fact method. */
-    public get microsoftGraphFact(): MicrosoftGraphFactRequestBuilder {
-        return new MicrosoftGraphFactRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get fact(): FactRequestBuilder {
+        return new FactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the factDouble method. */
-    public get microsoftGraphFactDouble(): MicrosoftGraphFactDoubleRequestBuilder {
-        return new MicrosoftGraphFactDoubleRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get factDouble(): FactDoubleRequestBuilder {
+        return new FactDoubleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the false method. */
-    public get microsoftGraphFalse(): MicrosoftGraphFalseRequestBuilder {
-        return new MicrosoftGraphFalseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get falseEscaped(): FalseRequestBuilder {
+        return new FalseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the find method. */
-    public get microsoftGraphFind(): MicrosoftGraphFindRequestBuilder {
-        return new MicrosoftGraphFindRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get find(): FindRequestBuilder {
+        return new FindRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the findB method. */
-    public get microsoftGraphFindB(): MicrosoftGraphFindBRequestBuilder {
-        return new MicrosoftGraphFindBRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get findB(): FindBRequestBuilder {
+        return new FindBRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the fisher method. */
-    public get microsoftGraphFisher(): MicrosoftGraphFisherRequestBuilder {
-        return new MicrosoftGraphFisherRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get fisher(): FisherRequestBuilder {
+        return new FisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the fisherInv method. */
-    public get microsoftGraphFisherInv(): MicrosoftGraphFisherInvRequestBuilder {
-        return new MicrosoftGraphFisherInvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get fisherInv(): FisherInvRequestBuilder {
+        return new FisherInvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the fixed method. */
-    public get microsoftGraphFixed(): MicrosoftGraphFixedRequestBuilder {
-        return new MicrosoftGraphFixedRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get fixed(): FixedRequestBuilder {
+        return new FixedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the floor_Math method. */
-    public get microsoftGraphFloor_Math(): MicrosoftGraphFloor_MathRequestBuilder {
-        return new MicrosoftGraphFloor_MathRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get floor_Math(): Floor_MathRequestBuilder {
+        return new Floor_MathRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the floor_Precise method. */
-    public get microsoftGraphFloor_Precise(): MicrosoftGraphFloor_PreciseRequestBuilder {
-        return new MicrosoftGraphFloor_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get floor_Precise(): Floor_PreciseRequestBuilder {
+        return new Floor_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the fv method. */
-    public get microsoftGraphFv(): MicrosoftGraphFvRequestBuilder {
-        return new MicrosoftGraphFvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get fv(): FvRequestBuilder {
+        return new FvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the fvschedule method. */
-    public get microsoftGraphFvschedule(): MicrosoftGraphFvscheduleRequestBuilder {
-        return new MicrosoftGraphFvscheduleRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get fvschedule(): FvscheduleRequestBuilder {
+        return new FvscheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the gamma method. */
-    public get microsoftGraphGamma(): MicrosoftGraphGammaRequestBuilder {
-        return new MicrosoftGraphGammaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get gamma(): GammaRequestBuilder {
+        return new GammaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the gamma_Dist method. */
-    public get microsoftGraphGamma_Dist(): MicrosoftGraphGamma_DistRequestBuilder {
-        return new MicrosoftGraphGamma_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get gamma_Dist(): Gamma_DistRequestBuilder {
+        return new Gamma_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the gamma_Inv method. */
-    public get microsoftGraphGamma_Inv(): MicrosoftGraphGamma_InvRequestBuilder {
-        return new MicrosoftGraphGamma_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get gamma_Inv(): Gamma_InvRequestBuilder {
+        return new Gamma_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the gammaLn method. */
-    public get microsoftGraphGammaLn(): MicrosoftGraphGammaLnRequestBuilder {
-        return new MicrosoftGraphGammaLnRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get gammaLn(): GammaLnRequestBuilder {
+        return new GammaLnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the gammaLn_Precise method. */
-    public get microsoftGraphGammaLn_Precise(): MicrosoftGraphGammaLn_PreciseRequestBuilder {
-        return new MicrosoftGraphGammaLn_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get gammaLn_Precise(): GammaLn_PreciseRequestBuilder {
+        return new GammaLn_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the gauss method. */
-    public get microsoftGraphGauss(): MicrosoftGraphGaussRequestBuilder {
-        return new MicrosoftGraphGaussRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get gauss(): GaussRequestBuilder {
+        return new GaussRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the gcd method. */
-    public get microsoftGraphGcd(): MicrosoftGraphGcdRequestBuilder {
-        return new MicrosoftGraphGcdRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get gcd(): GcdRequestBuilder {
+        return new GcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the geoMean method. */
-    public get microsoftGraphGeoMean(): MicrosoftGraphGeoMeanRequestBuilder {
-        return new MicrosoftGraphGeoMeanRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get geoMean(): GeoMeanRequestBuilder {
+        return new GeoMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the geStep method. */
-    public get microsoftGraphGeStep(): MicrosoftGraphGeStepRequestBuilder {
-        return new MicrosoftGraphGeStepRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get geStep(): GeStepRequestBuilder {
+        return new GeStepRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the harMean method. */
-    public get microsoftGraphHarMean(): MicrosoftGraphHarMeanRequestBuilder {
-        return new MicrosoftGraphHarMeanRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get harMean(): HarMeanRequestBuilder {
+        return new HarMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the hex2Bin method. */
-    public get microsoftGraphHex2Bin(): MicrosoftGraphHex2BinRequestBuilder {
-        return new MicrosoftGraphHex2BinRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get hex2Bin(): Hex2BinRequestBuilder {
+        return new Hex2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the hex2Dec method. */
-    public get microsoftGraphHex2Dec(): MicrosoftGraphHex2DecRequestBuilder {
-        return new MicrosoftGraphHex2DecRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get hex2Dec(): Hex2DecRequestBuilder {
+        return new Hex2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the hex2Oct method. */
-    public get microsoftGraphHex2Oct(): MicrosoftGraphHex2OctRequestBuilder {
-        return new MicrosoftGraphHex2OctRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get hex2Oct(): Hex2OctRequestBuilder {
+        return new Hex2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the hlookup method. */
-    public get microsoftGraphHlookup(): MicrosoftGraphHlookupRequestBuilder {
-        return new MicrosoftGraphHlookupRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get hlookup(): HlookupRequestBuilder {
+        return new HlookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the hour method. */
-    public get microsoftGraphHour(): MicrosoftGraphHourRequestBuilder {
-        return new MicrosoftGraphHourRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get hour(): HourRequestBuilder {
+        return new HourRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the hyperlink method. */
-    public get microsoftGraphHyperlink(): MicrosoftGraphHyperlinkRequestBuilder {
-        return new MicrosoftGraphHyperlinkRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get hyperlink(): HyperlinkRequestBuilder {
+        return new HyperlinkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the hypGeom_Dist method. */
-    public get microsoftGraphHypGeom_Dist(): MicrosoftGraphHypGeom_DistRequestBuilder {
-        return new MicrosoftGraphHypGeom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get hypGeom_Dist(): HypGeom_DistRequestBuilder {
+        return new HypGeom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the if method. */
-    public get microsoftGraphIf(): MicrosoftGraphIfRequestBuilder {
-        return new MicrosoftGraphIfRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ifEscaped(): IfRequestBuilder {
+        return new IfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imAbs method. */
-    public get microsoftGraphImAbs(): MicrosoftGraphImAbsRequestBuilder {
-        return new MicrosoftGraphImAbsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imAbs(): ImAbsRequestBuilder {
+        return new ImAbsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imaginary method. */
-    public get microsoftGraphImaginary(): MicrosoftGraphImaginaryRequestBuilder {
-        return new MicrosoftGraphImaginaryRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imaginary(): ImaginaryRequestBuilder {
+        return new ImaginaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imArgument method. */
-    public get microsoftGraphImArgument(): MicrosoftGraphImArgumentRequestBuilder {
-        return new MicrosoftGraphImArgumentRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imArgument(): ImArgumentRequestBuilder {
+        return new ImArgumentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imConjugate method. */
-    public get microsoftGraphImConjugate(): MicrosoftGraphImConjugateRequestBuilder {
-        return new MicrosoftGraphImConjugateRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imConjugate(): ImConjugateRequestBuilder {
+        return new ImConjugateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imCos method. */
-    public get microsoftGraphImCos(): MicrosoftGraphImCosRequestBuilder {
-        return new MicrosoftGraphImCosRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imCos(): ImCosRequestBuilder {
+        return new ImCosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imCosh method. */
-    public get microsoftGraphImCosh(): MicrosoftGraphImCoshRequestBuilder {
-        return new MicrosoftGraphImCoshRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imCosh(): ImCoshRequestBuilder {
+        return new ImCoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imCot method. */
-    public get microsoftGraphImCot(): MicrosoftGraphImCotRequestBuilder {
-        return new MicrosoftGraphImCotRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imCot(): ImCotRequestBuilder {
+        return new ImCotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imCsc method. */
-    public get microsoftGraphImCsc(): MicrosoftGraphImCscRequestBuilder {
-        return new MicrosoftGraphImCscRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imCsc(): ImCscRequestBuilder {
+        return new ImCscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imCsch method. */
-    public get microsoftGraphImCsch(): MicrosoftGraphImCschRequestBuilder {
-        return new MicrosoftGraphImCschRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imCsch(): ImCschRequestBuilder {
+        return new ImCschRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imDiv method. */
-    public get microsoftGraphImDiv(): MicrosoftGraphImDivRequestBuilder {
-        return new MicrosoftGraphImDivRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imDiv(): ImDivRequestBuilder {
+        return new ImDivRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imExp method. */
-    public get microsoftGraphImExp(): MicrosoftGraphImExpRequestBuilder {
-        return new MicrosoftGraphImExpRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imExp(): ImExpRequestBuilder {
+        return new ImExpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imLn method. */
-    public get microsoftGraphImLn(): MicrosoftGraphImLnRequestBuilder {
-        return new MicrosoftGraphImLnRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imLn(): ImLnRequestBuilder {
+        return new ImLnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imLog10 method. */
-    public get microsoftGraphImLog10(): MicrosoftGraphImLog10RequestBuilder {
-        return new MicrosoftGraphImLog10RequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imLog10(): ImLog10RequestBuilder {
+        return new ImLog10RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imLog2 method. */
-    public get microsoftGraphImLog2(): MicrosoftGraphImLog2RequestBuilder {
-        return new MicrosoftGraphImLog2RequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imLog2(): ImLog2RequestBuilder {
+        return new ImLog2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imPower method. */
-    public get microsoftGraphImPower(): MicrosoftGraphImPowerRequestBuilder {
-        return new MicrosoftGraphImPowerRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imPower(): ImPowerRequestBuilder {
+        return new ImPowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imProduct method. */
-    public get microsoftGraphImProduct(): MicrosoftGraphImProductRequestBuilder {
-        return new MicrosoftGraphImProductRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imProduct(): ImProductRequestBuilder {
+        return new ImProductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imReal method. */
-    public get microsoftGraphImReal(): MicrosoftGraphImRealRequestBuilder {
-        return new MicrosoftGraphImRealRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imReal(): ImRealRequestBuilder {
+        return new ImRealRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imSec method. */
-    public get microsoftGraphImSec(): MicrosoftGraphImSecRequestBuilder {
-        return new MicrosoftGraphImSecRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imSec(): ImSecRequestBuilder {
+        return new ImSecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imSech method. */
-    public get microsoftGraphImSech(): MicrosoftGraphImSechRequestBuilder {
-        return new MicrosoftGraphImSechRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imSech(): ImSechRequestBuilder {
+        return new ImSechRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imSin method. */
-    public get microsoftGraphImSin(): MicrosoftGraphImSinRequestBuilder {
-        return new MicrosoftGraphImSinRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imSin(): ImSinRequestBuilder {
+        return new ImSinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imSinh method. */
-    public get microsoftGraphImSinh(): MicrosoftGraphImSinhRequestBuilder {
-        return new MicrosoftGraphImSinhRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imSinh(): ImSinhRequestBuilder {
+        return new ImSinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imSqrt method. */
-    public get microsoftGraphImSqrt(): MicrosoftGraphImSqrtRequestBuilder {
-        return new MicrosoftGraphImSqrtRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imSqrt(): ImSqrtRequestBuilder {
+        return new ImSqrtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imSub method. */
-    public get microsoftGraphImSub(): MicrosoftGraphImSubRequestBuilder {
-        return new MicrosoftGraphImSubRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imSub(): ImSubRequestBuilder {
+        return new ImSubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imSum method. */
-    public get microsoftGraphImSum(): MicrosoftGraphImSumRequestBuilder {
-        return new MicrosoftGraphImSumRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imSum(): ImSumRequestBuilder {
+        return new ImSumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the imTan method. */
-    public get microsoftGraphImTan(): MicrosoftGraphImTanRequestBuilder {
-        return new MicrosoftGraphImTanRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get imTan(): ImTanRequestBuilder {
+        return new ImTanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the int method. */
-    public get microsoftGraphInt(): MicrosoftGraphIntRequestBuilder {
-        return new MicrosoftGraphIntRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get int(): IntRequestBuilder {
+        return new IntRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the intRate method. */
-    public get microsoftGraphIntRate(): MicrosoftGraphIntRateRequestBuilder {
-        return new MicrosoftGraphIntRateRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get intRate(): IntRateRequestBuilder {
+        return new IntRateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the ipmt method. */
-    public get microsoftGraphIpmt(): MicrosoftGraphIpmtRequestBuilder {
-        return new MicrosoftGraphIpmtRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ipmt(): IpmtRequestBuilder {
+        return new IpmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the irr method. */
-    public get microsoftGraphIrr(): MicrosoftGraphIrrRequestBuilder {
-        return new MicrosoftGraphIrrRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get irr(): IrrRequestBuilder {
+        return new IrrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isErr method. */
-    public get microsoftGraphIsErr(): MicrosoftGraphIsErrRequestBuilder {
-        return new MicrosoftGraphIsErrRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isErr(): IsErrRequestBuilder {
+        return new IsErrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isError method. */
-    public get microsoftGraphIsError(): MicrosoftGraphIsErrorRequestBuilder {
-        return new MicrosoftGraphIsErrorRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isError(): IsErrorRequestBuilder {
+        return new IsErrorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isEven method. */
-    public get microsoftGraphIsEven(): MicrosoftGraphIsEvenRequestBuilder {
-        return new MicrosoftGraphIsEvenRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isEven(): IsEvenRequestBuilder {
+        return new IsEvenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isFormula method. */
-    public get microsoftGraphIsFormula(): MicrosoftGraphIsFormulaRequestBuilder {
-        return new MicrosoftGraphIsFormulaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isFormula(): IsFormulaRequestBuilder {
+        return new IsFormulaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isLogical method. */
-    public get microsoftGraphIsLogical(): MicrosoftGraphIsLogicalRequestBuilder {
-        return new MicrosoftGraphIsLogicalRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isLogical(): IsLogicalRequestBuilder {
+        return new IsLogicalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isNA method. */
-    public get microsoftGraphIsNA(): MicrosoftGraphIsNARequestBuilder {
-        return new MicrosoftGraphIsNARequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isNA(): IsNARequestBuilder {
+        return new IsNARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isNonText method. */
-    public get microsoftGraphIsNonText(): MicrosoftGraphIsNonTextRequestBuilder {
-        return new MicrosoftGraphIsNonTextRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isNonText(): IsNonTextRequestBuilder {
+        return new IsNonTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isNumber method. */
-    public get microsoftGraphIsNumber(): MicrosoftGraphIsNumberRequestBuilder {
-        return new MicrosoftGraphIsNumberRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isNumber(): IsNumberRequestBuilder {
+        return new IsNumberRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the iso_Ceiling method. */
-    public get microsoftGraphIso_Ceiling(): MicrosoftGraphIso_CeilingRequestBuilder {
-        return new MicrosoftGraphIso_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get iso_Ceiling(): Iso_CeilingRequestBuilder {
+        return new Iso_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isOdd method. */
-    public get microsoftGraphIsOdd(): MicrosoftGraphIsOddRequestBuilder {
-        return new MicrosoftGraphIsOddRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isOdd(): IsOddRequestBuilder {
+        return new IsOddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isoWeekNum method. */
-    public get microsoftGraphIsoWeekNum(): MicrosoftGraphIsoWeekNumRequestBuilder {
-        return new MicrosoftGraphIsoWeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isoWeekNum(): IsoWeekNumRequestBuilder {
+        return new IsoWeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the ispmt method. */
-    public get microsoftGraphIspmt(): MicrosoftGraphIspmtRequestBuilder {
-        return new MicrosoftGraphIspmtRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ispmt(): IspmtRequestBuilder {
+        return new IspmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isref method. */
-    public get microsoftGraphIsref(): MicrosoftGraphIsrefRequestBuilder {
-        return new MicrosoftGraphIsrefRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isref(): IsrefRequestBuilder {
+        return new IsrefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the isText method. */
-    public get microsoftGraphIsText(): MicrosoftGraphIsTextRequestBuilder {
-        return new MicrosoftGraphIsTextRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get isText(): IsTextRequestBuilder {
+        return new IsTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the kurt method. */
-    public get microsoftGraphKurt(): MicrosoftGraphKurtRequestBuilder {
-        return new MicrosoftGraphKurtRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get kurt(): KurtRequestBuilder {
+        return new KurtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the large method. */
-    public get microsoftGraphLarge(): MicrosoftGraphLargeRequestBuilder {
-        return new MicrosoftGraphLargeRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get large(): LargeRequestBuilder {
+        return new LargeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the lcm method. */
-    public get microsoftGraphLcm(): MicrosoftGraphLcmRequestBuilder {
-        return new MicrosoftGraphLcmRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get lcm(): LcmRequestBuilder {
+        return new LcmRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the left method. */
-    public get microsoftGraphLeft(): MicrosoftGraphLeftRequestBuilder {
-        return new MicrosoftGraphLeftRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get left(): LeftRequestBuilder {
+        return new LeftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the leftb method. */
-    public get microsoftGraphLeftb(): MicrosoftGraphLeftbRequestBuilder {
-        return new MicrosoftGraphLeftbRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get leftb(): LeftbRequestBuilder {
+        return new LeftbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the len method. */
-    public get microsoftGraphLen(): MicrosoftGraphLenRequestBuilder {
-        return new MicrosoftGraphLenRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get len(): LenRequestBuilder {
+        return new LenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the lenb method. */
-    public get microsoftGraphLenb(): MicrosoftGraphLenbRequestBuilder {
-        return new MicrosoftGraphLenbRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get lenb(): LenbRequestBuilder {
+        return new LenbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the ln method. */
-    public get microsoftGraphLn(): MicrosoftGraphLnRequestBuilder {
-        return new MicrosoftGraphLnRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get ln(): LnRequestBuilder {
+        return new LnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the log method. */
-    public get microsoftGraphLog(): MicrosoftGraphLogRequestBuilder {
-        return new MicrosoftGraphLogRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get log(): LogRequestBuilder {
+        return new LogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the log10 method. */
-    public get microsoftGraphLog10(): MicrosoftGraphLog10RequestBuilder {
-        return new MicrosoftGraphLog10RequestBuilder(this.pathParameters, this.requestAdapter);
+    public get log10(): Log10RequestBuilder {
+        return new Log10RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the logNorm_Dist method. */
-    public get microsoftGraphLogNorm_Dist(): MicrosoftGraphLogNorm_DistRequestBuilder {
-        return new MicrosoftGraphLogNorm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get logNorm_Dist(): LogNorm_DistRequestBuilder {
+        return new LogNorm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the logNorm_Inv method. */
-    public get microsoftGraphLogNorm_Inv(): MicrosoftGraphLogNorm_InvRequestBuilder {
-        return new MicrosoftGraphLogNorm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get logNorm_Inv(): LogNorm_InvRequestBuilder {
+        return new LogNorm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the lookup method. */
-    public get microsoftGraphLookup(): MicrosoftGraphLookupRequestBuilder {
-        return new MicrosoftGraphLookupRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get lookup(): LookupRequestBuilder {
+        return new LookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the lower method. */
-    public get microsoftGraphLower(): MicrosoftGraphLowerRequestBuilder {
-        return new MicrosoftGraphLowerRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get lower(): LowerRequestBuilder {
+        return new LowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the match method. */
-    public get microsoftGraphMatch(): MicrosoftGraphMatchRequestBuilder {
-        return new MicrosoftGraphMatchRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get match(): MatchRequestBuilder {
+        return new MatchRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the max method. */
-    public get microsoftGraphMax(): MicrosoftGraphMaxRequestBuilder {
-        return new MicrosoftGraphMaxRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get max(): MaxRequestBuilder {
+        return new MaxRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the maxA method. */
-    public get microsoftGraphMaxA(): MicrosoftGraphMaxARequestBuilder {
-        return new MicrosoftGraphMaxARequestBuilder(this.pathParameters, this.requestAdapter);
+    public get maxA(): MaxARequestBuilder {
+        return new MaxARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the mduration method. */
-    public get microsoftGraphMduration(): MicrosoftGraphMdurationRequestBuilder {
-        return new MicrosoftGraphMdurationRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get mduration(): MdurationRequestBuilder {
+        return new MdurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the median method. */
-    public get microsoftGraphMedian(): MicrosoftGraphMedianRequestBuilder {
-        return new MicrosoftGraphMedianRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get median(): MedianRequestBuilder {
+        return new MedianRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the mid method. */
-    public get microsoftGraphMid(): MicrosoftGraphMidRequestBuilder {
-        return new MicrosoftGraphMidRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get mid(): MidRequestBuilder {
+        return new MidRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the midb method. */
-    public get microsoftGraphMidb(): MicrosoftGraphMidbRequestBuilder {
-        return new MicrosoftGraphMidbRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get midb(): MidbRequestBuilder {
+        return new MidbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the min method. */
-    public get microsoftGraphMin(): MicrosoftGraphMinRequestBuilder {
-        return new MicrosoftGraphMinRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get min(): MinRequestBuilder {
+        return new MinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the minA method. */
-    public get microsoftGraphMinA(): MicrosoftGraphMinARequestBuilder {
-        return new MicrosoftGraphMinARequestBuilder(this.pathParameters, this.requestAdapter);
+    public get minA(): MinARequestBuilder {
+        return new MinARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the minute method. */
-    public get microsoftGraphMinute(): MicrosoftGraphMinuteRequestBuilder {
-        return new MicrosoftGraphMinuteRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get minute(): MinuteRequestBuilder {
+        return new MinuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the mirr method. */
-    public get microsoftGraphMirr(): MicrosoftGraphMirrRequestBuilder {
-        return new MicrosoftGraphMirrRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get mirr(): MirrRequestBuilder {
+        return new MirrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the mod method. */
-    public get microsoftGraphMod(): MicrosoftGraphModRequestBuilder {
-        return new MicrosoftGraphModRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get mod(): ModRequestBuilder {
+        return new ModRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the month method. */
-    public get microsoftGraphMonth(): MicrosoftGraphMonthRequestBuilder {
-        return new MicrosoftGraphMonthRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get month(): MonthRequestBuilder {
+        return new MonthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the mround method. */
-    public get microsoftGraphMround(): MicrosoftGraphMroundRequestBuilder {
-        return new MicrosoftGraphMroundRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get mround(): MroundRequestBuilder {
+        return new MroundRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the multiNomial method. */
-    public get microsoftGraphMultiNomial(): MicrosoftGraphMultiNomialRequestBuilder {
-        return new MicrosoftGraphMultiNomialRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get multiNomial(): MultiNomialRequestBuilder {
+        return new MultiNomialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the n method. */
-    public get microsoftGraphN(): MicrosoftGraphNRequestBuilder {
-        return new MicrosoftGraphNRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get n(): NRequestBuilder {
+        return new NRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the na method. */
-    public get microsoftGraphNa(): MicrosoftGraphNaRequestBuilder {
-        return new MicrosoftGraphNaRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get na(): NaRequestBuilder {
+        return new NaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the negBinom_Dist method. */
-    public get microsoftGraphNegBinom_Dist(): MicrosoftGraphNegBinom_DistRequestBuilder {
-        return new MicrosoftGraphNegBinom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get negBinom_Dist(): NegBinom_DistRequestBuilder {
+        return new NegBinom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the networkDays method. */
-    public get microsoftGraphNetworkDays(): MicrosoftGraphNetworkDaysRequestBuilder {
-        return new MicrosoftGraphNetworkDaysRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get networkDays(): NetworkDaysRequestBuilder {
+        return new NetworkDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the networkDays_Intl method. */
-    public get microsoftGraphNetworkDays_Intl(): MicrosoftGraphNetworkDays_IntlRequestBuilder {
-        return new MicrosoftGraphNetworkDays_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get networkDays_Intl(): NetworkDays_IntlRequestBuilder {
+        return new NetworkDays_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the nominal method. */
-    public get microsoftGraphNominal(): MicrosoftGraphNominalRequestBuilder {
-        return new MicrosoftGraphNominalRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get nominal(): NominalRequestBuilder {
+        return new NominalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the norm_Dist method. */
-    public get microsoftGraphNorm_Dist(): MicrosoftGraphNorm_DistRequestBuilder {
-        return new MicrosoftGraphNorm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get norm_Dist(): Norm_DistRequestBuilder {
+        return new Norm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the norm_Inv method. */
-    public get microsoftGraphNorm_Inv(): MicrosoftGraphNorm_InvRequestBuilder {
-        return new MicrosoftGraphNorm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get norm_Inv(): Norm_InvRequestBuilder {
+        return new Norm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the norm_S_Dist method. */
-    public get microsoftGraphNorm_S_Dist(): MicrosoftGraphNorm_S_DistRequestBuilder {
-        return new MicrosoftGraphNorm_S_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get norm_S_Dist(): Norm_S_DistRequestBuilder {
+        return new Norm_S_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the norm_S_Inv method. */
-    public get microsoftGraphNorm_S_Inv(): MicrosoftGraphNorm_S_InvRequestBuilder {
-        return new MicrosoftGraphNorm_S_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get norm_S_Inv(): Norm_S_InvRequestBuilder {
+        return new Norm_S_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the not method. */
-    public get microsoftGraphNot(): MicrosoftGraphNotRequestBuilder {
-        return new MicrosoftGraphNotRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get not(): NotRequestBuilder {
+        return new NotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the now method. */
-    public get microsoftGraphNow(): MicrosoftGraphNowRequestBuilder {
-        return new MicrosoftGraphNowRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get now(): NowRequestBuilder {
+        return new NowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the nper method. */
-    public get microsoftGraphNper(): MicrosoftGraphNperRequestBuilder {
-        return new MicrosoftGraphNperRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get nper(): NperRequestBuilder {
+        return new NperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the npv method. */
-    public get microsoftGraphNpv(): MicrosoftGraphNpvRequestBuilder {
-        return new MicrosoftGraphNpvRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get npv(): NpvRequestBuilder {
+        return new NpvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the numberValue method. */
-    public get microsoftGraphNumberValue(): MicrosoftGraphNumberValueRequestBuilder {
-        return new MicrosoftGraphNumberValueRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get numberValue(): NumberValueRequestBuilder {
+        return new NumberValueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the oct2Bin method. */
-    public get microsoftGraphOct2Bin(): MicrosoftGraphOct2BinRequestBuilder {
-        return new MicrosoftGraphOct2BinRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get oct2Bin(): Oct2BinRequestBuilder {
+        return new Oct2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the oct2Dec method. */
-    public get microsoftGraphOct2Dec(): MicrosoftGraphOct2DecRequestBuilder {
-        return new MicrosoftGraphOct2DecRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get oct2Dec(): Oct2DecRequestBuilder {
+        return new Oct2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the oct2Hex method. */
-    public get microsoftGraphOct2Hex(): MicrosoftGraphOct2HexRequestBuilder {
-        return new MicrosoftGraphOct2HexRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get oct2Hex(): Oct2HexRequestBuilder {
+        return new Oct2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the odd method. */
-    public get microsoftGraphOdd(): MicrosoftGraphOddRequestBuilder {
-        return new MicrosoftGraphOddRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get odd(): OddRequestBuilder {
+        return new OddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the oddFPrice method. */
-    public get microsoftGraphOddFPrice(): MicrosoftGraphOddFPriceRequestBuilder {
-        return new MicrosoftGraphOddFPriceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get oddFPrice(): OddFPriceRequestBuilder {
+        return new OddFPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the oddFYield method. */
-    public get microsoftGraphOddFYield(): MicrosoftGraphOddFYieldRequestBuilder {
-        return new MicrosoftGraphOddFYieldRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get oddFYield(): OddFYieldRequestBuilder {
+        return new OddFYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the oddLPrice method. */
-    public get microsoftGraphOddLPrice(): MicrosoftGraphOddLPriceRequestBuilder {
-        return new MicrosoftGraphOddLPriceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get oddLPrice(): OddLPriceRequestBuilder {
+        return new OddLPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the oddLYield method. */
-    public get microsoftGraphOddLYield(): MicrosoftGraphOddLYieldRequestBuilder {
-        return new MicrosoftGraphOddLYieldRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get oddLYield(): OddLYieldRequestBuilder {
+        return new OddLYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the or method. */
-    public get microsoftGraphOr(): MicrosoftGraphOrRequestBuilder {
-        return new MicrosoftGraphOrRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the pduration method. */
-    public get microsoftGraphPduration(): MicrosoftGraphPdurationRequestBuilder {
-        return new MicrosoftGraphPdurationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the percentile_Exc method. */
-    public get microsoftGraphPercentile_Exc(): MicrosoftGraphPercentile_ExcRequestBuilder {
-        return new MicrosoftGraphPercentile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the percentile_Inc method. */
-    public get microsoftGraphPercentile_Inc(): MicrosoftGraphPercentile_IncRequestBuilder {
-        return new MicrosoftGraphPercentile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the percentRank_Exc method. */
-    public get microsoftGraphPercentRank_Exc(): MicrosoftGraphPercentRank_ExcRequestBuilder {
-        return new MicrosoftGraphPercentRank_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the percentRank_Inc method. */
-    public get microsoftGraphPercentRank_Inc(): MicrosoftGraphPercentRank_IncRequestBuilder {
-        return new MicrosoftGraphPercentRank_IncRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the permut method. */
-    public get microsoftGraphPermut(): MicrosoftGraphPermutRequestBuilder {
-        return new MicrosoftGraphPermutRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the permutationa method. */
-    public get microsoftGraphPermutationa(): MicrosoftGraphPermutationaRequestBuilder {
-        return new MicrosoftGraphPermutationaRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the phi method. */
-    public get microsoftGraphPhi(): MicrosoftGraphPhiRequestBuilder {
-        return new MicrosoftGraphPhiRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the pi method. */
-    public get microsoftGraphPi(): MicrosoftGraphPiRequestBuilder {
-        return new MicrosoftGraphPiRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the pmt method. */
-    public get microsoftGraphPmt(): MicrosoftGraphPmtRequestBuilder {
-        return new MicrosoftGraphPmtRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the poisson_Dist method. */
-    public get microsoftGraphPoisson_Dist(): MicrosoftGraphPoisson_DistRequestBuilder {
-        return new MicrosoftGraphPoisson_DistRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the power method. */
-    public get microsoftGraphPower(): MicrosoftGraphPowerRequestBuilder {
-        return new MicrosoftGraphPowerRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the ppmt method. */
-    public get microsoftGraphPpmt(): MicrosoftGraphPpmtRequestBuilder {
-        return new MicrosoftGraphPpmtRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the price method. */
-    public get microsoftGraphPrice(): MicrosoftGraphPriceRequestBuilder {
-        return new MicrosoftGraphPriceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the priceDisc method. */
-    public get microsoftGraphPriceDisc(): MicrosoftGraphPriceDiscRequestBuilder {
-        return new MicrosoftGraphPriceDiscRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the priceMat method. */
-    public get microsoftGraphPriceMat(): MicrosoftGraphPriceMatRequestBuilder {
-        return new MicrosoftGraphPriceMatRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the product method. */
-    public get microsoftGraphProduct(): MicrosoftGraphProductRequestBuilder {
-        return new MicrosoftGraphProductRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the proper method. */
-    public get microsoftGraphProper(): MicrosoftGraphProperRequestBuilder {
-        return new MicrosoftGraphProperRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the pv method. */
-    public get microsoftGraphPv(): MicrosoftGraphPvRequestBuilder {
-        return new MicrosoftGraphPvRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the quartile_Exc method. */
-    public get microsoftGraphQuartile_Exc(): MicrosoftGraphQuartile_ExcRequestBuilder {
-        return new MicrosoftGraphQuartile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the quartile_Inc method. */
-    public get microsoftGraphQuartile_Inc(): MicrosoftGraphQuartile_IncRequestBuilder {
-        return new MicrosoftGraphQuartile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the quotient method. */
-    public get microsoftGraphQuotient(): MicrosoftGraphQuotientRequestBuilder {
-        return new MicrosoftGraphQuotientRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the radians method. */
-    public get microsoftGraphRadians(): MicrosoftGraphRadiansRequestBuilder {
-        return new MicrosoftGraphRadiansRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rand method. */
-    public get microsoftGraphRand(): MicrosoftGraphRandRequestBuilder {
-        return new MicrosoftGraphRandRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the randBetween method. */
-    public get microsoftGraphRandBetween(): MicrosoftGraphRandBetweenRequestBuilder {
-        return new MicrosoftGraphRandBetweenRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rank_Avg method. */
-    public get microsoftGraphRank_Avg(): MicrosoftGraphRank_AvgRequestBuilder {
-        return new MicrosoftGraphRank_AvgRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rank_Eq method. */
-    public get microsoftGraphRank_Eq(): MicrosoftGraphRank_EqRequestBuilder {
-        return new MicrosoftGraphRank_EqRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rate method. */
-    public get microsoftGraphRate(): MicrosoftGraphRateRequestBuilder {
-        return new MicrosoftGraphRateRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the received method. */
-    public get microsoftGraphReceived(): MicrosoftGraphReceivedRequestBuilder {
-        return new MicrosoftGraphReceivedRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the replace method. */
-    public get microsoftGraphReplace(): MicrosoftGraphReplaceRequestBuilder {
-        return new MicrosoftGraphReplaceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the replaceB method. */
-    public get microsoftGraphReplaceB(): MicrosoftGraphReplaceBRequestBuilder {
-        return new MicrosoftGraphReplaceBRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rept method. */
-    public get microsoftGraphRept(): MicrosoftGraphReptRequestBuilder {
-        return new MicrosoftGraphReptRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the right method. */
-    public get microsoftGraphRight(): MicrosoftGraphRightRequestBuilder {
-        return new MicrosoftGraphRightRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rightb method. */
-    public get microsoftGraphRightb(): MicrosoftGraphRightbRequestBuilder {
-        return new MicrosoftGraphRightbRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the roman method. */
-    public get microsoftGraphRoman(): MicrosoftGraphRomanRequestBuilder {
-        return new MicrosoftGraphRomanRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the round method. */
-    public get microsoftGraphRound(): MicrosoftGraphRoundRequestBuilder {
-        return new MicrosoftGraphRoundRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the roundDown method. */
-    public get microsoftGraphRoundDown(): MicrosoftGraphRoundDownRequestBuilder {
-        return new MicrosoftGraphRoundDownRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the roundUp method. */
-    public get microsoftGraphRoundUp(): MicrosoftGraphRoundUpRequestBuilder {
-        return new MicrosoftGraphRoundUpRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rows method. */
-    public get microsoftGraphRows(): MicrosoftGraphRowsRequestBuilder {
-        return new MicrosoftGraphRowsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the rri method. */
-    public get microsoftGraphRri(): MicrosoftGraphRriRequestBuilder {
-        return new MicrosoftGraphRriRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sec method. */
-    public get microsoftGraphSec(): MicrosoftGraphSecRequestBuilder {
-        return new MicrosoftGraphSecRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sech method. */
-    public get microsoftGraphSech(): MicrosoftGraphSechRequestBuilder {
-        return new MicrosoftGraphSechRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the second method. */
-    public get microsoftGraphSecond(): MicrosoftGraphSecondRequestBuilder {
-        return new MicrosoftGraphSecondRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the seriesSum method. */
-    public get microsoftGraphSeriesSum(): MicrosoftGraphSeriesSumRequestBuilder {
-        return new MicrosoftGraphSeriesSumRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sheet method. */
-    public get microsoftGraphSheet(): MicrosoftGraphSheetRequestBuilder {
-        return new MicrosoftGraphSheetRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sheets method. */
-    public get microsoftGraphSheets(): MicrosoftGraphSheetsRequestBuilder {
-        return new MicrosoftGraphSheetsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sign method. */
-    public get microsoftGraphSign(): MicrosoftGraphSignRequestBuilder {
-        return new MicrosoftGraphSignRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sin method. */
-    public get microsoftGraphSin(): MicrosoftGraphSinRequestBuilder {
-        return new MicrosoftGraphSinRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sinh method. */
-    public get microsoftGraphSinh(): MicrosoftGraphSinhRequestBuilder {
-        return new MicrosoftGraphSinhRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the skew method. */
-    public get microsoftGraphSkew(): MicrosoftGraphSkewRequestBuilder {
-        return new MicrosoftGraphSkewRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the skew_p method. */
-    public get microsoftGraphSkew_p(): MicrosoftGraphSkew_pRequestBuilder {
-        return new MicrosoftGraphSkew_pRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sln method. */
-    public get microsoftGraphSln(): MicrosoftGraphSlnRequestBuilder {
-        return new MicrosoftGraphSlnRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the small method. */
-    public get microsoftGraphSmall(): MicrosoftGraphSmallRequestBuilder {
-        return new MicrosoftGraphSmallRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sqrt method. */
-    public get microsoftGraphSqrt(): MicrosoftGraphSqrtRequestBuilder {
-        return new MicrosoftGraphSqrtRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sqrtPi method. */
-    public get microsoftGraphSqrtPi(): MicrosoftGraphSqrtPiRequestBuilder {
-        return new MicrosoftGraphSqrtPiRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the standardize method. */
-    public get microsoftGraphStandardize(): MicrosoftGraphStandardizeRequestBuilder {
-        return new MicrosoftGraphStandardizeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the stDev_P method. */
-    public get microsoftGraphStDev_P(): MicrosoftGraphStDev_PRequestBuilder {
-        return new MicrosoftGraphStDev_PRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the stDev_S method. */
-    public get microsoftGraphStDev_S(): MicrosoftGraphStDev_SRequestBuilder {
-        return new MicrosoftGraphStDev_SRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the stDevA method. */
-    public get microsoftGraphStDevA(): MicrosoftGraphStDevARequestBuilder {
-        return new MicrosoftGraphStDevARequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the stDevPA method. */
-    public get microsoftGraphStDevPA(): MicrosoftGraphStDevPARequestBuilder {
-        return new MicrosoftGraphStDevPARequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the substitute method. */
-    public get microsoftGraphSubstitute(): MicrosoftGraphSubstituteRequestBuilder {
-        return new MicrosoftGraphSubstituteRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the subtotal method. */
-    public get microsoftGraphSubtotal(): MicrosoftGraphSubtotalRequestBuilder {
-        return new MicrosoftGraphSubtotalRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sum method. */
-    public get microsoftGraphSum(): MicrosoftGraphSumRequestBuilder {
-        return new MicrosoftGraphSumRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sumIf method. */
-    public get microsoftGraphSumIf(): MicrosoftGraphSumIfRequestBuilder {
-        return new MicrosoftGraphSumIfRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sumIfs method. */
-    public get microsoftGraphSumIfs(): MicrosoftGraphSumIfsRequestBuilder {
-        return new MicrosoftGraphSumIfsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sumSq method. */
-    public get microsoftGraphSumSq(): MicrosoftGraphSumSqRequestBuilder {
-        return new MicrosoftGraphSumSqRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the syd method. */
-    public get microsoftGraphSyd(): MicrosoftGraphSydRequestBuilder {
-        return new MicrosoftGraphSydRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the t method. */
-    public get microsoftGraphT(): MicrosoftGraphTRequestBuilder {
-        return new MicrosoftGraphTRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the t_Dist method. */
-    public get microsoftGraphT_Dist(): MicrosoftGraphT_DistRequestBuilder {
-        return new MicrosoftGraphT_DistRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the t_Dist_2T method. */
-    public get microsoftGraphT_Dist_2T(): MicrosoftGraphT_Dist_2TRequestBuilder {
-        return new MicrosoftGraphT_Dist_2TRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the t_Dist_RT method. */
-    public get microsoftGraphT_Dist_RT(): MicrosoftGraphT_Dist_RTRequestBuilder {
-        return new MicrosoftGraphT_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the t_Inv method. */
-    public get microsoftGraphT_Inv(): MicrosoftGraphT_InvRequestBuilder {
-        return new MicrosoftGraphT_InvRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the t_Inv_2T method. */
-    public get microsoftGraphT_Inv_2T(): MicrosoftGraphT_Inv_2TRequestBuilder {
-        return new MicrosoftGraphT_Inv_2TRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the tan method. */
-    public get microsoftGraphTan(): MicrosoftGraphTanRequestBuilder {
-        return new MicrosoftGraphTanRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the tanh method. */
-    public get microsoftGraphTanh(): MicrosoftGraphTanhRequestBuilder {
-        return new MicrosoftGraphTanhRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the tbillEq method. */
-    public get microsoftGraphTbillEq(): MicrosoftGraphTbillEqRequestBuilder {
-        return new MicrosoftGraphTbillEqRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the tbillPrice method. */
-    public get microsoftGraphTbillPrice(): MicrosoftGraphTbillPriceRequestBuilder {
-        return new MicrosoftGraphTbillPriceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the tbillYield method. */
-    public get microsoftGraphTbillYield(): MicrosoftGraphTbillYieldRequestBuilder {
-        return new MicrosoftGraphTbillYieldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the text method. */
-    public get microsoftGraphText(): MicrosoftGraphTextRequestBuilder {
-        return new MicrosoftGraphTextRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the time method. */
-    public get microsoftGraphTime(): MicrosoftGraphTimeRequestBuilder {
-        return new MicrosoftGraphTimeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the timevalue method. */
-    public get microsoftGraphTimevalue(): MicrosoftGraphTimevalueRequestBuilder {
-        return new MicrosoftGraphTimevalueRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the today method. */
-    public get microsoftGraphToday(): MicrosoftGraphTodayRequestBuilder {
-        return new MicrosoftGraphTodayRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the trim method. */
-    public get microsoftGraphTrim(): MicrosoftGraphTrimRequestBuilder {
-        return new MicrosoftGraphTrimRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the trimMean method. */
-    public get microsoftGraphTrimMean(): MicrosoftGraphTrimMeanRequestBuilder {
-        return new MicrosoftGraphTrimMeanRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the true method. */
-    public get microsoftGraphTrue(): MicrosoftGraphTrueRequestBuilder {
-        return new MicrosoftGraphTrueRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the trunc method. */
-    public get microsoftGraphTrunc(): MicrosoftGraphTruncRequestBuilder {
-        return new MicrosoftGraphTruncRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the type method. */
-    public get microsoftGraphType(): MicrosoftGraphTypeRequestBuilder {
-        return new MicrosoftGraphTypeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unichar method. */
-    public get microsoftGraphUnichar(): MicrosoftGraphUnicharRequestBuilder {
-        return new MicrosoftGraphUnicharRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the unicode method. */
-    public get microsoftGraphUnicode(): MicrosoftGraphUnicodeRequestBuilder {
-        return new MicrosoftGraphUnicodeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the upper method. */
-    public get microsoftGraphUpper(): MicrosoftGraphUpperRequestBuilder {
-        return new MicrosoftGraphUpperRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the usdollar method. */
-    public get microsoftGraphUsdollar(): MicrosoftGraphUsdollarRequestBuilder {
-        return new MicrosoftGraphUsdollarRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the value method. */
-    public get microsoftGraphValue(): MicrosoftGraphValueRequestBuilder {
-        return new MicrosoftGraphValueRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the var_P method. */
-    public get microsoftGraphVar_P(): MicrosoftGraphVar_PRequestBuilder {
-        return new MicrosoftGraphVar_PRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the var_S method. */
-    public get microsoftGraphVar_S(): MicrosoftGraphVar_SRequestBuilder {
-        return new MicrosoftGraphVar_SRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the varA method. */
-    public get microsoftGraphVarA(): MicrosoftGraphVarARequestBuilder {
-        return new MicrosoftGraphVarARequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the varPA method. */
-    public get microsoftGraphVarPA(): MicrosoftGraphVarPARequestBuilder {
-        return new MicrosoftGraphVarPARequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the vdb method. */
-    public get microsoftGraphVdb(): MicrosoftGraphVdbRequestBuilder {
-        return new MicrosoftGraphVdbRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the vlookup method. */
-    public get microsoftGraphVlookup(): MicrosoftGraphVlookupRequestBuilder {
-        return new MicrosoftGraphVlookupRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the weekday method. */
-    public get microsoftGraphWeekday(): MicrosoftGraphWeekdayRequestBuilder {
-        return new MicrosoftGraphWeekdayRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the weekNum method. */
-    public get microsoftGraphWeekNum(): MicrosoftGraphWeekNumRequestBuilder {
-        return new MicrosoftGraphWeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the weibull_Dist method. */
-    public get microsoftGraphWeibull_Dist(): MicrosoftGraphWeibull_DistRequestBuilder {
-        return new MicrosoftGraphWeibull_DistRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the workDay method. */
-    public get microsoftGraphWorkDay(): MicrosoftGraphWorkDayRequestBuilder {
-        return new MicrosoftGraphWorkDayRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the workDay_Intl method. */
-    public get microsoftGraphWorkDay_Intl(): MicrosoftGraphWorkDay_IntlRequestBuilder {
-        return new MicrosoftGraphWorkDay_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the xirr method. */
-    public get microsoftGraphXirr(): MicrosoftGraphXirrRequestBuilder {
-        return new MicrosoftGraphXirrRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the xnpv method. */
-    public get microsoftGraphXnpv(): MicrosoftGraphXnpvRequestBuilder {
-        return new MicrosoftGraphXnpvRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the xor method. */
-    public get microsoftGraphXor(): MicrosoftGraphXorRequestBuilder {
-        return new MicrosoftGraphXorRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the year method. */
-    public get microsoftGraphYear(): MicrosoftGraphYearRequestBuilder {
-        return new MicrosoftGraphYearRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the yearFrac method. */
-    public get microsoftGraphYearFrac(): MicrosoftGraphYearFracRequestBuilder {
-        return new MicrosoftGraphYearFracRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the yield method. */
-    public get microsoftGraphYield(): MicrosoftGraphYieldRequestBuilder {
-        return new MicrosoftGraphYieldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the yieldDisc method. */
-    public get microsoftGraphYieldDisc(): MicrosoftGraphYieldDiscRequestBuilder {
-        return new MicrosoftGraphYieldDiscRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the yieldMat method. */
-    public get microsoftGraphYieldMat(): MicrosoftGraphYieldMatRequestBuilder {
-        return new MicrosoftGraphYieldMatRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the z_Test method. */
-    public get microsoftGraphZ_Test(): MicrosoftGraphZ_TestRequestBuilder {
-        return new MicrosoftGraphZ_TestRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get or(): OrRequestBuilder {
+        return new OrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the pduration method. */
+    public get pduration(): PdurationRequestBuilder {
+        return new PdurationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the percentile_Exc method. */
+    public get percentile_Exc(): Percentile_ExcRequestBuilder {
+        return new Percentile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the percentile_Inc method. */
+    public get percentile_Inc(): Percentile_IncRequestBuilder {
+        return new Percentile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the percentRank_Exc method. */
+    public get percentRank_Exc(): PercentRank_ExcRequestBuilder {
+        return new PercentRank_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the percentRank_Inc method. */
+    public get percentRank_Inc(): PercentRank_IncRequestBuilder {
+        return new PercentRank_IncRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the permut method. */
+    public get permut(): PermutRequestBuilder {
+        return new PermutRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the permutationa method. */
+    public get permutationa(): PermutationaRequestBuilder {
+        return new PermutationaRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the phi method. */
+    public get phi(): PhiRequestBuilder {
+        return new PhiRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the pi method. */
+    public get pi(): PiRequestBuilder {
+        return new PiRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the pmt method. */
+    public get pmt(): PmtRequestBuilder {
+        return new PmtRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the poisson_Dist method. */
+    public get poisson_Dist(): Poisson_DistRequestBuilder {
+        return new Poisson_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the power method. */
+    public get power(): PowerRequestBuilder {
+        return new PowerRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the ppmt method. */
+    public get ppmt(): PpmtRequestBuilder {
+        return new PpmtRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the price method. */
+    public get price(): PriceRequestBuilder {
+        return new PriceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the priceDisc method. */
+    public get priceDisc(): PriceDiscRequestBuilder {
+        return new PriceDiscRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the priceMat method. */
+    public get priceMat(): PriceMatRequestBuilder {
+        return new PriceMatRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the product method. */
+    public get product(): ProductRequestBuilder {
+        return new ProductRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the proper method. */
+    public get proper(): ProperRequestBuilder {
+        return new ProperRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the pv method. */
+    public get pv(): PvRequestBuilder {
+        return new PvRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the quartile_Exc method. */
+    public get quartile_Exc(): Quartile_ExcRequestBuilder {
+        return new Quartile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the quartile_Inc method. */
+    public get quartile_Inc(): Quartile_IncRequestBuilder {
+        return new Quartile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the quotient method. */
+    public get quotient(): QuotientRequestBuilder {
+        return new QuotientRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the radians method. */
+    public get radians(): RadiansRequestBuilder {
+        return new RadiansRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rand method. */
+    public get rand(): RandRequestBuilder {
+        return new RandRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the randBetween method. */
+    public get randBetween(): RandBetweenRequestBuilder {
+        return new RandBetweenRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rank_Avg method. */
+    public get rank_Avg(): Rank_AvgRequestBuilder {
+        return new Rank_AvgRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rank_Eq method. */
+    public get rank_Eq(): Rank_EqRequestBuilder {
+        return new Rank_EqRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rate method. */
+    public get rate(): RateRequestBuilder {
+        return new RateRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the received method. */
+    public get received(): ReceivedRequestBuilder {
+        return new ReceivedRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the replace method. */
+    public get replace(): ReplaceRequestBuilder {
+        return new ReplaceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the replaceB method. */
+    public get replaceB(): ReplaceBRequestBuilder {
+        return new ReplaceBRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rept method. */
+    public get rept(): ReptRequestBuilder {
+        return new ReptRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the right method. */
+    public get right(): RightRequestBuilder {
+        return new RightRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rightb method. */
+    public get rightb(): RightbRequestBuilder {
+        return new RightbRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the roman method. */
+    public get roman(): RomanRequestBuilder {
+        return new RomanRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the round method. */
+    public get round(): RoundRequestBuilder {
+        return new RoundRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the roundDown method. */
+    public get roundDown(): RoundDownRequestBuilder {
+        return new RoundDownRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the roundUp method. */
+    public get roundUp(): RoundUpRequestBuilder {
+        return new RoundUpRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rows method. */
+    public get rows(): RowsRequestBuilder {
+        return new RowsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the rri method. */
+    public get rri(): RriRequestBuilder {
+        return new RriRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sec method. */
+    public get sec(): SecRequestBuilder {
+        return new SecRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sech method. */
+    public get sech(): SechRequestBuilder {
+        return new SechRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the second method. */
+    public get second(): SecondRequestBuilder {
+        return new SecondRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the seriesSum method. */
+    public get seriesSum(): SeriesSumRequestBuilder {
+        return new SeriesSumRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sheet method. */
+    public get sheet(): SheetRequestBuilder {
+        return new SheetRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sheets method. */
+    public get sheets(): SheetsRequestBuilder {
+        return new SheetsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sign method. */
+    public get sign(): SignRequestBuilder {
+        return new SignRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sin method. */
+    public get sin(): SinRequestBuilder {
+        return new SinRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sinh method. */
+    public get sinh(): SinhRequestBuilder {
+        return new SinhRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the skew method. */
+    public get skew(): SkewRequestBuilder {
+        return new SkewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the skew_p method. */
+    public get skew_p(): Skew_pRequestBuilder {
+        return new Skew_pRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sln method. */
+    public get sln(): SlnRequestBuilder {
+        return new SlnRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the small method. */
+    public get small(): SmallRequestBuilder {
+        return new SmallRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sqrt method. */
+    public get sqrt(): SqrtRequestBuilder {
+        return new SqrtRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sqrtPi method. */
+    public get sqrtPi(): SqrtPiRequestBuilder {
+        return new SqrtPiRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the standardize method. */
+    public get standardize(): StandardizeRequestBuilder {
+        return new StandardizeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the stDev_P method. */
+    public get stDev_P(): StDev_PRequestBuilder {
+        return new StDev_PRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the stDev_S method. */
+    public get stDev_S(): StDev_SRequestBuilder {
+        return new StDev_SRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the stDevA method. */
+    public get stDevA(): StDevARequestBuilder {
+        return new StDevARequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the stDevPA method. */
+    public get stDevPA(): StDevPARequestBuilder {
+        return new StDevPARequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the substitute method. */
+    public get substitute(): SubstituteRequestBuilder {
+        return new SubstituteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the subtotal method. */
+    public get subtotal(): SubtotalRequestBuilder {
+        return new SubtotalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sum method. */
+    public get sum(): SumRequestBuilder {
+        return new SumRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sumIf method. */
+    public get sumIf(): SumIfRequestBuilder {
+        return new SumIfRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sumIfs method. */
+    public get sumIfs(): SumIfsRequestBuilder {
+        return new SumIfsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sumSq method. */
+    public get sumSq(): SumSqRequestBuilder {
+        return new SumSqRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the syd method. */
+    public get syd(): SydRequestBuilder {
+        return new SydRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the t method. */
+    public get t(): TRequestBuilder {
+        return new TRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the t_Dist method. */
+    public get t_Dist(): T_DistRequestBuilder {
+        return new T_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the t_Dist_2T method. */
+    public get t_Dist_2T(): T_Dist_2TRequestBuilder {
+        return new T_Dist_2TRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the t_Dist_RT method. */
+    public get t_Dist_RT(): T_Dist_RTRequestBuilder {
+        return new T_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the t_Inv method. */
+    public get t_Inv(): T_InvRequestBuilder {
+        return new T_InvRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the t_Inv_2T method. */
+    public get t_Inv_2T(): T_Inv_2TRequestBuilder {
+        return new T_Inv_2TRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the tan method. */
+    public get tan(): TanRequestBuilder {
+        return new TanRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the tanh method. */
+    public get tanh(): TanhRequestBuilder {
+        return new TanhRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the tbillEq method. */
+    public get tbillEq(): TbillEqRequestBuilder {
+        return new TbillEqRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the tbillPrice method. */
+    public get tbillPrice(): TbillPriceRequestBuilder {
+        return new TbillPriceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the tbillYield method. */
+    public get tbillYield(): TbillYieldRequestBuilder {
+        return new TbillYieldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the text method. */
+    public get text(): TextRequestBuilder {
+        return new TextRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the time method. */
+    public get time(): TimeRequestBuilder {
+        return new TimeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the timevalue method. */
+    public get timevalue(): TimevalueRequestBuilder {
+        return new TimevalueRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the today method. */
+    public get today(): TodayRequestBuilder {
+        return new TodayRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the trim method. */
+    public get trim(): TrimRequestBuilder {
+        return new TrimRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the trimMean method. */
+    public get trimMean(): TrimMeanRequestBuilder {
+        return new TrimMeanRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the true method. */
+    public get trueEscaped(): TrueRequestBuilder {
+        return new TrueRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the trunc method. */
+    public get trunc(): TruncRequestBuilder {
+        return new TruncRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the type method. */
+    public get type(): TypeRequestBuilder {
+        return new TypeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unichar method. */
+    public get unichar(): UnicharRequestBuilder {
+        return new UnicharRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the unicode method. */
+    public get unicode(): UnicodeRequestBuilder {
+        return new UnicodeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the upper method. */
+    public get upper(): UpperRequestBuilder {
+        return new UpperRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /** Provides operations to call the usdollar method. */
+    public get usdollar(): UsdollarRequestBuilder {
+        return new UsdollarRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the value method. */
+    public get value(): ValueRequestBuilder {
+        return new ValueRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the var_P method. */
+    public get var_P(): Var_PRequestBuilder {
+        return new Var_PRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the var_S method. */
+    public get var_S(): Var_SRequestBuilder {
+        return new Var_SRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the varA method. */
+    public get varA(): VarARequestBuilder {
+        return new VarARequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the varPA method. */
+    public get varPA(): VarPARequestBuilder {
+        return new VarPARequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the vdb method. */
+    public get vdb(): VdbRequestBuilder {
+        return new VdbRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the vlookup method. */
+    public get vlookup(): VlookupRequestBuilder {
+        return new VlookupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the weekday method. */
+    public get weekday(): WeekdayRequestBuilder {
+        return new WeekdayRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the weekNum method. */
+    public get weekNum(): WeekNumRequestBuilder {
+        return new WeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the weibull_Dist method. */
+    public get weibull_Dist(): Weibull_DistRequestBuilder {
+        return new Weibull_DistRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the workDay method. */
+    public get workDay(): WorkDayRequestBuilder {
+        return new WorkDayRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the workDay_Intl method. */
+    public get workDay_Intl(): WorkDay_IntlRequestBuilder {
+        return new WorkDay_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the xirr method. */
+    public get xirr(): XirrRequestBuilder {
+        return new XirrRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the xnpv method. */
+    public get xnpv(): XnpvRequestBuilder {
+        return new XnpvRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the xor method. */
+    public get xor(): XorRequestBuilder {
+        return new XorRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the year method. */
+    public get year(): YearRequestBuilder {
+        return new YearRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the yearFrac method. */
+    public get yearFrac(): YearFracRequestBuilder {
+        return new YearFracRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the yield method. */
+    public get yield(): YieldRequestBuilder {
+        return new YieldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the yieldDisc method. */
+    public get yieldDisc(): YieldDiscRequestBuilder {
+        return new YieldDiscRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the yieldMat method. */
+    public get yieldMat(): YieldMatRequestBuilder {
+        return new YieldMatRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the z_Test method. */
+    public get z_Test(): Z_TestRequestBuilder {
+        return new Z_TestRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new FunctionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -7,7 +7,7 @@ import {AccessPackageAssignmentItemRequestBuilderDeleteRequestConfiguration} fro
 import {AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration} from './accessPackageAssignmentItemRequestBuilderPatchRequestConfiguration';
 import {AssignmentPolicyRequestBuilder} from './assignmentPolicy/assignmentPolicyRequestBuilder';
-import {MicrosoftGraphReprocessRequestBuilder} from './microsoftGraphReprocess/microsoftGraphReprocessRequestBuilder';
+import {ReprocessRequestBuilder} from './reprocess/reprocessRequestBuilder';
 import {TargetRequestBuilder} from './target/targetRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -23,12 +23,12 @@ export class AccessPackageAssignmentItemRequestBuilder {
     public get assignmentPolicy(): AssignmentPolicyRequestBuilder {
         return new AssignmentPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reprocess method. */
-    public get microsoftGraphReprocess(): MicrosoftGraphReprocessRequestBuilder {
-        return new MicrosoftGraphReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the reprocess method. */
+    public get reprocess(): ReprocessRequestBuilder {
+        return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the target property of the microsoft.graph.accessPackageAssignment entity. */

@@ -12,10 +12,10 @@ import {DriveItemItemRequestBuilder as I7f5f4145310d9edad52ec20c81824966b63d1306
 import {DriveItemItemRequestBuilder as Ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
-import {MicrosoftGraphRecentRequestBuilder} from './microsoftGraphRecent/microsoftGraphRecentRequestBuilder';
-import {MicrosoftGraphSearchWithQRequestBuilder} from './microsoftGraphSearchWithQ/microsoftGraphSearchWithQRequestBuilder';
-import {MicrosoftGraphSharedWithMeRequestBuilder} from './microsoftGraphSharedWithMe/microsoftGraphSharedWithMeRequestBuilder';
+import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
+import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
+import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
 import {DriveItemItemRequestBuilder as I1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -40,21 +40,21 @@ export class DriveItemRequestBuilder {
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the recent method. */
-    public get microsoftGraphRecent(): MicrosoftGraphRecentRequestBuilder {
-        return new MicrosoftGraphRecentRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the sharedWithMe method. */
-    public get microsoftGraphSharedWithMe(): MicrosoftGraphSharedWithMeRequestBuilder {
-        return new MicrosoftGraphSharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the recent method. */
+    public get recent(): RecentRequestBuilder {
+        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the root property of the microsoft.graph.drive entity. */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the sharedWithMe method. */
+    public get sharedWithMe(): SharedWithMeRequestBuilder {
+        return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the special property of the microsoft.graph.drive entity. */
     public get special(): SpecialRequestBuilder {
@@ -141,15 +141,6 @@ export class DriveItemRequestBuilder {
         return new Ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897(urlTplParams, this.requestAdapter);
     };
     /**
-     * Provides operations to call the search method.
-     * @param q Usage: q='{q}'
-     * @returns a microsoftGraphSearchWithQRequestBuilder
-     */
-    public microsoftGraphSearchWithQ(q: string | undefined) : MicrosoftGraphSearchWithQRequestBuilder {
-        if(!q) throw new Error("q cannot be undefined");
-        return new MicrosoftGraphSearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
-    };
-    /**
      * Update entity in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -166,6 +157,15 @@ export class DriveItemRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Provides operations to call the search method.
+     * @param q Usage: q='{q}'
+     * @returns a searchWithQRequestBuilder
+     */
+    public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
+        if(!q) throw new Error("q cannot be undefined");
+        return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
     };
     /**
      * Provides operations to manage the special property of the microsoft.graph.drive entity.

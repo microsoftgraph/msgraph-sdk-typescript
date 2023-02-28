@@ -33,7 +33,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         this._authenticationMethodConfigurations = value;
     };
     /**
-     * Instantiates a new authenticationMethodsPolicy and sets the default values.
+     * Instantiates a new AuthenticationMethodsPolicy and sets the default values.
      */
     public constructor() {
         super();

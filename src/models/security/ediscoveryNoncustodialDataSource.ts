@@ -9,7 +9,7 @@ export class EdiscoveryNoncustodialDataSource extends DataSourceContainer implem
     /** Operation entity that represents the latest indexing for the non-custodial data source. */
     private _lastIndexOperation?: EdiscoveryIndexOperation | undefined;
     /**
-     * Instantiates a new EdiscoveryNoncustodialDataSource and sets the default values.
+     * Instantiates a new ediscoveryNoncustodialDataSource and sets the default values.
      */
     public constructor() {
         super();

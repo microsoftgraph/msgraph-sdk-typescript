@@ -3,30 +3,25 @@ import {createWorkbookChartCollectionResponseFromDiscriminatorValue} from '../..
 import {createWorkbookChartFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookChartFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddRequestBuilder} from './add/addRequestBuilder';
 import {ChartsRequestBuilderGetRequestConfiguration} from './chartsRequestBuilderGetRequestConfiguration';
 import {ChartsRequestBuilderPostRequestConfiguration} from './chartsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAddRequestBuilder} from './microsoftGraphAdd/microsoftGraphAddRequestBuilder';
-import {MicrosoftGraphCountRequestBuilder} from './microsoftGraphCount/microsoftGraphCountRequestBuilder';
-import {MicrosoftGraphItemAtWithIndexRequestBuilder} from './microsoftGraphItemAtWithIndex/microsoftGraphItemAtWithIndexRequestBuilder';
-import {MicrosoftGraphItemWithNameRequestBuilder} from './microsoftGraphItemWithName/microsoftGraphItemWithNameRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
  */
 export class ChartsRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
-    public get count(): CountRequestBuilder {
-        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the add method. */
-    public get microsoftGraphAdd(): MicrosoftGraphAddRequestBuilder {
-        return new MicrosoftGraphAddRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get add(): AddRequestBuilder {
+        return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the count method. */
-    public get microsoftGraphCount(): MicrosoftGraphCountRequestBuilder {
-        return new MicrosoftGraphCountRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
@@ -67,20 +62,20 @@ export class ChartsRequestBuilder {
     /**
      * Provides operations to call the itemAt method.
      * @param index Usage: index={index}
-     * @returns a microsoftGraphItemAtWithIndexRequestBuilder
+     * @returns a itemAtWithIndexRequestBuilder
      */
-    public microsoftGraphItemAtWithIndex(index: number | undefined) : MicrosoftGraphItemAtWithIndexRequestBuilder {
+    public itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder {
         if(!index) throw new Error("index cannot be undefined");
-        return new MicrosoftGraphItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
+        return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
      * Provides operations to call the item method.
      * @param name Usage: name='{name}'
-     * @returns a microsoftGraphItemWithNameRequestBuilder
+     * @returns a itemWithNameRequestBuilder
      */
-    public microsoftGraphItemWithName(name: string | undefined) : MicrosoftGraphItemWithNameRequestBuilder {
+    public itemWithName(name: string | undefined) : ItemWithNameRequestBuilder {
         if(!name) throw new Error("name cannot be undefined");
-        return new MicrosoftGraphItemWithNameRequestBuilder(this.pathParameters, this.requestAdapter, name);
+        return new ItemWithNameRequestBuilder(this.pathParameters, this.requestAdapter, name);
     };
     /**
      * Use this API to create a new Chart.

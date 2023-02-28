@@ -2,21 +2,21 @@ import {WorkbookFilter} from '../../../../../../../../../../models/';
 import {createWorkbookFilterFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookFilterFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
+import {ApplyBottomItemsFilterRequestBuilder} from './applyBottomItemsFilter/applyBottomItemsFilterRequestBuilder';
+import {ApplyBottomPercentFilterRequestBuilder} from './applyBottomPercentFilter/applyBottomPercentFilterRequestBuilder';
+import {ApplyCellColorFilterRequestBuilder} from './applyCellColorFilter/applyCellColorFilterRequestBuilder';
+import {ApplyCustomFilterRequestBuilder} from './applyCustomFilter/applyCustomFilterRequestBuilder';
+import {ApplyDynamicFilterRequestBuilder} from './applyDynamicFilter/applyDynamicFilterRequestBuilder';
+import {ApplyFontColorFilterRequestBuilder} from './applyFontColorFilter/applyFontColorFilterRequestBuilder';
+import {ApplyIconFilterRequestBuilder} from './applyIconFilter/applyIconFilterRequestBuilder';
+import {ApplyTopItemsFilterRequestBuilder} from './applyTopItemsFilter/applyTopItemsFilterRequestBuilder';
+import {ApplyTopPercentFilterRequestBuilder} from './applyTopPercentFilter/applyTopPercentFilterRequestBuilder';
+import {ApplyValuesFilterRequestBuilder} from './applyValuesFilter/applyValuesFilterRequestBuilder';
+import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {FilterRequestBuilderDeleteRequestConfiguration} from './filterRequestBuilderDeleteRequestConfiguration';
 import {FilterRequestBuilderGetRequestConfiguration} from './filterRequestBuilderGetRequestConfiguration';
 import {FilterRequestBuilderPatchRequestConfiguration} from './filterRequestBuilderPatchRequestConfiguration';
-import {MicrosoftGraphApplyRequestBuilder} from './microsoftGraphApply/microsoftGraphApplyRequestBuilder';
-import {MicrosoftGraphApplyBottomItemsFilterRequestBuilder} from './microsoftGraphApplyBottomItemsFilter/microsoftGraphApplyBottomItemsFilterRequestBuilder';
-import {MicrosoftGraphApplyBottomPercentFilterRequestBuilder} from './microsoftGraphApplyBottomPercentFilter/microsoftGraphApplyBottomPercentFilterRequestBuilder';
-import {MicrosoftGraphApplyCellColorFilterRequestBuilder} from './microsoftGraphApplyCellColorFilter/microsoftGraphApplyCellColorFilterRequestBuilder';
-import {MicrosoftGraphApplyCustomFilterRequestBuilder} from './microsoftGraphApplyCustomFilter/microsoftGraphApplyCustomFilterRequestBuilder';
-import {MicrosoftGraphApplyDynamicFilterRequestBuilder} from './microsoftGraphApplyDynamicFilter/microsoftGraphApplyDynamicFilterRequestBuilder';
-import {MicrosoftGraphApplyFontColorFilterRequestBuilder} from './microsoftGraphApplyFontColorFilter/microsoftGraphApplyFontColorFilterRequestBuilder';
-import {MicrosoftGraphApplyIconFilterRequestBuilder} from './microsoftGraphApplyIconFilter/microsoftGraphApplyIconFilterRequestBuilder';
-import {MicrosoftGraphApplyTopItemsFilterRequestBuilder} from './microsoftGraphApplyTopItemsFilter/microsoftGraphApplyTopItemsFilterRequestBuilder';
-import {MicrosoftGraphApplyTopPercentFilterRequestBuilder} from './microsoftGraphApplyTopPercentFilter/microsoftGraphApplyTopPercentFilterRequestBuilder';
-import {MicrosoftGraphApplyValuesFilterRequestBuilder} from './microsoftGraphApplyValuesFilter/microsoftGraphApplyValuesFilterRequestBuilder';
-import {MicrosoftGraphClearRequestBuilder} from './microsoftGraphClear/microsoftGraphClearRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,52 +24,52 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class FilterRequestBuilder {
     /** Provides operations to call the apply method. */
-    public get microsoftGraphApply(): MicrosoftGraphApplyRequestBuilder {
-        return new MicrosoftGraphApplyRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get apply(): ApplyRequestBuilder {
+        return new ApplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyBottomItemsFilter method. */
-    public get microsoftGraphApplyBottomItemsFilter(): MicrosoftGraphApplyBottomItemsFilterRequestBuilder {
-        return new MicrosoftGraphApplyBottomItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyBottomItemsFilter(): ApplyBottomItemsFilterRequestBuilder {
+        return new ApplyBottomItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyBottomPercentFilter method. */
-    public get microsoftGraphApplyBottomPercentFilter(): MicrosoftGraphApplyBottomPercentFilterRequestBuilder {
-        return new MicrosoftGraphApplyBottomPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyBottomPercentFilter(): ApplyBottomPercentFilterRequestBuilder {
+        return new ApplyBottomPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyCellColorFilter method. */
-    public get microsoftGraphApplyCellColorFilter(): MicrosoftGraphApplyCellColorFilterRequestBuilder {
-        return new MicrosoftGraphApplyCellColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyCellColorFilter(): ApplyCellColorFilterRequestBuilder {
+        return new ApplyCellColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyCustomFilter method. */
-    public get microsoftGraphApplyCustomFilter(): MicrosoftGraphApplyCustomFilterRequestBuilder {
-        return new MicrosoftGraphApplyCustomFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyCustomFilter(): ApplyCustomFilterRequestBuilder {
+        return new ApplyCustomFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyDynamicFilter method. */
-    public get microsoftGraphApplyDynamicFilter(): MicrosoftGraphApplyDynamicFilterRequestBuilder {
-        return new MicrosoftGraphApplyDynamicFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyDynamicFilter(): ApplyDynamicFilterRequestBuilder {
+        return new ApplyDynamicFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyFontColorFilter method. */
-    public get microsoftGraphApplyFontColorFilter(): MicrosoftGraphApplyFontColorFilterRequestBuilder {
-        return new MicrosoftGraphApplyFontColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyFontColorFilter(): ApplyFontColorFilterRequestBuilder {
+        return new ApplyFontColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyIconFilter method. */
-    public get microsoftGraphApplyIconFilter(): MicrosoftGraphApplyIconFilterRequestBuilder {
-        return new MicrosoftGraphApplyIconFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyIconFilter(): ApplyIconFilterRequestBuilder {
+        return new ApplyIconFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyTopItemsFilter method. */
-    public get microsoftGraphApplyTopItemsFilter(): MicrosoftGraphApplyTopItemsFilterRequestBuilder {
-        return new MicrosoftGraphApplyTopItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyTopItemsFilter(): ApplyTopItemsFilterRequestBuilder {
+        return new ApplyTopItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyTopPercentFilter method. */
-    public get microsoftGraphApplyTopPercentFilter(): MicrosoftGraphApplyTopPercentFilterRequestBuilder {
-        return new MicrosoftGraphApplyTopPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyTopPercentFilter(): ApplyTopPercentFilterRequestBuilder {
+        return new ApplyTopPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyValuesFilter method. */
-    public get microsoftGraphApplyValuesFilter(): MicrosoftGraphApplyValuesFilterRequestBuilder {
-        return new MicrosoftGraphApplyValuesFilterRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get applyValuesFilter(): ApplyValuesFilterRequestBuilder {
+        return new ApplyValuesFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the clear method. */
-    public get microsoftGraphClear(): MicrosoftGraphClearRequestBuilder {
-        return new MicrosoftGraphClearRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get clear(): ClearRequestBuilder {
+        return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

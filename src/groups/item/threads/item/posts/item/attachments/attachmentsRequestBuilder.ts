@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsRequestBuilderGetRequestConfiguration';
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphCreateUploadSessionRequestBuilder} from './microsoftGraphCreateUploadSession/microsoftGraphCreateUploadSessionRequestBuilder';
+import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,8 +18,8 @@ export class AttachmentsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the createUploadSession method. */
-    public get microsoftGraphCreateUploadSession(): MicrosoftGraphCreateUploadSessionRequestBuilder {
-        return new MicrosoftGraphCreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get createUploadSession(): CreateUploadSessionRequestBuilder {
+        return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

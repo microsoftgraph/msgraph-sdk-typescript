@@ -3,14 +3,14 @@ import {createOnenotePageFromDiscriminatorValue} from '../../../../../../../../.
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {MicrosoftGraphCopyToSectionRequestBuilder} from './microsoftGraphCopyToSection/microsoftGraphCopyToSectionRequestBuilder';
-import {MicrosoftGraphOnenotePatchContentRequestBuilder} from './microsoftGraphOnenotePatchContent/microsoftGraphOnenotePatchContentRequestBuilder';
-import {MicrosoftGraphPreviewRequestBuilder} from './microsoftGraphPreview/microsoftGraphPreviewRequestBuilder';
+import {CopyToSectionRequestBuilder} from './copyToSection/copyToSectionRequestBuilder';
 import {OnenotePageItemRequestBuilderDeleteRequestConfiguration} from './onenotePageItemRequestBuilderDeleteRequestConfiguration';
 import {OnenotePageItemRequestBuilderGetRequestConfiguration} from './onenotePageItemRequestBuilderGetRequestConfiguration';
 import {OnenotePageItemRequestBuilderPatchRequestConfiguration} from './onenotePageItemRequestBuilderPatchRequestConfiguration';
+import {OnenotePatchContentRequestBuilder} from './onenotePatchContent/onenotePatchContentRequestBuilder';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionRequestBuilder} from './parentSection/parentSectionRequestBuilder';
+import {PreviewRequestBuilder} from './preview/previewRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -22,16 +22,12 @@ export class OnenotePageItemRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the copyToSection method. */
-    public get microsoftGraphCopyToSection(): MicrosoftGraphCopyToSectionRequestBuilder {
-        return new MicrosoftGraphCopyToSectionRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get copyToSection(): CopyToSectionRequestBuilder {
+        return new CopyToSectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the onenotePatchContent method. */
-    public get microsoftGraphOnenotePatchContent(): MicrosoftGraphOnenotePatchContentRequestBuilder {
-        return new MicrosoftGraphOnenotePatchContentRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the preview method. */
-    public get microsoftGraphPreview(): MicrosoftGraphPreviewRequestBuilder {
-        return new MicrosoftGraphPreviewRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get onenotePatchContent(): OnenotePatchContentRequestBuilder {
+        return new OnenotePatchContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the parentNotebook property of the microsoft.graph.onenotePage entity. */
     public get parentNotebook(): ParentNotebookRequestBuilder {
@@ -43,6 +39,10 @@ export class OnenotePageItemRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the preview method. */
+    public get preview(): PreviewRequestBuilder {
+        return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder */

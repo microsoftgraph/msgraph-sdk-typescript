@@ -7,8 +7,8 @@ import {AccessPackageAssignmentRequestItemRequestBuilderDeleteRequestConfigurati
 import {AccessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentRequestItemRequestBuilderPatchRequestConfiguration} from './accessPackageAssignmentRequestItemRequestBuilderPatchRequestConfiguration';
 import {AssignmentRequestBuilder} from './assignment/assignmentRequestBuilder';
-import {MicrosoftGraphCancelRequestBuilder} from './microsoftGraphCancel/microsoftGraphCancelRequestBuilder';
-import {MicrosoftGraphReprocessRequestBuilder} from './microsoftGraphReprocess/microsoftGraphReprocessRequestBuilder';
+import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
+import {ReprocessRequestBuilder} from './reprocess/reprocessRequestBuilder';
 import {RequestorRequestBuilder} from './requestor/requestorRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -25,15 +25,15 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
         return new AssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the cancel method. */
-    public get microsoftGraphCancel(): MicrosoftGraphCancelRequestBuilder {
-        return new MicrosoftGraphCancelRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the reprocess method. */
-    public get microsoftGraphReprocess(): MicrosoftGraphReprocessRequestBuilder {
-        return new MicrosoftGraphReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get cancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the reprocess method. */
+    public get reprocess(): ReprocessRequestBuilder {
+        return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the requestor property of the microsoft.graph.accessPackageAssignmentRequest entity. */

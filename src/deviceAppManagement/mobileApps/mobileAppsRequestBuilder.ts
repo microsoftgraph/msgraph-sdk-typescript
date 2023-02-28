@@ -4,8 +4,8 @@ import {createMobileAppFromDiscriminatorValue} from '../../models/createMobileAp
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphManagedMobileLobAppRequestBuilder} from './microsoftGraphManagedMobileLobApp/microsoftGraphManagedMobileLobAppRequestBuilder';
-import {MicrosoftGraphMobileLobAppRequestBuilder} from './microsoftGraphMobileLobApp/microsoftGraphMobileLobAppRequestBuilder';
+import {GraphManagedMobileLobAppRequestBuilder} from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
+import {GraphMobileLobAppRequestBuilder} from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
 import {MobileAppsRequestBuilderGetRequestConfiguration} from './mobileAppsRequestBuilderGetRequestConfiguration';
 import {MobileAppsRequestBuilderPostRequestConfiguration} from './mobileAppsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -19,12 +19,12 @@ export class MobileAppsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to managedMobileLobApp. */
-    public get microsoftGraphManagedMobileLobApp(): MicrosoftGraphManagedMobileLobAppRequestBuilder {
-        return new MicrosoftGraphManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphManagedMobileLobApp(): GraphManagedMobileLobAppRequestBuilder {
+        return new GraphManagedMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to mobileLobApp. */
-    public get microsoftGraphMobileLobApp(): MicrosoftGraphMobileLobAppRequestBuilder {
-        return new MicrosoftGraphMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphMobileLobApp(): GraphMobileLobAppRequestBuilder {
+        return new GraphMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

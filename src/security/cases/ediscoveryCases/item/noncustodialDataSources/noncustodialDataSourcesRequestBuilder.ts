@@ -4,10 +4,10 @@ import {EdiscoveryNoncustodialDataSource, EdiscoveryNoncustodialDataSourceCollec
 import {createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
-import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
 import {NoncustodialDataSourcesRequestBuilderGetRequestConfiguration} from './noncustodialDataSourcesRequestBuilderGetRequestConfiguration';
 import {NoncustodialDataSourcesRequestBuilderPostRequestConfiguration} from './noncustodialDataSourcesRequestBuilderPostRequestConfiguration';
+import {SecurityApplyHoldRequestBuilder} from './securityApplyHold/securityApplyHoldRequestBuilder';
+import {SecurityRemoveHoldRequestBuilder} from './securityRemoveHold/securityRemoveHoldRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,18 +18,18 @@ export class NoncustodialDataSourcesRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyHold method. */
-    public get microsoftGraphSecurityApplyHold(): MicrosoftGraphSecurityApplyHoldRequestBuilder {
-        return new MicrosoftGraphSecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the removeHold method. */
-    public get microsoftGraphSecurityRemoveHold(): MicrosoftGraphSecurityRemoveHoldRequestBuilder {
-        return new MicrosoftGraphSecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the applyHold method. */
+    public get securityApplyHold(): SecurityApplyHoldRequestBuilder {
+        return new SecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the removeHold method. */
+    public get securityRemoveHold(): SecurityRemoveHoldRequestBuilder {
+        return new SecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

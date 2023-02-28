@@ -1,4 +1,4 @@
-import {ActivityBasedTimeoutPolicy, AdministrativeUnit, Application, AppRoleAssignment, AuthorizationPolicy, ClaimsMappingPolicy, Contract, CrossTenantAccessPolicy, Device, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, Endpoint, ExtensionProperty, Group, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, Organization, OrgContact, PermissionGrantPolicy, PolicyBase, ResourceSpecificPermissionGrant, ServicePrincipal, StsPolicy, TokenIssuancePolicy, TokenLifetimePolicy, User} from './index';
+import {ActivityBasedTimeoutPolicy, AdministrativeUnit, Application, AppManagementPolicy, AppRoleAssignment, AuthorizationPolicy, ClaimsMappingPolicy, Contract, CrossTenantAccessPolicy, Device, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, Endpoint, ExtensionProperty, Group, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, Organization, OrgContact, PermissionGrantPolicy, PolicyBase, ResourceSpecificPermissionGrant, ServicePrincipal, StsPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy, User} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryObject {
@@ -14,6 +14,8 @@ export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode
                     return new AdministrativeUnit();
                 case "#microsoft.graph.application":
                     return new Application();
+                case "#microsoft.graph.appManagementPolicy":
+                    return new AppManagementPolicy();
                 case "#microsoft.graph.appRoleAssignment":
                     return new AppRoleAssignment();
                 case "#microsoft.graph.authorizationPolicy":
@@ -58,6 +60,8 @@ export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode
                     return new ServicePrincipal();
                 case "#microsoft.graph.stsPolicy":
                     return new StsPolicy();
+                case "#microsoft.graph.tenantAppManagementPolicy":
+                    return new TenantAppManagementPolicy();
                 case "#microsoft.graph.tokenIssuancePolicy":
                     return new TokenIssuancePolicy();
                 case "#microsoft.graph.tokenLifetimePolicy":

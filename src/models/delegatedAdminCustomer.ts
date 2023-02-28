@@ -10,7 +10,7 @@ export class DelegatedAdminCustomer extends Entity implements Parsable {
     /** The Azure AD-assigned tenant ID of the customer. Read-only. */
     private _tenantId?: string | undefined;
     /**
-     * Instantiates a new delegatedAdminCustomer and sets the default values.
+     * Instantiates a new DelegatedAdminCustomer and sets the default values.
      */
     public constructor() {
         super();

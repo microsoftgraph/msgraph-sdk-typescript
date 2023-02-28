@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CallsRequestBuilderGetRequestConfiguration} from './callsRequestBuilderGetRequestConfiguration';
 import {CallsRequestBuilderPostRequestConfiguration} from './callsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphLogTeleconferenceDeviceQualityRequestBuilder} from './microsoftGraphLogTeleconferenceDeviceQuality/microsoftGraphLogTeleconferenceDeviceQualityRequestBuilder';
+import {LogTeleconferenceDeviceQualityRequestBuilder} from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,8 +18,8 @@ export class CallsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the logTeleconferenceDeviceQuality method. */
-    public get microsoftGraphLogTeleconferenceDeviceQuality(): MicrosoftGraphLogTeleconferenceDeviceQualityRequestBuilder {
-        return new MicrosoftGraphLogTeleconferenceDeviceQualityRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get logTeleconferenceDeviceQuality(): LogTeleconferenceDeviceQualityRequestBuilder {
+        return new LogTeleconferenceDeviceQualityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

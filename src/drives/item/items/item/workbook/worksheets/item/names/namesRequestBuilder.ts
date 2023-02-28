@@ -3,9 +3,9 @@ import {createWorkbookNamedItemCollectionResponseFromDiscriminatorValue} from '.
 import {createWorkbookNamedItemFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookNamedItemFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AddRequestBuilder} from './add/addRequestBuilder';
+import {AddFormulaLocalRequestBuilder} from './addFormulaLocal/addFormulaLocalRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MicrosoftGraphAddRequestBuilder} from './microsoftGraphAdd/microsoftGraphAddRequestBuilder';
-import {MicrosoftGraphAddFormulaLocalRequestBuilder} from './microsoftGraphAddFormulaLocal/microsoftGraphAddFormulaLocalRequestBuilder';
 import {NamesRequestBuilderGetRequestConfiguration} from './namesRequestBuilderGetRequestConfiguration';
 import {NamesRequestBuilderPostRequestConfiguration} from './namesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -14,17 +14,17 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
  */
 export class NamesRequestBuilder {
+    /** Provides operations to call the add method. */
+    public get add(): AddRequestBuilder {
+        return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addFormulaLocal method. */
+    public get addFormulaLocal(): AddFormulaLocalRequestBuilder {
+        return new AddFormulaLocalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the add method. */
-    public get microsoftGraphAdd(): MicrosoftGraphAddRequestBuilder {
-        return new MicrosoftGraphAddRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the addFormulaLocal method. */
-    public get microsoftGraphAddFormulaLocal(): MicrosoftGraphAddFormulaLocalRequestBuilder {
-        return new MicrosoftGraphAddFormulaLocalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

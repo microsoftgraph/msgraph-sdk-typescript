@@ -2,20 +2,20 @@ import {WorkbookWorksheet} from '../../../../../../../models/';
 import {createWorkbookWorksheetFromDiscriminatorValue} from '../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
 import {ChartsRequestBuilder} from './charts/chartsRequestBuilder';
 import {WorkbookChartItemRequestBuilder} from './charts/item/workbookChartItemRequestBuilder';
-import {MicrosoftGraphCellWithRowWithColumnRequestBuilder} from './microsoftGraphCellWithRowWithColumn/microsoftGraphCellWithRowWithColumnRequestBuilder';
-import {MicrosoftGraphRangeRequestBuilder} from './microsoftGraphRange/microsoftGraphRangeRequestBuilder';
-import {MicrosoftGraphRangeWithAddressRequestBuilder} from './microsoftGraphRangeWithAddress/microsoftGraphRangeWithAddressRequestBuilder';
-import {MicrosoftGraphUsedRangeRequestBuilder} from './microsoftGraphUsedRange/microsoftGraphUsedRangeRequestBuilder';
-import {MicrosoftGraphUsedRangeWithValuesOnlyRequestBuilder} from './microsoftGraphUsedRangeWithValuesOnly/microsoftGraphUsedRangeWithValuesOnlyRequestBuilder';
 import {WorkbookNamedItemItemRequestBuilder} from './names/item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
 import {WorkbookPivotTableItemRequestBuilder} from './pivotTables/item/workbookPivotTableItemRequestBuilder';
 import {PivotTablesRequestBuilder} from './pivotTables/pivotTablesRequestBuilder';
 import {ProtectionRequestBuilder} from './protection/protectionRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
+import {RangeWithAddressRequestBuilder} from './rangeWithAddress/rangeWithAddressRequestBuilder';
 import {WorkbookTableItemRequestBuilder} from './tables/item/workbookTableItemRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
+import {UsedRangeRequestBuilder} from './usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration} from './workbookWorksheetItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookWorksheetItemRequestBuilderGetRequestConfiguration} from './workbookWorksheetItemRequestBuilderGetRequestConfiguration';
 import {WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration} from './workbookWorksheetItemRequestBuilderPatchRequestConfiguration';
@@ -28,14 +28,6 @@ export class WorkbookWorksheetItemRequestBuilder {
     /** Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity. */
     public get charts(): ChartsRequestBuilder {
         return new ChartsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the range method. */
-    public get microsoftGraphRange(): MicrosoftGraphRangeRequestBuilder {
-        return new MicrosoftGraphRangeRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the usedRange method. */
-    public get microsoftGraphUsedRange(): MicrosoftGraphUsedRangeRequestBuilder {
-        return new MicrosoftGraphUsedRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity. */
     public get names(): NamesRequestBuilder {
@@ -51,6 +43,10 @@ export class WorkbookWorksheetItemRequestBuilder {
     public get protection(): ProtectionRequestBuilder {
         return new ProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the range method. */
+    public get range(): RangeRequestBuilder {
+        return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity. */
@@ -59,6 +55,21 @@ export class WorkbookWorksheetItemRequestBuilder {
     }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
+    /** Provides operations to call the usedRange method. */
+    public get usedRange(): UsedRangeRequestBuilder {
+        return new UsedRangeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the cell method.
+     * @param column Usage: column={column}
+     * @param row Usage: row={row}
+     * @returns a cellWithRowWithColumnRequestBuilder
+     */
+    public cellWithRowWithColumn(column: number | undefined, row: number | undefined) : CellWithRowWithColumnRequestBuilder {
+        if(!column) throw new Error("column cannot be undefined");
+        if(!row) throw new Error("row cannot be undefined");
+        return new CellWithRowWithColumnRequestBuilder(this.pathParameters, this.requestAdapter, column, row);
+    };
     /**
      * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
      * @param id Unique identifier of the item
@@ -115,35 +126,6 @@ export class WorkbookWorksheetItemRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookWorksheet>(requestInfo, createWorkbookWorksheetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the cell method.
-     * @param column Usage: column={column}
-     * @param row Usage: row={row}
-     * @returns a microsoftGraphCellWithRowWithColumnRequestBuilder
-     */
-    public microsoftGraphCellWithRowWithColumn(column: number | undefined, row: number | undefined) : MicrosoftGraphCellWithRowWithColumnRequestBuilder {
-        if(!column) throw new Error("column cannot be undefined");
-        if(!row) throw new Error("row cannot be undefined");
-        return new MicrosoftGraphCellWithRowWithColumnRequestBuilder(this.pathParameters, this.requestAdapter, column, row);
-    };
-    /**
-     * Provides operations to call the range method.
-     * @param address Usage: address='{address}'
-     * @returns a microsoftGraphRangeWithAddressRequestBuilder
-     */
-    public microsoftGraphRangeWithAddress(address: string | undefined) : MicrosoftGraphRangeWithAddressRequestBuilder {
-        if(!address) throw new Error("address cannot be undefined");
-        return new MicrosoftGraphRangeWithAddressRequestBuilder(this.pathParameters, this.requestAdapter, address);
-    };
-    /**
-     * Provides operations to call the usedRange method.
-     * @param valuesOnly Usage: valuesOnly={valuesOnly}
-     * @returns a microsoftGraphUsedRangeWithValuesOnlyRequestBuilder
-     */
-    public microsoftGraphUsedRangeWithValuesOnly(valuesOnly: boolean | undefined) : MicrosoftGraphUsedRangeWithValuesOnlyRequestBuilder {
-        if(!valuesOnly) throw new Error("valuesOnly cannot be undefined");
-        return new MicrosoftGraphUsedRangeWithValuesOnlyRequestBuilder(this.pathParameters, this.requestAdapter, valuesOnly);
-    };
-    /**
      * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
      * @param id Unique identifier of the item
      * @returns a WorkbookNamedItemItemRequestBuilder
@@ -182,6 +164,15 @@ export class WorkbookWorksheetItemRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workbookPivotTable%2Did"] = id
         return new WorkbookPivotTableItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Provides operations to call the range method.
+     * @param address Usage: address='{address}'
+     * @returns a rangeWithAddressRequestBuilder
+     */
+    public rangeWithAddress(address: string | undefined) : RangeWithAddressRequestBuilder {
+        if(!address) throw new Error("address cannot be undefined");
+        return new RangeWithAddressRequestBuilder(this.pathParameters, this.requestAdapter, address);
     };
     /**
      * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
@@ -247,5 +238,14 @@ export class WorkbookWorksheetItemRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
+    };
+    /**
+     * Provides operations to call the usedRange method.
+     * @param valuesOnly Usage: valuesOnly={valuesOnly}
+     * @returns a usedRangeWithValuesOnlyRequestBuilder
+     */
+    public usedRangeWithValuesOnly(valuesOnly: boolean | undefined) : UsedRangeWithValuesOnlyRequestBuilder {
+        if(!valuesOnly) throw new Error("valuesOnly cannot be undefined");
+        return new UsedRangeWithValuesOnlyRequestBuilder(this.pathParameters, this.requestAdapter, valuesOnly);
     };
 }

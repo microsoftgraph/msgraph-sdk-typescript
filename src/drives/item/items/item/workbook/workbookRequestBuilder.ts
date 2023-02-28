@@ -3,18 +3,18 @@ import {createWorkbookFromDiscriminatorValue} from '../../../../../models/create
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
+import {CloseSessionRequestBuilder} from './closeSession/closeSessionRequestBuilder';
 import {CommentsRequestBuilder} from './comments/commentsRequestBuilder';
 import {WorkbookCommentItemRequestBuilder} from './comments/item/workbookCommentItemRequestBuilder';
+import {CreateSessionRequestBuilder} from './createSession/createSessionRequestBuilder';
 import {FunctionsRequestBuilder} from './functions/functionsRequestBuilder';
-import {MicrosoftGraphCloseSessionRequestBuilder} from './microsoftGraphCloseSession/microsoftGraphCloseSessionRequestBuilder';
-import {MicrosoftGraphCreateSessionRequestBuilder} from './microsoftGraphCreateSession/microsoftGraphCreateSessionRequestBuilder';
-import {MicrosoftGraphRefreshSessionRequestBuilder} from './microsoftGraphRefreshSession/microsoftGraphRefreshSessionRequestBuilder';
-import {MicrosoftGraphSessionInfoResourceWithKeyRequestBuilder} from './microsoftGraphSessionInfoResourceWithKey/microsoftGraphSessionInfoResourceWithKeyRequestBuilder';
-import {MicrosoftGraphTableRowOperationResultWithKeyRequestBuilder} from './microsoftGraphTableRowOperationResultWithKey/microsoftGraphTableRowOperationResultWithKeyRequestBuilder';
 import {WorkbookNamedItemItemRequestBuilder} from './names/item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
 import {WorkbookOperationItemRequestBuilder} from './operations/item/workbookOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
+import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionRequestBuilder';
+import {SessionInfoResourceWithKeyRequestBuilder} from './sessionInfoResourceWithKey/sessionInfoResourceWithKeyRequestBuilder';
+import {TableRowOperationResultWithKeyRequestBuilder} from './tableRowOperationResultWithKey/tableRowOperationResultWithKeyRequestBuilder';
 import {WorkbookTableItemRequestBuilder} from './tables/item/workbookTableItemRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
 import {WorkbookRequestBuilderDeleteRequestConfiguration} from './workbookRequestBuilderDeleteRequestConfiguration';
@@ -32,25 +32,21 @@ export class WorkbookRequestBuilder {
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the closeSession method. */
+    public get closeSession(): CloseSessionRequestBuilder {
+        return new CloseSessionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the comments property of the microsoft.graph.workbook entity. */
     public get comments(): CommentsRequestBuilder {
         return new CommentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the createSession method. */
+    public get createSession(): CreateSessionRequestBuilder {
+        return new CreateSessionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the functions property of the microsoft.graph.workbook entity. */
     public get functions(): FunctionsRequestBuilder {
         return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the closeSession method. */
-    public get microsoftGraphCloseSession(): MicrosoftGraphCloseSessionRequestBuilder {
-        return new MicrosoftGraphCloseSessionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the createSession method. */
-    public get microsoftGraphCreateSession(): MicrosoftGraphCreateSessionRequestBuilder {
-        return new MicrosoftGraphCreateSessionRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the refreshSession method. */
-    public get microsoftGraphRefreshSession(): MicrosoftGraphRefreshSessionRequestBuilder {
-        return new MicrosoftGraphRefreshSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the names property of the microsoft.graph.workbook entity. */
     public get names(): NamesRequestBuilder {
@@ -62,6 +58,10 @@ export class WorkbookRequestBuilder {
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
+    /** Provides operations to call the refreshSession method. */
+    public get refreshSession(): RefreshSessionRequestBuilder {
+        return new RefreshSessionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
     /** Provides operations to manage the tables property of the microsoft.graph.workbook entity. */
@@ -130,24 +130,6 @@ export class WorkbookRequestBuilder {
         return this.requestAdapter?.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to call the sessionInfoResource method.
-     * @param key Usage: key='{key}'
-     * @returns a microsoftGraphSessionInfoResourceWithKeyRequestBuilder
-     */
-    public microsoftGraphSessionInfoResourceWithKey(key: string | undefined) : MicrosoftGraphSessionInfoResourceWithKeyRequestBuilder {
-        if(!key) throw new Error("key cannot be undefined");
-        return new MicrosoftGraphSessionInfoResourceWithKeyRequestBuilder(this.pathParameters, this.requestAdapter, key);
-    };
-    /**
-     * Provides operations to call the tableRowOperationResult method.
-     * @param key Usage: key='{key}'
-     * @returns a microsoftGraphTableRowOperationResultWithKeyRequestBuilder
-     */
-    public microsoftGraphTableRowOperationResultWithKey(key: string | undefined) : MicrosoftGraphTableRowOperationResultWithKeyRequestBuilder {
-        if(!key) throw new Error("key cannot be undefined");
-        return new MicrosoftGraphTableRowOperationResultWithKeyRequestBuilder(this.pathParameters, this.requestAdapter, key);
-    };
-    /**
      * Provides operations to manage the names property of the microsoft.graph.workbook entity.
      * @param id Unique identifier of the item
      * @returns a WorkbookNamedItemItemRequestBuilder
@@ -186,6 +168,24 @@ export class WorkbookRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Provides operations to call the sessionInfoResource method.
+     * @param key Usage: key='{key}'
+     * @returns a sessionInfoResourceWithKeyRequestBuilder
+     */
+    public sessionInfoResourceWithKey(key: string | undefined) : SessionInfoResourceWithKeyRequestBuilder {
+        if(!key) throw new Error("key cannot be undefined");
+        return new SessionInfoResourceWithKeyRequestBuilder(this.pathParameters, this.requestAdapter, key);
+    };
+    /**
+     * Provides operations to call the tableRowOperationResult method.
+     * @param key Usage: key='{key}'
+     * @returns a tableRowOperationResultWithKeyRequestBuilder
+     */
+    public tableRowOperationResultWithKey(key: string | undefined) : TableRowOperationResultWithKeyRequestBuilder {
+        if(!key) throw new Error("key cannot be undefined");
+        return new TableRowOperationResultWithKeyRequestBuilder(this.pathParameters, this.requestAdapter, key);
     };
     /**
      * Provides operations to manage the tables property of the microsoft.graph.workbook entity.

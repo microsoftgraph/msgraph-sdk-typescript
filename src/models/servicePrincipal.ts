@@ -1,4 +1,5 @@
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
+import {createAppManagementPolicyFromDiscriminatorValue} from './createAppManagementPolicyFromDiscriminatorValue';
 import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssignmentFromDiscriminatorValue';
 import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
@@ -17,7 +18,7 @@ import {createSamlSingleSignOnSettingsFromDiscriminatorValue} from './createSaml
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
-import {AddIn, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher} from './index';
+import {AddIn, AppManagementPolicy, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServicePrincipal extends DirectoryObject implements Parsable {
@@ -35,6 +36,8 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith). */
     private _applicationTemplateId?: string | undefined;
+    /** The appManagementPolicies property */
+    private _appManagementPolicies?: AppManagementPolicy[] | undefined;
     /** Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le). */
     private _appOwnerOrganizationId?: string | undefined;
     /** App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand. */
@@ -216,6 +219,20 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._applicationTemplateId = value;
     };
     /**
+     * Gets the appManagementPolicies property value. The appManagementPolicies property
+     * @returns a appManagementPolicy
+     */
+    public get appManagementPolicies() {
+        return this._appManagementPolicies;
+    };
+    /**
+     * Sets the appManagementPolicies property value. The appManagementPolicies property
+     * @param value Value to set for the appManagementPolicies property.
+     */
+    public set appManagementPolicies(value: AppManagementPolicy[] | undefined) {
+        this._appManagementPolicies = value;
+    };
+    /**
      * Gets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
      * @returns a Guid
      */
@@ -300,7 +317,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._claimsMappingPolicies = value;
     };
     /**
-     * Instantiates a new servicePrincipal and sets the default values.
+     * Instantiates a new ServicePrincipal and sets the default values.
      */
     public constructor() {
         super();
@@ -417,6 +434,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
             "appDisplayName": n => { this.appDisplayName = n.getStringValue(); },
             "appId": n => { this.appId = n.getStringValue(); },
             "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
+            "appManagementPolicies": n => { this.appManagementPolicies = n.getCollectionOfObjectValues<AppManagementPolicy>(createAppManagementPolicyFromDiscriminatorValue); },
             "appOwnerOrganizationId": n => { this.appOwnerOrganizationId = n.getStringValue(); },
             "appRoleAssignedTo": n => { this.appRoleAssignedTo = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
             "appRoleAssignmentRequired": n => { this.appRoleAssignmentRequired = n.getBooleanValue(); },
@@ -740,6 +758,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         writer.writeStringValue("appDisplayName", this.appDisplayName);
         writer.writeStringValue("appId", this.appId);
         writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
+        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", this.appManagementPolicies);
         writer.writeStringValue("appOwnerOrganizationId", this.appOwnerOrganizationId);
         writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", this.appRoleAssignedTo);
         writer.writeBooleanValue("appRoleAssignmentRequired", this.appRoleAssignmentRequired);

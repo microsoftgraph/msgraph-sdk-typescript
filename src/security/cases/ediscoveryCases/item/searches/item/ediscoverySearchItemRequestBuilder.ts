@@ -11,10 +11,10 @@ import {EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration} from './ed
 import {EdiscoverySearchItemRequestBuilderGetRequestConfiguration} from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderPatchRequestConfiguration} from './ediscoverySearchItemRequestBuilderPatchRequestConfiguration';
 import {LastEstimateStatisticsOperationRequestBuilder} from './lastEstimateStatisticsOperation/lastEstimateStatisticsOperationRequestBuilder';
-import {MicrosoftGraphSecurityEstimateStatisticsRequestBuilder} from './microsoftGraphSecurityEstimateStatistics/microsoftGraphSecurityEstimateStatisticsRequestBuilder';
-import {MicrosoftGraphSecurityPurgeDataRequestBuilder} from './microsoftGraphSecurityPurgeData/microsoftGraphSecurityPurgeDataRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodialSources/item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialSourcesRequestBuilder} from './noncustodialSources/noncustodialSourcesRequestBuilder';
+import {SecurityEstimateStatisticsRequestBuilder} from './securityEstimateStatistics/securityEstimateStatisticsRequestBuilder';
+import {SecurityPurgeDataRequestBuilder} from './securityPurgeData/securityPurgeDataRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -37,14 +37,6 @@ export class EdiscoverySearchItemRequestBuilder {
     public get lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
         return new LastEstimateStatisticsOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the estimateStatistics method. */
-    public get microsoftGraphSecurityEstimateStatistics(): MicrosoftGraphSecurityEstimateStatisticsRequestBuilder {
-        return new MicrosoftGraphSecurityEstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the purgeData method. */
-    public get microsoftGraphSecurityPurgeData(): MicrosoftGraphSecurityPurgeDataRequestBuilder {
-        return new MicrosoftGraphSecurityPurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity. */
     public get noncustodialSources(): NoncustodialSourcesRequestBuilder {
         return new NoncustodialSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -53,6 +45,14 @@ export class EdiscoverySearchItemRequestBuilder {
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the estimateStatistics method. */
+    public get securityEstimateStatistics(): SecurityEstimateStatisticsRequestBuilder {
+        return new SecurityEstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the purgeData method. */
+    public get securityPurgeData(): SecurityPurgeDataRequestBuilder {
+        return new SecurityPurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**

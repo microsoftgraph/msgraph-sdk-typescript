@@ -3,13 +3,13 @@ import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
+import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
+import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
+import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
+import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
+import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration} from './membersWithLicenseErrorsRequestBuilderGetRequestConfiguration';
-import {MicrosoftGraphApplicationRequestBuilder} from './microsoftGraphApplication/microsoftGraphApplicationRequestBuilder';
-import {MicrosoftGraphDeviceRequestBuilder} from './microsoftGraphDevice/microsoftGraphDeviceRequestBuilder';
-import {MicrosoftGraphGroupRequestBuilder} from './microsoftGraphGroup/microsoftGraphGroupRequestBuilder';
-import {MicrosoftGraphOrgContactRequestBuilder} from './microsoftGraphOrgContact/microsoftGraphOrgContactRequestBuilder';
-import {MicrosoftGraphServicePrincipalRequestBuilder} from './microsoftGraphServicePrincipal/microsoftGraphServicePrincipalRequestBuilder';
-import {MicrosoftGraphUserRequestBuilder} from './microsoftGraphUser/microsoftGraphUserRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -21,28 +21,28 @@ export class MembersWithLicenseErrorsRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to application. */
-    public get microsoftGraphApplication(): MicrosoftGraphApplicationRequestBuilder {
-        return new MicrosoftGraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphApplication(): GraphApplicationRequestBuilder {
+        return new GraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to device. */
-    public get microsoftGraphDevice(): MicrosoftGraphDeviceRequestBuilder {
-        return new MicrosoftGraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphDevice(): GraphDeviceRequestBuilder {
+        return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to group. */
-    public get microsoftGraphGroup(): MicrosoftGraphGroupRequestBuilder {
-        return new MicrosoftGraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphGroup(): GraphGroupRequestBuilder {
+        return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to orgContact. */
-    public get microsoftGraphOrgContact(): MicrosoftGraphOrgContactRequestBuilder {
-        return new MicrosoftGraphOrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphOrgContact(): GraphOrgContactRequestBuilder {
+        return new GraphOrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to servicePrincipal. */
-    public get microsoftGraphServicePrincipal(): MicrosoftGraphServicePrincipalRequestBuilder {
-        return new MicrosoftGraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
+        return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to user. */
-    public get microsoftGraphUser(): MicrosoftGraphUserRequestBuilder {
-        return new MicrosoftGraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get graphUser(): GraphUserRequestBuilder {
+        return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;

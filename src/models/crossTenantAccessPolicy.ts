@@ -4,21 +4,21 @@ import {CrossTenantAccessPolicyConfigurationDefault, CrossTenantAccessPolicyConf
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CrossTenantAccessPolicy extends PolicyBase implements Parsable {
-    /** The allowedCloudEndpoints property */
+    /** Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn. */
     private _allowedCloudEndpoints?: string[] | undefined;
     /** Defines the default configuration for how your organization interacts with external Azure Active Directory organizations. */
     private _defaultEscaped?: CrossTenantAccessPolicyConfigurationDefault | undefined;
     /** Defines partner-specific configurations for external Azure Active Directory organizations. */
     private _partners?: CrossTenantAccessPolicyConfigurationPartner[] | undefined;
     /**
-     * Gets the allowedCloudEndpoints property value. The allowedCloudEndpoints property
+     * Gets the allowedCloudEndpoints property value. Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
      * @returns a string
      */
     public get allowedCloudEndpoints() {
         return this._allowedCloudEndpoints;
     };
     /**
-     * Sets the allowedCloudEndpoints property value. The allowedCloudEndpoints property
+     * Sets the allowedCloudEndpoints property value. Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
      * @param value Value to set for the allowedCloudEndpoints property.
      */
     public set allowedCloudEndpoints(value: string[] | undefined) {

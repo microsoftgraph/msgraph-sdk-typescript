@@ -2,13 +2,13 @@ import {Presence} from '../../models/';
 import {createPresenceFromDiscriminatorValue} from '../../models/createPresenceFromDiscriminatorValue';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {MicrosoftGraphClearPresenceRequestBuilder} from './microsoftGraphClearPresence/microsoftGraphClearPresenceRequestBuilder';
-import {MicrosoftGraphClearUserPreferredPresenceRequestBuilder} from './microsoftGraphClearUserPreferredPresence/microsoftGraphClearUserPreferredPresenceRequestBuilder';
-import {MicrosoftGraphSetPresenceRequestBuilder} from './microsoftGraphSetPresence/microsoftGraphSetPresenceRequestBuilder';
-import {MicrosoftGraphSetUserPreferredPresenceRequestBuilder} from './microsoftGraphSetUserPreferredPresence/microsoftGraphSetUserPreferredPresenceRequestBuilder';
+import {ClearPresenceRequestBuilder} from './clearPresence/clearPresenceRequestBuilder';
+import {ClearUserPreferredPresenceRequestBuilder} from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
 import {PresenceRequestBuilderDeleteRequestConfiguration} from './presenceRequestBuilderDeleteRequestConfiguration';
 import {PresenceRequestBuilderGetRequestConfiguration} from './presenceRequestBuilderGetRequestConfiguration';
 import {PresenceRequestBuilderPatchRequestConfiguration} from './presenceRequestBuilderPatchRequestConfiguration';
+import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
+import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -16,25 +16,25 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  */
 export class PresenceRequestBuilder {
     /** Provides operations to call the clearPresence method. */
-    public get microsoftGraphClearPresence(): MicrosoftGraphClearPresenceRequestBuilder {
-        return new MicrosoftGraphClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get clearPresence(): ClearPresenceRequestBuilder {
+        return new ClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the clearUserPreferredPresence method. */
-    public get microsoftGraphClearUserPreferredPresence(): MicrosoftGraphClearUserPreferredPresenceRequestBuilder {
-        return new MicrosoftGraphClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setPresence method. */
-    public get microsoftGraphSetPresence(): MicrosoftGraphSetPresenceRequestBuilder {
-        return new MicrosoftGraphSetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the setUserPreferredPresence method. */
-    public get microsoftGraphSetUserPreferredPresence(): MicrosoftGraphSetUserPreferredPresenceRequestBuilder {
-        return new MicrosoftGraphSetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
+        return new ClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request */
     private pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests. */
     private requestAdapter: RequestAdapter;
+    /** Provides operations to call the setPresence method. */
+    public get setPresence(): SetPresenceRequestBuilder {
+        return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the setUserPreferredPresence method. */
+    public get setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
+        return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder */
     private urlTemplate: string;
     /**
