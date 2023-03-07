@@ -36,7 +36,7 @@ export class QuestionsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get questions from identityGovernance
+     * Questions that are posed to the  requestor.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageQuestionCollectionResponse
@@ -70,7 +70,7 @@ export class QuestionsRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessPackageQuestion>(requestInfo, createAccessPackageQuestionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get questions from identityGovernance
+     * Questions that are posed to the  requestor.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

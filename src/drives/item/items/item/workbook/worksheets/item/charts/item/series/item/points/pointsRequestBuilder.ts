@@ -37,11 +37,11 @@ export class PointsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve a list of chartpoint objects.
+     * Retrieve a list of chartpoints objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartPointCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/chartseries-list-points?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PointsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -82,7 +82,7 @@ export class PointsRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of chartpoint objects.
+     * Retrieve a list of chartpoints objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

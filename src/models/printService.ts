@@ -6,7 +6,7 @@ export class PrintService extends Entity implements Parsable {
     /** Endpoints that can be used to access the service. Read-only. Nullable. */
     private _endpoints?: PrintServiceEndpoint[] | undefined;
     /**
-     * Instantiates a new printService and sets the default values.
+     * Instantiates a new PrintService and sets the default values.
      */
     public constructor() {
         super();

@@ -25,7 +25,7 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
     private _timeFormat?: string | undefined;
     /** The default time zone for the user's mailbox. */
     private _timeZone?: string | undefined;
-    /** The userPurpose property */
+    /** The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only. */
     private _userPurpose?: UserPurpose | undefined;
     /** The days of the week and hours in a specific time zone that the user works. */
     private _workingHours?: WorkingHours | undefined;
@@ -198,14 +198,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._timeZone = value;
     };
     /**
-     * Gets the userPurpose property value. The userPurpose property
+     * Gets the userPurpose property value. The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
      * @returns a userPurpose
      */
     public get userPurpose() {
         return this._userPurpose;
     };
     /**
-     * Sets the userPurpose property value. The userPurpose property
+     * Sets the userPurpose property value. The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
      * @param value Value to set for the userPurpose property.
      */
     public set userPurpose(value: UserPurpose | undefined) {

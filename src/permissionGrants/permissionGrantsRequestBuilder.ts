@@ -3,6 +3,7 @@ import {createResourceSpecificPermissionGrantCollectionResponseFromDiscriminator
 import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {PermissionGrantsRequestBuilderGetRequestConfiguration} from './permissionGrantsRequestBuilderGetRequestConfiguration';
@@ -14,6 +15,10 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
  * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
  */
 export class PermissionGrantsRequestBuilder {
+    /** Provides operations to call the delta method. */
+    public get delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to call the getAvailableExtensionProperties method. */
     public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
         return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);

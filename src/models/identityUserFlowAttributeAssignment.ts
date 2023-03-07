@@ -18,7 +18,7 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
     /** The userInputType property */
     private _userInputType?: IdentityUserFlowAttributeInputType | undefined;
     /**
-     * Instantiates a new identityUserFlowAttributeAssignment and sets the default values.
+     * Instantiates a new IdentityUserFlowAttributeAssignment and sets the default values.
      */
     public constructor() {
         super();

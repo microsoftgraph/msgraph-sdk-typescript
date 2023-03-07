@@ -1,6 +1,6 @@
 
 /**
- * Get questions from identityGovernance
+ * Questions that are posed to the  requestor.
  */
 export class QuestionsRequestBuilderGetQueryParameters {
     /** Include count of items */
