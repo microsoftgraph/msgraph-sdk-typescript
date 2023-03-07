@@ -118,7 +118,7 @@ export class User extends DirectoryObject implements Parsable {
     private _employeeHireDate?: Date | undefined;
     /** The employee identifier assigned to the user by the organization. The maximum length is 16 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, startsWith, and eq on null values). */
     private _employeeId?: string | undefined;
-    /** The employeeLeaveDateTime property */
+    /** The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Administrator. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user. */
     private _employeeLeaveDateTime?: Date | undefined;
     /** Represents organization data (e.g. division and costCenter) associated with a user. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in). */
     private _employeeOrgData?: EmployeeOrgData | undefined;
@@ -784,14 +784,14 @@ export class User extends DirectoryObject implements Parsable {
         this._employeeId = value;
     };
     /**
-     * Gets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     * Gets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Administrator. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
      * @returns a Date
      */
     public get employeeLeaveDateTime() {
         return this._employeeLeaveDateTime;
     };
     /**
-     * Sets the employeeLeaveDateTime property value. The employeeLeaveDateTime property
+     * Sets the employeeLeaveDateTime property value. The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Administrator. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
      * @param value Value to set for the employeeLeaveDateTime property.
      */
     public set employeeLeaveDateTime(value: Date | undefined) {

@@ -2,17 +2,17 @@ import {ConversationMember} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AzureCommunicationServicesUserConversationMember extends ConversationMember implements Parsable {
-    /** The azureCommunicationServicesId property */
+    /** Azure Communication Services ID of the user. */
     private _azureCommunicationServicesId?: string | undefined;
     /**
-     * Gets the azureCommunicationServicesId property value. The azureCommunicationServicesId property
+     * Gets the azureCommunicationServicesId property value. Azure Communication Services ID of the user.
      * @returns a string
      */
     public get azureCommunicationServicesId() {
         return this._azureCommunicationServicesId;
     };
     /**
-     * Sets the azureCommunicationServicesId property value. The azureCommunicationServicesId property
+     * Sets the azureCommunicationServicesId property value. Azure Communication Services ID of the user.
      * @param value Value to set for the azureCommunicationServicesId property.
      */
     public set azureCommunicationServicesId(value: string | undefined) {

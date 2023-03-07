@@ -6,6 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeletedItemsRequestBuilderGetRequestConfiguration} from './deletedItemsRequestBuilderGetRequestConfiguration';
 import {DeletedItemsRequestBuilderPostRequestConfiguration} from './deletedItemsRequestBuilderPostRequestConfiguration';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
@@ -21,6 +22,10 @@ export class DeletedItemsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the delta method. */
+    public get delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getAvailableExtensionProperties method. */
     public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {

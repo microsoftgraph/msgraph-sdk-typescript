@@ -54,7 +54,7 @@ export class Chat extends Entity implements Parsable {
         this._chatType = value;
     };
     /**
-     * Instantiates a new chat and sets the default values.
+     * Instantiates a new Chat and sets the default values.
      */
     public constructor() {
         super();

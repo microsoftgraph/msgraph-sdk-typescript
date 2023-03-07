@@ -2,6 +2,9 @@ import {MobileApp} from './index';
 import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessLicenseType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Microsoft Store for Business Apps. This class does not support Create, Delete, or Update.
+ */
 export class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable {
     /** The licenseType property */
     private _licenseType?: MicrosoftStoreForBusinessLicenseType | undefined;
@@ -14,7 +17,7 @@ export class MicrosoftStoreForBusinessApp extends MobileApp implements Parsable 
     /** The number of Microsoft Store for Business licenses in use. */
     private _usedLicenseCount?: number | undefined;
     /**
-     * Instantiates a new MicrosoftStoreForBusinessApp and sets the default values.
+     * Instantiates a new microsoftStoreForBusinessApp and sets the default values.
      */
     public constructor() {
         super();

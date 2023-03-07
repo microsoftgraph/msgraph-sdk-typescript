@@ -9,4 +9,5 @@ export enum EntityType {
     Drive = "drive",
     UnknownFutureValue = "unknownFutureValue",
     ChatMessage = "chatMessage",
+    Person = "person",
 }

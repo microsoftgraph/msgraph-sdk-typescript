@@ -30,7 +30,7 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
     private _expiration?: ExpirationPattern | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _modifiedDateTime?: Date | undefined;
-    /** The questions property */
+    /** Questions that are posed to the  requestor. */
     private _questions?: AccessPackageQuestion[] | undefined;
     /** Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests. */
     private _requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | undefined;
@@ -195,14 +195,14 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         this._modifiedDateTime = value;
     };
     /**
-     * Gets the questions property value. The questions property
+     * Gets the questions property value. Questions that are posed to the  requestor.
      * @returns a accessPackageQuestion
      */
     public get questions() {
         return this._questions;
     };
     /**
-     * Sets the questions property value. The questions property
+     * Sets the questions property value. Questions that are posed to the  requestor.
      * @param value Value to set for the questions property.
      */
     public set questions(value: AccessPackageQuestion[] | undefined) {

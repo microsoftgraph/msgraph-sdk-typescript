@@ -23,7 +23,7 @@ export class UserTeamwork extends Entity implements Parsable {
         this._associatedTeams = value;
     };
     /**
-     * Instantiates a new UserTeamwork and sets the default values.
+     * Instantiates a new userTeamwork and sets the default values.
      */
     public constructor() {
         super();

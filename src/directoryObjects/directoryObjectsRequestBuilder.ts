@@ -4,6 +4,7 @@ import {createDirectoryObjectFromDiscriminatorValue} from '../models/createDirec
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {DirectoryObjectsRequestBuilderGetRequestConfiguration} from './directoryObjectsRequestBuilderGetRequestConfiguration';
 import {DirectoryObjectsRequestBuilderPostRequestConfiguration} from './directoryObjectsRequestBuilderPostRequestConfiguration';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
@@ -18,6 +19,10 @@ export class DirectoryObjectsRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the delta method. */
+    public get delta(): DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the getAvailableExtensionProperties method. */
     public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {

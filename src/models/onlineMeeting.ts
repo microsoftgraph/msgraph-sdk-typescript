@@ -7,6 +7,8 @@ import {createLobbyBypassSettingsFromDiscriminatorValue} from './createLobbyBypa
 import {createMeetingAttendanceReportFromDiscriminatorValue} from './createMeetingAttendanceReportFromDiscriminatorValue';
 import {createMeetingParticipantsFromDiscriminatorValue} from './createMeetingParticipantsFromDiscriminatorValue';
 import {AudioConferencing, BroadcastMeetingSettings, ChatInfo, Entity, ItemBody, JoinMeetingIdSettings, LobbyBypassSettings, MeetingAttendanceReport, MeetingParticipants} from './index';
+import {MeetingChatMode} from './meetingChatMode';
+import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnlineMeeting extends Entity implements Parsable {
@@ -14,6 +16,10 @@ export class OnlineMeeting extends Entity implements Parsable {
     private _allowAttendeeToEnableCamera?: boolean | undefined;
     /** Indicates whether attendees can turn on their microphone. */
     private _allowAttendeeToEnableMic?: boolean | undefined;
+    /** Specifies who can be a presenter in a meeting. Possible values are listed in the following table. */
+    private _allowedPresenters?: OnlineMeetingPresenters | undefined;
+    /** Specifies the mode of meeting chat. */
+    private _allowMeetingChat?: MeetingChatMode | undefined;
     /** Indicates whether Teams reactions are enabled for the meeting. */
     private _allowTeamworkReactions?: boolean | undefined;
     /** The attendance reports of an online meeting. Read-only. */
@@ -81,6 +87,34 @@ export class OnlineMeeting extends Entity implements Parsable {
      */
     public set allowAttendeeToEnableMic(value: boolean | undefined) {
         this._allowAttendeeToEnableMic = value;
+    };
+    /**
+     * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are listed in the following table.
+     * @returns a onlineMeetingPresenters
+     */
+    public get allowedPresenters() {
+        return this._allowedPresenters;
+    };
+    /**
+     * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are listed in the following table.
+     * @param value Value to set for the allowedPresenters property.
+     */
+    public set allowedPresenters(value: OnlineMeetingPresenters | undefined) {
+        this._allowedPresenters = value;
+    };
+    /**
+     * Gets the allowMeetingChat property value. Specifies the mode of meeting chat.
+     * @returns a meetingChatMode
+     */
+    public get allowMeetingChat() {
+        return this._allowMeetingChat;
+    };
+    /**
+     * Sets the allowMeetingChat property value. Specifies the mode of meeting chat.
+     * @param value Value to set for the allowMeetingChat property.
+     */
+    public set allowMeetingChat(value: MeetingChatMode | undefined) {
+        this._allowMeetingChat = value;
     };
     /**
      * Gets the allowTeamworkReactions property value. Indicates whether Teams reactions are enabled for the meeting.
@@ -167,7 +201,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._chatInfo = value;
     };
     /**
-     * Instantiates a new onlineMeeting and sets the default values.
+     * Instantiates a new OnlineMeeting and sets the default values.
      */
     public constructor() {
         super();
@@ -222,6 +256,8 @@ export class OnlineMeeting extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "allowAttendeeToEnableCamera": n => { this.allowAttendeeToEnableCamera = n.getBooleanValue(); },
             "allowAttendeeToEnableMic": n => { this.allowAttendeeToEnableMic = n.getBooleanValue(); },
+            "allowedPresenters": n => { this.allowedPresenters = n.getEnumValue<OnlineMeetingPresenters>(OnlineMeetingPresenters); },
+            "allowMeetingChat": n => { this.allowMeetingChat = n.getEnumValue<MeetingChatMode>(MeetingChatMode); },
             "allowTeamworkReactions": n => { this.allowTeamworkReactions = n.getBooleanValue(); },
             "attendanceReports": n => { this.attendanceReports = n.getCollectionOfObjectValues<MeetingAttendanceReport>(createMeetingAttendanceReportFromDiscriminatorValue); },
             "attendeeReport": n => { this.attendeeReport = n.getStringValue(); },
@@ -365,6 +401,8 @@ export class OnlineMeeting extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeBooleanValue("allowAttendeeToEnableCamera", this.allowAttendeeToEnableCamera);
         writer.writeBooleanValue("allowAttendeeToEnableMic", this.allowAttendeeToEnableMic);
+        writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
+        writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
         writer.writeBooleanValue("allowTeamworkReactions", this.allowTeamworkReactions);
         writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", this.attendanceReports);
         writer.writeStringValue("attendeeReport", this.attendeeReport);
