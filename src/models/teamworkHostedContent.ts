@@ -14,7 +14,7 @@ export class TeamworkHostedContent extends Entity implements Parsable {
     };
     /**
      * Gets the contentBytes property value. Write only. Bytes for the hosted content (such as images).
-     * @returns a binary
+     * @returns a base64url
      */
     public get contentBytes() {
         return this._contentBytes;

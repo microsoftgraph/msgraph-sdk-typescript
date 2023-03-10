@@ -28,7 +28,7 @@ export class IosCustomConfiguration extends DeviceConfiguration implements Parsa
     };
     /**
      * Gets the payload property value. Payload. (UTF8 encoded byte array)
-     * @returns a binary
+     * @returns a base64url
      */
     public get payload() {
         return this._payload;

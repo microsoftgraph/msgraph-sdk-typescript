@@ -3,6 +3,9 @@ import {MiracastChannel} from './miracastChannel';
 import {WelcomeScreenMeetingInformation} from './welcomeScreenMeetingInformation';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
+/**
+ * This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10TeamGeneralConfiguration resource.
+ */
 export class Windows10TeamGeneralConfiguration extends DeviceConfiguration implements Parsable {
     /** Indicates whether or not to Block Azure Operational Insights. */
     private _azureOperationalInsightsBlockTelemetry?: boolean | undefined;
@@ -101,7 +104,7 @@ export class Windows10TeamGeneralConfiguration extends DeviceConfiguration imple
         this._connectAppBlockAutoLaunch = value;
     };
     /**
-     * Instantiates a new Windows10TeamGeneralConfiguration and sets the default values.
+     * Instantiates a new windows10TeamGeneralConfiguration and sets the default values.
      */
     public constructor() {
         super();

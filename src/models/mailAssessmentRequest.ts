@@ -10,7 +10,7 @@ export class MailAssessmentRequest extends ThreatAssessmentRequest implements Pa
     /** The mail recipient whose policies are used to assess the mail. */
     private _recipientEmail?: string | undefined;
     /**
-     * Instantiates a new MailAssessmentRequest and sets the default values.
+     * Instantiates a new mailAssessmentRequest and sets the default values.
      */
     public constructor() {
         super();

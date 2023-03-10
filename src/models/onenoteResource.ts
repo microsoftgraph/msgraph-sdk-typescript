@@ -15,7 +15,7 @@ export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
     };
     /**
      * Gets the content property value. The content stream
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

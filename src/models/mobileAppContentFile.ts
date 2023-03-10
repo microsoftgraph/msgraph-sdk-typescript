@@ -105,7 +105,7 @@ export class MobileAppContentFile extends Entity implements Parsable {
     };
     /**
      * Gets the manifest property value. The manifest information.
-     * @returns a binary
+     * @returns a base64url
      */
     public get manifest() {
         return this._manifest;

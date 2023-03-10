@@ -6,7 +6,7 @@ export class AuthenticationMethodConfiguration extends Entity implements Parsabl
     /** The state of the policy. Possible values are: enabled, disabled. */
     private _state?: AuthenticationMethodState | undefined;
     /**
-     * Instantiates a new AuthenticationMethodConfiguration and sets the default values.
+     * Instantiates a new authenticationMethodConfiguration and sets the default values.
      */
     public constructor() {
         super();

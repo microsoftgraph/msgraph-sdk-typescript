@@ -32,7 +32,7 @@ export class Report implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the content property value. Not yet documented
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

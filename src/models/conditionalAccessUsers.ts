@@ -1,3 +1,5 @@
+import {createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue} from './createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue';
+import {ConditionalAccessGuestsOrExternalUsers} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
@@ -5,12 +7,16 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Group IDs excluded from scope of policy. */
     private _excludeGroups?: string[] | undefined;
+    /** The excludeGuestsOrExternalUsers property */
+    private _excludeGuestsOrExternalUsers?: ConditionalAccessGuestsOrExternalUsers | undefined;
     /** Role IDs excluded from scope of policy. */
     private _excludeRoles?: string[] | undefined;
     /** User IDs excluded from scope of policy and/or GuestsOrExternalUsers. */
     private _excludeUsers?: string[] | undefined;
     /** Group IDs in scope of policy unless explicitly excluded, or All. */
     private _includeGroups?: string[] | undefined;
+    /** The includeGuestsOrExternalUsers property */
+    private _includeGuestsOrExternalUsers?: ConditionalAccessGuestsOrExternalUsers | undefined;
     /** Role IDs in scope of policy unless explicitly excluded, or All. */
     private _includeRoles?: string[] | undefined;
     /** User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers. */
@@ -52,6 +58,20 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
         this._excludeGroups = value;
     };
     /**
+     * Gets the excludeGuestsOrExternalUsers property value. The excludeGuestsOrExternalUsers property
+     * @returns a conditionalAccessGuestsOrExternalUsers
+     */
+    public get excludeGuestsOrExternalUsers() {
+        return this._excludeGuestsOrExternalUsers;
+    };
+    /**
+     * Sets the excludeGuestsOrExternalUsers property value. The excludeGuestsOrExternalUsers property
+     * @param value Value to set for the excludeGuestsOrExternalUsers property.
+     */
+    public set excludeGuestsOrExternalUsers(value: ConditionalAccessGuestsOrExternalUsers | undefined) {
+        this._excludeGuestsOrExternalUsers = value;
+    };
+    /**
      * Gets the excludeRoles property value. Role IDs excluded from scope of policy.
      * @returns a string
      */
@@ -86,9 +106,11 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "excludeGroups": n => { this.excludeGroups = n.getCollectionOfPrimitiveValues<string>(); },
+            "excludeGuestsOrExternalUsers": n => { this.excludeGuestsOrExternalUsers = n.getObjectValue<ConditionalAccessGuestsOrExternalUsers>(createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue); },
             "excludeRoles": n => { this.excludeRoles = n.getCollectionOfPrimitiveValues<string>(); },
             "excludeUsers": n => { this.excludeUsers = n.getCollectionOfPrimitiveValues<string>(); },
             "includeGroups": n => { this.includeGroups = n.getCollectionOfPrimitiveValues<string>(); },
+            "includeGuestsOrExternalUsers": n => { this.includeGuestsOrExternalUsers = n.getObjectValue<ConditionalAccessGuestsOrExternalUsers>(createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue); },
             "includeRoles": n => { this.includeRoles = n.getCollectionOfPrimitiveValues<string>(); },
             "includeUsers": n => { this.includeUsers = n.getCollectionOfPrimitiveValues<string>(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
@@ -107,6 +129,20 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
      */
     public set includeGroups(value: string[] | undefined) {
         this._includeGroups = value;
+    };
+    /**
+     * Gets the includeGuestsOrExternalUsers property value. The includeGuestsOrExternalUsers property
+     * @returns a conditionalAccessGuestsOrExternalUsers
+     */
+    public get includeGuestsOrExternalUsers() {
+        return this._includeGuestsOrExternalUsers;
+    };
+    /**
+     * Sets the includeGuestsOrExternalUsers property value. The includeGuestsOrExternalUsers property
+     * @param value Value to set for the includeGuestsOrExternalUsers property.
+     */
+    public set includeGuestsOrExternalUsers(value: ConditionalAccessGuestsOrExternalUsers | undefined) {
+        this._includeGuestsOrExternalUsers = value;
     };
     /**
      * Gets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded, or All.
@@ -157,9 +193,11 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("excludeGroups", this.excludeGroups);
+        writer.writeObjectValue<ConditionalAccessGuestsOrExternalUsers>("excludeGuestsOrExternalUsers", this.excludeGuestsOrExternalUsers);
         writer.writeCollectionOfPrimitiveValues<string>("excludeRoles", this.excludeRoles);
         writer.writeCollectionOfPrimitiveValues<string>("excludeUsers", this.excludeUsers);
         writer.writeCollectionOfPrimitiveValues<string>("includeGroups", this.includeGroups);
+        writer.writeObjectValue<ConditionalAccessGuestsOrExternalUsers>("includeGuestsOrExternalUsers", this.includeGuestsOrExternalUsers);
         writer.writeCollectionOfPrimitiveValues<string>("includeRoles", this.includeRoles);
         writer.writeCollectionOfPrimitiveValues<string>("includeUsers", this.includeUsers);
         writer.writeStringValue("@odata.type", this.odataType);

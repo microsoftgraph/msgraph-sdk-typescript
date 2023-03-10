@@ -71,7 +71,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
     };
     /**
      * Gets the hardwareIdentifier property value. Hardware Blob of the Windows autopilot device.
-     * @returns a binary
+     * @returns a base64url
      */
     public get hardwareIdentifier() {
         return this._hardwareIdentifier;

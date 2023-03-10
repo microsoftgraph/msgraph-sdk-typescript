@@ -27,7 +27,7 @@ export class EnterpriseCodeSigningCertificate extends Entity implements Parsable
     };
     /**
      * Gets the content property value. The Windows Enterprise Code-Signing Certificate in the raw data format. Set to null once certificate has been uploaded and other properties have been populated.
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

@@ -41,7 +41,7 @@ export class PasswordCredential implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the customKeyIdentifier property value. Do not use.
-     * @returns a binary
+     * @returns a base64url
      */
     public get customKeyIdentifier() {
         return this._customKeyIdentifier;

@@ -43,7 +43,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the customKeyIdentifier property value. A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.
-     * @returns a binary
+     * @returns a base64url
      */
     public get customKeyIdentifier() {
         return this._customKeyIdentifier;
@@ -102,7 +102,7 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the key property value. The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
-     * @returns a binary
+     * @returns a base64url
      */
     public get key() {
         return this._key;
