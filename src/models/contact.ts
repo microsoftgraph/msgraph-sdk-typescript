@@ -181,7 +181,7 @@ export class Contact extends OutlookItem implements Parsable {
         this._companyName = value;
     };
     /**
-     * Instantiates a new Contact and sets the default values.
+     * Instantiates a new contact and sets the default values.
      */
     public constructor() {
         super();

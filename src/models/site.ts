@@ -85,7 +85,7 @@ export class Site extends BaseItem implements Parsable {
         this._columns = value;
     };
     /**
-     * Instantiates a new site and sets the default values.
+     * Instantiates a new Site and sets the default values.
      */
     public constructor() {
         super();

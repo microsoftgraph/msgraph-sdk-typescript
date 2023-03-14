@@ -32,7 +32,7 @@ export class DeviceAndAppManagementData implements AdditionalDataHolder, Parsabl
     };
     /**
      * Gets the content property value. Not yet documented
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

@@ -143,7 +143,7 @@ export class Message extends OutlookItem implements Parsable {
         this._ccRecipients = value;
     };
     /**
-     * Instantiates a new Message and sets the default values.
+     * Instantiates a new message and sets the default values.
      */
     public constructor() {
         super();
@@ -165,7 +165,7 @@ export class Message extends OutlookItem implements Parsable {
     };
     /**
      * Gets the conversationIndex property value. Indicates the position of the message within the conversation.
-     * @returns a binary
+     * @returns a base64url
      */
     public get conversationIndex() {
         return this._conversationIndex;

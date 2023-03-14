@@ -27,7 +27,7 @@ export class Place extends Entity implements Parsable {
         this._address = value;
     };
     /**
-     * Instantiates a new Place and sets the default values.
+     * Instantiates a new place and sets the default values.
      */
     public constructor() {
         super();

@@ -209,7 +209,7 @@ export class Application extends DirectoryObject implements Parsable {
         this._certification = value;
     };
     /**
-     * Instantiates a new Application and sets the default values.
+     * Instantiates a new application and sets the default values.
      */
     public constructor() {
         super();
@@ -478,7 +478,7 @@ export class Application extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the logo property value. The main logo for the application. Not nullable.
-     * @returns a binary
+     * @returns a base64url
      */
     public get logo() {
         return this._logo;

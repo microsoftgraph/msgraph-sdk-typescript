@@ -40,7 +40,7 @@ export class PrintJob extends Entity implements Parsable {
         this._configuration = value;
     };
     /**
-     * Instantiates a new printJob and sets the default values.
+     * Instantiates a new PrintJob and sets the default values.
      */
     public constructor() {
         super();

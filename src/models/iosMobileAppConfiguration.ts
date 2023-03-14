@@ -16,7 +16,7 @@ export class IosMobileAppConfiguration extends ManagedDeviceMobileAppConfigurati
     };
     /**
      * Gets the encodedSettingXml property value. mdm app configuration Base64 binary.
-     * @returns a binary
+     * @returns a base64url
      */
     public get encodedSettingXml() {
         return this._encodedSettingXml;

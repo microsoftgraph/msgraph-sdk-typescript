@@ -20,7 +20,7 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
     };
     /**
      * Gets the content property value. The attachment content.
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

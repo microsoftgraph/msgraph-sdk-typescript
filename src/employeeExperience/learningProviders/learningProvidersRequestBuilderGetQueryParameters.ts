@@ -1,8 +1,8 @@
 
 /**
- * Retrieve the properties and relationships of the specified team.
+ * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
  */
-export class TeamsRequestBuilderGetQueryParameters {
+export class LearningProvidersRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
     /** Expand related entities */

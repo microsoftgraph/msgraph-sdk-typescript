@@ -32,7 +32,7 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Addi
     };
     /**
      * Gets the certificate property value. Data recovery Certificate
-     * @returns a binary
+     * @returns a base64url
      */
     public get certificate() {
         return this._certificate;

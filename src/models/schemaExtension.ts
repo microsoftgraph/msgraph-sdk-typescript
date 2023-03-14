@@ -14,7 +14,7 @@ export class SchemaExtension extends Entity implements Parsable {
     /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user. */
     private _targetTypes?: string[] | undefined;
     /**
-     * Instantiates a new schemaExtension and sets the default values.
+     * Instantiates a new SchemaExtension and sets the default values.
      */
     public constructor() {
         super();

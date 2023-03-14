@@ -329,7 +329,7 @@ export class Windows10EndpointProtectionConfiguration extends DeviceConfiguratio
     };
     /**
      * Gets the defenderExploitProtectionXml property value. Xml content containing information regarding exploit protection details.
-     * @returns a binary
+     * @returns a base64url
      */
     public get defenderExploitProtectionXml() {
         return this._defenderExploitProtectionXml;

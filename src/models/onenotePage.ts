@@ -36,7 +36,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
     };
     /**
      * Gets the content property value. The page's HTML content.
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

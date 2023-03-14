@@ -159,7 +159,7 @@ export class DriveItem extends BaseItem implements Parsable {
     };
     /**
      * Gets the content property value. The content stream, if the item represents a file.
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;
