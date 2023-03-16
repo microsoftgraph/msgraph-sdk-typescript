@@ -35,7 +35,7 @@ export class WindowsInformationProtectionAppLockerFile extends Entity implements
     };
     /**
      * Gets the file property value. File as a byte array
-     * @returns a binary
+     * @returns a base64url
      */
     public get file() {
         return this._file;

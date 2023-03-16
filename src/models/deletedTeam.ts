@@ -3,24 +3,24 @@ import {Channel, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeletedTeam extends Entity implements Parsable {
-    /** The channels property */
+    /** The channels that are either shared with this deleted team or created in this deleted team. */
     private _channels?: Channel[] | undefined;
     /**
-     * Gets the channels property value. The channels property
+     * Gets the channels property value. The channels that are either shared with this deleted team or created in this deleted team.
      * @returns a channel
      */
     public get channels() {
         return this._channels;
     };
     /**
-     * Sets the channels property value. The channels property
+     * Sets the channels property value. The channels that are either shared with this deleted team or created in this deleted team.
      * @param value Value to set for the channels property.
      */
     public set channels(value: Channel[] | undefined) {
         this._channels = value;
     };
     /**
-     * Instantiates a new deletedTeam and sets the default values.
+     * Instantiates a new DeletedTeam and sets the default values.
      */
     public constructor() {
         super();

@@ -45,6 +45,7 @@ import {DomainItemRequestBuilder} from './domains/item/domainItemRequestBuilder'
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {EducationRequestBuilder} from './education/educationRequestBuilder';
+import {EmployeeExperienceRequestBuilder} from './employeeExperience/employeeExperienceRequestBuilder';
 import {ExternalRequestBuilder} from './external/externalRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
 import {GroupLifecyclePolicyItemRequestBuilder} from './groupLifecyclePolicies/item/groupLifecyclePolicyItemRequestBuilder';
@@ -228,6 +229,10 @@ export class GraphBaseServiceClient {
     /** Provides operations to manage the educationRoot singleton. */
     public get education(): EducationRequestBuilder {
         return new EducationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the employeeExperience singleton. */
+    public get employeeExperience(): EmployeeExperienceRequestBuilder {
+        return new EmployeeExperienceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the external singleton. */
     public get external(): ExternalRequestBuilder {

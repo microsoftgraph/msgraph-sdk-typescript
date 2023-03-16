@@ -8,7 +8,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
     /** The userFlowTypeVersion property */
     private _userFlowTypeVersion?: number | undefined;
     /**
-     * Instantiates a new identityUserFlow and sets the default values.
+     * Instantiates a new IdentityUserFlow and sets the default values.
      */
     public constructor() {
         super();

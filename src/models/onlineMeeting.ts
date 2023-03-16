@@ -146,7 +146,7 @@ export class OnlineMeeting extends Entity implements Parsable {
     };
     /**
      * Gets the attendeeReport property value. The content stream of the attendee report of a Microsoft Teams live event. Read-only.
-     * @returns a binary
+     * @returns a base64url
      */
     public get attendeeReport() {
         return this._attendeeReport;
@@ -201,7 +201,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._chatInfo = value;
     };
     /**
-     * Instantiates a new OnlineMeeting and sets the default values.
+     * Instantiates a new onlineMeeting and sets the default values.
      */
     public constructor() {
         super();

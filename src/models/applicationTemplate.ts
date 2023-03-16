@@ -33,7 +33,7 @@ export class ApplicationTemplate extends Entity implements Parsable {
         this._categories = value;
     };
     /**
-     * Instantiates a new ApplicationTemplate and sets the default values.
+     * Instantiates a new applicationTemplate and sets the default values.
      */
     public constructor() {
         super();

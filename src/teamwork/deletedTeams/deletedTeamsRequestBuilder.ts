@@ -41,10 +41,11 @@ export class DeletedTeamsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get deletedTeams from teamwork
+     * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeletedTeamCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeletedTeamsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeletedTeamCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -75,7 +76,7 @@ export class DeletedTeamsRequestBuilder {
         return this.requestAdapter?.sendAsync<DeletedTeam>(requestInfo, createDeletedTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get deletedTeams from teamwork
+     * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

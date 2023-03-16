@@ -63,7 +63,7 @@ export class DeletedTeamItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get deletedTeams from teamwork
+     * The deleted team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeletedTeam
@@ -113,7 +113,7 @@ export class DeletedTeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get deletedTeams from teamwork
+     * The deleted team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

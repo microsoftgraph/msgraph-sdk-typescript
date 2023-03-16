@@ -59,7 +59,7 @@ export class AlternativeSecurityId implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the key property value. For internal use only
-     * @returns a binary
+     * @returns a base64url
      */
     public get key() {
         return this._key;

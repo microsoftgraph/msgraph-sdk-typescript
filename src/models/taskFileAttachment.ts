@@ -13,7 +13,7 @@ export class TaskFileAttachment extends AttachmentBase implements Parsable {
     };
     /**
      * Gets the contentBytes property value. The base64-encoded contents of the file.
-     * @returns a binary
+     * @returns a base64url
      */
     public get contentBytes() {
         return this._contentBytes;

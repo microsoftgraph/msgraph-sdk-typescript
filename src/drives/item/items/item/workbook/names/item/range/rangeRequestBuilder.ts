@@ -29,11 +29,11 @@ export class RangeRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Retrieve the properties and relationships of range object.
+     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookRange
-     * @see {@link https://docs.microsoft.com/graph/api/range-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/nameditem-range?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RangeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -46,7 +46,7 @@ export class RangeRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of range object.
+     * Returns the range object that is associated with the name. Throws an exception if the named item's type is not a range.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

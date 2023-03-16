@@ -1,6 +1,6 @@
 
 /**
- * Get deletedTeams from teamwork
+ * Get a list of the deletedTeam objects and their properties.
  */
 export class DeletedTeamsRequestBuilderGetQueryParameters {
     /** Include count of items */

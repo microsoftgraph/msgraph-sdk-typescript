@@ -16,7 +16,7 @@ export class AttachmentSession extends Entity implements Parsable {
     };
     /**
      * Gets the content property value. The content streams that are uploaded.
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

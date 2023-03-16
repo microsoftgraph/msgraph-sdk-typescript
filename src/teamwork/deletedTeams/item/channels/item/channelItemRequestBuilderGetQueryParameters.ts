@@ -1,6 +1,6 @@
 
 /**
- * Get channels from teamwork
+ * The channels that are either shared with this deleted team or created in this deleted team.
  */
 export class ChannelItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

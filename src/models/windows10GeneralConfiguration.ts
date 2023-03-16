@@ -3116,7 +3116,7 @@ export class Windows10GeneralConfiguration extends DeviceConfiguration implement
     };
     /**
      * Gets the startMenuLayoutEdgeAssetsXml property value. This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
-     * @returns a binary
+     * @returns a base64url
      */
     public get startMenuLayoutEdgeAssetsXml() {
         return this._startMenuLayoutEdgeAssetsXml;
@@ -3130,7 +3130,7 @@ export class Windows10GeneralConfiguration extends DeviceConfiguration implement
     };
     /**
      * Gets the startMenuLayoutXml property value. Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
-     * @returns a binary
+     * @returns a base64url
      */
     public get startMenuLayoutXml() {
         return this._startMenuLayoutXml;

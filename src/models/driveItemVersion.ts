@@ -15,7 +15,7 @@ export class DriveItemVersion extends BaseItemVersion implements Parsable {
     };
     /**
      * Gets the content property value. The content stream for this version of the item.
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

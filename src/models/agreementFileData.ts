@@ -29,7 +29,7 @@ export class AgreementFileData implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the data property value. Data that represents the terms of use PDF document. Read-only.
-     * @returns a binary
+     * @returns a base64url
      */
     public get data() {
         return this._data;

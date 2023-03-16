@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of the specified team.
+ * Get entity from teams by key
  */
 export class TeamItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
