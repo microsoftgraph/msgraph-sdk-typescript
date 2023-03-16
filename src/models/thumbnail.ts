@@ -37,7 +37,7 @@ export class Thumbnail implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the content property value. The content stream for the thumbnail.
-     * @returns a binary
+     * @returns a base64url
      */
     public get content() {
         return this._content;

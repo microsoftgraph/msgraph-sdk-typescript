@@ -57,7 +57,7 @@ export class WorkbookRangeView extends Entity implements Parsable {
         this._columnCount = value;
     };
     /**
-     * Instantiates a new WorkbookRangeView and sets the default values.
+     * Instantiates a new workbookRangeView and sets the default values.
      */
     public constructor() {
         super();

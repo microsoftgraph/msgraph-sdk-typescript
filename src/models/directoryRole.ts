@@ -15,7 +15,7 @@ export class DirectoryRole extends DirectoryObject implements Parsable {
     /** Members of this directory role that are scoped to administrative units. Read-only. Nullable. */
     private _scopedMembers?: ScopedRoleMembership[] | undefined;
     /**
-     * Instantiates a new DirectoryRole and sets the default values.
+     * Instantiates a new directoryRole and sets the default values.
      */
     public constructor() {
         super();

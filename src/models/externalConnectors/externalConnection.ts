@@ -40,7 +40,7 @@ export class ExternalConnection extends Entity implements Parsable {
         this._configuration = value;
     };
     /**
-     * Instantiates a new externalConnection and sets the default values.
+     * Instantiates a new ExternalConnection and sets the default values.
      */
     public constructor() {
         super();

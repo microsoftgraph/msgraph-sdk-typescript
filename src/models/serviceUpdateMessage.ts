@@ -59,7 +59,7 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
     };
     /**
      * Gets the attachmentsArchive property value. The zip file that contains all attachments for a message.
-     * @returns a binary
+     * @returns a base64url
      */
     public get attachmentsArchive() {
         return this._attachmentsArchive;

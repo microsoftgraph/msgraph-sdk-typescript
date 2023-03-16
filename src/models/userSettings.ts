@@ -10,7 +10,7 @@ export class UserSettings extends Entity implements Parsable {
     /** The shiftPreferences property */
     private _shiftPreferences?: ShiftPreferences | undefined;
     /**
-     * Instantiates a new UserSettings and sets the default values.
+     * Instantiates a new userSettings and sets the default values.
      */
     public constructor() {
         super();

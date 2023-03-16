@@ -12,6 +12,8 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
     private _allowEmailVerifiedUsersToJoinOrganization?: boolean | undefined;
     /** Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below. */
     private _allowInvitesFrom?: AllowInvitesFrom | undefined;
+    /** The allowUserConsentForRiskyApps property */
+    private _allowUserConsentForRiskyApps?: boolean | undefined;
     /** To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph. */
     private _blockMsolPowerShell?: boolean | undefined;
     /** The defaultUserRolePermissions property */
@@ -75,6 +77,20 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
         this._allowInvitesFrom = value;
     };
     /**
+     * Gets the allowUserConsentForRiskyApps property value. The allowUserConsentForRiskyApps property
+     * @returns a boolean
+     */
+    public get allowUserConsentForRiskyApps() {
+        return this._allowUserConsentForRiskyApps;
+    };
+    /**
+     * Sets the allowUserConsentForRiskyApps property value. The allowUserConsentForRiskyApps property
+     * @param value Value to set for the allowUserConsentForRiskyApps property.
+     */
+    public set allowUserConsentForRiskyApps(value: boolean | undefined) {
+        this._allowUserConsentForRiskyApps = value;
+    };
+    /**
      * Gets the blockMsolPowerShell property value. To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
      * @returns a boolean
      */
@@ -119,6 +135,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
             "allowedToUseSSPR": n => { this.allowedToUseSSPR = n.getBooleanValue(); },
             "allowEmailVerifiedUsersToJoinOrganization": n => { this.allowEmailVerifiedUsersToJoinOrganization = n.getBooleanValue(); },
             "allowInvitesFrom": n => { this.allowInvitesFrom = n.getEnumValue<AllowInvitesFrom>(AllowInvitesFrom); },
+            "allowUserConsentForRiskyApps": n => { this.allowUserConsentForRiskyApps = n.getBooleanValue(); },
             "blockMsolPowerShell": n => { this.blockMsolPowerShell = n.getBooleanValue(); },
             "defaultUserRolePermissions": n => { this.defaultUserRolePermissions = n.getObjectValue<DefaultUserRolePermissions>(createDefaultUserRolePermissionsFromDiscriminatorValue); },
             "guestUserRoleId": n => { this.guestUserRoleId = n.getStringValue(); },
@@ -149,6 +166,7 @@ export class AuthorizationPolicy extends PolicyBase implements Parsable {
         writer.writeBooleanValue("allowedToUseSSPR", this.allowedToUseSSPR);
         writer.writeBooleanValue("allowEmailVerifiedUsersToJoinOrganization", this.allowEmailVerifiedUsersToJoinOrganization);
         writer.writeEnumValue<AllowInvitesFrom>("allowInvitesFrom", this.allowInvitesFrom);
+        writer.writeBooleanValue("allowUserConsentForRiskyApps", this.allowUserConsentForRiskyApps);
         writer.writeBooleanValue("blockMsolPowerShell", this.blockMsolPowerShell);
         writer.writeObjectValue<DefaultUserRolePermissions>("defaultUserRolePermissions", this.defaultUserRolePermissions);
         writer.writeStringValue("guestUserRoleId", this.guestUserRoleId);

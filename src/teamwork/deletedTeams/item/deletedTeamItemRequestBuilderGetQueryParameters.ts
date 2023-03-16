@@ -1,6 +1,6 @@
 
 /**
- * Get deletedTeams from teamwork
+ * The deleted team.
  */
 export class DeletedTeamItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

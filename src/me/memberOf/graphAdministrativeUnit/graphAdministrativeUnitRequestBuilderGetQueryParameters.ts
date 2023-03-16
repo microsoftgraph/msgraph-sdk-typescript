@@ -1,8 +1,8 @@
 
 /**
- * Retrieve the properties and relationships of the specified team.
+ * Get the items of type microsoft.graph.administrativeUnit in the microsoft.graph.directoryObject collection
  */
-export class TeamsRequestBuilderGetQueryParameters {
+export class GraphAdministrativeUnitRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
     /** Expand related entities */

@@ -478,7 +478,7 @@ export class Application extends DirectoryObject implements Parsable {
     };
     /**
      * Gets the logo property value. The main logo for the application. Not nullable.
-     * @returns a binary
+     * @returns a base64url
      */
     public get logo() {
         return this._logo;

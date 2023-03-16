@@ -33,7 +33,7 @@ export class CertificateAuthority implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the certificate property value. Required. The base64 encoded string representing the public certificate.
-     * @returns a binary
+     * @returns a base64url
      */
     public get certificate() {
         return this._certificate;

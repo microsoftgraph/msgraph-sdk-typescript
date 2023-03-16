@@ -45,7 +45,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the customKeyIdentifier property value. The customKeyIdentifier property
-     * @returns a binary
+     * @returns a base64url
      */
     public get customKeyIdentifier() {
         return this._customKeyIdentifier;
@@ -105,7 +105,7 @@ export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the key property value. The key property
-     * @returns a binary
+     * @returns a base64url
      */
     public get key() {
         return this._key;

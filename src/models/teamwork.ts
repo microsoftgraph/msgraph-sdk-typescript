@@ -4,7 +4,7 @@ import {DeletedTeam, Entity, WorkforceIntegration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Teamwork extends Entity implements Parsable {
-    /** The deletedTeams property */
+    /** The deleted team. */
     private _deletedTeams?: DeletedTeam[] | undefined;
     /** The workforceIntegrations property */
     private _workforceIntegrations?: WorkforceIntegration[] | undefined;
@@ -15,14 +15,14 @@ export class Teamwork extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the deletedTeams property value. The deletedTeams property
+     * Gets the deletedTeams property value. The deleted team.
      * @returns a deletedTeam
      */
     public get deletedTeams() {
         return this._deletedTeams;
     };
     /**
-     * Sets the deletedTeams property value. The deletedTeams property
+     * Sets the deletedTeams property value. The deleted team.
      * @param value Value to set for the deletedTeams property.
      */
     public set deletedTeams(value: DeletedTeam[] | undefined) {

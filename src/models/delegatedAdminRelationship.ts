@@ -75,7 +75,7 @@ export class DelegatedAdminRelationship extends Entity implements Parsable {
         this._activatedDateTime = value;
     };
     /**
-     * Instantiates a new DelegatedAdminRelationship and sets the default values.
+     * Instantiates a new delegatedAdminRelationship and sets the default values.
      */
     public constructor() {
         super();

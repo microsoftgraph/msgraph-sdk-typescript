@@ -91,7 +91,7 @@ export class UserActivity extends Entity implements Parsable {
         this._appDisplayName = value;
     };
     /**
-     * Instantiates a new UserActivity and sets the default values.
+     * Instantiates a new userActivity and sets the default values.
      */
     public constructor() {
         super();

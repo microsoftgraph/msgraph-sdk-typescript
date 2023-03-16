@@ -1,9 +1,12 @@
 import {ManagedAppRegistration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Represents the synchronization details of an ios app, with management capabilities, for a specific user.
+ */
 export class IosManagedAppRegistration extends ManagedAppRegistration implements Parsable {
     /**
-     * Instantiates a new IosManagedAppRegistration and sets the default values.
+     * Instantiates a new iosManagedAppRegistration and sets the default values.
      */
     public constructor() {
         super();

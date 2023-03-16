@@ -160,7 +160,7 @@ export class TeamItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of the specified team.
+     * Get entity from teams by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
@@ -267,7 +267,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of the specified team.
+     * Get entity from teams by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
