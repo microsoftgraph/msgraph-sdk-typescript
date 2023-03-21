@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class EdiscoveryIndexOperation extends CaseOperation implements Parsable {
     /**
-     * Instantiates a new EdiscoveryIndexOperation and sets the default values.
+     * Instantiates a new ediscoveryIndexOperation and sets the default values.
      */
     public constructor() {
         super();

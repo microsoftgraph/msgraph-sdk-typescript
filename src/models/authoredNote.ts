@@ -25,7 +25,7 @@ export class AuthoredNote extends Entity implements Parsable {
         this._author = value;
     };
     /**
-     * Instantiates a new authoredNote and sets the default values.
+     * Instantiates a new AuthoredNote and sets the default values.
      */
     public constructor() {
         super();
