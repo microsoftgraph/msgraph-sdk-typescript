@@ -33,7 +33,7 @@ export class EdiscoveryCustodian extends DataSourceContainer implements Parsable
         this._acknowledgedDateTime = value;
     };
     /**
-     * Instantiates a new EdiscoveryCustodian and sets the default values.
+     * Instantiates a new ediscoveryCustodian and sets the default values.
      */
     public constructor() {
         super();
