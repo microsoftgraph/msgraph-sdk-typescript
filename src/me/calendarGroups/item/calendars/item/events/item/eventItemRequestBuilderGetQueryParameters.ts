@@ -3,6 +3,8 @@
  * The events in the calendar. Navigation property. Read-only.
  */
 export class EventItemRequestBuilderGetQueryParameters {
+    /** Expand related entities */
+    public expand?: string[] | undefined;
     /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
@@ -13,6 +15,7 @@ export class EventItemRequestBuilderGetQueryParameters {
     public getQueryParameter(originalName: string | undefined) : string {
         if(!originalName) throw new Error("originalName cannot be undefined");
         switch(originalName) {
+            case "expand": return "%24expand";
             case "select": return "%24select";
             default: return originalName;
         }

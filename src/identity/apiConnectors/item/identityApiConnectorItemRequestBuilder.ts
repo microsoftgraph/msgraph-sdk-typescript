@@ -6,34 +6,23 @@ import {IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration} from '
 import {IdentityApiConnectorItemRequestBuilderGetRequestConfiguration} from './identityApiConnectorItemRequestBuilderGetRequestConfiguration';
 import {IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration} from './identityApiConnectorItemRequestBuilderPatchRequestConfiguration';
 import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
  */
-export class IdentityApiConnectorItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the uploadClientCertificate method. */
     public get uploadClientCertificate(): UploadClientCertificateRequestBuilder {
         return new UploadClientCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new IdentityApiConnectorItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property apiConnectors for identity

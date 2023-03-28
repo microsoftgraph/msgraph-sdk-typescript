@@ -13,12 +13,12 @@ import {ConditionalAccessPolicyItemRequestBuilder} from './policies/item/conditi
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
 import {ConditionalAccessTemplateItemRequestBuilder} from './templates/item/conditionalAccessTemplateItemRequestBuilder';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
  */
-export class ConditionalAccessRequestBuilder {
+export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity. */
     public get authenticationContextClassReferences(): AuthenticationContextClassReferencesRequestBuilder {
         return new AuthenticationContextClassReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -27,20 +27,14 @@ export class ConditionalAccessRequestBuilder {
     public get namedLocations(): NamedLocationsRequestBuilder {
         return new NamedLocationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity. */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity. */
     public get templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
      * @param id Unique identifier of the item
@@ -58,12 +52,7 @@ export class ConditionalAccessRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identity/conditionalAccess{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess{?%24select,%24expand}");
     };
     /**
      * Delete navigation property conditionalAccess for identity

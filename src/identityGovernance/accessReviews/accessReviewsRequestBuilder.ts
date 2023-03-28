@@ -9,12 +9,12 @@ import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder
 import {AccessReviewScheduleDefinitionItemRequestBuilder} from './definitions/item/accessReviewScheduleDefinitionItemRequestBuilder';
 import {HistoryDefinitionsRequestBuilder} from './historyDefinitions/historyDefinitionsRequestBuilder';
 import {AccessReviewHistoryDefinitionItemRequestBuilder} from './historyDefinitions/item/accessReviewHistoryDefinitionItemRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
  */
-export class AccessReviewsRequestBuilder {
+export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity. */
     public get definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -23,24 +23,13 @@ export class AccessReviewsRequestBuilder {
     public get historyDefinitions(): HistoryDefinitionsRequestBuilder {
         return new HistoryDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new AccessReviewsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/accessReviews{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.

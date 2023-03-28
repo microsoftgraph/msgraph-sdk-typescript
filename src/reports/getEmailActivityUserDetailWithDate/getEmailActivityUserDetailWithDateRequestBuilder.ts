@@ -1,18 +1,12 @@
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetEmailActivityUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getEmailActivityUserDetailWithDateRequestBuilderGetRequestConfiguration';
-import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, DateOnly, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getEmailActivityUserDetail method.
  */
-export class GetEmailActivityUserDetailWithDateRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetEmailActivityUserDetailWithDateRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetEmailActivityUserDetailWithDateRequestBuilder and sets the default values.
      * @param date Usage: date={date}
@@ -20,13 +14,8 @@ export class GetEmailActivityUserDetailWithDateRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, date?: DateOnly | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/reports/getEmailActivityUserDetail(date={date})";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["date"] = date
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/reports/getEmailActivityUserDetail(date={date})");
+        this.pathParameters["date"] = date
     };
     /**
      * Invoke function getEmailActivityUserDetail

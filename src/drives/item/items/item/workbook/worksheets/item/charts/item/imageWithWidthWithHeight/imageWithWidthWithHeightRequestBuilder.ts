@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {createImageWithWidthWithHeightResponseFromDiscriminatorValue} from './createImageWithWidthWithHeightResponseFromDiscriminatorValue';
 import {ImageWithWidthWithHeightRequestBuilderGetRequestConfiguration} from './imageWithWidthWithHeightRequestBuilderGetRequestConfiguration';
 import {ImageWithWidthWithHeightResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the image method.
  */
-export class ImageWithWidthWithHeightRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class ImageWithWidthWithHeightRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new ImageWithWidthWithHeightRequestBuilder and sets the default values.
      * @param height Usage: height={height}
@@ -23,14 +17,9 @@ export class ImageWithWidthWithHeightRequestBuilder {
      * @param width Usage: width={width}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, height?: number | undefined, width?: number | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/image(width={width},height={height})";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["height"] = height
-        urlTplParams["width"] = width
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/image(width={width},height={height})");
+        this.pathParameters["height"] = height
+        this.pathParameters["width"] = width
     };
     /**
      * Invoke function image

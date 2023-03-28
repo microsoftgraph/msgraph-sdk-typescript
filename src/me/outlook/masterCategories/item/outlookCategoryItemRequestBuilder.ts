@@ -5,30 +5,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {OutlookCategoryItemRequestBuilderDeleteRequestConfiguration} from './outlookCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {OutlookCategoryItemRequestBuilderGetRequestConfiguration} from './outlookCategoryItemRequestBuilderGetRequestConfiguration';
 import {OutlookCategoryItemRequestBuilderPatchRequestConfiguration} from './outlookCategoryItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
  */
-export class OutlookCategoryItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new OutlookCategoryItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/outlook/masterCategories/{outlookCategory%2Did}{?%24select}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/outlook/masterCategories/{outlookCategory%2Did}{?%24select}");
     };
     /**
      * Delete navigation property masterCategories for me

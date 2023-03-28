@@ -15,12 +15,12 @@ import {IncompatibleAccessPackagesRequestBuilder} from './incompatibleAccessPack
 import {AccessPackageItemRequestBuilder as I809ebbabbc4c0c638d0702979fc25083976fa483e66514ed45cc0d62f8e1bcd1} from './incompatibleAccessPackages/item/accessPackageItemRequestBuilder';
 import {IncompatibleGroupsRequestBuilder} from './incompatibleGroups/incompatibleGroupsRequestBuilder';
 import {GroupItemRequestBuilder} from './incompatibleGroups/item/groupItemRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
  */
-export class AccessPackageItemRequestBuilder {
+export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity. */
     public get accessPackagesIncompatibleWith(): AccessPackagesIncompatibleWithRequestBuilder {
         return new AccessPackagesIncompatibleWithRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -45,12 +45,6 @@ export class AccessPackageItemRequestBuilder {
     public get incompatibleGroups(): IncompatibleGroupsRequestBuilder {
         return new IncompatibleGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
      * @param id Unique identifier of the item
@@ -79,12 +73,7 @@ export class AccessPackageItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property accessPackages for identityGovernance

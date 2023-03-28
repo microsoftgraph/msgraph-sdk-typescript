@@ -11,12 +11,12 @@ import {ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration} from '.
 import {ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration} from './managedAppRegistrationItemRequestBuilderPatchRequestConfiguration';
 import {ManagedAppOperationItemRequestBuilder} from './operations/item/managedAppOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
  */
-export class ManagedAppRegistrationItemRequestBuilder {
+export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity. */
     public get appliedPolicies(): AppliedPoliciesRequestBuilder {
         return new AppliedPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,12 +29,6 @@ export class ManagedAppRegistrationItemRequestBuilder {
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.
      * @param id Unique identifier of the item
@@ -52,12 +46,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property managedAppRegistrations for deviceAppManagement

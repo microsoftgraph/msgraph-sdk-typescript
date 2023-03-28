@@ -9,12 +9,12 @@ import {AnalyticsRequestBuilderPatchRequestConfiguration} from './analyticsReque
 import {ItemActivityStatItemRequestBuilder} from './itemActivityStats/item/itemActivityStatItemRequestBuilder';
 import {ItemActivityStatsRequestBuilder} from './itemActivityStats/itemActivityStatsRequestBuilder';
 import {LastSevenDaysRequestBuilder} from './lastSevenDays/lastSevenDaysRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.
  */
-export class AnalyticsRequestBuilder {
+export class AnalyticsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity. */
     public get allTime(): AllTimeRequestBuilder {
         return new AllTimeRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -27,24 +27,13 @@ export class AnalyticsRequestBuilder {
     public get lastSevenDays(): LastSevenDaysRequestBuilder {
         return new LastSevenDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new AnalyticsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics{?%24select,%24expand}");
     };
     /**
      * Delete navigation property analytics for drives

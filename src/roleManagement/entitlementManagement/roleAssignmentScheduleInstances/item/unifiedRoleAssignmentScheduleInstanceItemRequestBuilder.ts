@@ -6,34 +6,23 @@ import {ActivatedUsingRequestBuilder} from './activatedUsing/activatedUsingReque
 import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
  */
-export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder {
+export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the activatedUsing property of the microsoft.graph.unifiedRoleAssignmentScheduleInstance entity. */
     public get activatedUsing(): ActivatedUsingRequestBuilder {
         return new ActivatedUsingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/roleManagement/entitlementManagement/roleAssignmentScheduleInstances/{unifiedRoleAssignmentScheduleInstance%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property roleAssignmentScheduleInstances for roleManagement

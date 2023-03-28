@@ -1,14 +1,14 @@
-import {DirectoryObjectItemRequestBuilderGetQueryParameters} from './directoryObjectItemRequestBuilderGetQueryParameters';
+import {RefRequestBuilderDeleteQueryParameters} from './refRequestBuilderDeleteQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
  */
-export class DirectoryObjectItemRequestBuilderGetRequestConfiguration {
+export class RefRequestBuilderDeleteRequestConfiguration {
     /** Request headers */
     public headers?: Record<string, string[]> | undefined;
     /** Request options */
     public options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: DirectoryObjectItemRequestBuilderGetQueryParameters | undefined;
+    public queryParameters?: RefRequestBuilderDeleteQueryParameters | undefined;
 }

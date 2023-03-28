@@ -8,9 +8,9 @@ export class PasswordCredentialConfiguration implements AdditionalDataHolder, Pa
     private _maxLifetime?: Duration | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The restrictForAppsCreatedAfterDateTime property */
+    /** Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be back dated. To apply to all applications, enforcement datetime would be null. */
     private _restrictForAppsCreatedAfterDateTime?: Date | undefined;
-    /** The restrictionType property */
+    /** The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy. */
     private _restrictionType?: AppCredentialRestrictionType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -73,28 +73,28 @@ export class PasswordCredentialConfiguration implements AdditionalDataHolder, Pa
         this._odataType = value;
     };
     /**
-     * Gets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Gets the restrictForAppsCreatedAfterDateTime property value. Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be back dated. To apply to all applications, enforcement datetime would be null.
      * @returns a Date
      */
     public get restrictForAppsCreatedAfterDateTime() {
         return this._restrictForAppsCreatedAfterDateTime;
     };
     /**
-     * Sets the restrictForAppsCreatedAfterDateTime property value. The restrictForAppsCreatedAfterDateTime property
+     * Sets the restrictForAppsCreatedAfterDateTime property value. Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be back dated. To apply to all applications, enforcement datetime would be null.
      * @param value Value to set for the restrictForAppsCreatedAfterDateTime property.
      */
     public set restrictForAppsCreatedAfterDateTime(value: Date | undefined) {
         this._restrictForAppsCreatedAfterDateTime = value;
     };
     /**
-     * Gets the restrictionType property value. The restrictionType property
+     * Gets the restrictionType property value. The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
      * @returns a appCredentialRestrictionType
      */
     public get restrictionType() {
         return this._restrictionType;
     };
     /**
-     * Sets the restrictionType property value. The restrictionType property
+     * Sets the restrictionType property value. The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
      * @param value Value to set for the restrictionType property.
      */
     public set restrictionType(value: AppCredentialRestrictionType | undefined) {

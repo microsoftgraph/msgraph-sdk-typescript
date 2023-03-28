@@ -64,7 +64,7 @@ export class Post extends OutlookItem implements Parsable {
         this._body = value;
     };
     /**
-     * Instantiates a new post and sets the default values.
+     * Instantiates a new Post and sets the default values.
      */
     public constructor() {
         super();

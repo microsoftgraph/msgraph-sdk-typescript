@@ -5,7 +5,7 @@ export class IdentityProviderBase extends Entity implements Parsable {
     /** The display name of the identity provider. */
     private _displayName?: string | undefined;
     /**
-     * Instantiates a new IdentityProviderBase and sets the default values.
+     * Instantiates a new identityProviderBase and sets the default values.
      */
     public constructor() {
         super();

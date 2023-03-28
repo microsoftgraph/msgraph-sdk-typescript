@@ -15,12 +15,12 @@ import {LinkedResourcesRequestBuilder} from './linkedResources/linkedResourcesRe
 import {TodoTaskItemRequestBuilderDeleteRequestConfiguration} from './todoTaskItemRequestBuilderDeleteRequestConfiguration';
 import {TodoTaskItemRequestBuilderGetRequestConfiguration} from './todoTaskItemRequestBuilderGetRequestConfiguration';
 import {TodoTaskItemRequestBuilderPatchRequestConfiguration} from './todoTaskItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
  */
-export class TodoTaskItemRequestBuilder {
+export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the attachments property of the microsoft.graph.todoTask entity. */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -41,12 +41,6 @@ export class TodoTaskItemRequestBuilder {
     public get linkedResources(): LinkedResourcesRequestBuilder {
         return new LinkedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
      * @param id Unique identifier of the item
@@ -86,12 +80,7 @@ export class TodoTaskItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property tasks for me

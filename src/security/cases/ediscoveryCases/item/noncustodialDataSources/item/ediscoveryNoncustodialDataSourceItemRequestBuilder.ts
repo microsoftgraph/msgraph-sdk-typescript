@@ -11,12 +11,12 @@ import {SecurityApplyHoldRequestBuilder} from './securityApplyHold/securityApply
 import {SecurityReleaseRequestBuilder} from './securityRelease/securityReleaseRequestBuilder';
 import {SecurityRemoveHoldRequestBuilder} from './securityRemoveHold/securityRemoveHoldRequestBuilder';
 import {SecurityUpdateIndexRequestBuilder} from './securityUpdateIndex/securityUpdateIndexRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
  */
-export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
+export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the dataSource property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity. */
     public get dataSource(): DataSourceRequestBuilder {
         return new DataSourceRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -25,10 +25,6 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the applyHold method. */
     public get securityApplyHold(): SecurityApplyHoldRequestBuilder {
         return new SecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -45,20 +41,13 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder {
     public get securityUpdateIndex(): SecurityUpdateIndexRequestBuilder {
         return new SecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new EdiscoveryNoncustodialDataSourceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/noncustodialDataSources/{ediscoveryNoncustodialDataSource%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property noncustodialDataSources for security

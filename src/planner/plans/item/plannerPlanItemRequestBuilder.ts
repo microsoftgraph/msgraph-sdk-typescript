@@ -10,12 +10,12 @@ import {PlannerPlanItemRequestBuilderGetRequestConfiguration} from './plannerPla
 import {PlannerPlanItemRequestBuilderPatchRequestConfiguration} from './plannerPlanItemRequestBuilderPatchRequestConfiguration';
 import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the plans property of the microsoft.graph.planner entity.
  */
-export class PlannerPlanItemRequestBuilder {
+export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity. */
     public get buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -24,16 +24,10 @@ export class PlannerPlanItemRequestBuilder {
     public get details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity. */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
      * @param id Unique identifier of the item
@@ -51,12 +45,7 @@ export class PlannerPlanItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/planner/plans/{plannerPlan%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/planner/plans/{plannerPlan%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property plans for planner

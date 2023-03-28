@@ -6,11 +6,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AppManagementConfiguration implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The keyCredentials property */
+    /** Collection of keyCredential restrictions settings to be applied to an application or service principal. */
     private _keyCredentials?: KeyCredentialConfiguration[] | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The passwordCredentials property */
+    /** Collection of password restrictions settings to be applied to an application or service principal. */
     private _passwordCredentials?: PasswordCredentialConfiguration[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,14 +44,14 @@ export class AppManagementConfiguration implements AdditionalDataHolder, Parsabl
         };
     };
     /**
-     * Gets the keyCredentials property value. The keyCredentials property
+     * Gets the keyCredentials property value. Collection of keyCredential restrictions settings to be applied to an application or service principal.
      * @returns a keyCredentialConfiguration
      */
     public get keyCredentials() {
         return this._keyCredentials;
     };
     /**
-     * Sets the keyCredentials property value. The keyCredentials property
+     * Sets the keyCredentials property value. Collection of keyCredential restrictions settings to be applied to an application or service principal.
      * @param value Value to set for the keyCredentials property.
      */
     public set keyCredentials(value: KeyCredentialConfiguration[] | undefined) {
@@ -72,14 +72,14 @@ export class AppManagementConfiguration implements AdditionalDataHolder, Parsabl
         this._odataType = value;
     };
     /**
-     * Gets the passwordCredentials property value. The passwordCredentials property
+     * Gets the passwordCredentials property value. Collection of password restrictions settings to be applied to an application or service principal.
      * @returns a passwordCredentialConfiguration
      */
     public get passwordCredentials() {
         return this._passwordCredentials;
     };
     /**
-     * Sets the passwordCredentials property value. The passwordCredentials property
+     * Sets the passwordCredentials property value. Collection of password restrictions settings to be applied to an application or service principal.
      * @param value Value to set for the passwordCredentials property.
      */
     public set passwordCredentials(value: PasswordCredentialConfiguration[] | undefined) {

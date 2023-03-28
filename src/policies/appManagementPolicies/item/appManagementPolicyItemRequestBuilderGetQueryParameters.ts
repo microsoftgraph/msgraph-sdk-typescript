@@ -1,6 +1,6 @@
 
 /**
- * Get appManagementPolicies from policies
+ * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
  */
 export class AppManagementPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

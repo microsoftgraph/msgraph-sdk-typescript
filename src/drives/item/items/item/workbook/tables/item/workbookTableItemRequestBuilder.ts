@@ -18,12 +18,12 @@ import {WorkbookTableItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookTableItemRequestBuilderGetRequestConfiguration} from './workbookTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableItemRequestBuilderPatchRequestConfiguration} from './workbookTableItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
  */
-export class WorkbookTableItemRequestBuilder {
+export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the clearFilters method. */
     public get clearFilters(): ClearFiltersRequestBuilder {
         return new ClearFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -44,8 +44,6 @@ export class WorkbookTableItemRequestBuilder {
     public get headerRowRange(): HeaderRowRangeRequestBuilder {
         return new HeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the range method. */
     public get range(): RangeRequestBuilder {
         return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -54,8 +52,6 @@ export class WorkbookTableItemRequestBuilder {
     public get reapplyFilters(): ReapplyFiltersRequestBuilder {
         return new ReapplyFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the rows property of the microsoft.graph.workbookTable entity. */
     public get rows(): RowsRequestBuilder {
         return new RowsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -68,8 +64,6 @@ export class WorkbookTableItemRequestBuilder {
     public get totalRowRange(): TotalRowRangeRequestBuilder {
         return new TotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the worksheet property of the microsoft.graph.workbookTable entity. */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -91,12 +85,7 @@ export class WorkbookTableItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property tables for drives

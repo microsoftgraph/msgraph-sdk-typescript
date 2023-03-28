@@ -2,23 +2,23 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LinkedResource extends Entity implements Parsable {
-    /** Field indicating the app name of the source that is sending the linkedResource. */
+    /** The app name of the source that sends the linkedResource. */
     private _applicationName?: string | undefined;
-    /** Field indicating the title of the linkedResource. */
+    /** The title of the linkedResource. */
     private _displayName?: string | undefined;
-    /** Id of the object that is associated with this task on the third-party/partner system. */
+    /** ID of the object that is associated with this task on the third-party/partner system. */
     private _externalId?: string | undefined;
     /** Deep link to the linkedResource. */
     private _webUrl?: string | undefined;
     /**
-     * Gets the applicationName property value. Field indicating the app name of the source that is sending the linkedResource.
+     * Gets the applicationName property value. The app name of the source that sends the linkedResource.
      * @returns a string
      */
     public get applicationName() {
         return this._applicationName;
     };
     /**
-     * Sets the applicationName property value. Field indicating the app name of the source that is sending the linkedResource.
+     * Sets the applicationName property value. The app name of the source that sends the linkedResource.
      * @param value Value to set for the applicationName property.
      */
     public set applicationName(value: string | undefined) {
@@ -31,28 +31,28 @@ export class LinkedResource extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the displayName property value. Field indicating the title of the linkedResource.
+     * Gets the displayName property value. The title of the linkedResource.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. Field indicating the title of the linkedResource.
+     * Sets the displayName property value. The title of the linkedResource.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
         this._displayName = value;
     };
     /**
-     * Gets the externalId property value. Id of the object that is associated with this task on the third-party/partner system.
+     * Gets the externalId property value. ID of the object that is associated with this task on the third-party/partner system.
      * @returns a string
      */
     public get externalId() {
         return this._externalId;
     };
     /**
-     * Sets the externalId property value. Id of the object that is associated with this task on the third-party/partner system.
+     * Sets the externalId property value. ID of the object that is associated with this task on the third-party/partner system.
      * @param value Value to set for the externalId property.
      */
     public set externalId(value: string | undefined) {

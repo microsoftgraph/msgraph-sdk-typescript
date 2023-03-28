@@ -3,7 +3,7 @@ import {createContentTypeFromDiscriminatorValue} from '../../../../../../models/
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
-import {BaseRequestBuilder} from './base/baseRequestBuilder';
+import {BaseRequestBuilderEscaped} from './base/baseRequestBuilderEscaped';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder as Ia3d58f3515c811665abe892cc227bf80e22962d3fbb72339678e8de3814560ce} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
@@ -19,19 +19,19 @@ import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContent
 import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
  */
-export class ContentTypeItemRequestBuilder {
+export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the associateWithHubSites method. */
     public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
         return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the base property of the microsoft.graph.contentType entity. */
-    public get base(): BaseRequestBuilder {
-        return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get base(): BaseRequestBuilderEscaped {
+        return new BaseRequestBuilderEscaped(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity. */
     public get baseTypes(): BaseTypesRequestBuilder {
@@ -57,20 +57,14 @@ export class ContentTypeItemRequestBuilder {
     public get isPublished(): IsPublishedRequestBuilder {
         return new IsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the publish method. */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the unpublish method. */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
      * @param id Unique identifier of the item
@@ -121,12 +115,7 @@ export class ContentTypeItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property contentTypes for groups

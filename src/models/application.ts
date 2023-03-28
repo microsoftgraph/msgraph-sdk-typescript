@@ -32,7 +32,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne). */
     private _applicationTemplateId?: string | undefined;
-    /** The appManagementPolicies property */
+    /** The appManagementPolicy applied to this application. */
     private _appManagementPolicies?: AppManagementPolicy[] | undefined;
     /** The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable. */
     private _appRoles?: AppRole[] | undefined;
@@ -86,7 +86,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _publicClient?: PublicClientApplication | undefined;
     /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith). */
     private _publisherDomain?: string | undefined;
-    /** The requestSignatureVerification property */
+    /** Specifies whether this application requires Azure AD to verify the signed authentication requests. */
     private _requestSignatureVerification?: RequestSignatureVerification | undefined;
     /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le). */
     private _requiredResourceAccess?: RequiredResourceAccess[] | undefined;
@@ -167,14 +167,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._applicationTemplateId = value;
     };
     /**
-     * Gets the appManagementPolicies property value. The appManagementPolicies property
+     * Gets the appManagementPolicies property value. The appManagementPolicy applied to this application.
      * @returns a appManagementPolicy
      */
     public get appManagementPolicies() {
         return this._appManagementPolicies;
     };
     /**
-     * Sets the appManagementPolicies property value. The appManagementPolicies property
+     * Sets the appManagementPolicies property value. The appManagementPolicy applied to this application.
      * @param value Value to set for the appManagementPolicies property.
      */
     public set appManagementPolicies(value: AppManagementPolicy[] | undefined) {
@@ -603,14 +603,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._publisherDomain = value;
     };
     /**
-     * Gets the requestSignatureVerification property value. The requestSignatureVerification property
+     * Gets the requestSignatureVerification property value. Specifies whether this application requires Azure AD to verify the signed authentication requests.
      * @returns a requestSignatureVerification
      */
     public get requestSignatureVerification() {
         return this._requestSignatureVerification;
     };
     /**
-     * Sets the requestSignatureVerification property value. The requestSignatureVerification property
+     * Sets the requestSignatureVerification property value. Specifies whether this application requires Azure AD to verify the signed authentication requests.
      * @param value Value to set for the requestSignatureVerification property.
      */
     public set requestSignatureVerification(value: RequestSignatureVerification | undefined) {

@@ -5,6 +5,8 @@
 export class MessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
+    /** Expand related entities */
+    public expand?: string[] | undefined;
     /** Filter items by property values */
     public filter?: string | undefined;
     /** Order items by property values */
@@ -26,6 +28,7 @@ export class MessagesRequestBuilderGetQueryParameters {
         if(!originalName) throw new Error("originalName cannot be undefined");
         switch(originalName) {
             case "count": return "%24count";
+            case "expand": return "%24expand";
             case "filter": return "%24filter";
             case "orderby": return "%24orderby";
             case "search": return "%24search";

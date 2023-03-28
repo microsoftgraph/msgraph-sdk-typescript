@@ -18,12 +18,12 @@ import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolI
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {EducationUserItemRequestBuilder as I488920e98e9b46d483b4a3ff7deaa8b183c58943241a07131f8af31d7b0d171f} from './teachers/item/educationUserItemRequestBuilder';
 import {TeachersRequestBuilder} from './teachers/teachersRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
  */
-export class EducationClassItemRequestBuilder {
+export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity. */
     public get assignmentCategories(): AssignmentCategoriesRequestBuilder {
         return new AssignmentCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -48,10 +48,6 @@ export class EducationClassItemRequestBuilder {
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the schools property of the microsoft.graph.educationClass entity. */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -60,8 +56,6 @@ export class EducationClassItemRequestBuilder {
     public get teachers(): TeachersRequestBuilder {
         return new TeachersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
      * @param id Unique identifier of the item
@@ -90,12 +84,7 @@ export class EducationClassItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/education/classes/{educationClass%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property classes for education

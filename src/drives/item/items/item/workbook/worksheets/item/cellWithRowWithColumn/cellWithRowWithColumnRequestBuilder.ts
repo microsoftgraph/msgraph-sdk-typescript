@@ -3,18 +3,12 @@ import {createWorkbookRangeFromDiscriminatorValue} from '../../../../../../../..
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CellWithRowWithColumnRequestBuilderGetRequestConfiguration} from './cellWithRowWithColumnRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cell method.
  */
-export class CellWithRowWithColumnRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class CellWithRowWithColumnRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new CellWithRowWithColumnRequestBuilder and sets the default values.
      * @param column Usage: column={column}
@@ -23,14 +17,9 @@ export class CellWithRowWithColumnRequestBuilder {
      * @param row Usage: row={row}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, column?: number | undefined, row?: number | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/cell(row={row},column={column})";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["column"] = column
-        urlTplParams["row"] = row
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/cell(row={row},column={column})");
+        this.pathParameters["column"] = column
+        this.pathParameters["row"] = row
     };
     /**
      * Invoke function cell

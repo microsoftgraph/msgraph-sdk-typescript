@@ -17,20 +17,16 @@ import {UnifiedGroupSourceItemRequestBuilder} from './unifiedGroupSources/item/u
 import {UnifiedGroupSourcesRequestBuilder} from './unifiedGroupSources/unifiedGroupSourcesRequestBuilder';
 import {UserSourceItemRequestBuilder} from './userSources/item/userSourceItemRequestBuilder';
 import {UserSourcesRequestBuilder} from './userSources/userSourcesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
  */
-export class EdiscoveryCustodianItemRequestBuilder {
+export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the activate method. */
     public get securityActivate(): SecurityActivateRequestBuilder {
         return new SecurityActivateRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -59,8 +55,6 @@ export class EdiscoveryCustodianItemRequestBuilder {
     public get unifiedGroupSources(): UnifiedGroupSourcesRequestBuilder {
         return new UnifiedGroupSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
     public get userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -71,12 +65,7 @@ export class EdiscoveryCustodianItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property custodians for security

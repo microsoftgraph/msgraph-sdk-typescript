@@ -24,12 +24,12 @@ import {TimeOffRequestItemRequestBuilder} from './timeOffRequests/item/timeOffRe
 import {TimeOffRequestsRequestBuilder} from './timeOffRequests/timeOffRequestsRequestBuilder';
 import {TimeOffItemRequestBuilder} from './timesOff/item/timeOffItemRequestBuilder';
 import {TimesOffRequestBuilder} from './timesOff/timesOffRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schedule property of the microsoft.graph.team entity.
  */
-export class ScheduleRequestBuilder {
+export class ScheduleRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity. */
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -42,10 +42,6 @@ export class ScheduleRequestBuilder {
     public get openShifts(): OpenShiftsRequestBuilder {
         return new OpenShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity. */
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -74,20 +70,13 @@ export class ScheduleRequestBuilder {
     public get timesOff(): TimesOffRequestBuilder {
         return new TimesOffRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new ScheduleRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/teams/{team%2Did}/schedule{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule{?%24select,%24expand}");
     };
     /**
      * Delete navigation property schedule for teams

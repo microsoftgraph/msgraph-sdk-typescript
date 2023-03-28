@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {AllowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration} from './allowedCalendarSharingRolesWithUserRequestBuilderGetRequestConfiguration';
 import {createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue} from './createAllowedCalendarSharingRolesWithUserResponseFromDiscriminatorValue';
 import {AllowedCalendarSharingRolesWithUserResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the allowedCalendarSharingRoles method.
  */
-export class AllowedCalendarSharingRolesWithUserRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class AllowedCalendarSharingRolesWithUserRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new AllowedCalendarSharingRolesWithUserRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -22,13 +16,8 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder {
      * @param User Usage: User='{User}'
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, user?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/allowedCalendarSharingRoles(User='{User}'){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["User"] = user
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/calendars/{calendar%2Did}/allowedCalendarSharingRoles(User='{User}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        this.pathParameters["User"] = user
     };
     /**
      * Invoke function allowedCalendarSharingRoles

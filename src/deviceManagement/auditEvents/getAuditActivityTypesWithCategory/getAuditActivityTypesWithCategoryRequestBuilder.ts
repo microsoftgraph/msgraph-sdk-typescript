@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue} from './createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue';
 import {GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration} from './getAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration';
 import {GetAuditActivityTypesWithCategoryResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getAuditActivityTypes method.
  */
-export class GetAuditActivityTypesWithCategoryRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetAuditActivityTypesWithCategoryRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetAuditActivityTypesWithCategoryRequestBuilder and sets the default values.
      * @param category Usage: category='{category}'
@@ -22,13 +16,8 @@ export class GetAuditActivityTypesWithCategoryRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, category?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/auditEvents/getAuditActivityTypes(category='{category}'){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["category"] = category
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/auditEvents/getAuditActivityTypes(category='{category}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        this.pathParameters["category"] = category
     };
     /**
      * Invoke function getAuditActivityTypes

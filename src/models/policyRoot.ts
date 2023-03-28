@@ -24,7 +24,7 @@ export class PolicyRoot extends Entity implements Parsable {
     private _activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
     /** The policy by which consent requests are created and managed for the entire tenant. */
     private _adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
-    /** The appManagementPolicies property */
+    /** The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy. */
     private _appManagementPolicies?: AppManagementPolicy[] | undefined;
     /** The policy configuration of the self-service sign-up experience of external users. */
     private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
@@ -38,7 +38,7 @@ export class PolicyRoot extends Entity implements Parsable {
     private _conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
     /** The custom rules that define an access scenario when interacting with external Azure AD tenants. */
     private _crossTenantAccessPolicy?: CrossTenantAccessPolicy | undefined;
-    /** The defaultAppManagementPolicy property */
+    /** The tenant-wide policy that enforces app management restrictions for all applications and service principals. */
     private _defaultAppManagementPolicy?: TenantAppManagementPolicy | undefined;
     /** The feature rollout policy associated with a directory object. */
     private _featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
@@ -85,14 +85,14 @@ export class PolicyRoot extends Entity implements Parsable {
         this._adminConsentRequestPolicy = value;
     };
     /**
-     * Gets the appManagementPolicies property value. The appManagementPolicies property
+     * Gets the appManagementPolicies property value. The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @returns a appManagementPolicy
      */
     public get appManagementPolicies() {
         return this._appManagementPolicies;
     };
     /**
-     * Sets the appManagementPolicies property value. The appManagementPolicies property
+     * Sets the appManagementPolicies property value. The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @param value Value to set for the appManagementPolicies property.
      */
     public set appManagementPolicies(value: AppManagementPolicy[] | undefined) {
@@ -189,14 +189,14 @@ export class PolicyRoot extends Entity implements Parsable {
         this._crossTenantAccessPolicy = value;
     };
     /**
-     * Gets the defaultAppManagementPolicy property value. The defaultAppManagementPolicy property
+     * Gets the defaultAppManagementPolicy property value. The tenant-wide policy that enforces app management restrictions for all applications and service principals.
      * @returns a tenantAppManagementPolicy
      */
     public get defaultAppManagementPolicy() {
         return this._defaultAppManagementPolicy;
     };
     /**
-     * Sets the defaultAppManagementPolicy property value. The defaultAppManagementPolicy property
+     * Sets the defaultAppManagementPolicy property value. The tenant-wide policy that enforces app management restrictions for all applications and service principals.
      * @param value Value to set for the defaultAppManagementPolicy property.
      */
     public set defaultAppManagementPolicy(value: TenantAppManagementPolicy | undefined) {

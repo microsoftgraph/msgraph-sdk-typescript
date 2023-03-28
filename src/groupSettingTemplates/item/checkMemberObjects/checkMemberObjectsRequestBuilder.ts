@@ -3,30 +3,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CheckMemberObjectsRequestBuilderPostRequestConfiguration} from './checkMemberObjectsRequestBuilderPostRequestConfiguration';
 import {createCheckMemberObjectsResponseFromDiscriminatorValue} from './createCheckMemberObjectsResponseFromDiscriminatorValue';
 import {CheckMemberObjectsPostRequestBody, CheckMemberObjectsResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the checkMemberObjects method.
  */
-export class CheckMemberObjectsRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class CheckMemberObjectsRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new CheckMemberObjectsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groupSettingTemplates/{groupSettingTemplate%2Did}/checkMemberObjects";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/groupSettingTemplates/{groupSettingTemplate%2Did}/checkMemberObjects");
     };
     /**
      * Invoke action checkMemberObjects

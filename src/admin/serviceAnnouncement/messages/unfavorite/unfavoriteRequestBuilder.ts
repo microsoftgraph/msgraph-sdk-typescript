@@ -3,30 +3,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {createUnfavoriteResponseFromDiscriminatorValue} from './createUnfavoriteResponseFromDiscriminatorValue';
 import {UnfavoritePostRequestBody, UnfavoriteResponse} from './index';
 import {UnfavoriteRequestBuilderPostRequestConfiguration} from './unfavoriteRequestBuilderPostRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the unfavorite method.
  */
-export class UnfavoriteRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class UnfavoriteRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new UnfavoriteRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/unfavorite";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/unfavorite");
     };
     /**
      * Remove the favorite status of serviceUpdateMessages for the signed in user.

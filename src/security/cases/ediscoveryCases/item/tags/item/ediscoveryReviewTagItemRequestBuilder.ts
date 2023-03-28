@@ -8,12 +8,12 @@ import {EdiscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration} from '.
 import {EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderPatchRequestConfiguration';
 import {ParentRequestBuilder} from './parent/parentRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
  */
-export class EdiscoveryReviewTagItemRequestBuilder {
+export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity. */
     public get childTags(): ChildTagsRequestBuilder {
         return new ChildTagsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -22,12 +22,6 @@ export class EdiscoveryReviewTagItemRequestBuilder {
     public get parent(): ParentRequestBuilder {
         return new ParentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
      * @param id Unique identifier of the item
@@ -45,12 +39,7 @@ export class EdiscoveryReviewTagItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/tags/{ediscoveryReviewTag%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property tags for security

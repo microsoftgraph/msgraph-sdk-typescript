@@ -33,12 +33,12 @@ import {VppTokenItemRequestBuilder} from './vppTokens/item/vppTokenItemRequestBu
 import {VppTokensRequestBuilder} from './vppTokens/vppTokensRequestBuilder';
 import {WindowsInformationProtectionPolicyItemRequestBuilder} from './windowsInformationProtectionPolicies/item/windowsInformationProtectionPolicyItemRequestBuilder';
 import {WindowsInformationProtectionPoliciesRequestBuilder} from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceAppManagement singleton.
  */
-export class DeviceAppManagementRequestBuilder {
+export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity. */
     public get androidManagedAppProtections(): AndroidManagedAppProtectionsRequestBuilder {
         return new AndroidManagedAppProtectionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -83,10 +83,6 @@ export class DeviceAppManagementRequestBuilder {
     public get mobileApps(): MobileAppsRequestBuilder {
         return new MobileAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the syncMicrosoftStoreForBusinessApps method. */
     public get syncMicrosoftStoreForBusinessApps(): SyncMicrosoftStoreForBusinessAppsRequestBuilder {
         return new SyncMicrosoftStoreForBusinessAppsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -95,8 +91,6 @@ export class DeviceAppManagementRequestBuilder {
     public get targetedManagedAppConfigurations(): TargetedManagedAppConfigurationsRequestBuilder {
         return new TargetedManagedAppConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity. */
     public get vppTokens(): VppTokensRequestBuilder {
         return new VppTokensRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -122,12 +116,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.

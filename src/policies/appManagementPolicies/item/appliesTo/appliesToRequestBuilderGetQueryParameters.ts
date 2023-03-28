@@ -1,6 +1,6 @@
 
 /**
- * Get appliesTo from policies
+ * List application and service principal objects that are assigned an appManagementPolicy policy object.
  */
 export class AppliesToRequestBuilderGetQueryParameters {
     /** Include count of items */

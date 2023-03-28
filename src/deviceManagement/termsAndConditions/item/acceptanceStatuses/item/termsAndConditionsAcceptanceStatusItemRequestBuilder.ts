@@ -6,34 +6,23 @@ import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndCon
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
  */
-export class TermsAndConditionsAcceptanceStatusItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the termsAndConditions property of the microsoft.graph.termsAndConditionsAcceptanceStatus entity. */
     public get termsAndConditions(): TermsAndConditionsRequestBuilder {
         return new TermsAndConditionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new TermsAndConditionsAcceptanceStatusItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/acceptanceStatuses/{termsAndConditionsAcceptanceStatus%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/acceptanceStatuses/{termsAndConditionsAcceptanceStatus%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property acceptanceStatuses for deviceManagement

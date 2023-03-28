@@ -8,12 +8,12 @@ import {BookingCurrenciesRequestBuilder} from './bookingCurrencies/bookingCurren
 import {BookingCurrencyItemRequestBuilder} from './bookingCurrencies/item/bookingCurrencyItemRequestBuilder';
 import {SolutionsRequestBuilderGetRequestConfiguration} from './solutionsRequestBuilderGetRequestConfiguration';
 import {SolutionsRequestBuilderPatchRequestConfiguration} from './solutionsRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the solutionsRoot singleton.
  */
-export class SolutionsRequestBuilder {
+export class SolutionsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity. */
     public get bookingBusinesses(): BookingBusinessesRequestBuilder {
         return new BookingBusinessesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -22,12 +22,6 @@ export class SolutionsRequestBuilder {
     public get bookingCurrencies(): BookingCurrenciesRequestBuilder {
         return new BookingCurrenciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
      * @param id Unique identifier of the item
@@ -56,12 +50,7 @@ export class SolutionsRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/solutions{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/solutions{?%24select,%24expand}");
     };
     /**
      * Get solutions

@@ -4,7 +4,7 @@ import {TeamworkTagType} from './teamworkTagType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkTag extends Entity implements Parsable {
-    /** The description of the tag as it will appear to the user in Microsoft Teams. */
+    /** The description of the tag as it will appear to the user in Microsoft Teams. A teamworkTag can't have more than 200 teamworkTagMembers. */
     private _description?: string | undefined;
     /** The name of the tag as it will appear to the user in Microsoft Teams. */
     private _displayName?: string | undefined;
@@ -23,14 +23,14 @@ export class TeamworkTag extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the description property value. The description of the tag as it will appear to the user in Microsoft Teams.
+     * Gets the description property value. The description of the tag as it will appear to the user in Microsoft Teams. A teamworkTag can't have more than 200 teamworkTagMembers.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. The description of the tag as it will appear to the user in Microsoft Teams.
+     * Sets the description property value. The description of the tag as it will appear to the user in Microsoft Teams. A teamworkTag can't have more than 200 teamworkTagMembers.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {

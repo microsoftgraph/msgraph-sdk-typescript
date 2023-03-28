@@ -38,13 +38,14 @@ import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscrimi
 import {createProfilePhotoFromDiscriminatorValue} from './createProfilePhotoFromDiscriminatorValue';
 import {createProvisionedPlanFromDiscriminatorValue} from './createProvisionedPlanFromDiscriminatorValue';
 import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRoleMembershipFromDiscriminatorValue';
+import {createSignInActivityFromDiscriminatorValue} from './createSignInActivityFromDiscriminatorValue';
 import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
 import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
 import {createTodoFromDiscriminatorValue} from './createTodoFromDiscriminatorValue';
 import {createUserActivityFromDiscriminatorValue} from './createUserActivityFromDiscriminatorValue';
 import {createUserSettingsFromDiscriminatorValue} from './createUserSettingsFromDiscriminatorValue';
 import {createUserTeamworkFromDiscriminatorValue} from './createUserTeamworkFromDiscriminatorValue';
-import {AgreementAcceptance, AppRoleAssignment, AssignedLicense, AssignedPlan, Authentication, AuthorizationInfo, Calendar, CalendarGroup, Chat, Contact, ContactFolder, DeviceManagementTroubleshootingEvent, DirectoryObject, Drive, EmployeeOrgData, Event, Extension, InferenceClassification, LicenseAssignmentState, LicenseDetails, MailboxSettings, MailFolder, ManagedAppRegistration, ManagedDevice, Message, OAuth2PermissionGrant, ObjectIdentity, OfficeGraphInsights, Onenote, OnlineMeeting, OnPremisesExtensionAttributes, OnPremisesProvisioningError, OutlookUser, PasswordProfile, Person, PlannerUser, Presence, ProfilePhoto, ProvisionedPlan, ScopedRoleMembership, Site, Team, Todo, UserActivity, UserSettings, UserTeamwork} from './index';
+import {AgreementAcceptance, AppRoleAssignment, AssignedLicense, AssignedPlan, Authentication, AuthorizationInfo, Calendar, CalendarGroup, Chat, Contact, ContactFolder, DeviceManagementTroubleshootingEvent, DirectoryObject, Drive, EmployeeOrgData, Event, Extension, InferenceClassification, LicenseAssignmentState, LicenseDetails, MailboxSettings, MailFolder, ManagedAppRegistration, ManagedDevice, Message, OAuth2PermissionGrant, ObjectIdentity, OfficeGraphInsights, Onenote, OnlineMeeting, OnPremisesExtensionAttributes, OnPremisesProvisioningError, OutlookUser, PasswordProfile, Person, PlannerUser, Presence, ProfilePhoto, ProvisionedPlan, ScopedRoleMembership, SignInActivity, Site, Team, Todo, UserActivity, UserSettings, UserTeamwork} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class User extends DirectoryObject implements Parsable {
@@ -264,6 +265,8 @@ export class User extends DirectoryObject implements Parsable {
     private _settings?: UserSettings | undefined;
     /** Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue. */
     private _showInAddressList?: boolean | undefined;
+    /** The signInActivity property */
+    private _signInActivity?: SignInActivity | undefined;
     /** Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select. */
     private _signInSessionsValidFromDateTime?: Date | undefined;
     /** A list for the user to enumerate their skills. Returned only on $select. */
@@ -1023,6 +1026,7 @@ export class User extends DirectoryObject implements Parsable {
             "securityIdentifier": n => { this.securityIdentifier = n.getStringValue(); },
             "settings": n => { this.settings = n.getObjectValue<UserSettings>(createUserSettingsFromDiscriminatorValue); },
             "showInAddressList": n => { this.showInAddressList = n.getBooleanValue(); },
+            "signInActivity": n => { this.signInActivity = n.getObjectValue<SignInActivity>(createSignInActivityFromDiscriminatorValue); },
             "signInSessionsValidFromDateTime": n => { this.signInSessionsValidFromDateTime = n.getDateValue(); },
             "skills": n => { this.skills = n.getCollectionOfPrimitiveValues<string>(); },
             "state": n => { this.state = n.getStringValue(); },
@@ -2019,6 +2023,7 @@ export class User extends DirectoryObject implements Parsable {
         writer.writeStringValue("securityIdentifier", this.securityIdentifier);
         writer.writeObjectValue<UserSettings>("settings", this.settings);
         writer.writeBooleanValue("showInAddressList", this.showInAddressList);
+        writer.writeObjectValue<SignInActivity>("signInActivity", this.signInActivity);
         writer.writeDateValue("signInSessionsValidFromDateTime", this.signInSessionsValidFromDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("skills", this.skills);
         writer.writeStringValue("state", this.state);
@@ -2058,6 +2063,20 @@ export class User extends DirectoryObject implements Parsable {
      */
     public set showInAddressList(value: boolean | undefined) {
         this._showInAddressList = value;
+    };
+    /**
+     * Gets the signInActivity property value. The signInActivity property
+     * @returns a signInActivity
+     */
+    public get signInActivity() {
+        return this._signInActivity;
+    };
+    /**
+     * Sets the signInActivity property value. The signInActivity property
+     * @param value Value to set for the signInActivity property.
+     */
+    public set signInActivity(value: SignInActivity | undefined) {
+        this._signInActivity = value;
     };
     /**
      * Gets the signInSessionsValidFromDateTime property value. Any refresh tokens or sessions tokens (session cookies) issued before this time are invalid, and applications will get an error when using an invalid refresh or sessions token to acquire a delegated access token (to access APIs such as Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset. Returned only on $select.

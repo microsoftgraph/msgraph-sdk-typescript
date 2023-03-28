@@ -1,6 +1,6 @@
 
 /**
- * Get defaultAppManagementPolicy from policies
+ * Read the properties of a tenantAppManagementPolicy object.
  */
 export class DefaultAppManagementPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */

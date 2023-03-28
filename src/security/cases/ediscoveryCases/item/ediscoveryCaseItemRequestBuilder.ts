@@ -20,12 +20,12 @@ import {SecurityReopenRequestBuilder} from './securityReopen/securityReopenReque
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {EdiscoveryReviewTagItemRequestBuilder} from './tags/item/ediscoveryReviewTagItemRequestBuilder';
 import {TagsRequestBuilder} from './tags/tagsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
  */
-export class EdiscoveryCaseItemRequestBuilder {
+export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
     public get custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -38,10 +38,6 @@ export class EdiscoveryCaseItemRequestBuilder {
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity. */
     public get reviewSets(): ReviewSetsRequestBuilder {
         return new ReviewSetsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -66,20 +62,13 @@ export class EdiscoveryCaseItemRequestBuilder {
     public get tags(): TagsRequestBuilder {
         return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new EdiscoveryCaseItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.

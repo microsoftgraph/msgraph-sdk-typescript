@@ -17,12 +17,12 @@ import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuil
 import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
 import {SecurityRunHuntingQueryRequestBuilder} from './securityRunHuntingQuery/securityRunHuntingQueryRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the security singleton.
  */
-export class SecurityRequestBuilder {
+export class SecurityRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the alerts property of the microsoft.graph.security entity. */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -43,10 +43,6 @@ export class SecurityRequestBuilder {
     public get incidents(): IncidentsRequestBuilder {
         return new IncidentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity. */
     public get secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -59,8 +55,6 @@ export class SecurityRequestBuilder {
     public get securityRunHuntingQuery(): SecurityRunHuntingQueryRequestBuilder {
         return new SecurityRunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
      * @param id Unique identifier of the item
@@ -89,12 +83,7 @@ export class SecurityRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security{?%24select,%24expand}");
     };
     /**
      * Get security

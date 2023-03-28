@@ -13,12 +13,12 @@ import {OnlineMeetingItemRequestBuilder} from './onlineMeetings/item/onlineMeeti
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
 import {PresenceItemRequestBuilder} from './presences/item/presenceItemRequestBuilder';
 import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cloudCommunications singleton.
  */
-export class CommunicationsRequestBuilder {
+export class CommunicationsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
     public get callRecords(): CallRecordsRequestBuilder {
         return new CallRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -35,16 +35,10 @@ export class CommunicationsRequestBuilder {
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity. */
     public get presences(): PresencesRequestBuilder {
         return new PresencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
      * @param id Unique identifier of the item
@@ -73,12 +67,7 @@ export class CommunicationsRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/communications{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/communications{?%24select,%24expand}");
     };
     /**
      * Get communications

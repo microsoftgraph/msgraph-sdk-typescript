@@ -110,7 +110,7 @@ export class Device extends DirectoryObject implements Parsable {
         this._complianceExpirationDateTime = value;
     };
     /**
-     * Instantiates a new Device and sets the default values.
+     * Instantiates a new device and sets the default values.
      */
     public constructor() {
         super();

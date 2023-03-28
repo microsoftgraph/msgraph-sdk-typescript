@@ -9,7 +9,7 @@ export class ConnectionOperation extends Entity implements Parsable {
     /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed, unknownFutureValue. */
     private _status?: ConnectionOperationStatus | undefined;
     /**
-     * Instantiates a new ConnectionOperation and sets the default values.
+     * Instantiates a new connectionOperation and sets the default values.
      */
     public constructor() {
         super();

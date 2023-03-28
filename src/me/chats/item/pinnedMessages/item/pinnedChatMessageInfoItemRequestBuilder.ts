@@ -6,34 +6,23 @@ import {MessageRequestBuilder} from './message/messageRequestBuilder';
 import {PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration} from './pinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration';
 import {PinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration} from './pinnedChatMessageInfoItemRequestBuilderGetRequestConfiguration';
 import {PinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration} from './pinnedChatMessageInfoItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
  */
-export class PinnedChatMessageInfoItemRequestBuilder {
+export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the message property of the microsoft.graph.pinnedChatMessageInfo entity. */
     public get message(): MessageRequestBuilder {
         return new MessageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new PinnedChatMessageInfoItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/chats/{chat%2Did}/pinnedMessages/{pinnedChatMessageInfo%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property pinnedMessages for me

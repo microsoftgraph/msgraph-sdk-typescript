@@ -36,7 +36,7 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith). */
     private _applicationTemplateId?: string | undefined;
-    /** The appManagementPolicies property */
+    /** The appManagementPolicy applied to this application. */
     private _appManagementPolicies?: AppManagementPolicy[] | undefined;
     /** Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le). */
     private _appOwnerOrganizationId?: string | undefined;
@@ -219,14 +219,14 @@ export class ServicePrincipal extends DirectoryObject implements Parsable {
         this._applicationTemplateId = value;
     };
     /**
-     * Gets the appManagementPolicies property value. The appManagementPolicies property
+     * Gets the appManagementPolicies property value. The appManagementPolicy applied to this application.
      * @returns a appManagementPolicy
      */
     public get appManagementPolicies() {
         return this._appManagementPolicies;
     };
     /**
-     * Sets the appManagementPolicies property value. The appManagementPolicies property
+     * Sets the appManagementPolicies property value. The appManagementPolicy applied to this application.
      * @param value Value to set for the appManagementPolicies property.
      */
     public set appManagementPolicies(value: AppManagementPolicy[] | undefined) {

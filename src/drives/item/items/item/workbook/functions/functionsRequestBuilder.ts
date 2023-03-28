@@ -26,7 +26,7 @@ import {AverageARequestBuilder} from './averageA/averageARequestBuilder';
 import {AverageIfRequestBuilder} from './averageIf/averageIfRequestBuilder';
 import {AverageIfsRequestBuilder} from './averageIfs/averageIfsRequestBuilder';
 import {BahtTextRequestBuilder} from './bahtText/bahtTextRequestBuilder';
-import {BaseRequestBuilder} from './base/baseRequestBuilder';
+import {BaseRequestBuilderEscaped} from './base/baseRequestBuilderEscaped';
 import {BesselIRequestBuilder} from './besselI/besselIRequestBuilder';
 import {BesselJRequestBuilder} from './besselJ/besselJRequestBuilder';
 import {BesselKRequestBuilder} from './besselK/besselKRequestBuilder';
@@ -371,12 +371,12 @@ import {YieldRequestBuilder} from './yield/yieldRequestBuilder';
 import {YieldDiscRequestBuilder} from './yieldDisc/yieldDiscRequestBuilder';
 import {YieldMatRequestBuilder} from './yieldMat/yieldMatRequestBuilder';
 import {Z_TestRequestBuilder} from './z_Test/z_TestRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the functions property of the microsoft.graph.workbook entity.
  */
-export class FunctionsRequestBuilder {
+export class FunctionsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the abs method. */
     public get abs(): AbsRequestBuilder {
         return new AbsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -474,8 +474,8 @@ export class FunctionsRequestBuilder {
         return new BahtTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the base method. */
-    public get base(): BaseRequestBuilder {
-        return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get base(): BaseRequestBuilderEscaped {
+        return new BaseRequestBuilderEscaped(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the besselI method. */
     public get besselI(): BesselIRequestBuilder {
@@ -1393,8 +1393,6 @@ export class FunctionsRequestBuilder {
     public get or(): OrRequestBuilder {
         return new OrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the pduration method. */
     public get pduration(): PdurationRequestBuilder {
         return new PdurationRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -1523,8 +1521,6 @@ export class FunctionsRequestBuilder {
     public get rept(): ReptRequestBuilder {
         return new ReptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the right method. */
     public get right(): RightRequestBuilder {
         return new RightRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -1757,8 +1753,6 @@ export class FunctionsRequestBuilder {
     public get upper(): UpperRequestBuilder {
         return new UpperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to call the usdollar method. */
     public get usdollar(): UsdollarRequestBuilder {
         return new UsdollarRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -1853,12 +1847,7 @@ export class FunctionsRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/functions{?%24select,%24expand}");
     };
     /**
      * Delete navigation property functions for drives

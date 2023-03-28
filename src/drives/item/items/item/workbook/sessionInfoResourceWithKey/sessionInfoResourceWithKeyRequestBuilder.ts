@@ -3,18 +3,12 @@ import {createWorkbookSessionInfoFromDiscriminatorValue} from '../../../../../..
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SessionInfoResourceWithKeyRequestBuilderGetRequestConfiguration} from './sessionInfoResourceWithKeyRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sessionInfoResource method.
  */
-export class SessionInfoResourceWithKeyRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class SessionInfoResourceWithKeyRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new SessionInfoResourceWithKeyRequestBuilder and sets the default values.
      * @param key Usage: key='{key}'
@@ -22,13 +16,8 @@ export class SessionInfoResourceWithKeyRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, key?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/sessionInfoResource(key='{key}')";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["key"] = key
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/sessionInfoResource(key='{key}')");
+        this.pathParameters["key"] = key
     };
     /**
      * Invoke function sessionInfoResource

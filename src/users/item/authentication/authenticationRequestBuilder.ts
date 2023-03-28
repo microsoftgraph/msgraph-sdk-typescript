@@ -25,12 +25,12 @@ import {TemporaryAccessPassAuthenticationMethodItemRequestBuilder} from './tempo
 import {TemporaryAccessPassMethodsRequestBuilder} from './temporaryAccessPassMethods/temporaryAccessPassMethodsRequestBuilder';
 import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodItemRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authentication property of the microsoft.graph.user entity.
  */
-export class AuthenticationRequestBuilder {
+export class AuthenticationRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity. */
     public get emailMethods(): EmailMethodsRequestBuilder {
         return new EmailMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -55,14 +55,10 @@ export class AuthenticationRequestBuilder {
     public get passwordMethods(): PasswordMethodsRequestBuilder {
         return new PasswordMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity. */
     public get phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity. */
     public get softwareOathMethods(): SoftwareOathMethodsRequestBuilder {
         return new SoftwareOathMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -71,8 +67,6 @@ export class AuthenticationRequestBuilder {
     public get temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder {
         return new TemporaryAccessPassMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity. */
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -83,12 +77,7 @@ export class AuthenticationRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/authentication{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication{?%24select,%24expand}");
     };
     /**
      * Delete navigation property authentication for users

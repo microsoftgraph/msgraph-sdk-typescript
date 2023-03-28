@@ -5,34 +5,23 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {AdminRequestBuilderGetRequestConfiguration} from './adminRequestBuilderGetRequestConfiguration';
 import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilderPatchRequestConfiguration';
 import {ServiceAnnouncementRequestBuilder} from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the admin singleton.
  */
-export class AdminRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class AdminRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
     public get serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new AdminRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/admin{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/admin{?%24select,%24expand}");
     };
     /**
      * Get admin

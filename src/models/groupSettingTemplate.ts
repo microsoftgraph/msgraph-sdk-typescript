@@ -10,7 +10,7 @@ export class GroupSettingTemplate extends DirectoryObject implements Parsable {
     /** Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template. */
     private _values?: SettingTemplateValue[] | undefined;
     /**
-     * Instantiates a new GroupSettingTemplate and sets the default values.
+     * Instantiates a new groupSettingTemplate and sets the default values.
      */
     public constructor() {
         super();

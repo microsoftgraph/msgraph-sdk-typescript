@@ -8,20 +8,16 @@ import {RelationItemRequestBuilderGetRequestConfiguration} from './relationItemR
 import {RelationItemRequestBuilderPatchRequestConfiguration} from './relationItemRequestBuilderPatchRequestConfiguration';
 import {SetRequestBuilder} from './set/setRequestBuilder';
 import {ToTermRequestBuilder} from './toTerm/toTermRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
  */
-export class RelationItemRequestBuilder {
+export class RelationItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the fromTerm property of the microsoft.graph.termStore.relation entity. */
     public get fromTerm(): FromTermRequestBuilder {
         return new FromTermRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the set property of the microsoft.graph.termStore.relation entity. */
     public get set(): SetRequestBuilder {
         return new SetRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -30,20 +26,13 @@ export class RelationItemRequestBuilder {
     public get toTerm(): ToTermRequestBuilder {
         return new ToTermRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new RelationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}/relations/{relation%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}/relations/{relation%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property relations for sites

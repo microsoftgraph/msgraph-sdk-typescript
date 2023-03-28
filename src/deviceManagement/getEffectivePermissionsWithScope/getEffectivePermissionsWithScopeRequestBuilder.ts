@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue} from './createGetEffectivePermissionsWithScopeResponseFromDiscriminatorValue';
 import {GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration} from './getEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration';
 import {GetEffectivePermissionsWithScopeResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getEffectivePermissions method.
  */
-export class GetEffectivePermissionsWithScopeRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetEffectivePermissionsWithScopeRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetEffectivePermissionsWithScopeRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -22,13 +16,8 @@ export class GetEffectivePermissionsWithScopeRequestBuilder {
      * @param scope Usage: scope='{scope}'
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, scope?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/getEffectivePermissions(scope='{scope}'){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["scope"] = scope
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/getEffectivePermissions(scope='{scope}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        this.pathParameters["scope"] = scope
     };
     /**
      * Retrieves the effective permissions of the currently authenticated user

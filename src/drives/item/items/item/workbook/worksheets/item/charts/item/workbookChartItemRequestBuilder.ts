@@ -19,12 +19,12 @@ import {WorkbookChartItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookChartItemRequestBuilderGetRequestConfiguration} from './workbookChartItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartItemRequestBuilderPatchRequestConfiguration} from './workbookChartItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
  */
-export class WorkbookChartItemRequestBuilder {
+export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the axes property of the microsoft.graph.workbookChart entity. */
     public get axes(): AxesRequestBuilder {
         return new AxesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -45,10 +45,6 @@ export class WorkbookChartItemRequestBuilder {
     public get legend(): LegendRequestBuilder {
         return new LegendRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the series property of the microsoft.graph.workbookChart entity. */
     public get series(): SeriesRequestBuilder {
         return new SeriesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -65,8 +61,6 @@ export class WorkbookChartItemRequestBuilder {
     public get title(): TitleRequestBuilder {
         return new TitleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the worksheet property of the microsoft.graph.workbookChart entity. */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -77,12 +71,7 @@ export class WorkbookChartItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property charts for drives

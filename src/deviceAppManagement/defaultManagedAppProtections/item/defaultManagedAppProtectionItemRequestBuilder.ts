@@ -8,12 +8,12 @@ import {DefaultManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration}
 import {DefaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration} from './defaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration';
 import {DefaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration} from './defaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
 import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
  */
-export class DefaultManagedAppProtectionItemRequestBuilder {
+export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the apps property of the microsoft.graph.defaultManagedAppProtection entity. */
     public get apps(): AppsRequestBuilder {
         return new AppsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -22,12 +22,6 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
     public get deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the apps property of the microsoft.graph.defaultManagedAppProtection entity.
      * @param id Unique identifier of the item
@@ -45,12 +39,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property defaultManagedAppProtections for deviceAppManagement

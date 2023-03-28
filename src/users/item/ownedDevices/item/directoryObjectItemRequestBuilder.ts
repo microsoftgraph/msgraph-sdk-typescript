@@ -6,12 +6,12 @@ import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './direct
 import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
 import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
 import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.
  */
-export class DirectoryObjectItemRequestBuilder {
+export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
     /** Casts the previous resource to appRoleAssignment. */
     public get graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
         return new GraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -24,24 +24,13 @@ export class DirectoryObjectItemRequestBuilder {
     public get graphEndpoint(): GraphEndpointRequestBuilder {
         return new GraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/ownedDevices/{directoryObject%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/ownedDevices/{directoryObject%2Did}{?%24select,%24expand}");
     };
     /**
      * Devices that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).

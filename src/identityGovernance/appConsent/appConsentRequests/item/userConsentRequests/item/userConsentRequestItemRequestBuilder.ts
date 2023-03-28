@@ -6,34 +6,23 @@ import {ApprovalRequestBuilder} from './approval/approvalRequestBuilder';
 import {UserConsentRequestItemRequestBuilderDeleteRequestConfiguration} from './userConsentRequestItemRequestBuilderDeleteRequestConfiguration';
 import {UserConsentRequestItemRequestBuilderGetRequestConfiguration} from './userConsentRequestItemRequestBuilderGetRequestConfiguration';
 import {UserConsentRequestItemRequestBuilderPatchRequestConfiguration} from './userConsentRequestItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
  */
-export class UserConsentRequestItemRequestBuilder {
+export class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the approval property of the microsoft.graph.userConsentRequest entity. */
     public get approval(): ApprovalRequestBuilder {
         return new ApprovalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new UserConsentRequestItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/appConsent/appConsentRequests/{appConsentRequest%2Did}/userConsentRequests/{userConsentRequest%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/appConsent/appConsentRequests/{appConsentRequest%2Did}/userConsentRequests/{userConsentRequest%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property userConsentRequests for identityGovernance

@@ -5,34 +5,23 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {BitlockerRequestBuilderGetRequestConfiguration} from './bitlockerRequestBuilderGetRequestConfiguration';
 import {BitlockerRecoveryKeyItemRequestBuilder} from './recoveryKeys/item/bitlockerRecoveryKeyItemRequestBuilder';
 import {RecoveryKeysRequestBuilder} from './recoveryKeys/recoveryKeysRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
  */
-export class BitlockerRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+export class BitlockerRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity. */
     public get recoveryKeys(): RecoveryKeysRequestBuilder {
         return new RecoveryKeysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new BitlockerRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/informationProtection/bitlocker{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/informationProtection/bitlocker{?%24select,%24expand}");
     };
     /**
      * Get bitlocker from informationProtection

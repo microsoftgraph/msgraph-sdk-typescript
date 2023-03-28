@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {createImageWithWidthWithHeightWithFittingModeResponseFromDiscriminatorValue} from './createImageWithWidthWithHeightWithFittingModeResponseFromDiscriminatorValue';
 import {ImageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration} from './imageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration';
 import {ImageWithWidthWithHeightWithFittingModeResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the image method.
  */
-export class ImageWithWidthWithHeightWithFittingModeRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class ImageWithWidthWithHeightWithFittingModeRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new ImageWithWidthWithHeightWithFittingModeRequestBuilder and sets the default values.
      * @param fittingMode Usage: fittingMode='{fittingMode}'
@@ -24,15 +18,10 @@ export class ImageWithWidthWithHeightWithFittingModeRequestBuilder {
      * @param width Usage: width={width}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, fittingMode?: string | undefined, height?: number | undefined, width?: number | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/image(width={width},height={height},fittingMode='{fittingMode}')";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["fittingMode"] = fittingMode
-        urlTplParams["height"] = height
-        urlTplParams["width"] = width
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/image(width={width},height={height},fittingMode='{fittingMode}')");
+        this.pathParameters["fittingMode"] = fittingMode
+        this.pathParameters["height"] = height
+        this.pathParameters["width"] = width
     };
     /**
      * Invoke function image

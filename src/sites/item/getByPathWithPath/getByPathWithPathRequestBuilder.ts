@@ -3,18 +3,12 @@ import {createSiteFromDiscriminatorValue} from '../../../models/createSiteFromDi
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetByPathWithPathRequestBuilderGetRequestConfiguration} from './getByPathWithPathRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getByPath method.
  */
-export class GetByPathWithPathRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetByPathWithPathRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetByPathWithPathRequestBuilder and sets the default values.
      * @param path Usage: path='{path}'
@@ -22,13 +16,8 @@ export class GetByPathWithPathRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, path?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["path"] = path
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/getByPath(path='{path}')");
+        this.pathParameters["path"] = path
     };
     /**
      * Invoke function getByPath
