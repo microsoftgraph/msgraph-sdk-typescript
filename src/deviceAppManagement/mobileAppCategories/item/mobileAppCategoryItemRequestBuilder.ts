@@ -5,30 +5,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration} from './mobileAppCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppCategoryItemRequestBuilderGetRequestConfiguration} from './mobileAppCategoryItemRequestBuilderGetRequestConfiguration';
 import {MobileAppCategoryItemRequestBuilderPatchRequestConfiguration} from './mobileAppCategoryItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
  */
-export class MobileAppCategoryItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new MobileAppCategoryItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement/mobileAppCategories/{mobileAppCategory%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileAppCategories/{mobileAppCategory%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property mobileAppCategories for deviceAppManagement

@@ -3,30 +3,19 @@ import {createCalendarFromDiscriminatorValue} from '../../../../../models/create
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendar property of the microsoft.graph.event entity.
  */
-export class CalendarRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class CalendarRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new CalendarRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/events/{event%2Did}/calendar{?%24select}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/events/{event%2Did}/calendar{?%24select}");
     };
     /**
      * The calendar that contains the event. Navigation property. Read-only.

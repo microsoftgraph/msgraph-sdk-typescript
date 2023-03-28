@@ -124,7 +124,7 @@ export class EducationClass extends Entity implements Parsable {
         this._classCode = value;
     };
     /**
-     * Instantiates a new EducationClass and sets the default values.
+     * Instantiates a new educationClass and sets the default values.
      */
     public constructor() {
         super();

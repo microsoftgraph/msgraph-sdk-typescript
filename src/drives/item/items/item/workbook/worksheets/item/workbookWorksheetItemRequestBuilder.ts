@@ -19,12 +19,12 @@ import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/u
 import {WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration} from './workbookWorksheetItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookWorksheetItemRequestBuilderGetRequestConfiguration} from './workbookWorksheetItemRequestBuilderGetRequestConfiguration';
 import {WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration} from './workbookWorksheetItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
  */
-export class WorkbookWorksheetItemRequestBuilder {
+export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity. */
     public get charts(): ChartsRequestBuilder {
         return new ChartsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -33,8 +33,6 @@ export class WorkbookWorksheetItemRequestBuilder {
     public get names(): NamesRequestBuilder {
         return new NamesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity. */
     public get pivotTables(): PivotTablesRequestBuilder {
         return new PivotTablesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -47,14 +45,10 @@ export class WorkbookWorksheetItemRequestBuilder {
     public get range(): RangeRequestBuilder {
         return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity. */
     public get tables(): TablesRequestBuilder {
         return new TablesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to call the usedRange method. */
     public get usedRange(): UsedRangeRequestBuilder {
         return new UsedRangeRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -87,12 +81,7 @@ export class WorkbookWorksheetItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property worksheets for drives

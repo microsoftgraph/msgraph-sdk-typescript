@@ -2,30 +2,19 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {SendMailPostRequestBody} from './index';
 import {SendMailRequestBuilderPostRequestConfiguration} from './sendMailRequestBuilderPostRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sendMail method.
  */
-export class SendMailRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class SendMailRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new SendMailRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/sendMail";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/sendMail");
     };
     /**
      * Send the message specified in the request body using either JSON or MIME format. When using JSON format you can include a file attachment in the same **sendMail** action call. When using MIME format:- Provide the applicable Internet message headers and the MIME content, all encoded in **base64** format in the request body.- Add any attachments and S/MIME properties to the MIME content. This method saves the message in the **Sent Items** folder. Alternatively, create a draft message to send later. To learn more about the steps involved in the backend before a mail is delivered to recipients, see here.

@@ -3,18 +3,12 @@ import {createDeviceAndAppManagementDataFromDiscriminatorValue} from '../../../m
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderGetRequestConfiguration} from './exportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the exportDeviceAndAppManagementData method.
  */
-export class ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -23,14 +17,9 @@ export class ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder {
      * @param top Usage: top={top}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, skip?: number | undefined, top?: number | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/exportDeviceAndAppManagementData(skip={skip},top={top})";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["skip"] = skip
-        urlTplParams["top"] = top
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/exportDeviceAndAppManagementData(skip={skip},top={top})");
+        this.pathParameters["skip"] = skip
+        this.pathParameters["top"] = top
     };
     /**
      * Invoke function exportDeviceAndAppManagementData

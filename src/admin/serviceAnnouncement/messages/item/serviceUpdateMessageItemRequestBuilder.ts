@@ -8,12 +8,12 @@ import {AttachmentsArchiveRequestBuilder} from './attachmentsArchive/attachments
 import {ServiceUpdateMessageItemRequestBuilderDeleteRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceUpdateMessageItemRequestBuilderGetRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderGetRequestConfiguration';
 import {ServiceUpdateMessageItemRequestBuilderPatchRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
-export class ServiceUpdateMessageItemRequestBuilder {
+export class ServiceUpdateMessageItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity. */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -22,12 +22,6 @@ export class ServiceUpdateMessageItemRequestBuilder {
     public get attachmentsArchive(): AttachmentsArchiveRequestBuilder {
         return new AttachmentsArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
      * @param id Unique identifier of the item
@@ -45,12 +39,7 @@ export class ServiceUpdateMessageItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property messages for admin

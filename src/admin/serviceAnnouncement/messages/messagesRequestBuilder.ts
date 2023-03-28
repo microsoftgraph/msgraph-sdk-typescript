@@ -12,12 +12,12 @@ import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBu
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
-export class MessagesRequestBuilder {
+export class MessagesRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the archive method. */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -38,10 +38,6 @@ export class MessagesRequestBuilder {
     public get markUnread(): MarkUnreadRequestBuilder {
         return new MarkUnreadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the unarchive method. */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -50,20 +46,13 @@ export class MessagesRequestBuilder {
     public get unfavorite(): UnfavoriteRequestBuilder {
         return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new MessagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/admin/serviceAnnouncement/messages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
      * Retrieve the serviceUpdateMessage resources from the **messages** navigation property. This operation retrieves all service update messages that exist for the tenant.

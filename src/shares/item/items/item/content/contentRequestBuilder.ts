@@ -2,30 +2,19 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ContentRequestBuilderGetRequestConfiguration} from './contentRequestBuilderGetRequestConfiguration';
 import {ContentRequestBuilderPutRequestConfiguration} from './contentRequestBuilderPutRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the media for the sharedDriveItem entity.
  */
-export class ContentRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class ContentRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new ContentRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}/items/{driveItem%2Did}/content";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/items/{driveItem%2Did}/content");
     };
     /**
      * The content stream, if the item represents a file.

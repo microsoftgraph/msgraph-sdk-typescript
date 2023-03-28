@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {createSearchWithQResponseFromDiscriminatorValue} from './createSearchWithQResponseFromDiscriminatorValue';
 import {SearchWithQResponse} from './index';
 import {SearchWithQRequestBuilderGetRequestConfiguration} from './searchWithQRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the search method.
  */
-export class SearchWithQRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class SearchWithQRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new SearchWithQRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -22,13 +16,8 @@ export class SearchWithQRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, q?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/search(q='{q}'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["q"] = q
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/search(q='{q}'){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
+        this.pathParameters["q"] = q
     };
     /**
      * Invoke function search

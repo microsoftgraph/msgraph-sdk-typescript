@@ -1,10 +1,12 @@
 
 /**
- * Retrieve a list of events in a calendar.  The calendar can be one for a user, or the default calendar of a Microsoft 365 group. The list of events contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, or get the instances of an event.
+ * Retrieve a list of events in a calendar. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. The list of events contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, or get the instances of an event.
  */
 export class EventsRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
+    /** Expand related entities */
+    public expand?: string[] | undefined;
     /** Filter items by property values */
     public filter?: string | undefined;
     /** Order items by property values */
@@ -24,6 +26,7 @@ export class EventsRequestBuilderGetQueryParameters {
         if(!originalName) throw new Error("originalName cannot be undefined");
         switch(originalName) {
             case "count": return "%24count";
+            case "expand": return "%24expand";
             case "filter": return "%24filter";
             case "orderby": return "%24orderby";
             case "select": return "%24select";

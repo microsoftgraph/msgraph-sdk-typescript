@@ -6,34 +6,23 @@ import {AccessReviewHistoryInstanceItemRequestBuilderDeleteRequestConfiguration}
 import {AccessReviewHistoryInstanceItemRequestBuilderGetRequestConfiguration} from './accessReviewHistoryInstanceItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewHistoryInstanceItemRequestBuilderPatchRequestConfiguration} from './accessReviewHistoryInstanceItemRequestBuilderPatchRequestConfiguration';
 import {GenerateDownloadUriRequestBuilder} from './generateDownloadUri/generateDownloadUriRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
  */
-export class AccessReviewHistoryInstanceItemRequestBuilder {
+export class AccessReviewHistoryInstanceItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the generateDownloadUri method. */
     public get generateDownloadUri(): GenerateDownloadUriRequestBuilder {
         return new GenerateDownloadUriRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new AccessReviewHistoryInstanceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances/{accessReviewHistoryInstance%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/historyDefinitions/{accessReviewHistoryDefinition%2Did}/instances/{accessReviewHistoryInstance%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property instances for identityGovernance

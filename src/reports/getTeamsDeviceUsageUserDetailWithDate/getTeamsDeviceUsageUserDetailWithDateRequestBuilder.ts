@@ -1,18 +1,12 @@
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration';
-import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, DateOnly, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getTeamsDeviceUsageUserDetail method.
  */
-export class GetTeamsDeviceUsageUserDetailWithDateRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetTeamsDeviceUsageUserDetailWithDateRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder and sets the default values.
      * @param date Usage: date={date}
@@ -20,13 +14,8 @@ export class GetTeamsDeviceUsageUserDetailWithDateRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, date?: DateOnly | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/reports/getTeamsDeviceUsageUserDetail(date={date})";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["date"] = date
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/reports/getTeamsDeviceUsageUserDetail(date={date})");
+        this.pathParameters["date"] = date
     };
     /**
      * Invoke function getTeamsDeviceUsageUserDetail

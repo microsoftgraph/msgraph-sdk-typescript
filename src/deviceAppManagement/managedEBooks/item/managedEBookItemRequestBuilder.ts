@@ -13,12 +13,12 @@ import {ManagedEBookItemRequestBuilderGetRequestConfiguration} from './managedEB
 import {ManagedEBookItemRequestBuilderPatchRequestConfiguration} from './managedEBookItemRequestBuilderPatchRequestConfiguration';
 import {UserInstallStateSummaryItemRequestBuilder} from './userStateSummary/item/userInstallStateSummaryItemRequestBuilder';
 import {UserStateSummaryRequestBuilder} from './userStateSummary/userStateSummaryRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
  */
-export class ManagedEBookItemRequestBuilder {
+export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the assign method. */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -35,12 +35,6 @@ export class ManagedEBookItemRequestBuilder {
     public get installSummary(): InstallSummaryRequestBuilder {
         return new InstallSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity. */
     public get userStateSummary(): UserStateSummaryRequestBuilder {
         return new UserStateSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -62,12 +56,7 @@ export class ManagedEBookItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property managedEBooks for deviceAppManagement

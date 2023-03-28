@@ -9,26 +9,20 @@ import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBu
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilder} from './workforceIntegrations/item/workforceIntegrationItemRequestBuilder';
 import {WorkforceIntegrationsRequestBuilder} from './workforceIntegrations/workforceIntegrationsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamwork singleton.
  */
-export class TeamworkRequestBuilder {
+export class TeamworkRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity. */
     public get deletedTeams(): DeletedTeamsRequestBuilder {
         return new DeletedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the sendActivityNotificationToRecipients method. */
     public get sendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
         return new SendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity. */
     public get workforceIntegrations(): WorkforceIntegrationsRequestBuilder {
         return new WorkforceIntegrationsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -39,12 +33,7 @@ export class TeamworkRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/teamwork{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/teamwork{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.

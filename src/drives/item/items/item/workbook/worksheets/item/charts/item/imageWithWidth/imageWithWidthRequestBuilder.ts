@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {createImageWithWidthResponseFromDiscriminatorValue} from './createImageWithWidthResponseFromDiscriminatorValue';
 import {ImageWithWidthRequestBuilderGetRequestConfiguration} from './imageWithWidthRequestBuilderGetRequestConfiguration';
 import {ImageWithWidthResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the image method.
  */
-export class ImageWithWidthRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class ImageWithWidthRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new ImageWithWidthRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -22,13 +16,8 @@ export class ImageWithWidthRequestBuilder {
      * @param width Usage: width={width}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, width?: number | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/image(width={width})";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["width"] = width
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/image(width={width})");
+        this.pathParameters["width"] = width
     };
     /**
      * Invoke function image

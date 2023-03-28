@@ -109,12 +109,12 @@ import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/m
 import {ReportsRequestBuilderGetRequestConfiguration} from './reportsRequestBuilderGetRequestConfiguration';
 import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBuilderPatchRequestConfiguration';
 import {SecurityRequestBuilder} from './security/securityRequestBuilder';
-import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reportRoot singleton.
  */
-export class ReportsRequestBuilder {
+export class ReportsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
     public get dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
         return new DailyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -159,28 +159,17 @@ export class ReportsRequestBuilder {
     public get monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the security property of the microsoft.graph.reportRoot entity. */
     public get security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/reports{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/reports{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.

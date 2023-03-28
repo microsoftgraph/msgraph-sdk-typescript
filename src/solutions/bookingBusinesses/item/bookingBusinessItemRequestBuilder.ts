@@ -20,12 +20,12 @@ import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
 import {BookingStaffMemberBaseItemRequestBuilder} from './staffMembers/item/bookingStaffMemberBaseItemRequestBuilder';
 import {StaffMembersRequestBuilder} from './staffMembers/staffMembersRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
  */
-export class BookingBusinessItemRequestBuilder {
+export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity. */
     public get appointments(): AppointmentsRequestBuilder {
         return new AppointmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -46,14 +46,10 @@ export class BookingBusinessItemRequestBuilder {
     public get getStaffAvailability(): GetStaffAvailabilityRequestBuilder {
         return new GetStaffAvailabilityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the publish method. */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity. */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -66,8 +62,6 @@ export class BookingBusinessItemRequestBuilder {
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
      * @param id Unique identifier of the item
@@ -96,12 +90,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.

@@ -21,16 +21,12 @@ import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilder} from './roleEli
 import {RoleEligibilityScheduleRequestsRequestBuilder} from './roleEligibilityScheduleRequests/roleEligibilityScheduleRequestsRequestBuilder';
 import {UnifiedRoleEligibilityScheduleItemRequestBuilder} from './roleEligibilitySchedules/item/unifiedRoleEligibilityScheduleItemRequestBuilder';
 import {RoleEligibilitySchedulesRequestBuilder} from './roleEligibilitySchedules/roleEligibilitySchedulesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.
  */
-export class EntitlementManagementRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity. */
     public get roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -63,20 +59,13 @@ export class EntitlementManagementRequestBuilder {
     public get roleEligibilitySchedules(): RoleEligibilitySchedulesRequestBuilder {
         return new RoleEligibilitySchedulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/roleManagement/entitlementManagement{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/roleManagement/entitlementManagement{?%24select,%24expand}");
     };
     /**
      * Delete navigation property entitlementManagement for roleManagement

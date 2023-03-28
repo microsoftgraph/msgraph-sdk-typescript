@@ -7,22 +7,16 @@ import {ItemActivityItemRequestBuilder} from './activities/item/itemActivityItem
 import {ItemActivityStatItemRequestBuilderDeleteRequestConfiguration} from './itemActivityStatItemRequestBuilderDeleteRequestConfiguration';
 import {ItemActivityStatItemRequestBuilderGetRequestConfiguration} from './itemActivityStatItemRequestBuilderGetRequestConfiguration';
 import {ItemActivityStatItemRequestBuilderPatchRequestConfiguration} from './itemActivityStatItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
  */
-export class ItemActivityStatItemRequestBuilder {
+export class ItemActivityStatItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity. */
     public get activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
      * @param id Unique identifier of the item
@@ -40,12 +34,7 @@ export class ItemActivityStatItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property itemActivityStats for drives

@@ -5,30 +5,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
  */
-export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new DeviceAndAppManagementRoleAssignmentItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/roleAssignments/{deviceAndAppManagementRoleAssignment%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/roleAssignments/{deviceAndAppManagementRoleAssignment%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property roleAssignments for deviceManagement

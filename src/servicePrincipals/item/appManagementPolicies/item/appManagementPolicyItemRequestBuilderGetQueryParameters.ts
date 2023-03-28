@@ -1,6 +1,6 @@
 
 /**
- * Get appManagementPolicies from servicePrincipals
+ * The appManagementPolicy applied to this application.
  */
 export class AppManagementPolicyItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

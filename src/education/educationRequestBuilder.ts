@@ -11,12 +11,12 @@ import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolI
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {EducationUserItemRequestBuilder} from './users/item/educationUserItemRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the educationRoot singleton.
  */
-export class EducationRequestBuilder {
+export class EducationRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the classes property of the microsoft.graph.educationRoot entity. */
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -25,16 +25,10 @@ export class EducationRequestBuilder {
     public get me(): MeRequestBuilder {
         return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the schools property of the microsoft.graph.educationRoot entity. */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the users property of the microsoft.graph.educationRoot entity. */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -56,12 +50,7 @@ export class EducationRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/education{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/education{?%24select,%24expand}");
     };
     /**
      * Get education

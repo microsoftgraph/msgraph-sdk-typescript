@@ -7,22 +7,16 @@ import {AlertItemRequestBuilder} from './alerts/item/alertItemRequestBuilder';
 import {IncidentItemRequestBuilderDeleteRequestConfiguration} from './incidentItemRequestBuilderDeleteRequestConfiguration';
 import {IncidentItemRequestBuilderGetRequestConfiguration} from './incidentItemRequestBuilderGetRequestConfiguration';
 import {IncidentItemRequestBuilderPatchRequestConfiguration} from './incidentItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
  */
-export class IncidentItemRequestBuilder {
+export class IncidentItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the alerts property of the microsoft.graph.security.incident entity. */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
      * @param id Unique identifier of the item
@@ -40,12 +34,7 @@ export class IncidentItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security/incidents/{incident%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security/incidents/{incident%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property incidents for security

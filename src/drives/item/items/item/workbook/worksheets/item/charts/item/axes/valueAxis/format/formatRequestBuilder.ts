@@ -7,12 +7,12 @@ import {FormatRequestBuilderDeleteRequestConfiguration} from './formatRequestBui
 import {FormatRequestBuilderGetRequestConfiguration} from './formatRequestBuilderGetRequestConfiguration';
 import {FormatRequestBuilderPatchRequestConfiguration} from './formatRequestBuilderPatchRequestConfiguration';
 import {LineRequestBuilder} from './line/lineRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the format property of the microsoft.graph.workbookChartAxis entity.
  */
-export class FormatRequestBuilder {
+export class FormatRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the font property of the microsoft.graph.workbookChartAxisFormat entity. */
     public get font(): FontRequestBuilder {
         return new FontRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -21,24 +21,13 @@ export class FormatRequestBuilder {
     public get line(): LineRequestBuilder {
         return new LineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new FormatRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/valueAxis/format{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/valueAxis/format{?%24select,%24expand}");
     };
     /**
      * Delete navigation property format for drives

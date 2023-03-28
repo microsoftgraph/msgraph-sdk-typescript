@@ -29,12 +29,12 @@ import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {WindowsDefenderScanRequestBuilder} from './windowsDefenderScan/windowsDefenderScanRequestBuilder';
 import {WindowsDefenderUpdateSignaturesRequestBuilder} from './windowsDefenderUpdateSignatures/windowsDefenderUpdateSignaturesRequestBuilder';
 import {WipeRequestBuilder} from './wipe/wipeRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
  */
-export class ManagedDeviceItemRequestBuilder {
+export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the bypassActivationLock method. */
     public get bypassActivationLock(): BypassActivationLockRequestBuilder {
         return new BypassActivationLockRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -71,8 +71,6 @@ export class ManagedDeviceItemRequestBuilder {
     public get logoutSharedAppleDeviceActiveUser(): LogoutSharedAppleDeviceActiveUserRequestBuilder {
         return new LogoutSharedAppleDeviceActiveUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the rebootNow method. */
     public get rebootNow(): RebootNowRequestBuilder {
         return new RebootNowRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -85,8 +83,6 @@ export class ManagedDeviceItemRequestBuilder {
     public get remoteLock(): RemoteLockRequestBuilder {
         return new RemoteLockRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the requestRemoteAssistance method. */
     public get requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
         return new RequestRemoteAssistanceRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -111,8 +107,6 @@ export class ManagedDeviceItemRequestBuilder {
     public get updateWindowsDeviceAccount(): UpdateWindowsDeviceAccountRequestBuilder {
         return new UpdateWindowsDeviceAccountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the users property of the microsoft.graph.managedDevice entity. */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -135,12 +129,7 @@ export class ManagedDeviceItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/managedDevices/{managedDevice%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/managedDevices/{managedDevice%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property managedDevices for me

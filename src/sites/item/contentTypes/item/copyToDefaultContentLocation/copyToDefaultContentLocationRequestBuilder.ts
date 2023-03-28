@@ -2,30 +2,19 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration} from './copyToDefaultContentLocationRequestBuilderPostRequestConfiguration';
 import {CopyToDefaultContentLocationPostRequestBody} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the copyToDefaultContentLocation method.
  */
-export class CopyToDefaultContentLocationRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class CopyToDefaultContentLocationRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new CopyToDefaultContentLocationRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/copyToDefaultContentLocation";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/contentTypes/{contentType%2Did}/copyToDefaultContentLocation");
     };
     /**
      * Copy a file to a default content location in a [content type][contentType]. The file can then be added as a default file or template via a POST operation.

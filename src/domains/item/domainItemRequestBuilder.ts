@@ -16,12 +16,12 @@ import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationR
 import {DomainDnsRecordItemRequestBuilder as Ib1b6b04364f5e14b4cb6820dc9f0e89b24894aa2bef616b4a1220973381758c2} from './verificationDnsRecords/item/domainDnsRecordItemRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domain entities.
  */
-export class DomainItemRequestBuilder {
+export class DomainItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity. */
     public get domainNameReferences(): DomainNameReferencesRequestBuilder {
         return new DomainNameReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -34,20 +34,14 @@ export class DomainItemRequestBuilder {
     public get forceDelete(): ForceDeleteRequestBuilder {
         return new ForceDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the promote method. */
     public get promote(): PromoteRequestBuilder {
         return new PromoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity. */
     public get serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
         return new ServiceConfigurationRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity. */
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -62,12 +56,7 @@ export class DomainItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/domains/{domain%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}{?%24select,%24expand}");
     };
     /**
      * Deletes a domain from a tenant.

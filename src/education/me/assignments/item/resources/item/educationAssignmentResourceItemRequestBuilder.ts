@@ -5,30 +5,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration';
 import {EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderGetRequestConfiguration';
 import {EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
  */
-export class EducationAssignmentResourceItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new EducationAssignmentResourceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/education/me/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property resources for education

@@ -7,22 +7,16 @@ import {AppConsentRequestBuilderGetRequestConfiguration} from './appConsentReque
 import {AppConsentRequestBuilderPatchRequestConfiguration} from './appConsentRequestBuilderPatchRequestConfiguration';
 import {AppConsentRequestsRequestBuilder} from './appConsentRequests/appConsentRequestsRequestBuilder';
 import {AppConsentRequestItemRequestBuilder} from './appConsentRequests/item/appConsentRequestItemRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.
  */
-export class AppConsentRequestBuilder {
+export class AppConsentRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity. */
     public get appConsentRequests(): AppConsentRequestsRequestBuilder {
         return new AppConsentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
      * @param id Unique identifier of the item
@@ -40,12 +34,7 @@ export class AppConsentRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/appConsent{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/appConsent{?%24select,%24expand}");
     };
     /**
      * Delete navigation property appConsent for identityGovernance

@@ -3,30 +3,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {createSupportedLanguagesResponseFromDiscriminatorValue} from './createSupportedLanguagesResponseFromDiscriminatorValue';
 import {SupportedLanguagesResponse} from './index';
 import {SupportedLanguagesRequestBuilderGetRequestConfiguration} from './supportedLanguagesRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the supportedLanguages method.
  */
-export class SupportedLanguagesRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class SupportedLanguagesRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new SupportedLanguagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/outlook/supportedLanguages(){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/outlook/supportedLanguages(){?%24top,%24skip,%24search,%24filter,%24count}");
     };
     /**
      * Get the list of locales and languages that are supported for the user, as configured on the user's mailbox server. When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language by getting the user's mailbox settings.

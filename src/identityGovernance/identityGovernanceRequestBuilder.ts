@@ -8,12 +8,12 @@ import {EntitlementManagementRequestBuilder} from './entitlementManagement/entit
 import {IdentityGovernanceRequestBuilderGetRequestConfiguration} from './identityGovernanceRequestBuilderGetRequestConfiguration';
 import {IdentityGovernanceRequestBuilderPatchRequestConfiguration} from './identityGovernanceRequestBuilderPatchRequestConfiguration';
 import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityGovernance singleton.
  */
-export class IdentityGovernanceRequestBuilder {
+export class IdentityGovernanceRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity. */
     public get accessReviews(): AccessReviewsRequestBuilder {
         return new AccessReviewsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -26,28 +26,17 @@ export class IdentityGovernanceRequestBuilder {
     public get entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity. */
     public get termsOfUse(): TermsOfUseRequestBuilder {
         return new TermsOfUseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new IdentityGovernanceRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance{?%24select,%24expand}");
     };
     /**
      * Get identityGovernance

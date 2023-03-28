@@ -6,34 +6,23 @@ import {UserFlowLanguagePageItemRequestBuilderDeleteRequestConfiguration} from '
 import {UserFlowLanguagePageItemRequestBuilderGetRequestConfiguration} from './userFlowLanguagePageItemRequestBuilderGetRequestConfiguration';
 import {UserFlowLanguagePageItemRequestBuilderPatchRequestConfiguration} from './userFlowLanguagePageItemRequestBuilderPatchRequestConfiguration';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
  */
-export class UserFlowLanguagePageItemRequestBuilder {
+export class UserFlowLanguagePageItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the media for the identityContainer entity. */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new UserFlowLanguagePageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}/defaultPages/{userFlowLanguagePage%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}/defaultPages/{userFlowLanguagePage%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property defaultPages for identity

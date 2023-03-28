@@ -3,30 +3,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue} from './createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue';
 import {GetManagedAppDiagnosticStatusesRequestBuilderGetRequestConfiguration} from './getManagedAppDiagnosticStatusesRequestBuilderGetRequestConfiguration';
 import {GetManagedAppDiagnosticStatusesResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getManagedAppDiagnosticStatuses method.
  */
-export class GetManagedAppDiagnosticStatusesRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetManagedAppDiagnosticStatusesRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetManagedAppDiagnosticStatusesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/getManagedAppDiagnosticStatuses(){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/getManagedAppDiagnosticStatuses(){?%24top,%24skip,%24search,%24filter,%24count}");
     };
     /**
      * Gets diagnostics validation status for a given user.

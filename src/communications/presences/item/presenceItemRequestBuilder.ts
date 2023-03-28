@@ -9,12 +9,12 @@ import {PresenceItemRequestBuilderGetRequestConfiguration} from './presenceItemR
 import {PresenceItemRequestBuilderPatchRequestConfiguration} from './presenceItemRequestBuilderPatchRequestConfiguration';
 import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
 import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
  */
-export class PresenceItemRequestBuilder {
+export class PresenceItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the clearPresence method. */
     public get clearPresence(): ClearPresenceRequestBuilder {
         return new ClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -23,10 +23,6 @@ export class PresenceItemRequestBuilder {
     public get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
         return new ClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the setPresence method. */
     public get setPresence(): SetPresenceRequestBuilder {
         return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -35,20 +31,13 @@ export class PresenceItemRequestBuilder {
     public get setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
         return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new PresenceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/communications/presences/{presence%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property presences for communications

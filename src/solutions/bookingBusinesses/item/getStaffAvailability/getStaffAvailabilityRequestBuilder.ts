@@ -3,30 +3,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {createGetStaffAvailabilityResponseFromDiscriminatorValue} from './createGetStaffAvailabilityResponseFromDiscriminatorValue';
 import {GetStaffAvailabilityRequestBuilderPostRequestConfiguration} from './getStaffAvailabilityRequestBuilderPostRequestConfiguration';
 import {GetStaffAvailabilityPostRequestBody, GetStaffAvailabilityResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getStaffAvailability method.
  */
-export class GetStaffAvailabilityRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetStaffAvailabilityRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/getStaffAvailability";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/getStaffAvailability");
     };
     /**
      * Get the availability information of staff members of a Microsoft Bookings calendar.

@@ -8,12 +8,12 @@ import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSum
 import {IosManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration} from './iosManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration';
 import {IosManagedAppProtectionItemRequestBuilderGetRequestConfiguration} from './iosManagedAppProtectionItemRequestBuilderGetRequestConfiguration';
 import {IosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration} from './iosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
  */
-export class IosManagedAppProtectionItemRequestBuilder {
+export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the apps property of the microsoft.graph.iosManagedAppProtection entity. */
     public get apps(): AppsRequestBuilder {
         return new AppsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -22,12 +22,6 @@ export class IosManagedAppProtectionItemRequestBuilder {
     public get deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the apps property of the microsoft.graph.iosManagedAppProtection entity.
      * @param id Unique identifier of the item
@@ -45,12 +39,7 @@ export class IosManagedAppProtectionItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property iosManagedAppProtections for deviceAppManagement

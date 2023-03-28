@@ -7,6 +7,8 @@ export class CalendarViewRequestBuilderGetQueryParameters {
     public count?: boolean | undefined;
     /** The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00 */
     public endDateTime?: string | undefined;
+    /** Expand related entities */
+    public expand?: string[] | undefined;
     /** Filter items by property values */
     public filter?: string | undefined;
     /** Order items by property values */
@@ -28,6 +30,7 @@ export class CalendarViewRequestBuilderGetQueryParameters {
         if(!originalName) throw new Error("originalName cannot be undefined");
         switch(originalName) {
             case "count": return "%24count";
+            case "expand": return "%24expand";
             case "filter": return "%24filter";
             case "orderby": return "%24orderby";
             case "select": return "%24select";

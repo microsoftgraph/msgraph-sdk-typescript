@@ -1,4 +1,4 @@
-import {AuthenticationMethodConfiguration, EmailAuthenticationMethodConfiguration, Fido2AuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodConfiguration, TemporaryAccessPassAuthenticationMethodConfiguration, X509CertificateAuthenticationMethodConfiguration} from './index';
+import {AuthenticationMethodConfiguration, EmailAuthenticationMethodConfiguration, Fido2AuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodConfiguration, SmsAuthenticationMethodConfiguration, SoftwareOathAuthenticationMethodConfiguration, TemporaryAccessPassAuthenticationMethodConfiguration, VoiceAuthenticationMethodConfiguration, X509CertificateAuthenticationMethodConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationMethodConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodConfiguration {
@@ -14,8 +14,14 @@ export function createAuthenticationMethodConfigurationFromDiscriminatorValue(pa
                     return new Fido2AuthenticationMethodConfiguration();
                 case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration":
                     return new MicrosoftAuthenticatorAuthenticationMethodConfiguration();
+                case "#microsoft.graph.smsAuthenticationMethodConfiguration":
+                    return new SmsAuthenticationMethodConfiguration();
+                case "#microsoft.graph.softwareOathAuthenticationMethodConfiguration":
+                    return new SoftwareOathAuthenticationMethodConfiguration();
                 case "#microsoft.graph.temporaryAccessPassAuthenticationMethodConfiguration":
                     return new TemporaryAccessPassAuthenticationMethodConfiguration();
+                case "#microsoft.graph.voiceAuthenticationMethodConfiguration":
+                    return new VoiceAuthenticationMethodConfiguration();
                 case "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration":
                     return new X509CertificateAuthenticationMethodConfiguration();
             }

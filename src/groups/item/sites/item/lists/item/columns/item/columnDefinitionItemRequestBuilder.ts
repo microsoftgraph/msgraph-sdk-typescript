@@ -6,34 +6,23 @@ import {ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration} from './co
 import {ColumnDefinitionItemRequestBuilderGetRequestConfiguration} from './columnDefinitionItemRequestBuilderGetRequestConfiguration';
 import {ColumnDefinitionItemRequestBuilderPatchRequestConfiguration} from './columnDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {SourceColumnRequestBuilder} from './sourceColumn/sourceColumnRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.list entity.
  */
-export class ColumnDefinitionItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity. */
     public get sourceColumn(): SourceColumnRequestBuilder {
         return new SourceColumnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new ColumnDefinitionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property columns for groups

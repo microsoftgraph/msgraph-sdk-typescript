@@ -63,12 +63,12 @@ import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilder} from '
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/item/windowsInformationProtectionNetworkLearningSummaryItemRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagement singleton.
  */
-export class DeviceManagementRequestBuilder {
+export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity. */
     public get applePushNotificationCertificate(): ApplePushNotificationCertificateRequestBuilder {
         return new ApplePushNotificationCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -149,8 +149,6 @@ export class DeviceManagementRequestBuilder {
     public get notificationMessageTemplates(): NotificationMessageTemplatesRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity. */
     public get remoteAssistancePartners(): RemoteAssistancePartnersRequestBuilder {
         return new RemoteAssistancePartnersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -159,8 +157,6 @@ export class DeviceManagementRequestBuilder {
     public get reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity. */
     public get resourceOperations(): ResourceOperationsRequestBuilder {
         return new ResourceOperationsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -189,8 +185,6 @@ export class DeviceManagementRequestBuilder {
     public get troubleshootingEvents(): TroubleshootingEventsRequestBuilder {
         return new TroubleshootingEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity. */
     public get windowsAutopilotDeviceIdentities(): WindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new WindowsAutopilotDeviceIdentitiesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -231,12 +225,7 @@ export class DeviceManagementRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.

@@ -7,34 +7,23 @@ import {PlannerBucketItemRequestBuilderGetRequestConfiguration} from './plannerB
 import {PlannerBucketItemRequestBuilderPatchRequestConfiguration} from './plannerBucketItemRequestBuilderPatchRequestConfiguration';
 import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
  */
-export class PlannerBucketItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity. */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new PlannerBucketItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property buckets for planner

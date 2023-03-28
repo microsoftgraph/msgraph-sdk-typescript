@@ -6,34 +6,23 @@ import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {RubricRequestBuilderDeleteRequestConfiguration} from './rubricRequestBuilderDeleteRequestConfiguration';
 import {RubricRequestBuilderGetRequestConfiguration} from './rubricRequestBuilderGetRequestConfiguration';
 import {RubricRequestBuilderPatchRequestConfiguration} from './rubricRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rubric property of the microsoft.graph.educationAssignment entity.
  */
-export class RubricRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
+export class RubricRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the collection of educationRoot entities. */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new RubricRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/rubric{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/rubric{?%24select,%24expand}");
     };
     /**
      * Delete navigation property rubric for education

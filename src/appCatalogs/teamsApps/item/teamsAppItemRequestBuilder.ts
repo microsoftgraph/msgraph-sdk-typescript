@@ -7,22 +7,16 @@ import {TeamsAppDefinitionItemRequestBuilder} from './appDefinitions/item/teamsA
 import {TeamsAppItemRequestBuilderDeleteRequestConfiguration} from './teamsAppItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppItemRequestBuilderGetRequestConfiguration} from './teamsAppItemRequestBuilderGetRequestConfiguration';
 import {TeamsAppItemRequestBuilderPatchRequestConfiguration} from './teamsAppItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
  */
-export class TeamsAppItemRequestBuilder {
+export class TeamsAppItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity. */
     public get appDefinitions(): AppDefinitionsRequestBuilder {
         return new AppDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
      * @param id Unique identifier of the item
@@ -40,12 +34,7 @@ export class TeamsAppItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property teamsApps for appCatalogs

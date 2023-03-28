@@ -14,12 +14,12 @@ import {ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfigu
 import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder} from './userStatuses/item/managedDeviceMobileAppConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
 import {UserStatusSummaryRequestBuilder} from './userStatusSummary/userStatusSummaryRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
  */
-export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
+export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the assign method. */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -36,12 +36,6 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
     public get deviceStatusSummary(): DeviceStatusSummaryRequestBuilder {
         return new DeviceStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity. */
     public get userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -67,12 +61,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property mobileAppConfigurations for deviceAppManagement

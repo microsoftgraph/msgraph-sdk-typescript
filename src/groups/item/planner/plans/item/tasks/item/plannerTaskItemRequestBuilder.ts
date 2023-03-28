@@ -9,12 +9,12 @@ import {PlannerTaskItemRequestBuilderDeleteRequestConfiguration} from './planner
 import {PlannerTaskItemRequestBuilderGetRequestConfiguration} from './plannerTaskItemRequestBuilderGetRequestConfiguration';
 import {PlannerTaskItemRequestBuilderPatchRequestConfiguration} from './plannerTaskItemRequestBuilderPatchRequestConfiguration';
 import {ProgressTaskBoardFormatRequestBuilder} from './progressTaskBoardFormat/progressTaskBoardFormatRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
  */
-export class PlannerTaskItemRequestBuilder {
+export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
     public get assignedToTaskBoardFormat(): AssignedToTaskBoardFormatRequestBuilder {
         return new AssignedToTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -27,28 +27,17 @@ export class PlannerTaskItemRequestBuilder {
     public get details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
     public get progressTaskBoardFormat(): ProgressTaskBoardFormatRequestBuilder {
         return new ProgressTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new PlannerTaskItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/planner/plans/{plannerPlan%2Did}/tasks/{plannerTask%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/planner/plans/{plannerPlan%2Did}/tasks/{plannerTask%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property tasks for groups

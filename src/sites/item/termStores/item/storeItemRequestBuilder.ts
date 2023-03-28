@@ -9,38 +9,27 @@ import {SetsRequestBuilder} from './sets/setsRequestBuilder';
 import {StoreItemRequestBuilderDeleteRequestConfiguration} from './storeItemRequestBuilderDeleteRequestConfiguration';
 import {StoreItemRequestBuilderGetRequestConfiguration} from './storeItemRequestBuilderGetRequestConfiguration';
 import {StoreItemRequestBuilderPatchRequestConfiguration} from './storeItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termStores property of the microsoft.graph.site entity.
  */
-export class StoreItemRequestBuilder {
+export class StoreItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the groups property of the microsoft.graph.termStore.store entity. */
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the sets property of the microsoft.graph.termStore.store entity. */
     public get sets(): SetsRequestBuilder {
         return new SetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new StoreItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property termStores for sites

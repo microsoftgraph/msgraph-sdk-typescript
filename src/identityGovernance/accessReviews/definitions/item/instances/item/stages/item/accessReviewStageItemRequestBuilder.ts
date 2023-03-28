@@ -8,38 +8,27 @@ import {AccessReviewStageItemRequestBuilderPatchRequestConfiguration} from './ac
 import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
 import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './decisions/item/accessReviewInstanceDecisionItemItemRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
  */
-export class AccessReviewStageItemRequestBuilder {
+export class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity. */
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the stop method. */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new AccessReviewStageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.

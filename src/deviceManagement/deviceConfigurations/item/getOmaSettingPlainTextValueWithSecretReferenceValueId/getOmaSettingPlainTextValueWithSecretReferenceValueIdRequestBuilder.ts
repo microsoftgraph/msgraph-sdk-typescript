@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue} from './createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue';
 import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration} from './getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilderGetRequestConfiguration';
 import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getOmaSettingPlainTextValue method.
  */
-export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -22,13 +16,8 @@ export class GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder
      * @param secretReferenceValueId Usage: secretReferenceValueId='{secretReferenceValueId}'
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, secretReferenceValueId?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/getOmaSettingPlainTextValue(secretReferenceValueId='{secretReferenceValueId}')";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["secretReferenceValueId"] = secretReferenceValueId
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/getOmaSettingPlainTextValue(secretReferenceValueId='{secretReferenceValueId}')");
+        this.pathParameters["secretReferenceValueId"] = secretReferenceValueId
     };
     /**
      * Invoke function getOmaSettingPlainTextValue

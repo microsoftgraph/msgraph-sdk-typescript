@@ -35,12 +35,12 @@ import {ValidatePermissionRequestBuilder} from './validatePermission/validatePer
 import {DriveItemVersionItemRequestBuilder} from './versions/item/driveItemVersionItemRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
 import {WorkbookRequestBuilder} from './workbook/workbookRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.
  */
-export class DriveItemItemRequestBuilder {
+export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the analytics property of the microsoft.graph.driveItem entity. */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -93,8 +93,6 @@ export class DriveItemItemRequestBuilder {
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the permissions property of the microsoft.graph.driveItem entity. */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -103,8 +101,6 @@ export class DriveItemItemRequestBuilder {
     public get preview(): PreviewRequestBuilder {
         return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -121,8 +117,6 @@ export class DriveItemItemRequestBuilder {
     public get unfollow(): UnfollowRequestBuilder {
         return new UnfollowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to call the validatePermission method. */
     public get validatePermission(): ValidatePermissionRequestBuilder {
         return new ValidatePermissionRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -152,12 +146,7 @@ export class DriveItemItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property items for drives

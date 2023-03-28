@@ -15,12 +15,12 @@ import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodial
 import {NoncustodialSourcesRequestBuilder} from './noncustodialSources/noncustodialSourcesRequestBuilder';
 import {SecurityEstimateStatisticsRequestBuilder} from './securityEstimateStatistics/securityEstimateStatisticsRequestBuilder';
 import {SecurityPurgeDataRequestBuilder} from './securityPurgeData/securityPurgeDataRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
  */
-export class EdiscoverySearchItemRequestBuilder {
+export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity. */
     public get additionalSources(): AdditionalSourcesRequestBuilder {
         return new AdditionalSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -41,10 +41,6 @@ export class EdiscoverySearchItemRequestBuilder {
     public get noncustodialSources(): NoncustodialSourcesRequestBuilder {
         return new NoncustodialSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the estimateStatistics method. */
     public get securityEstimateStatistics(): SecurityEstimateStatisticsRequestBuilder {
         return new SecurityEstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -53,8 +49,6 @@ export class EdiscoverySearchItemRequestBuilder {
     public get securityPurgeData(): SecurityPurgeDataRequestBuilder {
         return new SecurityPurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
      * @param id Unique identifier of the item
@@ -72,12 +66,7 @@ export class EdiscoverySearchItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.

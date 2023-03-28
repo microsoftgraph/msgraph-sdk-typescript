@@ -16,12 +16,12 @@ import {RichLongRunningOperationItemRequestBuilder} from './operations/item/rich
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {SubscriptionItemRequestBuilder} from './subscriptions/item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.site entity.
  */
-export class ListItemRequestBuilder {
+export class ListItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the columns property of the microsoft.graph.list entity. */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -42,16 +42,10 @@ export class ListItemRequestBuilder {
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the subscriptions property of the microsoft.graph.list entity. */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the columns property of the microsoft.graph.list entity.
      * @param id Unique identifier of the item
@@ -69,12 +63,7 @@ export class ListItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.

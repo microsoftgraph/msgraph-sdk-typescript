@@ -30,7 +30,7 @@ export class PrintConnector extends Entity implements Parsable {
         this._appVersion = value;
     };
     /**
-     * Instantiates a new PrintConnector and sets the default values.
+     * Instantiates a new printConnector and sets the default values.
      */
     public constructor() {
         super();

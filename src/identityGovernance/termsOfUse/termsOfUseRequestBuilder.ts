@@ -9,12 +9,12 @@ import {AgreementItemRequestBuilder} from './agreements/item/agreementItemReques
 import {TermsOfUseRequestBuilderDeleteRequestConfiguration} from './termsOfUseRequestBuilderDeleteRequestConfiguration';
 import {TermsOfUseRequestBuilderGetRequestConfiguration} from './termsOfUseRequestBuilderGetRequestConfiguration';
 import {TermsOfUseRequestBuilderPatchRequestConfiguration} from './termsOfUseRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.
  */
-export class TermsOfUseRequestBuilder {
+export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity. */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -23,12 +23,6 @@ export class TermsOfUseRequestBuilder {
     public get agreements(): AgreementsRequestBuilder {
         return new AgreementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.
      * @param id Unique identifier of the item
@@ -57,12 +51,7 @@ export class TermsOfUseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/termsOfUse{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/termsOfUse{?%24select,%24expand}");
     };
     /**
      * Delete navigation property termsOfUse for identityGovernance

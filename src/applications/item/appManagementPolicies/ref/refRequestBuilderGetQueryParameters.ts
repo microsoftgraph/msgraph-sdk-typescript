@@ -1,6 +1,6 @@
 
 /**
- * Get ref of appManagementPolicies from applications
+ * The appManagementPolicy applied to this application.
  */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */

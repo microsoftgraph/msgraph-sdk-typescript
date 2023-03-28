@@ -11,16 +11,12 @@ import {TrendingItemRequestBuilder} from './trending/item/trendingItemRequestBui
 import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';
 import {UsedInsightItemRequestBuilder} from './used/item/usedInsightItemRequestBuilder';
 import {UsedRequestBuilder} from './used/usedRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the insights property of the microsoft.graph.user entity.
  */
-export class InsightsRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class InsightsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity. */
     public get shared(): SharedRequestBuilder {
         return new SharedRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,8 +25,6 @@ export class InsightsRequestBuilder {
     public get trending(): TrendingRequestBuilder {
         return new TrendingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity. */
     public get used(): UsedRequestBuilder {
         return new UsedRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -41,12 +35,7 @@ export class InsightsRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/insights{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/insights{?%24select,%24expand}");
     };
     /**
      * Delete navigation property insights for me

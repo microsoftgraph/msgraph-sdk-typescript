@@ -7,18 +7,12 @@ import {AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration} from
 import {AgreementFileLocalizationItemRequestBuilderPatchRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderPatchRequestConfiguration';
 import {AgreementFileVersionItemRequestBuilder} from './versions/item/agreementFileVersionItemRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
  */
-export class AgreementFileLocalizationItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class AgreementFileLocalizationItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity. */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,12 +23,7 @@ export class AgreementFileLocalizationItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/agreements/{agreement%2Did}/file/localizations/{agreementFileLocalization%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/agreements/{agreement%2Did}/file/localizations/{agreementFileLocalization%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property localizations for agreements

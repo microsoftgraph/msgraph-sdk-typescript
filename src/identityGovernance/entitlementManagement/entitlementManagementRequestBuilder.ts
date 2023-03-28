@@ -20,12 +20,12 @@ import {EntitlementManagementRequestBuilderDeleteRequestConfiguration} from './e
 import {EntitlementManagementRequestBuilderGetRequestConfiguration} from './entitlementManagementRequestBuilderGetRequestConfiguration';
 import {EntitlementManagementRequestBuilderPatchRequestConfiguration} from './entitlementManagementRequestBuilderPatchRequestConfiguration';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
  */
-export class EntitlementManagementRequestBuilder {
+export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity. */
     public get accessPackageAssignmentApprovals(): AccessPackageAssignmentApprovalsRequestBuilder {
         return new AccessPackageAssignmentApprovalsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -54,16 +54,10 @@ export class EntitlementManagementRequestBuilder {
     public get connectedOrganizations(): ConnectedOrganizationsRequestBuilder {
         return new ConnectedOrganizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity. */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
      * @param id Unique identifier of the item
@@ -147,12 +141,7 @@ export class EntitlementManagementRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement{?%24select,%24expand}");
     };
     /**
      * Delete navigation property entitlementManagement for identityGovernance

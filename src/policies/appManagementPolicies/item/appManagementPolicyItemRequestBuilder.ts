@@ -7,22 +7,16 @@ import {DirectoryObjectItemRequestBuilder} from './appliesTo/item/directoryObjec
 import {AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './appManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {AppManagementPolicyItemRequestBuilderGetRequestConfiguration} from './appManagementPolicyItemRequestBuilderGetRequestConfiguration';
 import {AppManagementPolicyItemRequestBuilderPatchRequestConfiguration} from './appManagementPolicyItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
  */
-export class AppManagementPolicyItemRequestBuilder {
+export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity. */
     public get appliesTo(): AppliesToRequestBuilder {
         return new AppliesToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
      * @param id Unique identifier of the item
@@ -40,12 +34,7 @@ export class AppManagementPolicyItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property appManagementPolicies for policies
@@ -63,7 +52,7 @@ export class AppManagementPolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get appManagementPolicies from policies
+     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppManagementPolicy
@@ -113,7 +102,7 @@ export class AppManagementPolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get appManagementPolicies from policies
+     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

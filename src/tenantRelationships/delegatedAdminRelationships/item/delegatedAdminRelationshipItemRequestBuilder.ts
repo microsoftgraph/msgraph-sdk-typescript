@@ -11,12 +11,12 @@ import {DelegatedAdminRelationshipOperationItemRequestBuilder} from './operation
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {DelegatedAdminRelationshipRequestItemRequestBuilder} from './requests/item/delegatedAdminRelationshipRequestItemRequestBuilder';
 import {RequestsRequestBuilder} from './requests/requestsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
  */
-export class DelegatedAdminRelationshipItemRequestBuilder {
+export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity. */
     public get accessAssignments(): AccessAssignmentsRequestBuilder {
         return new AccessAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -25,16 +25,10 @@ export class DelegatedAdminRelationshipItemRequestBuilder {
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity. */
     public get requests(): RequestsRequestBuilder {
         return new RequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
      * @param id Unique identifier of the item
@@ -52,12 +46,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property delegatedAdminRelationships for tenantRelationships

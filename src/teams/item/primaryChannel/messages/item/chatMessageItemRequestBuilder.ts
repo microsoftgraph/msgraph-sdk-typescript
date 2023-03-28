@@ -11,24 +11,20 @@ import {ChatMessageItemRequestBuilder as Ie36ec9f35ab9d0672db24a1cf654f67b52eb6f
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
 import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.
  */
-export class ChatMessageItemRequestBuilder {
+export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity. */
     public get hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the replies property of the microsoft.graph.chatMessage entity. */
     public get replies(): RepliesRequestBuilder {
         return new RepliesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the softDelete method. */
     public get softDelete(): SoftDeleteRequestBuilder {
         return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -37,20 +33,13 @@ export class ChatMessageItemRequestBuilder {
     public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
         return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/teams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/primaryChannel/messages/{chatMessage%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property messages for teams

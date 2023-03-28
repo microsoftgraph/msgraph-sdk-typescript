@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of chartpoint objects.
+ * Retrieve a list of chartpoints objects.
  */
 export class PointsRequestBuilderGetQueryParameters {
     /** Include count of items */

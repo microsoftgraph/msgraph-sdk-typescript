@@ -9,12 +9,12 @@ import {BrandingRequestBuilderPatchRequestConfiguration} from './brandingRequest
 import {OrganizationalBrandingLocalizationItemRequestBuilder} from './localizations/item/organizationalBrandingLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the organizationalBranding singleton.
  */
-export class BrandingRequestBuilder {
+export class BrandingRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the media for the organizationalBranding entity. */
     public get backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -27,28 +27,17 @@ export class BrandingRequestBuilder {
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the media for the organizationalBranding entity. */
     public get squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new BrandingRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/branding{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/branding{?%24select,%24expand}");
     };
     /**
      * Get branding

@@ -20,12 +20,12 @@ import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRe
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as I7028dd8c6ec7cb9805791e704300ef26f15d2571cd3d80c75b13b2b8cddf5425} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.
  */
-export class DeviceItemRequestBuilder {
+export class DeviceItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the checkMemberGroups method. */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -50,8 +50,6 @@ export class DeviceItemRequestBuilder {
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the registeredOwners property of the microsoft.graph.device entity. */
     public get registeredOwners(): RegisteredOwnersRequestBuilder {
         return new RegisteredOwnersRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -60,8 +58,6 @@ export class DeviceItemRequestBuilder {
     public get registeredUsers(): RegisteredUsersRequestBuilder {
         return new RegisteredUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -70,20 +66,13 @@ export class DeviceItemRequestBuilder {
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new DeviceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/devices/{device%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/devices/{device%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete a registered device.
@@ -171,7 +160,7 @@ export class DeviceItemRequestBuilder {
         return new I80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1(urlTplParams, this.requestAdapter);
     };
     /**
-     * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredUsers.item collection
      * @param id Unique identifier of the item
      * @returns a DirectoryObjectItemRequestBuilder
      */

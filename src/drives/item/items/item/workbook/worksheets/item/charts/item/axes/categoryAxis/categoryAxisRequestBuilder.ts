@@ -9,12 +9,12 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';
 import {TitleRequestBuilder} from './title/titleRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity.
  */
-export class CategoryAxisRequestBuilder {
+export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the format property of the microsoft.graph.workbookChartAxis entity. */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -27,28 +27,17 @@ export class CategoryAxisRequestBuilder {
     public get minorGridlines(): MinorGridlinesRequestBuilder {
         return new MinorGridlinesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the title property of the microsoft.graph.workbookChartAxis entity. */
     public get title(): TitleRequestBuilder {
         return new TitleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new CategoryAxisRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/categoryAxis{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/axes/categoryAxis{?%24select,%24expand}");
     };
     /**
      * Delete navigation property categoryAxis for drives

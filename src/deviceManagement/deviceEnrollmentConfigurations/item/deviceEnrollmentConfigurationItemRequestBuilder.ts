@@ -9,12 +9,12 @@ import {DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguratio
 import {DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration';
 import {DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration';
 import {SetPriorityRequestBuilder} from './setPriority/setPriorityRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
  */
-export class DeviceEnrollmentConfigurationItemRequestBuilder {
+export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the assign method. */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -23,16 +23,10 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the setPriority method. */
     public get setPriority(): SetPriorityRequestBuilder {
         return new SetPriorityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.
      * @param id Unique identifier of the item
@@ -50,12 +44,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property deviceEnrollmentConfigurations for deviceManagement

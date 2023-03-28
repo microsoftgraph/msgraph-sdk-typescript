@@ -21,12 +21,12 @@ import {SendActivityNotificationRequestBuilder} from './sendActivityNotification
 import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {UnhideForUserRequestBuilder} from './unhideForUser/unhideForUserRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the chats property of the microsoft.graph.user entity.
  */
-export class ChatItemRequestBuilder {
+export class ChatItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the hideForUser method. */
     public get hideForUser(): HideForUserRequestBuilder {
         return new HideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -55,14 +55,10 @@ export class ChatItemRequestBuilder {
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity. */
     public get pinnedMessages(): PinnedMessagesRequestBuilder {
         return new PinnedMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the sendActivityNotification method. */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -75,20 +71,13 @@ export class ChatItemRequestBuilder {
     public get unhideForUser(): UnhideForUserRequestBuilder {
         return new UnhideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new ChatItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property chats for users

@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {createGetRecentNotebooksWithIncludePersonalNotebooksResponseFromDiscriminatorValue} from './createGetRecentNotebooksWithIncludePersonalNotebooksResponseFromDiscriminatorValue';
 import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetRequestConfiguration} from './getRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetRequestConfiguration';
 import {GetRecentNotebooksWithIncludePersonalNotebooksResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getRecentNotebooks method.
  */
-export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder and sets the default values.
      * @param includePersonalNotebooks Usage: includePersonalNotebooks={includePersonalNotebooks}
@@ -22,13 +16,8 @@ export class GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, includePersonalNotebooks?: boolean | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/onenote/notebooks/getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks}){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["includePersonalNotebooks"] = includePersonalNotebooks
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/onenote/notebooks/getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks}){?%24top,%24skip,%24search,%24filter,%24count}");
+        this.pathParameters["includePersonalNotebooks"] = includePersonalNotebooks
     };
     /**
      * Invoke function getRecentNotebooks

@@ -6,22 +6,16 @@ import {ConnectionsRequestBuilder} from './connections/connectionsRequestBuilder
 import {ExternalConnectionItemRequestBuilder} from './connections/item/externalConnectionItemRequestBuilder';
 import {ExternalRequestBuilderGetRequestConfiguration} from './externalRequestBuilderGetRequestConfiguration';
 import {ExternalRequestBuilderPatchRequestConfiguration} from './externalRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the external singleton.
  */
-export class ExternalRequestBuilder {
+export class ExternalRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity. */
     public get connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
      * @param id Unique identifier of the item
@@ -39,12 +33,7 @@ export class ExternalRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/external{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/external{?%24select,%24expand}");
     };
     /**
      * Get external

@@ -16,12 +16,12 @@ import {PrinterShareItemRequestBuilder} from './shares/item/printerShareItemRequ
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {PrintTaskDefinitionItemRequestBuilder} from './taskDefinitions/item/printTaskDefinitionItemRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the print singleton.
  */
-export class PrintRequestBuilder {
+export class PrintRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the connectors property of the microsoft.graph.print entity. */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -30,14 +30,10 @@ export class PrintRequestBuilder {
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the printers property of the microsoft.graph.print entity. */
     public get printers(): PrintersRequestBuilder {
         return new PrintersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the services property of the microsoft.graph.print entity. */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -50,8 +46,6 @@ export class PrintRequestBuilder {
     public get taskDefinitions(): TaskDefinitionsRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.print entity.
      * @param id Unique identifier of the item
@@ -69,12 +63,7 @@ export class PrintRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/print{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/print{?%24select,%24expand}");
     };
     /**
      * Get print

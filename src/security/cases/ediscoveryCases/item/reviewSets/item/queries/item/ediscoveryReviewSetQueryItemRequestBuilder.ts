@@ -6,34 +6,23 @@ import {EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration} fr
 import {EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration';
 import {SecurityApplyTagsRequestBuilder} from './securityApplyTags/securityApplyTagsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
  */
-export class EdiscoveryReviewSetQueryItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
+export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the applyTags method. */
     public get securityApplyTags(): SecurityApplyTagsRequestBuilder {
         return new SecurityApplyTagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new EdiscoveryReviewSetQueryItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property queries for security

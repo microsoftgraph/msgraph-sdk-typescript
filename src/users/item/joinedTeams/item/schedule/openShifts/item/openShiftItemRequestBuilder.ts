@@ -5,30 +5,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {OpenShiftItemRequestBuilderDeleteRequestConfiguration} from './openShiftItemRequestBuilderDeleteRequestConfiguration';
 import {OpenShiftItemRequestBuilderGetRequestConfiguration} from './openShiftItemRequestBuilderGetRequestConfiguration';
 import {OpenShiftItemRequestBuilderPatchRequestConfiguration} from './openShiftItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
  */
-export class OpenShiftItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new OpenShiftItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/openShifts/{openShift%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/schedule/openShifts/{openShift%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property openShifts for users

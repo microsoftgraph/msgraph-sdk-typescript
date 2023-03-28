@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration} from './callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration';
 import {createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue} from './createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue';
 import {GetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse} from './index';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getDirectRoutingCalls method.
  */
-export class CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder and sets the default values.
      * @param fromDateTime Usage: fromDateTime={fromDateTime}
@@ -23,14 +17,9 @@ export class CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeReque
      * @param toDateTime Usage: toDateTime={toDateTime}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, fromDateTime?: Date | undefined, toDateTime?: Date | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/communications/callRecords/callRecords.getDirectRoutingCalls(fromDateTime={fromDateTime},toDateTime={toDateTime}){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["fromDateTime"] = fromDateTime
-        urlTplParams["toDateTime"] = toDateTime
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/communications/callRecords/callRecords.getDirectRoutingCalls(fromDateTime={fromDateTime},toDateTime={toDateTime}){?%24top,%24skip,%24search,%24filter,%24count}");
+        this.pathParameters["fromDateTime"] = fromDateTime
+        this.pathParameters["toDateTime"] = toDateTime
     };
     /**
      * Invoke function getDirectRoutingCalls

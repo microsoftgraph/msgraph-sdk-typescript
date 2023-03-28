@@ -3,18 +3,12 @@ import {createReportFromDiscriminatorValue} from '../../models/createReportFromD
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilderGetRequestConfiguration} from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the managedDeviceEnrollmentFailureDetails method.
  */
-export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder and sets the default values.
      * @param filter Usage: filter='{filter}'
@@ -25,16 +19,11 @@ export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithS
      * @param top Usage: top={top}
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, filter?: string | undefined, skip?: number | undefined, skipToken?: string | undefined, top?: number | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/reports/managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["filter"] = filter
-        urlTplParams["skip"] = skip
-        urlTplParams["skipToken"] = skipToken
-        urlTplParams["top"] = top
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/reports/managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')");
+        this.pathParameters["filter"] = filter
+        this.pathParameters["skip"] = skip
+        this.pathParameters["skipToken"] = skipToken
+        this.pathParameters["top"] = top
     };
     /**
      * Invoke function managedDeviceEnrollmentFailureDetails

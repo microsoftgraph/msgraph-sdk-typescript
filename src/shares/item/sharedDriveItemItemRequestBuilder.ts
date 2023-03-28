@@ -13,12 +13,12 @@ import {SharedDriveItemItemRequestBuilderDeleteRequestConfiguration} from './sha
 import {SharedDriveItemItemRequestBuilderGetRequestConfiguration} from './sharedDriveItemItemRequestBuilderGetRequestConfiguration';
 import {SharedDriveItemItemRequestBuilderPatchRequestConfiguration} from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration';
 import {SiteRequestBuilder} from './site/siteRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.
  */
-export class SharedDriveItemItemRequestBuilder {
+export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity. */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -35,14 +35,10 @@ export class SharedDriveItemItemRequestBuilder {
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity. */
     public get permission(): PermissionRequestBuilder {
         return new PermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity. */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -51,20 +47,13 @@ export class SharedDriveItemItemRequestBuilder {
     public get site(): SiteRequestBuilder {
         return new SiteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new SharedDriveItemItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete entity from shares

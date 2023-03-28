@@ -8,6 +8,8 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Aut
     private _featureSettings?: MicrosoftAuthenticatorFeatureSettings | undefined;
     /** A collection of groups that are enabled to use the authentication method. Expanded by default. */
     private _includeTargets?: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined;
+    /** The isSoftwareOathEnabled property */
+    private _isSoftwareOathEnabled?: boolean | undefined;
     /**
      * Instantiates a new MicrosoftAuthenticatorAuthenticationMethodConfiguration and sets the default values.
      */
@@ -37,6 +39,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Aut
         return {...super.getFieldDeserializers(),
             "featureSettings": n => { this.featureSettings = n.getObjectValue<MicrosoftAuthenticatorFeatureSettings>(createMicrosoftAuthenticatorFeatureSettingsFromDiscriminatorValue); },
             "includeTargets": n => { this.includeTargets = n.getCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>(createMicrosoftAuthenticatorAuthenticationMethodTargetFromDiscriminatorValue); },
+            "isSoftwareOathEnabled": n => { this.isSoftwareOathEnabled = n.getBooleanValue(); },
         };
     };
     /**
@@ -54,6 +57,20 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Aut
         this._includeTargets = value;
     };
     /**
+     * Gets the isSoftwareOathEnabled property value. The isSoftwareOathEnabled property
+     * @returns a boolean
+     */
+    public get isSoftwareOathEnabled() {
+        return this._isSoftwareOathEnabled;
+    };
+    /**
+     * Sets the isSoftwareOathEnabled property value. The isSoftwareOathEnabled property
+     * @param value Value to set for the isSoftwareOathEnabled property.
+     */
+    public set isSoftwareOathEnabled(value: boolean | undefined) {
+        this._isSoftwareOathEnabled = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -62,5 +79,6 @@ export class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Aut
         super.serialize(writer);
         writer.writeObjectValue<MicrosoftAuthenticatorFeatureSettings>("featureSettings", this.featureSettings);
         writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>("includeTargets", this.includeTargets);
+        writer.writeBooleanValue("isSoftwareOathEnabled", this.isSoftwareOathEnabled);
     };
 }

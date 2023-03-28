@@ -11,12 +11,12 @@ import {OnenotePageItemRequestBuilder} from './pages/item/onenotePageItemRequest
 import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
  */
-export class OnenoteSectionItemRequestBuilder {
+export class OnenoteSectionItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the copyToNotebook method. */
     public get copyToNotebook(): CopyToNotebookRequestBuilder {
         return new CopyToNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -37,24 +37,13 @@ export class OnenoteSectionItemRequestBuilder {
     public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
         return new ParentSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new OnenoteSectionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/onenote/sections/{onenoteSection%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property sections for me

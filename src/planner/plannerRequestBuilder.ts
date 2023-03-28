@@ -10,30 +10,24 @@ import {PlannerPlanItemRequestBuilder} from './plans/item/plannerPlanItemRequest
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
 import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the planner singleton.
  */
-export class PlannerRequestBuilder {
+export class PlannerRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the buckets property of the microsoft.graph.planner entity. */
     public get buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the plans property of the microsoft.graph.planner entity. */
     public get plans(): PlansRequestBuilder {
         return new PlansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the tasks property of the microsoft.graph.planner entity. */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
      * @param id Unique identifier of the item
@@ -51,12 +45,7 @@ export class PlannerRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/planner{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/planner{?%24select,%24expand}");
     };
     /**
      * Get planner

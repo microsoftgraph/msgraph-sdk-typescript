@@ -3,18 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue} from './createReminderViewWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue';
 import {ReminderViewWithStartDateTimeWithEndDateTimeResponse} from './index';
 import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration} from './reminderViewWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the reminderView method.
  */
-export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder and sets the default values.
      * @param EndDateTime Usage: EndDateTime='{EndDateTime}'
@@ -23,14 +17,9 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
      * @param StartDateTime Usage: StartDateTime='{StartDateTime}'
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, endDateTime?: string | undefined, startDateTime?: string | undefined) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}'){?%24top,%24skip,%24search,%24filter,%24count}";
-        const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["EndDateTime"] = endDateTime
-        urlTplParams["StartDateTime"] = startDateTime
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}'){?%24top,%24skip,%24search,%24filter,%24count}");
+        this.pathParameters["EndDateTime"] = endDateTime
+        this.pathParameters["StartDateTime"] = startDateTime
     };
     /**
      * Invoke function reminderView

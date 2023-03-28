@@ -8,12 +8,12 @@ import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';
 import {SortRequestBuilderDeleteRequestConfiguration} from './sortRequestBuilderDeleteRequestConfiguration';
 import {SortRequestBuilderGetRequestConfiguration} from './sortRequestBuilderGetRequestConfiguration';
 import {SortRequestBuilderPatchRequestConfiguration} from './sortRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
  */
-export class SortRequestBuilder {
+export class SortRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the apply method. */
     public get apply(): ApplyRequestBuilder {
         return new ApplyRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -22,28 +22,17 @@ export class SortRequestBuilder {
     public get clear(): ClearRequestBuilder {
         return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the reapply method. */
     public get reapply(): ReapplyRequestBuilder {
         return new ReapplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new SortRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/sort{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/sort{?%24select,%24expand}");
     };
     /**
      * Delete navigation property sort for drives

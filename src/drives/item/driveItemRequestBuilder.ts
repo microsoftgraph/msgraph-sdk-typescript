@@ -18,12 +18,12 @@ import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
 import {DriveItemItemRequestBuilder as I1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of drive entities.
  */
-export class DriveItemRequestBuilder {
+export class DriveItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the bundles property of the microsoft.graph.drive entity. */
     public get bundles(): BundlesRequestBuilder {
         return new BundlesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -40,14 +40,10 @@ export class DriveItemRequestBuilder {
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the recent method. */
     public get recent(): RecentRequestBuilder {
         return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the root property of the microsoft.graph.drive entity. */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -60,8 +56,6 @@ export class DriveItemRequestBuilder {
     public get special(): SpecialRequestBuilder {
         return new SpecialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
      * @param id Unique identifier of the item
@@ -79,12 +73,7 @@ export class DriveItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete entity from drives

@@ -9,12 +9,12 @@ import {TermsAndConditionsAssignmentItemRequestBuilder} from './assignments/item
 import {TermsAndConditionsItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
  */
-export class TermsAndConditionsItemRequestBuilder {
+export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity. */
     public get acceptanceStatuses(): AcceptanceStatusesRequestBuilder {
         return new AcceptanceStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -23,12 +23,6 @@ export class TermsAndConditionsItemRequestBuilder {
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
      * @param id Unique identifier of the item
@@ -57,12 +51,7 @@ export class TermsAndConditionsItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property termsAndConditions for deviceManagement

@@ -4,9 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RequestSignatureVerification implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The allowedWeakAlgorithms property */
+    /** Specifies which weak algorithms are allowed.  The possible values are: rsaSha1, unknownFutureValue. */
     private _allowedWeakAlgorithms?: WeakAlgorithms | undefined;
-    /** The isSignedRequestRequired property */
+    /** Specifies whether signed authentication requests for this application should be required. */
     private _isSignedRequestRequired?: boolean | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -25,14 +25,14 @@ export class RequestSignatureVerification implements AdditionalDataHolder, Parsa
         this._additionalData = value;
     };
     /**
-     * Gets the allowedWeakAlgorithms property value. The allowedWeakAlgorithms property
+     * Gets the allowedWeakAlgorithms property value. Specifies which weak algorithms are allowed.  The possible values are: rsaSha1, unknownFutureValue.
      * @returns a weakAlgorithms
      */
     public get allowedWeakAlgorithms() {
         return this._allowedWeakAlgorithms;
     };
     /**
-     * Sets the allowedWeakAlgorithms property value. The allowedWeakAlgorithms property
+     * Sets the allowedWeakAlgorithms property value. Specifies which weak algorithms are allowed.  The possible values are: rsaSha1, unknownFutureValue.
      * @param value Value to set for the allowedWeakAlgorithms property.
      */
     public set allowedWeakAlgorithms(value: WeakAlgorithms | undefined) {
@@ -56,14 +56,14 @@ export class RequestSignatureVerification implements AdditionalDataHolder, Parsa
         };
     };
     /**
-     * Gets the isSignedRequestRequired property value. The isSignedRequestRequired property
+     * Gets the isSignedRequestRequired property value. Specifies whether signed authentication requests for this application should be required.
      * @returns a boolean
      */
     public get isSignedRequestRequired() {
         return this._isSignedRequestRequired;
     };
     /**
-     * Sets the isSignedRequestRequired property value. The isSignedRequestRequired property
+     * Sets the isSignedRequestRequired property value. Specifies whether signed authentication requests for this application should be required.
      * @param value Value to set for the isSignedRequestRequired property.
      */
     public set isSignedRequestRequired(value: boolean | undefined) {

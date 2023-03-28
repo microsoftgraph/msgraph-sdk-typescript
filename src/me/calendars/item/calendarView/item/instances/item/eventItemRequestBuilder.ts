@@ -19,12 +19,12 @@ import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValue
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderRequestBuilder';
 import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.event entity.
  */
-export class EventItemRequestBuilder {
+export class EventItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the accept method. */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -61,10 +61,6 @@ export class EventItemRequestBuilder {
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity. */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -77,8 +73,6 @@ export class EventItemRequestBuilder {
     public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.event entity.
      * @param id Unique identifier of the item
@@ -96,12 +90,7 @@ export class EventItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/calendars/{calendar%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}{?%24select}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/calendars/{calendar%2Did}/calendarView/{event%2Did}/instances/{event%2Did1}{?%24select}");
     };
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.event entity.

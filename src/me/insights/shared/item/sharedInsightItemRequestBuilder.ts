@@ -7,38 +7,27 @@ import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {SharedInsightItemRequestBuilderDeleteRequestConfiguration} from './sharedInsightItemRequestBuilderDeleteRequestConfiguration';
 import {SharedInsightItemRequestBuilderGetRequestConfiguration} from './sharedInsightItemRequestBuilderGetRequestConfiguration';
 import {SharedInsightItemRequestBuilderPatchRequestConfiguration} from './sharedInsightItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
  */
-export class SharedInsightItemRequestBuilder {
+export class SharedInsightItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the lastSharedMethod property of the microsoft.graph.sharedInsight entity. */
     public get lastSharedMethod(): LastSharedMethodRequestBuilder {
         return new LastSharedMethodRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the resource property of the microsoft.graph.sharedInsight entity. */
     public get resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new SharedInsightItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/insights/shared/{sharedInsight%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/insights/shared/{sharedInsight%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property shared for me

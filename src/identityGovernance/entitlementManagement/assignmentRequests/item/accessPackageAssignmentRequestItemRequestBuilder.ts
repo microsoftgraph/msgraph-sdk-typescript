@@ -10,12 +10,12 @@ import {AssignmentRequestBuilder} from './assignment/assignmentRequestBuilder';
 import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
 import {ReprocessRequestBuilder} from './reprocess/reprocessRequestBuilder';
 import {RequestorRequestBuilder} from './requestor/requestorRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
  */
-export class AccessPackageAssignmentRequestItemRequestBuilder {
+export class AccessPackageAssignmentRequestItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentRequest entity. */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -28,32 +28,21 @@ export class AccessPackageAssignmentRequestItemRequestBuilder {
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to call the reprocess method. */
     public get reprocess(): ReprocessRequestBuilder {
         return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the requestor property of the microsoft.graph.accessPackageAssignmentRequest entity. */
     public get requestor(): RequestorRequestBuilder {
         return new RequestorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new AccessPackageAssignmentRequestItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property assignmentRequests for identityGovernance

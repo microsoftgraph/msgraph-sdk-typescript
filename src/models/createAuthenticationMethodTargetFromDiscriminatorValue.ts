@@ -1,4 +1,4 @@
-import {AuthenticationMethodTarget, MicrosoftAuthenticatorAuthenticationMethodTarget} from './index';
+import {AuthenticationMethodTarget, MicrosoftAuthenticatorAuthenticationMethodTarget, SmsAuthenticationMethodTarget} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationMethodTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodTarget {
@@ -10,6 +10,8 @@ export function createAuthenticationMethodTargetFromDiscriminatorValue(parseNode
             switch (mappingValue) {
                 case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget":
                     return new MicrosoftAuthenticatorAuthenticationMethodTarget();
+                case "#microsoft.graph.smsAuthenticationMethodTarget":
+                    return new SmsAuthenticationMethodTarget();
             }
         }
     }

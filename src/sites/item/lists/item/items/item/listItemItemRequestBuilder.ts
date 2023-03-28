@@ -14,12 +14,12 @@ import {ListItemItemRequestBuilderGetRequestConfiguration} from './listItemItemR
 import {ListItemItemRequestBuilderPatchRequestConfiguration} from './listItemItemRequestBuilderPatchRequestConfiguration';
 import {ListItemVersionItemRequestBuilder} from './versions/item/listItemVersionItemRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
  */
-export class ListItemItemRequestBuilder {
+export class ListItemItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the analytics property of the microsoft.graph.listItem entity. */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -40,12 +40,6 @@ export class ListItemItemRequestBuilder {
     public get getActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to manage the versions property of the microsoft.graph.listItem entity. */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -56,12 +50,7 @@ export class ListItemItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property items for sites

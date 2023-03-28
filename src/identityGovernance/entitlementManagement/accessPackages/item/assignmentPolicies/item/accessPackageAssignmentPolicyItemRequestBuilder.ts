@@ -9,12 +9,12 @@ import {AccessPackageAssignmentPolicyItemRequestBuilderPatchRequestConfiguration
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {AccessPackageQuestionItemRequestBuilder} from './questions/item/accessPackageQuestionItemRequestBuilder';
 import {QuestionsRequestBuilder} from './questions/questionsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
  */
-export class AccessPackageAssignmentPolicyItemRequestBuilder {
+export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -23,28 +23,17 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder {
     public get catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
     public get questions(): QuestionsRequestBuilder {
         return new QuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new AccessPackageAssignmentPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property assignmentPolicies for identityGovernance

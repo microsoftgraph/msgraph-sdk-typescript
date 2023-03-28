@@ -104,12 +104,12 @@ import {DirectoryObjectItemRequestBuilder as If0cd9385b2b0e89a82e916808c7cb33b5b
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TranslateExchangeIdsRequestBuilder} from './translateExchangeIds/translateExchangeIdsRequestBuilder';
 import {WipeManagedAppRegistrationsByDeviceTagRequestBuilder} from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the user singleton.
  */
-export class MeRequestBuilder {
+export class MeRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the activities property of the microsoft.graph.user entity. */
     public get activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -302,8 +302,6 @@ export class MeRequestBuilder {
     public get ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the people property of the microsoft.graph.user entity. */
     public get people(): PeopleRequestBuilder {
         return new PeopleRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -336,8 +334,6 @@ export class MeRequestBuilder {
     public get reprocessLicenseAssignment(): ReprocessLicenseAssignmentRequestBuilder {
         return new ReprocessLicenseAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -374,8 +370,6 @@ export class MeRequestBuilder {
     public get translateExchangeIds(): TranslateExchangeIdsRequestBuilder {
         return new TranslateExchangeIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /** Provides operations to call the wipeManagedAppRegistrationsByDeviceTag method. */
     public get wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
         return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -463,12 +457,7 @@ export class MeRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.

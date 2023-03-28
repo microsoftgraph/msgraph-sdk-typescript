@@ -1,6 +1,6 @@
 
 /**
- * Get appManagementPolicies from policies
+ * Retrieve a list of appManagementPolicy objects.
  */
 export class AppManagementPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -8,38 +8,27 @@ import {NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration}
 import {NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderGetRequestConfiguration';
 import {NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration} from './notificationMessageTemplateItemRequestBuilderPatchRequestConfiguration';
 import {SendTestMessageRequestBuilder} from './sendTestMessage/sendTestMessageRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
  */
-export class NotificationMessageTemplateItemRequestBuilder {
+export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity. */
     public get localizedNotificationMessages(): LocalizedNotificationMessagesRequestBuilder {
         return new LocalizedNotificationMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the sendTestMessage method. */
     public get sendTestMessage(): SendTestMessageRequestBuilder {
         return new SendTestMessageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new NotificationMessageTemplateItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property notificationMessageTemplates for deviceManagement

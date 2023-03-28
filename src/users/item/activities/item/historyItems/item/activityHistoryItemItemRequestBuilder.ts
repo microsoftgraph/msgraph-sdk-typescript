@@ -6,34 +6,23 @@ import {ActivityRequestBuilder} from './activity/activityRequestBuilder';
 import {ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './activityHistoryItemItemRequestBuilderDeleteRequestConfiguration';
 import {ActivityHistoryItemItemRequestBuilderGetRequestConfiguration} from './activityHistoryItemItemRequestBuilderGetRequestConfiguration';
 import {ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration} from './activityHistoryItemItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
  */
-export class ActivityHistoryItemItemRequestBuilder {
+export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the activity property of the microsoft.graph.activityHistoryItem entity. */
     public get activity(): ActivityRequestBuilder {
         return new ActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new ActivityHistoryItemItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems/{activityHistoryItem%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/activities/{userActivity%2Did}/historyItems/{activityHistoryItem%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property historyItems for users

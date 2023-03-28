@@ -7,38 +7,27 @@ import {DriveItemVersionItemRequestBuilderDeleteRequestConfiguration} from './dr
 import {DriveItemVersionItemRequestBuilderGetRequestConfiguration} from './driveItemVersionItemRequestBuilderGetRequestConfiguration';
 import {DriveItemVersionItemRequestBuilderPatchRequestConfiguration} from './driveItemVersionItemRequestBuilderPatchRequestConfiguration';
 import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
  */
-export class DriveItemVersionItemRequestBuilder {
+export class DriveItemVersionItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the media for the drive entity. */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the restoreVersion method. */
     public get restoreVersion(): RestoreVersionRequestBuilder {
         return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new DriveItemVersionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/versions/{driveItemVersion%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/versions/{driveItemVersion%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property versions for drives

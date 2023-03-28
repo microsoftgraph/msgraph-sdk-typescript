@@ -1,3 +1,4 @@
+import {AuthenticationMethodsPolicyMigrationState} from './authenticationMethodsPolicyMigrationState';
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from './createAuthenticationMethodConfigurationFromDiscriminatorValue';
 import {createRegistrationEnforcementFromDiscriminatorValue} from './createRegistrationEnforcementFromDiscriminatorValue';
 import {AuthenticationMethodConfiguration, Entity, RegistrationEnforcement} from './index';
@@ -12,6 +13,8 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** The date and time of the last update to the policy. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
+    /** The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authentication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use. */
+    private _policyMigrationState?: AuthenticationMethodsPolicyMigrationState | undefined;
     /** The version of the policy in use. Read-only. */
     private _policyVersion?: string | undefined;
     /** The reconfirmationInDays property */
@@ -76,6 +79,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
             "description": n => { this.description = n.getStringValue(); },
             "displayName": n => { this.displayName = n.getStringValue(); },
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "policyMigrationState": n => { this.policyMigrationState = n.getEnumValue<AuthenticationMethodsPolicyMigrationState>(AuthenticationMethodsPolicyMigrationState); },
             "policyVersion": n => { this.policyVersion = n.getStringValue(); },
             "reconfirmationInDays": n => { this.reconfirmationInDays = n.getNumberValue(); },
             "registrationEnforcement": n => { this.registrationEnforcement = n.getObjectValue<RegistrationEnforcement>(createRegistrationEnforcementFromDiscriminatorValue); },
@@ -94,6 +98,20 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
+    };
+    /**
+     * Gets the policyMigrationState property value. The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authentication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+     * @returns a authenticationMethodsPolicyMigrationState
+     */
+    public get policyMigrationState() {
+        return this._policyMigrationState;
+    };
+    /**
+     * Sets the policyMigrationState property value. The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authentication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+     * @param value Value to set for the policyMigrationState property.
+     */
+    public set policyMigrationState(value: AuthenticationMethodsPolicyMigrationState | undefined) {
+        this._policyMigrationState = value;
     };
     /**
      * Gets the policyVersion property value. The version of the policy in use. Read-only.
@@ -148,6 +166,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeEnumValue<AuthenticationMethodsPolicyMigrationState>("policyMigrationState", this.policyMigrationState);
         writer.writeStringValue("policyVersion", this.policyVersion);
         writer.writeNumberValue("reconfirmationInDays", this.reconfirmationInDays);
         writer.writeObjectValue<RegistrationEnforcement>("registrationEnforcement", this.registrationEnforcement);

@@ -11,30 +11,24 @@ import {SetItemRequestBuilderGetRequestConfiguration} from './setItemRequestBuil
 import {SetItemRequestBuilderPatchRequestConfiguration} from './setItemRequestBuilderPatchRequestConfiguration';
 import {TermItemRequestBuilder as I2a7dffd45b45f8094b1bcdda0b08dd3f70b727da876cf3455a391886fa8d36ff} from './terms/item/termItemRequestBuilder';
 import {TermsRequestBuilder} from './terms/termsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
  */
-export class SetItemRequestBuilder {
+export class SetItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the children property of the microsoft.graph.termStore.set entity. */
     public get children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
     /** Provides operations to manage the relations property of the microsoft.graph.termStore.set entity. */
     public get relations(): RelationsRequestBuilder {
         return new RelationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to manage the terms property of the microsoft.graph.termStore.set entity. */
     public get terms(): TermsRequestBuilder {
         return new TermsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
      * @param id Unique identifier of the item
@@ -52,12 +46,7 @@ export class SetItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStore/sets/{set%2Did}/parentGroup/sets/{set%2Did1}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property sets for sites

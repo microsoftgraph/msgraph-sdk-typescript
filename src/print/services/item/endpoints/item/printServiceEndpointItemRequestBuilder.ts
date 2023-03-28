@@ -5,30 +5,19 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {PrintServiceEndpointItemRequestBuilderDeleteRequestConfiguration} from './printServiceEndpointItemRequestBuilderDeleteRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderGetRequestConfiguration} from './printServiceEndpointItemRequestBuilderGetRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderPatchRequestConfiguration} from './printServiceEndpointItemRequestBuilderPatchRequestConfiguration';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
  */
-export class PrintServiceEndpointItemRequestBuilder {
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
+export class PrintServiceEndpointItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Instantiates a new PrintServiceEndpointItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/print/services/{printService%2Did}/endpoints/{printServiceEndpoint%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/print/services/{printService%2Did}/endpoints/{printServiceEndpoint%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property endpoints for print

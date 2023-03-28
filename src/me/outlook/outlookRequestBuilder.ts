@@ -8,20 +8,16 @@ import {OutlookRequestBuilderGetRequestConfiguration} from './outlookRequestBuil
 import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
 import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';
 import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outlook property of the microsoft.graph.user entity.
  */
-export class OutlookRequestBuilder {
+export class OutlookRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity. */
     public get masterCategories(): MasterCategoriesRequestBuilder {
         return new MasterCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the supportedLanguages method. */
     public get supportedLanguages(): SupportedLanguagesRequestBuilder {
         return new SupportedLanguagesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -30,20 +26,13 @@ export class OutlookRequestBuilder {
     public get supportedTimeZones(): SupportedTimeZonesRequestBuilder {
         return new SupportedTimeZonesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Instantiates a new OutlookRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/me/outlook{?%24select}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/me/outlook{?%24select}");
     };
     /**
      * Get outlook from me

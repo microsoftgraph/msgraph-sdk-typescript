@@ -12,20 +12,16 @@ import {PrinterShareItemRequestBuilder} from './shares/item/printerShareItemRequ
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {PrintTaskTriggerItemRequestBuilder} from './taskTriggers/item/printTaskTriggerItemRequestBuilder';
 import {TaskTriggersRequestBuilder} from './taskTriggers/taskTriggersRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
  */
-export class PrinterItemRequestBuilder {
+export class PrinterItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the connectors property of the microsoft.graph.printer entity. */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request */
-    private pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests. */
-    private requestAdapter: RequestAdapter;
     /** Provides operations to call the restoreFactoryDefaults method. */
     public get restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
         return new RestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -38,8 +34,6 @@ export class PrinterItemRequestBuilder {
     public get taskTriggers(): TaskTriggersRequestBuilder {
         return new TaskTriggersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder */
-    private urlTemplate: string;
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
      * @param id Unique identifier of the item
@@ -57,12 +51,7 @@ export class PrinterItemRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
-        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/print/printers/{printer%2Did}{?%24select,%24expand}";
-        const urlTplParams = getPathParameters(pathParameters);
-        this.pathParameters = urlTplParams;
-        this.requestAdapter = requestAdapter;
+        super(pathParameters, requestAdapter, "{+baseurl}/print/printers/{printer%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property printers for print
