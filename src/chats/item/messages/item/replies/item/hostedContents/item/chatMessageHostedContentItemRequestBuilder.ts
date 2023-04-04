@@ -5,12 +5,17 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderGetRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderPatchRequestConfiguration';
+import {ContentRequestBuilder} from './value/contentRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
  */
 export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the media for the chat entity. */
+    public get content(): ContentRequestBuilder {
+        return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new ChatMessageHostedContentItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -23,8 +28,9 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
      * Delete navigation property hostedContents for chats
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ArrayBuffer
      */
-    public delete(requestConfiguration?: ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -32,7 +38,7 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Content in a message hosted by Microsoft Teams - for example, images or code snippets.

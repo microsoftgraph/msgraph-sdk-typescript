@@ -48,8 +48,9 @@ export class GroupSettingTemplateItemRequestBuilder extends BaseRequestBuilder {
      * Delete entity from groupSettingTemplates
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ArrayBuffer
      */
-    public delete(requestConfiguration?: GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: GroupSettingTemplateItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -57,7 +58,7 @@ export class GroupSettingTemplateItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * A group setting template represents a template of settings from which settings may be created within a tenant. This operation allows retrieval of the properties of the groupSettingTemplate object, including the available settings and their defaults.

@@ -43,8 +43,9 @@ export class PresenceItemRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property presences for communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ArrayBuffer
      */
-    public delete(requestConfiguration?: PresenceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PresenceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -52,7 +53,7 @@ export class PresenceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get presences from communications

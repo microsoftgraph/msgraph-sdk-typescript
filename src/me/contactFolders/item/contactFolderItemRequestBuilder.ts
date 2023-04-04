@@ -52,7 +52,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/me/contactFolders/{contactFolder%2Did}{?%24select}");
+        super(pathParameters, requestAdapter, "{+baseurl}/me/contactFolders/{contactFolder%2Did}{?%24select,%24expand}");
     };
     /**
      * Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.
@@ -69,8 +69,9 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property contactFolders for me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ArrayBuffer
      */
-    public delete(requestConfiguration?: ContactFolderItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ContactFolderItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -78,7 +79,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * The user's contacts folders. Read-only. Nullable.

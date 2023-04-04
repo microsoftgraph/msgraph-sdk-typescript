@@ -98,7 +98,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _signInAudience?: string | undefined;
     /** Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens. */
     private _spa?: SpaApplication | undefined;
-    /** Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith). */
+    /** Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith). */
     private _tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
     private _tokenEncryptionKeyId?: string | undefined;
@@ -209,7 +209,7 @@ export class Application extends DirectoryObject implements Parsable {
         this._certification = value;
     };
     /**
-     * Instantiates a new Application and sets the default values.
+     * Instantiates a new application and sets the default values.
      */
     public constructor() {
         super();
@@ -738,14 +738,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._spa = value;
     };
     /**
-     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith).
      * @returns a string
      */
     public get tags() {
         return this._tags;
     };
     /**
-     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith).
      * @param value Value to set for the tags property.
      */
     public set tags(value: string[] | undefined) {

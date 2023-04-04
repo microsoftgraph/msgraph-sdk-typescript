@@ -8,7 +8,7 @@ export class VoiceAuthenticationMethodConfiguration extends AuthenticationMethod
     /** true if users can register office phones, otherwise, false. */
     private _isOfficePhoneAllowed?: boolean | undefined;
     /**
-     * Instantiates a new voiceAuthenticationMethodConfiguration and sets the default values.
+     * Instantiates a new VoiceAuthenticationMethodConfiguration and sets the default values.
      */
     public constructor() {
         super();

@@ -30,7 +30,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartSeriesCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/chartseries-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SeriesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartSeriesCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,10 +1,12 @@
 
 /**
- * Get the instances (occurrences) of an event for a specified time range.  If the event is a `seriesMaster` type, this returns the occurrences and exceptions of the event in the specified time range.
+ * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
  */
 export class InstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
     public count?: boolean | undefined;
+    /** The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00 */
+    public endDateTime?: string | undefined;
     /** Filter items by property values */
     public filter?: string | undefined;
     /** Order items by property values */
@@ -13,6 +15,8 @@ export class InstancesRequestBuilderGetQueryParameters {
     public select?: string[] | undefined;
     /** Skip the first n items */
     public skip?: number | undefined;
+    /** The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00 */
+    public startDateTime?: string | undefined;
     /** Show only the first n items */
     public top?: number | undefined;
     /**

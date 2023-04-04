@@ -35,7 +35,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/table-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/workbook-list-tables?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TablesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

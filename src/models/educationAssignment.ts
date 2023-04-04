@@ -206,7 +206,7 @@ export class EducationAssignment extends Entity implements Parsable {
         this._closeDateTime = value;
     };
     /**
-     * Instantiates a new educationAssignment and sets the default values.
+     * Instantiates a new EducationAssignment and sets the default values.
      */
     public constructor() {
         super();

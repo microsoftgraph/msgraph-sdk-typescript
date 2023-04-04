@@ -3,7 +3,7 @@ import {RequestOption} from '@microsoft/kiota-abstractions';
 /**
  * Configuration for the request such as headers, query parameters, and middleware options.
  */
-export class ExternalItemItemRequestBuilderPatchRequestConfiguration {
+export class RetentionEventItemRequestBuilderDeleteRequestConfiguration {
     /** Request headers */
     public headers?: Record<string, string[]> | undefined;
     /** Request options */

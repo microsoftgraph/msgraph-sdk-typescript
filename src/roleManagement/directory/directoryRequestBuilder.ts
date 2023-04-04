@@ -5,6 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {DirectoryRequestBuilderDeleteRequestConfiguration} from './directoryRequestBuilderDeleteRequestConfiguration';
 import {DirectoryRequestBuilderGetRequestConfiguration} from './directoryRequestBuilderGetRequestConfiguration';
 import {DirectoryRequestBuilderPatchRequestConfiguration} from './directoryRequestBuilderPatchRequestConfiguration';
+import {UnifiedRbacResourceNamespaceItemRequestBuilder} from './resourceNamespaces/item/unifiedRbacResourceNamespaceItemRequestBuilder';
+import {ResourceNamespacesRequestBuilder} from './resourceNamespaces/resourceNamespacesRequestBuilder';
 import {UnifiedRoleAssignmentItemRequestBuilder} from './roleAssignments/item/unifiedRoleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
 import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder} from './roleAssignmentScheduleInstances/item/unifiedRoleAssignmentScheduleInstanceItemRequestBuilder';
@@ -27,6 +29,10 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the directory property of the microsoft.graph.roleManagement entity.
  */
 export class DirectoryRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity. */
+    public get resourceNamespaces(): ResourceNamespacesRequestBuilder {
+        return new ResourceNamespacesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity. */
     public get roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -71,8 +77,9 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      * Delete navigation property directory for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of ArrayBuffer
      */
-    public delete(requestConfiguration?: DirectoryRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DirectoryRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -80,7 +87,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
      * Get directory from roleManagement
@@ -115,6 +122,17 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
+     * @param id Unique identifier of the item
+     * @returns a UnifiedRbacResourceNamespaceItemRequestBuilder
+     */
+    public resourceNamespacesById(id: string) : UnifiedRbacResourceNamespaceItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRbacResourceNamespace%2Did"] = id
+        return new UnifiedRbacResourceNamespaceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
