@@ -7,6 +7,8 @@ export class SearchQuery implements AdditionalDataHolder, Parsable {
     private _odataType?: string | undefined;
     /** The search query containing the search terms. Required. */
     private _queryString?: string | undefined;
+    /** The queryTemplate property */
+    private _queryTemplate?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -35,6 +37,7 @@ export class SearchQuery implements AdditionalDataHolder, Parsable {
         return {
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "queryString": n => { this.queryString = n.getStringValue(); },
+            "queryTemplate": n => { this.queryTemplate = n.getStringValue(); },
         };
     };
     /**
@@ -66,6 +69,20 @@ export class SearchQuery implements AdditionalDataHolder, Parsable {
         this._queryString = value;
     };
     /**
+     * Gets the queryTemplate property value. The queryTemplate property
+     * @returns a string
+     */
+    public get queryTemplate() {
+        return this._queryTemplate;
+    };
+    /**
+     * Sets the queryTemplate property value. The queryTemplate property
+     * @param value Value to set for the queryTemplate property.
+     */
+    public set queryTemplate(value: string | undefined) {
+        this._queryTemplate = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -73,6 +90,7 @@ export class SearchQuery implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("queryString", this.queryString);
+        writer.writeStringValue("queryTemplate", this.queryTemplate);
         writer.writeAdditionalData(this.additionalData);
     };
 }

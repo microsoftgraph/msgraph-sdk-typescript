@@ -3,10 +3,12 @@ import {createAttackSimulationRootFromDiscriminatorValue} from './createAttackSi
 import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
 import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDiscriminatorValue';
 import {Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AttackSimulationRoot, Entity, SecureScore, SecureScoreControlProfile} from './index';
-import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, CasesRoot, Incident} from './security/';
+import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, CasesRoot, Incident, TriggersRoot, TriggerTypesRoot} from './security/';
 import {createAlertFromDiscriminatorValue as Ic3df26bb503216c70f1b1537fb1cb7605d034f17f11b693448013e01824d59a7} from './security/createAlertFromDiscriminatorValue';
 import {createCasesRootFromDiscriminatorValue} from './security/createCasesRootFromDiscriminatorValue';
 import {createIncidentFromDiscriminatorValue} from './security/createIncidentFromDiscriminatorValue';
+import {createTriggersRootFromDiscriminatorValue} from './security/createTriggersRootFromDiscriminatorValue';
+import {createTriggerTypesRootFromDiscriminatorValue} from './security/createTriggerTypesRootFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Security extends Entity implements Parsable {
@@ -24,6 +26,10 @@ export class Security extends Entity implements Parsable {
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
     /** The secureScores property */
     private _secureScores?: SecureScore[] | undefined;
+    /** The triggers property */
+    private _triggers?: TriggersRoot | undefined;
+    /** The triggerTypes property */
+    private _triggerTypes?: TriggerTypesRoot | undefined;
     /**
      * Gets the alerts property value. The alerts property
      * @returns a alert
@@ -99,6 +105,8 @@ export class Security extends Entity implements Parsable {
             "incidents": n => { this.incidents = n.getCollectionOfObjectValues<Incident>(createIncidentFromDiscriminatorValue); },
             "secureScoreControlProfiles": n => { this.secureScoreControlProfiles = n.getCollectionOfObjectValues<SecureScoreControlProfile>(createSecureScoreControlProfileFromDiscriminatorValue); },
             "secureScores": n => { this.secureScores = n.getCollectionOfObjectValues<SecureScore>(createSecureScoreFromDiscriminatorValue); },
+            "triggers": n => { this.triggers = n.getObjectValue<TriggersRoot>(createTriggersRootFromDiscriminatorValue); },
+            "triggerTypes": n => { this.triggerTypes = n.getObjectValue<TriggerTypesRoot>(createTriggerTypesRootFromDiscriminatorValue); },
         };
     };
     /**
@@ -157,5 +165,35 @@ export class Security extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Incident>("incidents", this.incidents);
         writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("secureScoreControlProfiles", this.secureScoreControlProfiles);
         writer.writeCollectionOfObjectValues<SecureScore>("secureScores", this.secureScores);
+        writer.writeObjectValue<TriggersRoot>("triggers", this.triggers);
+        writer.writeObjectValue<TriggerTypesRoot>("triggerTypes", this.triggerTypes);
+    };
+    /**
+     * Gets the triggers property value. The triggers property
+     * @returns a triggersRoot
+     */
+    public get triggers() {
+        return this._triggers;
+    };
+    /**
+     * Sets the triggers property value. The triggers property
+     * @param value Value to set for the triggers property.
+     */
+    public set triggers(value: TriggersRoot | undefined) {
+        this._triggers = value;
+    };
+    /**
+     * Gets the triggerTypes property value. The triggerTypes property
+     * @returns a triggerTypesRoot
+     */
+    public get triggerTypes() {
+        return this._triggerTypes;
+    };
+    /**
+     * Sets the triggerTypes property value. The triggerTypes property
+     * @param value Value to set for the triggerTypes property.
+     */
+    public set triggerTypes(value: TriggerTypesRoot | undefined) {
+        this._triggerTypes = value;
     };
 }

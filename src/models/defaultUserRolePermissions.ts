@@ -7,6 +7,8 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
     private _allowedToCreateApps?: boolean | undefined;
     /** Indicates whether the default user role can create security groups. */
     private _allowedToCreateSecurityGroups?: boolean | undefined;
+    /** The allowedToReadBitlockerKeysForOwnedDevice property */
+    private _allowedToReadBitlockerKeysForOwnedDevice?: boolean | undefined;
     /** Indicates whether the default user role can read other users. */
     private _allowedToReadOtherUsers?: boolean | undefined;
     /** The OdataType property */
@@ -56,6 +58,20 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
         this._allowedToCreateSecurityGroups = value;
     };
     /**
+     * Gets the allowedToReadBitlockerKeysForOwnedDevice property value. The allowedToReadBitlockerKeysForOwnedDevice property
+     * @returns a boolean
+     */
+    public get allowedToReadBitlockerKeysForOwnedDevice() {
+        return this._allowedToReadBitlockerKeysForOwnedDevice;
+    };
+    /**
+     * Sets the allowedToReadBitlockerKeysForOwnedDevice property value. The allowedToReadBitlockerKeysForOwnedDevice property
+     * @param value Value to set for the allowedToReadBitlockerKeysForOwnedDevice property.
+     */
+    public set allowedToReadBitlockerKeysForOwnedDevice(value: boolean | undefined) {
+        this._allowedToReadBitlockerKeysForOwnedDevice = value;
+    };
+    /**
      * Gets the allowedToReadOtherUsers property value. Indicates whether the default user role can read other users.
      * @returns a boolean
      */
@@ -83,6 +99,7 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
         return {
             "allowedToCreateApps": n => { this.allowedToCreateApps = n.getBooleanValue(); },
             "allowedToCreateSecurityGroups": n => { this.allowedToCreateSecurityGroups = n.getBooleanValue(); },
+            "allowedToReadBitlockerKeysForOwnedDevice": n => { this.allowedToReadBitlockerKeysForOwnedDevice = n.getBooleanValue(); },
             "allowedToReadOtherUsers": n => { this.allowedToReadOtherUsers = n.getBooleanValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "permissionGrantPoliciesAssigned": n => { this.permissionGrantPoliciesAssigned = n.getCollectionOfPrimitiveValues<string>(); },
@@ -124,6 +141,7 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("allowedToCreateApps", this.allowedToCreateApps);
         writer.writeBooleanValue("allowedToCreateSecurityGroups", this.allowedToCreateSecurityGroups);
+        writer.writeBooleanValue("allowedToReadBitlockerKeysForOwnedDevice", this.allowedToReadBitlockerKeysForOwnedDevice);
         writer.writeBooleanValue("allowedToReadOtherUsers", this.allowedToReadOtherUsers);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfPrimitiveValues<string>("permissionGrantPoliciesAssigned", this.permissionGrantPoliciesAssigned);

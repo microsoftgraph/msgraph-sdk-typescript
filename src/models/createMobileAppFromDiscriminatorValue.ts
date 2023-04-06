@@ -1,4 +1,4 @@
-import {AndroidLobApp, AndroidStoreApp, IosiPadOSWebClip, IosLobApp, IosStoreApp, IosVppApp, MacOSLobApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp, MicrosoftStoreForBusinessApp, MobileApp, MobileLobApp, WebApp, Win32LobApp, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsUniversalAppX, WindowsWebApp} from './index';
+import {AndroidLobApp, AndroidStoreApp, IosiPadOSWebClip, IosLobApp, IosStoreApp, IosVppApp, MacOSLobApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp, MicrosoftStoreForBusinessApp, MobileApp, MobileLobApp, WebApp, Win32LobApp, WindowsAppX, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsUniversalAppX, WindowsWebApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileApp {
@@ -46,6 +46,8 @@ export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | und
                     return new WebApp();
                 case "#microsoft.graph.win32LobApp":
                     return new Win32LobApp();
+                case "#microsoft.graph.windowsAppX":
+                    return new WindowsAppX();
                 case "#microsoft.graph.windowsMicrosoftEdgeApp":
                     return new WindowsMicrosoftEdgeApp();
                 case "#microsoft.graph.windowsMobileMSI":

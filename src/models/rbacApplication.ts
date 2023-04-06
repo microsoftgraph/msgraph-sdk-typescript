@@ -1,3 +1,4 @@
+import {createUnifiedRbacResourceNamespaceFromDiscriminatorValue} from './createUnifiedRbacResourceNamespaceFromDiscriminatorValue';
 import {createUnifiedRoleAssignmentFromDiscriminatorValue} from './createUnifiedRoleAssignmentFromDiscriminatorValue';
 import {createUnifiedRoleAssignmentScheduleFromDiscriminatorValue} from './createUnifiedRoleAssignmentScheduleFromDiscriminatorValue';
 import {createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue} from './createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue';
@@ -6,10 +7,12 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnified
 import {createUnifiedRoleEligibilityScheduleFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleFromDiscriminatorValue';
 import {createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
 import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue';
-import {Entity, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest} from './index';
+import {Entity, UnifiedRbacResourceNamespace, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RbacApplication extends Entity implements Parsable {
+    /** The resourceNamespaces property */
+    private _resourceNamespaces?: UnifiedRbacResourceNamespace[] | undefined;
     /** Resource to grant access to users or groups. */
     private _roleAssignments?: UnifiedRoleAssignment[] | undefined;
     /** Instances for active role assignments. */
@@ -38,6 +41,7 @@ export class RbacApplication extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
+            "resourceNamespaces": n => { this.resourceNamespaces = n.getCollectionOfObjectValues<UnifiedRbacResourceNamespace>(createUnifiedRbacResourceNamespaceFromDiscriminatorValue); },
             "roleAssignments": n => { this.roleAssignments = n.getCollectionOfObjectValues<UnifiedRoleAssignment>(createUnifiedRoleAssignmentFromDiscriminatorValue); },
             "roleAssignmentScheduleInstances": n => { this.roleAssignmentScheduleInstances = n.getCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>(createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue); },
             "roleAssignmentScheduleRequests": n => { this.roleAssignmentScheduleRequests = n.getCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequest>(createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue); },
@@ -47,6 +51,20 @@ export class RbacApplication extends Entity implements Parsable {
             "roleEligibilityScheduleRequests": n => { this.roleEligibilityScheduleRequests = n.getCollectionOfObjectValues<UnifiedRoleEligibilityScheduleRequest>(createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue); },
             "roleEligibilitySchedules": n => { this.roleEligibilitySchedules = n.getCollectionOfObjectValues<UnifiedRoleEligibilitySchedule>(createUnifiedRoleEligibilityScheduleFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the resourceNamespaces property value. The resourceNamespaces property
+     * @returns a unifiedRbacResourceNamespace
+     */
+    public get resourceNamespaces() {
+        return this._resourceNamespaces;
+    };
+    /**
+     * Sets the resourceNamespaces property value. The resourceNamespaces property
+     * @param value Value to set for the resourceNamespaces property.
+     */
+    public set resourceNamespaces(value: UnifiedRbacResourceNamespace[] | undefined) {
+        this._resourceNamespaces = value;
     };
     /**
      * Gets the roleAssignments property value. Resource to grant access to users or groups.
@@ -167,6 +185,7 @@ export class RbacApplication extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<UnifiedRbacResourceNamespace>("resourceNamespaces", this.resourceNamespaces);
         writer.writeCollectionOfObjectValues<UnifiedRoleAssignment>("roleAssignments", this.roleAssignments);
         writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>("roleAssignmentScheduleInstances", this.roleAssignmentScheduleInstances);
         writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleRequest>("roleAssignmentScheduleRequests", this.roleAssignmentScheduleRequests);

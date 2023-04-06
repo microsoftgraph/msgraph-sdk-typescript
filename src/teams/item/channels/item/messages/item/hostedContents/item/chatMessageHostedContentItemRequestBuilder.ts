@@ -5,12 +5,17 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderGetRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderPatchRequestConfiguration';
+import {ContentRequestBuilder} from './value/contentRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
  */
 export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the media for the team entity. */
+    public get content(): ContentRequestBuilder {
+        return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new ChatMessageHostedContentItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

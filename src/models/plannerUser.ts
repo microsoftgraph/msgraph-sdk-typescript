@@ -9,7 +9,7 @@ export class PlannerUser extends Entity implements Parsable {
     /** Read-only. Nullable. Returns the plannerPlans shared with the user. */
     private _tasks?: PlannerTask[] | undefined;
     /**
-     * Instantiates a new plannerUser and sets the default values.
+     * Instantiates a new PlannerUser and sets the default values.
      */
     public constructor() {
         super();

@@ -84,7 +84,7 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/me/calendars/{calendar%2Did}{?%24select}");
+        super(pathParameters, requestAdapter, "{+baseurl}/me/calendars/{calendar%2Did}{?%24select,%24expand}");
     };
     /**
      * Delete navigation property calendars for me

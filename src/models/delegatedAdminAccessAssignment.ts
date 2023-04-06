@@ -44,7 +44,7 @@ export class DelegatedAdminAccessAssignment extends Entity implements Parsable {
         this._accessDetails = value;
     };
     /**
-     * Instantiates a new delegatedAdminAccessAssignment and sets the default values.
+     * Instantiates a new DelegatedAdminAccessAssignment and sets the default values.
      */
     public constructor() {
         super();

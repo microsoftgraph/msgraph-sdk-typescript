@@ -4,6 +4,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AdminRequestBuilderGetRequestConfiguration} from './adminRequestBuilderGetRequestConfiguration';
 import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilderPatchRequestConfiguration';
+import {EdgeRequestBuilder} from './edge/edgeRequestBuilder';
 import {ServiceAnnouncementRequestBuilder} from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -11,6 +12,10 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the admin singleton.
  */
 export class AdminRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the edge property of the microsoft.graph.admin entity. */
+    public get edge(): EdgeRequestBuilder {
+        return new EdgeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
     public get serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder(this.pathParameters, this.requestAdapter);
