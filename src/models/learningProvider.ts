@@ -18,7 +18,7 @@ export class LearningProvider extends Entity implements Parsable {
     /** The square logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required. */
     private _squareLogoWebUrlForLightTheme?: string | undefined;
     /**
-     * Instantiates a new learningProvider and sets the default values.
+     * Instantiates a new LearningProvider and sets the default values.
      */
     public constructor() {
         super();

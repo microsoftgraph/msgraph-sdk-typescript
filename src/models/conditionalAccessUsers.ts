@@ -13,13 +13,13 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
     private _excludeRoles?: string[] | undefined;
     /** User IDs excluded from scope of policy and/or GuestsOrExternalUsers. */
     private _excludeUsers?: string[] | undefined;
-    /** Group IDs in scope of policy unless explicitly excluded, or All. */
+    /** Group IDs in scope of policy unless explicitly excluded. */
     private _includeGroups?: string[] | undefined;
     /** The includeGuestsOrExternalUsers property */
     private _includeGuestsOrExternalUsers?: ConditionalAccessGuestsOrExternalUsers | undefined;
-    /** Role IDs in scope of policy unless explicitly excluded, or All. */
+    /** Role IDs in scope of policy unless explicitly excluded. */
     private _includeRoles?: string[] | undefined;
-    /** User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers. */
+    /** User IDs in scope of policy unless explicitly excluded, None, All, or GuestsOrExternalUsers. */
     private _includeUsers?: string[] | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
@@ -117,14 +117,14 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the includeGroups property value. Group IDs in scope of policy unless explicitly excluded, or All.
+     * Gets the includeGroups property value. Group IDs in scope of policy unless explicitly excluded.
      * @returns a string
      */
     public get includeGroups() {
         return this._includeGroups;
     };
     /**
-     * Sets the includeGroups property value. Group IDs in scope of policy unless explicitly excluded, or All.
+     * Sets the includeGroups property value. Group IDs in scope of policy unless explicitly excluded.
      * @param value Value to set for the includeGroups property.
      */
     public set includeGroups(value: string[] | undefined) {
@@ -145,28 +145,28 @@ export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
         this._includeGuestsOrExternalUsers = value;
     };
     /**
-     * Gets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded, or All.
+     * Gets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded.
      * @returns a string
      */
     public get includeRoles() {
         return this._includeRoles;
     };
     /**
-     * Sets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded, or All.
+     * Sets the includeRoles property value. Role IDs in scope of policy unless explicitly excluded.
      * @param value Value to set for the includeRoles property.
      */
     public set includeRoles(value: string[] | undefined) {
         this._includeRoles = value;
     };
     /**
-     * Gets the includeUsers property value. User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
+     * Gets the includeUsers property value. User IDs in scope of policy unless explicitly excluded, None, All, or GuestsOrExternalUsers.
      * @returns a string
      */
     public get includeUsers() {
         return this._includeUsers;
     };
     /**
-     * Sets the includeUsers property value. User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
+     * Sets the includeUsers property value. User IDs in scope of policy unless explicitly excluded, None, All, or GuestsOrExternalUsers.
      * @param value Value to set for the includeUsers property.
      */
     public set includeUsers(value: string[] | undefined) {

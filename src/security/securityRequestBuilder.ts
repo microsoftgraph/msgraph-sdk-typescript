@@ -17,6 +17,8 @@ import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuil
 import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
 import {SecurityRunHuntingQueryRequestBuilder} from './securityRunHuntingQuery/securityRunHuntingQueryRequestBuilder';
+import {TriggersRequestBuilder} from './triggers/triggersRequestBuilder';
+import {TriggerTypesRequestBuilder} from './triggerTypes/triggerTypesRequestBuilder';
 import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -54,6 +56,14 @@ export class SecurityRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the runHuntingQuery method. */
     public get securityRunHuntingQuery(): SecurityRunHuntingQueryRequestBuilder {
         return new SecurityRunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the triggers property of the microsoft.graph.security entity. */
+    public get triggers(): TriggersRequestBuilder {
+        return new TriggersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the triggerTypes property of the microsoft.graph.security entity. */
+    public get triggerTypes(): TriggerTypesRequestBuilder {
+        return new TriggerTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.

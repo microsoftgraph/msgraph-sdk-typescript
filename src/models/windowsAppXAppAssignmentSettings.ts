@@ -2,7 +2,7 @@ import {MobileAppAssignmentSettings} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsAppXAppAssignmentSettings extends MobileAppAssignmentSettings implements Parsable {
-    /** Whether or not to use device execution context for Windows AppX mobile app. */
+    /** When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed. */
     private _useDeviceContext?: boolean | undefined;
     /**
      * Instantiates a new WindowsAppXAppAssignmentSettings and sets the default values.
@@ -30,14 +30,14 @@ export class WindowsAppXAppAssignmentSettings extends MobileAppAssignmentSetting
         writer.writeBooleanValue("useDeviceContext", this.useDeviceContext);
     };
     /**
-     * Gets the useDeviceContext property value. Whether or not to use device execution context for Windows AppX mobile app.
+     * Gets the useDeviceContext property value. When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed.
      * @returns a boolean
      */
     public get useDeviceContext() {
         return this._useDeviceContext;
     };
     /**
-     * Sets the useDeviceContext property value. Whether or not to use device execution context for Windows AppX mobile app.
+     * Sets the useDeviceContext property value. When TRUE, indicates that device execution context will be used for the AppX mobile app. When FALSE, indicates that user context will be used for the AppX mobile app. By default, this property is set to FALSE. Once this property has been set to TRUE it cannot be changed.
      * @param value Value to set for the useDeviceContext property.
      */
     public set useDeviceContext(value: boolean | undefined) {

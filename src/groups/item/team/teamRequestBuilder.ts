@@ -26,7 +26,7 @@ import {TeamworkTagItemRequestBuilder} from './tags/item/teamworkTagItemRequestB
 import {TagsRequestBuilder} from './tags/tagsRequestBuilder';
 import {TeamRequestBuilderDeleteRequestConfiguration} from './teamRequestBuilderDeleteRequestConfiguration';
 import {TeamRequestBuilderGetRequestConfiguration} from './teamRequestBuilderGetRequestConfiguration';
-import {TeamRequestBuilderPatchRequestConfiguration} from './teamRequestBuilderPatchRequestConfiguration';
+import {TeamRequestBuilderPutRequestConfiguration} from './teamRequestBuilderPutRequestConfiguration';
 import {TemplateRequestBuilder} from './template/templateRequestBuilder';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -209,16 +209,15 @@ export class TeamRequestBuilder extends BaseRequestBuilder {
         return new TeamsAsyncOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Create a new team under a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it's possible for the Create team call to fail with a 404 error code due to replication delays. The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
+     * Update the navigation property team in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
-     * @see {@link https://docs.microsoft.com/graph/api/team-put-teams?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Team | undefined, requestConfiguration?: TeamRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
+    public put(body: Team | undefined, requestConfiguration?: TeamRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.toPatchRequestInformation(
+        const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -273,17 +272,17 @@ export class TeamRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new team under a group. In order to create a team, the group must have a least one owner. If the group was created less than 15 minutes ago, it's possible for the Create team call to fail with a 404 error code due to replication delays. The recommended pattern is to retry the Create team call three times, with a 10 second delay between calls.
+     * Update the navigation property team in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Team | undefined, requestConfiguration?: TeamRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: Team | undefined, requestConfiguration?: TeamRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.httpMethod = HttpMethod.PUT;
         requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);

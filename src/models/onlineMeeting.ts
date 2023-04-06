@@ -201,7 +201,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._chatInfo = value;
     };
     /**
-     * Instantiates a new onlineMeeting and sets the default values.
+     * Instantiates a new OnlineMeeting and sets the default values.
      */
     public constructor() {
         super();

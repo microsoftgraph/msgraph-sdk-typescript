@@ -39,7 +39,7 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookNamedItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/workbook-list-names?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

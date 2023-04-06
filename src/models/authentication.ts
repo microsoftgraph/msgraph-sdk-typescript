@@ -33,7 +33,7 @@ export class Authentication extends Entity implements Parsable {
     /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
     private _windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
-     * Instantiates a new authentication and sets the default values.
+     * Instantiates a new Authentication and sets the default values.
      */
     public constructor() {
         super();

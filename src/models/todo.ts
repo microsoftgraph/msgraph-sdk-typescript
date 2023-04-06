@@ -6,7 +6,7 @@ export class Todo extends Entity implements Parsable {
     /** The task lists in the users mailbox. */
     private _lists?: TodoTaskList[] | undefined;
     /**
-     * Instantiates a new todo and sets the default values.
+     * Instantiates a new Todo and sets the default values.
      */
     public constructor() {
         super();

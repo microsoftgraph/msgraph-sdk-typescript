@@ -7,7 +7,7 @@ export class DirectoryRoleTemplate extends DirectoryObject implements Parsable {
     /** The display name to set for the directory role. Read-only. */
     private _displayName?: string | undefined;
     /**
-     * Instantiates a new directoryRoleTemplate and sets the default values.
+     * Instantiates a new DirectoryRoleTemplate and sets the default values.
      */
     public constructor() {
         super();

@@ -1,10 +1,13 @@
+import {createEdgeFromDiscriminatorValue} from './createEdgeFromDiscriminatorValue';
 import {createServiceAnnouncementFromDiscriminatorValue} from './createServiceAnnouncementFromDiscriminatorValue';
-import {ServiceAnnouncement} from './index';
+import {Edge, ServiceAnnouncement} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Admin implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The edge property */
+    private _edge?: Edge | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** A container for service communications resources. Read-only. */
@@ -30,11 +33,26 @@ export class Admin implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
+     * Gets the edge property value. The edge property
+     * @returns a edge
+     */
+    public get edge() {
+        return this._edge;
+    };
+    /**
+     * Sets the edge property value. The edge property
+     * @param value Value to set for the edge property.
+     */
+    public set edge(value: Edge | undefined) {
+        this._edge = value;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Record<string, (node: ParseNode) => void>
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "edge": n => { this.edge = n.getObjectValue<Edge>(createEdgeFromDiscriminatorValue); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "serviceAnnouncement": n => { this.serviceAnnouncement = n.getObjectValue<ServiceAnnouncement>(createServiceAnnouncementFromDiscriminatorValue); },
         };
@@ -59,6 +77,7 @@ export class Admin implements AdditionalDataHolder, Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeObjectValue<Edge>("edge", this.edge);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<ServiceAnnouncement>("serviceAnnouncement", this.serviceAnnouncement);
         writer.writeAdditionalData(this.additionalData);

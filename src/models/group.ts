@@ -279,7 +279,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._classification = value;
     };
     /**
-     * Instantiates a new group and sets the default values.
+     * Instantiates a new Group and sets the default values.
      */
     public constructor() {
         super();

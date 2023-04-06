@@ -8,7 +8,7 @@ export class PrintOperation extends Entity implements Parsable {
     /** The status property */
     private _status?: PrintOperationStatus | undefined;
     /**
-     * Instantiates a new printOperation and sets the default values.
+     * Instantiates a new PrintOperation and sets the default values.
      */
     public constructor() {
         super();

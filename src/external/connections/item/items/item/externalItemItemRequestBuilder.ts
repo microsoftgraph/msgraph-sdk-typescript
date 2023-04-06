@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExternalItemItemRequestBuilderDeleteRequestConfiguration} from './externalItemItemRequestBuilderDeleteRequestConfiguration';
 import {ExternalItemItemRequestBuilderGetRequestConfiguration} from './externalItemItemRequestBuilderGetRequestConfiguration';
-import {ExternalItemItemRequestBuilderPatchRequestConfiguration} from './externalItemItemRequestBuilderPatchRequestConfiguration';
+import {ExternalItemItemRequestBuilderPutRequestConfiguration} from './externalItemItemRequestBuilderPutRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -57,9 +57,9 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalItem
      */
-    public patch(body: ExternalItem | undefined, requestConfiguration?: ExternalItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalItem | undefined> {
+    public put(body: ExternalItem | undefined, requestConfiguration?: ExternalItemItemRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.toPatchRequestInformation(
+        const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
@@ -108,12 +108,12 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ExternalItem | undefined, requestConfiguration?: ExternalItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: ExternalItem | undefined, requestConfiguration?: ExternalItemItemRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
+        requestInfo.httpMethod = HttpMethod.PUT;
         requestInfo.headers["Accept"] = ["application/json"];
         if (requestConfiguration) {
             requestInfo.addRequestHeaders(requestConfiguration.headers);

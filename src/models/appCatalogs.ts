@@ -6,7 +6,7 @@ export class AppCatalogs extends Entity implements Parsable {
     /** The teamsApps property */
     private _teamsApps?: TeamsApp[] | undefined;
     /**
-     * Instantiates a new AppCatalogs and sets the default values.
+     * Instantiates a new appCatalogs and sets the default values.
      */
     public constructor() {
         super();

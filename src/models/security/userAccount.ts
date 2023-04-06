@@ -7,6 +7,8 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** The user object identifier in Azure AD. */
     private _azureAdUserId?: string | undefined;
+    /** The displayName property */
+    private _displayName?: string | undefined;
     /** The name of the Active Directory domain of which the user is a member. */
     private _domainName?: string | undefined;
     /** The OdataType property */
@@ -64,6 +66,20 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
+     * Gets the displayName property value. The displayName property
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The displayName property
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
      * Gets the domainName property value. The name of the Active Directory domain of which the user is a member.
      * @returns a string
      */
@@ -85,6 +101,7 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
         return {
             "accountName": n => { this.accountName = n.getStringValue(); },
             "azureAdUserId": n => { this.azureAdUserId = n.getStringValue(); },
+            "displayName": n => { this.displayName = n.getStringValue(); },
             "domainName": n => { this.domainName = n.getStringValue(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
@@ -113,6 +130,7 @@ export class UserAccount implements AdditionalDataHolder, Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("accountName", this.accountName);
         writer.writeStringValue("azureAdUserId", this.azureAdUserId);
+        writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("domainName", this.domainName);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
