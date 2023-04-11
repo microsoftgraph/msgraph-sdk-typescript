@@ -30,7 +30,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
         this._completedDateTime = value;
     };
     /**
-     * Instantiates a new DataPolicyOperation and sets the default values.
+     * Instantiates a new dataPolicyOperation and sets the default values.
      */
     public constructor() {
         super();

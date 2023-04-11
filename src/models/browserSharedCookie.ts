@@ -6,39 +6,39 @@ import {BrowserSharedCookieHistory, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BrowserSharedCookie extends Entity implements Parsable {
-    /** The comment of the cookie */
+    /** The comment for the shared cookie. */
     private _comment?: string | undefined;
-    /** The datetime that the admin created the cookie */
+    /** The date and time when the shared cookie was created. */
     private _createdDateTime?: Date | undefined;
-    /** The datetime that the admin deleted the cookie */
+    /** The date and time when the shared cookie was deleted. */
     private _deletedDateTime?: Date | undefined;
-    /** The name of the cookie */
+    /** The name of the cookie. */
     private _displayName?: string | undefined;
-    /** The history of the cookie */
+    /** The history of modifications applied to the cookie. */
     private _history?: BrowserSharedCookieHistory[] | undefined;
-    /** Boolean attribute that determines whether a cookie is  a host-only or domain cookie */
+    /** Controls whether a cookie is a host-only or domain cookie. */
     private _hostOnly?: boolean | undefined;
-    /** The URL of the cookie */
+    /** The URL of the cookie. */
     private _hostOrDomain?: string | undefined;
-    /** The identity of the admin who last updated the cookie */
+    /** The user who last modified the cookie. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** The datetime that the admin last updated the cookie */
+    /** The date and time when the cookie was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The path of the cookie */
+    /** The path of the cookie. */
     private _path?: string | undefined;
     /** The sourceEnvironment property */
     private _sourceEnvironment?: BrowserSharedCookieSourceEnvironment | undefined;
     /** The status property */
     private _status?: BrowserSharedCookieStatus | undefined;
     /**
-     * Gets the comment property value. The comment of the cookie
+     * Gets the comment property value. The comment for the shared cookie.
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. The comment of the cookie
+     * Sets the comment property value. The comment for the shared cookie.
      * @param value Value to set for the comment property.
      */
     public set comment(value: string | undefined) {
@@ -51,42 +51,42 @@ export class BrowserSharedCookie extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdDateTime property value. The datetime that the admin created the cookie
+     * Gets the createdDateTime property value. The date and time when the shared cookie was created.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The datetime that the admin created the cookie
+     * Sets the createdDateTime property value. The date and time when the shared cookie was created.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
         this._createdDateTime = value;
     };
     /**
-     * Gets the deletedDateTime property value. The datetime that the admin deleted the cookie
+     * Gets the deletedDateTime property value. The date and time when the shared cookie was deleted.
      * @returns a Date
      */
     public get deletedDateTime() {
         return this._deletedDateTime;
     };
     /**
-     * Sets the deletedDateTime property value. The datetime that the admin deleted the cookie
+     * Sets the deletedDateTime property value. The date and time when the shared cookie was deleted.
      * @param value Value to set for the deletedDateTime property.
      */
     public set deletedDateTime(value: Date | undefined) {
         this._deletedDateTime = value;
     };
     /**
-     * Gets the displayName property value. The name of the cookie
+     * Gets the displayName property value. The name of the cookie.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The name of the cookie
+     * Sets the displayName property value. The name of the cookie.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -113,84 +113,84 @@ export class BrowserSharedCookie extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the history property value. The history of the cookie
+     * Gets the history property value. The history of modifications applied to the cookie.
      * @returns a browserSharedCookieHistory
      */
     public get history() {
         return this._history;
     };
     /**
-     * Sets the history property value. The history of the cookie
+     * Sets the history property value. The history of modifications applied to the cookie.
      * @param value Value to set for the history property.
      */
     public set history(value: BrowserSharedCookieHistory[] | undefined) {
         this._history = value;
     };
     /**
-     * Gets the hostOnly property value. Boolean attribute that determines whether a cookie is  a host-only or domain cookie
+     * Gets the hostOnly property value. Controls whether a cookie is a host-only or domain cookie.
      * @returns a boolean
      */
     public get hostOnly() {
         return this._hostOnly;
     };
     /**
-     * Sets the hostOnly property value. Boolean attribute that determines whether a cookie is  a host-only or domain cookie
+     * Sets the hostOnly property value. Controls whether a cookie is a host-only or domain cookie.
      * @param value Value to set for the hostOnly property.
      */
     public set hostOnly(value: boolean | undefined) {
         this._hostOnly = value;
     };
     /**
-     * Gets the hostOrDomain property value. The URL of the cookie
+     * Gets the hostOrDomain property value. The URL of the cookie.
      * @returns a string
      */
     public get hostOrDomain() {
         return this._hostOrDomain;
     };
     /**
-     * Sets the hostOrDomain property value. The URL of the cookie
+     * Sets the hostOrDomain property value. The URL of the cookie.
      * @param value Value to set for the hostOrDomain property.
      */
     public set hostOrDomain(value: string | undefined) {
         this._hostOrDomain = value;
     };
     /**
-     * Gets the lastModifiedBy property value. The identity of the admin who last updated the cookie
+     * Gets the lastModifiedBy property value. The user who last modified the cookie.
      * @returns a identitySet
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
     };
     /**
-     * Sets the lastModifiedBy property value. The identity of the admin who last updated the cookie
+     * Sets the lastModifiedBy property value. The user who last modified the cookie.
      * @param value Value to set for the lastModifiedBy property.
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         this._lastModifiedBy = value;
     };
     /**
-     * Gets the lastModifiedDateTime property value. The datetime that the admin last updated the cookie
+     * Gets the lastModifiedDateTime property value. The date and time when the cookie was last modified.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The datetime that the admin last updated the cookie
+     * Sets the lastModifiedDateTime property value. The date and time when the cookie was last modified.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the path property value. The path of the cookie
+     * Gets the path property value. The path of the cookie.
      * @returns a string
      */
     public get path() {
         return this._path;
     };
     /**
-     * Sets the path property value. The path of the cookie
+     * Sets the path property value. The path of the cookie.
      * @param value Value to set for the path property.
      */
     public set path(value: string | undefined) {

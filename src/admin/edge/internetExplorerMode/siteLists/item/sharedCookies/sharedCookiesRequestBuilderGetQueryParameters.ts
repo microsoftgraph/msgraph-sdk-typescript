@@ -1,6 +1,6 @@
 
 /**
- * Get sharedCookies from admin
+ * Get a list of the browserSharedCookie objects and their properties.
  */
 export class SharedCookiesRequestBuilderGetQueryParameters {
     /** Include count of items */

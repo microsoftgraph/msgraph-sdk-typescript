@@ -16,6 +16,9 @@ import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerRep
 import {ManagementAgentType} from './managementAgentType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/**
+ * Devices that are managed or pre-enrolled through Intune
+ */
 export class ManagedDevice extends Entity implements Parsable {
     /** The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only. */
     private _activationLockBypassCode?: string | undefined;
@@ -230,7 +233,7 @@ export class ManagedDevice extends Entity implements Parsable {
         this._configurationManagerClientEnabledFeatures = value;
     };
     /**
-     * Instantiates a new ManagedDevice and sets the default values.
+     * Instantiates a new managedDevice and sets the default values.
      */
     public constructor() {
         super();

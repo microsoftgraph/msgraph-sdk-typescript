@@ -3,18 +3,36 @@ import {createCallRecordFromDiscriminatorValue} from './callRecords/createCallRe
 import {createCallFromDiscriminatorValue} from './createCallFromDiscriminatorValue';
 import {createOnlineMeetingFromDiscriminatorValue} from './createOnlineMeetingFromDiscriminatorValue';
 import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscriminatorValue';
-import {Call, Entity, OnlineMeeting, Presence} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Call, OnlineMeeting, Presence} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CloudCommunications extends Entity implements Parsable {
+export class CloudCommunications implements AdditionalDataHolder, Parsable {
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    private _additionalData: Record<string, unknown>;
     /** The callRecords property */
     private _callRecords?: CallRecord[] | undefined;
     /** The calls property */
     private _calls?: Call[] | undefined;
+    /** The OdataType property */
+    private _odataType?: string | undefined;
     /** The onlineMeetings property */
     private _onlineMeetings?: OnlineMeeting[] | undefined;
     /** The presences property */
     private _presences?: Presence[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Gets the callRecords property value. The callRecords property
      * @returns a callRecord
@@ -47,19 +65,34 @@ export class CloudCommunications extends Entity implements Parsable {
      * Instantiates a new CloudCommunications and sets the default values.
      */
     public constructor() {
-        super();
+        this._additionalData = {};
     };
     /**
      * The deserialization information for the current model
      * @returns a Record<string, (node: ParseNode) => void>
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
+        return {
             "callRecords": n => { this.callRecords = n.getCollectionOfObjectValues<CallRecord>(createCallRecordFromDiscriminatorValue); },
             "calls": n => { this.calls = n.getCollectionOfObjectValues<Call>(createCallFromDiscriminatorValue); },
+            "@odata.type": n => { this.odataType = n.getStringValue(); },
             "onlineMeetings": n => { this.onlineMeetings = n.getCollectionOfObjectValues<OnlineMeeting>(createOnlineMeetingFromDiscriminatorValue); },
             "presences": n => { this.presences = n.getCollectionOfObjectValues<Presence>(createPresenceFromDiscriminatorValue); },
         };
+    };
+    /**
+     * Gets the @odata.type property value. The OdataType property
+     * @returns a string
+     */
+    public get odataType() {
+        return this._odataType;
+    };
+    /**
+     * Sets the @odata.type property value. The OdataType property
+     * @param value Value to set for the OdataType property.
+     */
+    public set odataType(value: string | undefined) {
+        this._odataType = value;
     };
     /**
      * Gets the onlineMeetings property value. The onlineMeetings property
@@ -95,10 +128,11 @@ export class CloudCommunications extends Entity implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
         writer.writeCollectionOfObjectValues<CallRecord>("callRecords", this.callRecords);
         writer.writeCollectionOfObjectValues<Call>("calls", this.calls);
+        writer.writeStringValue("@odata.type", this.odataType);
         writer.writeCollectionOfObjectValues<OnlineMeeting>("onlineMeetings", this.onlineMeetings);
         writer.writeCollectionOfObjectValues<Presence>("presences", this.presences);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

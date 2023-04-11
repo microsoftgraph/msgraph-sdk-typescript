@@ -52,7 +52,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get siteLists from admin
+     * A collection of site lists to support Internet Explorer mode.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteList
@@ -124,7 +124,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get siteLists from admin
+     * A collection of site lists to support Internet Explorer mode.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

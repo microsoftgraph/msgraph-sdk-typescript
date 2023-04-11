@@ -36,7 +36,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/worksheet-list-charts?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

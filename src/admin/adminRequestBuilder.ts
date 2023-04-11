@@ -6,6 +6,7 @@ import {AdminRequestBuilderGetRequestConfiguration} from './adminRequestBuilderG
 import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilderPatchRequestConfiguration';
 import {EdgeRequestBuilder} from './edge/edgeRequestBuilder';
 import {ServiceAnnouncementRequestBuilder} from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
+import {SharepointRequestBuilder} from './sharepoint/sharepointRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -19,6 +20,10 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
     public get serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the sharepoint property of the microsoft.graph.admin entity. */
+    public get sharepoint(): SharepointRequestBuilder {
+        return new SharepointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new AdminRequestBuilder and sets the default values.

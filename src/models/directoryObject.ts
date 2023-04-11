@@ -5,7 +5,7 @@ export class DirectoryObject extends Entity implements Parsable {
     /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
     private _deletedDateTime?: Date | undefined;
     /**
-     * Instantiates a new directoryObject and sets the default values.
+     * Instantiates a new DirectoryObject and sets the default values.
      */
     public constructor() {
         super();

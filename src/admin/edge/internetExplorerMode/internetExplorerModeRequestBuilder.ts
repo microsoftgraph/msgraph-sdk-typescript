@@ -41,7 +41,7 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get internetExplorerMode from admin
+     * A container for Internet Explorer mode resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternetExplorerMode
@@ -102,7 +102,7 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get internetExplorerMode from admin
+     * A container for Internet Explorer mode resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

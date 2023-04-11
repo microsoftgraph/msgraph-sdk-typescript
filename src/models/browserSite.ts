@@ -11,21 +11,21 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
  * Singleton entity which is used to specify IE mode site metadata
  */
 export class BrowserSite extends Entity implements Parsable {
-    /** Boolean attribute that controls the behavior of redirected sites */
+    /** Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain. */
     private _allowRedirect?: boolean | undefined;
-    /** The comment for the site */
+    /** The comment for the site. */
     private _comment?: string | undefined;
     /** The compatibilityMode property */
     private _compatibilityMode?: BrowserSiteCompatibilityMode | undefined;
-    /** The datetime that the site is created */
+    /** The date and time when the site was created. */
     private _createdDateTime?: Date | undefined;
-    /** The datetime that the admin deleted the site */
+    /** The date and time when the site was deleted. */
     private _deletedDateTime?: Date | undefined;
-    /** The collection stores site revision metadata and audit logs. */
+    /** The history of modifications applied to the site. */
     private _history?: BrowserSiteHistory[] | undefined;
-    /** The admin who made the last update on the site. */
+    /** The user who last modified the site. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** The datetime that the admin updated the site. */
+    /** The date and time when the site was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
     /** The mergeType property */
     private _mergeType?: BrowserSiteMergeType | undefined;
@@ -33,31 +33,31 @@ export class BrowserSite extends Entity implements Parsable {
     private _status?: BrowserSiteStatus | undefined;
     /** The targetEnvironment property */
     private _targetEnvironment?: BrowserSiteTargetEnvironment | undefined;
-    /** The URL of the site */
+    /** The URL of the site. */
     private _webUrl?: string | undefined;
     /**
-     * Gets the allowRedirect property value. Boolean attribute that controls the behavior of redirected sites
+     * Gets the allowRedirect property value. Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
      * @returns a boolean
      */
     public get allowRedirect() {
         return this._allowRedirect;
     };
     /**
-     * Sets the allowRedirect property value. Boolean attribute that controls the behavior of redirected sites
+     * Sets the allowRedirect property value. Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
      * @param value Value to set for the allowRedirect property.
      */
     public set allowRedirect(value: boolean | undefined) {
         this._allowRedirect = value;
     };
     /**
-     * Gets the comment property value. The comment for the site
+     * Gets the comment property value. The comment for the site.
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. The comment for the site
+     * Sets the comment property value. The comment for the site.
      * @param value Value to set for the comment property.
      */
     public set comment(value: string | undefined) {
@@ -84,28 +84,28 @@ export class BrowserSite extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdDateTime property value. The datetime that the site is created
+     * Gets the createdDateTime property value. The date and time when the site was created.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The datetime that the site is created
+     * Sets the createdDateTime property value. The date and time when the site was created.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
         this._createdDateTime = value;
     };
     /**
-     * Gets the deletedDateTime property value. The datetime that the admin deleted the site
+     * Gets the deletedDateTime property value. The date and time when the site was deleted.
      * @returns a Date
      */
     public get deletedDateTime() {
         return this._deletedDateTime;
     };
     /**
-     * Sets the deletedDateTime property value. The datetime that the admin deleted the site
+     * Sets the deletedDateTime property value. The date and time when the site was deleted.
      * @param value Value to set for the deletedDateTime property.
      */
     public set deletedDateTime(value: Date | undefined) {
@@ -132,42 +132,42 @@ export class BrowserSite extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the history property value. The collection stores site revision metadata and audit logs.
+     * Gets the history property value. The history of modifications applied to the site.
      * @returns a browserSiteHistory
      */
     public get history() {
         return this._history;
     };
     /**
-     * Sets the history property value. The collection stores site revision metadata and audit logs.
+     * Sets the history property value. The history of modifications applied to the site.
      * @param value Value to set for the history property.
      */
     public set history(value: BrowserSiteHistory[] | undefined) {
         this._history = value;
     };
     /**
-     * Gets the lastModifiedBy property value. The admin who made the last update on the site.
+     * Gets the lastModifiedBy property value. The user who last modified the site.
      * @returns a identitySet
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
     };
     /**
-     * Sets the lastModifiedBy property value. The admin who made the last update on the site.
+     * Sets the lastModifiedBy property value. The user who last modified the site.
      * @param value Value to set for the lastModifiedBy property.
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         this._lastModifiedBy = value;
     };
     /**
-     * Gets the lastModifiedDateTime property value. The datetime that the admin updated the site.
+     * Gets the lastModifiedDateTime property value. The date and time when the site was last modified.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The datetime that the admin updated the site.
+     * Sets the lastModifiedDateTime property value. The date and time when the site was last modified.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
@@ -236,14 +236,14 @@ export class BrowserSite extends Entity implements Parsable {
         this._targetEnvironment = value;
     };
     /**
-     * Gets the webUrl property value. The URL of the site
+     * Gets the webUrl property value. The URL of the site.
      * @returns a string
      */
     public get webUrl() {
         return this._webUrl;
     };
     /**
-     * Sets the webUrl property value. The URL of the site
+     * Sets the webUrl property value. The URL of the site.
      * @param value Value to set for the webUrl property.
      */
     public set webUrl(value: string | undefined) {

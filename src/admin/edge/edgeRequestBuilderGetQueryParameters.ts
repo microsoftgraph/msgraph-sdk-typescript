@@ -1,6 +1,6 @@
 
 /**
- * Get edge from admin
+ * A container for Microsoft Edge resources. Read-only.
  */
 export class EdgeRequestBuilderGetQueryParameters {
     /** Expand related entities */
