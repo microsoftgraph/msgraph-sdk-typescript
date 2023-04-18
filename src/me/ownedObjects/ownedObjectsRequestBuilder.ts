@@ -6,8 +6,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
+import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {OwnedObjectsRequestBuilderGetRequestConfiguration} from './ownedObjectsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
@@ -29,6 +30,17 @@ export class OwnedObjectsRequestBuilder extends BaseRequestBuilder {
     public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
         return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the ownedObjects property of the microsoft.graph.user entity.
+     * @param directoryObjectId Unique identifier of the item
+     * @returns a DirectoryObjectItemRequestBuilder
+     */
+    public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {
+        if(!directoryObjectId) throw new Error("directoryObjectId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OwnedObjectsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

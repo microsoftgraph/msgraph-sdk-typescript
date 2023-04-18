@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AppDefinitionsRequestBuilderGetRequestConfiguration} from './appDefinitionsRequestBuilderGetRequestConfiguration';
 import {AppDefinitionsRequestBuilderPostRequestConfiguration} from './appDefinitionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TeamsAppDefinitionItemRequestBuilder} from './item/teamsAppDefinitionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
@@ -16,6 +17,17 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
+     * @param teamsAppDefinitionId Unique identifier of the item
+     * @returns a TeamsAppDefinitionItemRequestBuilder
+     */
+    public byTeamsAppDefinitionId(teamsAppDefinitionId: string) : TeamsAppDefinitionItemRequestBuilder {
+        if(!teamsAppDefinitionId) throw new Error("teamsAppDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsAppDefinition%2Did"] = teamsAppDefinitionId
+        return new TeamsAppDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AppDefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

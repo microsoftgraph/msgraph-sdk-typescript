@@ -3,9 +3,10 @@ import {createTokenLifetimePolicyCollectionResponseFromDiscriminatorValue} from 
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TokenLifetimePolicyItemRequestBuilder} from './item/tokenLifetimePolicyItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilderGetRequestConfiguration} from './tokenLifetimePoliciesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.application entity.
@@ -19,6 +20,17 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenLifetimePolicies.item collection
+     * @param tokenLifetimePolicyId Unique identifier of the item
+     * @returns a TokenLifetimePolicyItemRequestBuilder
+     */
+    public byTokenLifetimePolicyId(tokenLifetimePolicyId: string) : TokenLifetimePolicyItemRequestBuilder {
+        if(!tokenLifetimePolicyId) throw new Error("tokenLifetimePolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["tokenLifetimePolicy%2Did"] = tokenLifetimePolicyId
+        return new TokenLifetimePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TokenLifetimePoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

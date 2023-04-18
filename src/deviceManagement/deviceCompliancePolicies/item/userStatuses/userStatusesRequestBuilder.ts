@@ -4,9 +4,10 @@ import {createDeviceComplianceUserStatusFromDiscriminatorValue} from '../../../.
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceComplianceUserStatusItemRequestBuilder} from './item/deviceComplianceUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
 import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -16,6 +17,17 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
+     * @param deviceComplianceUserStatusId Unique identifier of the item
+     * @returns a DeviceComplianceUserStatusItemRequestBuilder
+     */
+    public byDeviceComplianceUserStatusId(deviceComplianceUserStatusId: string) : DeviceComplianceUserStatusItemRequestBuilder {
+        if(!deviceComplianceUserStatusId) throw new Error("deviceComplianceUserStatusId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceComplianceUserStatus%2Did"] = deviceComplianceUserStatusId
+        return new DeviceComplianceUserStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserStatusesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

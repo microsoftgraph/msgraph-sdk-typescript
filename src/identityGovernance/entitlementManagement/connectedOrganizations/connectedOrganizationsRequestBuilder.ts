@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ConnectedOrganizationsRequestBuilderGetRequestConfiguration} from './connectedOrganizationsRequestBuilderGetRequestConfiguration';
 import {ConnectedOrganizationsRequestBuilderPostRequestConfiguration} from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ConnectedOrganizationItemRequestBuilder} from './item/connectedOrganizationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
@@ -16,6 +17,17 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
+     * @param connectedOrganizationId Unique identifier of the item
+     * @returns a ConnectedOrganizationItemRequestBuilder
+     */
+    public byConnectedOrganizationId(connectedOrganizationId: string) : ConnectedOrganizationItemRequestBuilder {
+        if(!connectedOrganizationId) throw new Error("connectedOrganizationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["connectedOrganization%2Did"] = connectedOrganizationId
+        return new ConnectedOrganizationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ConnectedOrganizationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

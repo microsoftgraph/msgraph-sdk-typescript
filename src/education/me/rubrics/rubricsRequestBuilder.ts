@@ -4,9 +4,10 @@ import {createEducationRubricFromDiscriminatorValue} from '../../../models/creat
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationRubricItemRequestBuilder} from './item/educationRubricItemRequestBuilder';
 import {RubricsRequestBuilderGetRequestConfiguration} from './rubricsRequestBuilderGetRequestConfiguration';
 import {RubricsRequestBuilderPostRequestConfiguration} from './rubricsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
@@ -16,6 +17,17 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
+     * @param educationRubricId Unique identifier of the item
+     * @returns a EducationRubricItemRequestBuilder
+     */
+    public byEducationRubricId(educationRubricId: string) : EducationRubricItemRequestBuilder {
+        if(!educationRubricId) throw new Error("educationRubricId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationRubric%2Did"] = educationRubricId
+        return new EducationRubricItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RubricsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

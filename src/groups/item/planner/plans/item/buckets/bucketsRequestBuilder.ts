@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {BucketsRequestBuilderGetRequestConfiguration} from './bucketsRequestBuilderGetRequestConfiguration';
 import {BucketsRequestBuilderPostRequestConfiguration} from './bucketsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PlannerBucketItemRequestBuilder} from './item/plannerBucketItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
@@ -16,6 +17,17 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
+     * @param plannerBucketId Unique identifier of the item
+     * @returns a PlannerBucketItemRequestBuilder
+     */
+    public byPlannerBucketId(plannerBucketId: string) : PlannerBucketItemRequestBuilder {
+        if(!plannerBucketId) throw new Error("plannerBucketId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["plannerBucket%2Did"] = plannerBucketId
+        return new PlannerBucketItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new BucketsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

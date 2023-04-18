@@ -4,9 +4,10 @@ import {createSectionGroupFromDiscriminatorValue} from '../../../../../../models
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SectionGroupItemRequestBuilder} from './item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilderGetRequestConfiguration} from './sectionGroupsRequestBuilderGetRequestConfiguration';
 import {SectionGroupsRequestBuilderPostRequestConfiguration} from './sectionGroupsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.
@@ -16,6 +17,17 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.
+     * @param sectionGroupId Unique identifier of the item
+     * @returns a SectionGroupItemRequestBuilder
+     */
+    public bySectionGroupId(sectionGroupId: string) : SectionGroupItemRequestBuilder {
+        if(!sectionGroupId) throw new Error("sectionGroupId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sectionGroup%2Did"] = sectionGroupId
+        return new SectionGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SectionGroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

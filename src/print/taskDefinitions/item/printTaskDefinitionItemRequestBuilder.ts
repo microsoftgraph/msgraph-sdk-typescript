@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {PrintTaskDefinitionItemRequestBuilderDeleteRequestConfiguration} from './printTaskDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {PrintTaskDefinitionItemRequestBuilderGetRequestConfiguration} from './printTaskDefinitionItemRequestBuilderGetRequestConfiguration';
 import {PrintTaskDefinitionItemRequestBuilderPatchRequestConfiguration} from './printTaskDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {PrintTaskItemRequestBuilder} from './tasks/item/printTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
@@ -73,17 +72,6 @@ export class PrintTaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<PrintTaskDefinition>(requestInfo, createPrintTaskDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintTaskItemRequestBuilder
-     */
-    public tasksById(id: string) : PrintTaskItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printTask%2Did"] = id
-        return new PrintTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property taskDefinitions for print

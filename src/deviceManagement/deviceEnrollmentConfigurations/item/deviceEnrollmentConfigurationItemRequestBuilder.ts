@@ -4,12 +4,11 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {EnrollmentConfigurationAssignmentItemRequestBuilder} from './assignments/item/enrollmentConfigurationAssignmentItemRequestBuilder';
 import {DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration';
 import {DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration';
 import {SetPriorityRequestBuilder} from './setPriority/setPriorityRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -27,17 +26,6 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
     public get setPriority(): SetPriorityRequestBuilder {
         return new SetPriorityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a EnrollmentConfigurationAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : EnrollmentConfigurationAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["enrollmentConfigurationAssignment%2Did"] = id
-        return new EnrollmentConfigurationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new DeviceEnrollmentConfigurationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

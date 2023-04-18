@@ -1,6 +1,6 @@
 
 /**
- * Get internetExplorerMode from admin
+ * A container for Internet Explorer mode resources.
  */
 export class InternetExplorerModeRequestBuilderGetQueryParameters {
     /** Expand related entities */

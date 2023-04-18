@@ -3,13 +3,11 @@ import {createTeamworkFromDiscriminatorValue} from '../models/createTeamworkFrom
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeletedTeamsRequestBuilder} from './deletedTeams/deletedTeamsRequestBuilder';
-import {DeletedTeamItemRequestBuilder} from './deletedTeams/item/deletedTeamItemRequestBuilder';
 import {SendActivityNotificationToRecipientsRequestBuilder} from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
-import {WorkforceIntegrationItemRequestBuilder} from './workforceIntegrations/item/workforceIntegrationItemRequestBuilder';
 import {WorkforceIntegrationsRequestBuilder} from './workforceIntegrations/workforceIntegrationsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamwork singleton.
@@ -34,17 +32,6 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
-     * @param id Unique identifier of the item
-     * @returns a DeletedTeamItemRequestBuilder
-     */
-    public deletedTeamsById(id: string) : DeletedTeamItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deletedTeam%2Did"] = id
-        return new DeletedTeamItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get teamwork
@@ -117,16 +104,5 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkforceIntegrationItemRequestBuilder
-     */
-    public workforceIntegrationsById(id: string) : WorkforceIntegrationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workforceIntegration%2Did"] = id
-        return new WorkforceIntegrationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

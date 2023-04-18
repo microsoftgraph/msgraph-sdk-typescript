@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AppConsentRequestItemRequestBuilderDeleteRequestConfiguration} from './appConsentRequestItemRequestBuilderDeleteRequestConfiguration';
 import {AppConsentRequestItemRequestBuilderGetRequestConfiguration} from './appConsentRequestItemRequestBuilderGetRequestConfiguration';
 import {AppConsentRequestItemRequestBuilderPatchRequestConfiguration} from './appConsentRequestItemRequestBuilderPatchRequestConfiguration';
-import {UserConsentRequestItemRequestBuilder} from './userConsentRequests/item/userConsentRequestItemRequestBuilder';
 import {UserConsentRequestsRequestBuilder} from './userConsentRequests/userConsentRequestsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
@@ -127,16 +126,5 @@ export class AppConsentRequestItemRequestBuilder extends BaseRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
-     * @param id Unique identifier of the item
-     * @returns a UserConsentRequestItemRequestBuilder
-     */
-    public userConsentRequestsById(id: string) : UserConsentRequestItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["userConsentRequest%2Did"] = id
-        return new UserConsentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AttendanceReportsRequestBuilderGetRequestConfiguration} from './attendanceReportsRequestBuilderGetRequestConfiguration';
 import {AttendanceReportsRequestBuilderPostRequestConfiguration} from './attendanceReportsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {MeetingAttendanceReportItemRequestBuilder} from './item/meetingAttendanceReportItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
@@ -16,6 +17,17 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
+     * @param meetingAttendanceReportId Unique identifier of the item
+     * @returns a MeetingAttendanceReportItemRequestBuilder
+     */
+    public byMeetingAttendanceReportId(meetingAttendanceReportId: string) : MeetingAttendanceReportItemRequestBuilder {
+        if(!meetingAttendanceReportId) throw new Error("meetingAttendanceReportId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["meetingAttendanceReport%2Did"] = meetingAttendanceReportId
+        return new MeetingAttendanceReportItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AttendanceReportsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,9 +6,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetNotebookFromWebUrlRequestBuilder} from './getNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
 import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './getRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
+import {NotebookItemRequestBuilder} from './item/notebookItemRequestBuilder';
 import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
@@ -22,6 +23,17 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
     public get getNotebookFromWebUrl(): GetNotebookFromWebUrlRequestBuilder {
         return new GetNotebookFromWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
+     * @param notebookId Unique identifier of the item
+     * @returns a NotebookItemRequestBuilder
+     */
+    public byNotebookId(notebookId: string) : NotebookItemRequestBuilder {
+        if(!notebookId) throw new Error("notebookId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["notebook%2Did"] = notebookId
+        return new NotebookItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new NotebooksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

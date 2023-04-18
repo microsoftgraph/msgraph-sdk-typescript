@@ -3,13 +3,11 @@ import {createTermsAndConditionsFromDiscriminatorValue} from '../../../models/cr
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptanceStatusesRequestBuilder} from './acceptanceStatuses/acceptanceStatusesRequestBuilder';
-import {TermsAndConditionsAcceptanceStatusItemRequestBuilder} from './acceptanceStatuses/item/termsAndConditionsAcceptanceStatusItemRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {TermsAndConditionsAssignmentItemRequestBuilder} from './assignments/item/termsAndConditionsAssignmentItemRequestBuilder';
 import {TermsAndConditionsItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
@@ -23,28 +21,6 @@ export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
-     * @param id Unique identifier of the item
-     * @returns a TermsAndConditionsAcceptanceStatusItemRequestBuilder
-     */
-    public acceptanceStatusesById(id: string) : TermsAndConditionsAcceptanceStatusItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["termsAndConditionsAcceptanceStatus%2Did"] = id
-        return new TermsAndConditionsAcceptanceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
-     * @param id Unique identifier of the item
-     * @returns a TermsAndConditionsAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : TermsAndConditionsAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["termsAndConditionsAssignment%2Did"] = id
-        return new TermsAndConditionsAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new TermsAndConditionsItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

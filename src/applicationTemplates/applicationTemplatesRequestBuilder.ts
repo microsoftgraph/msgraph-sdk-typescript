@@ -4,7 +4,8 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplicationTemplatesRequestBuilderGetRequestConfiguration} from './applicationTemplatesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ApplicationTemplateItemRequestBuilder} from './item/applicationTemplateItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of applicationTemplate entities.
@@ -14,6 +15,17 @@ export class ApplicationTemplatesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of applicationTemplate entities.
+     * @param applicationTemplateId Unique identifier of the item
+     * @returns a ApplicationTemplateItemRequestBuilder
+     */
+    public byApplicationTemplateId(applicationTemplateId: string) : ApplicationTemplateItemRequestBuilder {
+        if(!applicationTemplateId) throw new Error("applicationTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["applicationTemplate%2Did"] = applicationTemplateId
+        return new ApplicationTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ApplicationTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

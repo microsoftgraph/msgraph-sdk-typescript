@@ -5,10 +5,11 @@ import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookTableItemRequestBuilder} from './item/workbookTableItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {TablesRequestBuilderGetRequestConfiguration} from './tablesRequestBuilderGetRequestConfiguration';
 import {TablesRequestBuilderPostRequestConfiguration} from './tablesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
@@ -22,6 +23,17 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
+     * @param workbookTableId Unique identifier of the item
+     * @returns a WorkbookTableItemRequestBuilder
+     */
+    public byWorkbookTableId(workbookTableId: string) : WorkbookTableItemRequestBuilder {
+        if(!workbookTableId) throw new Error("workbookTableId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookTable%2Did"] = workbookTableId
+        return new WorkbookTableItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TablesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

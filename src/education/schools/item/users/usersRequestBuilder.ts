@@ -3,9 +3,10 @@ import {createEducationUserCollectionResponseFromDiscriminatorValue} from '../..
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationSchool entity.
@@ -19,6 +20,17 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item.users.item collection
+     * @param educationUserId Unique identifier of the item
+     * @returns a EducationUserItemRequestBuilder
+     */
+    public byEducationUserId(educationUserId: string) : EducationUserItemRequestBuilder {
+        if(!educationUserId) throw new Error("educationUserId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationUser%2Did"] = educationUserId
+        return new EducationUserItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UsersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

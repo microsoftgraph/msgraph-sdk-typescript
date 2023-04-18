@@ -8,31 +8,24 @@ import {ApplicationItemRequestBuilderDeleteRequestConfiguration} from './applica
 import {ApplicationItemRequestBuilderGetRequestConfiguration} from './applicationItemRequestBuilderGetRequestConfiguration';
 import {ApplicationItemRequestBuilderPatchRequestConfiguration} from './applicationItemRequestBuilderPatchRequestConfiguration';
 import {AppManagementPoliciesRequestBuilder} from './appManagementPolicies/appManagementPoliciesRequestBuilder';
-import {AppManagementPolicyItemRequestBuilder} from './appManagementPolicies/item/appManagementPolicyItemRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from './createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
 import {ExtensionPropertiesRequestBuilder} from './extensionProperties/extensionPropertiesRequestBuilder';
-import {ExtensionPropertyItemRequestBuilder} from './extensionProperties/item/extensionPropertyItemRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilder} from './federatedIdentityCredentials/federatedIdentityCredentialsRequestBuilder';
-import {FederatedIdentityCredentialItemRequestBuilder} from './federatedIdentityCredentials/item/federatedIdentityCredentialItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
-import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyItemRequestBuilder';
 import {LogoRequestBuilder} from './logo/logoRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './owners/item/directoryObjectItemRequestBuilder';
 import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
 import {RemoveKeyRequestBuilder} from './removeKey/removeKeyRequestBuilder';
 import {RemovePasswordRequestBuilder} from './removePassword/removePasswordRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {SetVerifiedPublisherRequestBuilder} from './setVerifiedPublisher/setVerifiedPublisherRequestBuilder';
-import {TokenIssuancePolicyItemRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
-import {TokenLifetimePolicyItemRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyItemRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {UnsetVerifiedPublisherRequestBuilder} from './unsetVerifiedPublisher/unsetVerifiedPublisherRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.
@@ -119,17 +112,6 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
         return new UnsetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.appManagementPolicies.item collection
-     * @param id Unique identifier of the item
-     * @returns a AppManagementPolicyItemRequestBuilder
-     */
-    public appManagementPoliciesById(id: string) : AppManagementPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["appManagementPolicy%2Did"] = id
-        return new AppManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new ApplicationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -154,28 +136,6 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
-     * @param id Unique identifier of the item
-     * @returns a ExtensionPropertyItemRequestBuilder
-     */
-    public extensionPropertiesById(id: string) : ExtensionPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extensionProperty%2Did"] = id
-        return new ExtensionPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
-     * @param id Unique identifier of the item
-     * @returns a FederatedIdentityCredentialItemRequestBuilder
-     */
-    public federatedIdentityCredentialsById(id: string) : FederatedIdentityCredentialItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["federatedIdentityCredential%2Did"] = id
-        return new FederatedIdentityCredentialItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Get the properties and relationships of an application object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -191,28 +151,6 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
-     * @param id Unique identifier of the item
-     * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
-     */
-    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["homeRealmDiscoveryPolicy%2Did"] = id
-        return new HomeRealmDiscoveryPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.owners.item collection
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public ownersById(id: string) : DirectoryObjectItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of an application object.
@@ -266,28 +204,6 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         return requestInfo;
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenIssuancePolicies.item collection
-     * @param id Unique identifier of the item
-     * @returns a TokenIssuancePolicyItemRequestBuilder
-     */
-    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["tokenIssuancePolicy%2Did"] = id
-        return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.applications.item.tokenLifetimePolicies.item collection
-     * @param id Unique identifier of the item
-     * @returns a TokenLifetimePolicyItemRequestBuilder
-     */
-    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["tokenLifetimePolicy%2Did"] = id
-        return new TokenLifetimePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of an application object.

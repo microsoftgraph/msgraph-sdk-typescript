@@ -7,7 +7,8 @@ import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsReq
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AttachmentItemRequestBuilder} from './item/attachmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.event entity.
@@ -21,6 +22,17 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
     public get createUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.event entity.
+     * @param attachmentId Unique identifier of the item
+     * @returns a AttachmentItemRequestBuilder
+     */
+    public byAttachmentId(attachmentId: string) : AttachmentItemRequestBuilder {
+        if(!attachmentId) throw new Error("attachmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["attachment%2Did"] = attachmentId
+        return new AttachmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AttachmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AppliedPoliciesRequestBuilderGetRequestConfiguration} from './appliedPoliciesRequestBuilderGetRequestConfiguration';
 import {AppliedPoliciesRequestBuilderPostRequestConfiguration} from './appliedPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ManagedAppPolicyItemRequestBuilder} from './item/managedAppPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.
@@ -16,6 +17,17 @@ export class AppliedPoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.
+     * @param managedAppPolicyId Unique identifier of the item
+     * @returns a ManagedAppPolicyItemRequestBuilder
+     */
+    public byManagedAppPolicyId(managedAppPolicyId: string) : ManagedAppPolicyItemRequestBuilder {
+        if(!managedAppPolicyId) throw new Error("managedAppPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedAppPolicy%2Did"] = managedAppPolicyId
+        return new ManagedAppPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AppliedPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

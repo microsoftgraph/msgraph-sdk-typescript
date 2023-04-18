@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefaultPagesRequestBuilderGetRequestConfiguration} from './defaultPagesRequestBuilderGetRequestConfiguration';
 import {DefaultPagesRequestBuilderPostRequestConfiguration} from './defaultPagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {UserFlowLanguagePageItemRequestBuilder} from './item/userFlowLanguagePageItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
@@ -16,6 +17,17 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
+     * @param userFlowLanguagePageId Unique identifier of the item
+     * @returns a UserFlowLanguagePageItemRequestBuilder
+     */
+    public byUserFlowLanguagePageId(userFlowLanguagePageId: string) : UserFlowLanguagePageItemRequestBuilder {
+        if(!userFlowLanguagePageId) throw new Error("userFlowLanguagePageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userFlowLanguagePage%2Did"] = userFlowLanguagePageId
+        return new UserFlowLanguagePageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DefaultPagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

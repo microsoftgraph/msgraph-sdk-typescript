@@ -7,7 +7,8 @@ import {ContactFoldersRequestBuilderGetRequestConfiguration} from './contactFold
 import {ContactFoldersRequestBuilderPostRequestConfiguration} from './contactFoldersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ContactFolderItemRequestBuilder} from './item/contactFolderItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
@@ -21,6 +22,17 @@ export class ContactFoldersRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
+     * @param contactFolderId Unique identifier of the item
+     * @returns a ContactFolderItemRequestBuilder
+     */
+    public byContactFolderId(contactFolderId: string) : ContactFolderItemRequestBuilder {
+        if(!contactFolderId) throw new Error("contactFolderId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["contactFolder%2Did"] = contactFolderId
+        return new ContactFolderItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ContactFoldersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

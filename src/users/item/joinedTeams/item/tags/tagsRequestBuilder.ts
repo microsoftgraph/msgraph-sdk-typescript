@@ -4,9 +4,10 @@ import {createTeamworkTagFromDiscriminatorValue} from '../../../../../models/cre
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamworkTagItemRequestBuilder} from './item/teamworkTagItemRequestBuilder';
 import {TagsRequestBuilderGetRequestConfiguration} from './tagsRequestBuilderGetRequestConfiguration';
 import {TagsRequestBuilderPostRequestConfiguration} from './tagsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.
@@ -16,6 +17,17 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.team entity.
+     * @param teamworkTagId Unique identifier of the item
+     * @returns a TeamworkTagItemRequestBuilder
+     */
+    public byTeamworkTagId(teamworkTagId: string) : TeamworkTagItemRequestBuilder {
+        if(!teamworkTagId) throw new Error("teamworkTagId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamworkTag%2Did"] = teamworkTagId
+        return new TeamworkTagItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TagsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

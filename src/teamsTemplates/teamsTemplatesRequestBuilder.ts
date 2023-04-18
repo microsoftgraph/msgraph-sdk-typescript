@@ -4,9 +4,10 @@ import {createTeamsTemplateFromDiscriminatorValue} from '../models/createTeamsTe
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamsTemplateItemRequestBuilder} from './item/teamsTemplateItemRequestBuilder';
 import {TeamsTemplatesRequestBuilderGetRequestConfiguration} from './teamsTemplatesRequestBuilderGetRequestConfiguration';
 import {TeamsTemplatesRequestBuilderPostRequestConfiguration} from './teamsTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of teamsTemplate entities.
@@ -16,6 +17,17 @@ export class TeamsTemplatesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of teamsTemplate entities.
+     * @param teamsTemplateId Unique identifier of the item
+     * @returns a TeamsTemplateItemRequestBuilder
+     */
+    public byTeamsTemplateId(teamsTemplateId: string) : TeamsTemplateItemRequestBuilder {
+        if(!teamsTemplateId) throw new Error("teamsTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsTemplate%2Did"] = teamsTemplateId
+        return new TeamsTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TeamsTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

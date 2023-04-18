@@ -4,9 +4,10 @@ import {createAuthenticationMethodFromDiscriminatorValue} from '../../../models/
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {AuthenticationMethodItemRequestBuilder} from './item/authenticationMethodItemRequestBuilder';
 import {MethodsRequestBuilderGetRequestConfiguration} from './methodsRequestBuilderGetRequestConfiguration';
 import {MethodsRequestBuilderPostRequestConfiguration} from './methodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
@@ -16,6 +17,17 @@ export class MethodsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
+     * @param authenticationMethodId Unique identifier of the item
+     * @returns a AuthenticationMethodItemRequestBuilder
+     */
+    public byAuthenticationMethodId(authenticationMethodId: string) : AuthenticationMethodItemRequestBuilder {
+        if(!authenticationMethodId) throw new Error("authenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["authenticationMethod%2Did"] = authenticationMethodId
+        return new AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DataPolicyOperationsRequestBuilderGetRequestConfiguration} from './dataPolicyOperationsRequestBuilderGetRequestConfiguration';
 import {DataPolicyOperationsRequestBuilderPostRequestConfiguration} from './dataPolicyOperationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DataPolicyOperationItemRequestBuilder} from './item/dataPolicyOperationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of dataPolicyOperation entities.
@@ -16,6 +17,17 @@ export class DataPolicyOperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of dataPolicyOperation entities.
+     * @param dataPolicyOperationId Unique identifier of the item
+     * @returns a DataPolicyOperationItemRequestBuilder
+     */
+    public byDataPolicyOperationId(dataPolicyOperationId: string) : DataPolicyOperationItemRequestBuilder {
+        if(!dataPolicyOperationId) throw new Error("dataPolicyOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["dataPolicyOperation%2Did"] = dataPolicyOperationId
+        return new DataPolicyOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DataPolicyOperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

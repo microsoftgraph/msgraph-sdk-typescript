@@ -4,7 +4,8 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppliesToRequestBuilderGetRequestConfiguration} from './appliesToRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
@@ -14,6 +15,17 @@ export class AppliesToRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
+     * @param directoryObjectId Unique identifier of the item
+     * @returns a DirectoryObjectItemRequestBuilder
+     */
+    public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {
+        if(!directoryObjectId) throw new Error("directoryObjectId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AppliesToRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

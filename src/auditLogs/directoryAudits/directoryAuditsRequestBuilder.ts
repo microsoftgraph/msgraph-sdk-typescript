@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DirectoryAuditsRequestBuilderGetRequestConfiguration} from './directoryAuditsRequestBuilderGetRequestConfiguration';
 import {DirectoryAuditsRequestBuilderPostRequestConfiguration} from './directoryAuditsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DirectoryAuditItemRequestBuilder} from './item/directoryAuditItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
@@ -16,6 +17,17 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
+     * @param directoryAuditId Unique identifier of the item
+     * @returns a DirectoryAuditItemRequestBuilder
+     */
+    public byDirectoryAuditId(directoryAuditId: string) : DirectoryAuditItemRequestBuilder {
+        if(!directoryAuditId) throw new Error("directoryAuditId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryAudit%2Did"] = directoryAuditId
+        return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DirectoryAuditsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,6 +5,8 @@
 export class MailFolderItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;
+    /** Include Hidden Folders */
+    public includeHiddenFolders?: string | undefined;
     /** Select properties to be returned */
     public select?: string[] | undefined;
     /**

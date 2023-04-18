@@ -4,9 +4,10 @@ import {createBrowserSharedCookieFromDiscriminatorValue} from '../../../../../..
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BrowserSharedCookieItemRequestBuilder} from './item/browserSharedCookieItemRequestBuilder';
 import {SharedCookiesRequestBuilderGetRequestConfiguration} from './sharedCookiesRequestBuilderGetRequestConfiguration';
 import {SharedCookiesRequestBuilderPostRequestConfiguration} from './sharedCookiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
@@ -17,6 +18,17 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+     * @param browserSharedCookieId Unique identifier of the item
+     * @returns a BrowserSharedCookieItemRequestBuilder
+     */
+    public byBrowserSharedCookieId(browserSharedCookieId: string) : BrowserSharedCookieItemRequestBuilder {
+        if(!browserSharedCookieId) throw new Error("browserSharedCookieId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["browserSharedCookie%2Did"] = browserSharedCookieId
+        return new BrowserSharedCookieItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SharedCookiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,10 +37,11 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sharedCookies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get sharedCookies from admin
+     * Get a list of the browserSharedCookie objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSharedCookieCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharedCookiesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSharedCookieCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -41,11 +54,12 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSharedCookieCollectionResponse>(requestInfo, createBrowserSharedCookieCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to sharedCookies for admin
+     * Create a new browserSharedCookie object in a browserSiteList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSharedCookie
+     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-post-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BrowserSharedCookie | undefined, requestConfiguration?: SharedCookiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSharedCookie | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -59,7 +73,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSharedCookie>(requestInfo, createBrowserSharedCookieFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get sharedCookies from admin
+     * Get a list of the browserSharedCookie objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -77,7 +91,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to sharedCookies for admin
+     * Create a new browserSharedCookie object in a browserSiteList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

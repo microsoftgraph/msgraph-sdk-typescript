@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ApiConnectorsRequestBuilderGetRequestConfiguration} from './apiConnectorsRequestBuilderGetRequestConfiguration';
 import {ApiConnectorsRequestBuilderPostRequestConfiguration} from './apiConnectorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {IdentityApiConnectorItemRequestBuilder} from './item/identityApiConnectorItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
@@ -16,6 +17,17 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
+     * @param identityApiConnectorId Unique identifier of the item
+     * @returns a IdentityApiConnectorItemRequestBuilder
+     */
+    public byIdentityApiConnectorId(identityApiConnectorId: string) : IdentityApiConnectorItemRequestBuilder {
+        if(!identityApiConnectorId) throw new Error("identityApiConnectorId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityApiConnector%2Did"] = identityApiConnectorId
+        return new IdentityApiConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ApiConnectorsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

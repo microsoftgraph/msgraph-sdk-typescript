@@ -4,9 +4,10 @@ import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from '../../.
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UserFlowLanguageConfigurationItemRequestBuilder} from './item/userFlowLanguageConfigurationItemRequestBuilder';
 import {LanguagesRequestBuilderGetRequestConfiguration} from './languagesRequestBuilderGetRequestConfiguration';
 import {LanguagesRequestBuilderPostRequestConfiguration} from './languagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -16,6 +17,17 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
+     * @param userFlowLanguageConfigurationId Unique identifier of the item
+     * @returns a UserFlowLanguageConfigurationItemRequestBuilder
+     */
+    public byUserFlowLanguageConfigurationId(userFlowLanguageConfigurationId: string) : UserFlowLanguageConfigurationItemRequestBuilder {
+        if(!userFlowLanguageConfigurationId) throw new Error("userFlowLanguageConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userFlowLanguageConfiguration%2Did"] = userFlowLanguageConfigurationId
+        return new UserFlowLanguageConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new LanguagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

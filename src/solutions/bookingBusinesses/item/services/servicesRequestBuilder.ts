@@ -4,9 +4,10 @@ import {createBookingServiceFromDiscriminatorValue} from '../../../../models/cre
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BookingServiceItemRequestBuilder} from './item/bookingServiceItemRequestBuilder';
 import {ServicesRequestBuilderGetRequestConfiguration} from './servicesRequestBuilderGetRequestConfiguration';
 import {ServicesRequestBuilderPostRequestConfiguration} from './servicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
@@ -16,6 +17,17 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
+     * @param bookingServiceId Unique identifier of the item
+     * @returns a BookingServiceItemRequestBuilder
+     */
+    public byBookingServiceId(bookingServiceId: string) : BookingServiceItemRequestBuilder {
+        if(!bookingServiceId) throw new Error("bookingServiceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bookingService%2Did"] = bookingServiceId
+        return new BookingServiceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ServicesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

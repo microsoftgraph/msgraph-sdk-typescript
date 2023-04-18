@@ -9,8 +9,9 @@ import {DevicesRequestBuilderGetRequestConfiguration} from './devicesRequestBuil
 import {DevicesRequestBuilderPostRequestConfiguration} from './devicesRequestBuilderPostRequestConfiguration';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {DeviceItemRequestBuilder} from './item/deviceItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.
@@ -36,6 +37,17 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of device entities.
+     * @param deviceId Unique identifier of the item
+     * @returns a DeviceItemRequestBuilder
+     */
+    public byDeviceId(deviceId: string) : DeviceItemRequestBuilder {
+        if(!deviceId) throw new Error("deviceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["device%2Did"] = deviceId
+        return new DeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DevicesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

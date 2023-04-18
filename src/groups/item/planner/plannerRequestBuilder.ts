@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {PlannerRequestBuilderDeleteRequestConfiguration} from './plannerRequestBuilderDeleteRequestConfiguration';
 import {PlannerRequestBuilderGetRequestConfiguration} from './plannerRequestBuilderGetRequestConfiguration';
 import {PlannerRequestBuilderPatchRequestConfiguration} from './plannerRequestBuilderPatchRequestConfiguration';
-import {PlannerPlanItemRequestBuilder} from './plans/item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the planner property of the microsoft.graph.group entity.
@@ -73,17 +72,6 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<PlannerGroup>(requestInfo, createPlannerGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
-     * @param id Unique identifier of the item
-     * @returns a PlannerPlanItemRequestBuilder
-     */
-    public plansById(id: string) : PlannerPlanItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["plannerPlan%2Did"] = id
-        return new PlannerPlanItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property planner for groups

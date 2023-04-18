@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {CalendarPermissionsRequestBuilderGetRequestConfiguration} from './calendarPermissionsRequestBuilderGetRequestConfiguration';
 import {CalendarPermissionsRequestBuilderPostRequestConfiguration} from './calendarPermissionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CalendarPermissionItemRequestBuilder} from './item/calendarPermissionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
@@ -16,6 +17,17 @@ export class CalendarPermissionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
+     * @param calendarPermissionId Unique identifier of the item
+     * @returns a CalendarPermissionItemRequestBuilder
+     */
+    public byCalendarPermissionId(calendarPermissionId: string) : CalendarPermissionItemRequestBuilder {
+        if(!calendarPermissionId) throw new Error("calendarPermissionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["calendarPermission%2Did"] = calendarPermissionId
+        return new CalendarPermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CalendarPermissionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

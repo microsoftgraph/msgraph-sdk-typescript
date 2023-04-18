@@ -6,9 +6,8 @@ import {AccessReviewStageItemRequestBuilderDeleteRequestConfiguration} from './a
 import {AccessReviewStageItemRequestBuilderGetRequestConfiguration} from './accessReviewStageItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewStageItemRequestBuilderPatchRequestConfiguration} from './accessReviewStageItemRequestBuilderPatchRequestConfiguration';
 import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
-import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './decisions/item/accessReviewInstanceDecisionItemItemRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
@@ -29,17 +28,6 @@ export class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/stages/{accessReviewStage%2Did}{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
-     */
-    public decisionsById(id: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewInstanceDecisionItem%2Did"] = id
-        return new AccessReviewInstanceDecisionItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property stages for identityGovernance

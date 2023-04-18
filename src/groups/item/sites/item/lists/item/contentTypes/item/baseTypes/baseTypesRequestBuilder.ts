@@ -4,7 +4,8 @@ import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BaseTypesRequestBuilderGetRequestConfiguration} from './baseTypesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
@@ -14,6 +15,17 @@ export class BaseTypesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+     * @param contentTypeId1 Unique identifier of the item
+     * @returns a ContentTypeItemRequestBuilder
+     */
+    public byContentTypeId1(contentTypeId1: string) : ContentTypeItemRequestBuilder {
+        if(!contentTypeId1) throw new Error("contentTypeId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["contentType%2Did1"] = contentTypeId1
+        return new ContentTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new BaseTypesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -3,11 +3,10 @@ import {createAppManagementPolicyFromDiscriminatorValue} from '../../../models/c
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './appliesTo/item/directoryObjectItemRequestBuilder';
 import {AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './appManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {AppManagementPolicyItemRequestBuilderGetRequestConfiguration} from './appManagementPolicyItemRequestBuilderGetRequestConfiguration';
 import {AppManagementPolicyItemRequestBuilderPatchRequestConfiguration} from './appManagementPolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -17,17 +16,6 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
     public get appliesTo(): AppliesToRequestBuilder {
         return new AppliesToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public appliesToById(id: string) : DirectoryObjectItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new AppManagementPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

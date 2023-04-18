@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryRequestBuilderGetRequestConfiguration} from './historyRequestBuilderGetRequestConfiguration';
 import {HistoryRequestBuilderPostRequestConfiguration} from './historyRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {RiskyServicePrincipalHistoryItemItemRequestBuilder} from './item/riskyServicePrincipalHistoryItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
@@ -16,6 +17,17 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
+     * @param riskyServicePrincipalHistoryItemId Unique identifier of the item
+     * @returns a RiskyServicePrincipalHistoryItemItemRequestBuilder
+     */
+    public byRiskyServicePrincipalHistoryItemId(riskyServicePrincipalHistoryItemId: string) : RiskyServicePrincipalHistoryItemItemRequestBuilder {
+        if(!riskyServicePrincipalHistoryItemId) throw new Error("riskyServicePrincipalHistoryItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskyServicePrincipalHistoryItem%2Did"] = riskyServicePrincipalHistoryItemId
+        return new RiskyServicePrincipalHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new HistoryRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

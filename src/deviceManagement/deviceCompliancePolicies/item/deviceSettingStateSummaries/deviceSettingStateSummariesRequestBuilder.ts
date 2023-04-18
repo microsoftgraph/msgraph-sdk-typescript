@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {SettingStateDeviceSummaryItemRequestBuilder} from './item/settingStateDeviceSummaryItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -16,6 +17,17 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
+     * @param settingStateDeviceSummaryId Unique identifier of the item
+     * @returns a SettingStateDeviceSummaryItemRequestBuilder
+     */
+    public bySettingStateDeviceSummaryId(settingStateDeviceSummaryId: string) : SettingStateDeviceSummaryItemRequestBuilder {
+        if(!settingStateDeviceSummaryId) throw new Error("settingStateDeviceSummaryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["settingStateDeviceSummary%2Did"] = settingStateDeviceSummaryId
+        return new SettingStateDeviceSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceSettingStateSummariesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

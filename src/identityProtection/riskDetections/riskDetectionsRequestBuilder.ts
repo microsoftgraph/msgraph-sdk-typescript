@@ -4,9 +4,10 @@ import {createRiskDetectionFromDiscriminatorValue} from '../../models/createRisk
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RiskDetectionItemRequestBuilder} from './item/riskDetectionItemRequestBuilder';
 import {RiskDetectionsRequestBuilderGetRequestConfiguration} from './riskDetectionsRequestBuilderGetRequestConfiguration';
 import {RiskDetectionsRequestBuilderPostRequestConfiguration} from './riskDetectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -16,6 +17,17 @@ export class RiskDetectionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
+     * @param riskDetectionId Unique identifier of the item
+     * @returns a RiskDetectionItemRequestBuilder
+     */
+    public byRiskDetectionId(riskDetectionId: string) : RiskDetectionItemRequestBuilder {
+        if(!riskDetectionId) throw new Error("riskDetectionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskDetection%2Did"] = riskDetectionId
+        return new RiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RiskDetectionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

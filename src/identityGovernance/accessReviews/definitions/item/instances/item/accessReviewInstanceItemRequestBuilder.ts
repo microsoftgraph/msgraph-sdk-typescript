@@ -9,15 +9,12 @@ import {AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration} from '.
 import {ApplyDecisionsRequestBuilder} from './applyDecisions/applyDecisionsRequestBuilder';
 import {BatchRecordDecisionsRequestBuilder} from './batchRecordDecisions/batchRecordDecisionsRequestBuilder';
 import {ContactedReviewersRequestBuilder} from './contactedReviewers/contactedReviewersRequestBuilder';
-import {AccessReviewReviewerItemRequestBuilder} from './contactedReviewers/item/accessReviewReviewerItemRequestBuilder';
 import {DecisionsRequestBuilder} from './decisions/decisionsRequestBuilder';
-import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './decisions/item/accessReviewInstanceDecisionItemItemRequestBuilder';
 import {ResetDecisionsRequestBuilder} from './resetDecisions/resetDecisionsRequestBuilder';
 import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuilder';
-import {AccessReviewStageItemRequestBuilder} from './stages/item/accessReviewStageItemRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
@@ -68,28 +65,6 @@ export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}{?%24select,%24expand}");
     };
     /**
-     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewReviewerItemRequestBuilder
-     */
-    public contactedReviewersById(id: string) : AccessReviewReviewerItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewReviewer%2Did"] = id
-        return new AccessReviewReviewerItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
-     */
-    public decisionsById(id: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewInstanceDecisionItem%2Did"] = id
-        return new AccessReviewInstanceDecisionItemItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Delete navigation property instances for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -137,17 +112,6 @@ export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewStageItemRequestBuilder
-     */
-    public stagesById(id: string) : AccessReviewStageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewStage%2Did"] = id
-        return new AccessReviewStageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property instances for identityGovernance

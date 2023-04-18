@@ -4,9 +4,10 @@ import {createDeviceComplianceActionItemFromDiscriminatorValue} from '../../../.
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceComplianceActionItemItemRequestBuilder} from './item/deviceComplianceActionItemItemRequestBuilder';
 import {ScheduledActionConfigurationsRequestBuilderGetRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderGetRequestConfiguration';
 import {ScheduledActionConfigurationsRequestBuilderPostRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
@@ -16,6 +17,17 @@ export class ScheduledActionConfigurationsRequestBuilder extends BaseRequestBuil
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
+     * @param deviceComplianceActionItemId Unique identifier of the item
+     * @returns a DeviceComplianceActionItemItemRequestBuilder
+     */
+    public byDeviceComplianceActionItemId(deviceComplianceActionItemId: string) : DeviceComplianceActionItemItemRequestBuilder {
+        if(!deviceComplianceActionItemId) throw new Error("deviceComplianceActionItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceComplianceActionItem%2Did"] = deviceComplianceActionItemId
+        return new DeviceComplianceActionItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ScheduledActionConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

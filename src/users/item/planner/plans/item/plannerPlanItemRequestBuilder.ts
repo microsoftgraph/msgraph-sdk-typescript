@@ -3,14 +3,12 @@ import {createPlannerPlanFromDiscriminatorValue} from '../../../../../models/cre
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
-import {PlannerBucketItemRequestBuilder} from './buckets/item/plannerBucketItemRequestBuilder';
 import {DetailsRequestBuilder} from './details/detailsRequestBuilder';
 import {PlannerPlanItemRequestBuilderDeleteRequestConfiguration} from './plannerPlanItemRequestBuilderDeleteRequestConfiguration';
 import {PlannerPlanItemRequestBuilderGetRequestConfiguration} from './plannerPlanItemRequestBuilderGetRequestConfiguration';
 import {PlannerPlanItemRequestBuilderPatchRequestConfiguration} from './plannerPlanItemRequestBuilderPatchRequestConfiguration';
-import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
@@ -28,17 +26,6 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
-     * @param id Unique identifier of the item
-     * @returns a PlannerBucketItemRequestBuilder
-     */
-    public bucketsById(id: string) : PlannerBucketItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["plannerBucket%2Did"] = id
-        return new PlannerBucketItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new PlannerPlanItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -95,17 +82,6 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
-     * @param id Unique identifier of the item
-     * @returns a PlannerTaskItemRequestBuilder
-     */
-    public tasksById(id: string) : PlannerTaskItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["plannerTask%2Did"] = id
-        return new PlannerTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property plans for users

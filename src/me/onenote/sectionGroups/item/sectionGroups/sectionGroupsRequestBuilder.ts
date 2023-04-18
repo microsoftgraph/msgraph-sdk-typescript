@@ -3,8 +3,9 @@ import {createSectionGroupCollectionResponseFromDiscriminatorValue} from '../../
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SectionGroupItemRequestBuilder} from './item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilderGetRequestConfiguration} from './sectionGroupsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
@@ -14,6 +15,17 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
+     * @param sectionGroupId1 Unique identifier of the item
+     * @returns a SectionGroupItemRequestBuilder
+     */
+    public bySectionGroupId1(sectionGroupId1: string) : SectionGroupItemRequestBuilder {
+        if(!sectionGroupId1) throw new Error("sectionGroupId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sectionGroup%2Did1"] = sectionGroupId1
+        return new SectionGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SectionGroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

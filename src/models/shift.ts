@@ -12,7 +12,7 @@ export class Shift extends ChangeTrackedEntity implements Parsable {
     /** ID of the user assigned to the shift. Required. */
     private _userId?: string | undefined;
     /**
-     * Instantiates a new Shift and sets the default values.
+     * Instantiates a new shift and sets the default values.
      */
     public constructor() {
         super();

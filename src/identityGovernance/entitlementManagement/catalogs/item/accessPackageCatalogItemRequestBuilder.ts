@@ -6,8 +6,7 @@ import {AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration} from '
 import {AccessPackageCatalogItemRequestBuilderGetRequestConfiguration} from './accessPackageCatalogItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration} from './accessPackageCatalogItemRequestBuilderPatchRequestConfiguration';
 import {AccessPackagesRequestBuilder} from './accessPackages/accessPackagesRequestBuilder';
-import {AccessPackageItemRequestBuilder} from './accessPackages/item/accessPackageItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
@@ -17,17 +16,6 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
     public get accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageItemRequestBuilder
-     */
-    public accessPackagesById(id: string) : AccessPackageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackage%2Did"] = id
-        return new AccessPackageItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new AccessPackageCatalogItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

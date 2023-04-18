@@ -3,9 +3,10 @@ import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {RejectedSendersRequestBuilderGetRequestConfiguration} from './rejectedSendersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rejectedSenders property of the microsoft.graph.group entity.
@@ -19,6 +20,17 @@ export class RejectedSendersRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.rejectedSenders.item collection
+     * @param directoryObjectId Unique identifier of the item
+     * @returns a DirectoryObjectItemRequestBuilder
+     */
+    public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {
+        if(!directoryObjectId) throw new Error("directoryObjectId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RejectedSendersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

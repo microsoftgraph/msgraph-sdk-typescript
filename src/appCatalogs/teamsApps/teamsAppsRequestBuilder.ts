@@ -4,9 +4,10 @@ import {createTeamsAppFromDiscriminatorValue} from '../../models/createTeamsAppF
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamsAppItemRequestBuilder} from './item/teamsAppItemRequestBuilder';
 import {TeamsAppsRequestBuilderGetRequestConfiguration} from './teamsAppsRequestBuilderGetRequestConfiguration';
 import {TeamsAppsRequestBuilderPostRequestConfiguration} from './teamsAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
@@ -16,6 +17,17 @@ export class TeamsAppsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
+     * @param teamsAppId Unique identifier of the item
+     * @returns a TeamsAppItemRequestBuilder
+     */
+    public byTeamsAppId(teamsAppId: string) : TeamsAppItemRequestBuilder {
+        if(!teamsAppId) throw new Error("teamsAppId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsApp%2Did"] = teamsAppId
+        return new TeamsAppItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TeamsAppsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

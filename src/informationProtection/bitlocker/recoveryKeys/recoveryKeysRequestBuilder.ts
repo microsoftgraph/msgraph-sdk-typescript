@@ -3,8 +3,9 @@ import {createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue} from
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BitlockerRecoveryKeyItemRequestBuilder} from './item/bitlockerRecoveryKeyItemRequestBuilder';
 import {RecoveryKeysRequestBuilderGetRequestConfiguration} from './recoveryKeysRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
@@ -14,6 +15,17 @@ export class RecoveryKeysRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
+     * @param bitlockerRecoveryKeyId Unique identifier of the item
+     * @returns a BitlockerRecoveryKeyItemRequestBuilder
+     */
+    public byBitlockerRecoveryKeyId(bitlockerRecoveryKeyId: string) : BitlockerRecoveryKeyItemRequestBuilder {
+        if(!bitlockerRecoveryKeyId) throw new Error("bitlockerRecoveryKeyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bitlockerRecoveryKey%2Did"] = bitlockerRecoveryKeyId
+        return new BitlockerRecoveryKeyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RecoveryKeysRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

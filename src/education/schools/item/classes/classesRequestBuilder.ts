@@ -4,8 +4,9 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ClassesRequestBuilderGetRequestConfiguration} from './classesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationSchool entity.
@@ -19,6 +20,17 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item.classes.item collection
+     * @param educationClassId Unique identifier of the item
+     * @returns a EducationClassItemRequestBuilder
+     */
+    public byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder {
+        if(!educationClassId) throw new Error("educationClassId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationClass%2Did"] = educationClassId
+        return new EducationClassItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ClassesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

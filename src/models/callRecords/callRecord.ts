@@ -28,7 +28,7 @@ export class CallRecord extends Entity implements Parsable {
     /** Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version. */
     private _version?: number | undefined;
     /**
-     * Instantiates a new callRecord and sets the default values.
+     * Instantiates a new CallRecord and sets the default values.
      */
     public constructor() {
         super();

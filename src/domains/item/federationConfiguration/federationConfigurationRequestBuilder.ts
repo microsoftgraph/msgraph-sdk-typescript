@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederationConfigurationRequestBuilderGetRequestConfiguration} from './federationConfigurationRequestBuilderGetRequestConfiguration';
 import {FederationConfigurationRequestBuilderPostRequestConfiguration} from './federationConfigurationRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {InternalDomainFederationItemRequestBuilder} from './item/internalDomainFederationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
@@ -16,6 +17,17 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
+     * @param internalDomainFederationId Unique identifier of the item
+     * @returns a InternalDomainFederationItemRequestBuilder
+     */
+    public byInternalDomainFederationId(internalDomainFederationId: string) : InternalDomainFederationItemRequestBuilder {
+        if(!internalDomainFederationId) throw new Error("internalDomainFederationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["internalDomainFederation%2Did"] = internalDomainFederationId
+        return new InternalDomainFederationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new FederationConfigurationRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

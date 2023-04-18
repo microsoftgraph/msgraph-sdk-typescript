@@ -3,8 +3,9 @@ import {createDriveItemCollectionResponseFromDiscriminatorValue} from '../../../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
@@ -14,6 +15,17 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
+     * @param driveItemId Unique identifier of the item
+     * @returns a DriveItemItemRequestBuilder
+     */
+    public byDriveItemId(driveItemId: string) : DriveItemItemRequestBuilder {
+        if(!driveItemId) throw new Error("driveItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["driveItem%2Did"] = driveItemId
+        return new DriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AppRoleAssignmentsRequestBuilderGetRequestConfiguration} from './appRoleAssignmentsRequestBuilderGetRequestConfiguration';
 import {AppRoleAssignmentsRequestBuilderPostRequestConfiguration} from './appRoleAssignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AppRoleAssignmentItemRequestBuilder} from './item/appRoleAssignmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.
@@ -16,6 +17,17 @@ export class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.
+     * @param appRoleAssignmentId Unique identifier of the item
+     * @returns a AppRoleAssignmentItemRequestBuilder
+     */
+    public byAppRoleAssignmentId(appRoleAssignmentId: string) : AppRoleAssignmentItemRequestBuilder {
+        if(!appRoleAssignmentId) throw new Error("appRoleAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["appRoleAssignment%2Did"] = appRoleAssignmentId
+        return new AppRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AppRoleAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

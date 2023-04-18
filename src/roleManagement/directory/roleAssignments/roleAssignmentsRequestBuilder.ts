@@ -4,9 +4,10 @@ import {createUnifiedRoleAssignmentFromDiscriminatorValue} from '../../../models
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UnifiedRoleAssignmentItemRequestBuilder} from './item/unifiedRoleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
@@ -16,6 +17,17 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
+     * @param unifiedRoleAssignmentId Unique identifier of the item
+     * @returns a UnifiedRoleAssignmentItemRequestBuilder
+     */
+    public byUnifiedRoleAssignmentId(unifiedRoleAssignmentId: string) : UnifiedRoleAssignmentItemRequestBuilder {
+        if(!unifiedRoleAssignmentId) throw new Error("unifiedRoleAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleAssignment%2Did"] = unifiedRoleAssignmentId
+        return new UnifiedRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

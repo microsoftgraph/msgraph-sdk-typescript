@@ -6,7 +6,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DirectReportsRequestBuilderGetRequestConfiguration} from './directReportsRequestBuilderGetRequestConfiguration';
 import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directReports property of the microsoft.graph.user entity.
@@ -24,6 +25,17 @@ export class DirectReportsRequestBuilder extends BaseRequestBuilder {
     public get graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the directReports property of the microsoft.graph.user entity.
+     * @param directoryObjectId Unique identifier of the item
+     * @returns a DirectoryObjectItemRequestBuilder
+     */
+    public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {
+        if(!directoryObjectId) throw new Error("directoryObjectId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DirectReportsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

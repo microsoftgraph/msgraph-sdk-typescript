@@ -3,8 +3,9 @@ import {createSoftwareOathAuthenticationMethodCollectionResponseFromDiscriminato
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SoftwareOathAuthenticationMethodItemRequestBuilder} from './item/softwareOathAuthenticationMethodItemRequestBuilder';
 import {SoftwareOathMethodsRequestBuilderGetRequestConfiguration} from './softwareOathMethodsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
@@ -14,6 +15,17 @@ export class SoftwareOathMethodsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
+     * @param softwareOathAuthenticationMethodId Unique identifier of the item
+     * @returns a SoftwareOathAuthenticationMethodItemRequestBuilder
+     */
+    public bySoftwareOathAuthenticationMethodId(softwareOathAuthenticationMethodId: string) : SoftwareOathAuthenticationMethodItemRequestBuilder {
+        if(!softwareOathAuthenticationMethodId) throw new Error("softwareOathAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["softwareOathAuthenticationMethod%2Did"] = softwareOathAuthenticationMethodId
+        return new SoftwareOathAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SoftwareOathMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

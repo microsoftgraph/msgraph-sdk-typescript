@@ -4,9 +4,10 @@ import {createOnenotePageFromDiscriminatorValue} from '../../../../../../models/
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OnenotePageItemRequestBuilder} from './item/onenotePageItemRequestBuilder';
 import {PagesRequestBuilderGetRequestConfiguration} from './pagesRequestBuilderGetRequestConfiguration';
 import {PagesRequestBuilderPostRequestConfiguration} from './pagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
@@ -16,6 +17,17 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
+     * @param onenotePageId Unique identifier of the item
+     * @returns a OnenotePageItemRequestBuilder
+     */
+    public byOnenotePageId(onenotePageId: string) : OnenotePageItemRequestBuilder {
+        if(!onenotePageId) throw new Error("onenotePageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["onenotePage%2Did"] = onenotePageId
+        return new OnenotePageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

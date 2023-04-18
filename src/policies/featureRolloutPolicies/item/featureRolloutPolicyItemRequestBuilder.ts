@@ -3,11 +3,10 @@ import {createFeatureRolloutPolicyFromDiscriminatorValue} from '../../../models/
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './appliesTo/item/directoryObjectItemRequestBuilder';
 import {FeatureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration} from './featureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration} from './featureRolloutPolicyItemRequestBuilderGetRequestConfiguration';
 import {FeatureRolloutPolicyItemRequestBuilderPatchRequestConfiguration} from './featureRolloutPolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
@@ -17,17 +16,6 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
     public get appliesTo(): AppliesToRequestBuilder {
         return new AppliesToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.featureRolloutPolicies.item.appliesTo.item collection
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public appliesToById(id: string) : DirectoryObjectItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new FeatureRolloutPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

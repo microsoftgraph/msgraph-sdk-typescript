@@ -4,9 +4,10 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from '../../../models
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UnifiedRoleDefinitionItemRequestBuilder} from './item/unifiedRoleDefinitionItemRequestBuilder';
 import {RoleDefinitionsRequestBuilderGetRequestConfiguration} from './roleDefinitionsRequestBuilderGetRequestConfiguration';
 import {RoleDefinitionsRequestBuilderPostRequestConfiguration} from './roleDefinitionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
@@ -16,6 +17,17 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
+     * @param unifiedRoleDefinitionId Unique identifier of the item
+     * @returns a UnifiedRoleDefinitionItemRequestBuilder
+     */
+    public byUnifiedRoleDefinitionId(unifiedRoleDefinitionId: string) : UnifiedRoleDefinitionItemRequestBuilder {
+        if(!unifiedRoleDefinitionId) throw new Error("unifiedRoleDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleDefinition%2Did"] = unifiedRoleDefinitionId
+        return new UnifiedRoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleDefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

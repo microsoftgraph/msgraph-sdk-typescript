@@ -4,9 +4,10 @@ import {createPinnedChatMessageInfoFromDiscriminatorValue} from '../../../../../
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PinnedChatMessageInfoItemRequestBuilder} from './item/pinnedChatMessageInfoItemRequestBuilder';
 import {PinnedMessagesRequestBuilderGetRequestConfiguration} from './pinnedMessagesRequestBuilderGetRequestConfiguration';
 import {PinnedMessagesRequestBuilderPostRequestConfiguration} from './pinnedMessagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
@@ -16,6 +17,17 @@ export class PinnedMessagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
+     * @param pinnedChatMessageInfoId Unique identifier of the item
+     * @returns a PinnedChatMessageInfoItemRequestBuilder
+     */
+    public byPinnedChatMessageInfoId(pinnedChatMessageInfoId: string) : PinnedChatMessageInfoItemRequestBuilder {
+        if(!pinnedChatMessageInfoId) throw new Error("pinnedChatMessageInfoId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["pinnedChatMessageInfo%2Did"] = pinnedChatMessageInfoId
+        return new PinnedChatMessageInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PinnedMessagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

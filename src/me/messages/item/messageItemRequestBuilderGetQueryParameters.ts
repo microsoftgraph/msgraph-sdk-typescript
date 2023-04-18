@@ -5,6 +5,8 @@
 export class MessageItemRequestBuilderGetQueryParameters {
     /** Expand related entities */
     public expand?: string[] | undefined;
+    /** Include Hidden Messages */
+    public includeHiddenMessages?: string | undefined;
     /** Select properties to be returned */
     public select?: string[] | undefined;
     /**

@@ -4,9 +4,10 @@ import {createSecureScoreControlProfileFromDiscriminatorValue} from '../../model
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SecureScoreControlProfileItemRequestBuilder} from './item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilderGetRequestConfiguration} from './secureScoreControlProfilesRequestBuilderGetRequestConfiguration';
 import {SecureScoreControlProfilesRequestBuilderPostRequestConfiguration} from './secureScoreControlProfilesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
@@ -16,6 +17,17 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
+     * @param secureScoreControlProfileId Unique identifier of the item
+     * @returns a SecureScoreControlProfileItemRequestBuilder
+     */
+    public bySecureScoreControlProfileId(secureScoreControlProfileId: string) : SecureScoreControlProfileItemRequestBuilder {
+        if(!secureScoreControlProfileId) throw new Error("secureScoreControlProfileId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["secureScoreControlProfile%2Did"] = secureScoreControlProfileId
+        return new SecureScoreControlProfileItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SecureScoreControlProfilesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

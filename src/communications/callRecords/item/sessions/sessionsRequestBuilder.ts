@@ -4,9 +4,10 @@ import {createSessionFromDiscriminatorValue} from '../../../../models/callRecord
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SessionItemRequestBuilder} from './item/sessionItemRequestBuilder';
 import {SessionsRequestBuilderGetRequestConfiguration} from './sessionsRequestBuilderGetRequestConfiguration';
 import {SessionsRequestBuilderPostRequestConfiguration} from './sessionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
@@ -16,6 +17,17 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
+     * @param sessionId Unique identifier of the item
+     * @returns a SessionItemRequestBuilder
+     */
+    public bySessionId(sessionId: string) : SessionItemRequestBuilder {
+        if(!sessionId) throw new Error("sessionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["session%2Did"] = sessionId
+        return new SessionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SessionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

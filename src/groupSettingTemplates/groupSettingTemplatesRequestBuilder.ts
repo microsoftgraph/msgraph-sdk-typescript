@@ -9,8 +9,9 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {GroupSettingTemplatesRequestBuilderGetRequestConfiguration} from './groupSettingTemplatesRequestBuilderGetRequestConfiguration';
 import {GroupSettingTemplatesRequestBuilderPostRequestConfiguration} from './groupSettingTemplatesRequestBuilderPostRequestConfiguration';
+import {GroupSettingTemplateItemRequestBuilder} from './item/groupSettingTemplateItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSettingTemplate entities.
@@ -36,6 +37,17 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of groupSettingTemplate entities.
+     * @param groupSettingTemplateId Unique identifier of the item
+     * @returns a GroupSettingTemplateItemRequestBuilder
+     */
+    public byGroupSettingTemplateId(groupSettingTemplateId: string) : GroupSettingTemplateItemRequestBuilder {
+        if(!groupSettingTemplateId) throw new Error("groupSettingTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["groupSettingTemplate%2Did"] = groupSettingTemplateId
+        return new GroupSettingTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new GroupSettingTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

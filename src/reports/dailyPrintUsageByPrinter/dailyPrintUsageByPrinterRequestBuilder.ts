@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration';
 import {DailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PrintUsageByPrinterItemRequestBuilder} from './item/printUsageByPrinterItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
@@ -16,6 +17,17 @@ export class DailyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
+     * @param printUsageByPrinterId Unique identifier of the item
+     * @returns a PrintUsageByPrinterItemRequestBuilder
+     */
+    public byPrintUsageByPrinterId(printUsageByPrinterId: string) : PrintUsageByPrinterItemRequestBuilder {
+        if(!printUsageByPrinterId) throw new Error("printUsageByPrinterId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printUsageByPrinter%2Did"] = printUsageByPrinterId
+        return new PrintUsageByPrinterItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DailyPrintUsageByPrinterRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {createDelegatedAdminRelationshipRequestFromDiscriminatorValue} from '../
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DelegatedAdminRelationshipRequestItemRequestBuilder} from './item/delegatedAdminRelationshipRequestItemRequestBuilder';
 import {RequestsRequestBuilderGetRequestConfiguration} from './requestsRequestBuilderGetRequestConfiguration';
 import {RequestsRequestBuilderPostRequestConfiguration} from './requestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -16,6 +17,17 @@ export class RequestsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
+     * @param delegatedAdminRelationshipRequestId Unique identifier of the item
+     * @returns a DelegatedAdminRelationshipRequestItemRequestBuilder
+     */
+    public byDelegatedAdminRelationshipRequestId(delegatedAdminRelationshipRequestId: string) : DelegatedAdminRelationshipRequestItemRequestBuilder {
+        if(!delegatedAdminRelationshipRequestId) throw new Error("delegatedAdminRelationshipRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminRelationshipRequest%2Did"] = delegatedAdminRelationshipRequestId
+        return new DelegatedAdminRelationshipRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

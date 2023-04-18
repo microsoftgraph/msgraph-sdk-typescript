@@ -3,11 +3,10 @@ import {createUserInstallStateSummaryFromDiscriminatorValue} from '../../../../.
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DeviceStatesRequestBuilder} from './deviceStates/deviceStatesRequestBuilder';
-import {DeviceInstallStateItemRequestBuilder} from './deviceStates/item/deviceInstallStateItemRequestBuilder';
 import {UserInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderGetRequestConfiguration';
 import {UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
@@ -39,17 +38,6 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceInstallStateItemRequestBuilder
-     */
-    public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceInstallState%2Did"] = id
-        return new DeviceInstallStateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The list of installation states for this eBook.

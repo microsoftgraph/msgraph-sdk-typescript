@@ -4,8 +4,9 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllowedUsersRequestBuilderGetRequestConfiguration} from './allowedUsersRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UserItemRequestBuilder} from './item/userItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedUsers property of the microsoft.graph.printerShare entity.
@@ -19,6 +20,17 @@ export class AllowedUsersRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item.allowedUsers.item collection
+     * @param userId Unique identifier of the item
+     * @returns a UserItemRequestBuilder
+     */
+    public byUserId(userId: string) : UserItemRequestBuilder {
+        if(!userId) throw new Error("userId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["user%2Did"] = userId
+        return new UserItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AllowedUsersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

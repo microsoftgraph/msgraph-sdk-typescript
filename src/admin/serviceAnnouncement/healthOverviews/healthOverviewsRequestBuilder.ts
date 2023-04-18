@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HealthOverviewsRequestBuilderGetRequestConfiguration} from './healthOverviewsRequestBuilderGetRequestConfiguration';
 import {HealthOverviewsRequestBuilderPostRequestConfiguration} from './healthOverviewsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ServiceHealthItemRequestBuilder} from './item/serviceHealthItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
@@ -16,6 +17,17 @@ export class HealthOverviewsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
+     * @param serviceHealthId Unique identifier of the item
+     * @returns a ServiceHealthItemRequestBuilder
+     */
+    public byServiceHealthId(serviceHealthId: string) : ServiceHealthItemRequestBuilder {
+        if(!serviceHealthId) throw new Error("serviceHealthId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["serviceHealth%2Did"] = serviceHealthId
+        return new ServiceHealthItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new HealthOverviewsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

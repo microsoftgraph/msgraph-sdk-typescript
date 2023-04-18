@@ -5,10 +5,9 @@ import {createEdiscoveryReviewSetFromDiscriminatorValue} from '../../../../../..
 import {EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderPatchRequestConfiguration';
-import {EdiscoveryReviewSetQueryItemRequestBuilder} from './queries/item/ediscoveryReviewSetQueryItemRequestBuilder';
 import {QueriesRequestBuilder} from './queries/queriesRequestBuilder';
 import {SecurityAddToReviewSetRequestBuilder} from './securityAddToReviewSet/securityAddToReviewSetRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
@@ -78,17 +77,6 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<EdiscoveryReviewSet>(requestInfo, createEdiscoveryReviewSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryReviewSetQueryItemRequestBuilder
-     */
-    public queriesById(id: string) : EdiscoveryReviewSetQueryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryReviewSetQuery%2Did"] = id
-        return new EdiscoveryReviewSetQueryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property reviewSets for security

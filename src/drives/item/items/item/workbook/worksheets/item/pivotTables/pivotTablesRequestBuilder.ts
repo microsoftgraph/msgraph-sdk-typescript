@@ -4,10 +4,11 @@ import {createWorkbookPivotTableFromDiscriminatorValue} from '../../../../../../
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookPivotTableItemRequestBuilder} from './item/workbookPivotTableItemRequestBuilder';
 import {PivotTablesRequestBuilderGetRequestConfiguration} from './pivotTablesRequestBuilderGetRequestConfiguration';
 import {PivotTablesRequestBuilderPostRequestConfiguration} from './pivotTablesRequestBuilderPostRequestConfiguration';
 import {RefreshAllRequestBuilder} from './refreshAll/refreshAllRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
@@ -21,6 +22,17 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
     public get refreshAll(): RefreshAllRequestBuilder {
         return new RefreshAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
+     * @param workbookPivotTableId Unique identifier of the item
+     * @returns a WorkbookPivotTableItemRequestBuilder
+     */
+    public byWorkbookPivotTableId(workbookPivotTableId: string) : WorkbookPivotTableItemRequestBuilder {
+        if(!workbookPivotTableId) throw new Error("workbookPivotTableId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookPivotTable%2Did"] = workbookPivotTableId
+        return new WorkbookPivotTableItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PivotTablesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

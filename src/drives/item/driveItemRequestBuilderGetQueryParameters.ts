@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+ * Get entity from drives by key
  */
 export class DriveItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilderGetRequestConfiguration} from './featureRolloutPoliciesRequestBuilderGetRequestConfiguration';
 import {FeatureRolloutPoliciesRequestBuilderPostRequestConfiguration} from './featureRolloutPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {FeatureRolloutPolicyItemRequestBuilder} from './item/featureRolloutPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
@@ -16,6 +17,17 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
+     * @param featureRolloutPolicyId Unique identifier of the item
+     * @returns a FeatureRolloutPolicyItemRequestBuilder
+     */
+    public byFeatureRolloutPolicyId(featureRolloutPolicyId: string) : FeatureRolloutPolicyItemRequestBuilder {
+        if(!featureRolloutPolicyId) throw new Error("featureRolloutPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["featureRolloutPolicy%2Did"] = featureRolloutPolicyId
+        return new FeatureRolloutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new FeatureRolloutPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

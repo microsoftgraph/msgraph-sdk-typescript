@@ -2,12 +2,11 @@ import {SimulationAutomation} from '../../../../models/';
 import {createSimulationAutomationFromDiscriminatorValue} from '../../../../models/createSimulationAutomationFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {SimulationAutomationRunItemRequestBuilder} from './runs/item/simulationAutomationRunItemRequestBuilder';
 import {RunsRequestBuilder} from './runs/runsRequestBuilder';
 import {SimulationAutomationItemRequestBuilderDeleteRequestConfiguration} from './simulationAutomationItemRequestBuilderDeleteRequestConfiguration';
 import {SimulationAutomationItemRequestBuilderGetRequestConfiguration} from './simulationAutomationItemRequestBuilderGetRequestConfiguration';
 import {SimulationAutomationItemRequestBuilderPatchRequestConfiguration} from './simulationAutomationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
@@ -73,17 +72,6 @@ export class SimulationAutomationItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SimulationAutomation>(requestInfo, createSimulationAutomationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
-     * @param id Unique identifier of the item
-     * @returns a SimulationAutomationRunItemRequestBuilder
-     */
-    public runsById(id: string) : SimulationAutomationRunItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["simulationAutomationRun%2Did"] = id
-        return new SimulationAutomationRunItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property simulationAutomations for security

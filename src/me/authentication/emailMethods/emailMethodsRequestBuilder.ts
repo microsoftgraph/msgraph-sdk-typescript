@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EmailMethodsRequestBuilderGetRequestConfiguration} from './emailMethodsRequestBuilderGetRequestConfiguration';
 import {EmailMethodsRequestBuilderPostRequestConfiguration} from './emailMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EmailAuthenticationMethodItemRequestBuilder} from './item/emailAuthenticationMethodItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
@@ -16,6 +17,17 @@ export class EmailMethodsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
+     * @param emailAuthenticationMethodId Unique identifier of the item
+     * @returns a EmailAuthenticationMethodItemRequestBuilder
+     */
+    public byEmailAuthenticationMethodId(emailAuthenticationMethodId: string) : EmailAuthenticationMethodItemRequestBuilder {
+        if(!emailAuthenticationMethodId) throw new Error("emailAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["emailAuthenticationMethod%2Did"] = emailAuthenticationMethodId
+        return new EmailAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new EmailMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

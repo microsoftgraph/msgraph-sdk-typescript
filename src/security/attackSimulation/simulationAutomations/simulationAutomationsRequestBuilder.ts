@@ -4,9 +4,10 @@ import {createSimulationAutomationFromDiscriminatorValue} from '../../../models/
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SimulationAutomationItemRequestBuilder} from './item/simulationAutomationItemRequestBuilder';
 import {SimulationAutomationsRequestBuilderGetRequestConfiguration} from './simulationAutomationsRequestBuilderGetRequestConfiguration';
 import {SimulationAutomationsRequestBuilderPostRequestConfiguration} from './simulationAutomationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
@@ -16,6 +17,17 @@ export class SimulationAutomationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
+     * @param simulationAutomationId Unique identifier of the item
+     * @returns a SimulationAutomationItemRequestBuilder
+     */
+    public bySimulationAutomationId(simulationAutomationId: string) : SimulationAutomationItemRequestBuilder {
+        if(!simulationAutomationId) throw new Error("simulationAutomationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["simulationAutomation%2Did"] = simulationAutomationId
+        return new SimulationAutomationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SimulationAutomationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

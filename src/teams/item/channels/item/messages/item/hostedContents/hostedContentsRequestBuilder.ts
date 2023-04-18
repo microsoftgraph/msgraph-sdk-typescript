@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostedContentsRequestBuilderGetRequestConfiguration} from './hostedContentsRequestBuilderGetRequestConfiguration';
 import {HostedContentsRequestBuilderPostRequestConfiguration} from './hostedContentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ChatMessageHostedContentItemRequestBuilder} from './item/chatMessageHostedContentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
@@ -16,6 +17,17 @@ export class HostedContentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
+     * @param chatMessageHostedContentId Unique identifier of the item
+     * @returns a ChatMessageHostedContentItemRequestBuilder
+     */
+    public byChatMessageHostedContentId(chatMessageHostedContentId: string) : ChatMessageHostedContentItemRequestBuilder {
+        if(!chatMessageHostedContentId) throw new Error("chatMessageHostedContentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["chatMessageHostedContent%2Did"] = chatMessageHostedContentId
+        return new ChatMessageHostedContentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new HostedContentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

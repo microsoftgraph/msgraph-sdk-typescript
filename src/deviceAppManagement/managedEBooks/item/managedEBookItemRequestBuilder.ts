@@ -4,16 +4,13 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {ManagedEBookAssignmentItemRequestBuilder} from './assignments/item/managedEBookAssignmentItemRequestBuilder';
 import {DeviceStatesRequestBuilder} from './deviceStates/deviceStatesRequestBuilder';
-import {DeviceInstallStateItemRequestBuilder} from './deviceStates/item/deviceInstallStateItemRequestBuilder';
 import {InstallSummaryRequestBuilder} from './installSummary/installSummaryRequestBuilder';
 import {ManagedEBookItemRequestBuilderDeleteRequestConfiguration} from './managedEBookItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedEBookItemRequestBuilderGetRequestConfiguration} from './managedEBookItemRequestBuilderGetRequestConfiguration';
 import {ManagedEBookItemRequestBuilderPatchRequestConfiguration} from './managedEBookItemRequestBuilderPatchRequestConfiguration';
-import {UserInstallStateSummaryItemRequestBuilder} from './userStateSummary/item/userInstallStateSummaryItemRequestBuilder';
 import {UserStateSummaryRequestBuilder} from './userStateSummary/userStateSummaryRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
@@ -40,17 +37,6 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         return new UserStateSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedEBookAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : ManagedEBookAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedEBookAssignment%2Did"] = id
-        return new ManagedEBookAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new ManagedEBookItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -72,17 +58,6 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceInstallStateItemRequestBuilder
-     */
-    public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceInstallState%2Did"] = id
-        return new DeviceInstallStateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The Managed eBook.
@@ -171,16 +146,5 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
-     * @param id Unique identifier of the item
-     * @returns a UserInstallStateSummaryItemRequestBuilder
-     */
-    public userStateSummaryById(id: string) : UserInstallStateSummaryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["userInstallStateSummary%2Did"] = id
-        return new UserInstallStateSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

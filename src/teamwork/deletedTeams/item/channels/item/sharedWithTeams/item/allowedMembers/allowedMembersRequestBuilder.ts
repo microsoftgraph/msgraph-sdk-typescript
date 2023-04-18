@@ -4,7 +4,8 @@ import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllowedMembersRequestBuilderGetRequestConfiguration} from './allowedMembersRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ConversationMemberItemRequestBuilder} from './item/conversationMemberItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
@@ -14,6 +15,17 @@ export class AllowedMembersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
+     * @param conversationMemberId Unique identifier of the item
+     * @returns a ConversationMemberItemRequestBuilder
+     */
+    public byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder {
+        if(!conversationMemberId) throw new Error("conversationMemberId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["conversationMember%2Did"] = conversationMemberId
+        return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AllowedMembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

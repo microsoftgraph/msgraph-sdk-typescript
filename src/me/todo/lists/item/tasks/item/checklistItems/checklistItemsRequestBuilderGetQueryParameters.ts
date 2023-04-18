@@ -1,6 +1,6 @@
 
 /**
- * A collection of checklistItems linked to a task.
+ * Get the checklistItem resources associated to a todoTask from the checklistItems navigation property.
  */
 export class ChecklistItemsRequestBuilderGetQueryParameters {
     /** Include count of items */

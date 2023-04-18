@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryDefinitionsRequestBuilderGetRequestConfiguration} from './historyDefinitionsRequestBuilderGetRequestConfiguration';
 import {HistoryDefinitionsRequestBuilderPostRequestConfiguration} from './historyDefinitionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewHistoryDefinitionItemRequestBuilder} from './item/accessReviewHistoryDefinitionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
@@ -16,6 +17,17 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
+     * @param accessReviewHistoryDefinitionId Unique identifier of the item
+     * @returns a AccessReviewHistoryDefinitionItemRequestBuilder
+     */
+    public byAccessReviewHistoryDefinitionId(accessReviewHistoryDefinitionId: string) : AccessReviewHistoryDefinitionItemRequestBuilder {
+        if(!accessReviewHistoryDefinitionId) throw new Error("accessReviewHistoryDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewHistoryDefinition%2Did"] = accessReviewHistoryDefinitionId
+        return new AccessReviewHistoryDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new HistoryDefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

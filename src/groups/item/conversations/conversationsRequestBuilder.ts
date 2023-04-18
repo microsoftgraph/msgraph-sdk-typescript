@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ConversationsRequestBuilderGetRequestConfiguration} from './conversationsRequestBuilderGetRequestConfiguration';
 import {ConversationsRequestBuilderPostRequestConfiguration} from './conversationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ConversationItemRequestBuilder} from './item/conversationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
@@ -16,6 +17,17 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the conversations property of the microsoft.graph.group entity.
+     * @param conversationId Unique identifier of the item
+     * @returns a ConversationItemRequestBuilder
+     */
+    public byConversationId(conversationId: string) : ConversationItemRequestBuilder {
+        if(!conversationId) throw new Error("conversationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["conversation%2Did"] = conversationId
+        return new ConversationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ConversationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

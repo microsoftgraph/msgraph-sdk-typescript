@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
 import {FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {FederatedIdentityCredentialItemRequestBuilder} from './item/federatedIdentityCredentialItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
@@ -16,6 +17,17 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
+     * @param federatedIdentityCredentialId Unique identifier of the item
+     * @returns a FederatedIdentityCredentialItemRequestBuilder
+     */
+    public byFederatedIdentityCredentialId(federatedIdentityCredentialId: string) : FederatedIdentityCredentialItemRequestBuilder {
+        if(!federatedIdentityCredentialId) throw new Error("federatedIdentityCredentialId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["federatedIdentityCredential%2Did"] = federatedIdentityCredentialId
+        return new FederatedIdentityCredentialItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new FederatedIdentityCredentialsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

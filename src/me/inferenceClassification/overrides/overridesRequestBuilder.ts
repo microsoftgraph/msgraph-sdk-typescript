@@ -4,9 +4,10 @@ import {createInferenceClassificationOverrideFromDiscriminatorValue} from '../..
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {InferenceClassificationOverrideItemRequestBuilder} from './item/inferenceClassificationOverrideItemRequestBuilder';
 import {OverridesRequestBuilderGetRequestConfiguration} from './overridesRequestBuilderGetRequestConfiguration';
 import {OverridesRequestBuilderPostRequestConfiguration} from './overridesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
@@ -16,6 +17,17 @@ export class OverridesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
+     * @param inferenceClassificationOverrideId Unique identifier of the item
+     * @returns a InferenceClassificationOverrideItemRequestBuilder
+     */
+    public byInferenceClassificationOverrideId(inferenceClassificationOverrideId: string) : InferenceClassificationOverrideItemRequestBuilder {
+        if(!inferenceClassificationOverrideId) throw new Error("inferenceClassificationOverrideId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["inferenceClassificationOverride%2Did"] = inferenceClassificationOverrideId
+        return new InferenceClassificationOverrideItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OverridesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

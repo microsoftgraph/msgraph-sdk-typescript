@@ -3,8 +3,9 @@ import {createEducationClassCollectionResponseFromDiscriminatorValue} from '../.
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
 import {TaughtClassesRequestBuilderGetRequestConfiguration} from './taughtClassesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
@@ -14,6 +15,17 @@ export class TaughtClassesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+     * @param educationClassId Unique identifier of the item
+     * @returns a EducationClassItemRequestBuilder
+     */
+    public byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder {
+        if(!educationClassId) throw new Error("educationClassId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationClass%2Did"] = educationClassId
+        return new EducationClassItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TaughtClassesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

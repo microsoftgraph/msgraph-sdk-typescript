@@ -5,9 +5,10 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {OAuth2PermissionGrantItemRequestBuilder} from './item/oAuth2PermissionGrantItemRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderGetRequestConfiguration';
 import {Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.
@@ -21,6 +22,17 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of oAuth2PermissionGrant entities.
+     * @param oAuth2PermissionGrantId Unique identifier of the item
+     * @returns a OAuth2PermissionGrantItemRequestBuilder
+     */
+    public byOAuth2PermissionGrantId(oAuth2PermissionGrantId: string) : OAuth2PermissionGrantItemRequestBuilder {
+        if(!oAuth2PermissionGrantId) throw new Error("oAuth2PermissionGrantId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["oAuth2PermissionGrant%2Did"] = oAuth2PermissionGrantId
+        return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new Oauth2PermissionGrantsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

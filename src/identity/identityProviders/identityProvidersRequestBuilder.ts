@@ -7,7 +7,8 @@ import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/ava
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identityProvidersRequestBuilderGetRequestConfiguration';
 import {IdentityProvidersRequestBuilderPostRequestConfiguration} from './identityProvidersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {IdentityProviderBaseItemRequestBuilder} from './item/identityProviderBaseItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
@@ -21,6 +22,17 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
+     * @param identityProviderBaseId Unique identifier of the item
+     * @returns a IdentityProviderBaseItemRequestBuilder
+     */
+    public byIdentityProviderBaseId(identityProviderBaseId: string) : IdentityProviderBaseItemRequestBuilder {
+        if(!identityProviderBaseId) throw new Error("identityProviderBaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityProviderBase%2Did"] = identityProviderBaseId
+        return new IdentityProviderBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

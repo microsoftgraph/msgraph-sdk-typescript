@@ -5,10 +5,11 @@ import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookTableRowItemRequestBuilder} from './item/workbookTableRowItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {RowsRequestBuilderGetRequestConfiguration} from './rowsRequestBuilderGetRequestConfiguration';
 import {RowsRequestBuilderPostRequestConfiguration} from './rowsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
@@ -22,6 +23,17 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
+     * @param workbookTableRowId Unique identifier of the item
+     * @returns a WorkbookTableRowItemRequestBuilder
+     */
+    public byWorkbookTableRowId(workbookTableRowId: string) : WorkbookTableRowItemRequestBuilder {
+        if(!workbookTableRowId) throw new Error("workbookTableRowId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookTableRow%2Did"] = workbookTableRowId
+        return new WorkbookTableRowItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RowsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

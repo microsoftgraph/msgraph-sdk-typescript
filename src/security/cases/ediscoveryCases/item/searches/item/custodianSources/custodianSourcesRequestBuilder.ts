@@ -4,7 +4,8 @@ import {DataSourceCollectionResponse} from '../../../../../../../models/security
 import {createDataSourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createDataSourceCollectionResponseFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustodianSourcesRequestBuilderGetRequestConfiguration} from './custodianSourcesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DataSourceItemRequestBuilder} from './item/dataSourceItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -14,6 +15,17 @@ export class CustodianSourcesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
+     * @param dataSourceId Unique identifier of the item
+     * @returns a DataSourceItemRequestBuilder
+     */
+    public byDataSourceId(dataSourceId: string) : DataSourceItemRequestBuilder {
+        if(!dataSourceId) throw new Error("dataSourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["dataSource%2Did"] = dataSourceId
+        return new DataSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CustodianSourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {MessageItemRequestBuilder} from './item/messageItemRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
@@ -21,6 +22,17 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
+     * @param messageId Unique identifier of the item
+     * @returns a MessageItemRequestBuilder
+     */
+    public byMessageId(messageId: string) : MessageItemRequestBuilder {
+        if(!messageId) throw new Error("messageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["message%2Did"] = messageId
+        return new MessageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MessagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

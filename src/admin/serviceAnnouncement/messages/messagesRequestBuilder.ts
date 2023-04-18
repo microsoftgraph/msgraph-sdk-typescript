@@ -6,13 +6,14 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FavoriteRequestBuilder} from './favorite/favoriteRequestBuilder';
+import {ServiceUpdateMessageItemRequestBuilder} from './item/serviceUpdateMessageItemRequestBuilder';
 import {MarkReadRequestBuilder} from './markRead/markReadRequestBuilder';
 import {MarkUnreadRequestBuilder} from './markUnread/markUnreadRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
@@ -46,6 +47,17 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     public get unfavorite(): UnfavoriteRequestBuilder {
         return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+     * @param serviceUpdateMessageId Unique identifier of the item
+     * @returns a ServiceUpdateMessageItemRequestBuilder
+     */
+    public byServiceUpdateMessageId(serviceUpdateMessageId: string) : ServiceUpdateMessageItemRequestBuilder {
+        if(!serviceUpdateMessageId) throw new Error("serviceUpdateMessageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["serviceUpdateMessage%2Did"] = serviceUpdateMessageId
+        return new ServiceUpdateMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MessagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

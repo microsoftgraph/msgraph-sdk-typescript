@@ -9,8 +9,9 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {ApplicationItemRequestBuilder} from './item/applicationItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.
@@ -36,6 +37,17 @@ export class ApplicationsRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of application entities.
+     * @param applicationId Unique identifier of the item
+     * @returns a ApplicationItemRequestBuilder
+     */
+    public byApplicationId(applicationId: string) : ApplicationItemRequestBuilder {
+        if(!applicationId) throw new Error("applicationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["application%2Did"] = applicationId
+        return new ApplicationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ApplicationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

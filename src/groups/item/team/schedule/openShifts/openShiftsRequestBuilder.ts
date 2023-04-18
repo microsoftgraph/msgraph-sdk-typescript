@@ -4,9 +4,10 @@ import {createOpenShiftFromDiscriminatorValue} from '../../../../../models/creat
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OpenShiftItemRequestBuilder} from './item/openShiftItemRequestBuilder';
 import {OpenShiftsRequestBuilderGetRequestConfiguration} from './openShiftsRequestBuilderGetRequestConfiguration';
 import {OpenShiftsRequestBuilderPostRequestConfiguration} from './openShiftsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
@@ -16,6 +17,17 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
+     * @param openShiftId Unique identifier of the item
+     * @returns a OpenShiftItemRequestBuilder
+     */
+    public byOpenShiftId(openShiftId: string) : OpenShiftItemRequestBuilder {
+        if(!openShiftId) throw new Error("openShiftId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["openShift%2Did"] = openShiftId
+        return new OpenShiftItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OpenShiftsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -42,11 +54,12 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OpenShiftCollectionResponse>(requestInfo, createOpenShiftCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to openShifts for groups
+     * Create an instance of an openShift object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShift
+     * @see {@link https://docs.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OpenShift | undefined, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShift | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +91,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to openShifts for groups
+     * Create an instance of an openShift object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {ContentSharingSessionsRequestBuilderGetRequestConfiguration} from './contentSharingSessionsRequestBuilderGetRequestConfiguration';
 import {ContentSharingSessionsRequestBuilderPostRequestConfiguration} from './contentSharingSessionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ContentSharingSessionItemRequestBuilder} from './item/contentSharingSessionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
@@ -16,6 +17,17 @@ export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
+     * @param contentSharingSessionId Unique identifier of the item
+     * @returns a ContentSharingSessionItemRequestBuilder
+     */
+    public byContentSharingSessionId(contentSharingSessionId: string) : ContentSharingSessionItemRequestBuilder {
+        if(!contentSharingSessionId) throw new Error("contentSharingSessionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["contentSharingSession%2Did"] = contentSharingSessionId
+        return new ContentSharingSessionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ContentSharingSessionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

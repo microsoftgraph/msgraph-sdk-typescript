@@ -4,9 +4,10 @@ import {createPlannerPlanFromDiscriminatorValue} from '../../../models/createPla
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PlannerPlanItemRequestBuilder} from './item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilderGetRequestConfiguration} from './plansRequestBuilderGetRequestConfiguration';
 import {PlansRequestBuilderPostRequestConfiguration} from './plansRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
@@ -16,6 +17,17 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
+     * @param plannerPlanId Unique identifier of the item
+     * @returns a PlannerPlanItemRequestBuilder
+     */
+    public byPlannerPlanId(plannerPlanId: string) : PlannerPlanItemRequestBuilder {
+        if(!plannerPlanId) throw new Error("plannerPlanId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["plannerPlan%2Did"] = plannerPlanId
+        return new PlannerPlanItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PlansRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

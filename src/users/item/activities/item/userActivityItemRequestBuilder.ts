@@ -3,11 +3,10 @@ import {createUserActivityFromDiscriminatorValue} from '../../../../models/creat
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {HistoryItemsRequestBuilder} from './historyItems/historyItemsRequestBuilder';
-import {ActivityHistoryItemItemRequestBuilder} from './historyItems/item/activityHistoryItemItemRequestBuilder';
 import {UserActivityItemRequestBuilderDeleteRequestConfiguration} from './userActivityItemRequestBuilderDeleteRequestConfiguration';
 import {UserActivityItemRequestBuilderGetRequestConfiguration} from './userActivityItemRequestBuilderGetRequestConfiguration';
 import {UserActivityItemRequestBuilderPatchRequestConfiguration} from './userActivityItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.user entity.
@@ -55,17 +54,6 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<UserActivity>(requestInfo, createUserActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
-     * @param id Unique identifier of the item
-     * @returns a ActivityHistoryItemItemRequestBuilder
-     */
-    public historyItemsById(id: string) : ActivityHistoryItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["activityHistoryItem%2Did"] = id
-        return new ActivityHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property activities in users

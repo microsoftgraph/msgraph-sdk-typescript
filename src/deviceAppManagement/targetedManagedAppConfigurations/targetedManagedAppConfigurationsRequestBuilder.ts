@@ -4,9 +4,10 @@ import {createTargetedManagedAppConfigurationFromDiscriminatorValue} from '../..
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TargetedManagedAppConfigurationItemRequestBuilder} from './item/targetedManagedAppConfigurationItemRequestBuilder';
 import {TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+     * @param targetedManagedAppConfigurationId Unique identifier of the item
+     * @returns a TargetedManagedAppConfigurationItemRequestBuilder
+     */
+    public byTargetedManagedAppConfigurationId(targetedManagedAppConfigurationId: string) : TargetedManagedAppConfigurationItemRequestBuilder {
+        if(!targetedManagedAppConfigurationId) throw new Error("targetedManagedAppConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["targetedManagedAppConfiguration%2Did"] = targetedManagedAppConfigurationId
+        return new TargetedManagedAppConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TargetedManagedAppConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

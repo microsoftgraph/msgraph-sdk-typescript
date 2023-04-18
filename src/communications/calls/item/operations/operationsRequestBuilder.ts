@@ -4,9 +4,10 @@ import {createCommsOperationFromDiscriminatorValue} from '../../../../models/cre
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {CommsOperationItemRequestBuilder} from './item/commsOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.call entity.
@@ -16,6 +17,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.call entity.
+     * @param commsOperationId Unique identifier of the item
+     * @returns a CommsOperationItemRequestBuilder
+     */
+    public byCommsOperationId(commsOperationId: string) : CommsOperationItemRequestBuilder {
+        if(!commsOperationId) throw new Error("commsOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["commsOperation%2Did"] = commsOperationId
+        return new CommsOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

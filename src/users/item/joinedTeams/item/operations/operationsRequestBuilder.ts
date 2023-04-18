@@ -4,9 +4,10 @@ import {createTeamsAsyncOperationFromDiscriminatorValue} from '../../../../../mo
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamsAsyncOperationItemRequestBuilder} from './item/teamsAsyncOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.team entity.
@@ -16,6 +17,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.team entity.
+     * @param teamsAsyncOperationId Unique identifier of the item
+     * @returns a TeamsAsyncOperationItemRequestBuilder
+     */
+    public byTeamsAsyncOperationId(teamsAsyncOperationId: string) : TeamsAsyncOperationItemRequestBuilder {
+        if(!teamsAsyncOperationId) throw new Error("teamsAsyncOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsAsyncOperation%2Did"] = teamsAsyncOperationId
+        return new TeamsAsyncOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

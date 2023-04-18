@@ -4,9 +4,10 @@ import {createOpenShiftChangeRequestFromDiscriminatorValue} from '../../../../..
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OpenShiftChangeRequestItemRequestBuilder} from './item/openShiftChangeRequestItemRequestBuilder';
 import {OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration} from './openShiftChangeRequestsRequestBuilderGetRequestConfiguration';
 import {OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration} from './openShiftChangeRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
@@ -16,6 +17,17 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
+     * @param openShiftChangeRequestId Unique identifier of the item
+     * @returns a OpenShiftChangeRequestItemRequestBuilder
+     */
+    public byOpenShiftChangeRequestId(openShiftChangeRequestId: string) : OpenShiftChangeRequestItemRequestBuilder {
+        if(!openShiftChangeRequestId) throw new Error("openShiftChangeRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["openShiftChangeRequest%2Did"] = openShiftChangeRequestId
+        return new OpenShiftChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OpenShiftChangeRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

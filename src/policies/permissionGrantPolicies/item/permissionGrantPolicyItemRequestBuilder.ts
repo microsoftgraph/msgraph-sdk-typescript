@@ -3,13 +3,11 @@ import {createPermissionGrantPolicyFromDiscriminatorValue} from '../../../models
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
-import {PermissionGrantConditionSetItemRequestBuilder as I1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c} from './excludes/item/permissionGrantConditionSetItemRequestBuilder';
 import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
-import {PermissionGrantConditionSetItemRequestBuilder as I9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f} from './includes/item/permissionGrantConditionSetItemRequestBuilder';
 import {PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderGetRequestConfiguration';
 import {PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,17 +45,6 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a PermissionGrantConditionSetItemRequestBuilder
-     */
-    public excludesById(id: string) : I1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["permissionGrantConditionSet%2Did"] = id
-        return new I1de425db59fc7a06aa6b53fd64ff14ab529beb4d0ae123c9d20ff450221dc84c(urlTplParams, this.requestAdapter);
-    };
-    /**
      * The policy that specifies the conditions under which consent can be granted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -72,17 +59,6 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<PermissionGrantPolicy>(requestInfo, createPermissionGrantPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a PermissionGrantConditionSetItemRequestBuilder
-     */
-    public includesById(id: string) : I9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["permissionGrantConditionSet%2Did"] = id
-        return new I9067e26394e951d2b2b0e68ce6a008b8c038bd570d8dff07053a60f58777011f(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property permissionGrantPolicies in policies

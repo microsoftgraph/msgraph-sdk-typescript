@@ -3,37 +3,27 @@ import {createPolicyRootFromDiscriminatorValue} from '../models/createPolicyRoot
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ActivityBasedTimeoutPoliciesRequestBuilder} from './activityBasedTimeoutPolicies/activityBasedTimeoutPoliciesRequestBuilder';
-import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './activityBasedTimeoutPolicies/item/activityBasedTimeoutPolicyItemRequestBuilder';
 import {AdminConsentRequestPolicyRequestBuilder} from './adminConsentRequestPolicy/adminConsentRequestPolicyRequestBuilder';
 import {AppManagementPoliciesRequestBuilder} from './appManagementPolicies/appManagementPoliciesRequestBuilder';
-import {AppManagementPolicyItemRequestBuilder} from './appManagementPolicies/item/appManagementPolicyItemRequestBuilder';
 import {AuthenticationFlowsPolicyRequestBuilder} from './authenticationFlowsPolicy/authenticationFlowsPolicyRequestBuilder';
 import {AuthenticationMethodsPolicyRequestBuilder} from './authenticationMethodsPolicy/authenticationMethodsPolicyRequestBuilder';
+import {AuthenticationStrengthPoliciesRequestBuilder} from './authenticationStrengthPolicies/authenticationStrengthPoliciesRequestBuilder';
 import {AuthorizationPolicyRequestBuilder} from './authorizationPolicy/authorizationPolicyRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
-import {ClaimsMappingPolicyItemRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyItemRequestBuilder';
 import {ConditionalAccessPoliciesRequestBuilder} from './conditionalAccessPolicies/conditionalAccessPoliciesRequestBuilder';
-import {ConditionalAccessPolicyItemRequestBuilder} from './conditionalAccessPolicies/item/conditionalAccessPolicyItemRequestBuilder';
 import {CrossTenantAccessPolicyRequestBuilder} from './crossTenantAccessPolicy/crossTenantAccessPolicyRequestBuilder';
 import {DefaultAppManagementPolicyRequestBuilder} from './defaultAppManagementPolicy/defaultAppManagementPolicyRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilder} from './featureRolloutPolicies/featureRolloutPoliciesRequestBuilder';
-import {FeatureRolloutPolicyItemRequestBuilder} from './featureRolloutPolicies/item/featureRolloutPolicyItemRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
-import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyItemRequestBuilder';
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilder} from './identitySecurityDefaultsEnforcementPolicy/identitySecurityDefaultsEnforcementPolicyRequestBuilder';
-import {PermissionGrantPolicyItemRequestBuilder} from './permissionGrantPolicies/item/permissionGrantPolicyItemRequestBuilder';
 import {PermissionGrantPoliciesRequestBuilder} from './permissionGrantPolicies/permissionGrantPoliciesRequestBuilder';
 import {PoliciesRequestBuilderGetRequestConfiguration} from './policiesRequestBuilderGetRequestConfiguration';
 import {PoliciesRequestBuilderPatchRequestConfiguration} from './policiesRequestBuilderPatchRequestConfiguration';
-import {UnifiedRoleManagementPolicyItemRequestBuilder} from './roleManagementPolicies/item/unifiedRoleManagementPolicyItemRequestBuilder';
 import {RoleManagementPoliciesRequestBuilder} from './roleManagementPolicies/roleManagementPoliciesRequestBuilder';
-import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilder} from './roleManagementPolicyAssignments/item/unifiedRoleManagementPolicyAssignmentItemRequestBuilder';
 import {RoleManagementPolicyAssignmentsRequestBuilder} from './roleManagementPolicyAssignments/roleManagementPolicyAssignmentsRequestBuilder';
-import {TokenIssuancePolicyItemRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
-import {TokenLifetimePolicyItemRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyItemRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the policyRoot singleton.
@@ -58,6 +48,10 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity. */
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity. */
+    public get authenticationStrengthPolicies(): AuthenticationStrengthPoliciesRequestBuilder {
+        return new AuthenticationStrengthPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity. */
     public get authorizationPolicy(): AuthorizationPolicyRequestBuilder {
@@ -112,67 +106,12 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ActivityBasedTimeoutPolicyItemRequestBuilder
-     */
-    public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["activityBasedTimeoutPolicy%2Did"] = id
-        return new ActivityBasedTimeoutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a AppManagementPolicyItemRequestBuilder
-     */
-    public appManagementPoliciesById(id: string) : AppManagementPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["appManagementPolicy%2Did"] = id
-        return new AppManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ClaimsMappingPolicyItemRequestBuilder
-     */
-    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["claimsMappingPolicy%2Did"] = id
-        return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ConditionalAccessPolicyItemRequestBuilder
-     */
-    public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conditionalAccessPolicy%2Did"] = id
-        return new ConditionalAccessPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new PoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/policies{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a FeatureRolloutPolicyItemRequestBuilder
-     */
-    public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["featureRolloutPolicy%2Did"] = id
-        return new FeatureRolloutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get policies
@@ -189,17 +128,6 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
-     */
-    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["homeRealmDiscoveryPolicy%2Did"] = id
-        return new HomeRealmDiscoveryPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update policies
@@ -220,39 +148,6 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a PermissionGrantPolicyItemRequestBuilder
-     */
-    public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["permissionGrantPolicy%2Did"] = id
-        return new PermissionGrantPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a UnifiedRoleManagementPolicyItemRequestBuilder
-     */
-    public roleManagementPoliciesById(id: string) : UnifiedRoleManagementPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["unifiedRoleManagementPolicy%2Did"] = id
-        return new UnifiedRoleManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
-     */
-    public roleManagementPolicyAssignmentsById(id: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["unifiedRoleManagementPolicyAssignment%2Did"] = id
-        return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Get policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -269,28 +164,6 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a TokenIssuancePolicyItemRequestBuilder
-     */
-    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["tokenIssuancePolicy%2Did"] = id
-        return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a TokenLifetimePolicyItemRequestBuilder
-     */
-    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["tokenLifetimePolicy%2Did"] = id
-        return new TokenLifetimePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update policies

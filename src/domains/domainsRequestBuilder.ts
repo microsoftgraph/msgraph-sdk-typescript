@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainsRequestBuilderGetRequestConfiguration} from './domainsRequestBuilderGetRequestConfiguration';
 import {DomainsRequestBuilderPostRequestConfiguration} from './domainsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DomainItemRequestBuilder} from './item/domainItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domain entities.
@@ -16,6 +17,17 @@ export class DomainsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of domain entities.
+     * @param domainId Unique identifier of the item
+     * @returns a DomainItemRequestBuilder
+     */
+    public byDomainId(domainId: string) : DomainItemRequestBuilder {
+        if(!domainId) throw new Error("domainId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["domain%2Did"] = domainId
+        return new DomainItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DomainsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

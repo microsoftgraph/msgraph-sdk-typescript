@@ -7,7 +7,8 @@ import {ChannelsRequestBuilderGetRequestConfiguration} from './channelsRequestBu
 import {ChannelsRequestBuilderPostRequestConfiguration} from './channelsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ChannelItemRequestBuilder} from './item/channelItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
@@ -21,6 +22,17 @@ export class ChannelsRequestBuilder extends BaseRequestBuilder {
     public get getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the channels property of the microsoft.graph.team entity.
+     * @param channelId Unique identifier of the item
+     * @returns a ChannelItemRequestBuilder
+     */
+    public byChannelId(channelId: string) : ChannelItemRequestBuilder {
+        if(!channelId) throw new Error("channelId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["channel%2Did"] = channelId
+        return new ChannelItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChannelsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

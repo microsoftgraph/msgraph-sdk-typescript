@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AcceptanceStatusesRequestBuilderGetRequestConfiguration} from './acceptanceStatusesRequestBuilderGetRequestConfiguration';
 import {AcceptanceStatusesRequestBuilderPostRequestConfiguration} from './acceptanceStatusesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TermsAndConditionsAcceptanceStatusItemRequestBuilder} from './item/termsAndConditionsAcceptanceStatusItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
@@ -16,6 +17,17 @@ export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
+     * @param termsAndConditionsAcceptanceStatusId Unique identifier of the item
+     * @returns a TermsAndConditionsAcceptanceStatusItemRequestBuilder
+     */
+    public byTermsAndConditionsAcceptanceStatusId(termsAndConditionsAcceptanceStatusId: string) : TermsAndConditionsAcceptanceStatusItemRequestBuilder {
+        if(!termsAndConditionsAcceptanceStatusId) throw new Error("termsAndConditionsAcceptanceStatusId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["termsAndConditionsAcceptanceStatus%2Did"] = termsAndConditionsAcceptanceStatusId
+        return new TermsAndConditionsAcceptanceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AcceptanceStatusesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

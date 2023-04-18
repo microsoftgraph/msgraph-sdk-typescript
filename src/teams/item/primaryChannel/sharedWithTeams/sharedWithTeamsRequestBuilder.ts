@@ -4,9 +4,10 @@ import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from '../../../..
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SharedWithChannelTeamInfoItemRequestBuilder} from './item/sharedWithChannelTeamInfoItemRequestBuilder';
 import {SharedWithTeamsRequestBuilderGetRequestConfiguration} from './sharedWithTeamsRequestBuilderGetRequestConfiguration';
 import {SharedWithTeamsRequestBuilderPostRequestConfiguration} from './sharedWithTeamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
@@ -16,6 +17,17 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
+     * @param sharedWithChannelTeamInfoId Unique identifier of the item
+     * @returns a SharedWithChannelTeamInfoItemRequestBuilder
+     */
+    public bySharedWithChannelTeamInfoId(sharedWithChannelTeamInfoId: string) : SharedWithChannelTeamInfoItemRequestBuilder {
+        if(!sharedWithChannelTeamInfoId) throw new Error("sharedWithChannelTeamInfoId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sharedWithChannelTeamInfo%2Did"] = sharedWithChannelTeamInfoId
+        return new SharedWithChannelTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SharedWithTeamsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

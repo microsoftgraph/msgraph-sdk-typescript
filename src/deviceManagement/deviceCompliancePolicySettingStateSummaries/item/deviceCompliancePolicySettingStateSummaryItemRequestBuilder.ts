@@ -6,8 +6,7 @@ import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilderDeleteRequest
 import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicySettingStateSummaryItemRequestBuilderPatchRequestConfiguration';
 import {DeviceComplianceSettingStatesRequestBuilder} from './deviceComplianceSettingStates/deviceComplianceSettingStatesRequestBuilder';
-import {DeviceComplianceSettingStateItemRequestBuilder} from './deviceComplianceSettingStates/item/deviceComplianceSettingStateItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
@@ -39,17 +38,6 @@ export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder extends
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceComplianceSettingStateItemRequestBuilder
-     */
-    public deviceComplianceSettingStatesById(id: string) : DeviceComplianceSettingStateItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceComplianceSettingState%2Did"] = id
-        return new DeviceComplianceSettingStateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The summary states of compliance policy settings for this account.

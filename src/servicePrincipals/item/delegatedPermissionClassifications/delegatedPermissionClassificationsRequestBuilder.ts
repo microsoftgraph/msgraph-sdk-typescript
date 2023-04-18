@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration} from './delegatedPermissionClassificationsRequestBuilderGetRequestConfiguration';
 import {DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration} from './delegatedPermissionClassificationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DelegatedPermissionClassificationItemRequestBuilder} from './item/delegatedPermissionClassificationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
@@ -16,6 +17,17 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
+     * @param delegatedPermissionClassificationId Unique identifier of the item
+     * @returns a DelegatedPermissionClassificationItemRequestBuilder
+     */
+    public byDelegatedPermissionClassificationId(delegatedPermissionClassificationId: string) : DelegatedPermissionClassificationItemRequestBuilder {
+        if(!delegatedPermissionClassificationId) throw new Error("delegatedPermissionClassificationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedPermissionClassification%2Did"] = delegatedPermissionClassificationId
+        return new DelegatedPermissionClassificationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DelegatedPermissionClassificationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

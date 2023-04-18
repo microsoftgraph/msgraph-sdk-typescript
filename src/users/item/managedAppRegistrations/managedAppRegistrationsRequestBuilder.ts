@@ -3,8 +3,9 @@ import {createManagedAppRegistrationCollectionResponseFromDiscriminatorValue} fr
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ManagedAppRegistrationItemRequestBuilder} from './item/managedAppRegistrationItemRequestBuilder';
 import {ManagedAppRegistrationsRequestBuilderGetRequestConfiguration} from './managedAppRegistrationsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity.
@@ -14,6 +15,17 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity.
+     * @param managedAppRegistrationId Unique identifier of the item
+     * @returns a ManagedAppRegistrationItemRequestBuilder
+     */
+    public byManagedAppRegistrationId(managedAppRegistrationId: string) : ManagedAppRegistrationItemRequestBuilder {
+        if(!managedAppRegistrationId) throw new Error("managedAppRegistrationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedAppRegistration%2Did"] = managedAppRegistrationId
+        return new ManagedAppRegistrationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ManagedAppRegistrationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

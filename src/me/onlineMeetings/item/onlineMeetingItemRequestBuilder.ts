@@ -3,12 +3,11 @@ import {createOnlineMeetingFromDiscriminatorValue} from '../../../models/createO
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttendanceReportsRequestBuilder} from './attendanceReports/attendanceReportsRequestBuilder';
-import {MeetingAttendanceReportItemRequestBuilder} from './attendanceReports/item/meetingAttendanceReportItemRequestBuilder';
 import {AttendeeReportRequestBuilder} from './attendeeReport/attendeeReportRequestBuilder';
 import {OnlineMeetingItemRequestBuilderDeleteRequestConfiguration} from './onlineMeetingItemRequestBuilderDeleteRequestConfiguration';
 import {OnlineMeetingItemRequestBuilderGetRequestConfiguration} from './onlineMeetingItemRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingItemRequestBuilderPatchRequestConfiguration} from './onlineMeetingItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
@@ -22,17 +21,6 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
     public get attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
-     * @param id Unique identifier of the item
-     * @returns a MeetingAttendanceReportItemRequestBuilder
-     */
-    public attendanceReportsById(id: string) : MeetingAttendanceReportItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["meetingAttendanceReport%2Did"] = id
-        return new MeetingAttendanceReportItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new OnlineMeetingItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

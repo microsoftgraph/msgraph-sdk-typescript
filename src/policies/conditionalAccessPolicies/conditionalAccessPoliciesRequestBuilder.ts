@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderGetRequestConfiguration';
 import {ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
@@ -16,6 +17,17 @@ export class ConditionalAccessPoliciesRequestBuilder extends BaseRequestBuilder 
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
+     * @param conditionalAccessPolicyId Unique identifier of the item
+     * @returns a ConditionalAccessPolicyItemRequestBuilder
+     */
+    public byConditionalAccessPolicyId(conditionalAccessPolicyId: string) : ConditionalAccessPolicyItemRequestBuilder {
+        if(!conditionalAccessPolicyId) throw new Error("conditionalAccessPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["conditionalAccessPolicy%2Did"] = conditionalAccessPolicyId
+        return new ConditionalAccessPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ConditionalAccessPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

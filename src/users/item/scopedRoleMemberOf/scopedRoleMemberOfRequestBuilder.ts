@@ -4,9 +4,10 @@ import {createScopedRoleMembershipFromDiscriminatorValue} from '../../../models/
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ScopedRoleMembershipItemRequestBuilder} from './item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedRoleMemberOfRequestBuilderGetRequestConfiguration} from './scopedRoleMemberOfRequestBuilderGetRequestConfiguration';
 import {ScopedRoleMemberOfRequestBuilderPostRequestConfiguration} from './scopedRoleMemberOfRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
@@ -16,6 +17,17 @@ export class ScopedRoleMemberOfRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
+     * @param scopedRoleMembershipId Unique identifier of the item
+     * @returns a ScopedRoleMembershipItemRequestBuilder
+     */
+    public byScopedRoleMembershipId(scopedRoleMembershipId: string) : ScopedRoleMembershipItemRequestBuilder {
+        if(!scopedRoleMembershipId) throw new Error("scopedRoleMembershipId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["scopedRoleMembership%2Did"] = scopedRoleMembershipId
+        return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ScopedRoleMemberOfRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

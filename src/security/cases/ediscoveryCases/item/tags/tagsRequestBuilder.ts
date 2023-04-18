@@ -4,10 +4,11 @@ import {EdiscoveryReviewTag, EdiscoveryReviewTagCollectionResponse} from '../../
 import {createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EdiscoveryReviewTagItemRequestBuilder} from './item/ediscoveryReviewTagItemRequestBuilder';
 import {SecurityAsHierarchyRequestBuilder} from './securityAsHierarchy/securityAsHierarchyRequestBuilder';
 import {TagsRequestBuilderGetRequestConfiguration} from './tagsRequestBuilderGetRequestConfiguration';
 import {TagsRequestBuilderPostRequestConfiguration} from './tagsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
@@ -21,6 +22,17 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
     public get securityAsHierarchy(): SecurityAsHierarchyRequestBuilder {
         return new SecurityAsHierarchyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param ediscoveryReviewTagId Unique identifier of the item
+     * @returns a EdiscoveryReviewTagItemRequestBuilder
+     */
+    public byEdiscoveryReviewTagId(ediscoveryReviewTagId: string) : EdiscoveryReviewTagItemRequestBuilder {
+        if(!ediscoveryReviewTagId) throw new Error("ediscoveryReviewTagId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryReviewTag%2Did"] = ediscoveryReviewTagId
+        return new EdiscoveryReviewTagItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TagsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

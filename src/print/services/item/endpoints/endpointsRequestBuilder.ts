@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EndpointsRequestBuilderGetRequestConfiguration} from './endpointsRequestBuilderGetRequestConfiguration';
 import {EndpointsRequestBuilderPostRequestConfiguration} from './endpointsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PrintServiceEndpointItemRequestBuilder} from './item/printServiceEndpointItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
@@ -16,6 +17,17 @@ export class EndpointsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
+     * @param printServiceEndpointId Unique identifier of the item
+     * @returns a PrintServiceEndpointItemRequestBuilder
+     */
+    public byPrintServiceEndpointId(printServiceEndpointId: string) : PrintServiceEndpointItemRequestBuilder {
+        if(!printServiceEndpointId) throw new Error("printServiceEndpointId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printServiceEndpoint%2Did"] = printServiceEndpointId
+        return new PrintServiceEndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new EndpointsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

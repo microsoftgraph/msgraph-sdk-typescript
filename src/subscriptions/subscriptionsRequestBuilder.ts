@@ -3,14 +3,26 @@ import {createSubscriptionCollectionResponseFromDiscriminatorValue} from '../mod
 import {createSubscriptionFromDiscriminatorValue} from '../models/createSubscriptionFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SubscriptionItemRequestBuilder} from './item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilderGetRequestConfiguration} from './subscriptionsRequestBuilderGetRequestConfiguration';
 import {SubscriptionsRequestBuilderPostRequestConfiguration} from './subscriptionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscription entities.
  */
 export class SubscriptionsRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the collection of subscription entities.
+     * @param subscriptionId Unique identifier of the item
+     * @returns a SubscriptionItemRequestBuilder
+     */
+    public bySubscriptionId(subscriptionId: string) : SubscriptionItemRequestBuilder {
+        if(!subscriptionId) throw new Error("subscriptionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["subscription%2Did"] = subscriptionId
+        return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SubscriptionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,10 +5,11 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetOrderRequestBuilder} from './getOrder/getOrderRequestBuilder';
+import {IdentityUserFlowAttributeAssignmentItemRequestBuilder} from './item/identityUserFlowAttributeAssignmentItemRequestBuilder';
 import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
 import {UserAttributeAssignmentsRequestBuilderGetRequestConfiguration} from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
 import {UserAttributeAssignmentsRequestBuilderPostRequestConfiguration} from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -26,6 +27,17 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
     public get setOrder(): SetOrderRequestBuilder {
         return new SetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
+     * @param identityUserFlowAttributeAssignmentId Unique identifier of the item
+     * @returns a IdentityUserFlowAttributeAssignmentItemRequestBuilder
+     */
+    public byIdentityUserFlowAttributeAssignmentId(identityUserFlowAttributeAssignmentId: string) : IdentityUserFlowAttributeAssignmentItemRequestBuilder {
+        if(!identityUserFlowAttributeAssignmentId) throw new Error("identityUserFlowAttributeAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityUserFlowAttributeAssignment%2Did"] = identityUserFlowAttributeAssignmentId
+        return new IdentityUserFlowAttributeAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserAttributeAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {TodoTaskItemRequestBuilder} from './item/todoTaskItemRequestBuilder';
 import {TasksRequestBuilderGetRequestConfiguration} from './tasksRequestBuilderGetRequestConfiguration';
 import {TasksRequestBuilderPostRequestConfiguration} from './tasksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
@@ -21,6 +22,17 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+     * @param todoTaskId Unique identifier of the item
+     * @returns a TodoTaskItemRequestBuilder
+     */
+    public byTodoTaskId(todoTaskId: string) : TodoTaskItemRequestBuilder {
+        if(!todoTaskId) throw new Error("todoTaskId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["todoTask%2Did"] = todoTaskId
+        return new TodoTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TasksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -2,6 +2,7 @@ import {User} from '../../../models/';
 import {createUserFromDiscriminatorValue} from '../../../models/createUserFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
 import {UserRequestBuilderGetRequestConfiguration} from './userRequestBuilderGetRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -9,6 +10,10 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the user property of the microsoft.graph.educationUser entity.
  */
 export class UserRequestBuilder extends BaseRequestBuilder {
+    /** The mailboxSettings property */
+    public get mailboxSettings(): MailboxSettingsRequestBuilder {
+        return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new UserRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

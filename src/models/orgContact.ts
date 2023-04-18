@@ -71,7 +71,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
         this._companyName = value;
     };
     /**
-     * Instantiates a new OrgContact and sets the default values.
+     * Instantiates a new orgContact and sets the default values.
      */
     public constructor() {
         super();

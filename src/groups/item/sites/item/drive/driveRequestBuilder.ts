@@ -18,11 +18,10 @@ export class DriveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/drive{?%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * The default drive (document library) for this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
-     * @see {@link https://docs.microsoft.com/graph/api/drive-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DriveRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +34,7 @@ export class DriveRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * The default drive (document library) for this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

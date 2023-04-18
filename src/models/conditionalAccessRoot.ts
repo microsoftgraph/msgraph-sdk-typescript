@@ -1,13 +1,16 @@
 import {createAuthenticationContextClassReferenceFromDiscriminatorValue} from './createAuthenticationContextClassReferenceFromDiscriminatorValue';
+import {createAuthenticationStrengthRootFromDiscriminatorValue} from './createAuthenticationStrengthRootFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
 import {createConditionalAccessTemplateFromDiscriminatorValue} from './createConditionalAccessTemplateFromDiscriminatorValue';
 import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFromDiscriminatorValue';
-import {AuthenticationContextClassReference, ConditionalAccessPolicy, ConditionalAccessTemplate, Entity, NamedLocation} from './index';
+import {AuthenticationContextClassReference, AuthenticationStrengthRoot, ConditionalAccessPolicy, ConditionalAccessTemplate, Entity, NamedLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessRoot extends Entity implements Parsable {
     /** Read-only. Nullable. Returns a collection of the specified authentication context class references. */
     private _authenticationContextClassReferences?: AuthenticationContextClassReference[] | undefined;
+    /** The authenticationStrength property */
+    private _authenticationStrength?: AuthenticationStrengthRoot | undefined;
     /** Read-only. Nullable. Returns a collection of the specified named locations. */
     private _namedLocations?: NamedLocation[] | undefined;
     /** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies. */
@@ -29,7 +32,21 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
         this._authenticationContextClassReferences = value;
     };
     /**
-     * Instantiates a new conditionalAccessRoot and sets the default values.
+     * Gets the authenticationStrength property value. The authenticationStrength property
+     * @returns a authenticationStrengthRoot
+     */
+    public get authenticationStrength() {
+        return this._authenticationStrength;
+    };
+    /**
+     * Sets the authenticationStrength property value. The authenticationStrength property
+     * @param value Value to set for the authenticationStrength property.
+     */
+    public set authenticationStrength(value: AuthenticationStrengthRoot | undefined) {
+        this._authenticationStrength = value;
+    };
+    /**
+     * Instantiates a new ConditionalAccessRoot and sets the default values.
      */
     public constructor() {
         super();
@@ -41,6 +58,7 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "authenticationContextClassReferences": n => { this.authenticationContextClassReferences = n.getCollectionOfObjectValues<AuthenticationContextClassReference>(createAuthenticationContextClassReferenceFromDiscriminatorValue); },
+            "authenticationStrength": n => { this.authenticationStrength = n.getObjectValue<AuthenticationStrengthRoot>(createAuthenticationStrengthRootFromDiscriminatorValue); },
             "namedLocations": n => { this.namedLocations = n.getCollectionOfObjectValues<NamedLocation>(createNamedLocationFromDiscriminatorValue); },
             "policies": n => { this.policies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(createConditionalAccessPolicyFromDiscriminatorValue); },
             "templates": n => { this.templates = n.getCollectionOfObjectValues<ConditionalAccessTemplate>(createConditionalAccessTemplateFromDiscriminatorValue); },
@@ -82,6 +100,7 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", this.authenticationContextClassReferences);
+        writer.writeObjectValue<AuthenticationStrengthRoot>("authenticationStrength", this.authenticationStrength);
         writer.writeCollectionOfObjectValues<NamedLocation>("namedLocations", this.namedLocations);
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("policies", this.policies);
         writer.writeCollectionOfObjectValues<ConditionalAccessTemplate>("templates", this.templates);

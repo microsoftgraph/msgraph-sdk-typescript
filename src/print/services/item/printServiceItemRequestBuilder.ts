@@ -3,11 +3,10 @@ import {createPrintServiceFromDiscriminatorValue} from '../../../models/createPr
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
-import {PrintServiceEndpointItemRequestBuilder} from './endpoints/item/printServiceEndpointItemRequestBuilder';
 import {PrintServiceItemRequestBuilderDeleteRequestConfiguration} from './printServiceItemRequestBuilderDeleteRequestConfiguration';
 import {PrintServiceItemRequestBuilderGetRequestConfiguration} from './printServiceItemRequestBuilderGetRequestConfiguration';
 import {PrintServiceItemRequestBuilderPatchRequestConfiguration} from './printServiceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.print entity.
@@ -39,17 +38,6 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintServiceEndpointItemRequestBuilder
-     */
-    public endpointsById(id: string) : PrintServiceEndpointItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printServiceEndpoint%2Did"] = id
-        return new PrintServiceEndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The list of available Universal Print service endpoints.

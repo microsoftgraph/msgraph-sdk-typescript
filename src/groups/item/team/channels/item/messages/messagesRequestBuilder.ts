@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.
@@ -21,6 +22,17 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.channel entity.
+     * @param chatMessageId Unique identifier of the item
+     * @returns a ChatMessageItemRequestBuilder
+     */
+    public byChatMessageId(chatMessageId: string) : ChatMessageItemRequestBuilder {
+        if(!chatMessageId) throw new Error("chatMessageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["chatMessage%2Did"] = chatMessageId
+        return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MessagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

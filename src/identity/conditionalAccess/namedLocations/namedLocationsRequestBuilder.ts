@@ -4,9 +4,10 @@ import {createNamedLocationFromDiscriminatorValue} from '../../../models/createN
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {NamedLocationItemRequestBuilder} from './item/namedLocationItemRequestBuilder';
 import {NamedLocationsRequestBuilderGetRequestConfiguration} from './namedLocationsRequestBuilderGetRequestConfiguration';
 import {NamedLocationsRequestBuilderPostRequestConfiguration} from './namedLocationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
@@ -16,6 +17,17 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
+     * @param namedLocationId Unique identifier of the item
+     * @returns a NamedLocationItemRequestBuilder
+     */
+    public byNamedLocationId(namedLocationId: string) : NamedLocationItemRequestBuilder {
+        if(!namedLocationId) throw new Error("namedLocationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["namedLocation%2Did"] = namedLocationId
+        return new NamedLocationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new NamedLocationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

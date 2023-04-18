@@ -4,9 +4,10 @@ import {createPermissionGrantPolicyFromDiscriminatorValue} from '../../models/cr
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PermissionGrantPolicyItemRequestBuilder} from './item/permissionGrantPolicyItemRequestBuilder';
 import {PermissionGrantPoliciesRequestBuilderGetRequestConfiguration} from './permissionGrantPoliciesRequestBuilderGetRequestConfiguration';
 import {PermissionGrantPoliciesRequestBuilderPostRequestConfiguration} from './permissionGrantPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
@@ -16,6 +17,17 @@ export class PermissionGrantPoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
+     * @param permissionGrantPolicyId Unique identifier of the item
+     * @returns a PermissionGrantPolicyItemRequestBuilder
+     */
+    public byPermissionGrantPolicyId(permissionGrantPolicyId: string) : PermissionGrantPolicyItemRequestBuilder {
+        if(!permissionGrantPolicyId) throw new Error("permissionGrantPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["permissionGrantPolicy%2Did"] = permissionGrantPolicyId
+        return new PermissionGrantPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PermissionGrantPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

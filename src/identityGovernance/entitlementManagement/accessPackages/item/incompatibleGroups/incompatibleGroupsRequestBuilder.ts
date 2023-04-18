@@ -4,8 +4,9 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncompatibleGroupsRequestBuilderGetRequestConfiguration} from './incompatibleGroupsRequestBuilderGetRequestConfiguration';
+import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.
@@ -19,6 +20,17 @@ export class IncompatibleGroupsRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.accessPackages.item.incompatibleGroups.item collection
+     * @param groupId Unique identifier of the item
+     * @returns a GroupItemRequestBuilder
+     */
+    public byGroupId(groupId: string) : GroupItemRequestBuilder {
+        if(!groupId) throw new Error("groupId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["group%2Did"] = groupId
+        return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IncompatibleGroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {SiteSource, SiteSourceCollectionResponse} from '../../../../../../../mod
 import {createSiteSourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createSiteSourceCollectionResponseFromDiscriminatorValue';
 import {createSiteSourceFromDiscriminatorValue} from '../../../../../../../models/security/createSiteSourceFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SiteSourceItemRequestBuilder} from './item/siteSourceItemRequestBuilder';
 import {SiteSourcesRequestBuilderGetRequestConfiguration} from './siteSourcesRequestBuilderGetRequestConfiguration';
 import {SiteSourcesRequestBuilderPostRequestConfiguration} from './siteSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -16,6 +17,17 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
+     * @param siteSourceId Unique identifier of the item
+     * @returns a SiteSourceItemRequestBuilder
+     */
+    public bySiteSourceId(siteSourceId: string) : SiteSourceItemRequestBuilder {
+        if(!siteSourceId) throw new Error("siteSourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["siteSource%2Did"] = siteSourceId
+        return new SiteSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SiteSourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

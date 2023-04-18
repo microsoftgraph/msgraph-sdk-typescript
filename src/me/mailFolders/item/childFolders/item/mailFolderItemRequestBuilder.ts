@@ -6,16 +6,12 @@ import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {MailFolderItemRequestBuilderDeleteRequestConfiguration} from './mailFolderItemRequestBuilderDeleteRequestConfiguration';
 import {MailFolderItemRequestBuilderGetRequestConfiguration} from './mailFolderItemRequestBuilderGetRequestConfiguration';
 import {MailFolderItemRequestBuilderPatchRequestConfiguration} from './mailFolderItemRequestBuilderPatchRequestConfiguration';
-import {MessageRuleItemRequestBuilder} from './messageRules/item/messageRuleItemRequestBuilder';
 import {MessageRulesRequestBuilder} from './messageRules/messageRulesRequestBuilder';
-import {MessageItemRequestBuilder} from './messages/item/messageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {MoveRequestBuilder} from './move/moveRequestBuilder';
-import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
@@ -85,39 +81,6 @@ export class MailFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a MessageRuleItemRequestBuilder
-     */
-    public messageRulesById(id: string) : MessageRuleItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["messageRule%2Did"] = id
-        return new MessageRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a MessageItemRequestBuilder
-     */
-    public messagesById(id: string) : MessageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["message%2Did"] = id
-        return new MessageItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.mailFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
-        return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update the navigation property childFolders in me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -134,17 +97,6 @@ export class MailFolderItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.mailFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id
-        return new SingleValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property childFolders for me

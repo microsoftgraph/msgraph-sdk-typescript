@@ -6,8 +6,7 @@ import {AccessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguratio
 import {AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {AccessReviewHistoryInstanceItemRequestBuilder} from './instances/item/accessReviewHistoryInstanceItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
@@ -55,17 +54,6 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequest
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewHistoryInstanceItemRequestBuilder
-     */
-    public instancesById(id: string) : AccessReviewHistoryInstanceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewHistoryInstance%2Did"] = id
-        return new AccessReviewHistoryInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property historyDefinitions in identityGovernance

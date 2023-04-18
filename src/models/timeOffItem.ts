@@ -5,7 +5,7 @@ export class TimeOffItem extends ScheduleEntity implements Parsable {
     /** ID of the timeOffReason for this timeOffItem. Required. */
     private _timeOffReasonId?: string | undefined;
     /**
-     * Instantiates a new TimeOffItem and sets the default values.
+     * Instantiates a new timeOffItem and sets the default values.
      */
     public constructor() {
         super();

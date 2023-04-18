@@ -3,12 +3,17 @@ import {createUserFromDiscriminatorValue} from '../../../models/createUserFromDi
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InvitedUserRequestBuilderGetRequestConfiguration} from './invitedUserRequestBuilderGetRequestConfiguration';
+import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity.
  */
 export class InvitedUserRequestBuilder extends BaseRequestBuilder {
+    /** The mailboxSettings property */
+    public get mailboxSettings(): MailboxSettingsRequestBuilder {
+        return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new InvitedUserRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

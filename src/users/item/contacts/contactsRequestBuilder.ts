@@ -7,7 +7,8 @@ import {ContactsRequestBuilderGetRequestConfiguration} from './contactsRequestBu
 import {ContactsRequestBuilderPostRequestConfiguration} from './contactsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ContactItemRequestBuilder} from './item/contactItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contacts property of the microsoft.graph.user entity.
@@ -21,6 +22,17 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the contacts property of the microsoft.graph.user entity.
+     * @param contactId Unique identifier of the item
+     * @returns a ContactItemRequestBuilder
+     */
+    public byContactId(contactId: string) : ContactItemRequestBuilder {
+        if(!contactId) throw new Error("contactId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["contact%2Did"] = contactId
+        return new ContactItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ContactsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

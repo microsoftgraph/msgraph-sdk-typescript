@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of Drive resources available for a target User, Group, or Site.
+ * The collection of drives (document libraries) under this site.
  */
 export class DrivesRequestBuilderGetQueryParameters {
     /** Include count of items */

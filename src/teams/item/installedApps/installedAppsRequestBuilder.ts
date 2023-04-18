@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InstalledAppsRequestBuilderGetRequestConfiguration} from './installedAppsRequestBuilderGetRequestConfiguration';
 import {InstalledAppsRequestBuilderPostRequestConfiguration} from './installedAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TeamsAppInstallationItemRequestBuilder} from './item/teamsAppInstallationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
@@ -16,6 +17,17 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
+     * @param teamsAppInstallationId Unique identifier of the item
+     * @returns a TeamsAppInstallationItemRequestBuilder
+     */
+    public byTeamsAppInstallationId(teamsAppInstallationId: string) : TeamsAppInstallationItemRequestBuilder {
+        if(!teamsAppInstallationId) throw new Error("teamsAppInstallationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsAppInstallation%2Did"] = teamsAppInstallationId
+        return new TeamsAppInstallationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new InstalledAppsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

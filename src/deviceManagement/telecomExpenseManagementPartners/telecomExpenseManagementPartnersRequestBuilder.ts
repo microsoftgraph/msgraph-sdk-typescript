@@ -4,9 +4,10 @@ import {createTelecomExpenseManagementPartnerFromDiscriminatorValue} from '../..
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TelecomExpenseManagementPartnerItemRequestBuilder} from './item/telecomExpenseManagementPartnerItemRequestBuilder';
 import {TelecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration} from './telecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration';
 import {TelecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration} from './telecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class TelecomExpenseManagementPartnersRequestBuilder extends BaseRequestB
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
+     * @param telecomExpenseManagementPartnerId Unique identifier of the item
+     * @returns a TelecomExpenseManagementPartnerItemRequestBuilder
+     */
+    public byTelecomExpenseManagementPartnerId(telecomExpenseManagementPartnerId: string) : TelecomExpenseManagementPartnerItemRequestBuilder {
+        if(!telecomExpenseManagementPartnerId) throw new Error("telecomExpenseManagementPartnerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["telecomExpenseManagementPartner%2Did"] = telecomExpenseManagementPartnerId
+        return new TelecomExpenseManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TelecomExpenseManagementPartnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

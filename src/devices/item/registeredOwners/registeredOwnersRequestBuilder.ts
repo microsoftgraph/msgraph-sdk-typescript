@@ -7,9 +7,10 @@ import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/gra
 import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
 import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
+import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {RegisteredOwnersRequestBuilderGetRequestConfiguration} from './registeredOwnersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the registeredOwners property of the microsoft.graph.device entity.
@@ -39,6 +40,17 @@ export class RegisteredOwnersRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredOwners.item collection
+     * @param directoryObjectId Unique identifier of the item
+     * @returns a DirectoryObjectItemRequestBuilder
+     */
+    public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {
+        if(!directoryObjectId) throw new Error("directoryObjectId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RegisteredOwnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

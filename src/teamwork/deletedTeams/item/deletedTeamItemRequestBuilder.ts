@@ -3,11 +3,10 @@ import {createDeletedTeamFromDiscriminatorValue} from '../../../models/createDel
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
-import {ChannelItemRequestBuilder} from './channels/item/channelItemRequestBuilder';
 import {DeletedTeamItemRequestBuilderDeleteRequestConfiguration} from './deletedTeamItemRequestBuilderDeleteRequestConfiguration';
 import {DeletedTeamItemRequestBuilderGetRequestConfiguration} from './deletedTeamItemRequestBuilderGetRequestConfiguration';
 import {DeletedTeamItemRequestBuilderPatchRequestConfiguration} from './deletedTeamItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
@@ -17,17 +16,6 @@ export class DeletedTeamItemRequestBuilder extends BaseRequestBuilder {
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
-     * @param id Unique identifier of the item
-     * @returns a ChannelItemRequestBuilder
-     */
-    public channelsById(id: string) : ChannelItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["channel%2Did"] = id
-        return new ChannelItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new DeletedTeamItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

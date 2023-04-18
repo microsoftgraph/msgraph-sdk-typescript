@@ -3,7 +3,6 @@ import {createSharedDriveItemFromDiscriminatorValue} from '../../models/createSh
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
-import {DriveItemItemRequestBuilder} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
@@ -13,7 +12,7 @@ import {SharedDriveItemItemRequestBuilderDeleteRequestConfiguration} from './sha
 import {SharedDriveItemItemRequestBuilderGetRequestConfiguration} from './sharedDriveItemItemRequestBuilderGetRequestConfiguration';
 import {SharedDriveItemItemRequestBuilderPatchRequestConfiguration} from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration';
 import {SiteRequestBuilder} from './site/siteRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.
@@ -86,17 +85,6 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
-     * @param id Unique identifier of the item
-     * @returns a DriveItemItemRequestBuilder
-     */
-    public itemsById(id: string) : DriveItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem%2Did"] = id
-        return new DriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in shares

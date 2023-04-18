@@ -6,12 +6,10 @@ import {ChatMessageItemRequestBuilderDeleteRequestConfiguration} from './chatMes
 import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessageItemRequestBuilderGetRequestConfiguration';
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
-import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
-import {ChatMessageItemRequestBuilder as I52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0} from './replies/item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
 import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.
@@ -73,17 +71,6 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
-     * @param id Unique identifier of the item
-     * @returns a ChatMessageHostedContentItemRequestBuilder
-     */
-    public hostedContentsById(id: string) : ChatMessageHostedContentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["chatMessageHostedContent%2Did"] = id
-        return new ChatMessageHostedContentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update the navigation property messages in teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -100,17 +87,6 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
-     * @param id Unique identifier of the item
-     * @returns a ChatMessageItemRequestBuilder
-     */
-    public repliesById(id: string) : I52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["chatMessage%2Did1"] = id
-        return new I52bb1e552af1eb167d43dcf0f01f3d698007f0fe00dcfb9e305faa75c5d364a0(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property messages for teams

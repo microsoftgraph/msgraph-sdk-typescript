@@ -3,9 +3,10 @@ import {createIdentityProviderBaseCollectionResponseFromDiscriminatorValue} from
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {IdentityProviderBaseItemRequestBuilder} from './item/identityProviderBaseItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {UserFlowIdentityProvidersRequestBuilderGetRequestConfiguration} from './userFlowIdentityProvidersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userFlowIdentityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -19,6 +20,17 @@ export class UserFlowIdentityProvidersRequestBuilder extends BaseRequestBuilder 
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item.userFlowIdentityProviders.item collection
+     * @param identityProviderBaseId Unique identifier of the item
+     * @returns a IdentityProviderBaseItemRequestBuilder
+     */
+    public byIdentityProviderBaseId(identityProviderBaseId: string) : IdentityProviderBaseItemRequestBuilder {
+        if(!identityProviderBaseId) throw new Error("identityProviderBaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityProviderBase%2Did"] = identityProviderBaseId
+        return new IdentityProviderBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserFlowIdentityProvidersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

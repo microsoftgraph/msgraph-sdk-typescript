@@ -9,12 +9,10 @@ import {DirectoryRoleItemRequestBuilderGetRequestConfiguration} from './director
 import {DirectoryRoleItemRequestBuilderPatchRequestConfiguration} from './directoryRoleItemRequestBuilderPatchRequestConfiguration';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './members/item/directoryObjectItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {ScopedRoleMembershipItemRequestBuilder} from './scopedMembers/item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedMembersRequestBuilder} from './scopedMembers/scopedMembersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -89,17 +87,6 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DirectoryRole>(requestInfo, createDirectoryRoleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryRoles.item.members.item collection
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public membersById(id: string) : DirectoryObjectItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update entity in directoryRoles
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -116,17 +103,6 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<DirectoryRole>(requestInfo, createDirectoryRoleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
-     * @param id Unique identifier of the item
-     * @returns a ScopedRoleMembershipItemRequestBuilder
-     */
-    public scopedMembersById(id: string) : ScopedRoleMembershipItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["scopedRoleMembership%2Did"] = id
-        return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete entity from directoryRoles

@@ -3,8 +3,9 @@ import {createWindowsHelloForBusinessAuthenticationMethodCollectionResponseFromD
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './item/windowsHelloForBusinessAuthenticationMethodItemRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration} from './windowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
@@ -14,6 +15,17 @@ export class WindowsHelloForBusinessMethodsRequestBuilder extends BaseRequestBui
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
+     * @param windowsHelloForBusinessAuthenticationMethodId Unique identifier of the item
+     * @returns a WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
+     */
+    public byWindowsHelloForBusinessAuthenticationMethodId(windowsHelloForBusinessAuthenticationMethodId: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
+        if(!windowsHelloForBusinessAuthenticationMethodId) throw new Error("windowsHelloForBusinessAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsHelloForBusinessAuthenticationMethod%2Did"] = windowsHelloForBusinessAuthenticationMethodId
+        return new WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WindowsHelloForBusinessMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -1,9 +1,13 @@
 import {ConditionalAccessGrantControl} from './conditionalAccessGrantControl';
+import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from './createAuthenticationStrengthPolicyFromDiscriminatorValue';
+import {AuthenticationStrengthPolicy} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessGrantControls implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
+    /** The authenticationStrength property */
+    private _authenticationStrength?: AuthenticationStrengthPolicy | undefined;
     /** List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue. */
     private _builtInControls?: ConditionalAccessGrantControl[] | undefined;
     /** List of custom controls IDs required by the policy. For more information, see Custom controls. */
@@ -27,6 +31,20 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      */
     public set additionalData(value: Record<string, unknown>) {
         this._additionalData = value;
+    };
+    /**
+     * Gets the authenticationStrength property value. The authenticationStrength property
+     * @returns a authenticationStrengthPolicy
+     */
+    public get authenticationStrength() {
+        return this._authenticationStrength;
+    };
+    /**
+     * Sets the authenticationStrength property value. The authenticationStrength property
+     * @param value Value to set for the authenticationStrength property.
+     */
+    public set authenticationStrength(value: AuthenticationStrengthPolicy | undefined) {
+        this._authenticationStrength = value;
     };
     /**
      * Gets the builtInControls property value. List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
@@ -68,6 +86,7 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
+            "authenticationStrength": n => { this.authenticationStrength = n.getObjectValue<AuthenticationStrengthPolicy>(createAuthenticationStrengthPolicyFromDiscriminatorValue); },
             "builtInControls": n => { this.builtInControls = n.getEnumValues<ConditionalAccessGrantControl>(ConditionalAccessGrantControl); },
             "customAuthenticationFactors": n => { this.customAuthenticationFactors = n.getCollectionOfPrimitiveValues<string>(); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
@@ -109,6 +128,7 @@ export class ConditionalAccessGrantControls implements AdditionalDataHolder, Par
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeObjectValue<AuthenticationStrengthPolicy>("authenticationStrength", this.authenticationStrength);
         this.builtInControls && writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...this.builtInControls);
         writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", this.customAuthenticationFactors);
         writer.writeStringValue("@odata.type", this.odataType);

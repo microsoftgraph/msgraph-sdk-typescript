@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookWorksheetItemRequestBuilder} from './item/workbookWorksheetItemRequestBuilder';
 import {WorksheetsRequestBuilderGetRequestConfiguration} from './worksheetsRequestBuilderGetRequestConfiguration';
 import {WorksheetsRequestBuilderPostRequestConfiguration} from './worksheetsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
@@ -21,6 +22,17 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
+     * @param workbookWorksheetId Unique identifier of the item
+     * @returns a WorkbookWorksheetItemRequestBuilder
+     */
+    public byWorkbookWorksheetId(workbookWorksheetId: string) : WorkbookWorksheetItemRequestBuilder {
+        if(!workbookWorksheetId) throw new Error("workbookWorksheetId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookWorksheet%2Did"] = workbookWorksheetId
+        return new WorkbookWorksheetItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WorksheetsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

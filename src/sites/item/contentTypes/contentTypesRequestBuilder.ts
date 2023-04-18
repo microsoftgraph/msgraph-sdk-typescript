@@ -9,7 +9,8 @@ import {ContentTypesRequestBuilderGetRequestConfiguration} from './contentTypesR
 import {ContentTypesRequestBuilderPostRequestConfiguration} from './contentTypesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
@@ -31,6 +32,17 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
     public get getCompatibleHubContentTypes(): GetCompatibleHubContentTypesRequestBuilder {
         return new GetCompatibleHubContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
+     * @param contentTypeId Unique identifier of the item
+     * @returns a ContentTypeItemRequestBuilder
+     */
+    public byContentTypeId(contentTypeId: string) : ContentTypeItemRequestBuilder {
+        if(!contentTypeId) throw new Error("contentTypeId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["contentType%2Did"] = contentTypeId
+        return new ContentTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ContentTypesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

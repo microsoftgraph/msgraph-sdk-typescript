@@ -6,7 +6,8 @@ import {createAlertFromDiscriminatorValue} from '../../models/security/createAle
 import {Alerts_v2RequestBuilderGetRequestConfiguration} from './alerts_v2RequestBuilderGetRequestConfiguration';
 import {Alerts_v2RequestBuilderPostRequestConfiguration} from './alerts_v2RequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AlertItemRequestBuilder} from './item/alertItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
@@ -16,6 +17,17 @@ export class Alerts_v2RequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
+     * @param alertId Unique identifier of the item
+     * @returns a AlertItemRequestBuilder
+     */
+    public byAlertId(alertId: string) : AlertItemRequestBuilder {
+        if(!alertId) throw new Error("alertId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["alert%2Did"] = alertId
+        return new AlertItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new Alerts_v2RequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

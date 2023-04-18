@@ -4,9 +4,10 @@ import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from '../../mod
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UnifiedRoleManagementPolicyItemRequestBuilder} from './item/unifiedRoleManagementPolicyItemRequestBuilder';
 import {RoleManagementPoliciesRequestBuilderGetRequestConfiguration} from './roleManagementPoliciesRequestBuilderGetRequestConfiguration';
 import {RoleManagementPoliciesRequestBuilderPostRequestConfiguration} from './roleManagementPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -16,6 +17,17 @@ export class RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
+     * @param unifiedRoleManagementPolicyId Unique identifier of the item
+     * @returns a UnifiedRoleManagementPolicyItemRequestBuilder
+     */
+    public byUnifiedRoleManagementPolicyId(unifiedRoleManagementPolicyId: string) : UnifiedRoleManagementPolicyItemRequestBuilder {
+        if(!unifiedRoleManagementPolicyId) throw new Error("unifiedRoleManagementPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleManagementPolicy%2Did"] = unifiedRoleManagementPolicyId
+        return new UnifiedRoleManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleManagementPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

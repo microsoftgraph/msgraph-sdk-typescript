@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration} from './claimsMappingPoliciesRequestBuilderGetRequestConfiguration';
 import {ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration} from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ClaimsMappingPolicyItemRequestBuilder} from './item/claimsMappingPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
@@ -16,6 +17,17 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
+     * @param claimsMappingPolicyId Unique identifier of the item
+     * @returns a ClaimsMappingPolicyItemRequestBuilder
+     */
+    public byClaimsMappingPolicyId(claimsMappingPolicyId: string) : ClaimsMappingPolicyItemRequestBuilder {
+        if(!claimsMappingPolicyId) throw new Error("claimsMappingPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["claimsMappingPolicy%2Did"] = claimsMappingPolicyId
+        return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ClaimsMappingPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

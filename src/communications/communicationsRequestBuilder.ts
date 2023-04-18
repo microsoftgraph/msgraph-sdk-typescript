@@ -3,17 +3,13 @@ import {createCloudCommunicationsFromDiscriminatorValue} from '../models/createC
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CallRecordsRequestBuilder} from './callRecords/callRecordsRequestBuilder';
-import {CallRecordItemRequestBuilder} from './callRecords/item/callRecordItemRequestBuilder';
 import {CallsRequestBuilder} from './calls/callsRequestBuilder';
-import {CallItemRequestBuilder} from './calls/item/callItemRequestBuilder';
 import {CommunicationsRequestBuilderGetRequestConfiguration} from './communicationsRequestBuilderGetRequestConfiguration';
 import {CommunicationsRequestBuilderPatchRequestConfiguration} from './communicationsRequestBuilderPatchRequestConfiguration';
 import {GetPresencesByUserIdRequestBuilder} from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
-import {OnlineMeetingItemRequestBuilder} from './onlineMeetings/item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
-import {PresenceItemRequestBuilder} from './presences/item/presenceItemRequestBuilder';
 import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cloudCommunications singleton.
@@ -40,28 +36,6 @@ export class CommunicationsRequestBuilder extends BaseRequestBuilder {
         return new PresencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
-     * @param id Unique identifier of the item
-     * @returns a CallRecordItemRequestBuilder
-     */
-    public callRecordsById(id: string) : CallRecordItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["callRecord%2Did"] = id
-        return new CallRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
-     * @param id Unique identifier of the item
-     * @returns a CallItemRequestBuilder
-     */
-    public callsById(id: string) : CallItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["call%2Did"] = id
-        return new CallItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new CommunicationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -86,17 +60,6 @@ export class CommunicationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
-     * @param id Unique identifier of the item
-     * @returns a OnlineMeetingItemRequestBuilder
-     */
-    public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["onlineMeeting%2Did"] = id
-        return new OnlineMeetingItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -113,17 +76,6 @@ export class CommunicationsRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
-     * @param id Unique identifier of the item
-     * @returns a PresenceItemRequestBuilder
-     */
-    public presencesById(id: string) : PresenceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["presence%2Did"] = id
-        return new PresenceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get communications

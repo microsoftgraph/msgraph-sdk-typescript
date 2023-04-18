@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {AcceptancesRequestBuilderGetRequestConfiguration} from './acceptancesRequestBuilderGetRequestConfiguration';
 import {AcceptancesRequestBuilderPostRequestConfiguration} from './acceptancesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AgreementAcceptanceItemRequestBuilder} from './item/agreementAcceptanceItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
@@ -16,6 +17,17 @@ export class AcceptancesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
+     * @param agreementAcceptanceId Unique identifier of the item
+     * @returns a AgreementAcceptanceItemRequestBuilder
+     */
+    public byAgreementAcceptanceId(agreementAcceptanceId: string) : AgreementAcceptanceItemRequestBuilder {
+        if(!agreementAcceptanceId) throw new Error("agreementAcceptanceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["agreementAcceptance%2Did"] = agreementAcceptanceId
+        return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AcceptancesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

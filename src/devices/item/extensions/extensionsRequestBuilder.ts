@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExtensionsRequestBuilderGetRequestConfiguration} from './extensionsRequestBuilderGetRequestConfiguration';
 import {ExtensionsRequestBuilderPostRequestConfiguration} from './extensionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ExtensionItemRequestBuilder} from './item/extensionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensions property of the microsoft.graph.device entity.
@@ -16,6 +17,17 @@ export class ExtensionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.device entity.
+     * @param extensionId Unique identifier of the item
+     * @returns a ExtensionItemRequestBuilder
+     */
+    public byExtensionId(extensionId: string) : ExtensionItemRequestBuilder {
+        if(!extensionId) throw new Error("extensionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["extension%2Did"] = extensionId
+        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ExtensionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

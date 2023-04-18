@@ -4,9 +4,10 @@ import {createShiftFromDiscriminatorValue} from '../../../../models/createShiftF
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ShiftItemRequestBuilder} from './item/shiftItemRequestBuilder';
 import {ShiftsRequestBuilderGetRequestConfiguration} from './shiftsRequestBuilderGetRequestConfiguration';
 import {ShiftsRequestBuilderPostRequestConfiguration} from './shiftsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
@@ -16,6 +17,17 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
+     * @param shiftId Unique identifier of the item
+     * @returns a ShiftItemRequestBuilder
+     */
+    public byShiftId(shiftId: string) : ShiftItemRequestBuilder {
+        if(!shiftId) throw new Error("shiftId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["shift%2Did"] = shiftId
+        return new ShiftItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ShiftsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

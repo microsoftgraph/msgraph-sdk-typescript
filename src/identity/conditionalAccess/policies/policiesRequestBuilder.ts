@@ -4,9 +4,10 @@ import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../../mode
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
 import {PoliciesRequestBuilderGetRequestConfiguration} from './policiesRequestBuilderGetRequestConfiguration';
 import {PoliciesRequestBuilderPostRequestConfiguration} from './policiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
@@ -16,6 +17,17 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
+     * @param conditionalAccessPolicyId Unique identifier of the item
+     * @returns a ConditionalAccessPolicyItemRequestBuilder
+     */
+    public byConditionalAccessPolicyId(conditionalAccessPolicyId: string) : ConditionalAccessPolicyItemRequestBuilder {
+        if(!conditionalAccessPolicyId) throw new Error("conditionalAccessPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["conditionalAccessPolicy%2Did"] = conditionalAccessPolicyId
+        return new ConditionalAccessPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

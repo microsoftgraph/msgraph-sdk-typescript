@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilderGetRequestConfiguration} from './dailyPrintUsageByUserRequestBuilderGetRequestConfiguration';
 import {DailyPrintUsageByUserRequestBuilderPostRequestConfiguration} from './dailyPrintUsageByUserRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PrintUsageByUserItemRequestBuilder} from './item/printUsageByUserItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
@@ -16,6 +17,17 @@ export class DailyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+     * @param printUsageByUserId Unique identifier of the item
+     * @returns a PrintUsageByUserItemRequestBuilder
+     */
+    public byPrintUsageByUserId(printUsageByUserId: string) : PrintUsageByUserItemRequestBuilder {
+        if(!printUsageByUserId) throw new Error("printUsageByUserId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printUsageByUser%2Did"] = printUsageByUserId
+        return new PrintUsageByUserItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DailyPrintUsageByUserRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

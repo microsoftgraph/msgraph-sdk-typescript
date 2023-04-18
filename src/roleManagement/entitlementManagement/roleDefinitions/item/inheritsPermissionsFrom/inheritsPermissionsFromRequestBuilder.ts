@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InheritsPermissionsFromRequestBuilderGetRequestConfiguration} from './inheritsPermissionsFromRequestBuilderGetRequestConfiguration';
 import {InheritsPermissionsFromRequestBuilderPostRequestConfiguration} from './inheritsPermissionsFromRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {UnifiedRoleDefinitionItemRequestBuilder} from './item/unifiedRoleDefinitionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
@@ -16,6 +17,17 @@ export class InheritsPermissionsFromRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
+     * @param unifiedRoleDefinitionId1 Unique identifier of the item
+     * @returns a UnifiedRoleDefinitionItemRequestBuilder
+     */
+    public byUnifiedRoleDefinitionId1(unifiedRoleDefinitionId1: string) : UnifiedRoleDefinitionItemRequestBuilder {
+        if(!unifiedRoleDefinitionId1) throw new Error("unifiedRoleDefinitionId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleDefinition%2Did1"] = unifiedRoleDefinitionId1
+        return new UnifiedRoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new InheritsPermissionsFromRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

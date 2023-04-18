@@ -6,8 +6,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CallsRequestBuilderGetRequestConfiguration} from './callsRequestBuilderGetRequestConfiguration';
 import {CallsRequestBuilderPostRequestConfiguration} from './callsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {CallItemRequestBuilder} from './item/callItemRequestBuilder';
 import {LogTeleconferenceDeviceQualityRequestBuilder} from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
@@ -21,6 +22,17 @@ export class CallsRequestBuilder extends BaseRequestBuilder {
     public get logTeleconferenceDeviceQuality(): LogTeleconferenceDeviceQualityRequestBuilder {
         return new LogTeleconferenceDeviceQualityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
+     * @param callId Unique identifier of the item
+     * @returns a CallItemRequestBuilder
+     */
+    public byCallId(callId: string) : CallItemRequestBuilder {
+        if(!callId) throw new Error("callId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["call%2Did"] = callId
+        return new CallItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CallsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AccessAssignmentsRequestBuilderGetRequestConfiguration} from './accessAssignmentsRequestBuilderGetRequestConfiguration';
 import {AccessAssignmentsRequestBuilderPostRequestConfiguration} from './accessAssignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DelegatedAdminAccessAssignmentItemRequestBuilder} from './item/delegatedAdminAccessAssignmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -16,6 +17,17 @@ export class AccessAssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
+     * @param delegatedAdminAccessAssignmentId Unique identifier of the item
+     * @returns a DelegatedAdminAccessAssignmentItemRequestBuilder
+     */
+    public byDelegatedAdminAccessAssignmentId(delegatedAdminAccessAssignmentId: string) : DelegatedAdminAccessAssignmentItemRequestBuilder {
+        if(!delegatedAdminAccessAssignmentId) throw new Error("delegatedAdminAccessAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminAccessAssignment%2Did"] = delegatedAdminAccessAssignmentId
+        return new DelegatedAdminAccessAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AccessAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

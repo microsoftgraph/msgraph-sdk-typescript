@@ -6,11 +6,9 @@ import {CopyNotebookRequestBuilder} from './copyNotebook/copyNotebookRequestBuil
 import {NotebookItemRequestBuilderDeleteRequestConfiguration} from './notebookItemRequestBuilderDeleteRequestConfiguration';
 import {NotebookItemRequestBuilderGetRequestConfiguration} from './notebookItemRequestBuilderGetRequestConfiguration';
 import {NotebookItemRequestBuilderPatchRequestConfiguration} from './notebookItemRequestBuilderPatchRequestConfiguration';
-import {SectionGroupItemRequestBuilder} from './sectionGroups/item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
@@ -84,28 +82,6 @@ export class NotebookItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Notebook>(requestInfo, createNotebookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.
-     * @param id Unique identifier of the item
-     * @returns a SectionGroupItemRequestBuilder
-     */
-    public sectionGroupsById(id: string) : SectionGroupItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["sectionGroup%2Did"] = id
-        return new SectionGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the sections property of the microsoft.graph.notebook entity.
-     * @param id Unique identifier of the item
-     * @returns a OnenoteSectionItemRequestBuilder
-     */
-    public sectionsById(id: string) : OnenoteSectionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["onenoteSection%2Did"] = id
-        return new OnenoteSectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property notebooks for groups

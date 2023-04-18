@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomQuestionsRequestBuilderGetRequestConfiguration} from './customQuestionsRequestBuilderGetRequestConfiguration';
 import {CustomQuestionsRequestBuilderPostRequestConfiguration} from './customQuestionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BookingCustomQuestionItemRequestBuilder} from './item/bookingCustomQuestionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
@@ -16,6 +17,17 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
+     * @param bookingCustomQuestionId Unique identifier of the item
+     * @returns a BookingCustomQuestionItemRequestBuilder
+     */
+    public byBookingCustomQuestionId(bookingCustomQuestionId: string) : BookingCustomQuestionItemRequestBuilder {
+        if(!bookingCustomQuestionId) throw new Error("bookingCustomQuestionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bookingCustomQuestion%2Did"] = bookingCustomQuestionId
+        return new BookingCustomQuestionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CustomQuestionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

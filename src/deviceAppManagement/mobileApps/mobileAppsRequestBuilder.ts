@@ -6,9 +6,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GraphManagedMobileLobAppRequestBuilder} from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
 import {GraphMobileLobAppRequestBuilder} from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
+import {MobileAppItemRequestBuilder} from './item/mobileAppItemRequestBuilder';
 import {MobileAppsRequestBuilderGetRequestConfiguration} from './mobileAppsRequestBuilderGetRequestConfiguration';
 import {MobileAppsRequestBuilderPostRequestConfiguration} from './mobileAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
@@ -26,6 +27,17 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
     public get graphMobileLobApp(): GraphMobileLobAppRequestBuilder {
         return new GraphMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
+     * @param mobileAppId Unique identifier of the item
+     * @returns a MobileAppItemRequestBuilder
+     */
+    public byMobileAppId(mobileAppId: string) : MobileAppItemRequestBuilder {
+        if(!mobileAppId) throw new Error("mobileAppId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["mobileApp%2Did"] = mobileAppId
+        return new MobileAppItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MobileAppsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

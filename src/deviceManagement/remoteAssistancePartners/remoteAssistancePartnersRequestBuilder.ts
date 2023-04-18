@@ -4,9 +4,10 @@ import {createRemoteAssistancePartnerFromDiscriminatorValue} from '../../models/
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RemoteAssistancePartnerItemRequestBuilder} from './item/remoteAssistancePartnerItemRequestBuilder';
 import {RemoteAssistancePartnersRequestBuilderGetRequestConfiguration} from './remoteAssistancePartnersRequestBuilderGetRequestConfiguration';
 import {RemoteAssistancePartnersRequestBuilderPostRequestConfiguration} from './remoteAssistancePartnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class RemoteAssistancePartnersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
+     * @param remoteAssistancePartnerId Unique identifier of the item
+     * @returns a RemoteAssistancePartnerItemRequestBuilder
+     */
+    public byRemoteAssistancePartnerId(remoteAssistancePartnerId: string) : RemoteAssistancePartnerItemRequestBuilder {
+        if(!remoteAssistancePartnerId) throw new Error("remoteAssistancePartnerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["remoteAssistancePartner%2Did"] = remoteAssistancePartnerId
+        return new RemoteAssistancePartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RemoteAssistancePartnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

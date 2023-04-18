@@ -7,11 +7,10 @@ import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSecti
 import {OnenoteSectionItemRequestBuilderDeleteRequestConfiguration} from './onenoteSectionItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteSectionItemRequestBuilderGetRequestConfiguration} from './onenoteSectionItemRequestBuilderGetRequestConfiguration';
 import {OnenoteSectionItemRequestBuilderPatchRequestConfiguration} from './onenoteSectionItemRequestBuilderPatchRequestConfiguration';
-import {OnenotePageItemRequestBuilder} from './pages/item/onenotePageItemRequestBuilder';
 import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
@@ -75,17 +74,6 @@ export class OnenoteSectionItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<OnenoteSection>(requestInfo, createOnenoteSectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
-     * @param id Unique identifier of the item
-     * @returns a OnenotePageItemRequestBuilder
-     */
-    public pagesById(id: string) : OnenotePageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["onenotePage%2Did"] = id
-        return new OnenotePageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property sections in users

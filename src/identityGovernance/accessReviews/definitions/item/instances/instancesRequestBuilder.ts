@@ -7,7 +7,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {InstancesRequestBuilderGetRequestConfiguration} from './instancesRequestBuilderGetRequestConfiguration';
 import {InstancesRequestBuilderPostRequestConfiguration} from './instancesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewInstanceItemRequestBuilder} from './item/accessReviewInstanceItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
@@ -17,6 +18,17 @@ export class InstancesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
+     * @param accessReviewInstanceId Unique identifier of the item
+     * @returns a AccessReviewInstanceItemRequestBuilder
+     */
+    public byAccessReviewInstanceId(accessReviewInstanceId: string) : AccessReviewInstanceItemRequestBuilder {
+        if(!accessReviewInstanceId) throw new Error("accessReviewInstanceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewInstance%2Did"] = accessReviewInstanceId
+        return new AccessReviewInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new InstancesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

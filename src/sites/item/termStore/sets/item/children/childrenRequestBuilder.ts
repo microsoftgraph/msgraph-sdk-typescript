@@ -6,7 +6,8 @@ import {createTermFromDiscriminatorValue} from '../../../../../../models/termSto
 import {ChildrenRequestBuilderGetRequestConfiguration} from './childrenRequestBuilderGetRequestConfiguration';
 import {ChildrenRequestBuilderPostRequestConfiguration} from './childrenRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TermItemRequestBuilder} from './item/termItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
@@ -16,6 +17,17 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
+     * @param termId Unique identifier of the item
+     * @returns a TermItemRequestBuilder
+     */
+    public byTermId(termId: string) : TermItemRequestBuilder {
+        if(!termId) throw new Error("termId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["term%2Did"] = termId
+        return new TermItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChildrenRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

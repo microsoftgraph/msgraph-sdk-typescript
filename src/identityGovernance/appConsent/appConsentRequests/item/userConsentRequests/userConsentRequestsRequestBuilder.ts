@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {UserConsentRequestItemRequestBuilder} from './item/userConsentRequestItemRequestBuilder';
 import {UserConsentRequestsRequestBuilderGetRequestConfiguration} from './userConsentRequestsRequestBuilderGetRequestConfiguration';
 import {UserConsentRequestsRequestBuilderPostRequestConfiguration} from './userConsentRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
@@ -17,6 +18,17 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+     * @param userConsentRequestId Unique identifier of the item
+     * @returns a UserConsentRequestItemRequestBuilder
+     */
+    public byUserConsentRequestId(userConsentRequestId: string) : UserConsentRequestItemRequestBuilder {
+        if(!userConsentRequestId) throw new Error("userConsentRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userConsentRequest%2Did"] = userConsentRequestId
+        return new UserConsentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserConsentRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

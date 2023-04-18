@@ -7,11 +7,9 @@ import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSecti
 import {SectionGroupItemRequestBuilderDeleteRequestConfiguration} from './sectionGroupItemRequestBuilderDeleteRequestConfiguration';
 import {SectionGroupItemRequestBuilderGetRequestConfiguration} from './sectionGroupItemRequestBuilderGetRequestConfiguration';
 import {SectionGroupItemRequestBuilderPatchRequestConfiguration} from './sectionGroupItemRequestBuilderPatchRequestConfiguration';
-import {SectionGroupItemRequestBuilder as I933c80421e4e711eb85bac8a00f645059500d81b9227e8816543ae8f94b81fa7} from './sectionGroups/item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
@@ -89,28 +87,6 @@ export class SectionGroupItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SectionGroup>(requestInfo, createSectionGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
-     * @param id Unique identifier of the item
-     * @returns a SectionGroupItemRequestBuilder
-     */
-    public sectionGroupsById(id: string) : I933c80421e4e711eb85bac8a00f645059500d81b9227e8816543ae8f94b81fa7 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["sectionGroup%2Did1"] = id
-        return new I933c80421e4e711eb85bac8a00f645059500d81b9227e8816543ae8f94b81fa7(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
-     * @param id Unique identifier of the item
-     * @returns a OnenoteSectionItemRequestBuilder
-     */
-    public sectionsById(id: string) : OnenoteSectionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["onenoteSection%2Did"] = id
-        return new OnenoteSectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property sectionGroups for users

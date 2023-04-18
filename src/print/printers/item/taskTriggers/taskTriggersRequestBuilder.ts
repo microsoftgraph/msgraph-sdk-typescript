@@ -4,9 +4,10 @@ import {createPrintTaskTriggerFromDiscriminatorValue} from '../../../../models/c
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PrintTaskTriggerItemRequestBuilder} from './item/printTaskTriggerItemRequestBuilder';
 import {TaskTriggersRequestBuilderGetRequestConfiguration} from './taskTriggersRequestBuilderGetRequestConfiguration';
 import {TaskTriggersRequestBuilderPostRequestConfiguration} from './taskTriggersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
@@ -16,6 +17,17 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
+     * @param printTaskTriggerId Unique identifier of the item
+     * @returns a PrintTaskTriggerItemRequestBuilder
+     */
+    public byPrintTaskTriggerId(printTaskTriggerId: string) : PrintTaskTriggerItemRequestBuilder {
+        if(!printTaskTriggerId) throw new Error("printTaskTriggerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printTaskTrigger%2Did"] = printTaskTriggerId
+        return new PrintTaskTriggerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TaskTriggersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

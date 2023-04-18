@@ -4,7 +4,8 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncomingChannelsRequestBuilderGetRequestConfiguration} from './incomingChannelsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ChannelItemRequestBuilder} from './item/channelItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
@@ -14,6 +15,17 @@ export class IncomingChannelsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
+     * @param channelId Unique identifier of the item
+     * @returns a ChannelItemRequestBuilder
+     */
+    public byChannelId(channelId: string) : ChannelItemRequestBuilder {
+        if(!channelId) throw new Error("channelId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["channel%2Did"] = channelId
+        return new ChannelItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IncomingChannelsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

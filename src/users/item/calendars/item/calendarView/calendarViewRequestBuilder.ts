@@ -5,7 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {CalendarViewRequestBuilderGetRequestConfiguration} from './calendarViewRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
@@ -19,6 +20,17 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
+     * @param eventId Unique identifier of the item
+     * @returns a EventItemRequestBuilder
+     */
+    public byEventId(eventId: string) : EventItemRequestBuilder {
+        if(!eventId) throw new Error("eventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["event%2Did"] = eventId
+        return new EventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CalendarViewRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

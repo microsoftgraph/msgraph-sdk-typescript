@@ -5,9 +5,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {UnifiedRoleEligibilityScheduleItemRequestBuilder} from './item/unifiedRoleEligibilityScheduleItemRequestBuilder';
 import {RoleEligibilitySchedulesRequestBuilderGetRequestConfiguration} from './roleEligibilitySchedulesRequestBuilderGetRequestConfiguration';
 import {RoleEligibilitySchedulesRequestBuilderPostRequestConfiguration} from './roleEligibilitySchedulesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
@@ -17,6 +18,17 @@ export class RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
+     * @param unifiedRoleEligibilityScheduleId Unique identifier of the item
+     * @returns a UnifiedRoleEligibilityScheduleItemRequestBuilder
+     */
+    public byUnifiedRoleEligibilityScheduleId(unifiedRoleEligibilityScheduleId: string) : UnifiedRoleEligibilityScheduleItemRequestBuilder {
+        if(!unifiedRoleEligibilityScheduleId) throw new Error("unifiedRoleEligibilityScheduleId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleEligibilitySchedule%2Did"] = unifiedRoleEligibilityScheduleId
+        return new UnifiedRoleEligibilityScheduleItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleEligibilitySchedulesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -1,6 +1,6 @@
 
 /**
- * Get an open extension (openTypeExtension object) identified by name or fully qualified name. The table in the Permissions section lists the resources that support open extensions. The following table lists the three scenarios where you can get an open extension from a supported resource instance.
+ * The messages in a mailbox or folder. Read-only. Nullable.
  */
 export class MessagesRequestBuilderGetQueryParameters {
     /** Include count of items */
@@ -9,6 +9,8 @@ export class MessagesRequestBuilderGetQueryParameters {
     public expand?: string[] | undefined;
     /** Filter items by property values */
     public filter?: string | undefined;
+    /** Include Hidden Messages */
+    public includeHiddenMessages?: string | undefined;
     /** Order items by property values */
     public orderby?: string[] | undefined;
     /** Search items by search phrases */

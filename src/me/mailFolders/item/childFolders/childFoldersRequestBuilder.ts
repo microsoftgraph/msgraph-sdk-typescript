@@ -7,7 +7,8 @@ import {ChildFoldersRequestBuilderGetRequestConfiguration} from './childFoldersR
 import {ChildFoldersRequestBuilderPostRequestConfiguration} from './childFoldersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {MailFolderItemRequestBuilder} from './item/mailFolderItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
@@ -21,6 +22,17 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
+     * @param mailFolderId1 Unique identifier of the item
+     * @returns a MailFolderItemRequestBuilder
+     */
+    public byMailFolderId1(mailFolderId1: string) : MailFolderItemRequestBuilder {
+        if(!mailFolderId1) throw new Error("mailFolderId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["mailFolder%2Did1"] = mailFolderId1
+        return new MailFolderItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChildFoldersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -47,12 +59,12 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<MailFolderCollectionResponse>(requestInfo, createMailFolderCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Use this API to create a new child mailFolder. If you intend a new folder to be hidden, you must set the **isHidden** property to `true` on creation.
+     * Create a new mailSearchFolder in the specified user's mailbox.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MailFolder
-     * @see {@link https://docs.microsoft.com/graph/api/mailfolder-post-childfolders?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/mailsearchfolder-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MailFolder | undefined, requestConfiguration?: ChildFoldersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MailFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -84,7 +96,7 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Use this API to create a new child mailFolder. If you intend a new folder to be hidden, you must set the **isHidden** property to `true` on creation.
+     * Create a new mailSearchFolder in the specified user's mailbox.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -4,9 +4,10 @@ import {createListItemVersionFromDiscriminatorValue} from '../../../../../../../
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ListItemVersionItemRequestBuilder} from './item/listItemVersionItemRequestBuilder';
 import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
 import {VersionsRequestBuilderPostRequestConfiguration} from './versionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
@@ -16,6 +17,17 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
+     * @param listItemVersionId Unique identifier of the item
+     * @returns a ListItemVersionItemRequestBuilder
+     */
+    public byListItemVersionId(listItemVersionId: string) : ListItemVersionItemRequestBuilder {
+        if(!listItemVersionId) throw new Error("listItemVersionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["listItemVersion%2Did"] = listItemVersionId
+        return new ListItemVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new VersionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

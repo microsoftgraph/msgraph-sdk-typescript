@@ -4,9 +4,10 @@ import {createEducationAssignmentResourceFromDiscriminatorValue} from '../../../
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationAssignmentResourceItemRequestBuilder} from './item/educationAssignmentResourceItemRequestBuilder';
 import {ResourcesRequestBuilderGetRequestConfiguration} from './resourcesRequestBuilderGetRequestConfiguration';
 import {ResourcesRequestBuilderPostRequestConfiguration} from './resourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
@@ -16,6 +17,17 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
+     * @param educationAssignmentResourceId Unique identifier of the item
+     * @returns a EducationAssignmentResourceItemRequestBuilder
+     */
+    public byEducationAssignmentResourceId(educationAssignmentResourceId: string) : EducationAssignmentResourceItemRequestBuilder {
+        if(!educationAssignmentResourceId) throw new Error("educationAssignmentResourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationAssignmentResource%2Did"] = educationAssignmentResourceId
+        return new EducationAssignmentResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ResourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -20,7 +20,7 @@ export class DeletedTeam extends Entity implements Parsable {
         this._channels = value;
     };
     /**
-     * Instantiates a new DeletedTeam and sets the default values.
+     * Instantiates a new deletedTeam and sets the default values.
      */
     public constructor() {
         super();

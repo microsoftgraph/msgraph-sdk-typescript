@@ -7,7 +7,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefinitionsRequestBuilderGetRequestConfiguration} from './definitionsRequestBuilderGetRequestConfiguration';
 import {DefinitionsRequestBuilderPostRequestConfiguration} from './definitionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewScheduleDefinitionItemRequestBuilder} from './item/accessReviewScheduleDefinitionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
@@ -17,6 +18,17 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
+     * @param accessReviewScheduleDefinitionId Unique identifier of the item
+     * @returns a AccessReviewScheduleDefinitionItemRequestBuilder
+     */
+    public byAccessReviewScheduleDefinitionId(accessReviewScheduleDefinitionId: string) : AccessReviewScheduleDefinitionItemRequestBuilder {
+        if(!accessReviewScheduleDefinitionId) throw new Error("accessReviewScheduleDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewScheduleDefinition%2Did"] = accessReviewScheduleDefinitionId
+        return new AccessReviewScheduleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

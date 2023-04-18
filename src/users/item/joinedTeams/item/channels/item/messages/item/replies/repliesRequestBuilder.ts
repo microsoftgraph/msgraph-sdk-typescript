@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilderGetRequestConfiguration} from './repliesRequestBuilderGetRequestConfiguration';
 import {RepliesRequestBuilderPostRequestConfiguration} from './repliesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
@@ -21,6 +22,17 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
+     * @param chatMessageId1 Unique identifier of the item
+     * @returns a ChatMessageItemRequestBuilder
+     */
+    public byChatMessageId1(chatMessageId1: string) : ChatMessageItemRequestBuilder {
+        if(!chatMessageId1) throw new Error("chatMessageId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["chatMessage%2Did1"] = chatMessageId1
+        return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RepliesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -47,12 +59,12 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage | undefined, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -84,7 +96,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

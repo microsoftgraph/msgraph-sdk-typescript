@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {ContactedReviewersRequestBuilderGetRequestConfiguration} from './contactedReviewersRequestBuilderGetRequestConfiguration';
 import {ContactedReviewersRequestBuilderPostRequestConfiguration} from './contactedReviewersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewReviewerItemRequestBuilder} from './item/accessReviewReviewerItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
@@ -16,6 +17,17 @@ export class ContactedReviewersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
+     * @param accessReviewReviewerId Unique identifier of the item
+     * @returns a AccessReviewReviewerItemRequestBuilder
+     */
+    public byAccessReviewReviewerId(accessReviewReviewerId: string) : AccessReviewReviewerItemRequestBuilder {
+        if(!accessReviewReviewerId) throw new Error("accessReviewReviewerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewReviewer%2Did"] = accessReviewReviewerId
+        return new AccessReviewReviewerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ContactedReviewersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -7,7 +7,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DecisionsRequestBuilderGetRequestConfiguration} from './decisionsRequestBuilderGetRequestConfiguration';
 import {DecisionsRequestBuilderPostRequestConfiguration} from './decisionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './item/accessReviewInstanceDecisionItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
@@ -17,6 +18,17 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
+     * @param accessReviewInstanceDecisionItemId Unique identifier of the item
+     * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
+     */
+    public byAccessReviewInstanceDecisionItemId(accessReviewInstanceDecisionItemId: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
+        if(!accessReviewInstanceDecisionItemId) throw new Error("accessReviewInstanceDecisionItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewInstanceDecisionItem%2Did"] = accessReviewInstanceDecisionItemId
+        return new AccessReviewInstanceDecisionItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DecisionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

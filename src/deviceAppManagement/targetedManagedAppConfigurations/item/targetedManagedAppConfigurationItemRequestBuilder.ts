@@ -3,16 +3,14 @@ import {createTargetedManagedAppConfigurationFromDiscriminatorValue} from '../..
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppsRequestBuilder} from './apps/appsRequestBuilder';
-import {ManagedMobileAppItemRequestBuilder} from './apps/item/managedMobileAppItemRequestBuilder';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {TargetedManagedAppPolicyAssignmentItemRequestBuilder} from './assignments/item/targetedManagedAppPolicyAssignmentItemRequestBuilder';
 import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
 import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
 import {TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -38,28 +36,6 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
     public get targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the apps property of the microsoft.graph.targetedManagedAppConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedMobileAppItemRequestBuilder
-     */
-    public appsById(id: string) : ManagedMobileAppItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedMobileApp%2Did"] = id
-        return new ManagedMobileAppItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a TargetedManagedAppPolicyAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : TargetedManagedAppPolicyAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["targetedManagedAppPolicyAssignment%2Did"] = id
-        return new TargetedManagedAppPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new TargetedManagedAppConfigurationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

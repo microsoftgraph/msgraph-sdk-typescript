@@ -4,9 +4,10 @@ import {createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue} from 
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilder} from './item/unifiedRoleManagementPolicyAssignmentItemRequestBuilder';
 import {RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration} from './roleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration} from './roleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
@@ -16,6 +17,17 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
+     * @param unifiedRoleManagementPolicyAssignmentId Unique identifier of the item
+     * @returns a UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
+     */
+    public byUnifiedRoleManagementPolicyAssignmentId(unifiedRoleManagementPolicyAssignmentId: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
+        if(!unifiedRoleManagementPolicyAssignmentId) throw new Error("unifiedRoleManagementPolicyAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleManagementPolicyAssignment%2Did"] = unifiedRoleManagementPolicyAssignmentId
+        return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleManagementPolicyAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

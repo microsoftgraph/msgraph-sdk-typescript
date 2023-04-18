@@ -154,7 +154,7 @@ export class Call extends Entity implements Parsable {
         this._chatInfo = value;
     };
     /**
-     * Instantiates a new call and sets the default values.
+     * Instantiates a new Call and sets the default values.
      */
     public constructor() {
         super();

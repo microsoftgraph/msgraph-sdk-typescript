@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ExternalGroupItemRequestBuilderDeleteRequestConfiguration} from './externalGroupItemRequestBuilderDeleteRequestConfiguration';
 import {ExternalGroupItemRequestBuilderGetRequestConfiguration} from './externalGroupItemRequestBuilderGetRequestConfiguration';
 import {ExternalGroupItemRequestBuilderPatchRequestConfiguration} from './externalGroupItemRequestBuilderPatchRequestConfiguration';
-import {IdentityItemRequestBuilder} from './members/item/identityItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -55,17 +54,6 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ExternalGroup>(requestInfo, createExternalGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
-     * @param id Unique identifier of the item
-     * @returns a IdentityItemRequestBuilder
-     */
-    public membersById(id: string) : IdentityItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["identity%2Did"] = id
-        return new IdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property groups in external

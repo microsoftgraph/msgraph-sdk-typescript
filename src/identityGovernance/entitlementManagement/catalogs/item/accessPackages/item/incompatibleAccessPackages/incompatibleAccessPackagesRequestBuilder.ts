@@ -4,8 +4,9 @@ import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncompatibleAccessPackagesRequestBuilderGetRequestConfiguration} from './incompatibleAccessPackagesRequestBuilderGetRequestConfiguration';
+import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.
@@ -19,6 +20,17 @@ export class IncompatibleAccessPackagesRequestBuilder extends BaseRequestBuilder
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.incompatibleAccessPackages.item collection
+     * @param accessPackageId1 Unique identifier of the item
+     * @returns a AccessPackageItemRequestBuilder
+     */
+    public byAccessPackageId1(accessPackageId1: string) : AccessPackageItemRequestBuilder {
+        if(!accessPackageId1) throw new Error("accessPackageId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackage%2Did1"] = accessPackageId1
+        return new AccessPackageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IncompatibleAccessPackagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

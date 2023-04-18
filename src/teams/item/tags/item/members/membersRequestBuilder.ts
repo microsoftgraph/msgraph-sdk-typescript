@@ -4,9 +4,10 @@ import {createTeamworkTagMemberFromDiscriminatorValue} from '../../../../../mode
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamworkTagMemberItemRequestBuilder} from './item/teamworkTagMemberItemRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
@@ -16,6 +17,17 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
+     * @param teamworkTagMemberId Unique identifier of the item
+     * @returns a TeamworkTagMemberItemRequestBuilder
+     */
+    public byTeamworkTagMemberId(teamworkTagMemberId: string) : TeamworkTagMemberItemRequestBuilder {
+        if(!teamworkTagMemberId) throw new Error("teamworkTagMemberId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamworkTagMember%2Did"] = teamworkTagMemberId
+        return new TeamworkTagMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

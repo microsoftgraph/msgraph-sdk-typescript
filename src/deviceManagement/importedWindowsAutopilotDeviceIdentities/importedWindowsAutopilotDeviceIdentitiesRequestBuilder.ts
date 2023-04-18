@@ -7,7 +7,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
 import {ImportRequestBuilder} from './importEscaped/importRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/importedWindowsAutopilotDeviceIdentityItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
@@ -21,6 +22,17 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder extends Base
     public get importEscaped(): ImportRequestBuilder {
         return new ImportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
+     * @param importedWindowsAutopilotDeviceIdentityId Unique identifier of the item
+     * @returns a ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder
+     */
+    public byImportedWindowsAutopilotDeviceIdentityId(importedWindowsAutopilotDeviceIdentityId: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {
+        if(!importedWindowsAutopilotDeviceIdentityId) throw new Error("importedWindowsAutopilotDeviceIdentityId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["importedWindowsAutopilotDeviceIdentity%2Did"] = importedWindowsAutopilotDeviceIdentityId
+        return new ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/windowsAutopilotDeviceIdentityItemRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequestB
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
+     * @param windowsAutopilotDeviceIdentityId Unique identifier of the item
+     * @returns a WindowsAutopilotDeviceIdentityItemRequestBuilder
+     */
+    public byWindowsAutopilotDeviceIdentityId(windowsAutopilotDeviceIdentityId: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder {
+        if(!windowsAutopilotDeviceIdentityId) throw new Error("windowsAutopilotDeviceIdentityId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsAutopilotDeviceIdentity%2Did"] = windowsAutopilotDeviceIdentityId
+        return new WindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WindowsAutopilotDeviceIdentitiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

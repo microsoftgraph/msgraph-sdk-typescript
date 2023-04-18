@@ -9,8 +9,9 @@ import {DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration} from './dir
 import {DirectoryRoleTemplatesRequestBuilderPostRequestConfiguration} from './directoryRoleTemplatesRequestBuilderPostRequestConfiguration';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {DirectoryRoleTemplateItemRequestBuilder} from './item/directoryRoleTemplateItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRoleTemplate entities.
@@ -36,6 +37,17 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of directoryRoleTemplate entities.
+     * @param directoryRoleTemplateId Unique identifier of the item
+     * @returns a DirectoryRoleTemplateItemRequestBuilder
+     */
+    public byDirectoryRoleTemplateId(directoryRoleTemplateId: string) : DirectoryRoleTemplateItemRequestBuilder {
+        if(!directoryRoleTemplateId) throw new Error("directoryRoleTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryRoleTemplate%2Did"] = directoryRoleTemplateId
+        return new DirectoryRoleTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DirectoryRoleTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

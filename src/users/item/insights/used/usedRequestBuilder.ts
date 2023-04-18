@@ -4,9 +4,10 @@ import {createUsedInsightFromDiscriminatorValue} from '../../../../models/create
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UsedInsightItemRequestBuilder} from './item/usedInsightItemRequestBuilder';
 import {UsedRequestBuilderGetRequestConfiguration} from './usedRequestBuilderGetRequestConfiguration';
 import {UsedRequestBuilderPostRequestConfiguration} from './usedRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
@@ -16,6 +17,17 @@ export class UsedRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
+     * @param usedInsightId Unique identifier of the item
+     * @returns a UsedInsightItemRequestBuilder
+     */
+    public byUsedInsightId(usedInsightId: string) : UsedInsightItemRequestBuilder {
+        if(!usedInsightId) throw new Error("usedInsightId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["usedInsight%2Did"] = usedInsightId
+        return new UsedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UsedRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

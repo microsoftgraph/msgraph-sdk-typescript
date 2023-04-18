@@ -4,9 +4,10 @@ import {CaseOperation, CaseOperationCollectionResponse} from '../../../../../mod
 import {createCaseOperationCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createCaseOperationCollectionResponseFromDiscriminatorValue';
 import {createCaseOperationFromDiscriminatorValue} from '../../../../../models/security/createCaseOperationFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {CaseOperationItemRequestBuilder} from './item/caseOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
@@ -16,6 +17,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param caseOperationId Unique identifier of the item
+     * @returns a CaseOperationItemRequestBuilder
+     */
+    public byCaseOperationId(caseOperationId: string) : CaseOperationItemRequestBuilder {
+        if(!caseOperationId) throw new Error("caseOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["caseOperation%2Did"] = caseOperationId
+        return new CaseOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

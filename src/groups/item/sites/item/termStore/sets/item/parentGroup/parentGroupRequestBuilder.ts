@@ -5,9 +5,8 @@ import {createGroupFromDiscriminatorValue} from '../../../../../../../../models/
 import {ParentGroupRequestBuilderDeleteRequestConfiguration} from './parentGroupRequestBuilderDeleteRequestConfiguration';
 import {ParentGroupRequestBuilderGetRequestConfiguration} from './parentGroupRequestBuilderGetRequestConfiguration';
 import {ParentGroupRequestBuilderPatchRequestConfiguration} from './parentGroupRequestBuilderPatchRequestConfiguration';
-import {SetItemRequestBuilder} from './sets/item/setItemRequestBuilder';
 import {SetsRequestBuilder} from './sets/setsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the parentGroup property of the microsoft.graph.termStore.set entity.
@@ -73,17 +72,6 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
-     * @param id Unique identifier of the item
-     * @returns a SetItemRequestBuilder
-     */
-    public setsById(id: string) : SetItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["set%2Did1"] = id
-        return new SetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property parentGroup for groups

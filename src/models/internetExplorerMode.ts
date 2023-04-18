@@ -3,7 +3,7 @@ import {BrowserSiteList, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InternetExplorerMode extends Entity implements Parsable {
-    /** The siteLists property */
+    /** A collection of site lists to support Internet Explorer mode. */
     private _siteLists?: BrowserSiteList[] | undefined;
     /**
      * Instantiates a new internetExplorerMode and sets the default values.
@@ -30,14 +30,14 @@ export class InternetExplorerMode extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<BrowserSiteList>("siteLists", this.siteLists);
     };
     /**
-     * Gets the siteLists property value. The siteLists property
+     * Gets the siteLists property value. A collection of site lists to support Internet Explorer mode.
      * @returns a browserSiteList
      */
     public get siteLists() {
         return this._siteLists;
     };
     /**
-     * Sets the siteLists property value. The siteLists property
+     * Sets the siteLists property value. A collection of site lists to support Internet Explorer mode.
      * @param value Value to set for the siteLists property.
      */
     public set siteLists(value: BrowserSiteList[] | undefined) {

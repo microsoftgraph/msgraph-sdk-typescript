@@ -4,9 +4,10 @@ import {createUserInstallStateSummaryFromDiscriminatorValue} from '../../../../m
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UserInstallStateSummaryItemRequestBuilder} from './item/userInstallStateSummaryItemRequestBuilder';
 import {UserStateSummaryRequestBuilderGetRequestConfiguration} from './userStateSummaryRequestBuilderGetRequestConfiguration';
 import {UserStateSummaryRequestBuilderPostRequestConfiguration} from './userStateSummaryRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
@@ -16,6 +17,17 @@ export class UserStateSummaryRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
+     * @param userInstallStateSummaryId Unique identifier of the item
+     * @returns a UserInstallStateSummaryItemRequestBuilder
+     */
+    public byUserInstallStateSummaryId(userInstallStateSummaryId: string) : UserInstallStateSummaryItemRequestBuilder {
+        if(!userInstallStateSummaryId) throw new Error("userInstallStateSummaryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userInstallStateSummary%2Did"] = userInstallStateSummaryId
+        return new UserInstallStateSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserStateSummaryRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

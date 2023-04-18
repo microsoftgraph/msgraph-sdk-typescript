@@ -3,12 +3,11 @@ import {createServiceUpdateMessageFromDiscriminatorValue} from '../../../../mode
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
-import {ServiceAnnouncementAttachmentItemRequestBuilder} from './attachments/item/serviceAnnouncementAttachmentItemRequestBuilder';
 import {AttachmentsArchiveRequestBuilder} from './attachmentsArchive/attachmentsArchiveRequestBuilder';
 import {ServiceUpdateMessageItemRequestBuilderDeleteRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceUpdateMessageItemRequestBuilderGetRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderGetRequestConfiguration';
 import {ServiceUpdateMessageItemRequestBuilderPatchRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
@@ -22,17 +21,6 @@ export class ServiceUpdateMessageItemRequestBuilder extends BaseRequestBuilder {
     public get attachmentsArchive(): AttachmentsArchiveRequestBuilder {
         return new AttachmentsArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
-     * @param id Unique identifier of the item
-     * @returns a ServiceAnnouncementAttachmentItemRequestBuilder
-     */
-    public attachmentsById(id: string) : ServiceAnnouncementAttachmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["serviceAnnouncementAttachment%2Did"] = id
-        return new ServiceAnnouncementAttachmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new ServiceUpdateMessageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

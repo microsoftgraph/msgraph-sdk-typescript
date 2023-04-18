@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CalendarGroupsRequestBuilderGetRequestConfiguration} from './calendarGroupsRequestBuilderGetRequestConfiguration';
 import {CalendarGroupsRequestBuilderPostRequestConfiguration} from './calendarGroupsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CalendarGroupItemRequestBuilder} from './item/calendarGroupItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
@@ -16,6 +17,17 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
+     * @param calendarGroupId Unique identifier of the item
+     * @returns a CalendarGroupItemRequestBuilder
+     */
+    public byCalendarGroupId(calendarGroupId: string) : CalendarGroupItemRequestBuilder {
+        if(!calendarGroupId) throw new Error("calendarGroupId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["calendarGroup%2Did"] = calendarGroupId
+        return new CalendarGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CalendarGroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

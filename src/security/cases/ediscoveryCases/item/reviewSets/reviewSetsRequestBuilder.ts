@@ -4,9 +4,10 @@ import {EdiscoveryReviewSet, EdiscoveryReviewSetCollectionResponse} from '../../
 import {createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryReviewSetFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewSetFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EdiscoveryReviewSetItemRequestBuilder} from './item/ediscoveryReviewSetItemRequestBuilder';
 import {ReviewSetsRequestBuilderGetRequestConfiguration} from './reviewSetsRequestBuilderGetRequestConfiguration';
 import {ReviewSetsRequestBuilderPostRequestConfiguration} from './reviewSetsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
@@ -16,6 +17,17 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param ediscoveryReviewSetId Unique identifier of the item
+     * @returns a EdiscoveryReviewSetItemRequestBuilder
+     */
+    public byEdiscoveryReviewSetId(ediscoveryReviewSetId: string) : EdiscoveryReviewSetItemRequestBuilder {
+        if(!ediscoveryReviewSetId) throw new Error("ediscoveryReviewSetId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryReviewSet%2Did"] = ediscoveryReviewSetId
+        return new EdiscoveryReviewSetItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ReviewSetsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

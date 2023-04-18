@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentSetVersionsRequestBuilderGetRequestConfiguration} from './documentSetVersionsRequestBuilderGetRequestConfiguration';
 import {DocumentSetVersionsRequestBuilderPostRequestConfiguration} from './documentSetVersionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DocumentSetVersionItemRequestBuilder} from './item/documentSetVersionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
@@ -16,6 +17,17 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
+     * @param documentSetVersionId Unique identifier of the item
+     * @returns a DocumentSetVersionItemRequestBuilder
+     */
+    public byDocumentSetVersionId(documentSetVersionId: string) : DocumentSetVersionItemRequestBuilder {
+        if(!documentSetVersionId) throw new Error("documentSetVersionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["documentSetVersion%2Did"] = documentSetVersionId
+        return new DocumentSetVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DocumentSetVersionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

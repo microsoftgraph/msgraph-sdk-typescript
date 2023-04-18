@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ChildrenRequestBuilderGetRequestConfiguration} from './childrenRequestBuilderGetRequestConfiguration';
 import {ChildrenRequestBuilderPostRequestConfiguration} from './childrenRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
@@ -16,6 +17,17 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
+     * @param driveItemId1 Unique identifier of the item
+     * @returns a DriveItemItemRequestBuilder
+     */
+    public byDriveItemId1(driveItemId1: string) : DriveItemItemRequestBuilder {
+        if(!driveItemId1) throw new Error("driveItemId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["driveItem%2Did1"] = driveItemId1
+        return new DriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChildrenRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

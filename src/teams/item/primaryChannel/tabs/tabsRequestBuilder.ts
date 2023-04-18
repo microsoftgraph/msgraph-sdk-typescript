@@ -4,9 +4,10 @@ import {createTeamsTabFromDiscriminatorValue} from '../../../../models/createTea
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamsTabItemRequestBuilder} from './item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilderGetRequestConfiguration} from './tabsRequestBuilderGetRequestConfiguration';
 import {TabsRequestBuilderPostRequestConfiguration} from './tabsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
@@ -16,6 +17,17 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
+     * @param teamsTabId Unique identifier of the item
+     * @returns a TeamsTabItemRequestBuilder
+     */
+    public byTeamsTabId(teamsTabId: string) : TeamsTabItemRequestBuilder {
+        if(!teamsTabId) throw new Error("teamsTabId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsTab%2Did"] = teamsTabId
+        return new TeamsTabItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TabsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

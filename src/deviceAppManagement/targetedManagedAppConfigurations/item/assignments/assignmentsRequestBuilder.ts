@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TargetedManagedAppPolicyAssignmentItemRequestBuilder} from './item/targetedManagedAppPolicyAssignmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppConfiguration entity.
@@ -16,6 +17,17 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppConfiguration entity.
+     * @param targetedManagedAppPolicyAssignmentId Unique identifier of the item
+     * @returns a TargetedManagedAppPolicyAssignmentItemRequestBuilder
+     */
+    public byTargetedManagedAppPolicyAssignmentId(targetedManagedAppPolicyAssignmentId: string) : TargetedManagedAppPolicyAssignmentItemRequestBuilder {
+        if(!targetedManagedAppPolicyAssignmentId) throw new Error("targetedManagedAppPolicyAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["targetedManagedAppPolicyAssignment%2Did"] = targetedManagedAppPolicyAssignmentId
+        return new TargetedManagedAppPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -7,7 +7,8 @@ import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsReq
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AttachmentBaseItemRequestBuilder} from './item/attachmentBaseItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
@@ -21,6 +22,17 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
     public get createUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
+     * @param attachmentBaseId Unique identifier of the item
+     * @returns a AttachmentBaseItemRequestBuilder
+     */
+    public byAttachmentBaseId(attachmentBaseId: string) : AttachmentBaseItemRequestBuilder {
+        if(!attachmentBaseId) throw new Error("attachmentBaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["attachmentBase%2Did"] = attachmentBaseId
+        return new AttachmentBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AttachmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

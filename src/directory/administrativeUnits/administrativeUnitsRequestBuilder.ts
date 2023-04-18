@@ -7,7 +7,8 @@ import {AdministrativeUnitsRequestBuilderGetRequestConfiguration} from './admini
 import {AdministrativeUnitsRequestBuilderPostRequestConfiguration} from './administrativeUnitsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AdministrativeUnitItemRequestBuilder} from './item/administrativeUnitItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
@@ -21,6 +22,17 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
+     * @param administrativeUnitId Unique identifier of the item
+     * @returns a AdministrativeUnitItemRequestBuilder
+     */
+    public byAdministrativeUnitId(administrativeUnitId: string) : AdministrativeUnitItemRequestBuilder {
+        if(!administrativeUnitId) throw new Error("administrativeUnitId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["administrativeUnit%2Did"] = administrativeUnitId
+        return new AdministrativeUnitItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AdministrativeUnitsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {Set, SetCollectionResponse} from '../../../../../../../../../models/term
 import {createSetCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/termStore/createSetCollectionResponseFromDiscriminatorValue';
 import {createSetFromDiscriminatorValue} from '../../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SetItemRequestBuilder} from './item/setItemRequestBuilder';
 import {SetsRequestBuilderGetRequestConfiguration} from './setsRequestBuilderGetRequestConfiguration';
 import {SetsRequestBuilderPostRequestConfiguration} from './setsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
@@ -16,6 +17,17 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
+     * @param setId1 Unique identifier of the item
+     * @returns a SetItemRequestBuilder
+     */
+    public bySetId1(setId1: string) : SetItemRequestBuilder {
+        if(!setId1) throw new Error("setId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["set%2Did1"] = setId1
+        return new SetItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SetsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

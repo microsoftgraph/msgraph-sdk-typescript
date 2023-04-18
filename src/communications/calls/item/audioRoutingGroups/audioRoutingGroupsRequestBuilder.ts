@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AudioRoutingGroupsRequestBuilderGetRequestConfiguration} from './audioRoutingGroupsRequestBuilderGetRequestConfiguration';
 import {AudioRoutingGroupsRequestBuilderPostRequestConfiguration} from './audioRoutingGroupsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AudioRoutingGroupItemRequestBuilder} from './item/audioRoutingGroupItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
@@ -16,6 +17,17 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+     * @param audioRoutingGroupId Unique identifier of the item
+     * @returns a AudioRoutingGroupItemRequestBuilder
+     */
+    public byAudioRoutingGroupId(audioRoutingGroupId: string) : AudioRoutingGroupItemRequestBuilder {
+        if(!audioRoutingGroupId) throw new Error("audioRoutingGroupId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["audioRoutingGroup%2Did"] = audioRoutingGroupId
+        return new AudioRoutingGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AudioRoutingGroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

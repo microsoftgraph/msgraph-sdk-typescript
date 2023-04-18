@@ -1,6 +1,6 @@
 
 /**
- * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar `(../me/calendarview)` or some other calendar of the user's.
+ * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar `(../me/calendarView)` or some other calendar of the user's.
  */
 export class CalendarViewRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -6,7 +6,8 @@ import {createEdiscoveryCaseFromDiscriminatorValue} from '../../../models/securi
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryCasesRequestBuilderGetRequestConfiguration} from './ediscoveryCasesRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCasesRequestBuilderPostRequestConfiguration} from './ediscoveryCasesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EdiscoveryCaseItemRequestBuilder} from './item/ediscoveryCaseItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
@@ -16,6 +17,17 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
+     * @param ediscoveryCaseId Unique identifier of the item
+     * @returns a EdiscoveryCaseItemRequestBuilder
+     */
+    public byEdiscoveryCaseId(ediscoveryCaseId: string) : EdiscoveryCaseItemRequestBuilder {
+        if(!ediscoveryCaseId) throw new Error("ediscoveryCaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryCase%2Did"] = ediscoveryCaseId
+        return new EdiscoveryCaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new EdiscoveryCasesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

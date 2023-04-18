@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncludesRequestBuilderGetRequestConfiguration} from './includesRequestBuilderGetRequestConfiguration';
 import {IncludesRequestBuilderPostRequestConfiguration} from './includesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PermissionGrantConditionSetItemRequestBuilder} from './item/permissionGrantConditionSetItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
@@ -16,6 +17,17 @@ export class IncludesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
+     * @param permissionGrantConditionSetId Unique identifier of the item
+     * @returns a PermissionGrantConditionSetItemRequestBuilder
+     */
+    public byPermissionGrantConditionSetId(permissionGrantConditionSetId: string) : PermissionGrantConditionSetItemRequestBuilder {
+        if(!permissionGrantConditionSetId) throw new Error("permissionGrantConditionSetId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["permissionGrantConditionSet%2Did"] = permissionGrantConditionSetId
+        return new PermissionGrantConditionSetItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IncludesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

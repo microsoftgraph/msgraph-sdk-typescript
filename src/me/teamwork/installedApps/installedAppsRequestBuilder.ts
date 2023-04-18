@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InstalledAppsRequestBuilderGetRequestConfiguration} from './installedAppsRequestBuilderGetRequestConfiguration';
 import {InstalledAppsRequestBuilderPostRequestConfiguration} from './installedAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {UserScopeTeamsAppInstallationItemRequestBuilder} from './item/userScopeTeamsAppInstallationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
@@ -16,6 +17,17 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
+     * @param userScopeTeamsAppInstallationId Unique identifier of the item
+     * @returns a UserScopeTeamsAppInstallationItemRequestBuilder
+     */
+    public byUserScopeTeamsAppInstallationId(userScopeTeamsAppInstallationId: string) : UserScopeTeamsAppInstallationItemRequestBuilder {
+        if(!userScopeTeamsAppInstallationId) throw new Error("userScopeTeamsAppInstallationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userScopeTeamsAppInstallation%2Did"] = userScopeTeamsAppInstallationId
+        return new UserScopeTeamsAppInstallationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new InstalledAppsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -9,7 +9,8 @@ import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsReq
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessPackageAssignmentItemRequestBuilder} from './item/accessPackageAssignmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
@@ -33,6 +34,17 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         if(!accessPackageId) throw new Error("accessPackageId cannot be undefined");
         if(!incompatibleAccessPackageId) throw new Error("incompatibleAccessPackageId cannot be undefined");
         return new AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdRequestBuilder(this.pathParameters, this.requestAdapter, accessPackageId, incompatibleAccessPackageId);
+    };
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
+     * @param accessPackageAssignmentId Unique identifier of the item
+     * @returns a AccessPackageAssignmentItemRequestBuilder
+     */
+    public byAccessPackageAssignmentId(accessPackageAssignmentId: string) : AccessPackageAssignmentItemRequestBuilder {
+        if(!accessPackageAssignmentId) throw new Error("accessPackageAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackageAssignment%2Did"] = accessPackageAssignmentId
+        return new AccessPackageAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.

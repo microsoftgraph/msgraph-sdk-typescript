@@ -4,21 +4,21 @@ import {AppManagementConfiguration, DirectoryObject, PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppManagementPolicy extends PolicyBase implements Parsable {
-    /** The appliesTo property */
+    /** Collection of applications and service principals to which the policy is applied. */
     private _appliesTo?: DirectoryObject[] | undefined;
-    /** The isEnabled property */
+    /** Denotes whether the policy is enabled. */
     private _isEnabled?: boolean | undefined;
-    /** The restrictions property */
+    /** Restrictions that apply to an application or service principal object. */
     private _restrictions?: AppManagementConfiguration | undefined;
     /**
-     * Gets the appliesTo property value. The appliesTo property
+     * Gets the appliesTo property value. Collection of applications and service principals to which the policy is applied.
      * @returns a directoryObject
      */
     public get appliesTo() {
         return this._appliesTo;
     };
     /**
-     * Sets the appliesTo property value. The appliesTo property
+     * Sets the appliesTo property value. Collection of applications and service principals to which the policy is applied.
      * @param value Value to set for the appliesTo property.
      */
     public set appliesTo(value: DirectoryObject[] | undefined) {
@@ -43,28 +43,28 @@ export class AppManagementPolicy extends PolicyBase implements Parsable {
         };
     };
     /**
-     * Gets the isEnabled property value. The isEnabled property
+     * Gets the isEnabled property value. Denotes whether the policy is enabled.
      * @returns a boolean
      */
     public get isEnabled() {
         return this._isEnabled;
     };
     /**
-     * Sets the isEnabled property value. The isEnabled property
+     * Sets the isEnabled property value. Denotes whether the policy is enabled.
      * @param value Value to set for the isEnabled property.
      */
     public set isEnabled(value: boolean | undefined) {
         this._isEnabled = value;
     };
     /**
-     * Gets the restrictions property value. The restrictions property
+     * Gets the restrictions property value. Restrictions that apply to an application or service principal object.
      * @returns a appManagementConfiguration
      */
     public get restrictions() {
         return this._restrictions;
     };
     /**
-     * Sets the restrictions property value. The restrictions property
+     * Sets the restrictions property value. Restrictions that apply to an application or service principal object.
      * @param value Value to set for the restrictions property.
      */
     public set restrictions(value: AppManagementConfiguration | undefined) {

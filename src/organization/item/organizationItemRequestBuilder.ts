@@ -4,11 +4,9 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BrandingRequestBuilder} from './branding/brandingRequestBuilder';
 import {CertificateBasedAuthConfigurationRequestBuilder} from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
-import {CertificateBasedAuthConfigurationItemRequestBuilder} from './certificateBasedAuthConfiguration/item/certificateBasedAuthConfigurationItemRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {OrganizationItemRequestBuilderDeleteRequestConfiguration} from './organizationItemRequestBuilderDeleteRequestConfiguration';
@@ -16,7 +14,7 @@ import {OrganizationItemRequestBuilderGetRequestConfiguration} from './organizat
 import {OrganizationItemRequestBuilderPatchRequestConfiguration} from './organizationItemRequestBuilderPatchRequestConfiguration';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {SetMobileDeviceManagementAuthorityRequestBuilder} from './setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organization entities.
@@ -59,17 +57,6 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
         return new SetMobileDeviceManagementAuthorityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.
-     * @param id Unique identifier of the item
-     * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
-     */
-    public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["certificateBasedAuthConfiguration%2Did"] = id
-        return new CertificateBasedAuthConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new OrganizationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -91,17 +78,6 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the extensions property of the microsoft.graph.organization entity.
-     * @param id Unique identifier of the item
-     * @returns a ExtensionItemRequestBuilder
-     */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extension%2Did"] = id
-        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.

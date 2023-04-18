@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration} from './activityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration';
 import {ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration} from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './item/activityBasedTimeoutPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
@@ -16,6 +17,17 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
+     * @param activityBasedTimeoutPolicyId Unique identifier of the item
+     * @returns a ActivityBasedTimeoutPolicyItemRequestBuilder
+     */
+    public byActivityBasedTimeoutPolicyId(activityBasedTimeoutPolicyId: string) : ActivityBasedTimeoutPolicyItemRequestBuilder {
+        if(!activityBasedTimeoutPolicyId) throw new Error("activityBasedTimeoutPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["activityBasedTimeoutPolicy%2Did"] = activityBasedTimeoutPolicyId
+        return new ActivityBasedTimeoutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ActivityBasedTimeoutPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

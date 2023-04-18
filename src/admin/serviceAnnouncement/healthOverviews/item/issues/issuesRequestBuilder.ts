@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IssuesRequestBuilderGetRequestConfiguration} from './issuesRequestBuilderGetRequestConfiguration';
 import {IssuesRequestBuilderPostRequestConfiguration} from './issuesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ServiceHealthIssueItemRequestBuilder} from './item/serviceHealthIssueItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
@@ -16,6 +17,17 @@ export class IssuesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
+     * @param serviceHealthIssueId Unique identifier of the item
+     * @returns a ServiceHealthIssueItemRequestBuilder
+     */
+    public byServiceHealthIssueId(serviceHealthIssueId: string) : ServiceHealthIssueItemRequestBuilder {
+        if(!serviceHealthIssueId) throw new Error("serviceHealthIssueId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["serviceHealthIssue%2Did"] = serviceHealthIssueId
+        return new ServiceHealthIssueItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IssuesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

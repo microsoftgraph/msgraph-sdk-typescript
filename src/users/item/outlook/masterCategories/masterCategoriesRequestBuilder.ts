@@ -4,9 +4,10 @@ import {createOutlookCategoryFromDiscriminatorValue} from '../../../../models/cr
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OutlookCategoryItemRequestBuilder} from './item/outlookCategoryItemRequestBuilder';
 import {MasterCategoriesRequestBuilderGetRequestConfiguration} from './masterCategoriesRequestBuilderGetRequestConfiguration';
 import {MasterCategoriesRequestBuilderPostRequestConfiguration} from './masterCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
@@ -16,6 +17,17 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
+     * @param outlookCategoryId Unique identifier of the item
+     * @returns a OutlookCategoryItemRequestBuilder
+     */
+    public byOutlookCategoryId(outlookCategoryId: string) : OutlookCategoryItemRequestBuilder {
+        if(!outlookCategoryId) throw new Error("outlookCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["outlookCategory%2Did"] = outlookCategoryId
+        return new OutlookCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MasterCategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

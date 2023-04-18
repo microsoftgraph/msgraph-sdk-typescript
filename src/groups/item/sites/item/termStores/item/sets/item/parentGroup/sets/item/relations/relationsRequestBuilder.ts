@@ -4,9 +4,10 @@ import {Relation, RelationCollectionResponse} from '../../../../../../../../../.
 import {createRelationCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../../../../models/termStore/createRelationCollectionResponseFromDiscriminatorValue';
 import {createRelationFromDiscriminatorValue} from '../../../../../../../../../../../../models/termStore/createRelationFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RelationItemRequestBuilder} from './item/relationItemRequestBuilder';
 import {RelationsRequestBuilderGetRequestConfiguration} from './relationsRequestBuilderGetRequestConfiguration';
 import {RelationsRequestBuilderPostRequestConfiguration} from './relationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
@@ -16,6 +17,17 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
+     * @param relationId Unique identifier of the item
+     * @returns a RelationItemRequestBuilder
+     */
+    public byRelationId(relationId: string) : RelationItemRequestBuilder {
+        if(!relationId) throw new Error("relationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["relation%2Did"] = relationId
+        return new RelationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RelationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

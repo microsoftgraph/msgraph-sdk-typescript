@@ -7,7 +7,8 @@ import {AssignmentCategoriesRequestBuilderGetRequestConfiguration} from './assig
 import {AssignmentCategoriesRequestBuilderPostRequestConfiguration} from './assignmentCategoriesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EducationCategoryItemRequestBuilder} from './item/educationCategoryItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
@@ -21,6 +22,17 @@ export class AssignmentCategoriesRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
+     * @param educationCategoryId Unique identifier of the item
+     * @returns a EducationCategoryItemRequestBuilder
+     */
+    public byEducationCategoryId(educationCategoryId: string) : EducationCategoryItemRequestBuilder {
+        if(!educationCategoryId) throw new Error("educationCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationCategory%2Did"] = educationCategoryId
+        return new EducationCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AssignmentCategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

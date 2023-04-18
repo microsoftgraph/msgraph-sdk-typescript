@@ -3,6 +3,7 @@ import {createAdminConsentRequestPolicyFromDiscriminatorValue} from './createAdm
 import {createAppManagementPolicyFromDiscriminatorValue} from './createAppManagementPolicyFromDiscriminatorValue';
 import {createAuthenticationFlowsPolicyFromDiscriminatorValue} from './createAuthenticationFlowsPolicyFromDiscriminatorValue';
 import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from './createAuthenticationMethodsPolicyFromDiscriminatorValue';
+import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from './createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {createAuthorizationPolicyFromDiscriminatorValue} from './createAuthorizationPolicyFromDiscriminatorValue';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
@@ -16,7 +17,7 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssu
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AppManagementPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, CrossTenantAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
+import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AppManagementPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthenticationStrengthPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, CrossTenantAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PolicyRoot extends Entity implements Parsable {
@@ -30,6 +31,8 @@ export class PolicyRoot extends Entity implements Parsable {
     private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
     /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
     private _authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
+    /** The authenticationStrengthPolicies property */
+    private _authenticationStrengthPolicies?: AuthenticationStrengthPolicy[] | undefined;
     /** The policy that controls Azure AD authorization settings. */
     private _authorizationPolicy?: AuthorizationPolicy | undefined;
     /** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application. */
@@ -125,6 +128,20 @@ export class PolicyRoot extends Entity implements Parsable {
      */
     public set authenticationMethodsPolicy(value: AuthenticationMethodsPolicy | undefined) {
         this._authenticationMethodsPolicy = value;
+    };
+    /**
+     * Gets the authenticationStrengthPolicies property value. The authenticationStrengthPolicies property
+     * @returns a authenticationStrengthPolicy
+     */
+    public get authenticationStrengthPolicies() {
+        return this._authenticationStrengthPolicies;
+    };
+    /**
+     * Sets the authenticationStrengthPolicies property value. The authenticationStrengthPolicies property
+     * @param value Value to set for the authenticationStrengthPolicies property.
+     */
+    public set authenticationStrengthPolicies(value: AuthenticationStrengthPolicy[] | undefined) {
+        this._authenticationStrengthPolicies = value;
     };
     /**
      * Gets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
@@ -227,6 +244,7 @@ export class PolicyRoot extends Entity implements Parsable {
             "appManagementPolicies": n => { this.appManagementPolicies = n.getCollectionOfObjectValues<AppManagementPolicy>(createAppManagementPolicyFromDiscriminatorValue); },
             "authenticationFlowsPolicy": n => { this.authenticationFlowsPolicy = n.getObjectValue<AuthenticationFlowsPolicy>(createAuthenticationFlowsPolicyFromDiscriminatorValue); },
             "authenticationMethodsPolicy": n => { this.authenticationMethodsPolicy = n.getObjectValue<AuthenticationMethodsPolicy>(createAuthenticationMethodsPolicyFromDiscriminatorValue); },
+            "authenticationStrengthPolicies": n => { this.authenticationStrengthPolicies = n.getCollectionOfObjectValues<AuthenticationStrengthPolicy>(createAuthenticationStrengthPolicyFromDiscriminatorValue); },
             "authorizationPolicy": n => { this.authorizationPolicy = n.getObjectValue<AuthorizationPolicy>(createAuthorizationPolicyFromDiscriminatorValue); },
             "claimsMappingPolicies": n => { this.claimsMappingPolicies = n.getCollectionOfObjectValues<ClaimsMappingPolicy>(createClaimsMappingPolicyFromDiscriminatorValue); },
             "conditionalAccessPolicies": n => { this.conditionalAccessPolicies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(createConditionalAccessPolicyFromDiscriminatorValue); },
@@ -324,6 +342,7 @@ export class PolicyRoot extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", this.appManagementPolicies);
         writer.writeObjectValue<AuthenticationFlowsPolicy>("authenticationFlowsPolicy", this.authenticationFlowsPolicy);
         writer.writeObjectValue<AuthenticationMethodsPolicy>("authenticationMethodsPolicy", this.authenticationMethodsPolicy);
+        writer.writeCollectionOfObjectValues<AuthenticationStrengthPolicy>("authenticationStrengthPolicies", this.authenticationStrengthPolicies);
         writer.writeObjectValue<AuthorizationPolicy>("authorizationPolicy", this.authorizationPolicy);
         writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", this.claimsMappingPolicies);
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", this.conditionalAccessPolicies);

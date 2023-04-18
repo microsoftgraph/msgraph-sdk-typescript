@@ -4,13 +4,14 @@ import {createChannelIdentityFromDiscriminatorValue} from './createChannelIdenti
 import {createChatMessageAttachmentFromDiscriminatorValue} from './createChatMessageAttachmentFromDiscriminatorValue';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
 import {createChatMessageFromIdentitySetFromDiscriminatorValue} from './createChatMessageFromIdentitySetFromDiscriminatorValue';
+import {createChatMessageHistoryItemFromDiscriminatorValue} from './createChatMessageHistoryItemFromDiscriminatorValue';
 import {createChatMessageHostedContentFromDiscriminatorValue} from './createChatMessageHostedContentFromDiscriminatorValue';
 import {createChatMessageMentionFromDiscriminatorValue} from './createChatMessageMentionFromDiscriminatorValue';
 import {createChatMessagePolicyViolationFromDiscriminatorValue} from './createChatMessagePolicyViolationFromDiscriminatorValue';
 import {createChatMessageReactionFromDiscriminatorValue} from './createChatMessageReactionFromDiscriminatorValue';
 import {createEventMessageDetailFromDiscriminatorValue} from './createEventMessageDetailFromDiscriminatorValue';
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, ChatMessageHostedContent, ChatMessageMention, ChatMessagePolicyViolation, ChatMessageReaction, Entity, EventMessageDetail, ItemBody} from './index';
+import {ChannelIdentity, ChatMessageAttachment, ChatMessageFromIdentitySet, ChatMessageHistoryItem, ChatMessageHostedContent, ChatMessageMention, ChatMessagePolicyViolation, ChatMessageReaction, Entity, EventMessageDetail, ItemBody} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessage extends Entity implements Parsable {
@@ -44,6 +45,8 @@ export class ChatMessage extends Entity implements Parsable {
     private _locale?: string | undefined;
     /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel. */
     private _mentions?: ChatMessageMention[] | undefined;
+    /** The messageHistory property */
+    private _messageHistory?: ChatMessageHistoryItem[] | undefined;
     /** The messageType property */
     private _messageType?: ChatMessageType | undefined;
     /** Defines the properties of a policy violation set by a data loss prevention (DLP) application. */
@@ -213,6 +216,7 @@ export class ChatMessage extends Entity implements Parsable {
             "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
             "locale": n => { this.locale = n.getStringValue(); },
             "mentions": n => { this.mentions = n.getCollectionOfObjectValues<ChatMessageMention>(createChatMessageMentionFromDiscriminatorValue); },
+            "messageHistory": n => { this.messageHistory = n.getCollectionOfObjectValues<ChatMessageHistoryItem>(createChatMessageHistoryItemFromDiscriminatorValue); },
             "messageType": n => { this.messageType = n.getEnumValue<ChatMessageType>(ChatMessageType); },
             "policyViolation": n => { this.policyViolation = n.getObjectValue<ChatMessagePolicyViolation>(createChatMessagePolicyViolationFromDiscriminatorValue); },
             "reactions": n => { this.reactions = n.getCollectionOfObjectValues<ChatMessageReaction>(createChatMessageReactionFromDiscriminatorValue); },
@@ -308,6 +312,20 @@ export class ChatMessage extends Entity implements Parsable {
         this._mentions = value;
     };
     /**
+     * Gets the messageHistory property value. The messageHistory property
+     * @returns a chatMessageHistoryItem
+     */
+    public get messageHistory() {
+        return this._messageHistory;
+    };
+    /**
+     * Sets the messageHistory property value. The messageHistory property
+     * @param value Value to set for the messageHistory property.
+     */
+    public set messageHistory(value: ChatMessageHistoryItem[] | undefined) {
+        this._messageHistory = value;
+    };
+    /**
      * Gets the messageType property value. The messageType property
      * @returns a chatMessageType
      */
@@ -399,6 +417,7 @@ export class ChatMessage extends Entity implements Parsable {
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("locale", this.locale);
         writer.writeCollectionOfObjectValues<ChatMessageMention>("mentions", this.mentions);
+        writer.writeCollectionOfObjectValues<ChatMessageHistoryItem>("messageHistory", this.messageHistory);
         writer.writeEnumValue<ChatMessageType>("messageType", this.messageType);
         writer.writeObjectValue<ChatMessagePolicyViolation>("policyViolation", this.policyViolation);
         writer.writeCollectionOfObjectValues<ChatMessageReaction>("reactions", this.reactions);

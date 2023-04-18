@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ConnectionsRequestBuilderGetRequestConfiguration} from './connectionsRequestBuilderGetRequestConfiguration';
 import {ConnectionsRequestBuilderPostRequestConfiguration} from './connectionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ExternalConnectionItemRequestBuilder} from './item/externalConnectionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
@@ -16,6 +17,17 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
+     * @param externalConnectionId Unique identifier of the item
+     * @returns a ExternalConnectionItemRequestBuilder
+     */
+    public byExternalConnectionId(externalConnectionId: string) : ExternalConnectionItemRequestBuilder {
+        if(!externalConnectionId) throw new Error("externalConnectionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["externalConnection%2Did"] = externalConnectionId
+        return new ExternalConnectionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ConnectionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

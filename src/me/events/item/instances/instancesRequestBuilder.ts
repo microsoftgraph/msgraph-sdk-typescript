@@ -5,7 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {InstancesRequestBuilderGetRequestConfiguration} from './instancesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.event entity.
@@ -19,6 +20,17 @@ export class InstancesRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.event entity.
+     * @param eventId1 Unique identifier of the item
+     * @returns a EventItemRequestBuilder
+     */
+    public byEventId1(eventId1: string) : EventItemRequestBuilder {
+        if(!eventId1) throw new Error("eventId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["event%2Did1"] = eventId1
+        return new EventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new InstancesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

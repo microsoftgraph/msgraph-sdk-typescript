@@ -3,17 +3,13 @@ import {createIdentityContainerFromDiscriminatorValue} from '../models/createIde
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApiConnectorsRequestBuilder} from './apiConnectors/apiConnectorsRequestBuilder';
-import {IdentityApiConnectorItemRequestBuilder} from './apiConnectors/item/identityApiConnectorItemRequestBuilder';
 import {B2xUserFlowsRequestBuilder} from './b2xUserFlows/b2xUserFlowsRequestBuilder';
-import {B2xIdentityUserFlowItemRequestBuilder} from './b2xUserFlows/item/b2xIdentityUserFlowItemRequestBuilder';
 import {ConditionalAccessRequestBuilder} from './conditionalAccess/conditionalAccessRequestBuilder';
 import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
-import {IdentityProviderBaseItemRequestBuilder} from './identityProviders/item/identityProviderBaseItemRequestBuilder';
 import {IdentityRequestBuilderGetRequestConfiguration} from './identityRequestBuilderGetRequestConfiguration';
 import {IdentityRequestBuilderPatchRequestConfiguration} from './identityRequestBuilderPatchRequestConfiguration';
-import {IdentityUserFlowAttributeItemRequestBuilder} from './userFlowAttributes/item/identityUserFlowAttributeItemRequestBuilder';
 import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityContainer singleton.
@@ -40,28 +36,6 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
         return new UserFlowAttributesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
-     * @param id Unique identifier of the item
-     * @returns a IdentityApiConnectorItemRequestBuilder
-     */
-    public apiConnectorsById(id: string) : IdentityApiConnectorItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["identityApiConnector%2Did"] = id
-        return new IdentityApiConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
-     * @param id Unique identifier of the item
-     * @returns a B2xIdentityUserFlowItemRequestBuilder
-     */
-    public b2xUserFlowsById(id: string) : B2xIdentityUserFlowItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["b2xIdentityUserFlow%2Did"] = id
-        return new B2xIdentityUserFlowItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new IdentityRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -84,17 +58,6 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
-     * @param id Unique identifier of the item
-     * @returns a IdentityProviderBaseItemRequestBuilder
-     */
-    public identityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["identityProviderBase%2Did"] = id
-        return new IdentityProviderBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update identity
@@ -151,16 +114,5 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
-     * @param id Unique identifier of the item
-     * @returns a IdentityUserFlowAttributeItemRequestBuilder
-     */
-    public userFlowAttributesById(id: string) : IdentityUserFlowAttributeItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["identityUserFlowAttribute%2Did"] = id
-        return new IdentityUserFlowAttributeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

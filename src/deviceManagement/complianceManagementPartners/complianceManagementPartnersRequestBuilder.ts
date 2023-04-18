@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ComplianceManagementPartnersRequestBuilderGetRequestConfiguration} from './complianceManagementPartnersRequestBuilderGetRequestConfiguration';
 import {ComplianceManagementPartnersRequestBuilderPostRequestConfiguration} from './complianceManagementPartnersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ComplianceManagementPartnerItemRequestBuilder} from './item/complianceManagementPartnerItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
+     * @param complianceManagementPartnerId Unique identifier of the item
+     * @returns a ComplianceManagementPartnerItemRequestBuilder
+     */
+    public byComplianceManagementPartnerId(complianceManagementPartnerId: string) : ComplianceManagementPartnerItemRequestBuilder {
+        if(!complianceManagementPartnerId) throw new Error("complianceManagementPartnerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["complianceManagementPartner%2Did"] = complianceManagementPartnerId
+        return new ComplianceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ComplianceManagementPartnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

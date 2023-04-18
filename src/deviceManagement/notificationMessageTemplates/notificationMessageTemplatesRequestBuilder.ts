@@ -4,9 +4,10 @@ import {createNotificationMessageTemplateFromDiscriminatorValue} from '../../mod
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {NotificationMessageTemplateItemRequestBuilder} from './item/notificationMessageTemplateItemRequestBuilder';
 import {NotificationMessageTemplatesRequestBuilderGetRequestConfiguration} from './notificationMessageTemplatesRequestBuilderGetRequestConfiguration';
 import {NotificationMessageTemplatesRequestBuilderPostRequestConfiguration} from './notificationMessageTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
+     * @param notificationMessageTemplateId Unique identifier of the item
+     * @returns a NotificationMessageTemplateItemRequestBuilder
+     */
+    public byNotificationMessageTemplateId(notificationMessageTemplateId: string) : NotificationMessageTemplateItemRequestBuilder {
+        if(!notificationMessageTemplateId) throw new Error("notificationMessageTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["notificationMessageTemplate%2Did"] = notificationMessageTemplateId
+        return new NotificationMessageTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new NotificationMessageTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -7,7 +7,8 @@ import {ChildFoldersRequestBuilderGetRequestConfiguration} from './childFoldersR
 import {ChildFoldersRequestBuilderPostRequestConfiguration} from './childFoldersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ContactFolderItemRequestBuilder} from './item/contactFolderItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
@@ -21,6 +22,17 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
+     * @param contactFolderId1 Unique identifier of the item
+     * @returns a ContactFolderItemRequestBuilder
+     */
+    public byContactFolderId1(contactFolderId1: string) : ContactFolderItemRequestBuilder {
+        if(!contactFolderId1) throw new Error("contactFolderId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["contactFolder%2Did1"] = contactFolderId1
+        return new ContactFolderItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChildFoldersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

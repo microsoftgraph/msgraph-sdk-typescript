@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainDnsRecordsRequestBuilderGetRequestConfiguration} from './domainDnsRecordsRequestBuilderGetRequestConfiguration';
 import {DomainDnsRecordsRequestBuilderPostRequestConfiguration} from './domainDnsRecordsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DomainDnsRecordItemRequestBuilder} from './item/domainDnsRecordItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domainDnsRecord entities.
@@ -16,6 +17,17 @@ export class DomainDnsRecordsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of domainDnsRecord entities.
+     * @param domainDnsRecordId Unique identifier of the item
+     * @returns a DomainDnsRecordItemRequestBuilder
+     */
+    public byDomainDnsRecordId(domainDnsRecordId: string) : DomainDnsRecordItemRequestBuilder {
+        if(!domainDnsRecordId) throw new Error("domainDnsRecordId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["domainDnsRecord%2Did"] = domainDnsRecordId
+        return new DomainDnsRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DomainDnsRecordsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -7,7 +7,8 @@ import {AccessPackagesRequestBuilderGetRequestConfiguration} from './accessPacka
 import {AccessPackagesRequestBuilderPostRequestConfiguration} from './accessPackagesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
@@ -17,6 +18,17 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
+     * @param accessPackageId Unique identifier of the item
+     * @returns a AccessPackageItemRequestBuilder
+     */
+    public byAccessPackageId(accessPackageId: string) : AccessPackageItemRequestBuilder {
+        if(!accessPackageId) throw new Error("accessPackageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackage%2Did"] = accessPackageId
+        return new AccessPackageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AccessPackagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

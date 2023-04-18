@@ -6,10 +6,9 @@ import {AllTimeRequestBuilder} from './allTime/allTimeRequestBuilder';
 import {AnalyticsRequestBuilderDeleteRequestConfiguration} from './analyticsRequestBuilderDeleteRequestConfiguration';
 import {AnalyticsRequestBuilderGetRequestConfiguration} from './analyticsRequestBuilderGetRequestConfiguration';
 import {AnalyticsRequestBuilderPatchRequestConfiguration} from './analyticsRequestBuilderPatchRequestConfiguration';
-import {ItemActivityStatItemRequestBuilder} from './itemActivityStats/item/itemActivityStatItemRequestBuilder';
 import {ItemActivityStatsRequestBuilder} from './itemActivityStats/itemActivityStatsRequestBuilder';
 import {LastSevenDaysRequestBuilder} from './lastSevenDays/lastSevenDaysRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.
@@ -65,17 +64,6 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
-     * @param id Unique identifier of the item
-     * @returns a ItemActivityStatItemRequestBuilder
-     */
-    public itemActivityStatsById(id: string) : ItemActivityStatItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["itemActivityStat%2Did"] = id
-        return new ItemActivityStatItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property analytics in drives

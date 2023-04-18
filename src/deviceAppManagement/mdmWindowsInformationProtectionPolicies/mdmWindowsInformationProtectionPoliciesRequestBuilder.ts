@@ -4,9 +4,10 @@ import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from 
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MdmWindowsInformationProtectionPolicyItemRequestBuilder} from './item/mdmWindowsInformationProtectionPolicyItemRequestBuilder';
 import {MdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
 import {MdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration} from './mdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class MdmWindowsInformationProtectionPoliciesRequestBuilder extends BaseR
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
+     * @param mdmWindowsInformationProtectionPolicyId Unique identifier of the item
+     * @returns a MdmWindowsInformationProtectionPolicyItemRequestBuilder
+     */
+    public byMdmWindowsInformationProtectionPolicyId(mdmWindowsInformationProtectionPolicyId: string) : MdmWindowsInformationProtectionPolicyItemRequestBuilder {
+        if(!mdmWindowsInformationProtectionPolicyId) throw new Error("mdmWindowsInformationProtectionPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["mdmWindowsInformationProtectionPolicy%2Did"] = mdmWindowsInformationProtectionPolicyId
+        return new MdmWindowsInformationProtectionPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MdmWindowsInformationProtectionPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

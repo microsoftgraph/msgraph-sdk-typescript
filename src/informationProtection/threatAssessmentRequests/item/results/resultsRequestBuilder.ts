@@ -4,9 +4,10 @@ import {createThreatAssessmentResultFromDiscriminatorValue} from '../../../../mo
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ThreatAssessmentResultItemRequestBuilder} from './item/threatAssessmentResultItemRequestBuilder';
 import {ResultsRequestBuilderGetRequestConfiguration} from './resultsRequestBuilderGetRequestConfiguration';
 import {ResultsRequestBuilderPostRequestConfiguration} from './resultsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
@@ -16,6 +17,17 @@ export class ResultsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
+     * @param threatAssessmentResultId Unique identifier of the item
+     * @returns a ThreatAssessmentResultItemRequestBuilder
+     */
+    public byThreatAssessmentResultId(threatAssessmentResultId: string) : ThreatAssessmentResultItemRequestBuilder {
+        if(!threatAssessmentResultId) throw new Error("threatAssessmentResultId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["threatAssessmentResult%2Did"] = threatAssessmentResultId
+        return new ThreatAssessmentResultItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ResultsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

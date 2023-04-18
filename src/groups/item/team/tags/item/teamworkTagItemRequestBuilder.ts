@@ -2,12 +2,11 @@ import {TeamworkTag} from '../../../../../models/';
 import {createTeamworkTagFromDiscriminatorValue} from '../../../../../models/createTeamworkTagFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {TeamworkTagMemberItemRequestBuilder} from './members/item/teamworkTagMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {TeamworkTagItemRequestBuilderDeleteRequestConfiguration} from './teamworkTagItemRequestBuilderDeleteRequestConfiguration';
 import {TeamworkTagItemRequestBuilderGetRequestConfiguration} from './teamworkTagItemRequestBuilderGetRequestConfiguration';
 import {TeamworkTagItemRequestBuilderPatchRequestConfiguration} from './teamworkTagItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.
@@ -55,17 +54,6 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<TeamworkTag>(requestInfo, createTeamworkTagFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
-     * @param id Unique identifier of the item
-     * @returns a TeamworkTagMemberItemRequestBuilder
-     */
-    public membersById(id: string) : TeamworkTagMemberItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamworkTagMember%2Did"] = id
-        return new TeamworkTagMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property tags in groups

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceConfigurationsRequestBuilderGetRequestConfiguration} from './deviceConfigurationsRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationsRequestBuilderPostRequestConfiguration} from './deviceConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceConfigurationItemRequestBuilder} from './item/deviceConfigurationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+     * @param deviceConfigurationId Unique identifier of the item
+     * @returns a DeviceConfigurationItemRequestBuilder
+     */
+    public byDeviceConfigurationId(deviceConfigurationId: string) : DeviceConfigurationItemRequestBuilder {
+        if(!deviceConfigurationId) throw new Error("deviceConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceConfiguration%2Did"] = deviceConfigurationId
+        return new DeviceConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

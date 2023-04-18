@@ -3,14 +3,12 @@ import {createAgreementFromDiscriminatorValue} from '../../../../models/createAg
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptancesRequestBuilder} from './acceptances/acceptancesRequestBuilder';
-import {AgreementAcceptanceItemRequestBuilder} from './acceptances/item/agreementAcceptanceItemRequestBuilder';
 import {AgreementItemRequestBuilderDeleteRequestConfiguration} from './agreementItemRequestBuilderDeleteRequestConfiguration';
 import {AgreementItemRequestBuilderGetRequestConfiguration} from './agreementItemRequestBuilderGetRequestConfiguration';
 import {AgreementItemRequestBuilderPatchRequestConfiguration} from './agreementItemRequestBuilderPatchRequestConfiguration';
 import {FileRequestBuilder} from './file/fileRequestBuilder';
 import {FilesRequestBuilder} from './files/filesRequestBuilder';
-import {AgreementFileLocalizationItemRequestBuilder} from './files/item/agreementFileLocalizationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
@@ -28,17 +26,6 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
     public get files(): FilesRequestBuilder {
         return new FilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
-     * @param id Unique identifier of the item
-     * @returns a AgreementAcceptanceItemRequestBuilder
-     */
-    public acceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["agreementAcceptance%2Did"] = id
-        return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new AgreementItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -61,17 +48,6 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the files property of the microsoft.graph.agreement entity.
-     * @param id Unique identifier of the item
-     * @returns a AgreementFileLocalizationItemRequestBuilder
-     */
-    public filesById(id: string) : AgreementFileLocalizationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["agreementFileLocalization%2Did"] = id
-        return new AgreementFileLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).

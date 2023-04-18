@@ -4,9 +4,10 @@ import {createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue} fro
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TemporaryAccessPassAuthenticationMethodItemRequestBuilder} from './item/temporaryAccessPassAuthenticationMethodItemRequestBuilder';
 import {TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderGetRequestConfiguration';
 import {TemporaryAccessPassMethodsRequestBuilderPostRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
@@ -16,6 +17,17 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+     * @param temporaryAccessPassAuthenticationMethodId Unique identifier of the item
+     * @returns a TemporaryAccessPassAuthenticationMethodItemRequestBuilder
+     */
+    public byTemporaryAccessPassAuthenticationMethodId(temporaryAccessPassAuthenticationMethodId: string) : TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
+        if(!temporaryAccessPassAuthenticationMethodId) throw new Error("temporaryAccessPassAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["temporaryAccessPassAuthenticationMethod%2Did"] = temporaryAccessPassAuthenticationMethodId
+        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TemporaryAccessPassMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

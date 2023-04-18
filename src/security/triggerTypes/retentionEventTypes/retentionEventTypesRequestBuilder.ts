@@ -4,9 +4,10 @@ import {RetentionEventType, RetentionEventTypeCollectionResponse} from '../../..
 import {createRetentionEventTypeCollectionResponseFromDiscriminatorValue} from '../../../models/security/createRetentionEventTypeCollectionResponseFromDiscriminatorValue';
 import {createRetentionEventTypeFromDiscriminatorValue} from '../../../models/security/createRetentionEventTypeFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RetentionEventTypeItemRequestBuilder} from './item/retentionEventTypeItemRequestBuilder';
 import {RetentionEventTypesRequestBuilderGetRequestConfiguration} from './retentionEventTypesRequestBuilderGetRequestConfiguration';
 import {RetentionEventTypesRequestBuilderPostRequestConfiguration} from './retentionEventTypesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
@@ -16,6 +17,17 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
+     * @param retentionEventTypeId Unique identifier of the item
+     * @returns a RetentionEventTypeItemRequestBuilder
+     */
+    public byRetentionEventTypeId(retentionEventTypeId: string) : RetentionEventTypeItemRequestBuilder {
+        if(!retentionEventTypeId) throw new Error("retentionEventTypeId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["retentionEventType%2Did"] = retentionEventTypeId
+        return new RetentionEventTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RetentionEventTypesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

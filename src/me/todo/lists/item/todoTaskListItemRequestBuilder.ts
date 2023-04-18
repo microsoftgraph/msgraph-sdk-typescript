@@ -3,13 +3,11 @@ import {createTodoTaskListFromDiscriminatorValue} from '../../../../models/creat
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {TodoTaskItemRequestBuilder} from './tasks/item/todoTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {TodoTaskListItemRequestBuilderDeleteRequestConfiguration} from './todoTaskListItemRequestBuilderDeleteRequestConfiguration';
 import {TodoTaskListItemRequestBuilderGetRequestConfiguration} from './todoTaskListItemRequestBuilderGetRequestConfiguration';
 import {TodoTaskListItemRequestBuilderPatchRequestConfiguration} from './todoTaskListItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
@@ -47,17 +45,6 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the extensions property of the microsoft.graph.todoTaskList entity.
-     * @param id Unique identifier of the item
-     * @returns a ExtensionItemRequestBuilder
-     */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extension%2Did"] = id
-        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * The task lists in the users mailbox.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -90,17 +77,6 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<TodoTaskList>(requestInfo, createTodoTaskListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
-     * @param id Unique identifier of the item
-     * @returns a TodoTaskItemRequestBuilder
-     */
-    public tasksById(id: string) : TodoTaskItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["todoTask%2Did"] = id
-        return new TodoTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property lists for me

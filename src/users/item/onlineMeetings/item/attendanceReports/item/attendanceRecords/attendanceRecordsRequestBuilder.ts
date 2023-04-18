@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {AttendanceRecordsRequestBuilderGetRequestConfiguration} from './attendanceRecordsRequestBuilderGetRequestConfiguration';
 import {AttendanceRecordsRequestBuilderPostRequestConfiguration} from './attendanceRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AttendanceRecordItemRequestBuilder} from './item/attendanceRecordItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -16,6 +17,17 @@ export class AttendanceRecordsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
+     * @param attendanceRecordId Unique identifier of the item
+     * @returns a AttendanceRecordItemRequestBuilder
+     */
+    public byAttendanceRecordId(attendanceRecordId: string) : AttendanceRecordItemRequestBuilder {
+        if(!attendanceRecordId) throw new Error("attendanceRecordId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["attendanceRecord%2Did"] = attendanceRecordId
+        return new AttendanceRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AttendanceRecordsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

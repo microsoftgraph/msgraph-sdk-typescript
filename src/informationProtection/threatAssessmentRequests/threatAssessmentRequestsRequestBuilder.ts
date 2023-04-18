@@ -4,9 +4,10 @@ import {createThreatAssessmentRequestFromDiscriminatorValue} from '../../models/
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ThreatAssessmentRequestItemRequestBuilder} from './item/threatAssessmentRequestItemRequestBuilder';
 import {ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration} from './threatAssessmentRequestsRequestBuilderGetRequestConfiguration';
 import {ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration} from './threatAssessmentRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
@@ -16,6 +17,17 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
+     * @param threatAssessmentRequestId Unique identifier of the item
+     * @returns a ThreatAssessmentRequestItemRequestBuilder
+     */
+    public byThreatAssessmentRequestId(threatAssessmentRequestId: string) : ThreatAssessmentRequestItemRequestBuilder {
+        if(!threatAssessmentRequestId) throw new Error("threatAssessmentRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["threatAssessmentRequest%2Did"] = threatAssessmentRequestId
+        return new ThreatAssessmentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ThreatAssessmentRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

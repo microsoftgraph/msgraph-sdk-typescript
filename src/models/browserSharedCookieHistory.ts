@@ -6,23 +6,23 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class BrowserSharedCookieHistory implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The comment of the cookie */
+    /** The comment for the shared cookie. */
     private _comment?: string | undefined;
-    /** The name of the cookie */
+    /** The name of the cookie. */
     private _displayName?: string | undefined;
-    /** Boolean attribute that determines whether a cookie is  a host-only or domain cookie */
+    /** Controls whether a cookie is a host-only or domain cookie. */
     private _hostOnly?: boolean | undefined;
-    /** The URL of the cookie */
+    /** The URL of the cookie. */
     private _hostOrDomain?: string | undefined;
     /** The lastModifiedBy property */
     private _lastModifiedBy?: IdentitySet | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The path of the cookie */
+    /** The path of the cookie. */
     private _path?: string | undefined;
-    /** The time the cookie was published */
+    /** The date and time when the cookie was last published. */
     private _publishedDateTime?: Date | undefined;
-    /** Specifies how the cookies are shared between Microsoft Edge and Internet Explorer */
+    /** Specifies how the cookies are shared between Microsoft Edge and Internet Explorer. The possible values are: microsoftEdge, internetExplorer11, both, unknownFutureValue. */
     private _sourceEnvironment?: BrowserSharedCookieSourceEnvironment | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -39,14 +39,14 @@ export class BrowserSharedCookieHistory implements AdditionalDataHolder, Parsabl
         this._additionalData = value;
     };
     /**
-     * Gets the comment property value. The comment of the cookie
+     * Gets the comment property value. The comment for the shared cookie.
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. The comment of the cookie
+     * Sets the comment property value. The comment for the shared cookie.
      * @param value Value to set for the comment property.
      */
     public set comment(value: string | undefined) {
@@ -59,14 +59,14 @@ export class BrowserSharedCookieHistory implements AdditionalDataHolder, Parsabl
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. The name of the cookie
+     * Gets the displayName property value. The name of the cookie.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The name of the cookie
+     * Sets the displayName property value. The name of the cookie.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -90,28 +90,28 @@ export class BrowserSharedCookieHistory implements AdditionalDataHolder, Parsabl
         };
     };
     /**
-     * Gets the hostOnly property value. Boolean attribute that determines whether a cookie is  a host-only or domain cookie
+     * Gets the hostOnly property value. Controls whether a cookie is a host-only or domain cookie.
      * @returns a boolean
      */
     public get hostOnly() {
         return this._hostOnly;
     };
     /**
-     * Sets the hostOnly property value. Boolean attribute that determines whether a cookie is  a host-only or domain cookie
+     * Sets the hostOnly property value. Controls whether a cookie is a host-only or domain cookie.
      * @param value Value to set for the hostOnly property.
      */
     public set hostOnly(value: boolean | undefined) {
         this._hostOnly = value;
     };
     /**
-     * Gets the hostOrDomain property value. The URL of the cookie
+     * Gets the hostOrDomain property value. The URL of the cookie.
      * @returns a string
      */
     public get hostOrDomain() {
         return this._hostOrDomain;
     };
     /**
-     * Sets the hostOrDomain property value. The URL of the cookie
+     * Sets the hostOrDomain property value. The URL of the cookie.
      * @param value Value to set for the hostOrDomain property.
      */
     public set hostOrDomain(value: string | undefined) {
@@ -146,28 +146,28 @@ export class BrowserSharedCookieHistory implements AdditionalDataHolder, Parsabl
         this._odataType = value;
     };
     /**
-     * Gets the path property value. The path of the cookie
+     * Gets the path property value. The path of the cookie.
      * @returns a string
      */
     public get path() {
         return this._path;
     };
     /**
-     * Sets the path property value. The path of the cookie
+     * Sets the path property value. The path of the cookie.
      * @param value Value to set for the path property.
      */
     public set path(value: string | undefined) {
         this._path = value;
     };
     /**
-     * Gets the publishedDateTime property value. The time the cookie was published
+     * Gets the publishedDateTime property value. The date and time when the cookie was last published.
      * @returns a Date
      */
     public get publishedDateTime() {
         return this._publishedDateTime;
     };
     /**
-     * Sets the publishedDateTime property value. The time the cookie was published
+     * Sets the publishedDateTime property value. The date and time when the cookie was last published.
      * @param value Value to set for the publishedDateTime property.
      */
     public set publishedDateTime(value: Date | undefined) {
@@ -191,14 +191,14 @@ export class BrowserSharedCookieHistory implements AdditionalDataHolder, Parsabl
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceEnvironment property value. Specifies how the cookies are shared between Microsoft Edge and Internet Explorer
+     * Gets the sourceEnvironment property value. Specifies how the cookies are shared between Microsoft Edge and Internet Explorer. The possible values are: microsoftEdge, internetExplorer11, both, unknownFutureValue.
      * @returns a browserSharedCookieSourceEnvironment
      */
     public get sourceEnvironment() {
         return this._sourceEnvironment;
     };
     /**
-     * Sets the sourceEnvironment property value. Specifies how the cookies are shared between Microsoft Edge and Internet Explorer
+     * Sets the sourceEnvironment property value. Specifies how the cookies are shared between Microsoft Edge and Internet Explorer. The possible values are: microsoftEdge, internetExplorer11, both, unknownFutureValue.
      * @param value Value to set for the sourceEnvironment property.
      */
     public set sourceEnvironment(value: BrowserSharedCookieSourceEnvironment | undefined) {

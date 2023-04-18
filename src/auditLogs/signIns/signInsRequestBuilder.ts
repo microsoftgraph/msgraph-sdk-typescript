@@ -4,9 +4,10 @@ import {createSignInFromDiscriminatorValue} from '../../models/createSignInFromD
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SignInItemRequestBuilder} from './item/signInItemRequestBuilder';
 import {SignInsRequestBuilderGetRequestConfiguration} from './signInsRequestBuilderGetRequestConfiguration';
 import {SignInsRequestBuilderPostRequestConfiguration} from './signInsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
@@ -16,6 +17,17 @@ export class SignInsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
+     * @param signInId Unique identifier of the item
+     * @returns a SignInItemRequestBuilder
+     */
+    public bySignInId(signInId: string) : SignInItemRequestBuilder {
+        if(!signInId) throw new Error("signInId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["signIn%2Did"] = signInId
+        return new SignInItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SignInsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

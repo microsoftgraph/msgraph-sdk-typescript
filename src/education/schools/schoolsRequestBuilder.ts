@@ -5,9 +5,10 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {EducationSchoolItemRequestBuilder} from './item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilderGetRequestConfiguration} from './schoolsRequestBuilderGetRequestConfiguration';
 import {SchoolsRequestBuilderPostRequestConfiguration} from './schoolsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
@@ -21,6 +22,17 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
+     * @param educationSchoolId Unique identifier of the item
+     * @returns a EducationSchoolItemRequestBuilder
+     */
+    public byEducationSchoolId(educationSchoolId: string) : EducationSchoolItemRequestBuilder {
+        if(!educationSchoolId) throw new Error("educationSchoolId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationSchool%2Did"] = educationSchoolId
+        return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SchoolsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

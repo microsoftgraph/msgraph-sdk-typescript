@@ -4,9 +4,10 @@ import {createSegmentFromDiscriminatorValue} from '../../../../../../models/call
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SegmentItemRequestBuilder} from './item/segmentItemRequestBuilder';
 import {SegmentsRequestBuilderGetRequestConfiguration} from './segmentsRequestBuilderGetRequestConfiguration';
 import {SegmentsRequestBuilderPostRequestConfiguration} from './segmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
@@ -16,6 +17,17 @@ export class SegmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+     * @param segmentId Unique identifier of the item
+     * @returns a SegmentItemRequestBuilder
+     */
+    public bySegmentId(segmentId: string) : SegmentItemRequestBuilder {
+        if(!segmentId) throw new Error("segmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["segment%2Did"] = segmentId
+        return new SegmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SegmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

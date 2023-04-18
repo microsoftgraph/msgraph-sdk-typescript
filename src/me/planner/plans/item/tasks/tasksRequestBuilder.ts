@@ -4,9 +4,10 @@ import {createPlannerTaskFromDiscriminatorValue} from '../../../../../models/cre
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PlannerTaskItemRequestBuilder} from './item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilderGetRequestConfiguration} from './tasksRequestBuilderGetRequestConfiguration';
 import {TasksRequestBuilderPostRequestConfiguration} from './tasksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
@@ -16,6 +17,17 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
+     * @param plannerTaskId Unique identifier of the item
+     * @returns a PlannerTaskItemRequestBuilder
+     */
+    public byPlannerTaskId(plannerTaskId: string) : PlannerTaskItemRequestBuilder {
+        if(!plannerTaskId) throw new Error("plannerTaskId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["plannerTask%2Did"] = plannerTaskId
+        return new PlannerTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TasksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

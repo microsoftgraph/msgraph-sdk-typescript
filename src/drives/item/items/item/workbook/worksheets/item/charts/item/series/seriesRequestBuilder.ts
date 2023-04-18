@@ -4,10 +4,11 @@ import {createWorkbookChartSeriesFromDiscriminatorValue} from '../../../../../..
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookChartSeriesItemRequestBuilder} from './item/workbookChartSeriesItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {SeriesRequestBuilderGetRequestConfiguration} from './seriesRequestBuilderGetRequestConfiguration';
 import {SeriesRequestBuilderPostRequestConfiguration} from './seriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
@@ -17,6 +18,17 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
+     * @param workbookChartSeriesId Unique identifier of the item
+     * @returns a WorkbookChartSeriesItemRequestBuilder
+     */
+    public byWorkbookChartSeriesId(workbookChartSeriesId: string) : WorkbookChartSeriesItemRequestBuilder {
+        if(!workbookChartSeriesId) throw new Error("workbookChartSeriesId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookChartSeries%2Did"] = workbookChartSeriesId
+        return new WorkbookChartSeriesItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SeriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

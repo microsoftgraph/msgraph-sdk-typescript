@@ -6,9 +6,10 @@ import {createEdiscoveryCustodianFromDiscriminatorValue} from '../../../../../mo
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustodiansRequestBuilderGetRequestConfiguration} from './custodiansRequestBuilderGetRequestConfiguration';
 import {CustodiansRequestBuilderPostRequestConfiguration} from './custodiansRequestBuilderPostRequestConfiguration';
+import {EdiscoveryCustodianItemRequestBuilder} from './item/ediscoveryCustodianItemRequestBuilder';
 import {SecurityApplyHoldRequestBuilder} from './securityApplyHold/securityApplyHoldRequestBuilder';
 import {SecurityRemoveHoldRequestBuilder} from './securityRemoveHold/securityRemoveHoldRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
@@ -26,6 +27,17 @@ export class CustodiansRequestBuilder extends BaseRequestBuilder {
     public get securityRemoveHold(): SecurityRemoveHoldRequestBuilder {
         return new SecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param ediscoveryCustodianId Unique identifier of the item
+     * @returns a EdiscoveryCustodianItemRequestBuilder
+     */
+    public byEdiscoveryCustodianId(ediscoveryCustodianId: string) : EdiscoveryCustodianItemRequestBuilder {
+        if(!ediscoveryCustodianId) throw new Error("ediscoveryCustodianId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryCustodian%2Did"] = ediscoveryCustodianId
+        return new EdiscoveryCustodianItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CustodiansRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

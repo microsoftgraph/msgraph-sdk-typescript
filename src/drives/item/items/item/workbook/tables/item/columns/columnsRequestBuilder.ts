@@ -7,8 +7,9 @@ import {AddRequestBuilder} from './add/addRequestBuilder';
 import {ColumnsRequestBuilderGetRequestConfiguration} from './columnsRequestBuilderGetRequestConfiguration';
 import {ColumnsRequestBuilderPostRequestConfiguration} from './columnsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookTableColumnItemRequestBuilder} from './item/workbookTableColumnItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
@@ -23,6 +24,17 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
+     * @param workbookTableColumnId Unique identifier of the item
+     * @returns a WorkbookTableColumnItemRequestBuilder
+     */
+    public byWorkbookTableColumnId(workbookTableColumnId: string) : WorkbookTableColumnItemRequestBuilder {
+        if(!workbookTableColumnId) throw new Error("workbookTableColumnId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookTableColumn%2Did"] = workbookTableColumnId
+        return new WorkbookTableColumnItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ColumnsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -35,7 +47,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumnCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

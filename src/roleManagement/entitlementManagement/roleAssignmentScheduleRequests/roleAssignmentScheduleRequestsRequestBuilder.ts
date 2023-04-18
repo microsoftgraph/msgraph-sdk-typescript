@@ -5,9 +5,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {UnifiedRoleAssignmentScheduleRequestItemRequestBuilder} from './item/unifiedRoleAssignmentScheduleRequestItemRequestBuilder';
 import {RoleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration} from './roleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration} from './roleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
@@ -17,6 +18,17 @@ export class RoleAssignmentScheduleRequestsRequestBuilder extends BaseRequestBui
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
+     * @param unifiedRoleAssignmentScheduleRequestId Unique identifier of the item
+     * @returns a UnifiedRoleAssignmentScheduleRequestItemRequestBuilder
+     */
+    public byUnifiedRoleAssignmentScheduleRequestId(unifiedRoleAssignmentScheduleRequestId: string) : UnifiedRoleAssignmentScheduleRequestItemRequestBuilder {
+        if(!unifiedRoleAssignmentScheduleRequestId) throw new Error("unifiedRoleAssignmentScheduleRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleAssignmentScheduleRequest%2Did"] = unifiedRoleAssignmentScheduleRequestId
+        return new UnifiedRoleAssignmentScheduleRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleAssignmentScheduleRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

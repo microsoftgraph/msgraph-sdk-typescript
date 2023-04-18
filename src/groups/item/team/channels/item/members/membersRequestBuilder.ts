@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ConversationMemberItemRequestBuilder} from './item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.channel entity.
@@ -21,6 +22,17 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.channel entity.
+     * @param conversationMemberId Unique identifier of the item
+     * @returns a ConversationMemberItemRequestBuilder
+     */
+    public byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder {
+        if(!conversationMemberId) throw new Error("conversationMemberId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["conversationMember%2Did"] = conversationMemberId
+        return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -47,12 +59,12 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ConversationMemberCollectionResponse>(requestInfo, createConversationMemberCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Add a conversationMember to a channel.
+     * Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/channel-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -84,7 +96,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a conversationMember to a channel.
+     * Add a conversationMember to a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

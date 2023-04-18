@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryRequestBuilderGetRequestConfiguration} from './historyRequestBuilderGetRequestConfiguration';
 import {HistoryRequestBuilderPostRequestConfiguration} from './historyRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {RiskyUserHistoryItemItemRequestBuilder} from './item/riskyUserHistoryItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
@@ -16,6 +17,17 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
+     * @param riskyUserHistoryItemId Unique identifier of the item
+     * @returns a RiskyUserHistoryItemItemRequestBuilder
+     */
+    public byRiskyUserHistoryItemId(riskyUserHistoryItemId: string) : RiskyUserHistoryItemItemRequestBuilder {
+        if(!riskyUserHistoryItemId) throw new Error("riskyUserHistoryItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskyUserHistoryItem%2Did"] = riskyUserHistoryItemId
+        return new RiskyUserHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new HistoryRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

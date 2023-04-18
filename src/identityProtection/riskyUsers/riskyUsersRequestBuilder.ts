@@ -6,9 +6,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ConfirmCompromisedRequestBuilder} from './confirmCompromised/confirmCompromisedRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
+import {RiskyUserItemRequestBuilder} from './item/riskyUserItemRequestBuilder';
 import {RiskyUsersRequestBuilderGetRequestConfiguration} from './riskyUsersRequestBuilderGetRequestConfiguration';
 import {RiskyUsersRequestBuilderPostRequestConfiguration} from './riskyUsersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
@@ -26,6 +27,17 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
     public get dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+     * @param riskyUserId Unique identifier of the item
+     * @returns a RiskyUserItemRequestBuilder
+     */
+    public byRiskyUserId(riskyUserId: string) : RiskyUserItemRequestBuilder {
+        if(!riskyUserId) throw new Error("riskyUserId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskyUser%2Did"] = riskyUserId
+        return new RiskyUserItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RiskyUsersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

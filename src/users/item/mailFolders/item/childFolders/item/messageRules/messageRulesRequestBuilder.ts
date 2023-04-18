@@ -4,9 +4,10 @@ import {createMessageRuleFromDiscriminatorValue} from '../../../../../../../mode
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MessageRuleItemRequestBuilder} from './item/messageRuleItemRequestBuilder';
 import {MessageRulesRequestBuilderGetRequestConfiguration} from './messageRulesRequestBuilderGetRequestConfiguration';
 import {MessageRulesRequestBuilderPostRequestConfiguration} from './messageRulesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
@@ -16,6 +17,17 @@ export class MessageRulesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
+     * @param messageRuleId Unique identifier of the item
+     * @returns a MessageRuleItemRequestBuilder
+     */
+    public byMessageRuleId(messageRuleId: string) : MessageRuleItemRequestBuilder {
+        if(!messageRuleId) throw new Error("messageRuleId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["messageRule%2Did"] = messageRuleId
+        return new MessageRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MessageRulesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

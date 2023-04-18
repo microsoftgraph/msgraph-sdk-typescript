@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InstancesRequestBuilderGetRequestConfiguration} from './instancesRequestBuilderGetRequestConfiguration';
 import {InstancesRequestBuilderPostRequestConfiguration} from './instancesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewHistoryInstanceItemRequestBuilder} from './item/accessReviewHistoryInstanceItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
@@ -16,6 +17,17 @@ export class InstancesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
+     * @param accessReviewHistoryInstanceId Unique identifier of the item
+     * @returns a AccessReviewHistoryInstanceItemRequestBuilder
+     */
+    public byAccessReviewHistoryInstanceId(accessReviewHistoryInstanceId: string) : AccessReviewHistoryInstanceItemRequestBuilder {
+        if(!accessReviewHistoryInstanceId) throw new Error("accessReviewHistoryInstanceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewHistoryInstance%2Did"] = accessReviewHistoryInstanceId
+        return new AccessReviewHistoryInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new InstancesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

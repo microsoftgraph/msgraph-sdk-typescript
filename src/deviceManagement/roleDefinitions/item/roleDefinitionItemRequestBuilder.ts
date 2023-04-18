@@ -2,12 +2,11 @@ import {RoleDefinition} from '../../../models/';
 import {createRoleDefinitionFromDiscriminatorValue} from '../../../models/createRoleDefinitionFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {RoleAssignmentItemRequestBuilder} from './roleAssignments/item/roleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
 import {RoleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './roleDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {RoleDefinitionItemRequestBuilderGetRequestConfiguration} from './roleDefinitionItemRequestBuilderGetRequestConfiguration';
 import {RoleDefinitionItemRequestBuilderPatchRequestConfiguration} from './roleDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
@@ -73,17 +72,6 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<RoleDefinition>(requestInfo, createRoleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
-     * @param id Unique identifier of the item
-     * @returns a RoleAssignmentItemRequestBuilder
-     */
-    public roleAssignmentsById(id: string) : RoleAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["roleAssignment%2Did"] = id
-        return new RoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property roleDefinitions for deviceManagement

@@ -5,9 +5,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder';
+import {OnlineMeetingItemRequestBuilder} from './item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
@@ -21,6 +22,17 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
     public get createOrGet(): CreateOrGetRequestBuilder {
         return new CreateOrGetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
+     * @param onlineMeetingId Unique identifier of the item
+     * @returns a OnlineMeetingItemRequestBuilder
+     */
+    public byOnlineMeetingId(onlineMeetingId: string) : OnlineMeetingItemRequestBuilder {
+        if(!onlineMeetingId) throw new Error("onlineMeetingId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["onlineMeeting%2Did"] = onlineMeetingId
+        return new OnlineMeetingItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OnlineMeetingsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

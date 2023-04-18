@@ -7,9 +7,10 @@ import {AddRequestBuilder} from './add/addRequestBuilder';
 import {ChartsRequestBuilderGetRequestConfiguration} from './chartsRequestBuilderGetRequestConfiguration';
 import {ChartsRequestBuilderPostRequestConfiguration} from './chartsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookChartItemRequestBuilder} from './item/workbookChartItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -24,6 +25,17 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
+     * @param workbookChartId Unique identifier of the item
+     * @returns a WorkbookChartItemRequestBuilder
+     */
+    public byWorkbookChartId(workbookChartId: string) : WorkbookChartItemRequestBuilder {
+        if(!workbookChartId) throw new Error("workbookChartId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookChart%2Did"] = workbookChartId
+        return new WorkbookChartItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ChartsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -36,7 +48,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/worksheet-list-charts?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -4,9 +4,10 @@ import {createLearningProviderFromDiscriminatorValue} from '../../models/createL
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {LearningProviderItemRequestBuilder} from './item/learningProviderItemRequestBuilder';
 import {LearningProvidersRequestBuilderGetRequestConfiguration} from './learningProvidersRequestBuilderGetRequestConfiguration';
 import {LearningProvidersRequestBuilderPostRequestConfiguration} from './learningProvidersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
@@ -16,6 +17,17 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
+     * @param learningProviderId Unique identifier of the item
+     * @returns a LearningProviderItemRequestBuilder
+     */
+    public byLearningProviderId(learningProviderId: string) : LearningProviderItemRequestBuilder {
+        if(!learningProviderId) throw new Error("learningProviderId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["learningProvider%2Did"] = learningProviderId
+        return new LearningProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new LearningProvidersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

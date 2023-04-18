@@ -4,9 +4,10 @@ import {EdiscoverySearch, EdiscoverySearchCollectionResponse} from '../../../../
 import {createEdiscoverySearchCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoverySearchCollectionResponseFromDiscriminatorValue';
 import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EdiscoverySearchItemRequestBuilder} from './item/ediscoverySearchItemRequestBuilder';
 import {SearchesRequestBuilderGetRequestConfiguration} from './searchesRequestBuilderGetRequestConfiguration';
 import {SearchesRequestBuilderPostRequestConfiguration} from './searchesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
@@ -16,6 +17,17 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param ediscoverySearchId Unique identifier of the item
+     * @returns a EdiscoverySearchItemRequestBuilder
+     */
+    public byEdiscoverySearchId(ediscoverySearchId: string) : EdiscoverySearchItemRequestBuilder {
+        if(!ediscoverySearchId) throw new Error("ediscoverySearchId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoverySearch%2Did"] = ediscoverySearchId
+        return new EdiscoverySearchItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SearchesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

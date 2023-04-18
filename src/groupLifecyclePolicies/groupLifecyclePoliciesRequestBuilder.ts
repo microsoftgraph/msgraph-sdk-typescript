@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderGetRequestConfiguration';
 import {GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {GroupLifecyclePolicyItemRequestBuilder} from './item/groupLifecyclePolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupLifecyclePolicy entities.
@@ -16,6 +17,17 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of groupLifecyclePolicy entities.
+     * @param groupLifecyclePolicyId Unique identifier of the item
+     * @returns a GroupLifecyclePolicyItemRequestBuilder
+     */
+    public byGroupLifecyclePolicyId(groupLifecyclePolicyId: string) : GroupLifecyclePolicyItemRequestBuilder {
+        if(!groupLifecyclePolicyId) throw new Error("groupLifecyclePolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["groupLifecyclePolicy%2Did"] = groupLifecyclePolicyId
+        return new GroupLifecyclePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new GroupLifecyclePoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

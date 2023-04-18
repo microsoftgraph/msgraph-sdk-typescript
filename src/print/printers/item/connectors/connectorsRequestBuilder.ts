@@ -4,7 +4,8 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ConnectorsRequestBuilderGetRequestConfiguration} from './connectorsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PrintConnectorItemRequestBuilder} from './item/printConnectorItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
@@ -14,6 +15,17 @@ export class ConnectorsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
+     * @param printConnectorId Unique identifier of the item
+     * @returns a PrintConnectorItemRequestBuilder
+     */
+    public byPrintConnectorId(printConnectorId: string) : PrintConnectorItemRequestBuilder {
+        if(!printConnectorId) throw new Error("printConnectorId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printConnector%2Did"] = printConnectorId
+        return new PrintConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ConnectorsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

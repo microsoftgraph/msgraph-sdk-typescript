@@ -4,9 +4,10 @@ import {createEducationSubmissionResourceFromDiscriminatorValue} from '../../../
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationSubmissionResourceItemRequestBuilder} from './item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilderGetRequestConfiguration} from './submittedResourcesRequestBuilderGetRequestConfiguration';
 import {SubmittedResourcesRequestBuilderPostRequestConfiguration} from './submittedResourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
@@ -16,6 +17,17 @@ export class SubmittedResourcesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
+     * @param educationSubmissionResourceId Unique identifier of the item
+     * @returns a EducationSubmissionResourceItemRequestBuilder
+     */
+    public byEducationSubmissionResourceId(educationSubmissionResourceId: string) : EducationSubmissionResourceItemRequestBuilder {
+        if(!educationSubmissionResourceId) throw new Error("educationSubmissionResourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationSubmissionResource%2Did"] = educationSubmissionResourceId
+        return new EducationSubmissionResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SubmittedResourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

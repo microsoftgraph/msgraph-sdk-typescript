@@ -7,8 +7,9 @@ import {CategoriesRequestBuilderGetRequestConfiguration} from './categoriesReque
 import {CategoriesRequestBuilderPostRequestConfiguration} from './categoriesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {EducationCategoryItemRequestBuilder} from './item/educationCategoryItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
@@ -26,6 +27,17 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.categories.item collection
+     * @param educationCategoryId Unique identifier of the item
+     * @returns a EducationCategoryItemRequestBuilder
+     */
+    public byEducationCategoryId(educationCategoryId: string) : EducationCategoryItemRequestBuilder {
+        if(!educationCategoryId) throw new Error("educationCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationCategory%2Did"] = educationCategoryId
+        return new EducationCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

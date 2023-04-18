@@ -4,9 +4,10 @@ import {createUserFlowLanguagePageFromDiscriminatorValue} from '../../../../../.
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UserFlowLanguagePageItemRequestBuilder} from './item/userFlowLanguagePageItemRequestBuilder';
 import {OverridesPagesRequestBuilderGetRequestConfiguration} from './overridesPagesRequestBuilderGetRequestConfiguration';
 import {OverridesPagesRequestBuilderPostRequestConfiguration} from './overridesPagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
@@ -16,6 +17,17 @@ export class OverridesPagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
+     * @param userFlowLanguagePageId Unique identifier of the item
+     * @returns a UserFlowLanguagePageItemRequestBuilder
+     */
+    public byUserFlowLanguagePageId(userFlowLanguagePageId: string) : UserFlowLanguagePageItemRequestBuilder {
+        if(!userFlowLanguagePageId) throw new Error("userFlowLanguagePageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userFlowLanguagePage%2Did"] = userFlowLanguagePageId
+        return new UserFlowLanguagePageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OverridesPagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {DelegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration';
-import {DelegatedAdminServiceManagementDetailItemRequestBuilder} from './serviceManagementDetails/item/delegatedAdminServiceManagementDetailItemRequestBuilder';
 import {ServiceManagementDetailsRequestBuilder} from './serviceManagementDetails/serviceManagementDetailsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
@@ -73,17 +72,6 @@ export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<DelegatedAdminCustomer>(requestInfo, createDelegatedAdminCustomerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
-     * @param id Unique identifier of the item
-     * @returns a DelegatedAdminServiceManagementDetailItemRequestBuilder
-     */
-    public serviceManagementDetailsById(id: string) : DelegatedAdminServiceManagementDetailItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["delegatedAdminServiceManagementDetail%2Did"] = id
-        return new DelegatedAdminServiceManagementDetailItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property delegatedAdminCustomers for tenantRelationships

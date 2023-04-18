@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CallRecordItemRequestBuilderDeleteRequestConfiguration} from './callRecordItemRequestBuilderDeleteRequestConfiguration';
 import {CallRecordItemRequestBuilderGetRequestConfiguration} from './callRecordItemRequestBuilderGetRequestConfiguration';
 import {CallRecordItemRequestBuilderPatchRequestConfiguration} from './callRecordItemRequestBuilderPatchRequestConfiguration';
-import {SessionItemRequestBuilder} from './sessions/item/sessionItemRequestBuilder';
 import {SessionsRequestBuilder} from './sessions/sessionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
@@ -73,17 +72,6 @@ export class CallRecordItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<CallRecord>(requestInfo, createCallRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
-     * @param id Unique identifier of the item
-     * @returns a SessionItemRequestBuilder
-     */
-    public sessionsById(id: string) : SessionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["session%2Did"] = id
-        return new SessionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property callRecords for communications

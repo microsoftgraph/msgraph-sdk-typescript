@@ -3,8 +3,9 @@ import {createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDi
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder} from './item/microsoftAuthenticatorAuthenticationMethodItemRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration} from './microsoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
@@ -14,6 +15,17 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder extends BaseRequestBuil
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
+     * @param microsoftAuthenticatorAuthenticationMethodId Unique identifier of the item
+     * @returns a MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
+     */
+    public byMicrosoftAuthenticatorAuthenticationMethodId(microsoftAuthenticatorAuthenticationMethodId: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
+        if(!microsoftAuthenticatorAuthenticationMethodId) throw new Error("microsoftAuthenticatorAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["microsoftAuthenticatorAuthenticationMethod%2Did"] = microsoftAuthenticatorAuthenticationMethodId
+        return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MicrosoftAuthenticatorMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

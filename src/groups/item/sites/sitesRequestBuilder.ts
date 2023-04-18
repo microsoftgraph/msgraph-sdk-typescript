@@ -4,9 +4,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
 import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.group entity.
@@ -24,6 +25,17 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     public get remove(): RemoveRequestBuilder {
         return new RemoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the sites property of the microsoft.graph.group entity.
+     * @param siteId Unique identifier of the item
+     * @returns a SiteItemRequestBuilder
+     */
+    public bySiteId(siteId: string) : SiteItemRequestBuilder {
+        if(!siteId) throw new Error("siteId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["site%2Did"] = siteId
+        return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SitesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

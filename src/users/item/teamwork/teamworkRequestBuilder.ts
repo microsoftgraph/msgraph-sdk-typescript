@@ -3,14 +3,12 @@ import {createUserTeamworkFromDiscriminatorValue} from '../../../models/createUs
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssociatedTeamsRequestBuilder} from './associatedTeams/associatedTeamsRequestBuilder';
-import {AssociatedTeamInfoItemRequestBuilder} from './associatedTeams/item/associatedTeamInfoItemRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
-import {UserScopeTeamsAppInstallationItemRequestBuilder} from './installedApps/item/userScopeTeamsAppInstallationItemRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TeamworkRequestBuilderDeleteRequestConfiguration} from './teamworkRequestBuilderDeleteRequestConfiguration';
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamwork property of the microsoft.graph.user entity.
@@ -28,17 +26,6 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
-     * @param id Unique identifier of the item
-     * @returns a AssociatedTeamInfoItemRequestBuilder
-     */
-    public associatedTeamsById(id: string) : AssociatedTeamInfoItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["associatedTeamInfo%2Did"] = id
-        return new AssociatedTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new TeamworkRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -77,17 +64,6 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<UserTeamwork>(requestInfo, createUserTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
-     * @param id Unique identifier of the item
-     * @returns a UserScopeTeamsAppInstallationItemRequestBuilder
-     */
-    public installedAppsById(id: string) : UserScopeTeamsAppInstallationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["userScopeTeamsAppInstallation%2Did"] = id
-        return new UserScopeTeamsAppInstallationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property teamwork in users

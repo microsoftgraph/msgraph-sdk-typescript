@@ -5,9 +5,10 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
+import {ParticipantItemRequestBuilder} from './item/participantItemRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
 import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
@@ -21,6 +22,17 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
     public get invite(): InviteRequestBuilder {
         return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the participants property of the microsoft.graph.call entity.
+     * @param participantId Unique identifier of the item
+     * @returns a ParticipantItemRequestBuilder
+     */
+    public byParticipantId(participantId: string) : ParticipantItemRequestBuilder {
+        if(!participantId) throw new Error("participantId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["participant%2Did"] = participantId
+        return new ParticipantItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ParticipantsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

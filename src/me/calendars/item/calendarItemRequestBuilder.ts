@@ -7,17 +7,12 @@ import {CalendarItemRequestBuilderDeleteRequestConfiguration} from './calendarIt
 import {CalendarItemRequestBuilderGetRequestConfiguration} from './calendarItemRequestBuilderGetRequestConfiguration';
 import {CalendarItemRequestBuilderPatchRequestConfiguration} from './calendarItemRequestBuilderPatchRequestConfiguration';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
-import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as I42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as Ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
-import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendars property of the microsoft.graph.user entity.
@@ -57,28 +52,6 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
         return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.pathParameters, this.requestAdapter, user);
     };
     /**
-     * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a CalendarPermissionItemRequestBuilder
-     */
-    public calendarPermissionsById(id: string) : CalendarPermissionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["calendarPermission%2Did"] = id
-        return new CalendarPermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a EventItemRequestBuilder
-     */
-    public calendarViewById(id: string) : I42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["event%2Did"] = id
-        return new I42d633ee12d6c3f004529648b09ce8028416394222cef396639364bed7ce1df1(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new CalendarItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -102,17 +75,6 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the events property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a EventItemRequestBuilder
-     */
-    public eventsById(id: string) : Ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["event%2Did"] = id
-        return new Ie77a32ed83cf8708859aba8ad4501f0022dcd39125dabf47cc0872a83e4107a7(urlTplParams, this.requestAdapter);
-    };
-    /**
      * The user's calendars. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -127,17 +89,6 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
-        return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property calendars in me
@@ -156,17 +107,6 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id
-        return new SingleValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property calendars for me

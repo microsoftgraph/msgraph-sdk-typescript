@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AgreementsRequestBuilderGetRequestConfiguration} from './agreementsRequestBuilderGetRequestConfiguration';
 import {AgreementsRequestBuilderPostRequestConfiguration} from './agreementsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AgreementItemRequestBuilder} from './item/agreementItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
@@ -16,6 +17,17 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+     * @param agreementId Unique identifier of the item
+     * @returns a AgreementItemRequestBuilder
+     */
+    public byAgreementId(agreementId: string) : AgreementItemRequestBuilder {
+        if(!agreementId) throw new Error("agreementId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["agreement%2Did"] = agreementId
+        return new AgreementItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AgreementsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

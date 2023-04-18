@@ -7,7 +7,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeletedTeamsRequestBuilderGetRequestConfiguration} from './deletedTeamsRequestBuilderGetRequestConfiguration';
 import {DeletedTeamsRequestBuilderPostRequestConfiguration} from './deletedTeamsRequestBuilderPostRequestConfiguration';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeletedTeamItemRequestBuilder} from './item/deletedTeamItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
@@ -21,6 +22,17 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
     public get getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
+     * @param deletedTeamId Unique identifier of the item
+     * @returns a DeletedTeamItemRequestBuilder
+     */
+    public byDeletedTeamId(deletedTeamId: string) : DeletedTeamItemRequestBuilder {
+        if(!deletedTeamId) throw new Error("deletedTeamId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deletedTeam%2Did"] = deletedTeamId
+        return new DeletedTeamItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeletedTeamsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

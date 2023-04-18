@@ -6,9 +6,8 @@ import {CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration} from '.
 import {CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration} from './crossTenantAccessPolicyRequestBuilderGetRequestConfiguration';
 import {CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration} from './crossTenantAccessPolicyRequestBuilderPatchRequestConfiguration';
 import {DefaultRequestBuilder} from './defaultEscaped/defaultRequestBuilder';
-import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder} from './partners/item/crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder';
 import {PartnersRequestBuilder} from './partners/partnersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
@@ -61,17 +60,6 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
-     */
-    public partnersById(id: string) : CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["crossTenantAccessPolicyConfigurationPartner%2DtenantId"] = id
-        return new CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of a cross-tenant access policy.

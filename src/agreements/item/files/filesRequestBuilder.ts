@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilesRequestBuilderGetRequestConfiguration} from './filesRequestBuilderGetRequestConfiguration';
 import {FilesRequestBuilderPostRequestConfiguration} from './filesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AgreementFileLocalizationItemRequestBuilder} from './item/agreementFileLocalizationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the files property of the microsoft.graph.agreement entity.
@@ -16,6 +17,17 @@ export class FilesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the files property of the microsoft.graph.agreement entity.
+     * @param agreementFileLocalizationId Unique identifier of the item
+     * @returns a AgreementFileLocalizationItemRequestBuilder
+     */
+    public byAgreementFileLocalizationId(agreementFileLocalizationId: string) : AgreementFileLocalizationItemRequestBuilder {
+        if(!agreementFileLocalizationId) throw new Error("agreementFileLocalizationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["agreementFileLocalization%2Did"] = agreementFileLocalizationId
+        return new AgreementFileLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new FilesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

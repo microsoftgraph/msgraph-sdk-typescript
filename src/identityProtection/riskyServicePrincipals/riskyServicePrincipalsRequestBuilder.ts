@@ -6,9 +6,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ConfirmCompromisedRequestBuilder} from './confirmCompromised/confirmCompromisedRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
+import {RiskyServicePrincipalItemRequestBuilder} from './item/riskyServicePrincipalItemRequestBuilder';
 import {RiskyServicePrincipalsRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalsRequestBuilderPostRequestConfiguration} from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
@@ -26,6 +27,17 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
     public get dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
+     * @param riskyServicePrincipalId Unique identifier of the item
+     * @returns a RiskyServicePrincipalItemRequestBuilder
+     */
+    public byRiskyServicePrincipalId(riskyServicePrincipalId: string) : RiskyServicePrincipalItemRequestBuilder {
+        if(!riskyServicePrincipalId) throw new Error("riskyServicePrincipalId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskyServicePrincipal%2Did"] = riskyServicePrincipalId
+        return new RiskyServicePrincipalItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RiskyServicePrincipalsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

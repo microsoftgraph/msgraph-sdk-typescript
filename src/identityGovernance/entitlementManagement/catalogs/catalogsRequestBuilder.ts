@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CatalogsRequestBuilderGetRequestConfiguration} from './catalogsRequestBuilderGetRequestConfiguration';
 import {CatalogsRequestBuilderPostRequestConfiguration} from './catalogsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessPackageCatalogItemRequestBuilder} from './item/accessPackageCatalogItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
@@ -16,6 +17,17 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
+     * @param accessPackageCatalogId Unique identifier of the item
+     * @returns a AccessPackageCatalogItemRequestBuilder
+     */
+    public byAccessPackageCatalogId(accessPackageCatalogId: string) : AccessPackageCatalogItemRequestBuilder {
+        if(!accessPackageCatalogId) throw new Error("accessPackageCatalogId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackageCatalog%2Did"] = accessPackageCatalogId
+        return new AccessPackageCatalogItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CatalogsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

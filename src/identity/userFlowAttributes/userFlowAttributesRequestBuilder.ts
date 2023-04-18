@@ -4,9 +4,10 @@ import {createIdentityUserFlowAttributeFromDiscriminatorValue} from '../../model
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {IdentityUserFlowAttributeItemRequestBuilder} from './item/identityUserFlowAttributeItemRequestBuilder';
 import {UserFlowAttributesRequestBuilderGetRequestConfiguration} from './userFlowAttributesRequestBuilderGetRequestConfiguration';
 import {UserFlowAttributesRequestBuilderPostRequestConfiguration} from './userFlowAttributesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
@@ -16,6 +17,17 @@ export class UserFlowAttributesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
+     * @param identityUserFlowAttributeId Unique identifier of the item
+     * @returns a IdentityUserFlowAttributeItemRequestBuilder
+     */
+    public byIdentityUserFlowAttributeId(identityUserFlowAttributeId: string) : IdentityUserFlowAttributeItemRequestBuilder {
+        if(!identityUserFlowAttributeId) throw new Error("identityUserFlowAttributeId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityUserFlowAttribute%2Did"] = identityUserFlowAttributeId
+        return new IdentityUserFlowAttributeItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserFlowAttributesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -7,10 +7,11 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {ResourceSpecificPermissionGrantItemRequestBuilder} from './item/resourceSpecificPermissionGrantItemRequestBuilder';
 import {PermissionGrantsRequestBuilderGetRequestConfiguration} from './permissionGrantsRequestBuilderGetRequestConfiguration';
 import {PermissionGrantsRequestBuilderPostRequestConfiguration} from './permissionGrantsRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
@@ -36,6 +37,17 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
+     * @param resourceSpecificPermissionGrantId Unique identifier of the item
+     * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
+     */
+    public byResourceSpecificPermissionGrantId(resourceSpecificPermissionGrantId: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
+        if(!resourceSpecificPermissionGrantId) throw new Error("resourceSpecificPermissionGrantId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["resourceSpecificPermissionGrant%2Did"] = resourceSpecificPermissionGrantId
+        return new ResourceSpecificPermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PermissionGrantsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

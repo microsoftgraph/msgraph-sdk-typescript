@@ -3,8 +3,9 @@ import {createPrinterShareCollectionResponseFromDiscriminatorValue} from '../../
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PrinterShareItemRequestBuilder} from './item/printerShareItemRequestBuilder';
 import {SharesRequestBuilderGetRequestConfiguration} from './sharesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shares property of the microsoft.graph.printer entity.
@@ -14,6 +15,17 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the shares property of the microsoft.graph.printer entity.
+     * @param printerShareId Unique identifier of the item
+     * @returns a PrinterShareItemRequestBuilder
+     */
+    public byPrinterShareId(printerShareId: string) : PrinterShareItemRequestBuilder {
+        if(!printerShareId) throw new Error("printerShareId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printerShare%2Did"] = printerShareId
+        return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SharesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

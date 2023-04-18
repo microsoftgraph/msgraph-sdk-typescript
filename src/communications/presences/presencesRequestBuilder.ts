@@ -4,9 +4,10 @@ import {createPresenceFromDiscriminatorValue} from '../../models/createPresenceF
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PresenceItemRequestBuilder} from './item/presenceItemRequestBuilder';
 import {PresencesRequestBuilderGetRequestConfiguration} from './presencesRequestBuilderGetRequestConfiguration';
 import {PresencesRequestBuilderPostRequestConfiguration} from './presencesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
@@ -16,6 +17,17 @@ export class PresencesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
+     * @param presenceId Unique identifier of the item
+     * @returns a PresenceItemRequestBuilder
+     */
+    public byPresenceId(presenceId: string) : PresenceItemRequestBuilder {
+        if(!presenceId) throw new Error("presenceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["presence%2Did"] = presenceId
+        return new PresenceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PresencesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

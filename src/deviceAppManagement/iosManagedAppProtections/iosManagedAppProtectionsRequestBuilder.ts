@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IosManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './iosManagedAppProtectionsRequestBuilderGetRequestConfiguration';
 import {IosManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './iosManagedAppProtectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {IosManagedAppProtectionItemRequestBuilder} from './item/iosManagedAppProtectionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class IosManagedAppProtectionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+     * @param iosManagedAppProtectionId Unique identifier of the item
+     * @returns a IosManagedAppProtectionItemRequestBuilder
+     */
+    public byIosManagedAppProtectionId(iosManagedAppProtectionId: string) : IosManagedAppProtectionItemRequestBuilder {
+        if(!iosManagedAppProtectionId) throw new Error("iosManagedAppProtectionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["iosManagedAppProtection%2Did"] = iosManagedAppProtectionId
+        return new IosManagedAppProtectionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IosManagedAppProtectionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

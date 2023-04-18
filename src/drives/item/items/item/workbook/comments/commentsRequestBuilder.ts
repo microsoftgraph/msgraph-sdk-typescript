@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {CommentsRequestBuilderGetRequestConfiguration} from './commentsRequestBuilderGetRequestConfiguration';
 import {CommentsRequestBuilderPostRequestConfiguration} from './commentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {WorkbookCommentItemRequestBuilder} from './item/workbookCommentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
@@ -16,6 +17,17 @@ export class CommentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
+     * @param workbookCommentId Unique identifier of the item
+     * @returns a WorkbookCommentItemRequestBuilder
+     */
+    public byWorkbookCommentId(workbookCommentId: string) : WorkbookCommentItemRequestBuilder {
+        if(!workbookCommentId) throw new Error("workbookCommentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookComment%2Did"] = workbookCommentId
+        return new WorkbookCommentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CommentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,10 +6,9 @@ import {ChatMessageItemRequestBuilderDeleteRequestConfiguration} from './chatMes
 import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessageItemRequestBuilderGetRequestConfiguration';
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
-import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
 import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
 import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
@@ -65,17 +64,6 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
-     * @param id Unique identifier of the item
-     * @returns a ChatMessageHostedContentItemRequestBuilder
-     */
-    public hostedContentsById(id: string) : ChatMessageHostedContentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["chatMessageHostedContent%2Did"] = id
-        return new ChatMessageHostedContentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property replies in groups

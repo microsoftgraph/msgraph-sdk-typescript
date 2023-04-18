@@ -1,6 +1,6 @@
 
 /**
- * Get siteLists from admin
+ * Get a list of the browserSiteList objects and their properties.
  */
 export class SiteListsRequestBuilderGetQueryParameters {
     /** Include count of items */

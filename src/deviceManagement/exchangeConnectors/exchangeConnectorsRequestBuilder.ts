@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExchangeConnectorsRequestBuilderGetRequestConfiguration} from './exchangeConnectorsRequestBuilderGetRequestConfiguration';
 import {ExchangeConnectorsRequestBuilderPostRequestConfiguration} from './exchangeConnectorsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceManagementExchangeConnectorItemRequestBuilder} from './item/deviceManagementExchangeConnectorItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+     * @param deviceManagementExchangeConnectorId Unique identifier of the item
+     * @returns a DeviceManagementExchangeConnectorItemRequestBuilder
+     */
+    public byDeviceManagementExchangeConnectorId(deviceManagementExchangeConnectorId: string) : DeviceManagementExchangeConnectorItemRequestBuilder {
+        if(!deviceManagementExchangeConnectorId) throw new Error("deviceManagementExchangeConnectorId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceManagementExchangeConnector%2Did"] = deviceManagementExchangeConnectorId
+        return new DeviceManagementExchangeConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ExchangeConnectorsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

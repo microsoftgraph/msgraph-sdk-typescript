@@ -3,11 +3,10 @@ import {createRiskyServicePrincipalFromDiscriminatorValue} from '../../../models
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {HistoryRequestBuilder} from './history/historyRequestBuilder';
-import {RiskyServicePrincipalHistoryItemItemRequestBuilder} from './history/item/riskyServicePrincipalHistoryItemItemRequestBuilder';
 import {RiskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
@@ -55,17 +54,6 @@ export class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder 
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<RiskyServicePrincipal>(requestInfo, createRiskyServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
-     * @param id Unique identifier of the item
-     * @returns a RiskyServicePrincipalHistoryItemItemRequestBuilder
-     */
-    public historyById(id: string) : RiskyServicePrincipalHistoryItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["riskyServicePrincipalHistoryItem%2Did"] = id
-        return new RiskyServicePrincipalHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property riskyServicePrincipals in identityProtection

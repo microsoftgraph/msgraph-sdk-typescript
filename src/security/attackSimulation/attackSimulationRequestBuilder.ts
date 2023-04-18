@@ -5,11 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {AttackSimulationRequestBuilderDeleteRequestConfiguration} from './attackSimulationRequestBuilderDeleteRequestConfiguration';
 import {AttackSimulationRequestBuilderGetRequestConfiguration} from './attackSimulationRequestBuilderGetRequestConfiguration';
 import {AttackSimulationRequestBuilderPatchRequestConfiguration} from './attackSimulationRequestBuilderPatchRequestConfiguration';
-import {SimulationAutomationItemRequestBuilder} from './simulationAutomations/item/simulationAutomationItemRequestBuilder';
 import {SimulationAutomationsRequestBuilder} from './simulationAutomations/simulationAutomationsRequestBuilder';
-import {SimulationItemRequestBuilder} from './simulations/item/simulationItemRequestBuilder';
 import {SimulationsRequestBuilder} from './simulations/simulationsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
@@ -79,28 +77,6 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AttackSimulationRoot>(requestInfo, createAttackSimulationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a SimulationAutomationItemRequestBuilder
-     */
-    public simulationAutomationsById(id: string) : SimulationAutomationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["simulationAutomation%2Did"] = id
-        return new SimulationAutomationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a SimulationItemRequestBuilder
-     */
-    public simulationsById(id: string) : SimulationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["simulation%2Did"] = id
-        return new SimulationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property attackSimulation for security

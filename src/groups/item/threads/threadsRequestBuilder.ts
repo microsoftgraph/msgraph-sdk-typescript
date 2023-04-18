@@ -4,9 +4,10 @@ import {createConversationThreadFromDiscriminatorValue} from '../../../models/cr
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ConversationThreadItemRequestBuilder} from './item/conversationThreadItemRequestBuilder';
 import {ThreadsRequestBuilderGetRequestConfiguration} from './threadsRequestBuilderGetRequestConfiguration';
 import {ThreadsRequestBuilderPostRequestConfiguration} from './threadsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.
@@ -16,6 +17,17 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the threads property of the microsoft.graph.group entity.
+     * @param conversationThreadId Unique identifier of the item
+     * @returns a ConversationThreadItemRequestBuilder
+     */
+    public byConversationThreadId(conversationThreadId: string) : ConversationThreadItemRequestBuilder {
+        if(!conversationThreadId) throw new Error("conversationThreadId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["conversationThread%2Did"] = conversationThreadId
+        return new ConversationThreadItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ThreadsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,10 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {ConversationThreadItemRequestBuilderDeleteRequestConfiguration} from './conversationThreadItemRequestBuilderDeleteRequestConfiguration';
 import {ConversationThreadItemRequestBuilderGetRequestConfiguration} from './conversationThreadItemRequestBuilderGetRequestConfiguration';
 import {ConversationThreadItemRequestBuilderPatchRequestConfiguration} from './conversationThreadItemRequestBuilderPatchRequestConfiguration';
-import {PostItemRequestBuilder} from './posts/item/postItemRequestBuilder';
 import {PostsRequestBuilder} from './posts/postsRequestBuilder';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.
@@ -78,17 +77,6 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
-     * @param id Unique identifier of the item
-     * @returns a PostItemRequestBuilder
-     */
-    public postsById(id: string) : PostItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["post%2Did"] = id
-        return new PostItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property threads for groups

@@ -4,9 +4,10 @@ import {createDelegatedAdminServiceManagementDetailFromDiscriminatorValue} from 
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DelegatedAdminServiceManagementDetailItemRequestBuilder} from './item/delegatedAdminServiceManagementDetailItemRequestBuilder';
 import {ServiceManagementDetailsRequestBuilderGetRequestConfiguration} from './serviceManagementDetailsRequestBuilderGetRequestConfiguration';
 import {ServiceManagementDetailsRequestBuilderPostRequestConfiguration} from './serviceManagementDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
@@ -16,6 +17,17 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
+     * @param delegatedAdminServiceManagementDetailId Unique identifier of the item
+     * @returns a DelegatedAdminServiceManagementDetailItemRequestBuilder
+     */
+    public byDelegatedAdminServiceManagementDetailId(delegatedAdminServiceManagementDetailId: string) : DelegatedAdminServiceManagementDetailItemRequestBuilder {
+        if(!delegatedAdminServiceManagementDetailId) throw new Error("delegatedAdminServiceManagementDetailId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminServiceManagementDetail%2Did"] = delegatedAdminServiceManagementDetailId
+        return new DelegatedAdminServiceManagementDetailItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ServiceManagementDetailsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -3,15 +3,12 @@ import {createManagedAppRegistrationFromDiscriminatorValue} from '../../../model
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppliedPoliciesRequestBuilder} from './appliedPolicies/appliedPoliciesRequestBuilder';
-import {ManagedAppPolicyItemRequestBuilder as Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9} from './appliedPolicies/item/managedAppPolicyItemRequestBuilder';
 import {IntendedPoliciesRequestBuilder} from './intendedPolicies/intendedPoliciesRequestBuilder';
-import {ManagedAppPolicyItemRequestBuilder as Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c} from './intendedPolicies/item/managedAppPolicyItemRequestBuilder';
 import {ManagedAppRegistrationItemRequestBuilderDeleteRequestConfiguration} from './managedAppRegistrationItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration} from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration} from './managedAppRegistrationItemRequestBuilderPatchRequestConfiguration';
-import {ManagedAppOperationItemRequestBuilder} from './operations/item/managedAppOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
@@ -29,17 +26,6 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedAppPolicyItemRequestBuilder
-     */
-    public appliedPoliciesById(id: string) : Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedAppPolicy%2Did"] = id
-        return new Ieeaba3839496ecf69dd412858bb89c71b8061bacc48d9e4f363c1d0603b278c9(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new ManagedAppRegistrationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -78,28 +64,6 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the intendedPolicies property of the microsoft.graph.managedAppRegistration entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedAppPolicyItemRequestBuilder
-     */
-    public intendedPoliciesById(id: string) : Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedAppPolicy%2Did"] = id
-        return new Idd29f9cb721ede8ef48ce7470339b90954dc8da5b1ca8bab07978f58c2ea4e3c(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedAppOperationItemRequestBuilder
-     */
-    public operationsById(id: string) : ManagedAppOperationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedAppOperation%2Did"] = id
-        return new ManagedAppOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property managedAppRegistrations in deviceAppManagement

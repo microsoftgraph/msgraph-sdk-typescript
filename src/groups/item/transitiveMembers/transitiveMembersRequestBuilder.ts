@@ -9,8 +9,9 @@ import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
 import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
+import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {TransitiveMembersRequestBuilderGetRequestConfiguration} from './transitiveMembersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the transitiveMembers property of the microsoft.graph.group entity.
@@ -44,6 +45,17 @@ export class TransitiveMembersRequestBuilder extends BaseRequestBuilder {
     public get graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the transitiveMembers property of the microsoft.graph.group entity.
+     * @param directoryObjectId Unique identifier of the item
+     * @returns a DirectoryObjectItemRequestBuilder
+     */
+    public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {
+        if(!directoryObjectId) throw new Error("directoryObjectId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TransitiveMembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

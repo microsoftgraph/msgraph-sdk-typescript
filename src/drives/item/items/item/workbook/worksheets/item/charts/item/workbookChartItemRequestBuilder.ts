@@ -10,7 +10,6 @@ import {ImageWithWidthRequestBuilder} from './imageWithWidth/imageWithWidthReque
 import {ImageWithWidthWithHeightRequestBuilder} from './imageWithWidthWithHeight/imageWithWidthWithHeightRequestBuilder';
 import {ImageWithWidthWithHeightWithFittingModeRequestBuilder} from './imageWithWidthWithHeightWithFittingMode/imageWithWidthWithHeightWithFittingModeRequestBuilder';
 import {LegendRequestBuilder} from './legend/legendRequestBuilder';
-import {WorkbookChartSeriesItemRequestBuilder} from './series/item/workbookChartSeriesItemRequestBuilder';
 import {SeriesRequestBuilder} from './series/seriesRequestBuilder';
 import {SetDataRequestBuilder} from './setData/setDataRequestBuilder';
 import {SetPositionRequestBuilder} from './setPosition/setPositionRequestBuilder';
@@ -19,7 +18,7 @@ import {WorkbookChartItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookChartItemRequestBuilderGetRequestConfiguration} from './workbookChartItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartItemRequestBuilderPatchRequestConfiguration} from './workbookChartItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -154,17 +153,6 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookChartSeriesItemRequestBuilder
-     */
-    public seriesById(id: string) : WorkbookChartSeriesItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookChartSeries%2Did"] = id
-        return new WorkbookChartSeriesItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property charts for drives

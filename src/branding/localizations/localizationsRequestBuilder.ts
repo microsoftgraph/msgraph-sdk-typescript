@@ -4,9 +4,10 @@ import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from '..
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OrganizationalBrandingLocalizationItemRequestBuilder} from './item/organizationalBrandingLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
 import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
@@ -16,6 +17,17 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+     * @param organizationalBrandingLocalizationId Unique identifier of the item
+     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
+     */
+    public byOrganizationalBrandingLocalizationId(organizationalBrandingLocalizationId: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
+        if(!organizationalBrandingLocalizationId) throw new Error("organizationalBrandingLocalizationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["organizationalBrandingLocalization%2Did"] = organizationalBrandingLocalizationId
+        return new OrganizationalBrandingLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new LocalizationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {createTimeOffReasonFromDiscriminatorValue} from '../../../../../../model
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TimeOffReasonItemRequestBuilder} from './item/timeOffReasonItemRequestBuilder';
 import {TimeOffReasonsRequestBuilderGetRequestConfiguration} from './timeOffReasonsRequestBuilderGetRequestConfiguration';
 import {TimeOffReasonsRequestBuilderPostRequestConfiguration} from './timeOffReasonsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
@@ -16,6 +17,17 @@ export class TimeOffReasonsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
+     * @param timeOffReasonId Unique identifier of the item
+     * @returns a TimeOffReasonItemRequestBuilder
+     */
+    public byTimeOffReasonId(timeOffReasonId: string) : TimeOffReasonItemRequestBuilder {
+        if(!timeOffReasonId) throw new Error("timeOffReasonId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["timeOffReason%2Did"] = timeOffReasonId
+        return new TimeOffReasonItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TimeOffReasonsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

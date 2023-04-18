@@ -4,7 +4,8 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ClassesRequestBuilderGetRequestConfiguration} from './classesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
@@ -14,6 +15,17 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
+     * @param educationClassId Unique identifier of the item
+     * @returns a EducationClassItemRequestBuilder
+     */
+    public byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder {
+        if(!educationClassId) throw new Error("educationClassId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationClass%2Did"] = educationClassId
+        return new EducationClassItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ClassesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

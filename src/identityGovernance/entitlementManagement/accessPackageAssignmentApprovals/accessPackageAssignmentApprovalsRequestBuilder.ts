@@ -7,7 +7,8 @@ import {AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration} f
 import {AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration} from './accessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ApprovalItemRequestBuilder} from './item/approvalItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
@@ -17,6 +18,17 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
+     * @param approvalId Unique identifier of the item
+     * @returns a ApprovalItemRequestBuilder
+     */
+    public byApprovalId(approvalId: string) : ApprovalItemRequestBuilder {
+        if(!approvalId) throw new Error("approvalId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["approval%2Did"] = approvalId
+        return new ApprovalItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AccessPackageAssignmentApprovalsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

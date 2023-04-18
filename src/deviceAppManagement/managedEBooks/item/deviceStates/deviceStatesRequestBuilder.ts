@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceStatesRequestBuilderGetRequestConfiguration} from './deviceStatesRequestBuilderGetRequestConfiguration';
 import {DeviceStatesRequestBuilderPostRequestConfiguration} from './deviceStatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceInstallStateItemRequestBuilder} from './item/deviceInstallStateItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
@@ -16,6 +17,17 @@ export class DeviceStatesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
+     * @param deviceInstallStateId Unique identifier of the item
+     * @returns a DeviceInstallStateItemRequestBuilder
+     */
+    public byDeviceInstallStateId(deviceInstallStateId: string) : DeviceInstallStateItemRequestBuilder {
+        if(!deviceInstallStateId) throw new Error("deviceInstallStateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceInstallState%2Did"] = deviceInstallStateId
+        return new DeviceInstallStateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceStatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {BookingCurrenciesRequestBuilderGetRequestConfiguration} from './bookingCurrenciesRequestBuilderGetRequestConfiguration';
 import {BookingCurrenciesRequestBuilderPostRequestConfiguration} from './bookingCurrenciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BookingCurrencyItemRequestBuilder} from './item/bookingCurrencyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
@@ -16,6 +17,17 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
+     * @param bookingCurrencyId Unique identifier of the item
+     * @returns a BookingCurrencyItemRequestBuilder
+     */
+    public byBookingCurrencyId(bookingCurrencyId: string) : BookingCurrencyItemRequestBuilder {
+        if(!bookingCurrencyId) throw new Error("bookingCurrencyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bookingCurrency%2Did"] = bookingCurrencyId
+        return new BookingCurrencyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new BookingCurrenciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {B2xUserFlowsRequestBuilderGetRequestConfiguration} from './b2xUserFlowsRequestBuilderGetRequestConfiguration';
 import {B2xUserFlowsRequestBuilderPostRequestConfiguration} from './b2xUserFlowsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {B2xIdentityUserFlowItemRequestBuilder} from './item/b2xIdentityUserFlowItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
@@ -16,6 +17,17 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
+     * @param b2xIdentityUserFlowId Unique identifier of the item
+     * @returns a B2xIdentityUserFlowItemRequestBuilder
+     */
+    public byB2xIdentityUserFlowId(b2xIdentityUserFlowId: string) : B2xIdentityUserFlowItemRequestBuilder {
+        if(!b2xIdentityUserFlowId) throw new Error("b2xIdentityUserFlowId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["b2xIdentityUserFlow%2Did"] = b2xIdentityUserFlowId
+        return new B2xIdentityUserFlowItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new B2xUserFlowsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

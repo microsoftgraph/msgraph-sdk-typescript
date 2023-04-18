@@ -5,9 +5,10 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {TodoTaskListItemRequestBuilder} from './item/todoTaskListItemRequestBuilder';
 import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
 import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
@@ -21,6 +22,17 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the lists property of the microsoft.graph.todo entity.
+     * @param todoTaskListId Unique identifier of the item
+     * @returns a TodoTaskListItemRequestBuilder
+     */
+    public byTodoTaskListId(todoTaskListId: string) : TodoTaskListItemRequestBuilder {
+        if(!todoTaskListId) throw new Error("todoTaskListId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["todoTaskList%2Did"] = todoTaskListId
+        return new TodoTaskListItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ListsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

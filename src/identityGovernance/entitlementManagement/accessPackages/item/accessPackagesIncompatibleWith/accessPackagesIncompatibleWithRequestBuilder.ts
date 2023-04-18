@@ -4,7 +4,8 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration} from './accessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
@@ -14,6 +15,17 @@ export class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBui
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
+     * @param accessPackageId1 Unique identifier of the item
+     * @returns a AccessPackageItemRequestBuilder
+     */
+    public byAccessPackageId1(accessPackageId1: string) : AccessPackageItemRequestBuilder {
+        if(!accessPackageId1) throw new Error("accessPackageId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackage%2Did1"] = accessPackageId1
+        return new AccessPackageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AccessPackagesIncompatibleWithRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

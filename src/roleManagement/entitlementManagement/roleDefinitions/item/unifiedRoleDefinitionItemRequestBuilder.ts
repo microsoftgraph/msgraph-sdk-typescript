@@ -3,11 +3,10 @@ import {createUnifiedRoleDefinitionFromDiscriminatorValue} from '../../../../mod
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {InheritsPermissionsFromRequestBuilder} from './inheritsPermissionsFrom/inheritsPermissionsFromRequestBuilder';
-import {UnifiedRoleDefinitionItemRequestBuilder as I3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211} from './inheritsPermissionsFrom/item/unifiedRoleDefinitionItemRequestBuilder';
 import {UnifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
@@ -55,17 +54,6 @@ export class UnifiedRoleDefinitionItemRequestBuilder extends BaseRequestBuilder 
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<UnifiedRoleDefinition>(requestInfo, createUnifiedRoleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
-     * @param id Unique identifier of the item
-     * @returns a UnifiedRoleDefinitionItemRequestBuilder
-     */
-    public inheritsPermissionsFromById(id: string) : I3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["unifiedRoleDefinition%2Did1"] = id
-        return new I3282b25070c755a61081a0da62fa222ba1858c2768a9caf83d574225fafb2211(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property roleDefinitions in roleManagement

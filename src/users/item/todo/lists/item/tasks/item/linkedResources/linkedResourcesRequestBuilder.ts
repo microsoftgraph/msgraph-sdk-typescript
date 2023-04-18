@@ -4,9 +4,10 @@ import {createLinkedResourceFromDiscriminatorValue} from '../../../../../../../.
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {LinkedResourceItemRequestBuilder} from './item/linkedResourceItemRequestBuilder';
 import {LinkedResourcesRequestBuilderGetRequestConfiguration} from './linkedResourcesRequestBuilderGetRequestConfiguration';
 import {LinkedResourcesRequestBuilderPostRequestConfiguration} from './linkedResourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
@@ -16,6 +17,17 @@ export class LinkedResourcesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
+     * @param linkedResourceId Unique identifier of the item
+     * @returns a LinkedResourceItemRequestBuilder
+     */
+    public byLinkedResourceId(linkedResourceId: string) : LinkedResourceItemRequestBuilder {
+        if(!linkedResourceId) throw new Error("linkedResourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["linkedResource%2Did"] = linkedResourceId
+        return new LinkedResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new LinkedResourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

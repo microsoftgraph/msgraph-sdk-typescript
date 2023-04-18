@@ -4,9 +4,10 @@ import {createPrintTaskDefinitionFromDiscriminatorValue} from '../../models/crea
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PrintTaskDefinitionItemRequestBuilder} from './item/printTaskDefinitionItemRequestBuilder';
 import {TaskDefinitionsRequestBuilderGetRequestConfiguration} from './taskDefinitionsRequestBuilderGetRequestConfiguration';
 import {TaskDefinitionsRequestBuilderPostRequestConfiguration} from './taskDefinitionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
@@ -16,6 +17,17 @@ export class TaskDefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
+     * @param printTaskDefinitionId Unique identifier of the item
+     * @returns a PrintTaskDefinitionItemRequestBuilder
+     */
+    public byPrintTaskDefinitionId(printTaskDefinitionId: string) : PrintTaskDefinitionItemRequestBuilder {
+        if(!printTaskDefinitionId) throw new Error("printTaskDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printTaskDefinition%2Did"] = printTaskDefinitionId
+        return new PrintTaskDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TaskDefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

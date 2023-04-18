@@ -4,9 +4,10 @@ import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from '
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './item/deviceManagementTroubleshootingEventItemRequestBuilder';
 import {TroubleshootingEventsRequestBuilderGetRequestConfiguration} from './troubleshootingEventsRequestBuilderGetRequestConfiguration';
 import {TroubleshootingEventsRequestBuilderPostRequestConfiguration} from './troubleshootingEventsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class TroubleshootingEventsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
+     * @param deviceManagementTroubleshootingEventId Unique identifier of the item
+     * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
+     */
+    public byDeviceManagementTroubleshootingEventId(deviceManagementTroubleshootingEventId: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {
+        if(!deviceManagementTroubleshootingEventId) throw new Error("deviceManagementTroubleshootingEventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceManagementTroubleshootingEvent%2Did"] = deviceManagementTroubleshootingEventId
+        return new DeviceManagementTroubleshootingEventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TroubleshootingEventsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

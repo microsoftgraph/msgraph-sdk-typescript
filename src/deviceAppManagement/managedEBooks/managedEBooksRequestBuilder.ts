@@ -4,9 +4,10 @@ import {createManagedEBookFromDiscriminatorValue} from '../../models/createManag
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ManagedEBookItemRequestBuilder} from './item/managedEBookItemRequestBuilder';
 import {ManagedEBooksRequestBuilderGetRequestConfiguration} from './managedEBooksRequestBuilderGetRequestConfiguration';
 import {ManagedEBooksRequestBuilderPostRequestConfiguration} from './managedEBooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
+     * @param managedEBookId Unique identifier of the item
+     * @returns a ManagedEBookItemRequestBuilder
+     */
+    public byManagedEBookId(managedEBookId: string) : ManagedEBookItemRequestBuilder {
+        if(!managedEBookId) throw new Error("managedEBookId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedEBook%2Did"] = managedEBookId
+        return new ManagedEBookItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ManagedEBooksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

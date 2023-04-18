@@ -4,9 +4,10 @@ import {createBookingStaffMemberBaseFromDiscriminatorValue} from '../../../../mo
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BookingStaffMemberBaseItemRequestBuilder} from './item/bookingStaffMemberBaseItemRequestBuilder';
 import {StaffMembersRequestBuilderGetRequestConfiguration} from './staffMembersRequestBuilderGetRequestConfiguration';
 import {StaffMembersRequestBuilderPostRequestConfiguration} from './staffMembersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
@@ -16,6 +17,17 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
+     * @param bookingStaffMemberBaseId Unique identifier of the item
+     * @returns a BookingStaffMemberBaseItemRequestBuilder
+     */
+    public byBookingStaffMemberBaseId(bookingStaffMemberBaseId: string) : BookingStaffMemberBaseItemRequestBuilder {
+        if(!bookingStaffMemberBaseId) throw new Error("bookingStaffMemberBaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bookingStaffMemberBase%2Did"] = bookingStaffMemberBaseId
+        return new BookingStaffMemberBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new StaffMembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

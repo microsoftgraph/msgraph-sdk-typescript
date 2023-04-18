@@ -4,9 +4,8 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {EmployeeExperienceRequestBuilderGetRequestConfiguration} from './employeeExperienceRequestBuilderGetRequestConfiguration';
 import {EmployeeExperienceRequestBuilderPatchRequestConfiguration} from './employeeExperienceRequestBuilderPatchRequestConfiguration';
-import {LearningProviderItemRequestBuilder} from './learningProviders/item/learningProviderItemRequestBuilder';
 import {LearningProvidersRequestBuilder} from './learningProviders/learningProvidersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the employeeExperience singleton.
@@ -39,17 +38,6 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
-     * @param id Unique identifier of the item
-     * @returns a LearningProviderItemRequestBuilder
-     */
-    public learningProvidersById(id: string) : LearningProviderItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["learningProvider%2Did"] = id
-        return new LearningProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update employeeExperience

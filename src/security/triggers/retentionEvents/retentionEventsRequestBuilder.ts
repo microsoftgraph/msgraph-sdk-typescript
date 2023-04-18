@@ -4,9 +4,10 @@ import {RetentionEvent, RetentionEventCollectionResponse} from '../../../models/
 import {createRetentionEventCollectionResponseFromDiscriminatorValue} from '../../../models/security/createRetentionEventCollectionResponseFromDiscriminatorValue';
 import {createRetentionEventFromDiscriminatorValue} from '../../../models/security/createRetentionEventFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RetentionEventItemRequestBuilder} from './item/retentionEventItemRequestBuilder';
 import {RetentionEventsRequestBuilderGetRequestConfiguration} from './retentionEventsRequestBuilderGetRequestConfiguration';
 import {RetentionEventsRequestBuilderPostRequestConfiguration} from './retentionEventsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
@@ -16,6 +17,17 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
+     * @param retentionEventId Unique identifier of the item
+     * @returns a RetentionEventItemRequestBuilder
+     */
+    public byRetentionEventId(retentionEventId: string) : RetentionEventItemRequestBuilder {
+        if(!retentionEventId) throw new Error("retentionEventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["retentionEvent%2Did"] = retentionEventId
+        return new RetentionEventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RetentionEventsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

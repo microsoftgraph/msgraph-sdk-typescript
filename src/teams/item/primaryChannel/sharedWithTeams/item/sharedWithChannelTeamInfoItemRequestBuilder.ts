@@ -3,11 +3,10 @@ import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from '../../../..
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllowedMembersRequestBuilder} from './allowedMembers/allowedMembersRequestBuilder';
-import {ConversationMemberItemRequestBuilder} from './allowedMembers/item/conversationMemberItemRequestBuilder';
 import {SharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration';
 import {SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration';
 import {SharedWithChannelTeamInfoItemRequestBuilderPatchRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
@@ -17,17 +16,6 @@ export class SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequestBuil
     public get allowedMembers(): AllowedMembersRequestBuilder {
         return new AllowedMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
-     * @param id Unique identifier of the item
-     * @returns a ConversationMemberItemRequestBuilder
-     */
-    public allowedMembersById(id: string) : ConversationMemberItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conversationMember%2Did"] = id
-        return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new SharedWithChannelTeamInfoItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

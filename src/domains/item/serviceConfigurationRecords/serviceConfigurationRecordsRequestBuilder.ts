@@ -4,9 +4,10 @@ import {createDomainDnsRecordFromDiscriminatorValue} from '../../../models/creat
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DomainDnsRecordItemRequestBuilder} from './item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilderGetRequestConfiguration} from './serviceConfigurationRecordsRequestBuilderGetRequestConfiguration';
 import {ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration} from './serviceConfigurationRecordsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
@@ -16,6 +17,17 @@ export class ServiceConfigurationRecordsRequestBuilder extends BaseRequestBuilde
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
+     * @param domainDnsRecordId Unique identifier of the item
+     * @returns a DomainDnsRecordItemRequestBuilder
+     */
+    public byDomainDnsRecordId(domainDnsRecordId: string) : DomainDnsRecordItemRequestBuilder {
+        if(!domainDnsRecordId) throw new Error("domainDnsRecordId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["domainDnsRecord%2Did"] = domainDnsRecordId
+        return new DomainDnsRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ServiceConfigurationRecordsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

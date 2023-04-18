@@ -9,8 +9,9 @@ import {DirectoryRolesRequestBuilderGetRequestConfiguration} from './directoryRo
 import {DirectoryRolesRequestBuilderPostRequestConfiguration} from './directoryRolesRequestBuilderPostRequestConfiguration';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {DirectoryRoleItemRequestBuilder} from './item/directoryRoleItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -36,6 +37,17 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of directoryRole entities.
+     * @param directoryRoleId Unique identifier of the item
+     * @returns a DirectoryRoleItemRequestBuilder
+     */
+    public byDirectoryRoleId(directoryRoleId: string) : DirectoryRoleItemRequestBuilder {
+        if(!directoryRoleId) throw new Error("directoryRoleId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryRole%2Did"] = directoryRoleId
+        return new DirectoryRoleItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DirectoryRolesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

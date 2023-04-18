@@ -4,7 +4,8 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FollowedSitesRequestBuilderGetRequestConfiguration} from './followedSitesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
@@ -14,6 +15,17 @@ export class FollowedSitesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
+     * @param siteId Unique identifier of the item
+     * @returns a SiteItemRequestBuilder
+     */
+    public bySiteId(siteId: string) : SiteItemRequestBuilder {
+        if(!siteId) throw new Error("siteId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["site%2Did"] = siteId
+        return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new FollowedSitesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

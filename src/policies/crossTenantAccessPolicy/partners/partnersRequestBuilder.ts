@@ -4,9 +4,10 @@ import {createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue}
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder} from './item/crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder';
 import {PartnersRequestBuilderGetRequestConfiguration} from './partnersRequestBuilderGetRequestConfiguration';
 import {PartnersRequestBuilderPostRequestConfiguration} from './partnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
@@ -16,6 +17,17 @@ export class PartnersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+     * @param crossTenantAccessPolicyConfigurationPartnerTenantId Unique identifier of the item
+     * @returns a CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
+     */
+    public byCrossTenantAccessPolicyConfigurationPartnerTenantId(crossTenantAccessPolicyConfigurationPartnerTenantId: string) : CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder {
+        if(!crossTenantAccessPolicyConfigurationPartnerTenantId) throw new Error("crossTenantAccessPolicyConfigurationPartnerTenantId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["crossTenantAccessPolicyConfigurationPartner%2DtenantId"] = crossTenantAccessPolicyConfigurationPartnerTenantId
+        return new CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PartnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {createAuthoredNoteFromDiscriminatorValue} from '../../../../models/creat
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {AuthoredNoteItemRequestBuilder} from './item/authoredNoteItemRequestBuilder';
 import {NotesRequestBuilderGetRequestConfiguration} from './notesRequestBuilderGetRequestConfiguration';
 import {NotesRequestBuilderPostRequestConfiguration} from './notesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
@@ -16,6 +17,17 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
+     * @param authoredNoteId Unique identifier of the item
+     * @returns a AuthoredNoteItemRequestBuilder
+     */
+    public byAuthoredNoteId(authoredNoteId: string) : AuthoredNoteItemRequestBuilder {
+        if(!authoredNoteId) throw new Error("authoredNoteId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["authoredNote%2Did"] = authoredNoteId
+        return new AuthoredNoteItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new NotesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

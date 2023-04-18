@@ -4,9 +4,10 @@ import {createSecureScoreFromDiscriminatorValue} from '../../models/createSecure
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SecureScoreItemRequestBuilder} from './item/secureScoreItemRequestBuilder';
 import {SecureScoresRequestBuilderGetRequestConfiguration} from './secureScoresRequestBuilderGetRequestConfiguration';
 import {SecureScoresRequestBuilderPostRequestConfiguration} from './secureScoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
@@ -16,6 +17,17 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+     * @param secureScoreId Unique identifier of the item
+     * @returns a SecureScoreItemRequestBuilder
+     */
+    public bySecureScoreId(secureScoreId: string) : SecureScoreItemRequestBuilder {
+        if(!secureScoreId) throw new Error("secureScoreId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["secureScore%2Did"] = secureScoreId
+        return new SecureScoreItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SecureScoresRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

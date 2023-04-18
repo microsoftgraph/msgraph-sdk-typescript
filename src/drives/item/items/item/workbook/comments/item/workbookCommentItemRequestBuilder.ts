@@ -2,12 +2,11 @@ import {WorkbookComment} from '../../../../../../../models/';
 import {createWorkbookCommentFromDiscriminatorValue} from '../../../../../../../models/createWorkbookCommentFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {WorkbookCommentReplyItemRequestBuilder} from './replies/item/workbookCommentReplyItemRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {WorkbookCommentItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookCommentItemRequestBuilderGetRequestConfiguration} from './workbookCommentItemRequestBuilderGetRequestConfiguration';
 import {WorkbookCommentItemRequestBuilderPatchRequestConfiguration} from './workbookCommentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
@@ -73,17 +72,6 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<WorkbookComment>(requestInfo, createWorkbookCommentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookCommentReplyItemRequestBuilder
-     */
-    public repliesById(id: string) : WorkbookCommentReplyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookCommentReply%2Did"] = id
-        return new WorkbookCommentReplyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property comments for drives

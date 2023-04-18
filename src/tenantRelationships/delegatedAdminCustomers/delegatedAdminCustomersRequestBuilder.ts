@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminCustomersRequestBuilderGetRequestConfiguration} from './delegatedAdminCustomersRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminCustomersRequestBuilderPostRequestConfiguration} from './delegatedAdminCustomersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DelegatedAdminCustomerItemRequestBuilder} from './item/delegatedAdminCustomerItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
@@ -16,6 +17,17 @@ export class DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
+     * @param delegatedAdminCustomerId Unique identifier of the item
+     * @returns a DelegatedAdminCustomerItemRequestBuilder
+     */
+    public byDelegatedAdminCustomerId(delegatedAdminCustomerId: string) : DelegatedAdminCustomerItemRequestBuilder {
+        if(!delegatedAdminCustomerId) throw new Error("delegatedAdminCustomerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminCustomer%2Did"] = delegatedAdminCustomerId
+        return new DelegatedAdminCustomerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DelegatedAdminCustomersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

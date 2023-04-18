@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomersRequestBuilderGetRequestConfiguration} from './customersRequestBuilderGetRequestConfiguration';
 import {CustomersRequestBuilderPostRequestConfiguration} from './customersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BookingCustomerBaseItemRequestBuilder} from './item/bookingCustomerBaseItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
@@ -16,6 +17,17 @@ export class CustomersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
+     * @param bookingCustomerBaseId Unique identifier of the item
+     * @returns a BookingCustomerBaseItemRequestBuilder
+     */
+    public byBookingCustomerBaseId(bookingCustomerBaseId: string) : BookingCustomerBaseItemRequestBuilder {
+        if(!bookingCustomerBaseId) throw new Error("bookingCustomerBaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bookingCustomerBase%2Did"] = bookingCustomerBaseId
+        return new BookingCustomerBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CustomersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

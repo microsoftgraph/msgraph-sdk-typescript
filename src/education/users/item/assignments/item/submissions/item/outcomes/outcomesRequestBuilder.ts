@@ -4,9 +4,10 @@ import {createEducationOutcomeFromDiscriminatorValue} from '../../../../../../..
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationOutcomeItemRequestBuilder} from './item/educationOutcomeItemRequestBuilder';
 import {OutcomesRequestBuilderGetRequestConfiguration} from './outcomesRequestBuilderGetRequestConfiguration';
 import {OutcomesRequestBuilderPostRequestConfiguration} from './outcomesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
@@ -16,6 +17,17 @@ export class OutcomesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
+     * @param educationOutcomeId Unique identifier of the item
+     * @returns a EducationOutcomeItemRequestBuilder
+     */
+    public byEducationOutcomeId(educationOutcomeId: string) : EducationOutcomeItemRequestBuilder {
+        if(!educationOutcomeId) throw new Error("educationOutcomeId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationOutcome%2Did"] = educationOutcomeId
+        return new EducationOutcomeItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OutcomesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

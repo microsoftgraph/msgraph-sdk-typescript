@@ -4,9 +4,10 @@ import {createWindowsInformationProtectionPolicyFromDiscriminatorValue} from '..
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsInformationProtectionPolicyItemRequestBuilder} from './item/windowsInformationProtectionPolicyItemRequestBuilder';
 import {WindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration} from './windowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class WindowsInformationProtectionPoliciesRequestBuilder extends BaseRequ
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
+     * @param windowsInformationProtectionPolicyId Unique identifier of the item
+     * @returns a WindowsInformationProtectionPolicyItemRequestBuilder
+     */
+    public byWindowsInformationProtectionPolicyId(windowsInformationProtectionPolicyId: string) : WindowsInformationProtectionPolicyItemRequestBuilder {
+        if(!windowsInformationProtectionPolicyId) throw new Error("windowsInformationProtectionPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsInformationProtectionPolicy%2Did"] = windowsInformationProtectionPolicyId
+        return new WindowsInformationProtectionPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WindowsInformationProtectionPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

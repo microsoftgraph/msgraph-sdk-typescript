@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration} from './authenticationContextClassReferencesRequestBuilderGetRequestConfiguration';
 import {AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration} from './authenticationContextClassReferencesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AuthenticationContextClassReferenceItemRequestBuilder} from './item/authenticationContextClassReferenceItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
@@ -16,6 +17,17 @@ export class AuthenticationContextClassReferencesRequestBuilder extends BaseRequ
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
+     * @param authenticationContextClassReferenceId Unique identifier of the item
+     * @returns a AuthenticationContextClassReferenceItemRequestBuilder
+     */
+    public byAuthenticationContextClassReferenceId(authenticationContextClassReferenceId: string) : AuthenticationContextClassReferenceItemRequestBuilder {
+        if(!authenticationContextClassReferenceId) throw new Error("authenticationContextClassReferenceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["authenticationContextClassReference%2Did"] = authenticationContextClassReferenceId
+        return new AuthenticationContextClassReferenceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AuthenticationContextClassReferencesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,9 +5,10 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
+import {TeamItemRequestBuilder} from './item/teamItemRequestBuilder';
 import {JoinedTeamsRequestBuilderGetRequestConfiguration} from './joinedTeamsRequestBuilderGetRequestConfiguration';
 import {JoinedTeamsRequestBuilderPostRequestConfiguration} from './joinedTeamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
@@ -21,6 +22,17 @@ export class JoinedTeamsRequestBuilder extends BaseRequestBuilder {
     public get getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
+     * @param teamId Unique identifier of the item
+     * @returns a TeamItemRequestBuilder
+     */
+    public byTeamId(teamId: string) : TeamItemRequestBuilder {
+        if(!teamId) throw new Error("teamId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["team%2Did"] = teamId
+        return new TeamItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new JoinedTeamsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

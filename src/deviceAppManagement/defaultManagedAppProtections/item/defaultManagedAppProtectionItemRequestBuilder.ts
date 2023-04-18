@@ -3,12 +3,11 @@ import {createDefaultManagedAppProtectionFromDiscriminatorValue} from '../../../
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppsRequestBuilder} from './apps/appsRequestBuilder';
-import {ManagedMobileAppItemRequestBuilder} from './apps/item/managedMobileAppItemRequestBuilder';
 import {DefaultManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration} from './defaultManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration';
 import {DefaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration} from './defaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration';
 import {DefaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration} from './defaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
 import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -22,17 +21,6 @@ export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBu
     public get deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the apps property of the microsoft.graph.defaultManagedAppProtection entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedMobileAppItemRequestBuilder
-     */
-    public appsById(id: string) : ManagedMobileAppItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedMobileApp%2Did"] = id
-        return new ManagedMobileAppItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new DefaultManagedAppProtectionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

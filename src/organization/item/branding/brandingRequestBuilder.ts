@@ -7,10 +7,9 @@ import {BannerLogoRequestBuilder} from './bannerLogo/bannerLogoRequestBuilder';
 import {BrandingRequestBuilderDeleteRequestConfiguration} from './brandingRequestBuilderDeleteRequestConfiguration';
 import {BrandingRequestBuilderGetRequestConfiguration} from './brandingRequestBuilderGetRequestConfiguration';
 import {BrandingRequestBuilderPatchRequestConfiguration} from './brandingRequestBuilderPatchRequestConfiguration';
-import {OrganizationalBrandingLocalizationItemRequestBuilder} from './localizations/item/organizationalBrandingLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the branding property of the microsoft.graph.organization entity.
@@ -72,17 +71,6 @@ export class BrandingRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<OrganizationalBranding>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
-     * @param id Unique identifier of the item
-     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
-     */
-    public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["organizationalBrandingLocalization%2Did"] = id
-        return new OrganizationalBrandingLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of the default branding object specified by the organizationalBranding resource.

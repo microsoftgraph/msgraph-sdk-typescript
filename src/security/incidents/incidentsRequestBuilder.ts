@@ -6,7 +6,8 @@ import {createIncidentFromDiscriminatorValue} from '../../models/security/create
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncidentsRequestBuilderGetRequestConfiguration} from './incidentsRequestBuilderGetRequestConfiguration';
 import {IncidentsRequestBuilderPostRequestConfiguration} from './incidentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {IncidentItemRequestBuilder} from './item/incidentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
@@ -16,6 +17,17 @@ export class IncidentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the incidents property of the microsoft.graph.security entity.
+     * @param incidentId Unique identifier of the item
+     * @returns a IncidentItemRequestBuilder
+     */
+    public byIncidentId(incidentId: string) : IncidentItemRequestBuilder {
+        if(!incidentId) throw new Error("incidentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["incident%2Did"] = incidentId
+        return new IncidentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IncidentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

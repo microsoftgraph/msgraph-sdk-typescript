@@ -4,9 +4,10 @@ import {createListFromDiscriminatorValue} from '../../../../../models/createList
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ListItemRequestBuilder} from './item/listItemRequestBuilder';
 import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
 import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.site entity.
@@ -16,6 +17,17 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the lists property of the microsoft.graph.site entity.
+     * @param listId Unique identifier of the item
+     * @returns a ListItemRequestBuilder
+     */
+    public byListId(listId: string) : ListItemRequestBuilder {
+        if(!listId) throw new Error("listId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["list%2Did"] = listId
+        return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ListsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

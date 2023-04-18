@@ -3,24 +3,18 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {EdiscoveryCase} from '../../../../models/security/';
 import {createEdiscoveryCaseFromDiscriminatorValue} from '../../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
 import {CustodiansRequestBuilder} from './custodians/custodiansRequestBuilder';
-import {EdiscoveryCustodianItemRequestBuilder} from './custodians/item/ediscoveryCustodianItemRequestBuilder';
 import {EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryCaseItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilderGetRequestConfiguration} from './ediscoveryCaseItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration} from './ediscoveryCaseItemRequestBuilderPatchRequestConfiguration';
-import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodialDataSources/item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialDataSourcesRequestBuilder} from './noncustodialDataSources/noncustodialDataSourcesRequestBuilder';
-import {CaseOperationItemRequestBuilder} from './operations/item/caseOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {EdiscoveryReviewSetItemRequestBuilder} from './reviewSets/item/ediscoveryReviewSetItemRequestBuilder';
 import {ReviewSetsRequestBuilder} from './reviewSets/reviewSetsRequestBuilder';
-import {EdiscoverySearchItemRequestBuilder} from './searches/item/ediscoverySearchItemRequestBuilder';
 import {SearchesRequestBuilder} from './searches/searchesRequestBuilder';
 import {SecurityCloseRequestBuilder} from './securityClose/securityCloseRequestBuilder';
 import {SecurityReopenRequestBuilder} from './securityReopen/securityReopenRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import {EdiscoveryReviewTagItemRequestBuilder} from './tags/item/ediscoveryReviewTagItemRequestBuilder';
 import {TagsRequestBuilder} from './tags/tagsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
@@ -71,17 +65,6 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}{?%24select,%24expand}");
     };
     /**
-     * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryCustodianItemRequestBuilder
-     */
-    public custodiansById(id: string) : EdiscoveryCustodianItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryCustodian%2Did"] = id
-        return new EdiscoveryCustodianItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Delete navigation property ediscoveryCases for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -113,28 +96,6 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
-     */
-    public noncustodialDataSourcesById(id: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryNoncustodialDataSource%2Did"] = id
-        return new EdiscoveryNoncustodialDataSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param id Unique identifier of the item
-     * @returns a CaseOperationItemRequestBuilder
-     */
-    public operationsById(id: string) : CaseOperationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["caseOperation%2Did"] = id
-        return new CaseOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update the navigation property ediscoveryCases in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -151,39 +112,6 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryReviewSetItemRequestBuilder
-     */
-    public reviewSetsById(id: string) : EdiscoveryReviewSetItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryReviewSet%2Did"] = id
-        return new EdiscoveryReviewSetItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoverySearchItemRequestBuilder
-     */
-    public searchesById(id: string) : EdiscoverySearchItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoverySearch%2Did"] = id
-        return new EdiscoverySearchItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryReviewTagItemRequestBuilder
-     */
-    public tagsById(id: string) : EdiscoveryReviewTagItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryReviewTag%2Did"] = id
-        return new EdiscoveryReviewTagItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property ediscoveryCases for security

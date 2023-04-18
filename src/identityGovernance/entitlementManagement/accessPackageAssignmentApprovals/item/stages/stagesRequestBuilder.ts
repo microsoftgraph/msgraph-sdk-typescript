@@ -4,9 +4,10 @@ import {createApprovalStageFromDiscriminatorValue} from '../../../../../models/c
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ApprovalStageItemRequestBuilder} from './item/approvalStageItemRequestBuilder';
 import {StagesRequestBuilderGetRequestConfiguration} from './stagesRequestBuilderGetRequestConfiguration';
 import {StagesRequestBuilderPostRequestConfiguration} from './stagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
@@ -16,6 +17,17 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.approval entity.
+     * @param approvalStageId Unique identifier of the item
+     * @returns a ApprovalStageItemRequestBuilder
+     */
+    public byApprovalStageId(approvalStageId: string) : ApprovalStageItemRequestBuilder {
+        if(!approvalStageId) throw new Error("approvalStageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["approvalStage%2Did"] = approvalStageId
+        return new ApprovalStageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new StagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {createDelegatedAdminRelationshipOperationFromDiscriminatorValue} from '.
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DelegatedAdminRelationshipOperationItemRequestBuilder} from './item/delegatedAdminRelationshipOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -16,6 +17,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
+     * @param delegatedAdminRelationshipOperationId Unique identifier of the item
+     * @returns a DelegatedAdminRelationshipOperationItemRequestBuilder
+     */
+    public byDelegatedAdminRelationshipOperationId(delegatedAdminRelationshipOperationId: string) : DelegatedAdminRelationshipOperationItemRequestBuilder {
+        if(!delegatedAdminRelationshipOperationId) throw new Error("delegatedAdminRelationshipOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminRelationshipOperation%2Did"] = delegatedAdminRelationshipOperationId
+        return new DelegatedAdminRelationshipOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

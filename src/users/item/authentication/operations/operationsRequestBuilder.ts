@@ -4,9 +4,10 @@ import {createLongRunningOperationFromDiscriminatorValue} from '../../../../mode
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {LongRunningOperationItemRequestBuilder} from './item/longRunningOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
@@ -16,6 +17,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
+     * @param longRunningOperationId Unique identifier of the item
+     * @returns a LongRunningOperationItemRequestBuilder
+     */
+    public byLongRunningOperationId(longRunningOperationId: string) : LongRunningOperationItemRequestBuilder {
+        if(!longRunningOperationId) throw new Error("longRunningOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["longRunningOperation%2Did"] = longRunningOperationId
+        return new LongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

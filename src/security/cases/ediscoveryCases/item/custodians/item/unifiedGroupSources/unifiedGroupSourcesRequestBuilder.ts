@@ -4,9 +4,10 @@ import {UnifiedGroupSource, UnifiedGroupSourceCollectionResponse} from '../../..
 import {createUnifiedGroupSourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createUnifiedGroupSourceCollectionResponseFromDiscriminatorValue';
 import {createUnifiedGroupSourceFromDiscriminatorValue} from '../../../../../../../models/security/createUnifiedGroupSourceFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UnifiedGroupSourceItemRequestBuilder} from './item/unifiedGroupSourceItemRequestBuilder';
 import {UnifiedGroupSourcesRequestBuilderGetRequestConfiguration} from './unifiedGroupSourcesRequestBuilderGetRequestConfiguration';
 import {UnifiedGroupSourcesRequestBuilderPostRequestConfiguration} from './unifiedGroupSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -16,6 +17,17 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
+     * @param unifiedGroupSourceId Unique identifier of the item
+     * @returns a UnifiedGroupSourceItemRequestBuilder
+     */
+    public byUnifiedGroupSourceId(unifiedGroupSourceId: string) : UnifiedGroupSourceItemRequestBuilder {
+        if(!unifiedGroupSourceId) throw new Error("unifiedGroupSourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedGroupSource%2Did"] = unifiedGroupSourceId
+        return new UnifiedGroupSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UnifiedGroupSourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

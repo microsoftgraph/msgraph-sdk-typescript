@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration} from './authenticationMethodConfigurationsRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodConfigurationsRequestBuilderPostRequestConfiguration} from './authenticationMethodConfigurationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AuthenticationMethodConfigurationItemRequestBuilder} from './item/authenticationMethodConfigurationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
@@ -16,6 +17,17 @@ export class AuthenticationMethodConfigurationsRequestBuilder extends BaseReques
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
+     * @param authenticationMethodConfigurationId Unique identifier of the item
+     * @returns a AuthenticationMethodConfigurationItemRequestBuilder
+     */
+    public byAuthenticationMethodConfigurationId(authenticationMethodConfigurationId: string) : AuthenticationMethodConfigurationItemRequestBuilder {
+        if(!authenticationMethodConfigurationId) throw new Error("authenticationMethodConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["authenticationMethodConfiguration%2Did"] = authenticationMethodConfigurationId
+        return new AuthenticationMethodConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AuthenticationMethodConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

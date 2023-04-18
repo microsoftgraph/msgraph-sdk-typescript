@@ -7,7 +7,8 @@ import {AssignmentRequestsRequestBuilderGetRequestConfiguration} from './assignm
 import {AssignmentRequestsRequestBuilderPostRequestConfiguration} from './assignmentRequestsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessPackageAssignmentRequestItemRequestBuilder} from './item/accessPackageAssignmentRequestItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
@@ -17,6 +18,17 @@ export class AssignmentRequestsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
+     * @param accessPackageAssignmentRequestId Unique identifier of the item
+     * @returns a AccessPackageAssignmentRequestItemRequestBuilder
+     */
+    public byAccessPackageAssignmentRequestId(accessPackageAssignmentRequestId: string) : AccessPackageAssignmentRequestItemRequestBuilder {
+        if(!accessPackageAssignmentRequestId) throw new Error("accessPackageAssignmentRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackageAssignmentRequest%2Did"] = accessPackageAssignmentRequestId
+        return new AccessPackageAssignmentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AssignmentRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

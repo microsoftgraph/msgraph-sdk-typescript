@@ -4,9 +4,10 @@ import {UserSource, UserSourceCollectionResponse} from '../../../../../../../mod
 import {createUserSourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createUserSourceCollectionResponseFromDiscriminatorValue';
 import {createUserSourceFromDiscriminatorValue} from '../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UserSourceItemRequestBuilder} from './item/userSourceItemRequestBuilder';
 import {UserSourcesRequestBuilderGetRequestConfiguration} from './userSourcesRequestBuilderGetRequestConfiguration';
 import {UserSourcesRequestBuilderPostRequestConfiguration} from './userSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -16,6 +17,17 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
+     * @param userSourceId Unique identifier of the item
+     * @returns a UserSourceItemRequestBuilder
+     */
+    public byUserSourceId(userSourceId: string) : UserSourceItemRequestBuilder {
+        if(!userSourceId) throw new Error("userSourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userSource%2Did"] = userSourceId
+        return new UserSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserSourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

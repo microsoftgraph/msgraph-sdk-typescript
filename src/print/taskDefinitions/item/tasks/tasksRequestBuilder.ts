@@ -4,9 +4,10 @@ import {createPrintTaskFromDiscriminatorValue} from '../../../../models/createPr
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PrintTaskItemRequestBuilder} from './item/printTaskItemRequestBuilder';
 import {TasksRequestBuilderGetRequestConfiguration} from './tasksRequestBuilderGetRequestConfiguration';
 import {TasksRequestBuilderPostRequestConfiguration} from './tasksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
@@ -16,6 +17,17 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
+     * @param printTaskId Unique identifier of the item
+     * @returns a PrintTaskItemRequestBuilder
+     */
+    public byPrintTaskId(printTaskId: string) : PrintTaskItemRequestBuilder {
+        if(!printTaskId) throw new Error("printTaskId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printTask%2Did"] = printTaskId
+        return new PrintTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TasksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

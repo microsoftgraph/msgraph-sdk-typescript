@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminRelationshipsRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipsRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipsRequestBuilderPostRequestConfiguration} from './delegatedAdminRelationshipsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DelegatedAdminRelationshipItemRequestBuilder} from './item/delegatedAdminRelationshipItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
@@ -16,6 +17,17 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
+     * @param delegatedAdminRelationshipId Unique identifier of the item
+     * @returns a DelegatedAdminRelationshipItemRequestBuilder
+     */
+    public byDelegatedAdminRelationshipId(delegatedAdminRelationshipId: string) : DelegatedAdminRelationshipItemRequestBuilder {
+        if(!delegatedAdminRelationshipId) throw new Error("delegatedAdminRelationshipId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminRelationship%2Did"] = delegatedAdminRelationshipId
+        return new DelegatedAdminRelationshipItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DelegatedAdminRelationshipsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

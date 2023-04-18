@@ -4,9 +4,10 @@ import {createOfferShiftRequestFromDiscriminatorValue} from '../../../../../mode
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OfferShiftRequestItemRequestBuilder} from './item/offerShiftRequestItemRequestBuilder';
 import {OfferShiftRequestsRequestBuilderGetRequestConfiguration} from './offerShiftRequestsRequestBuilderGetRequestConfiguration';
 import {OfferShiftRequestsRequestBuilderPostRequestConfiguration} from './offerShiftRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
@@ -16,6 +17,17 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
+     * @param offerShiftRequestId Unique identifier of the item
+     * @returns a OfferShiftRequestItemRequestBuilder
+     */
+    public byOfferShiftRequestId(offerShiftRequestId: string) : OfferShiftRequestItemRequestBuilder {
+        if(!offerShiftRequestId) throw new Error("offerShiftRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["offerShiftRequest%2Did"] = offerShiftRequestId
+        return new OfferShiftRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OfferShiftRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

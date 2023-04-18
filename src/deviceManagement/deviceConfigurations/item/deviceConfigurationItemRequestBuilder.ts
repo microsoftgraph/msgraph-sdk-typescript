@@ -4,20 +4,16 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {DeviceConfigurationAssignmentItemRequestBuilder} from './assignments/item/deviceConfigurationAssignmentItemRequestBuilder';
 import {DeviceConfigurationItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationItemRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationItemRequestBuilderPatchRequestConfiguration';
 import {DeviceSettingStateSummariesRequestBuilder} from './deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
-import {SettingStateDeviceSummaryItemRequestBuilder} from './deviceSettingStateSummaries/item/settingStateDeviceSummaryItemRequestBuilder';
 import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
-import {DeviceConfigurationDeviceStatusItemRequestBuilder} from './deviceStatuses/item/deviceConfigurationDeviceStatusItemRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
 import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder} from './getOmaSettingPlainTextValueWithSecretReferenceValueId/getOmaSettingPlainTextValueWithSecretReferenceValueIdRequestBuilder';
-import {DeviceConfigurationUserStatusItemRequestBuilder} from './userStatuses/item/deviceConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
 import {UserStatusOverviewRequestBuilder} from './userStatusOverview/userStatusOverviewRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -52,17 +48,6 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         return new UserStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : DeviceConfigurationAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceConfigurationAssignment%2Did"] = id
-        return new DeviceConfigurationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new DeviceConfigurationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -84,28 +69,6 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a SettingStateDeviceSummaryItemRequestBuilder
-     */
-    public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["settingStateDeviceSummary%2Did"] = id
-        return new SettingStateDeviceSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationDeviceStatusItemRequestBuilder
-     */
-    public deviceStatusesById(id: string) : DeviceConfigurationDeviceStatusItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceConfigurationDeviceStatus%2Did"] = id
-        return new DeviceConfigurationDeviceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The device configurations.
@@ -203,16 +166,5 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationUserStatusItemRequestBuilder
-     */
-    public userStatusesById(id: string) : DeviceConfigurationUserStatusItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceConfigurationUserStatus%2Did"] = id
-        return new DeviceConfigurationUserStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

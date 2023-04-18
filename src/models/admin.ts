@@ -1,17 +1,20 @@
 import {createEdgeFromDiscriminatorValue} from './createEdgeFromDiscriminatorValue';
 import {createServiceAnnouncementFromDiscriminatorValue} from './createServiceAnnouncementFromDiscriminatorValue';
-import {Edge, ServiceAnnouncement} from './index';
+import {createSharepointFromDiscriminatorValue} from './createSharepointFromDiscriminatorValue';
+import {Edge, ServiceAnnouncement, Sharepoint} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Admin implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The edge property */
+    /** A container for Microsoft Edge resources. Read-only. */
     private _edge?: Edge | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
     /** A container for service communications resources. Read-only. */
     private _serviceAnnouncement?: ServiceAnnouncement | undefined;
+    /** The sharepoint property */
+    private _sharepoint?: Sharepoint | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Record<string, unknown>
@@ -33,14 +36,14 @@ export class Admin implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the edge property value. The edge property
+     * Gets the edge property value. A container for Microsoft Edge resources. Read-only.
      * @returns a edge
      */
     public get edge() {
         return this._edge;
     };
     /**
-     * Sets the edge property value. The edge property
+     * Sets the edge property value. A container for Microsoft Edge resources. Read-only.
      * @param value Value to set for the edge property.
      */
     public set edge(value: Edge | undefined) {
@@ -55,6 +58,7 @@ export class Admin implements AdditionalDataHolder, Parsable {
             "edge": n => { this.edge = n.getObjectValue<Edge>(createEdgeFromDiscriminatorValue); },
             "@odata.type": n => { this.odataType = n.getStringValue(); },
             "serviceAnnouncement": n => { this.serviceAnnouncement = n.getObjectValue<ServiceAnnouncement>(createServiceAnnouncementFromDiscriminatorValue); },
+            "sharepoint": n => { this.sharepoint = n.getObjectValue<Sharepoint>(createSharepointFromDiscriminatorValue); },
         };
     };
     /**
@@ -80,6 +84,7 @@ export class Admin implements AdditionalDataHolder, Parsable {
         writer.writeObjectValue<Edge>("edge", this.edge);
         writer.writeStringValue("@odata.type", this.odataType);
         writer.writeObjectValue<ServiceAnnouncement>("serviceAnnouncement", this.serviceAnnouncement);
+        writer.writeObjectValue<Sharepoint>("sharepoint", this.sharepoint);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -95,5 +100,19 @@ export class Admin implements AdditionalDataHolder, Parsable {
      */
     public set serviceAnnouncement(value: ServiceAnnouncement | undefined) {
         this._serviceAnnouncement = value;
+    };
+    /**
+     * Gets the sharepoint property value. The sharepoint property
+     * @returns a sharepoint
+     */
+    public get sharepoint() {
+        return this._sharepoint;
+    };
+    /**
+     * Sets the sharepoint property value. The sharepoint property
+     * @param value Value to set for the sharepoint property.
+     */
+    public set sharepoint(value: Sharepoint | undefined) {
+        this._sharepoint = value;
     };
 }

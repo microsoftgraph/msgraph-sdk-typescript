@@ -4,13 +4,11 @@ import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ClearFiltersRequestBuilder} from './clearFilters/clearFiltersRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {WorkbookTableColumnItemRequestBuilder} from './columns/item/workbookTableColumnItemRequestBuilder';
 import {ConvertToRangeRequestBuilder} from './convertToRange/convertToRangeRequestBuilder';
 import {DataBodyRangeRequestBuilder} from './dataBodyRange/dataBodyRangeRequestBuilder';
 import {HeaderRowRangeRequestBuilder} from './headerRowRange/headerRowRangeRequestBuilder';
 import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {ReapplyFiltersRequestBuilder} from './reapplyFilters/reapplyFiltersRequestBuilder';
-import {WorkbookTableRowItemRequestBuilder} from './rows/item/workbookTableRowItemRequestBuilder';
 import {RowsRequestBuilder} from './rows/rowsRequestBuilder';
 import {SortRequestBuilder} from './sort/sortRequestBuilder';
 import {TotalRowRangeRequestBuilder} from './totalRowRange/totalRowRangeRequestBuilder';
@@ -18,7 +16,7 @@ import {WorkbookTableItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookTableItemRequestBuilderGetRequestConfiguration} from './workbookTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableItemRequestBuilderPatchRequestConfiguration} from './workbookTableItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
@@ -68,17 +66,6 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookTableColumnItemRequestBuilder
-     */
-    public columnsById(id: string) : WorkbookTableColumnItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookTableColumn%2Did"] = id
-        return new WorkbookTableColumnItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new WorkbookTableItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -135,17 +122,6 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookTableRowItemRequestBuilder
-     */
-    public rowsById(id: string) : WorkbookTableRowItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookTableRow%2Did"] = id
-        return new WorkbookTableRowItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property tables for drives
