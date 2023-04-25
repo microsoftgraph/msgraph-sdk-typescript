@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content
+ * Content in a message hosted by Microsoft Teams - for example, images or code snippets.
  */
 export class HostedContentsRequestBuilderGetQueryParameters {
     /** Include count of items */

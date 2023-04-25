@@ -4,9 +4,10 @@ import {createServicePrincipalRiskDetectionFromDiscriminatorValue} from '../../m
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ServicePrincipalRiskDetectionItemRequestBuilder} from './item/servicePrincipalRiskDetectionItemRequestBuilder';
 import {ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -17,6 +18,17 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+     * @param servicePrincipalRiskDetectionId Unique identifier of the item
+     * @returns a ServicePrincipalRiskDetectionItemRequestBuilder
+     */
+    public byServicePrincipalRiskDetectionId(servicePrincipalRiskDetectionId: string) : ServicePrincipalRiskDetectionItemRequestBuilder {
+        if(!servicePrincipalRiskDetectionId) throw new Error("servicePrincipalRiskDetectionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["servicePrincipalRiskDetection%2Did"] = servicePrincipalRiskDetectionId
+        return new ServicePrincipalRiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ServicePrincipalRiskDetectionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/servicePrincipalRiskDetections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+     * Represents information about detected at-risk service principals in an Azure AD tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipalRiskDetectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipalRiskDetectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
         return this.requestAdapter?.sendAsync<ServicePrincipalRiskDetection>(requestInfo, createServicePrincipalRiskDetectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+     * Represents information about detected at-risk service principals in an Azure AD tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

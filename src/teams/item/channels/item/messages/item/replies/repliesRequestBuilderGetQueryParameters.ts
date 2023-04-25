@@ -1,6 +1,6 @@
 
 /**
- * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
+ * Replies for a specified message. Supports $expand for channel messages.
  */
 export class RepliesRequestBuilderGetQueryParameters {
     /** Include count of items */

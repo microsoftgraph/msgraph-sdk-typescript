@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCategoriesRequestBuilderGetRequestConfiguration} from './deviceCategoriesRequestBuilderGetRequestConfiguration';
 import {DeviceCategoriesRequestBuilderPostRequestConfiguration} from './deviceCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceCategoryItemRequestBuilder} from './item/deviceCategoryItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
+     * @param deviceCategoryId Unique identifier of the item
+     * @returns a DeviceCategoryItemRequestBuilder
+     */
+    public byDeviceCategoryId(deviceCategoryId: string) : DeviceCategoryItemRequestBuilder {
+        if(!deviceCategoryId) throw new Error("deviceCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceCategory%2Did"] = deviceCategoryId
+        return new DeviceCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceCategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

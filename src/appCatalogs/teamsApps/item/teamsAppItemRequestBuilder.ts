@@ -3,11 +3,10 @@ import {createTeamsAppFromDiscriminatorValue} from '../../../models/createTeamsA
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppDefinitionsRequestBuilder} from './appDefinitions/appDefinitionsRequestBuilder';
-import {TeamsAppDefinitionItemRequestBuilder} from './appDefinitions/item/teamsAppDefinitionItemRequestBuilder';
 import {TeamsAppItemRequestBuilderDeleteRequestConfiguration} from './teamsAppItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppItemRequestBuilderGetRequestConfiguration} from './teamsAppItemRequestBuilderGetRequestConfiguration';
 import {TeamsAppItemRequestBuilderPatchRequestConfiguration} from './teamsAppItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
@@ -17,17 +16,6 @@ export class TeamsAppItemRequestBuilder extends BaseRequestBuilder {
     public get appDefinitions(): AppDefinitionsRequestBuilder {
         return new AppDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
-     * @param id Unique identifier of the item
-     * @returns a TeamsAppDefinitionItemRequestBuilder
-     */
-    public appDefinitionsById(id: string) : TeamsAppDefinitionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamsAppDefinition%2Did"] = id
-        return new TeamsAppDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new TeamsAppItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

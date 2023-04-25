@@ -1,6 +1,6 @@
 
 /**
- * Get the list of queries associated with an eDiscovery review set.
+ * Represents queries within the review set.
  */
 export class QueriesRequestBuilderGetQueryParameters {
     /** Include count of items */

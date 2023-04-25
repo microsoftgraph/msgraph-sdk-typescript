@@ -4,22 +4,17 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {DeviceCompliancePolicyAssignmentItemRequestBuilder} from './assignments/item/deviceCompliancePolicyAssignmentItemRequestBuilder';
 import {DeviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceCompliancePolicyItemRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicyItemRequestBuilderPatchRequestConfiguration';
 import {DeviceSettingStateSummariesRequestBuilder} from './deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
-import {SettingStateDeviceSummaryItemRequestBuilder} from './deviceSettingStateSummaries/item/settingStateDeviceSummaryItemRequestBuilder';
 import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
-import {DeviceComplianceDeviceStatusItemRequestBuilder} from './deviceStatuses/item/deviceComplianceDeviceStatusItemRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
 import {ScheduleActionsForRulesRequestBuilder} from './scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
-import {DeviceComplianceScheduledActionForRuleItemRequestBuilder} from './scheduledActionsForRule/item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilder} from './scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
-import {DeviceComplianceUserStatusItemRequestBuilder} from './userStatuses/item/deviceComplianceUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
 import {UserStatusOverviewRequestBuilder} from './userStatusOverview/userStatusOverviewRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
@@ -62,17 +57,6 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         return new UserStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceCompliancePolicyAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : DeviceCompliancePolicyAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceCompliancePolicyAssignment%2Did"] = id
-        return new DeviceCompliancePolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new DeviceCompliancePolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -94,28 +78,6 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a SettingStateDeviceSummaryItemRequestBuilder
-     */
-    public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["settingStateDeviceSummary%2Did"] = id
-        return new SettingStateDeviceSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceComplianceDeviceStatusItemRequestBuilder
-     */
-    public deviceStatusesById(id: string) : DeviceComplianceDeviceStatusItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceComplianceDeviceStatus%2Did"] = id
-        return new DeviceComplianceDeviceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The device compliance policies.
@@ -150,17 +112,6 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceComplianceScheduledActionForRuleItemRequestBuilder
-     */
-    public scheduledActionsForRuleById(id: string) : DeviceComplianceScheduledActionForRuleItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceComplianceScheduledActionForRule%2Did"] = id
-        return new DeviceComplianceScheduledActionForRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property deviceCompliancePolicies for deviceManagement
@@ -215,16 +166,5 @@ export class DeviceCompliancePolicyItemRequestBuilder extends BaseRequestBuilder
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceComplianceUserStatusItemRequestBuilder
-     */
-    public userStatusesById(id: string) : DeviceComplianceUserStatusItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceComplianceUserStatus%2Did"] = id
-        return new DeviceComplianceUserStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

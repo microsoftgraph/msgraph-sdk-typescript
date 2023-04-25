@@ -6,16 +6,12 @@ import {AccessPackageItemRequestBuilderDeleteRequestConfiguration} from './acces
 import {AccessPackageItemRequestBuilderGetRequestConfiguration} from './accessPackageItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageItemRequestBuilderPatchRequestConfiguration} from './accessPackageItemRequestBuilderPatchRequestConfiguration';
 import {AccessPackagesIncompatibleWithRequestBuilder} from './accessPackagesIncompatibleWith/accessPackagesIncompatibleWithRequestBuilder';
-import {AccessPackageItemRequestBuilder as I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5} from './accessPackagesIncompatibleWith/item/accessPackageItemRequestBuilder';
 import {AssignmentPoliciesRequestBuilder} from './assignmentPolicies/assignmentPoliciesRequestBuilder';
-import {AccessPackageAssignmentPolicyItemRequestBuilder} from './assignmentPolicies/item/accessPackageAssignmentPolicyItemRequestBuilder';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {GetApplicablePolicyRequirementsRequestBuilder} from './getApplicablePolicyRequirements/getApplicablePolicyRequirementsRequestBuilder';
 import {IncompatibleAccessPackagesRequestBuilder} from './incompatibleAccessPackages/incompatibleAccessPackagesRequestBuilder';
-import {AccessPackageItemRequestBuilder as I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764} from './incompatibleAccessPackages/item/accessPackageItemRequestBuilder';
 import {IncompatibleGroupsRequestBuilder} from './incompatibleGroups/incompatibleGroupsRequestBuilder';
-import {GroupItemRequestBuilder} from './incompatibleGroups/item/groupItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
@@ -45,28 +41,6 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
     public get incompatibleGroups(): IncompatibleGroupsRequestBuilder {
         return new IncompatibleGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageItemRequestBuilder
-     */
-    public accessPackagesIncompatibleWithById(id: string) : I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackage%2Did1"] = id
-        return new I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
-     */
-    public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageAssignmentPolicy%2Did"] = id
-        return new AccessPackageAssignmentPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new AccessPackageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -105,28 +79,6 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.incompatibleAccessPackages.item collection
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageItemRequestBuilder
-     */
-    public incompatibleAccessPackagesById(id: string) : I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackage%2Did1"] = id
-        return new I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.incompatibleGroups.item collection
-     * @param id Unique identifier of the item
-     * @returns a GroupItemRequestBuilder
-     */
-    public incompatibleGroupsById(id: string) : GroupItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["group%2Did"] = id
-        return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property accessPackages in identityGovernance

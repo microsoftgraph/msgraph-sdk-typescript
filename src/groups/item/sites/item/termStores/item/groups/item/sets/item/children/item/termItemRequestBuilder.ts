@@ -3,14 +3,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {Term} from '../../../../../../../../../../../../models/termStore/';
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as Id35b3366627d036befac6e4cca99c55419d6b384dc15ad5cb8509b1278b0d65b} from './children/item/termItemRequestBuilder';
-import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetRequestBuilder} from './set/setRequestBuilder';
 import {TermItemRequestBuilderDeleteRequestConfiguration} from './termItemRequestBuilderDeleteRequestConfiguration';
 import {TermItemRequestBuilderGetRequestConfiguration} from './termItemRequestBuilderGetRequestConfiguration';
 import {TermItemRequestBuilderPatchRequestConfiguration} from './termItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
@@ -28,17 +26,6 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
     public get set(): SetRequestBuilder {
         return new SetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the children property of the microsoft.graph.termStore.term entity.
-     * @param id Unique identifier of the item
-     * @returns a TermItemRequestBuilder
-     */
-    public childrenById(id: string) : Id35b3366627d036befac6e4cca99c55419d6b384dc15ad5cb8509b1278b0d65b {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["term%2Did1"] = id
-        return new Id35b3366627d036befac6e4cca99c55419d6b384dc15ad5cb8509b1278b0d65b(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new TermItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -95,17 +82,6 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Term>(requestInfo, createTermFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
-     * @param id Unique identifier of the item
-     * @returns a RelationItemRequestBuilder
-     */
-    public relationsById(id: string) : RelationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["relation%2Did"] = id
-        return new RelationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property children for groups

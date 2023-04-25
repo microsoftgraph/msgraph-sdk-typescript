@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of scopedRoleMembership objects for a directory role.
+ * Members of this directory role that are scoped to administrative units. Read-only. Nullable.
  */
 export class ScopedMembersRequestBuilderGetQueryParameters {
     /** Include count of items */

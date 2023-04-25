@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {TodoTaskItemRequestBuilder} from './item/todoTaskItemRequestBuilder';
 import {TasksRequestBuilderGetRequestConfiguration} from './tasksRequestBuilderGetRequestConfiguration';
 import {TasksRequestBuilderPostRequestConfiguration} from './tasksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
@@ -22,6 +23,17 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+     * @param todoTaskId Unique identifier of the item
+     * @returns a TodoTaskItemRequestBuilder
+     */
+    public byTodoTaskId(todoTaskId: string) : TodoTaskItemRequestBuilder {
+        if(!todoTaskId) throw new Error("todoTaskId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["todoTask%2Did"] = todoTaskId
+        return new TodoTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TasksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -30,11 +42,10 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the **todoTask** resources from the **tasks** navigation property of a specified todoTaskList.
+     * The tasks in this task list. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTaskCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-list-tasks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TasksRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTaskCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -47,12 +58,11 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TodoTaskCollectionResponse>(requestInfo, createTodoTaskCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new task object in a specified todoTaskList.
+     * Create new navigation property to tasks for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTask
-     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-post-tasks?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TodoTask | undefined, requestConfiguration?: TasksRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTask | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -66,7 +76,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the **todoTask** resources from the **tasks** navigation property of a specified todoTaskList.
+     * The tasks in this task list. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -84,7 +94,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new task object in a specified todoTaskList.
+     * Create new navigation property to tasks for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

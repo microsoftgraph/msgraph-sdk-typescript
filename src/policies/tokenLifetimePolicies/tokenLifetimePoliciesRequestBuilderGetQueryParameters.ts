@@ -1,6 +1,6 @@
 
 /**
- * Get a list of tokenLifetimePolicy objects.
+ * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
  */
 export class TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

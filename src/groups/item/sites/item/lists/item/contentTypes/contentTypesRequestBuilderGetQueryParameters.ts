@@ -1,6 +1,6 @@
 
 /**
- * Get the collection of [contentType][contentType] resources in a [list][].
+ * The collection of content types present in this list.
  */
 export class ContentTypesRequestBuilderGetQueryParameters {
     /** Include count of items */

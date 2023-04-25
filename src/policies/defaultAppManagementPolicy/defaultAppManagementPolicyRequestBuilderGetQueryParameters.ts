@@ -1,6 +1,6 @@
 
 /**
- * Read the properties of a tenantAppManagementPolicy object.
+ * The tenant-wide policy that enforces app management restrictions for all applications and service principals.
  */
 export class DefaultAppManagementPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */

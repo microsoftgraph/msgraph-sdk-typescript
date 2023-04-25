@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderGetRequestConfiguration';
 import {GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {GroupLifecyclePolicyItemRequestBuilder} from './item/groupLifecyclePolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
@@ -17,6 +18,17 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
+     * @param groupLifecyclePolicyId Unique identifier of the item
+     * @returns a GroupLifecyclePolicyItemRequestBuilder
+     */
+    public byGroupLifecyclePolicyId(groupLifecyclePolicyId: string) : GroupLifecyclePolicyItemRequestBuilder {
+        if(!groupLifecyclePolicyId) throw new Error("groupLifecyclePolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["groupLifecyclePolicy%2Did"] = groupLifecyclePolicyId
+        return new GroupLifecyclePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new GroupLifecyclePoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/groupLifecyclePolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+     * The collection of lifecycle policies for this group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-grouplifecyclepolicies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupLifecyclePolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupLifecyclePolicy>(requestInfo, createGroupLifecyclePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+     * The collection of lifecycle policies for this group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

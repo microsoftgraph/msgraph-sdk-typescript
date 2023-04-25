@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the userSource objects associated with an ediscoveryCustodian.
+ * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
  */
 export class UserSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */

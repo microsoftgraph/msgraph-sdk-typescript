@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of chartaxis object.
+ * Represents the value axis in an axis. Read-only.
  */
 export class ValueAxisRequestBuilderGetQueryParameters {
     /** Expand related entities */

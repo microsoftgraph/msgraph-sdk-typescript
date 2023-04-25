@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of daily print usage summaries, grouped by printer.
+ * Get dailyPrintUsageByPrinter from reports
  */
 export class DailyPrintUsageByPrinterRequestBuilderGetQueryParameters {
     /** Include count of items */

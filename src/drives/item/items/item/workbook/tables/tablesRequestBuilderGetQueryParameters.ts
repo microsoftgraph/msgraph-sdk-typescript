@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of table objects.
+ * Represents a collection of tables associated with the workbook. Read-only.
  */
 export class TablesRequestBuilderGetQueryParameters {
     /** Include count of items */

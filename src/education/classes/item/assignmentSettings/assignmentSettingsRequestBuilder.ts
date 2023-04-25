@@ -51,12 +51,11 @@ export class AssignmentSettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationAssignmentSettings>(requestInfo, createEducationAssignmentSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
+     * Update the navigation property assignmentSettings in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentSettings
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationAssignmentSettings | undefined, requestConfiguration?: AssignmentSettingsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -104,7 +103,7 @@ export class AssignmentSettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
+     * Update the navigation property assignmentSettings in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

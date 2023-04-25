@@ -1,6 +1,6 @@
 
 /**
- * Get a list of homeRealmDiscoveryPolicy objects.
+ * The policy to control Azure AD authentication behavior for federated users.
  */
 export class HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

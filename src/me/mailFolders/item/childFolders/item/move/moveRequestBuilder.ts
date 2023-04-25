@@ -19,12 +19,11 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/move");
     };
     /**
-     * Move a mailfolder and its contents to another mailfolder.
+     * Invoke action move
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MailFolder
-     * @see {@link https://docs.microsoft.com/graph/api/mailfolder-move?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MovePostRequestBody | undefined, requestConfiguration?: MoveRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MailFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<MailFolder>(requestInfo, createMailFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Move a mailfolder and its contents to another mailfolder.
+     * Invoke action move
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of chartfont object.
+ * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
  */
 export class FontRequestBuilderGetQueryParameters {
     /** Expand related entities */

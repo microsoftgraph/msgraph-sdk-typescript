@@ -4,9 +4,10 @@ import {createVppTokenFromDiscriminatorValue} from '../../models/createVppTokenF
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {VppTokenItemRequestBuilder} from './item/vppTokenItemRequestBuilder';
 import {VppTokensRequestBuilderGetRequestConfiguration} from './vppTokensRequestBuilderGetRequestConfiguration';
 import {VppTokensRequestBuilderPostRequestConfiguration} from './vppTokensRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
+     * @param vppTokenId Unique identifier of the item
+     * @returns a VppTokenItemRequestBuilder
+     */
+    public byVppTokenId(vppTokenId: string) : VppTokenItemRequestBuilder {
+        if(!vppTokenId) throw new Error("vppTokenId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["vppToken%2Did"] = vppTokenId
+        return new VppTokenItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new VppTokensRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

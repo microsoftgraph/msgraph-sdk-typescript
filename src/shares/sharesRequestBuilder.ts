@@ -4,9 +4,10 @@ import {createSharedDriveItemFromDiscriminatorValue} from '../models/createShare
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SharedDriveItemItemRequestBuilder} from './item/sharedDriveItemItemRequestBuilder';
 import {SharesRequestBuilderGetRequestConfiguration} from './sharesRequestBuilderGetRequestConfiguration';
 import {SharesRequestBuilderPostRequestConfiguration} from './sharesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.
@@ -16,6 +17,17 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of sharedDriveItem entities.
+     * @param sharedDriveItemId Unique identifier of the item
+     * @returns a SharedDriveItemItemRequestBuilder
+     */
+    public bySharedDriveItemId(sharedDriveItemId: string) : SharedDriveItemItemRequestBuilder {
+        if(!sharedDriveItemId) throw new Error("sharedDriveItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sharedDriveItem%2Did"] = sharedDriveItemId
+        return new SharedDriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SharesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

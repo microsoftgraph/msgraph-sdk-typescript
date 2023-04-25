@@ -4,9 +4,10 @@ import {createMobileAppCategoryFromDiscriminatorValue} from '../../models/create
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MobileAppCategoryItemRequestBuilder} from './item/mobileAppCategoryItemRequestBuilder';
 import {MobileAppCategoriesRequestBuilderGetRequestConfiguration} from './mobileAppCategoriesRequestBuilderGetRequestConfiguration';
 import {MobileAppCategoriesRequestBuilderPostRequestConfiguration} from './mobileAppCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class MobileAppCategoriesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
+     * @param mobileAppCategoryId Unique identifier of the item
+     * @returns a MobileAppCategoryItemRequestBuilder
+     */
+    public byMobileAppCategoryId(mobileAppCategoryId: string) : MobileAppCategoryItemRequestBuilder {
+        if(!mobileAppCategoryId) throw new Error("mobileAppCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["mobileAppCategory%2Did"] = mobileAppCategoryId
+        return new MobileAppCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MobileAppCategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

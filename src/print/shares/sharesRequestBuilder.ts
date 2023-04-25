@@ -4,9 +4,10 @@ import {createPrinterShareFromDiscriminatorValue} from '../../models/createPrint
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PrinterShareItemRequestBuilder} from './item/printerShareItemRequestBuilder';
 import {SharesRequestBuilderGetRequestConfiguration} from './sharesRequestBuilderGetRequestConfiguration';
 import {SharesRequestBuilderPostRequestConfiguration} from './sharesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shares property of the microsoft.graph.print entity.
@@ -17,6 +18,17 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the shares property of the microsoft.graph.print entity.
+     * @param printerShareId Unique identifier of the item
+     * @returns a PrinterShareItemRequestBuilder
+     */
+    public byPrinterShareId(printerShareId: string) : PrinterShareItemRequestBuilder {
+        if(!printerShareId) throw new Error("printerShareId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printerShare%2Did"] = printerShareId
+        return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SharesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/shares{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of **printerShares**.
+     * The list of printer shares registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrinterShareCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/print-list-shares?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrinterShareCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PrinterShareCollectionResponse>(requestInfo, createPrinterShareCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new **printerShare** for the specified printer.
+     * Create new navigation property to shares for print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrinterShare
-     * @see {@link https://docs.microsoft.com/graph/api/print-post-shares?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PrinterShare | undefined, requestConfiguration?: SharesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrinterShare | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PrinterShare>(requestInfo, createPrinterShareFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of **printerShares**.
+     * The list of printer shares registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new **printerShare** for the specified printer.
+     * Create new navigation property to shares for print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

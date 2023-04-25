@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of **printerShares**.
+ * The list of printer shares registered in the tenant.
  */
 export class SharesRequestBuilderGetQueryParameters {
     /** Include count of items */

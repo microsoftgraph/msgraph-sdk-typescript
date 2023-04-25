@@ -1,6 +1,6 @@
 
 /**
- * Get sharedCookies from admin
+ * A collection of shared cookies defined for the site list.
  */
 export class BrowserSharedCookieItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

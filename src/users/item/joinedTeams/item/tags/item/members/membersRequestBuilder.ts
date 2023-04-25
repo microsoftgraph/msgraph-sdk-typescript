@@ -4,9 +4,10 @@ import {createTeamworkTagMemberFromDiscriminatorValue} from '../../../../../../.
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamworkTagMemberItemRequestBuilder} from './item/teamworkTagMemberItemRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
@@ -17,6 +18,17 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
+     * @param teamworkTagMemberId Unique identifier of the item
+     * @returns a TeamworkTagMemberItemRequestBuilder
+     */
+    public byTeamworkTagMemberId(teamworkTagMemberId: string) : TeamworkTagMemberItemRequestBuilder {
+        if(!teamworkTagMemberId) throw new Error("teamworkTagMemberId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamworkTagMember%2Did"] = teamworkTagMemberId
+        return new TeamworkTagMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new MembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/tags/{teamworkTag%2Did}/members{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the members of a standard tag in a team and their properties.
+     * Users assigned to the tag.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkTagMemberCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkTagMemberCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamworkTagMemberCollectionResponse>(requestInfo, createTeamworkTagMemberCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new teamworkTagMember object in a team.
+     * Create new navigation property to members for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkTagMember
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamworkTagMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkTagMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamworkTagMember>(requestInfo, createTeamworkTagMemberFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the members of a standard tag in a team and their properties.
+     * Users assigned to the tag.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new teamworkTagMember object in a team.
+     * Create new navigation property to members for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

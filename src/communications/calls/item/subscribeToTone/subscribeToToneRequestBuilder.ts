@@ -19,12 +19,11 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/subscribeToTone");
     };
     /**
-     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
+     * Invoke action subscribeToTone
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SubscribeToToneOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-subscribetotone?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SubscribeToTonePostRequestBody | undefined, requestConfiguration?: SubscribeToToneRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SubscribeToToneOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SubscribeToToneOperation>(requestInfo, createSubscribeToToneOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Subscribe to DTMF (dual-tone multi-frequency signaling). This allows you to be notified when the user presses keys on a 'dialpad'.
+     * Invoke action subscribeToTone
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

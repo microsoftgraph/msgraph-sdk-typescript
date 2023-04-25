@@ -1,6 +1,6 @@
 
 /**
- * Get sharedCookies from admin
+ * A collection of shared cookies defined for the site list.
  */
 export class SharedCookiesRequestBuilderGetQueryParameters {
     /** Include count of items */

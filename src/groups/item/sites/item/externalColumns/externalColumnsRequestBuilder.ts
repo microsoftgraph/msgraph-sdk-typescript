@@ -4,7 +4,8 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExternalColumnsRequestBuilderGetRequestConfiguration} from './externalColumnsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ColumnDefinitionItemRequestBuilder} from './item/columnDefinitionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
@@ -14,6 +15,17 @@ export class ExternalColumnsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
+     * @param columnDefinitionId Unique identifier of the item
+     * @returns a ColumnDefinitionItemRequestBuilder
+     */
+    public byColumnDefinitionId(columnDefinitionId: string) : ColumnDefinitionItemRequestBuilder {
+        if(!columnDefinitionId) throw new Error("columnDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["columnDefinition%2Did"] = columnDefinitionId
+        return new ColumnDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ExternalColumnsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

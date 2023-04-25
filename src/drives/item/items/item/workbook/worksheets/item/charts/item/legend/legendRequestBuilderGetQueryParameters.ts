@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of chartlegend object.
+ * Represents the legend for the chart. Read-only.
  */
 export class LegendRequestBuilderGetQueryParameters {
     /** Expand related entities */

@@ -45,11 +45,10 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of worksheetprotection object.
+     * Returns sheet protection object for a worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookWorksheetProtection
-     * @see {@link https://docs.microsoft.com/graph/api/worksheetprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProtectionRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -96,7 +95,7 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of worksheetprotection object.
+     * Returns sheet protection object for a worksheet. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

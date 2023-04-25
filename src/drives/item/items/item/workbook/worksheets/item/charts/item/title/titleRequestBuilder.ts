@@ -40,11 +40,10 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of charttitle object.
+     * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartTitle
-     * @see {@link https://docs.microsoft.com/graph/api/charttitle-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TitleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartTitle | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,12 +56,11 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChartTitle>(requestInfo, createWorkbookChartTitleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of charttitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartTitle
-     * @see {@link https://docs.microsoft.com/graph/api/charttitle-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartTitle | undefined, requestConfiguration?: TitleRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartTitle | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -92,7 +90,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of charttitle object.
+     * Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +108,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of charttitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

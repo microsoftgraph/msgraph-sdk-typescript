@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the siteSource objects associated with an ediscoveryCustodian.
+ * Data source entity for SharePoint sites associated with the custodian.
  */
 export class SiteSourcesRequestBuilderGetQueryParameters {
     /** Include count of items */

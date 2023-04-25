@@ -55,11 +55,10 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a user's presence information.
+     * Get presence from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Presence
-     * @see {@link https://docs.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PresenceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Presence | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -106,7 +105,7 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a user's presence information.
+     * Get presence from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of educationCategory objects. Only teachers can perform this operation.
+ * All categories associated with this class. Nullable.
  */
 export class AssignmentCategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */

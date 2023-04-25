@@ -6,11 +6,9 @@ import {BrowserSiteListItemRequestBuilderDeleteRequestConfiguration} from './bro
 import {BrowserSiteListItemRequestBuilderGetRequestConfiguration} from './browserSiteListItemRequestBuilderGetRequestConfiguration';
 import {BrowserSiteListItemRequestBuilderPatchRequestConfiguration} from './browserSiteListItemRequestBuilderPatchRequestConfiguration';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {BrowserSharedCookieItemRequestBuilder} from './sharedCookies/item/browserSharedCookieItemRequestBuilder';
 import {SharedCookiesRequestBuilder} from './sharedCookies/sharedCookiesRequestBuilder';
-import {BrowserSiteItemRequestBuilder} from './sites/item/browserSiteItemRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
@@ -52,7 +50,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get siteLists from admin
+     * A collection of site lists to support Internet Explorer mode.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteList
@@ -86,28 +84,6 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
-     * @param id Unique identifier of the item
-     * @returns a BrowserSharedCookieItemRequestBuilder
-     */
-    public sharedCookiesById(id: string) : BrowserSharedCookieItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["browserSharedCookie%2Did"] = id
-        return new BrowserSharedCookieItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
-     * @param id Unique identifier of the item
-     * @returns a BrowserSiteItemRequestBuilder
-     */
-    public sitesById(id: string) : BrowserSiteItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["browserSite%2Did"] = id
-        return new BrowserSiteItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Delete navigation property siteLists for admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -124,7 +100,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get siteLists from admin
+     * A collection of site lists to support Internet Explorer mode.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

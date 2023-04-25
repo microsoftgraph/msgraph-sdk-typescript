@@ -7,9 +7,8 @@ import {AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguratio
 import {AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
-import {AccessPackageQuestionItemRequestBuilder} from './questions/item/accessPackageQuestionItemRequestBuilder';
 import {QuestionsRequestBuilder} from './questions/questionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
@@ -83,17 +82,6 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageQuestionItemRequestBuilder
-     */
-    public questionsById(id: string) : AccessPackageQuestionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageQuestion%2Did"] = id
-        return new AccessPackageQuestionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property assignmentPolicies for identityGovernance

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of attachment objects.
+ * The fileAttachment and itemAttachment attachments for the message.
  */
 export class AttachmentsRequestBuilderGetQueryParameters {
     /** Include count of items */

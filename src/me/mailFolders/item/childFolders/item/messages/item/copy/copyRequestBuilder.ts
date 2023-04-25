@@ -19,12 +19,11 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/messages/{message%2Did}/copy");
     };
     /**
-     * Copy a message to a folder within the user's mailbox.
+     * Invoke action copy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Message
-     * @see {@link https://docs.microsoft.com/graph/api/message-copy?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CopyPostRequestBody | undefined, requestConfiguration?: CopyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Message | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Copy a message to a folder within the user's mailbox.
+     * Invoke action copy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

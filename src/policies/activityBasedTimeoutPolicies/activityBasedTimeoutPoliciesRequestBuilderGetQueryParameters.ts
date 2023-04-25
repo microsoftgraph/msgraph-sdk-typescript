@@ -1,6 +1,6 @@
 
 /**
- * Get a list of activityBasedTimeoutPolicy objects.
+ * The policy that controls the idle time out for web sessions for applications.
  */
 export class ActivityBasedTimeoutPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

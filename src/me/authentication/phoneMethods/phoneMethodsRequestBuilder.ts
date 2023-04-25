@@ -4,9 +4,10 @@ import {createPhoneAuthenticationMethodFromDiscriminatorValue} from '../../../mo
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PhoneAuthenticationMethodItemRequestBuilder} from './item/phoneAuthenticationMethodItemRequestBuilder';
 import {PhoneMethodsRequestBuilderGetRequestConfiguration} from './phoneMethodsRequestBuilderGetRequestConfiguration';
 import {PhoneMethodsRequestBuilderPostRequestConfiguration} from './phoneMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
@@ -17,6 +18,17 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
+     * @param phoneAuthenticationMethodId Unique identifier of the item
+     * @returns a PhoneAuthenticationMethodItemRequestBuilder
+     */
+    public byPhoneAuthenticationMethodId(phoneAuthenticationMethodId: string) : PhoneAuthenticationMethodItemRequestBuilder {
+        if(!phoneAuthenticationMethodId) throw new Error("phoneAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["phoneAuthenticationMethod%2Did"] = phoneAuthenticationMethodId
+        return new PhoneAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new PhoneMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/phoneMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of phone authentication method objects for a user. This will return up to three objects, as a user can have up to three phones usable for authentication. This method is available only for standard Azure AD and B2B users, but not B2C users.
+     * The phone numbers registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PhoneAuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-list-phonemethods?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PhoneMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PhoneAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PhoneAuthenticationMethodCollectionResponse>(requestInfo, createPhoneAuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Add a new phone authentication method for a user. A user may only have one phone of each type, captured in the **phoneType** property. This means, for example, adding a `mobile` phone to a user with a preexisting `mobile` phone will fail. Additionally, a user must always have a `mobile` phone before adding an `alternateMobile` phone. Adding a phone number makes it available for use in both Azure multi-factor authentication (MFA) and self-service password reset (SSPR), if enabled. Additionally, if a user is enabled by policy to use SMS sign-in and a `mobile` number is added, the system will attempt to register the number for use in that system.
+     * Create new navigation property to phoneMethods for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PhoneAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-post-phonemethods?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PhoneAuthenticationMethod | undefined, requestConfiguration?: PhoneMethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PhoneAuthenticationMethod | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PhoneAuthenticationMethod>(requestInfo, createPhoneAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of phone authentication method objects for a user. This will return up to three objects, as a user can have up to three phones usable for authentication. This method is available only for standard Azure AD and B2B users, but not B2C users.
+     * The phone numbers registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a new phone authentication method for a user. A user may only have one phone of each type, captured in the **phoneType** property. This means, for example, adding a `mobile` phone to a user with a preexisting `mobile` phone will fail. Additionally, a user must always have a `mobile` phone before adding an `alternateMobile` phone. Adding a phone number makes it available for use in both Azure multi-factor authentication (MFA) and self-service password reset (SSPR), if enabled. Additionally, if a user is enabled by policy to use SMS sign-in and a `mobile` number is added, the system will attempt to register the number for use in that system.
+     * Create new navigation property to phoneMethods for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

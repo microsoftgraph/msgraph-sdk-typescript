@@ -4,9 +4,10 @@ import {createListFromDiscriminatorValue} from '../../../../../models/createList
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ListItemRequestBuilder} from './item/listItemRequestBuilder';
 import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
 import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.site entity.
@@ -17,6 +18,17 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the lists property of the microsoft.graph.site entity.
+     * @param listId Unique identifier of the item
+     * @returns a ListItemRequestBuilder
+     */
+    public byListId(listId: string) : ListItemRequestBuilder {
+        if(!listId) throw new Error("listId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["list%2Did"] = listId
+        return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ListsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include `system` in your `$select` statement.
+     * The collection of lists under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/list-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ListCollectionResponse>(requestInfo, createListCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new [list][] in a [site][].
+     * Create new navigation property to lists for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of List
-     * @see {@link https://docs.microsoft.com/graph/api/list-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: List | undefined, requestConfiguration?: ListsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<List | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the collection of [lists][] for a [site][]. Lists with the [system][] facet are hidden by default.To list them, include `system` in your `$select` statement.
+     * The collection of lists under this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new [list][] in a [site][].
+     * Create new navigation property to lists for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

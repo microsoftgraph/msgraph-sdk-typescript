@@ -17,11 +17,10 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/teamwork/sendActivityNotification");
     };
     /**
-     * Send an activity feed notification to a user. For more details about sending notifications and the requirements for doing so, see sending Teams activity notifications.
+     * Invoke action sendActivityNotification
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @see {@link https://docs.microsoft.com/graph/api/userteamwork-sendactivitynotification?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SendActivityNotificationPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -35,7 +34,7 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Send an activity feed notification to a user. For more details about sending notifications and the requirements for doing so, see sending Teams activity notifications.
+     * Invoke action sendActivityNotification
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

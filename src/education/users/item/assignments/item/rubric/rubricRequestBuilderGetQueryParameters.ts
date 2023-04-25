@@ -1,6 +1,6 @@
 
 /**
- * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
+ * When set, the grading rubric attached to this assignment.
  */
 export class RubricRequestBuilderGetQueryParameters {
     /** Expand related entities */

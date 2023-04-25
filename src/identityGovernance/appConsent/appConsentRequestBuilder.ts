@@ -6,8 +6,7 @@ import {AppConsentRequestBuilderDeleteRequestConfiguration} from './appConsentRe
 import {AppConsentRequestBuilderGetRequestConfiguration} from './appConsentRequestBuilderGetRequestConfiguration';
 import {AppConsentRequestBuilderPatchRequestConfiguration} from './appConsentRequestBuilderPatchRequestConfiguration';
 import {AppConsentRequestsRequestBuilder} from './appConsentRequests/appConsentRequestsRequestBuilder';
-import {AppConsentRequestItemRequestBuilder} from './appConsentRequests/item/appConsentRequestItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.
@@ -17,17 +16,6 @@ export class AppConsentRequestBuilder extends BaseRequestBuilder {
     public get appConsentRequests(): AppConsentRequestsRequestBuilder {
         return new AppConsentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
-     * @param id Unique identifier of the item
-     * @returns a AppConsentRequestItemRequestBuilder
-     */
-    public appConsentRequestsById(id: string) : AppConsentRequestItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["appConsentRequest%2Did"] = id
-        return new AppConsentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new AppConsentRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {DetectedAppItemRequestBuilderDeleteRequestConfiguration} from './detectedAppItemRequestBuilderDeleteRequestConfiguration';
 import {DetectedAppItemRequestBuilderGetRequestConfiguration} from './detectedAppItemRequestBuilderGetRequestConfiguration';
 import {DetectedAppItemRequestBuilderPatchRequestConfiguration} from './detectedAppItemRequestBuilderPatchRequestConfiguration';
-import {ManagedDeviceItemRequestBuilder} from './managedDevices/item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
@@ -55,17 +54,6 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<DetectedApp>(requestInfo, createDetectedAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedDeviceItemRequestBuilder
-     */
-    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedDevice%2Did"] = id
-        return new ManagedDeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property detectedApps in deviceManagement

@@ -6,9 +6,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {AddFormulaLocalRequestBuilder} from './addFormulaLocal/addFormulaLocalRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookNamedItemItemRequestBuilder} from './item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilderGetRequestConfiguration} from './namesRequestBuilderGetRequestConfiguration';
 import {NamesRequestBuilderPostRequestConfiguration} from './namesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbook entity.
@@ -27,6 +28,17 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the names property of the microsoft.graph.workbook entity.
+     * @param workbookNamedItemId Unique identifier of the item
+     * @returns a WorkbookNamedItemItemRequestBuilder
+     */
+    public byWorkbookNamedItemId(workbookNamedItemId: string) : WorkbookNamedItemItemRequestBuilder {
+        if(!workbookNamedItemId) throw new Error("workbookNamedItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookNamedItem%2Did"] = workbookNamedItemId
+        return new WorkbookNamedItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new NamesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -35,11 +47,10 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/names{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of nameditem objects.
+     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookNamedItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/workbook-list-names?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,7 +81,7 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookNamedItem>(requestInfo, createWorkbookNamedItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of nameditem objects.
+     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

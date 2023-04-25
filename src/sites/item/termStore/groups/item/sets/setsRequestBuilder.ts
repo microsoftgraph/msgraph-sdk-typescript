@@ -4,9 +4,10 @@ import {Set, SetCollectionResponse} from '../../../../../../models/termStore/';
 import {createSetCollectionResponseFromDiscriminatorValue} from '../../../../../../models/termStore/createSetCollectionResponseFromDiscriminatorValue';
 import {createSetFromDiscriminatorValue} from '../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SetItemRequestBuilder} from './item/setItemRequestBuilder';
 import {SetsRequestBuilderGetRequestConfiguration} from './setsRequestBuilderGetRequestConfiguration';
 import {SetsRequestBuilderPostRequestConfiguration} from './setsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
@@ -17,6 +18,17 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
+     * @param setId Unique identifier of the item
+     * @returns a SetItemRequestBuilder
+     */
+    public bySetId(setId: string) : SetItemRequestBuilder {
+        if(!setId) throw new Error("setId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["set%2Did"] = setId
+        return new SetItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SetsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the set objects and their properties.
+     * All sets under the group in a term [store].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SetCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-group-list-sets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SetsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the set objects and their properties.
+     * All sets under the group in a term [store].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -4,15 +4,11 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IdentityProtectionRequestBuilderGetRequestConfiguration} from './identityProtectionRequestBuilderGetRequestConfiguration';
 import {IdentityProtectionRequestBuilderPatchRequestConfiguration} from './identityProtectionRequestBuilderPatchRequestConfiguration';
-import {RiskDetectionItemRequestBuilder} from './riskDetections/item/riskDetectionItemRequestBuilder';
 import {RiskDetectionsRequestBuilder} from './riskDetections/riskDetectionsRequestBuilder';
-import {RiskyServicePrincipalItemRequestBuilder} from './riskyServicePrincipals/item/riskyServicePrincipalItemRequestBuilder';
 import {RiskyServicePrincipalsRequestBuilder} from './riskyServicePrincipals/riskyServicePrincipalsRequestBuilder';
-import {RiskyUserItemRequestBuilder} from './riskyUsers/item/riskyUserItemRequestBuilder';
 import {RiskyUsersRequestBuilder} from './riskyUsers/riskyUsersRequestBuilder';
-import {ServicePrincipalRiskDetectionItemRequestBuilder} from './servicePrincipalRiskDetections/item/servicePrincipalRiskDetectionItemRequestBuilder';
 import {ServicePrincipalRiskDetectionsRequestBuilder} from './servicePrincipalRiskDetections/servicePrincipalRiskDetectionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityProtectionRoot singleton.
@@ -75,50 +71,6 @@ export class IdentityProtectionRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<IdentityProtectionRoot>(requestInfo, createIdentityProtectionRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a RiskDetectionItemRequestBuilder
-     */
-    public riskDetectionsById(id: string) : RiskDetectionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["riskDetection%2Did"] = id
-        return new RiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a RiskyServicePrincipalItemRequestBuilder
-     */
-    public riskyServicePrincipalsById(id: string) : RiskyServicePrincipalItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["riskyServicePrincipal%2Did"] = id
-        return new RiskyServicePrincipalItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a RiskyUserItemRequestBuilder
-     */
-    public riskyUsersById(id: string) : RiskyUserItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["riskyUser%2Did"] = id
-        return new RiskyUserItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ServicePrincipalRiskDetectionItemRequestBuilder
-     */
-    public servicePrincipalRiskDetectionsById(id: string) : ServicePrincipalRiskDetectionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["servicePrincipalRiskDetection%2Did"] = id
-        return new ServicePrincipalRiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get identityProtection

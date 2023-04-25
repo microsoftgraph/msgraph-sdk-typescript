@@ -3,11 +3,10 @@ import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from '../../mod
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthenticationMethodConfigurationsRequestBuilder} from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
-import {AuthenticationMethodConfigurationItemRequestBuilder} from './authenticationMethodConfigurations/item/authenticationMethodConfigurationItemRequestBuilder';
 import {AuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity.
@@ -17,17 +16,6 @@ export class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilde
     public get authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
         return new AuthenticationMethodConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a AuthenticationMethodConfigurationItemRequestBuilder
-     */
-    public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["authenticationMethodConfiguration%2Did"] = id
-        return new AuthenticationMethodConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new AuthenticationMethodsPolicyRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -52,11 +40,10 @@ export class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the properties and relationships of an authenticationMethodsPolicy object.
+     * The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodsPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethodspolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodsPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -69,12 +56,11 @@ export class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter?.sendAsync<AuthenticationMethodsPolicy>(requestInfo, createAuthenticationMethodsPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of an authenticationMethodsPolicy object.
+     * Update the navigation property authenticationMethodsPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodsPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethodspolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthenticationMethodsPolicy | undefined, requestConfiguration?: AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodsPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -104,7 +90,7 @@ export class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an authenticationMethodsPolicy object.
+     * The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +108,7 @@ export class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the properties of an authenticationMethodsPolicy object.
+     * Update the navigation property authenticationMethodsPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

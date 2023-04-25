@@ -23,11 +23,10 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/primaryChannel/filesFolder{?%24select,%24expand}");
     };
     /**
-     * Get the metadata for the location where the files of a channel are stored. 
+     * Metadata for the location where the channel's files are stored.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FilesFolderRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -40,7 +39,7 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the metadata for the location where the files of a channel are stored. 
+     * Metadata for the location where the channel's files are stored.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

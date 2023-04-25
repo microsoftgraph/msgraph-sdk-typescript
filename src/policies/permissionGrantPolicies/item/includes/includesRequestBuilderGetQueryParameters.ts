@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the condition sets which are *included* in a permissionGrantPolicy.
+ * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
  */
 export class IncludesRequestBuilderGetQueryParameters {
     /** Include count of items */

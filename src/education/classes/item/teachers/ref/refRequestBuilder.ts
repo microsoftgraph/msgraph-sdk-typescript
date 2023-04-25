@@ -19,11 +19,10 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/teachers/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}");
     };
     /**
-     * Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+     * All teachers in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StringCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-list-teachers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RefRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StringCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +52,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+     * All teachers in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

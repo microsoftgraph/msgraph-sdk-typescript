@@ -1,6 +1,6 @@
 
 /**
- * Get the contact folder collection in the default Contacts folder of the signed-in user.
+ * The user's contacts folders. Read-only. Nullable.
  */
 export class ContactFoldersRequestBuilderGetQueryParameters {
     /** Include count of items */

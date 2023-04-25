@@ -35,7 +35,7 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
         this._assignedTo = value;
     };
     /**
-     * Instantiates a new ScheduleChangeRequest and sets the default values.
+     * Instantiates a new scheduleChangeRequest and sets the default values.
      */
     public constructor() {
         super();

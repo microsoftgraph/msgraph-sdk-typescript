@@ -4,9 +4,10 @@ import {createIdentityFromDiscriminatorValue} from '../../../../../models/extern
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {IdentityItemRequestBuilder} from './item/identityItemRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
@@ -16,6 +17,17 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
+     * @param identityId Unique identifier of the item
+     * @returns a IdentityItemRequestBuilder
+     */
+    public byIdentityId(identityId: string) : IdentityItemRequestBuilder {
+        if(!identityId) throw new Error("identityId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identity%2Did"] = identityId
+        return new IdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -41,12 +53,11 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityCollectionResponse>(requestInfo, createIdentityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create an identity resource for a new member in an externalGroup.
+     * Create new navigation property to members for connections
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Identity
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Identity | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Identity | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +89,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an identity resource for a new member in an externalGroup.
+     * Create new navigation property to members for connections
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

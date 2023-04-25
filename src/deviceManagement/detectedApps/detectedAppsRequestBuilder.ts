@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DetectedAppsRequestBuilderGetRequestConfiguration} from './detectedAppsRequestBuilderGetRequestConfiguration';
 import {DetectedAppsRequestBuilderPostRequestConfiguration} from './detectedAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DetectedAppItemRequestBuilder} from './item/detectedAppItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class DetectedAppsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
+     * @param detectedAppId Unique identifier of the item
+     * @returns a DetectedAppItemRequestBuilder
+     */
+    public byDetectedAppId(detectedAppId: string) : DetectedAppItemRequestBuilder {
+        if(!detectedAppId) throw new Error("detectedAppId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["detectedApp%2Did"] = detectedAppId
+        return new DetectedAppItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DetectedAppsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

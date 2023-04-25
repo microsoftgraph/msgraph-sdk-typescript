@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
+ * Get delegatedPermissionClassifications from servicePrincipals
  */
 export class DelegatedPermissionClassificationsRequestBuilderGetQueryParameters {
     /** Include count of items */

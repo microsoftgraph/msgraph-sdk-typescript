@@ -19,12 +19,11 @@ export class RestoreRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/restore");
     };
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin. **NOTE**: This functionality is currently only available for OneDrive Personal.
+     * Invoke action restore
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/driveitem-restore?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RestorePostRequestBody | undefined, requestConfiguration?: RestoreRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class RestoreRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin. **NOTE**: This functionality is currently only available for OneDrive Personal.
+     * Invoke action restore
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

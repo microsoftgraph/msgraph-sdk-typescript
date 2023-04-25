@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration} from './claimsMappingPoliciesRequestBuilderGetRequestConfiguration';
 import {ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration} from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ClaimsMappingPolicyItemRequestBuilder} from './item/claimsMappingPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
@@ -17,6 +18,17 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
+     * @param claimsMappingPolicyId Unique identifier of the item
+     * @returns a ClaimsMappingPolicyItemRequestBuilder
+     */
+    public byClaimsMappingPolicyId(claimsMappingPolicyId: string) : ClaimsMappingPolicyItemRequestBuilder {
+        if(!claimsMappingPolicyId) throw new Error("claimsMappingPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["claimsMappingPolicy%2Did"] = claimsMappingPolicyId
+        return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ClaimsMappingPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/claimsMappingPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of claimsMappingPolicy objects.
+     * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ClaimsMappingPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/claimsmappingpolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ClaimsMappingPolicyCollectionResponse>(requestInfo, createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new claimsMappingPolicy object.
+     * Create new navigation property to claimsMappingPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ClaimsMappingPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ClaimsMappingPolicy | undefined, requestConfiguration?: ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ClaimsMappingPolicy>(requestInfo, createClaimsMappingPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of claimsMappingPolicy objects.
+     * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new claimsMappingPolicy object.
+     * Create new navigation property to claimsMappingPolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

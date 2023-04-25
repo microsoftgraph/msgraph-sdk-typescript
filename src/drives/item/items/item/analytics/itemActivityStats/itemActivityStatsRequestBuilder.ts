@@ -4,9 +4,10 @@ import {createItemActivityStatFromDiscriminatorValue} from '../../../../../../mo
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ItemActivityStatItemRequestBuilder} from './item/itemActivityStatItemRequestBuilder';
 import {ItemActivityStatsRequestBuilderGetRequestConfiguration} from './itemActivityStatsRequestBuilderGetRequestConfiguration';
 import {ItemActivityStatsRequestBuilderPostRequestConfiguration} from './itemActivityStatsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
@@ -16,6 +17,17 @@ export class ItemActivityStatsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+     * @param itemActivityStatId Unique identifier of the item
+     * @returns a ItemActivityStatItemRequestBuilder
+     */
+    public byItemActivityStatId(itemActivityStatId: string) : ItemActivityStatItemRequestBuilder {
+        if(!itemActivityStatId) throw new Error("itemActivityStatId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["itemActivityStat%2Did"] = itemActivityStatId
+        return new ItemActivityStatItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ItemActivityStatsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

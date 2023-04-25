@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {ApprovalItemRequestBuilderDeleteRequestConfiguration} from './approvalItemRequestBuilderDeleteRequestConfiguration';
 import {ApprovalItemRequestBuilderGetRequestConfiguration} from './approvalItemRequestBuilderGetRequestConfiguration';
 import {ApprovalItemRequestBuilderPatchRequestConfiguration} from './approvalItemRequestBuilderPatchRequestConfiguration';
-import {ApprovalStageItemRequestBuilder} from './stages/item/approvalStageItemRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
@@ -73,17 +72,6 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the stages property of the microsoft.graph.approval entity.
-     * @param id Unique identifier of the item
-     * @returns a ApprovalStageItemRequestBuilder
-     */
-    public stagesById(id: string) : ApprovalStageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["approvalStage%2Did"] = id
-        return new ApprovalStageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property accessPackageAssignmentApprovals for identityGovernance

@@ -2,12 +2,11 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {TriggerTypesRoot} from '../../models/security/';
 import {createTriggerTypesRootFromDiscriminatorValue} from '../../models/security/createTriggerTypesRootFromDiscriminatorValue';
-import {RetentionEventTypeItemRequestBuilder} from './retentionEventTypes/item/retentionEventTypeItemRequestBuilder';
 import {RetentionEventTypesRequestBuilder} from './retentionEventTypes/retentionEventTypesRequestBuilder';
 import {TriggerTypesRequestBuilderDeleteRequestConfiguration} from './triggerTypesRequestBuilderDeleteRequestConfiguration';
 import {TriggerTypesRequestBuilderGetRequestConfiguration} from './triggerTypesRequestBuilderGetRequestConfiguration';
 import {TriggerTypesRequestBuilderPatchRequestConfiguration} from './triggerTypesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
@@ -73,17 +72,6 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<TriggerTypesRoot>(requestInfo, createTriggerTypesRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a RetentionEventTypeItemRequestBuilder
-     */
-    public retentionEventTypesById(id: string) : RetentionEventTypeItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["retentionEventType%2Did"] = id
-        return new RetentionEventTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property triggerTypes for security

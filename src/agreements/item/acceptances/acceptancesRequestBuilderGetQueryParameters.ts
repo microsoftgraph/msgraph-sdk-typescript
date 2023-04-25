@@ -1,6 +1,6 @@
 
 /**
- * Get the details about the acceptance records for a specific agreement.
+ * Read-only. Information about acceptances of this agreement.
  */
 export class AcceptancesRequestBuilderGetQueryParameters {
     /** Include count of items */

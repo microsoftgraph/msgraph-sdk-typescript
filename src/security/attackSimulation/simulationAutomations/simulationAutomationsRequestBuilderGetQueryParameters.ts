@@ -1,6 +1,6 @@
 
 /**
- * Get a list of attack simulation automations for a tenant.
+ * Represents simulation automation created to run on a tenant.
  */
 export class SimulationAutomationsRequestBuilderGetQueryParameters {
     /** Include count of items */

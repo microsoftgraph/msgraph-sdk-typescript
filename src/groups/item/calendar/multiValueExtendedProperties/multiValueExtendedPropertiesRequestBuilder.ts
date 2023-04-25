@@ -4,9 +4,10 @@ import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from '../.
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilderGetRequestConfiguration} from './multiValueExtendedPropertiesRequestBuilderGetRequestConfiguration';
 import {MultiValueExtendedPropertiesRequestBuilderPostRequestConfiguration} from './multiValueExtendedPropertiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.
@@ -16,6 +17,17 @@ export class MultiValueExtendedPropertiesRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.
+     * @param multiValueLegacyExtendedPropertyId Unique identifier of the item
+     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
+     */
+    public byMultiValueLegacyExtendedPropertyId(multiValueLegacyExtendedPropertyId: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
+        if(!multiValueLegacyExtendedPropertyId) throw new Error("multiValueLegacyExtendedPropertyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["multiValueLegacyExtendedProperty%2Did"] = multiValueLegacyExtendedPropertyId
+        return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MultiValueExtendedPropertiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

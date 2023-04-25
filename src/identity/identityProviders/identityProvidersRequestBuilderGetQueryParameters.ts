@@ -1,6 +1,6 @@
 
 /**
- * Get a collection of identity provider resources that are configured for a tenant, and that are derived from identityProviderBase. For an Azure AD tenant, the providers can be socialIdentityProviders or builtinIdentityProviders objects. For an Azure AD B2C, the providers can be socialIdentityProvider, or appleManagedIdentityProvider objects.
+ * Get identityProviders from identity
  */
 export class IdentityProvidersRequestBuilderGetQueryParameters {
     /** Include count of items */

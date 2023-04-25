@@ -1,13 +1,19 @@
 import {createAdministrativeUnitFromDiscriminatorValue} from './createAdministrativeUnitFromDiscriminatorValue';
+import {createAttributeSetFromDiscriminatorValue} from './createAttributeSetFromDiscriminatorValue';
+import {createCustomSecurityAttributeDefinitionFromDiscriminatorValue} from './createCustomSecurityAttributeDefinitionFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentityProviderBaseFromDiscriminatorValue';
 import {createOnPremisesDirectorySynchronizationFromDiscriminatorValue} from './createOnPremisesDirectorySynchronizationFromDiscriminatorValue';
-import {AdministrativeUnit, DirectoryObject, Entity, IdentityProviderBase, OnPremisesDirectorySynchronization} from './index';
+import {AdministrativeUnit, AttributeSet, CustomSecurityAttributeDefinition, DirectoryObject, Entity, IdentityProviderBase, OnPremisesDirectorySynchronization} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Directory extends Entity implements Parsable {
     /** Conceptual container for user and group directory objects. */
     private _administrativeUnits?: AdministrativeUnit[] | undefined;
+    /** The attributeSets property */
+    private _attributeSets?: AttributeSet[] | undefined;
+    /** The customSecurityAttributeDefinitions property */
+    private _customSecurityAttributeDefinitions?: CustomSecurityAttributeDefinition[] | undefined;
     /** Recently deleted items. Read-only. Nullable. */
     private _deletedItems?: DirectoryObject[] | undefined;
     /** Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol. */
@@ -29,10 +35,38 @@ export class Directory extends Entity implements Parsable {
         this._administrativeUnits = value;
     };
     /**
+     * Gets the attributeSets property value. The attributeSets property
+     * @returns a attributeSet
+     */
+    public get attributeSets() {
+        return this._attributeSets;
+    };
+    /**
+     * Sets the attributeSets property value. The attributeSets property
+     * @param value Value to set for the attributeSets property.
+     */
+    public set attributeSets(value: AttributeSet[] | undefined) {
+        this._attributeSets = value;
+    };
+    /**
      * Instantiates a new Directory and sets the default values.
      */
     public constructor() {
         super();
+    };
+    /**
+     * Gets the customSecurityAttributeDefinitions property value. The customSecurityAttributeDefinitions property
+     * @returns a customSecurityAttributeDefinition
+     */
+    public get customSecurityAttributeDefinitions() {
+        return this._customSecurityAttributeDefinitions;
+    };
+    /**
+     * Sets the customSecurityAttributeDefinitions property value. The customSecurityAttributeDefinitions property
+     * @param value Value to set for the customSecurityAttributeDefinitions property.
+     */
+    public set customSecurityAttributeDefinitions(value: CustomSecurityAttributeDefinition[] | undefined) {
+        this._customSecurityAttributeDefinitions = value;
     };
     /**
      * Gets the deletedItems property value. Recently deleted items. Read-only. Nullable.
@@ -69,6 +103,8 @@ export class Directory extends Entity implements Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
             "administrativeUnits": n => { this.administrativeUnits = n.getCollectionOfObjectValues<AdministrativeUnit>(createAdministrativeUnitFromDiscriminatorValue); },
+            "attributeSets": n => { this.attributeSets = n.getCollectionOfObjectValues<AttributeSet>(createAttributeSetFromDiscriminatorValue); },
+            "customSecurityAttributeDefinitions": n => { this.customSecurityAttributeDefinitions = n.getCollectionOfObjectValues<CustomSecurityAttributeDefinition>(createCustomSecurityAttributeDefinitionFromDiscriminatorValue); },
             "deletedItems": n => { this.deletedItems = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
             "federationConfigurations": n => { this.federationConfigurations = n.getCollectionOfObjectValues<IdentityProviderBase>(createIdentityProviderBaseFromDiscriminatorValue); },
             "onPremisesSynchronization": n => { this.onPremisesSynchronization = n.getCollectionOfObjectValues<OnPremisesDirectorySynchronization>(createOnPremisesDirectorySynchronizationFromDiscriminatorValue); },
@@ -96,6 +132,8 @@ export class Directory extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", this.administrativeUnits);
+        writer.writeCollectionOfObjectValues<AttributeSet>("attributeSets", this.attributeSets);
+        writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("customSecurityAttributeDefinitions", this.customSecurityAttributeDefinitions);
         writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", this.deletedItems);
         writer.writeCollectionOfObjectValues<IdentityProviderBase>("federationConfigurations", this.federationConfigurations);
         writer.writeCollectionOfObjectValues<OnPremisesDirectorySynchronization>("onPremisesSynchronization", this.onPremisesSynchronization);

@@ -3,14 +3,26 @@ import {createSubscribedSkuCollectionResponseFromDiscriminatorValue} from '../mo
 import {createSubscribedSkuFromDiscriminatorValue} from '../models/createSubscribedSkuFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {SubscribedSkuItemRequestBuilder} from './item/subscribedSkuItemRequestBuilder';
 import {SubscribedSkusRequestBuilderGetRequestConfiguration} from './subscribedSkusRequestBuilderGetRequestConfiguration';
 import {SubscribedSkusRequestBuilderPostRequestConfiguration} from './subscribedSkusRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscribedSku entities.
  */
 export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the collection of subscribedSku entities.
+     * @param subscribedSkuId Unique identifier of the item
+     * @returns a SubscribedSkuItemRequestBuilder
+     */
+    public bySubscribedSkuId(subscribedSkuId: string) : SubscribedSkuItemRequestBuilder {
+        if(!subscribedSkuId) throw new Error("subscribedSkuId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["subscribedSku%2Did"] = subscribedSkuId
+        return new SubscribedSkuItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SubscribedSkusRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

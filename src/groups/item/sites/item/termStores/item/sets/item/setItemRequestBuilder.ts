@@ -3,16 +3,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {Set} from '../../../../../../../../models/termStore/';
 import {createSetFromDiscriminatorValue} from '../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {TermItemRequestBuilder as If08dad6a0ddc5886582304f054cf541080b7dded3cb1ff8164cfe6e7d621f616} from './children/item/termItemRequestBuilder';
 import {ParentGroupRequestBuilder} from './parentGroup/parentGroupRequestBuilder';
-import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetItemRequestBuilderDeleteRequestConfiguration} from './setItemRequestBuilderDeleteRequestConfiguration';
 import {SetItemRequestBuilderGetRequestConfiguration} from './setItemRequestBuilderGetRequestConfiguration';
 import {SetItemRequestBuilderPatchRequestConfiguration} from './setItemRequestBuilderPatchRequestConfiguration';
-import {TermItemRequestBuilder as I589d4b2196ae07797abb926c804dfa0e9da449b98e3e01a59a981a8f615d13cb} from './terms/item/termItemRequestBuilder';
 import {TermsRequestBuilder} from './terms/termsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
@@ -34,17 +31,6 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
     public get terms(): TermsRequestBuilder {
         return new TermsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
-     * @param id Unique identifier of the item
-     * @returns a TermItemRequestBuilder
-     */
-    public childrenById(id: string) : If08dad6a0ddc5886582304f054cf541080b7dded3cb1ff8164cfe6e7d621f616 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["term%2Did"] = id
-        return new If08dad6a0ddc5886582304f054cf541080b7dded3cb1ff8164cfe6e7d621f616(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new SetItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -101,28 +87,6 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
-     * @param id Unique identifier of the item
-     * @returns a RelationItemRequestBuilder
-     */
-    public relationsById(id: string) : RelationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["relation%2Did"] = id
-        return new RelationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
-     * @param id Unique identifier of the item
-     * @returns a TermItemRequestBuilder
-     */
-    public termsById(id: string) : I589d4b2196ae07797abb926c804dfa0e9da449b98e3e01a59a981a8f615d13cb {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["term%2Did"] = id
-        return new I589d4b2196ae07797abb926c804dfa0e9da449b98e3e01a59a981a8f615d13cb(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property sets for groups

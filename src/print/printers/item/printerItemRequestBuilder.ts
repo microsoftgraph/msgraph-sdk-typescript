@@ -3,16 +3,13 @@ import {createPrinterFromDiscriminatorValue} from '../../../models/createPrinter
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
-import {PrintConnectorItemRequestBuilder} from './connectors/item/printConnectorItemRequestBuilder';
 import {PrinterItemRequestBuilderDeleteRequestConfiguration} from './printerItemRequestBuilderDeleteRequestConfiguration';
 import {PrinterItemRequestBuilderGetRequestConfiguration} from './printerItemRequestBuilderGetRequestConfiguration';
 import {PrinterItemRequestBuilderPatchRequestConfiguration} from './printerItemRequestBuilderPatchRequestConfiguration';
 import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
-import {PrinterShareItemRequestBuilder} from './shares/item/printerShareItemRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {PrintTaskTriggerItemRequestBuilder} from './taskTriggers/item/printTaskTriggerItemRequestBuilder';
 import {TaskTriggersRequestBuilder} from './taskTriggers/taskTriggersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
@@ -34,17 +31,6 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
     public get taskTriggers(): TaskTriggersRequestBuilder {
         return new TaskTriggersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintConnectorItemRequestBuilder
-     */
-    public connectorsById(id: string) : PrintConnectorItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printConnector%2Did"] = id
-        return new PrintConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new PrinterItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -101,28 +87,6 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the shares property of the microsoft.graph.printer entity.
-     * @param id Unique identifier of the item
-     * @returns a PrinterShareItemRequestBuilder
-     */
-    public sharesById(id: string) : PrinterShareItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printerShare%2Did"] = id
-        return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintTaskTriggerItemRequestBuilder
-     */
-    public taskTriggersById(id: string) : PrintTaskTriggerItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printTaskTrigger%2Did"] = id
-        return new PrintTaskTriggerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property printers for print

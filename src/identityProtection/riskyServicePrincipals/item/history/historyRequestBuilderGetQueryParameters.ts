@@ -1,6 +1,6 @@
 
 /**
- * Get the risk history of a riskyServicePrincipal object.
+ * Represents the risk history of Azure AD service principals.
  */
 export class HistoryRequestBuilderGetQueryParameters {
     /** Include count of items */

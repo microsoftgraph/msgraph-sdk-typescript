@@ -9,23 +9,23 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
  * A singleton entity which is used to specify IE mode site list metadata
  */
 export class BrowserSiteList extends Entity implements Parsable {
-    /** Description for the site list */
+    /** The description of the site list. */
     private _description?: string | undefined;
-    /** Display name of this site list */
+    /** The name of the site list. */
     private _displayName?: string | undefined;
-    /** Name of the admin who made the last update on the site list */
+    /** The user who last modified the site list. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** The datetime that the admin last updated the site list. */
+    /** The date and time when the site list was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Name of the admin who published the site list */
+    /** The user who published the site list. */
     private _publishedBy?: IdentitySet | undefined;
-    /** The datetime that admin published the site list to users in their organization. */
+    /** The date and time when the site list was published. */
     private _publishedDateTime?: Date | undefined;
-    /** Admin can have multiple revisions of the site list and the revision is generated whenever admin create/update the site list. */
+    /** The current revision of the site list. */
     private _revision?: string | undefined;
-    /** The sharedCookies property */
+    /** A collection of shared cookies defined for the site list. */
     private _sharedCookies?: BrowserSharedCookie[] | undefined;
-    /** The sites property */
+    /** A collection of sites defined for the site list. */
     private _sites?: BrowserSite[] | undefined;
     /** The status property */
     private _status?: BrowserSiteListStatus | undefined;
@@ -36,28 +36,28 @@ export class BrowserSiteList extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the description property value. Description for the site list
+     * Gets the description property value. The description of the site list.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. Description for the site list
+     * Sets the description property value. The description of the site list.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
         this._description = value;
     };
     /**
-     * Gets the displayName property value. Display name of this site list
+     * Gets the displayName property value. The name of the site list.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. Display name of this site list
+     * Sets the displayName property value. The name of the site list.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -82,70 +82,70 @@ export class BrowserSiteList extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastModifiedBy property value. Name of the admin who made the last update on the site list
+     * Gets the lastModifiedBy property value. The user who last modified the site list.
      * @returns a identitySet
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
     };
     /**
-     * Sets the lastModifiedBy property value. Name of the admin who made the last update on the site list
+     * Sets the lastModifiedBy property value. The user who last modified the site list.
      * @param value Value to set for the lastModifiedBy property.
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         this._lastModifiedBy = value;
     };
     /**
-     * Gets the lastModifiedDateTime property value. The datetime that the admin last updated the site list.
+     * Gets the lastModifiedDateTime property value. The date and time when the site list was last modified.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The datetime that the admin last updated the site list.
+     * Sets the lastModifiedDateTime property value. The date and time when the site list was last modified.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the publishedBy property value. Name of the admin who published the site list
+     * Gets the publishedBy property value. The user who published the site list.
      * @returns a identitySet
      */
     public get publishedBy() {
         return this._publishedBy;
     };
     /**
-     * Sets the publishedBy property value. Name of the admin who published the site list
+     * Sets the publishedBy property value. The user who published the site list.
      * @param value Value to set for the publishedBy property.
      */
     public set publishedBy(value: IdentitySet | undefined) {
         this._publishedBy = value;
     };
     /**
-     * Gets the publishedDateTime property value. The datetime that admin published the site list to users in their organization.
+     * Gets the publishedDateTime property value. The date and time when the site list was published.
      * @returns a Date
      */
     public get publishedDateTime() {
         return this._publishedDateTime;
     };
     /**
-     * Sets the publishedDateTime property value. The datetime that admin published the site list to users in their organization.
+     * Sets the publishedDateTime property value. The date and time when the site list was published.
      * @param value Value to set for the publishedDateTime property.
      */
     public set publishedDateTime(value: Date | undefined) {
         this._publishedDateTime = value;
     };
     /**
-     * Gets the revision property value. Admin can have multiple revisions of the site list and the revision is generated whenever admin create/update the site list.
+     * Gets the revision property value. The current revision of the site list.
      * @returns a string
      */
     public get revision() {
         return this._revision;
     };
     /**
-     * Sets the revision property value. Admin can have multiple revisions of the site list and the revision is generated whenever admin create/update the site list.
+     * Sets the revision property value. The current revision of the site list.
      * @param value Value to set for the revision property.
      */
     public set revision(value: string | undefined) {
@@ -170,28 +170,28 @@ export class BrowserSiteList extends Entity implements Parsable {
         writer.writeEnumValue<BrowserSiteListStatus>("status", this.status);
     };
     /**
-     * Gets the sharedCookies property value. The sharedCookies property
+     * Gets the sharedCookies property value. A collection of shared cookies defined for the site list.
      * @returns a browserSharedCookie
      */
     public get sharedCookies() {
         return this._sharedCookies;
     };
     /**
-     * Sets the sharedCookies property value. The sharedCookies property
+     * Sets the sharedCookies property value. A collection of shared cookies defined for the site list.
      * @param value Value to set for the sharedCookies property.
      */
     public set sharedCookies(value: BrowserSharedCookie[] | undefined) {
         this._sharedCookies = value;
     };
     /**
-     * Gets the sites property value. The sites property
+     * Gets the sites property value. A collection of sites defined for the site list.
      * @returns a browserSite
      */
     public get sites() {
         return this._sites;
     };
     /**
-     * Sets the sites property value. The sites property
+     * Sets the sites property value. A collection of sites defined for the site list.
      * @param value Value to set for the sites property.
      */
     public set sites(value: BrowserSite[] | undefined) {

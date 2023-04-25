@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of a user's emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
+ * The email address registered to a user for authentication.
  */
 export class EmailMethodsRequestBuilderGetQueryParameters {
     /** Include count of items */

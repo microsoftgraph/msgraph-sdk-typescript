@@ -4,9 +4,10 @@ import {createEducationSubmissionResourceFromDiscriminatorValue} from '../../../
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationSubmissionResourceItemRequestBuilder} from './item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilderGetRequestConfiguration} from './submittedResourcesRequestBuilderGetRequestConfiguration';
 import {SubmittedResourcesRequestBuilderPostRequestConfiguration} from './submittedResourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
@@ -17,6 +18,17 @@ export class SubmittedResourcesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
+     * @param educationSubmissionResourceId Unique identifier of the item
+     * @returns a EducationSubmissionResourceItemRequestBuilder
+     */
+    public byEducationSubmissionResourceId(educationSubmissionResourceId: string) : EducationSubmissionResourceItemRequestBuilder {
+        if(!educationSubmissionResourceId) throw new Error("educationSubmissionResourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationSubmissionResource%2Did"] = educationSubmissionResourceId
+        return new EducationSubmissionResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SubmittedResourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class SubmittedResourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/submittedResources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List the educationSubmissionResource objects that have officially been submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
+     * Get submittedResources from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmissionResourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationsubmission-list-submittedresources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubmittedResourcesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmissionResourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class SubmittedResourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationSubmissionResource>(requestInfo, createEducationSubmissionResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * List the educationSubmissionResource objects that have officially been submitted for grading. Only teachers, students, and applications with application permissions can perform this operation. The student who owns the submission cannot change the submitted list without resubmitting the assignment. This is a wrapper around the real resource and can contain a pointer back to the actual assignment resource if this resource was copied from the assignment.
+     * Get submittedResources from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

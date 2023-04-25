@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of openShiftChangeRequest objects in a team.
+ * The open shift requests in the schedule.
  */
 export class OpenShiftChangeRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */

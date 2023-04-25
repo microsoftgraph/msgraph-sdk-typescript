@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilderGetRequestConfiguration} from './repliesRequestBuilderGetRequestConfiguration';
 import {RepliesRequestBuilderPostRequestConfiguration} from './repliesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
@@ -22,6 +23,17 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
+     * @param chatMessageId1 Unique identifier of the item
+     * @returns a ChatMessageItemRequestBuilder
+     */
+    public byChatMessageId1(chatMessageId1: string) : ChatMessageItemRequestBuilder {
+        if(!chatMessageId1) throw new Error("chatMessageId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["chatMessage%2Did1"] = chatMessageId1
+        return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new RepliesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -30,11 +42,10 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
+     * Replies for a specified message. Supports $expand for channel messages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-list-replies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RepliesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -47,12 +58,11 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create new navigation property to replies for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage | undefined, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -66,7 +76,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
+     * Replies for a specified message. Supports $expand for channel messages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -84,7 +94,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create new navigation property to replies for teams
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

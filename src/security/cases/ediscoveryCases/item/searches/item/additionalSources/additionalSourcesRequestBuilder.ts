@@ -6,7 +6,8 @@ import {createDataSourceFromDiscriminatorValue} from '../../../../../../../model
 import {AdditionalSourcesRequestBuilderGetRequestConfiguration} from './additionalSourcesRequestBuilderGetRequestConfiguration';
 import {AdditionalSourcesRequestBuilderPostRequestConfiguration} from './additionalSourcesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DataSourceItemRequestBuilder} from './item/dataSourceItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -17,6 +18,17 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
+     * @param dataSourceId Unique identifier of the item
+     * @returns a DataSourceItemRequestBuilder
+     */
+    public byDataSourceId(dataSourceId: string) : DataSourceItemRequestBuilder {
+        if(!dataSourceId) throw new Error("dataSourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["dataSource%2Did"] = dataSourceId
+        return new DataSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new AdditionalSourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/additionalSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the list of additional sources associated with an eDiscovery search.
+     * Adds an additional source to the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataSourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-list-additionalsources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdditionalSourcesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DataSourceCollectionResponse>(requestInfo, createDataSourceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new additional source associated with an eDiscovery search.
+     * Create new navigation property to additionalSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DataSource
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-post-additionalsources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DataSource | undefined, requestConfiguration?: AdditionalSourcesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DataSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DataSource>(requestInfo, createDataSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the list of additional sources associated with an eDiscovery search.
+     * Adds an additional source to the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new additional source associated with an eDiscovery search.
+     * Create new navigation property to additionalSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

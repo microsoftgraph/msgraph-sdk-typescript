@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {BitlockerRequestBuilder} from './bitlocker/bitlockerRequestBuilder';
 import {InformationProtectionRequestBuilderGetRequestConfiguration} from './informationProtectionRequestBuilderGetRequestConfiguration';
 import {InformationProtectionRequestBuilderPatchRequestConfiguration} from './informationProtectionRequestBuilderPatchRequestConfiguration';
-import {ThreatAssessmentRequestItemRequestBuilder} from './threatAssessmentRequests/item/threatAssessmentRequestItemRequestBuilder';
 import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the informationProtection singleton.
@@ -62,17 +61,6 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
-     * @param id Unique identifier of the item
-     * @returns a ThreatAssessmentRequestItemRequestBuilder
-     */
-    public threatAssessmentRequestsById(id: string) : ThreatAssessmentRequestItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["threatAssessmentRequest%2Did"] = id
-        return new ThreatAssessmentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get informationProtection

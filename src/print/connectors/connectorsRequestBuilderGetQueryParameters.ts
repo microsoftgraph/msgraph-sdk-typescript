@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of print connectors.
+ * The list of available print connectors.
  */
 export class ConnectorsRequestBuilderGetQueryParameters {
     /** Include count of items */

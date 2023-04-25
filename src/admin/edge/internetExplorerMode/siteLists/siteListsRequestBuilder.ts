@@ -4,9 +4,10 @@ import {createBrowserSiteListFromDiscriminatorValue} from '../../../../models/cr
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BrowserSiteListItemRequestBuilder} from './item/browserSiteListItemRequestBuilder';
 import {SiteListsRequestBuilderGetRequestConfiguration} from './siteListsRequestBuilderGetRequestConfiguration';
 import {SiteListsRequestBuilderPostRequestConfiguration} from './siteListsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
@@ -17,6 +18,17 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+     * @param browserSiteListId Unique identifier of the item
+     * @returns a BrowserSiteListItemRequestBuilder
+     */
+    public byBrowserSiteListId(browserSiteListId: string) : BrowserSiteListItemRequestBuilder {
+        if(!browserSiteListId) throw new Error("browserSiteListId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["browserSiteList%2Did"] = browserSiteListId
+        return new BrowserSiteListItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SiteListsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,7 +37,7 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get siteLists from admin
+     * A collection of site lists to support Internet Explorer mode.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteListCollectionResponse
@@ -59,7 +71,7 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get siteLists from admin
+     * A collection of site lists to support Internet Explorer mode.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

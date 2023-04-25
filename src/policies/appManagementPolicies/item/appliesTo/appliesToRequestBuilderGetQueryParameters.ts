@@ -1,6 +1,6 @@
 
 /**
- * List application and service principal objects that are assigned an appManagementPolicy policy object.
+ * Collection of applications and service principals to which the policy is applied.
  */
 export class AppliesToRequestBuilderGetQueryParameters {
     /** Include count of items */

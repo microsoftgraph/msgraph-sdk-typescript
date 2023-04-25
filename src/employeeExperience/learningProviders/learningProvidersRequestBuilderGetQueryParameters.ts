@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
+ * A collection of learning providers.
  */
 export class LearningProvidersRequestBuilderGetQueryParameters {
     /** Include count of items */

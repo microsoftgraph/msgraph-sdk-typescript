@@ -3,7 +3,7 @@ import {Entity, InternetExplorerMode} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Edge extends Entity implements Parsable {
-    /** The internetExplorerMode property */
+    /** A container for Internet Explorer mode resources. */
     private _internetExplorerMode?: InternetExplorerMode | undefined;
     /**
      * Instantiates a new Edge and sets the default values.
@@ -21,14 +21,14 @@ export class Edge extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the internetExplorerMode property value. The internetExplorerMode property
+     * Gets the internetExplorerMode property value. A container for Internet Explorer mode resources.
      * @returns a internetExplorerMode
      */
     public get internetExplorerMode() {
         return this._internetExplorerMode;
     };
     /**
-     * Sets the internetExplorerMode property value. The internetExplorerMode property
+     * Sets the internetExplorerMode property value. A container for Internet Explorer mode resources.
      * @param value Value to set for the internetExplorerMode property.
      */
     public set internetExplorerMode(value: InternetExplorerMode | undefined) {

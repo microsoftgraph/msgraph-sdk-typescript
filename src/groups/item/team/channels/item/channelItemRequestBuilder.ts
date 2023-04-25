@@ -8,17 +8,13 @@ import {ChannelItemRequestBuilderPatchRequestConfiguration} from './channelItemR
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder} from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
-import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailRequestBuilder';
 import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
-import {SharedWithChannelTeamInfoItemRequestBuilder} from './sharedWithTeams/item/sharedWithChannelTeamInfoItemRequestBuilder';
 import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
-import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
@@ -100,28 +96,6 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the members property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a ConversationMemberItemRequestBuilder
-     */
-    public membersById(id: string) : ConversationMemberItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conversationMember%2Did"] = id
-        return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the messages property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a ChatMessageItemRequestBuilder
-     */
-    public messagesById(id: string) : ChatMessageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["chatMessage%2Did"] = id
-        return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update the navigation property channels in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -138,28 +112,6 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a SharedWithChannelTeamInfoItemRequestBuilder
-     */
-    public sharedWithTeamsById(id: string) : SharedWithChannelTeamInfoItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["sharedWithChannelTeamInfo%2Did"] = id
-        return new SharedWithChannelTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a TeamsTabItemRequestBuilder
-     */
-    public tabsById(id: string) : TeamsTabItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamsTab%2Did"] = id
-        return new TeamsTabItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property channels for groups

@@ -3,17 +3,14 @@ import {createConditionalAccessRootFromDiscriminatorValue} from '../../models/cr
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AuthenticationContextClassReferencesRequestBuilder} from './authenticationContextClassReferences/authenticationContextClassReferencesRequestBuilder';
-import {AuthenticationContextClassReferenceItemRequestBuilder} from './authenticationContextClassReferences/item/authenticationContextClassReferenceItemRequestBuilder';
+import {AuthenticationStrengthRequestBuilder} from './authenticationStrength/authenticationStrengthRequestBuilder';
 import {ConditionalAccessRequestBuilderDeleteRequestConfiguration} from './conditionalAccessRequestBuilderDeleteRequestConfiguration';
 import {ConditionalAccessRequestBuilderGetRequestConfiguration} from './conditionalAccessRequestBuilderGetRequestConfiguration';
 import {ConditionalAccessRequestBuilderPatchRequestConfiguration} from './conditionalAccessRequestBuilderPatchRequestConfiguration';
-import {NamedLocationItemRequestBuilder} from './namedLocations/item/namedLocationItemRequestBuilder';
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
-import {ConditionalAccessPolicyItemRequestBuilder} from './policies/item/conditionalAccessPolicyItemRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
-import {ConditionalAccessTemplateItemRequestBuilder} from './templates/item/conditionalAccessTemplateItemRequestBuilder';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
@@ -22,6 +19,10 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity. */
     public get authenticationContextClassReferences(): AuthenticationContextClassReferencesRequestBuilder {
         return new AuthenticationContextClassReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity. */
+    public get authenticationStrength(): AuthenticationStrengthRequestBuilder {
+        return new AuthenticationStrengthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity. */
     public get namedLocations(): NamedLocationsRequestBuilder {
@@ -35,17 +36,6 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
     public get templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a AuthenticationContextClassReferenceItemRequestBuilder
-     */
-    public authenticationContextClassReferencesById(id: string) : AuthenticationContextClassReferenceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["authenticationContextClassReference%2Did"] = id
-        return new AuthenticationContextClassReferenceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new ConditionalAccessRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -86,17 +76,6 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a NamedLocationItemRequestBuilder
-     */
-    public namedLocationsById(id: string) : NamedLocationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["namedLocation%2Did"] = id
-        return new NamedLocationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update the navigation property conditionalAccess in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -113,28 +92,6 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ConditionalAccessPolicyItemRequestBuilder
-     */
-    public policiesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conditionalAccessPolicy%2Did"] = id
-        return new ConditionalAccessPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ConditionalAccessTemplateItemRequestBuilder
-     */
-    public templatesById(id: string) : ConditionalAccessTemplateItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conditionalAccessTemplate%2Did"] = id
-        return new ConditionalAccessTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property conditionalAccess for identity

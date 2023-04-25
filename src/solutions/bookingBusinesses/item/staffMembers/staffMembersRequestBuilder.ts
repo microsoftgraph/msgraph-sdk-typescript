@@ -4,9 +4,10 @@ import {createBookingStaffMemberBaseFromDiscriminatorValue} from '../../../../mo
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BookingStaffMemberBaseItemRequestBuilder} from './item/bookingStaffMemberBaseItemRequestBuilder';
 import {StaffMembersRequestBuilderGetRequestConfiguration} from './staffMembersRequestBuilderGetRequestConfiguration';
 import {StaffMembersRequestBuilderPostRequestConfiguration} from './staffMembersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
@@ -17,6 +18,17 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
+     * @param bookingStaffMemberBaseId Unique identifier of the item
+     * @returns a BookingStaffMemberBaseItemRequestBuilder
+     */
+    public byBookingStaffMemberBaseId(bookingStaffMemberBaseId: string) : BookingStaffMemberBaseItemRequestBuilder {
+        if(!bookingStaffMemberBaseId) throw new Error("bookingStaffMemberBaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bookingStaffMemberBase%2Did"] = bookingStaffMemberBaseId
+        return new BookingStaffMemberBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new StaffMembersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of bookingStaffMember objects in the specified bookingBusiness.
+     * All the staff members that provide services in this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingStaffMemberBaseCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-staffmembers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: StaffMembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingStaffMemberBaseCollectionResponse>(requestInfo, createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new bookingStaffMember in the specified bookingBusiness.
+     * Create new navigation property to staffMembers for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingStaffMemberBase
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-post-staffmembers?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BookingStaffMemberBase | undefined, requestConfiguration?: StaffMembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingStaffMemberBase>(requestInfo, createBookingStaffMemberBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of bookingStaffMember objects in the specified bookingBusiness.
+     * All the staff members that provide services in this business. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new bookingStaffMember in the specified bookingBusiness.
+     * Create new navigation property to staffMembers for solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

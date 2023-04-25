@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+ * The groups whose users have access to print using the printer.
  */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */

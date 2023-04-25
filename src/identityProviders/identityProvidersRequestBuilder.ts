@@ -7,7 +7,8 @@ import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/ava
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identityProvidersRequestBuilderGetRequestConfiguration';
 import {IdentityProvidersRequestBuilderPostRequestConfiguration} from './identityProvidersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {IdentityProviderItemRequestBuilder} from './item/identityProviderItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of identityProvider entities.
@@ -21,6 +22,17 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of identityProvider entities.
+     * @param identityProviderId Unique identifier of the item
+     * @returns a IdentityProviderItemRequestBuilder
+     */
+    public byIdentityProviderId(identityProviderId: string) : IdentityProviderItemRequestBuilder {
+        if(!identityProviderId) throw new Error("identityProviderId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityProvider%2Did"] = identityProviderId
+        return new IdentityProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

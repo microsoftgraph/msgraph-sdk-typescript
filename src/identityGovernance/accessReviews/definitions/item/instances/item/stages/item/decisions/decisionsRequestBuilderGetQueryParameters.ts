@@ -1,6 +1,6 @@
 
 /**
- * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+ * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
  */
 export class DecisionsRequestBuilderGetQueryParameters {
     /** Include count of items */

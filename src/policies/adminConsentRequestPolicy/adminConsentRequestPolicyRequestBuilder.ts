@@ -35,11 +35,10 @@ export class AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the properties and relationships of an adminConsentRequestPolicy object.
+     * The policy by which consent requests are created and managed for the entire tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdminConsentRequestPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/adminconsentrequestpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdminConsentRequestPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdminConsentRequestPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -52,12 +51,11 @@ export class AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<AdminConsentRequestPolicy>(requestInfo, createAdminConsentRequestPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of an adminConsentRequestPolicy object.
+     * Update the navigation property adminConsentRequestPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdminConsentRequestPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/adminconsentrequestpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AdminConsentRequestPolicy | undefined, requestConfiguration?: AdminConsentRequestPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdminConsentRequestPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -87,7 +85,7 @@ export class AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an adminConsentRequestPolicy object.
+     * The policy by which consent requests are created and managed for the entire tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +103,7 @@ export class AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the properties of an adminConsentRequestPolicy object.
+     * Update the navigation property adminConsentRequestPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -4,9 +4,10 @@ import {createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminato
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder} from './item/windowsInformationProtectionNetworkLearningSummaryItemRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummariesRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilderPostRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummariesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
+     * @param windowsInformationProtectionNetworkLearningSummaryId Unique identifier of the item
+     * @returns a WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
+     */
+    public byWindowsInformationProtectionNetworkLearningSummaryId(windowsInformationProtectionNetworkLearningSummaryId: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder {
+        if(!windowsInformationProtectionNetworkLearningSummaryId) throw new Error("windowsInformationProtectionNetworkLearningSummaryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsInformationProtectionNetworkLearningSummary%2Did"] = windowsInformationProtectionNetworkLearningSummaryId
+        return new WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

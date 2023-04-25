@@ -19,12 +19,11 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/copy");
     };
     /**
-     * Asynchronously creates a copy of an [driveItem][item-resource] (including any children), under a new parent item or with a new name.
+     * Invoke action copy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/driveitem-copy?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CopyPostRequestBody | undefined, requestConfiguration?: CopyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Asynchronously creates a copy of an [driveItem][item-resource] (including any children), under a new parent item or with a new name.
+     * Invoke action copy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

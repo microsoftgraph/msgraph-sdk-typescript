@@ -43,7 +43,7 @@ export class Device extends DirectoryObject implements Parsable {
     private _physicalIds?: string[] | undefined;
     /** The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT. */
     private _profileType?: string | undefined;
-    /** The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand. */
+    /** The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand. */
     private _registeredOwners?: DirectoryObject[] | undefined;
     /** Collection of registered users of the device. For cloud joined devices and registered personal devices, registered users are set to the same value as registered owners at the time of registration. Read-only. Nullable. Supports $expand. */
     private _registeredUsers?: DirectoryObject[] | undefined;
@@ -110,7 +110,7 @@ export class Device extends DirectoryObject implements Parsable {
         this._complianceExpirationDateTime = value;
     };
     /**
-     * Instantiates a new Device and sets the default values.
+     * Instantiates a new device and sets the default values.
      */
     public constructor() {
         super();
@@ -359,14 +359,14 @@ export class Device extends DirectoryObject implements Parsable {
         this._profileType = value;
     };
     /**
-     * Gets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+     * Gets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
      * @returns a directoryObject
      */
     public get registeredOwners() {
         return this._registeredOwners;
     };
     /**
-     * Sets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+     * Sets the registeredOwners property value. The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the registeredOwners property.
      */
     public set registeredOwners(value: DirectoryObject[] | undefined) {

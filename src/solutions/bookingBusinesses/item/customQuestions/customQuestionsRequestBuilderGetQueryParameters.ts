@@ -1,6 +1,6 @@
 
 /**
- * Get the bookingCustomQuestion resources associated with a bookingBusiness.
+ * All the custom questions of this business. Read-only. Nullable.
  */
 export class CustomQuestionsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {MessageItemRequestBuilder} from './item/messageItemRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
@@ -22,6 +23,17 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
+     * @param messageId Unique identifier of the item
+     * @returns a MessageItemRequestBuilder
+     */
+    public byMessageId(messageId: string) : MessageItemRequestBuilder {
+        if(!messageId) throw new Error("messageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["message%2Did"] = messageId
+        return new MessageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new MessagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -30,11 +42,10 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/messages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get all the messages in the specified user's mailbox, or those messages in a specified folder in the mailbox.
+     * The collection of messages in the mailFolder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MessageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/mailfolder-list-messages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MessagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MessageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -47,12 +58,11 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<MessageCollectionResponse>(requestInfo, createMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Use this API to create a new Message in a mailfolder.
+     * Create new navigation property to messages for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Message
-     * @see {@link https://docs.microsoft.com/graph/api/mailfolder-post-messages?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Message | undefined, requestConfiguration?: MessagesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Message | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -66,7 +76,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get all the messages in the specified user's mailbox, or those messages in a specified folder in the mailbox.
+     * The collection of messages in the mailFolder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -84,7 +94,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Use this API to create a new Message in a mailfolder.
+     * Create new navigation property to messages for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,6 +1,6 @@
 
 /**
- * List the effective sharing permissions on a driveItem.
+ * The set of permissions for the item. Read-only. Nullable.
  */
 export class PermissionsRequestBuilderGetQueryParameters {
     /** Include count of items */

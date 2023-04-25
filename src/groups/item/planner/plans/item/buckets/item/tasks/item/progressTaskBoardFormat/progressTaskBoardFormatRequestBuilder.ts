@@ -35,11 +35,10 @@ export class ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerProgressTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +56,6 @@ export class ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerProgressTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerProgressTaskBoardTaskFormat | undefined, requestConfiguration?: ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -87,7 +85,7 @@ export class ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

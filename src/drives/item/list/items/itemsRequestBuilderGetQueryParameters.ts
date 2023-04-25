@@ -1,6 +1,6 @@
 
 /**
- * Get the collection of [items][item] in a [list][].
+ * All items contained in the list.
  */
 export class ItemsRequestBuilderGetQueryParameters {
     /** Include count of items */

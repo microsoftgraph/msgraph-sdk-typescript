@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefaultManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderGetRequestConfiguration';
 import {DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DefaultManagedAppProtectionItemRequestBuilder} from './item/defaultManagedAppProtectionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class DefaultManagedAppProtectionsRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+     * @param defaultManagedAppProtectionId Unique identifier of the item
+     * @returns a DefaultManagedAppProtectionItemRequestBuilder
+     */
+    public byDefaultManagedAppProtectionId(defaultManagedAppProtectionId: string) : DefaultManagedAppProtectionItemRequestBuilder {
+        if(!defaultManagedAppProtectionId) throw new Error("defaultManagedAppProtectionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["defaultManagedAppProtection%2Did"] = defaultManagedAppProtectionId
+        return new DefaultManagedAppProtectionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DefaultManagedAppProtectionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of endpoints exposed by a print service.
+ * Endpoints that can be used to access the service. Read-only. Nullable.
  */
 export class EndpointsRequestBuilderGetQueryParameters {
     /** Include count of items */

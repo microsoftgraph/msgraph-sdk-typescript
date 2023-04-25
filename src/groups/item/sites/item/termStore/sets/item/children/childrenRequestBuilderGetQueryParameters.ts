@@ -1,6 +1,6 @@
 
 /**
- * Get the first level children of a [set] or [term] resource using the children navigation property.
+ * Children terms of set in term [store].
  */
 export class ChildrenRequestBuilderGetQueryParameters {
     /** Include count of items */

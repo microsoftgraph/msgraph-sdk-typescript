@@ -4,9 +4,10 @@ import {createSimulationFromDiscriminatorValue} from '../../../models/createSimu
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SimulationItemRequestBuilder} from './item/simulationItemRequestBuilder';
 import {SimulationsRequestBuilderGetRequestConfiguration} from './simulationsRequestBuilderGetRequestConfiguration';
 import {SimulationsRequestBuilderPostRequestConfiguration} from './simulationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
@@ -17,6 +18,17 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+     * @param simulationId Unique identifier of the item
+     * @returns a SimulationItemRequestBuilder
+     */
+    public bySimulationId(simulationId: string) : SimulationItemRequestBuilder {
+        if(!simulationId) throw new Error("simulationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["simulation%2Did"] = simulationId
+        return new SimulationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SimulationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of attack simulation campaigns for a tenant.
+     * Represents an attack simulation training campaign in a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SimulationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/attacksimulationroot-list-simulations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SimulationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SimulationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of attack simulation campaigns for a tenant.
+     * Represents an attack simulation training campaign in a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

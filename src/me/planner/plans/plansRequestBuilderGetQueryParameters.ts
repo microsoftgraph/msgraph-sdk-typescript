@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of **plannerplan** objects shared with a user object.
+ * Read-only. Nullable. Returns the plannerTasks assigned to the user.
  */
 export class PlansRequestBuilderGetQueryParameters {
     /** Include count of items */

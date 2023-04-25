@@ -3,8 +3,9 @@ import {createProfilePhotoCollectionResponseFromDiscriminatorValue} from '../../
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ProfilePhotoItemRequestBuilder} from './item/profilePhotoItemRequestBuilder';
 import {PhotosRequestBuilderGetRequestConfiguration} from './photosRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photos property of the microsoft.graph.user entity.
@@ -14,6 +15,17 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the photos property of the microsoft.graph.user entity.
+     * @param profilePhotoId Unique identifier of the item
+     * @returns a ProfilePhotoItemRequestBuilder
+     */
+    public byProfilePhotoId(profilePhotoId: string) : ProfilePhotoItemRequestBuilder {
+        if(!profilePhotoId) throw new Error("profilePhotoId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["profilePhoto%2Did"] = profilePhotoId
+        return new ProfilePhotoItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PhotosRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

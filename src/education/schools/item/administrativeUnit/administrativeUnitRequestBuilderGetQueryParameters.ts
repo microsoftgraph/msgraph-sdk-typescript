@@ -1,6 +1,6 @@
 
 /**
- * Get a list of **administrativeUnits** associated with an educationSchool object.
+ * The underlying administrativeUnit for this school.
  */
 export class AdministrativeUnitRequestBuilderGetQueryParameters {
     /** Expand related entities */

@@ -3,8 +3,9 @@ import {createTokenIssuancePolicyCollectionResponseFromDiscriminatorValue} from 
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TokenIssuancePolicyItemRequestBuilder} from './item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilderGetRequestConfiguration} from './tokenIssuancePoliciesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity.
@@ -14,6 +15,17 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity.
+     * @param tokenIssuancePolicyId Unique identifier of the item
+     * @returns a TokenIssuancePolicyItemRequestBuilder
+     */
+    public byTokenIssuancePolicyId(tokenIssuancePolicyId: string) : TokenIssuancePolicyItemRequestBuilder {
+        if(!tokenIssuancePolicyId) throw new Error("tokenIssuancePolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["tokenIssuancePolicy%2Did"] = tokenIssuancePolicyId
+        return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TokenIssuancePoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

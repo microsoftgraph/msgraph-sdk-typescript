@@ -3,11 +3,10 @@ import {createRiskyUserFromDiscriminatorValue} from '../../../models/createRisky
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {HistoryRequestBuilder} from './history/historyRequestBuilder';
-import {RiskyUserHistoryItemItemRequestBuilder} from './history/item/riskyUserHistoryItemItemRequestBuilder';
 import {RiskyUserItemRequestBuilderDeleteRequestConfiguration} from './riskyUserItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyUserItemRequestBuilderGetRequestConfiguration} from './riskyUserItemRequestBuilderGetRequestConfiguration';
 import {RiskyUserItemRequestBuilderPatchRequestConfiguration} from './riskyUserItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
@@ -55,17 +54,6 @@ export class RiskyUserItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<RiskyUser>(requestInfo, createRiskyUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
-     * @param id Unique identifier of the item
-     * @returns a RiskyUserHistoryItemItemRequestBuilder
-     */
-    public historyById(id: string) : RiskyUserHistoryItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["riskyUserHistoryItem%2Did"] = id
-        return new RiskyUserHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property riskyUsers in identityProtection

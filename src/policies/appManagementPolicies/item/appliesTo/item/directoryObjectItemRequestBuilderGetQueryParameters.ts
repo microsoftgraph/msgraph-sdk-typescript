@@ -1,6 +1,6 @@
 
 /**
- * Get appliesTo from policies
+ * Collection of applications and service principals to which the policy is applied.
  */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

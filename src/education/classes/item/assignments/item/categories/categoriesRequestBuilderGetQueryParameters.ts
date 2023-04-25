@@ -1,6 +1,6 @@
 
 /**
- * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+ * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
  */
 export class CategoriesRequestBuilderGetQueryParameters {
     /** Include count of items */

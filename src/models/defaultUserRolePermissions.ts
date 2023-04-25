@@ -7,7 +7,7 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
     private _allowedToCreateApps?: boolean | undefined;
     /** Indicates whether the default user role can create security groups. */
     private _allowedToCreateSecurityGroups?: boolean | undefined;
-    /** The allowedToReadBitlockerKeysForOwnedDevice property */
+    /** Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role. */
     private _allowedToReadBitlockerKeysForOwnedDevice?: boolean | undefined;
     /** Indicates whether the default user role can read other users. */
     private _allowedToReadOtherUsers?: boolean | undefined;
@@ -58,14 +58,14 @@ export class DefaultUserRolePermissions implements AdditionalDataHolder, Parsabl
         this._allowedToCreateSecurityGroups = value;
     };
     /**
-     * Gets the allowedToReadBitlockerKeysForOwnedDevice property value. The allowedToReadBitlockerKeysForOwnedDevice property
+     * Gets the allowedToReadBitlockerKeysForOwnedDevice property value. Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
      * @returns a boolean
      */
     public get allowedToReadBitlockerKeysForOwnedDevice() {
         return this._allowedToReadBitlockerKeysForOwnedDevice;
     };
     /**
-     * Sets the allowedToReadBitlockerKeysForOwnedDevice property value. The allowedToReadBitlockerKeysForOwnedDevice property
+     * Sets the allowedToReadBitlockerKeysForOwnedDevice property value. Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
      * @param value Value to set for the allowedToReadBitlockerKeysForOwnedDevice property.
      */
     public set allowedToReadBitlockerKeysForOwnedDevice(value: boolean | undefined) {

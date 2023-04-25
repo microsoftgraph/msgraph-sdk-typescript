@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of chartpoint objects.
+ * Represents a collection of all points in the series. Read-only.
  */
 export class PointsRequestBuilderGetQueryParameters {
     /** Include count of items */

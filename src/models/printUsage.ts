@@ -39,7 +39,7 @@ export class PrintUsage extends Entity implements Parsable {
         this._completedColorJobCount = value;
     };
     /**
-     * Instantiates a new printUsage and sets the default values.
+     * Instantiates a new PrintUsage and sets the default values.
      */
     public constructor() {
         super();

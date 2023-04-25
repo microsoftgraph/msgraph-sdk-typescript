@@ -1,6 +1,6 @@
 
 /**
- * Get the educationClass resources an educationUser is a member of.
+ * Classes to which the user belongs. Nullable.
  */
 export class ClassesRequestBuilderGetQueryParameters {
     /** Include count of items */

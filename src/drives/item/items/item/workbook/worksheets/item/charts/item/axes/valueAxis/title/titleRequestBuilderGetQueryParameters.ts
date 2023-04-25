@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of chartaxistitle object.
+ * Represents the axis title. Read-only.
  */
 export class TitleRequestBuilderGetQueryParameters {
     /** Expand related entities */

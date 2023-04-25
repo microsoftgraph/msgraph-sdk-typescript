@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CalendarPermissionsRequestBuilderGetRequestConfiguration} from './calendarPermissionsRequestBuilderGetRequestConfiguration';
 import {CalendarPermissionsRequestBuilderPostRequestConfiguration} from './calendarPermissionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CalendarPermissionItemRequestBuilder} from './item/calendarPermissionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
@@ -16,6 +17,17 @@ export class CalendarPermissionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
+     * @param calendarPermissionId Unique identifier of the item
+     * @returns a CalendarPermissionItemRequestBuilder
+     */
+    public byCalendarPermissionId(calendarPermissionId: string) : CalendarPermissionItemRequestBuilder {
+        if(!calendarPermissionId) throw new Error("calendarPermissionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["calendarPermission%2Did"] = calendarPermissionId
+        return new CalendarPermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CalendarPermissionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -41,12 +53,11 @@ export class CalendarPermissionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CalendarPermissionCollectionResponse>(requestInfo, createCalendarPermissionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
+     * Create new navigation property to calendarPermissions for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarPermission
-     * @see {@link https://docs.microsoft.com/graph/api/calendar-post-calendarpermissions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CalendarPermission | undefined, requestConfiguration?: CalendarPermissionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarPermission | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +89,7 @@ export class CalendarPermissionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a calendarPermission resource to specify the identity and role of the user with whom the specified calendar is being shared or delegated.
+     * Create new navigation property to calendarPermissions for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

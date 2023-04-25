@@ -6,7 +6,8 @@ import {createJoinMeetingIdSettingsFromDiscriminatorValue} from './createJoinMee
 import {createLobbyBypassSettingsFromDiscriminatorValue} from './createLobbyBypassSettingsFromDiscriminatorValue';
 import {createMeetingAttendanceReportFromDiscriminatorValue} from './createMeetingAttendanceReportFromDiscriminatorValue';
 import {createMeetingParticipantsFromDiscriminatorValue} from './createMeetingParticipantsFromDiscriminatorValue';
-import {AudioConferencing, BroadcastMeetingSettings, ChatInfo, Entity, ItemBody, JoinMeetingIdSettings, LobbyBypassSettings, MeetingAttendanceReport, MeetingParticipants} from './index';
+import {createWatermarkProtectionValuesFromDiscriminatorValue} from './createWatermarkProtectionValuesFromDiscriminatorValue';
+import {AudioConferencing, BroadcastMeetingSettings, ChatInfo, Entity, ItemBody, JoinMeetingIdSettings, LobbyBypassSettings, MeetingAttendanceReport, MeetingParticipants, WatermarkProtectionValues} from './index';
 import {MeetingChatMode} from './meetingChatMode';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -60,6 +61,8 @@ export class OnlineMeeting extends Entity implements Parsable {
     private _subject?: string | undefined;
     /** The video teleconferencing ID. Read-only. */
     private _videoTeleconferenceId?: string | undefined;
+    /** Specifies whether a watermark should be applied to a content type by the client application. */
+    private _watermarkProtection?: WatermarkProtectionValues | undefined;
     /**
      * Gets the allowAttendeeToEnableCamera property value. Indicates whether attendees can turn on their camera.
      * @returns a boolean
@@ -201,7 +204,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._chatInfo = value;
     };
     /**
-     * Instantiates a new OnlineMeeting and sets the default values.
+     * Instantiates a new onlineMeeting and sets the default values.
      */
     public constructor() {
         super();
@@ -278,6 +281,7 @@ export class OnlineMeeting extends Entity implements Parsable {
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
             "subject": n => { this.subject = n.getStringValue(); },
             "videoTeleconferenceId": n => { this.videoTeleconferenceId = n.getStringValue(); },
+            "watermarkProtection": n => { this.watermarkProtection = n.getObjectValue<WatermarkProtectionValues>(createWatermarkProtectionValuesFromDiscriminatorValue); },
         };
     };
     /**
@@ -423,6 +427,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("subject", this.subject);
         writer.writeStringValue("videoTeleconferenceId", this.videoTeleconferenceId);
+        writer.writeObjectValue<WatermarkProtectionValues>("watermarkProtection", this.watermarkProtection);
     };
     /**
      * Gets the startDateTime property value. The meeting start time in UTC.
@@ -465,5 +470,19 @@ export class OnlineMeeting extends Entity implements Parsable {
      */
     public set videoTeleconferenceId(value: string | undefined) {
         this._videoTeleconferenceId = value;
+    };
+    /**
+     * Gets the watermarkProtection property value. Specifies whether a watermark should be applied to a content type by the client application.
+     * @returns a watermarkProtectionValues
+     */
+    public get watermarkProtection() {
+        return this._watermarkProtection;
+    };
+    /**
+     * Sets the watermarkProtection property value. Specifies whether a watermark should be applied to a content type by the client application.
+     * @param value Value to set for the watermarkProtection property.
+     */
+    public set watermarkProtection(value: WatermarkProtectionValues | undefined) {
+        this._watermarkProtection = value;
     };
 }

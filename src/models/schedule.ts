@@ -18,9 +18,9 @@ export class Schedule extends Entity implements Parsable {
     private _offerShiftRequests?: OfferShiftRequest[] | undefined;
     /** Indicates whether offer shift requests are enabled for the schedule. */
     private _offerShiftRequestsEnabled?: boolean | undefined;
-    /** The openShiftChangeRequests property */
+    /** The open shift requests in the schedule. */
     private _openShiftChangeRequests?: OpenShiftChangeRequest[] | undefined;
-    /** The openShifts property */
+    /** The set of open shifts in a scheduling group in the schedule. */
     private _openShifts?: OpenShift[] | undefined;
     /** Indicates whether open shifts are enabled for the schedule. */
     private _openShiftsEnabled?: boolean | undefined;
@@ -126,28 +126,28 @@ export class Schedule extends Entity implements Parsable {
         this._offerShiftRequestsEnabled = value;
     };
     /**
-     * Gets the openShiftChangeRequests property value. The openShiftChangeRequests property
+     * Gets the openShiftChangeRequests property value. The open shift requests in the schedule.
      * @returns a openShiftChangeRequest
      */
     public get openShiftChangeRequests() {
         return this._openShiftChangeRequests;
     };
     /**
-     * Sets the openShiftChangeRequests property value. The openShiftChangeRequests property
+     * Sets the openShiftChangeRequests property value. The open shift requests in the schedule.
      * @param value Value to set for the openShiftChangeRequests property.
      */
     public set openShiftChangeRequests(value: OpenShiftChangeRequest[] | undefined) {
         this._openShiftChangeRequests = value;
     };
     /**
-     * Gets the openShifts property value. The openShifts property
+     * Gets the openShifts property value. The set of open shifts in a scheduling group in the schedule.
      * @returns a openShift
      */
     public get openShifts() {
         return this._openShifts;
     };
     /**
-     * Sets the openShifts property value. The openShifts property
+     * Sets the openShifts property value. The set of open shifts in a scheduling group in the schedule.
      * @param value Value to set for the openShifts property.
      */
     public set openShifts(value: OpenShift[] | undefined) {

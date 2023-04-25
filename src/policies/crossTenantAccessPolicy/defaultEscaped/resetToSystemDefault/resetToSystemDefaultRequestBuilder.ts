@@ -16,10 +16,9 @@ export class ResetToSystemDefaultRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/crossTenantAccessPolicy/default/resetToSystemDefault");
     };
     /**
-     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
+     * Invoke action resetToSystemDefault
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-resettosystemdefault?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ResetToSystemDefaultRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -32,7 +31,7 @@ export class ResetToSystemDefaultRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Reset any changes made to the default configuration in a cross-tenant access policy back to the system default.
+     * Invoke action resetToSystemDefault
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

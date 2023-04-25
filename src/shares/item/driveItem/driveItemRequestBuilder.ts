@@ -23,11 +23,10 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/driveItem{?%24select,%24expand}");
     };
     /**
-     * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Used to access the underlying driveItem
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -40,7 +39,7 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Used to access the underlying driveItem
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

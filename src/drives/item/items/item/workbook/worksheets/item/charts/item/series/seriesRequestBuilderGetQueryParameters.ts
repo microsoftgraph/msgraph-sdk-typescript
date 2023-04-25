@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of chartseries objects.
+ * Represents either a single series or collection of series in the chart. Read-only.
  */
 export class SeriesRequestBuilderGetQueryParameters {
     /** Include count of items */

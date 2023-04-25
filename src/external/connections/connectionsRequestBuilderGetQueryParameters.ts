@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the externalConnection objects and their properties.
+ * Get connections from external
  */
 export class ConnectionsRequestBuilderGetQueryParameters {
     /** Include count of items */

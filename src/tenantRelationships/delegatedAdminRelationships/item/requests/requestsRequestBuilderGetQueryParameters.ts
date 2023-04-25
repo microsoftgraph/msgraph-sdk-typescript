@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the delegatedAdminRelationshipRequest objects and their properties.
+ * The requests associated with the delegated admin relationship.
  */
 export class RequestsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -18,12 +18,11 @@ export class CheckMemberGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directoryRoleTemplates/{directoryRoleTemplate%2Did}/checkMemberGroups");
     };
     /**
-     * Check for membership in a specified list of group IDs, and return from that list those groups (identified by IDs) of which the specified user, group, service principal, organizational contact, device, or directory object is a member. This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Azure AD. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct.
+     * Invoke action checkMemberGroups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CheckMemberGroupsResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-checkmembergroups?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CheckMemberGroupsPostRequestBody | undefined, requestConfiguration?: CheckMemberGroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberGroupsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -37,7 +36,7 @@ export class CheckMemberGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CheckMemberGroupsResponse>(requestInfo, createCheckMemberGroupsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Check for membership in a specified list of group IDs, and return from that list those groups (identified by IDs) of which the specified user, group, service principal, organizational contact, device, or directory object is a member. This function is transitive. You can check up to a maximum of 20 groups per request. This function supports all groups provisioned in Azure AD. Because Microsoft 365 groups cannot contain other groups, membership in a Microsoft 365 group is always direct.
+     * Invoke action checkMemberGroups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

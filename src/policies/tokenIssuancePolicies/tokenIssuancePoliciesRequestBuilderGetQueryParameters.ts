@@ -1,6 +1,6 @@
 
 /**
- * Get a list of tokenIssuancePolicy objects.
+ * The policy that specifies the characteristics of SAML tokens issued by Azure AD.
  */
 export class TokenIssuancePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

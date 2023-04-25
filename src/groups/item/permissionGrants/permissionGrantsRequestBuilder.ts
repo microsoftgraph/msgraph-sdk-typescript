@@ -7,10 +7,11 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {ResourceSpecificPermissionGrantItemRequestBuilder} from './item/resourceSpecificPermissionGrantItemRequestBuilder';
 import {PermissionGrantsRequestBuilderGetRequestConfiguration} from './permissionGrantsRequestBuilderGetRequestConfiguration';
 import {PermissionGrantsRequestBuilderPostRequestConfiguration} from './permissionGrantsRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
@@ -37,6 +38,17 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
+     * @param resourceSpecificPermissionGrantId Unique identifier of the item
+     * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
+     */
+    public byResourceSpecificPermissionGrantId(resourceSpecificPermissionGrantId: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
+        if(!resourceSpecificPermissionGrantId) throw new Error("resourceSpecificPermissionGrantId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["resourceSpecificPermissionGrant%2Did"] = resourceSpecificPermissionGrantId
+        return new ResourceSpecificPermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new PermissionGrantsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -45,11 +57,10 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/permissionGrants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the **group**, along with the corresponding kind of resource-specific access that each app has.
+     * The permission that has been granted for a group to a specific application. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ResourceSpecificPermissionGrantCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-permissiongrants?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionGrantsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +91,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ResourceSpecificPermissionGrant>(requestInfo, createResourceSpecificPermissionGrantFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the **group**, along with the corresponding kind of resource-specific access that each app has.
+     * The permission that has been granted for a group to a specific application. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

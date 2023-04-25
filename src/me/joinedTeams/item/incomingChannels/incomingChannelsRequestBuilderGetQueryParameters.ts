@@ -1,6 +1,6 @@
 
 /**
- * Get the list of incoming channels (channels shared with a team).
+ * List of channels shared with the team.
  */
 export class IncomingChannelsRequestBuilderGetQueryParameters {
     /** Include count of items */

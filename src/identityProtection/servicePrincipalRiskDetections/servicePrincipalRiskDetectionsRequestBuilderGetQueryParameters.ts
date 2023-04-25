@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
+ * Represents information about detected at-risk service principals in an Azure AD tenant.
  */
 export class ServicePrincipalRiskDetectionsRequestBuilderGetQueryParameters {
     /** Include count of items */

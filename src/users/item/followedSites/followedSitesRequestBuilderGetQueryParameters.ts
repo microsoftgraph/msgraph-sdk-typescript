@@ -1,6 +1,6 @@
 
 /**
- * List the sites that have been followed by the signed in user.
+ * Get followedSites from users
  */
 export class FollowedSitesRequestBuilderGetQueryParameters {
     /** Include count of items */

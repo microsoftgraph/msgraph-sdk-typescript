@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties of an entitlementManagementSettings object.
+ * The settings that control the behavior of Azure AD entitlement management.
  */
 export class SettingsRequestBuilderGetQueryParameters {
     /** Expand related entities */

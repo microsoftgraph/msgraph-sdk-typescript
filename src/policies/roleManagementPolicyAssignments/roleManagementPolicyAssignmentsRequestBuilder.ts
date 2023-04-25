@@ -4,9 +4,10 @@ import {createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue} from 
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilder} from './item/unifiedRoleManagementPolicyAssignmentItemRequestBuilder';
 import {RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration} from './roleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration} from './roleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
@@ -17,6 +18,17 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
+     * @param unifiedRoleManagementPolicyAssignmentId Unique identifier of the item
+     * @returns a UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
+     */
+    public byUnifiedRoleManagementPolicyAssignmentId(unifiedRoleManagementPolicyAssignmentId: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {
+        if(!unifiedRoleManagementPolicyAssignmentId) throw new Error("unifiedRoleManagementPolicyAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleManagementPolicyAssignment%2Did"] = unifiedRoleManagementPolicyAssignmentId
+        return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new RoleManagementPolicyAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/policies/roleManagementPolicyAssignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the details of all role management policy assignments including the policies and rules associated with the Azure AD roles.
+     * The assignment of a role management policy to a role definition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicyAssignmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyAssignment>(requestInfo, createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the details of all role management policy assignments including the policies and rules associated with the Azure AD roles.
+     * The assignment of a role management policy to a role definition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

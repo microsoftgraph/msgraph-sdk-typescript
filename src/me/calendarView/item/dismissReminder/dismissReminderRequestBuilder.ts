@@ -16,10 +16,9 @@ export class DismissReminderRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/calendarView/{event%2Did}/dismissReminder");
     };
     /**
-     * Dismiss a reminder that has been triggered for an event in a user calendar.
+     * Invoke action dismissReminder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @see {@link https://docs.microsoft.com/graph/api/event-dismissreminder?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: DismissReminderRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -32,7 +31,7 @@ export class DismissReminderRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Dismiss a reminder that has been triggered for an event in a user calendar.
+     * Invoke action dismissReminder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of educationRubric objects.
+ * When set, the grading rubric attached to the assignment.
  */
 export class RubricsRequestBuilderGetQueryParameters {
     /** Include count of items */

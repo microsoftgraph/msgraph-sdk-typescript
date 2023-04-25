@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of profilePhoto objects.
+ * The profile photos owned by the group. Read-only. Nullable.
  */
 export class PhotosRequestBuilderGetQueryParameters {
     /** Include count of items */

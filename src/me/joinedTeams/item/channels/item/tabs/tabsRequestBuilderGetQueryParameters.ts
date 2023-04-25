@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of tabs in the specified channel within a team. 
+ * A collection of all the tabs in the channel. A navigation property.
  */
 export class TabsRequestBuilderGetQueryParameters {
     /** Include count of items */

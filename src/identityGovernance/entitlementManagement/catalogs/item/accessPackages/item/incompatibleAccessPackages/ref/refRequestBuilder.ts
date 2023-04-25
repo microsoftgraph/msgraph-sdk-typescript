@@ -19,11 +19,10 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/catalogs/{accessPackageCatalog%2Did}/accessPackages/{accessPackage%2Did}/incompatibleAccessPackages/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}");
     };
     /**
-     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
+     * The access packages whose assigned users are ineligible to be assigned this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StringCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-list-incompatibleaccesspackages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RefRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StringCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +52,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
+     * The access packages whose assigned users are ineligible to be assigned this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

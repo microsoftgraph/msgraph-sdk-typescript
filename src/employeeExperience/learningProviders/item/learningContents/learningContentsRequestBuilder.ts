@@ -4,9 +4,10 @@ import {createLearningContentFromDiscriminatorValue} from '../../../../models/cr
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {LearningContentItemRequestBuilder} from './item/learningContentItemRequestBuilder';
 import {LearningContentsRequestBuilderGetRequestConfiguration} from './learningContentsRequestBuilderGetRequestConfiguration';
 import {LearningContentsRequestBuilderPostRequestConfiguration} from './learningContentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
@@ -17,6 +18,17 @@ export class LearningContentsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+     * @param learningContentId Unique identifier of the item
+     * @returns a LearningContentItemRequestBuilder
+     */
+    public byLearningContentId(learningContentId: string) : LearningContentItemRequestBuilder {
+        if(!learningContentId) throw new Error("learningContentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["learningContent%2Did"] = learningContentId
+        return new LearningContentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new LearningContentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class LearningContentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/employeeExperience/learningProviders/{learningProvider%2Did}/learningContents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
+     * Learning catalog items for the provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LearningContentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/learningprovider-list-learningcontents?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningContentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LearningContentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class LearningContentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<LearningContent>(requestInfo, createLearningContentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
+     * Learning catalog items for the provider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

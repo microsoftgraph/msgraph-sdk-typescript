@@ -7,7 +7,8 @@ import {AccessPackagesRequestBuilderGetRequestConfiguration} from './accessPacka
 import {AccessPackagesRequestBuilderPostRequestConfiguration} from './accessPackagesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
@@ -17,6 +18,17 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
+     * @param accessPackageId Unique identifier of the item
+     * @returns a AccessPackageItemRequestBuilder
+     */
+    public byAccessPackageId(accessPackageId: string) : AccessPackageItemRequestBuilder {
+        if(!accessPackageId) throw new Error("accessPackageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackage%2Did"] = accessPackageId
+        return new AccessPackageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AccessPackagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -35,11 +47,10 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+     * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -52,12 +63,11 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessPackageCollectionResponse>(requestInfo, createAccessPackageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
+     * Create new navigation property to accessPackages for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackage
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-accesspackages?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessPackage | undefined, requestConfiguration?: AccessPackagesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -71,7 +81,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
+     * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +99,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new accessPackage object. The access package will be added to an existing accessPackageCatalog.
+     * Create new navigation property to accessPackages for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

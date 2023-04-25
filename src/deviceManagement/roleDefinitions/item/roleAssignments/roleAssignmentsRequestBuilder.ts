@@ -4,9 +4,10 @@ import {createRoleAssignmentFromDiscriminatorValue} from '../../../../models/cre
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RoleAssignmentItemRequestBuilder} from './item/roleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
@@ -16,6 +17,17 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
+     * @param roleAssignmentId Unique identifier of the item
+     * @returns a RoleAssignmentItemRequestBuilder
+     */
+    public byRoleAssignmentId(roleAssignmentId: string) : RoleAssignmentItemRequestBuilder {
+        if(!roleAssignmentId) throw new Error("roleAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["roleAssignment%2Did"] = roleAssignmentId
+        return new RoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

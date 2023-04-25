@@ -5,19 +5,15 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {AddLargeGalleryViewRequestBuilder} from './addLargeGalleryView/addLargeGalleryViewRequestBuilder';
 import {AnswerRequestBuilder} from './answer/answerRequestBuilder';
 import {AudioRoutingGroupsRequestBuilder} from './audioRoutingGroups/audioRoutingGroupsRequestBuilder';
-import {AudioRoutingGroupItemRequestBuilder} from './audioRoutingGroups/item/audioRoutingGroupItemRequestBuilder';
 import {CallItemRequestBuilderDeleteRequestConfiguration} from './callItemRequestBuilderDeleteRequestConfiguration';
 import {CallItemRequestBuilderGetRequestConfiguration} from './callItemRequestBuilderGetRequestConfiguration';
 import {CallItemRequestBuilderPatchRequestConfiguration} from './callItemRequestBuilderPatchRequestConfiguration';
 import {CancelMediaProcessingRequestBuilder} from './cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
 import {ChangeScreenSharingRoleRequestBuilder} from './changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
 import {ContentSharingSessionsRequestBuilder} from './contentSharingSessions/contentSharingSessionsRequestBuilder';
-import {ContentSharingSessionItemRequestBuilder} from './contentSharingSessions/item/contentSharingSessionItemRequestBuilder';
 import {KeepAliveRequestBuilder} from './keepAlive/keepAliveRequestBuilder';
 import {MuteRequestBuilder} from './mute/muteRequestBuilder';
-import {CommsOperationItemRequestBuilder} from './operations/item/commsOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {ParticipantItemRequestBuilder} from './participants/item/participantItemRequestBuilder';
 import {ParticipantsRequestBuilder} from './participants/participantsRequestBuilder';
 import {PlayPromptRequestBuilder} from './playPrompt/playPromptRequestBuilder';
 import {RecordResponseRequestBuilder} from './recordResponse/recordResponseRequestBuilder';
@@ -27,7 +23,7 @@ import {SubscribeToToneRequestBuilder} from './subscribeToTone/subscribeToToneRe
 import {TransferRequestBuilder} from './transfer/transferRequestBuilder';
 import {UnmuteRequestBuilder} from './unmute/unmuteRequestBuilder';
 import {UpdateRecordingStatusRequestBuilder} from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
@@ -106,34 +102,12 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
         return new UpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
-     * @param id Unique identifier of the item
-     * @returns a AudioRoutingGroupItemRequestBuilder
-     */
-    public audioRoutingGroupsById(id: string) : AudioRoutingGroupItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["audioRoutingGroup%2Did"] = id
-        return new AudioRoutingGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new CallItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
-     * @param id Unique identifier of the item
-     * @returns a ContentSharingSessionItemRequestBuilder
-     */
-    public contentSharingSessionsById(id: string) : ContentSharingSessionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contentSharingSession%2Did"] = id
-        return new ContentSharingSessionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property calls for communications
@@ -165,28 +139,6 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.call entity.
-     * @param id Unique identifier of the item
-     * @returns a CommsOperationItemRequestBuilder
-     */
-    public operationsById(id: string) : CommsOperationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["commsOperation%2Did"] = id
-        return new CommsOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the participants property of the microsoft.graph.call entity.
-     * @param id Unique identifier of the item
-     * @returns a ParticipantItemRequestBuilder
-     */
-    public participantsById(id: string) : ParticipantItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["participant%2Did"] = id
-        return new ParticipantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property calls in communications

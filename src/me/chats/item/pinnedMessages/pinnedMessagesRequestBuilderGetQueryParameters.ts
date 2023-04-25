@@ -1,6 +1,6 @@
 
 /**
- * Get a list of pinnedChatMessages in a chat.
+ * A collection of all the pinned messages in the chat. Nullable.
  */
 export class PinnedMessagesRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupSettingsRequestBuilderGetRequestConfiguration} from './groupSettingsRequestBuilderGetRequestConfiguration';
 import {GroupSettingsRequestBuilderPostRequestConfiguration} from './groupSettingsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {GroupSettingItemRequestBuilder} from './item/groupSettingItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSetting entities.
@@ -16,6 +17,17 @@ export class GroupSettingsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of groupSetting entities.
+     * @param groupSettingId Unique identifier of the item
+     * @returns a GroupSettingItemRequestBuilder
+     */
+    public byGroupSettingId(groupSettingId: string) : GroupSettingItemRequestBuilder {
+        if(!groupSettingId) throw new Error("groupSettingId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["groupSetting%2Did"] = groupSettingId
+        return new GroupSettingItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new GroupSettingsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

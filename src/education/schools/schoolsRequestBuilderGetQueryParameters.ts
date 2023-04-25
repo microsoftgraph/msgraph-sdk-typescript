@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the educationSchool objects and their properties.
+ * Get schools from education
  */
 export class SchoolsRequestBuilderGetQueryParameters {
     /** Include count of items */

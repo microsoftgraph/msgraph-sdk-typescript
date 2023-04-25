@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object.
+ * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
  */
 export class ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
     /** Expand related entities */

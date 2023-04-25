@@ -40,11 +40,10 @@ export class DefaultRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Azure AD (**isServiceDefault** is `true`) or may be customized in your tenant (**isServiceDefault** is `false`).
+     * Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicyConfigurationDefault
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DefaultRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicyConfigurationDefault | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,12 +56,11 @@ export class DefaultRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CrossTenantAccessPolicyConfigurationDefault>(requestInfo, createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the default configuration of a cross-tenant access policy.
+     * Update the navigation property default in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicyConfigurationDefault
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationdefault-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CrossTenantAccessPolicyConfigurationDefault | undefined, requestConfiguration?: DefaultRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicyConfigurationDefault | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -92,7 +90,7 @@ export class DefaultRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the default configuration of a cross-tenant access policy. This default configuration may be the service default assigned by Azure AD (**isServiceDefault** is `true`) or may be customized in your tenant (**isServiceDefault** is `false`).
+     * Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +108,7 @@ export class DefaultRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the default configuration of a cross-tenant access policy.
+     * Update the navigation property default in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

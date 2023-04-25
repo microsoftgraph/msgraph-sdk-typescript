@@ -1,6 +1,6 @@
 
 /**
- * Read the properties and relationships of an ediscoveryCaseSettings object.
+ * Returns a list of eDIscoverySettings objects in the case.
  */
 export class SettingsRequestBuilderGetQueryParameters {
     /** Expand related entities */

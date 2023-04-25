@@ -11,13 +11,10 @@ import {SecurityApplyHoldRequestBuilder} from './securityApplyHold/securityApply
 import {SecurityReleaseRequestBuilder} from './securityRelease/securityReleaseRequestBuilder';
 import {SecurityRemoveHoldRequestBuilder} from './securityRemoveHold/securityRemoveHoldRequestBuilder';
 import {SecurityUpdateIndexRequestBuilder} from './securityUpdateIndex/securityUpdateIndexRequestBuilder';
-import {SiteSourceItemRequestBuilder} from './siteSources/item/siteSourceItemRequestBuilder';
 import {SiteSourcesRequestBuilder} from './siteSources/siteSourcesRequestBuilder';
-import {UnifiedGroupSourceItemRequestBuilder} from './unifiedGroupSources/item/unifiedGroupSourceItemRequestBuilder';
 import {UnifiedGroupSourcesRequestBuilder} from './unifiedGroupSources/unifiedGroupSourcesRequestBuilder';
-import {UserSourceItemRequestBuilder} from './userSources/item/userSourceItemRequestBuilder';
 import {UserSourcesRequestBuilder} from './userSources/userSourcesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
@@ -117,17 +114,6 @@ export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
-     * @param id Unique identifier of the item
-     * @returns a SiteSourceItemRequestBuilder
-     */
-    public siteSourcesById(id: string) : SiteSourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["siteSource%2Did"] = id
-        return new SiteSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Delete navigation property custodians for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -180,27 +166,5 @@ export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
-     * @param id Unique identifier of the item
-     * @returns a UnifiedGroupSourceItemRequestBuilder
-     */
-    public unifiedGroupSourcesById(id: string) : UnifiedGroupSourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["unifiedGroupSource%2Did"] = id
-        return new UnifiedGroupSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
-     * @param id Unique identifier of the item
-     * @returns a UserSourceItemRequestBuilder
-     */
-    public userSourcesById(id: string) : UserSourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["userSource%2Did"] = id
-        return new UserSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

@@ -18,11 +18,10 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/lastIndexOperation{?%24select,%24expand}");
     };
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Operation entity that represents the latest indexing for the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryIndexOperation
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-list-lastindexoperation?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LastIndexOperationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryIndexOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +34,7 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryIndexOperation>(requestInfo, createEdiscoveryIndexOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Operation entity that represents the latest indexing for the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

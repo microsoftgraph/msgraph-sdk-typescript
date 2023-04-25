@@ -7,7 +7,8 @@ import {AppConsentRequestsRequestBuilderGetRequestConfiguration} from './appCons
 import {AppConsentRequestsRequestBuilderPostRequestConfiguration} from './appConsentRequestsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AppConsentRequestItemRequestBuilder} from './item/appConsentRequestItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
@@ -17,6 +18,17 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
+     * @param appConsentRequestId Unique identifier of the item
+     * @returns a AppConsentRequestItemRequestBuilder
+     */
+    public byAppConsentRequestId(appConsentRequestId: string) : AppConsentRequestItemRequestBuilder {
+        if(!appConsentRequestId) throw new Error("appConsentRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["appConsentRequest%2Did"] = appConsentRequestId
+        return new AppConsentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AppConsentRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -35,11 +47,10 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Retrieve appConsentRequest objects and their properties.
+     * A collection of userConsentRequest objects for a specific application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppConsentRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/appconsentapprovalroute-list-appconsentrequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppConsentRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppConsentRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,7 +81,7 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AppConsentRequest>(requestInfo, createAppConsentRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve appConsentRequest objects and their properties.
+     * A collection of userConsentRequest objects for a specific application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

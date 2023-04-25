@@ -1,6 +1,6 @@
 
 /**
- * Read the properties and relationships of a schema object.
+ * Get schema from connections
  */
 export class SchemaRequestBuilderGetQueryParameters {
     /** Expand related entities */

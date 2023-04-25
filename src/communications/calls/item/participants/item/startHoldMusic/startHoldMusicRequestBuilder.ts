@@ -19,12 +19,11 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}/startHoldMusic");
     };
     /**
-     * Put a participant on hold and play music in the background.
+     * Invoke action startHoldMusic
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StartHoldMusicOperation
-     * @see {@link https://docs.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-1.0|Find more info here}
      */
     public post(body: StartHoldMusicPostRequestBody | undefined, requestConfiguration?: StartHoldMusicRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StartHoldMusicOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<StartHoldMusicOperation>(requestInfo, createStartHoldMusicOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Put a participant on hold and play music in the background.
+     * Invoke action startHoldMusic
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

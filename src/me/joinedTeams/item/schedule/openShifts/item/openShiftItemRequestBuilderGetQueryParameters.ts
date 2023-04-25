@@ -1,6 +1,6 @@
 
 /**
- * Get openShifts from me
+ * The set of open shifts in a scheduling group in the schedule.
  */
 export class OpenShiftItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

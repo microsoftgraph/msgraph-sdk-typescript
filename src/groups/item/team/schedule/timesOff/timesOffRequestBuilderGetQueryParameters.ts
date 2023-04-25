@@ -1,6 +1,6 @@
 
 /**
- * Get the list of timeOff instances in a schedule.
+ * The instances of times off in the schedule.
  */
 export class TimesOffRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of b2xIdentityUserFlow objects.
+ * Represents entry point for B2X/self-service sign-up identity userflows.
  */
 export class B2xUserFlowsRequestBuilderGetQueryParameters {
     /** Include count of items */

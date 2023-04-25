@@ -4,9 +4,10 @@ import {createAgreementFileLocalizationFromDiscriminatorValue} from '../../../..
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {AgreementFileLocalizationItemRequestBuilder} from './item/agreementFileLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
 import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
@@ -16,6 +17,17 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
+     * @param agreementFileLocalizationId Unique identifier of the item
+     * @returns a AgreementFileLocalizationItemRequestBuilder
+     */
+    public byAgreementFileLocalizationId(agreementFileLocalizationId: string) : AgreementFileLocalizationItemRequestBuilder {
+        if(!agreementFileLocalizationId) throw new Error("agreementFileLocalizationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["agreementFileLocalization%2Did"] = agreementFileLocalizationId
+        return new AgreementFileLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new LocalizationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

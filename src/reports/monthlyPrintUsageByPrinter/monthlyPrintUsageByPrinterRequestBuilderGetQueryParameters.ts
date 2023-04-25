@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of monthly print usage summaries, grouped by printer.
+ * Get monthlyPrintUsageByPrinter from reports
  */
 export class MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -4,9 +4,10 @@ import {Store, StoreCollectionResponse} from '../../../../../models/termStore/';
 import {createStoreCollectionResponseFromDiscriminatorValue} from '../../../../../models/termStore/createStoreCollectionResponseFromDiscriminatorValue';
 import {createStoreFromDiscriminatorValue} from '../../../../../models/termStore/createStoreFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {StoreItemRequestBuilder} from './item/storeItemRequestBuilder';
 import {TermStoresRequestBuilderGetRequestConfiguration} from './termStoresRequestBuilderGetRequestConfiguration';
 import {TermStoresRequestBuilderPostRequestConfiguration} from './termStoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termStores property of the microsoft.graph.site entity.
@@ -16,6 +17,17 @@ export class TermStoresRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the termStores property of the microsoft.graph.site entity.
+     * @param storeId Unique identifier of the item
+     * @returns a StoreItemRequestBuilder
+     */
+    public byStoreId(storeId: string) : StoreItemRequestBuilder {
+        if(!storeId) throw new Error("storeId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["store%2Did"] = storeId
+        return new StoreItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TermStoresRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

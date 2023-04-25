@@ -1,6 +1,6 @@
 
 /**
- * Get the overrides that a user has set up to always classify messages from certain senders in specific ways. Each override corresponds to an SMTP address of a sender. Initially, a user does not have any overrides.
+ * A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.
  */
 export class OverridesRequestBuilderGetQueryParameters {
     /** Include count of items */

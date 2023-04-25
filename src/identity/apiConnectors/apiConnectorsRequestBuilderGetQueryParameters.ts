@@ -1,6 +1,6 @@
 
 /**
- * Read the properties of an identityApiConnector object.
+ * Represents entry point for API connectors.
  */
 export class ApiConnectorsRequestBuilderGetQueryParameters {
     /** Include count of items */

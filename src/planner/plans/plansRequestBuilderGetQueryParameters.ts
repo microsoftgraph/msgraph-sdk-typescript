@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of **plannerplan** objects.
+ * Read-only. Nullable. Returns a collection of the specified plans
  */
 export class PlansRequestBuilderGetQueryParameters {
     /** Include count of items */

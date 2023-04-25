@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the members of a standard tag in a team and their properties.
+ * Users assigned to the tag.
  */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */

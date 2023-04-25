@@ -10,7 +10,7 @@ export class OpenShift extends ChangeTrackedEntity implements Parsable {
     /** A published open shift. */
     private _sharedOpenShift?: OpenShiftItem | undefined;
     /**
-     * Instantiates a new OpenShift and sets the default values.
+     * Instantiates a new openShift and sets the default values.
      */
     public constructor() {
         super();

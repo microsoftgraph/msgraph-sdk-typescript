@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of authentication methods registered to a user. The authentication methods are defined by the types derived from the authenticationMethod resource type, and only the methods supported on this API version. See Azure AD authentication methods API overview for a list of currently supported methods.
+ * Represents all authentication methods registered to a user.
  */
 export class MethodsRequestBuilderGetQueryParameters {
     /** Include count of items */

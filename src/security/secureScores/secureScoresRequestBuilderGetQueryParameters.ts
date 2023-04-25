@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of secureScore objects.
+ * Get secureScores from security
  */
 export class SecureScoresRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -3,11 +3,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {Incident} from '../../../models/security/';
 import {createIncidentFromDiscriminatorValue} from '../../../models/security/createIncidentFromDiscriminatorValue';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
-import {AlertItemRequestBuilder} from './alerts/item/alertItemRequestBuilder';
 import {IncidentItemRequestBuilderDeleteRequestConfiguration} from './incidentItemRequestBuilderDeleteRequestConfiguration';
 import {IncidentItemRequestBuilderGetRequestConfiguration} from './incidentItemRequestBuilderGetRequestConfiguration';
 import {IncidentItemRequestBuilderPatchRequestConfiguration} from './incidentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
@@ -17,17 +16,6 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
-     * @param id Unique identifier of the item
-     * @returns a AlertItemRequestBuilder
-     */
-    public alertsById(id: string) : AlertItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["alert%2Did"] = id
-        return new AlertItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new IncidentItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

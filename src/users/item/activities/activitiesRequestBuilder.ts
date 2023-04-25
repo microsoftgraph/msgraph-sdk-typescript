@@ -6,8 +6,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesRequestBuilderGetRequestConfiguration';
 import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UserActivityItemRequestBuilder} from './item/userActivityItemRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.user entity.
@@ -21,6 +22,17 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
     public get recent(): RecentRequestBuilder {
         return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the activities property of the microsoft.graph.user entity.
+     * @param userActivityId Unique identifier of the item
+     * @returns a UserActivityItemRequestBuilder
+     */
+    public byUserActivityId(userActivityId: string) : UserActivityItemRequestBuilder {
+        if(!userActivityId) throw new Error("userActivityId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userActivity%2Did"] = userActivityId
+        return new UserActivityItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ActivitiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

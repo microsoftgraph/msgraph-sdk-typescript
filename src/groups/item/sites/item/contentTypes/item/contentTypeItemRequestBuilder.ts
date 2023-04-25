@@ -5,13 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilderEscaped} from './base/baseRequestBuilderEscaped';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as Ia3d58f3515c811665abe892cc227bf80e22962d3fbb72339678e8de3814560ce} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
-import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as If77ec2cf116318fe73a00df1ab5e326b390b9242392ef8ac38ed5d1951be7039} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as Ifaf517569840a0855af7f4970a8de0d4f228b63971f19ef197879aa08557bca6} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
@@ -19,7 +15,7 @@ import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContent
 import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
@@ -65,50 +61,6 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ContentTypeItemRequestBuilder
-     */
-    public baseTypesById(id: string) : Ia3d58f3515c811665abe892cc227bf80e22962d3fbb72339678e8de3814560ce {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contentType%2Did1"] = id
-        return new Ia3d58f3515c811665abe892cc227bf80e22962d3fbb72339678e8de3814560ce(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ColumnLinkItemRequestBuilder
-     */
-    public columnLinksById(id: string) : ColumnLinkItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnLink%2Did"] = id
-        return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ColumnDefinitionItemRequestBuilder
-     */
-    public columnPositionsById(id: string) : If77ec2cf116318fe73a00df1ab5e326b390b9242392ef8ac38ed5d1951be7039 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnDefinition%2Did"] = id
-        return new If77ec2cf116318fe73a00df1ab5e326b390b9242392ef8ac38ed5d1951be7039(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ColumnDefinitionItemRequestBuilder
-     */
-    public columnsById(id: string) : Ifaf517569840a0855af7f4970a8de0d4f228b63971f19ef197879aa08557bca6 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnDefinition%2Did"] = id
-        return new Ifaf517569840a0855af7f4970a8de0d4f228b63971f19ef197879aa08557bca6(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

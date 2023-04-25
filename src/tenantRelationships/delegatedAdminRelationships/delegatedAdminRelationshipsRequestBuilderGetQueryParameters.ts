@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the delegatedAdminRelationship objects and their properties.
+ * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
  */
 export class DelegatedAdminRelationshipsRequestBuilderGetQueryParameters {
     /** Include count of items */

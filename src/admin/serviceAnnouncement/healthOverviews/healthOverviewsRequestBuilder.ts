@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HealthOverviewsRequestBuilderGetRequestConfiguration} from './healthOverviewsRequestBuilderGetRequestConfiguration';
 import {HealthOverviewsRequestBuilderPostRequestConfiguration} from './healthOverviewsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ServiceHealthItemRequestBuilder} from './item/serviceHealthItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
@@ -17,6 +18,17 @@ export class HealthOverviewsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
+     * @param serviceHealthId Unique identifier of the item
+     * @returns a ServiceHealthItemRequestBuilder
+     */
+    public byServiceHealthId(serviceHealthId: string) : ServiceHealthItemRequestBuilder {
+        if(!serviceHealthId) throw new Error("serviceHealthId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["serviceHealth%2Did"] = serviceHealthId
+        return new ServiceHealthItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new HealthOverviewsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class HealthOverviewsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/healthOverviews{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the serviceHealth resources from the **healthOverviews** navigation property. This operation provides the health report of all subscribed services for a tenant.
+     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceHealthCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceannouncement-list-healthoverviews?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HealthOverviewsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceHealthCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class HealthOverviewsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the serviceHealth resources from the **healthOverviews** navigation property. This operation provides the health report of all subscribed services for a tenant.
+     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

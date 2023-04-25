@@ -19,12 +19,11 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/addPassword");
     };
     /**
-     * Adds a strong password or secret to an application.
+     * Invoke action addPassword
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PasswordCredential
-     * @see {@link https://docs.microsoft.com/graph/api/application-addpassword?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPasswordPostRequestBody | undefined, requestConfiguration?: AddPasswordRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PasswordCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PasswordCredential>(requestInfo, createPasswordCredentialFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Adds a strong password or secret to an application.
+     * Invoke action addPassword
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

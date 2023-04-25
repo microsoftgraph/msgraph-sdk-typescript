@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of tenant-level or group-specific group settings objects.
+ * Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
  */
 export class SettingsRequestBuilderGetQueryParameters {
     /** Include count of items */

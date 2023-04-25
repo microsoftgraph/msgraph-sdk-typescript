@@ -5,12 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {AuditLogsRequestBuilderGetRequestConfiguration} from './auditLogsRequestBuilderGetRequestConfiguration';
 import {AuditLogsRequestBuilderPatchRequestConfiguration} from './auditLogsRequestBuilderPatchRequestConfiguration';
 import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
-import {DirectoryAuditItemRequestBuilder} from './directoryAudits/item/directoryAuditItemRequestBuilder';
-import {ProvisioningObjectSummaryItemRequestBuilder} from './provisioning/item/provisioningObjectSummaryItemRequestBuilder';
 import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
-import {SignInItemRequestBuilder} from './signIns/item/signInItemRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditLogRoot singleton.
@@ -35,17 +32,6 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/auditLogs{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a DirectoryAuditItemRequestBuilder
-     */
-    public directoryAuditsById(id: string) : DirectoryAuditItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryAudit%2Did"] = id
-        return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get auditLogs
@@ -80,28 +66,6 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ProvisioningObjectSummaryItemRequestBuilder
-     */
-    public provisioningById(id: string) : ProvisioningObjectSummaryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["provisioningObjectSummary%2Did"] = id
-        return new ProvisioningObjectSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a SignInItemRequestBuilder
-     */
-    public signInsById(id: string) : SignInItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["signIn%2Did"] = id
-        return new SignInItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get auditLogs

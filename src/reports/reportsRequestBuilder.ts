@@ -3,9 +3,7 @@ import {createReportRootFromDiscriminatorValue} from '../models/createReportRoot
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByPrinterItemRequestBuilder as I040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4} from './dailyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
-import {PrintUsageByUserItemRequestBuilder as I0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236} from './dailyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
 import {DeviceConfigurationDeviceActivityRequestBuilder} from './deviceConfigurationDeviceActivity/deviceConfigurationDeviceActivityRequestBuilder';
 import {DeviceConfigurationUserActivityRequestBuilder} from './deviceConfigurationUserActivity/deviceConfigurationUserActivityRequestBuilder';
 import {GetEmailActivityCountsWithPeriodRequestBuilder} from './getEmailActivityCountsWithPeriod/getEmailActivityCountsWithPeriodRequestBuilder';
@@ -81,6 +79,11 @@ import {GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder} from 
 import {GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder} from './getTeamsDeviceUsageUserCountsWithPeriod/getTeamsDeviceUsageUserCountsWithPeriodRequestBuilder';
 import {GetTeamsDeviceUsageUserDetailWithDateRequestBuilder} from './getTeamsDeviceUsageUserDetailWithDate/getTeamsDeviceUsageUserDetailWithDateRequestBuilder';
 import {GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder} from './getTeamsDeviceUsageUserDetailWithPeriod/getTeamsDeviceUsageUserDetailWithPeriodRequestBuilder';
+import {GetTeamsTeamActivityCountsWithPeriodRequestBuilder} from './getTeamsTeamActivityCountsWithPeriod/getTeamsTeamActivityCountsWithPeriodRequestBuilder';
+import {GetTeamsTeamActivityDetailWithDateRequestBuilder} from './getTeamsTeamActivityDetailWithDate/getTeamsTeamActivityDetailWithDateRequestBuilder';
+import {GetTeamsTeamActivityDetailWithPeriodRequestBuilder} from './getTeamsTeamActivityDetailWithPeriod/getTeamsTeamActivityDetailWithPeriodRequestBuilder';
+import {GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder} from './getTeamsTeamActivityDistributionCountsWithPeriod/getTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder';
+import {GetTeamsTeamCountsWithPeriodRequestBuilder} from './getTeamsTeamCountsWithPeriod/getTeamsTeamCountsWithPeriodRequestBuilder';
 import {GetTeamsUserActivityCountsWithPeriodRequestBuilder} from './getTeamsUserActivityCountsWithPeriod/getTeamsUserActivityCountsWithPeriodRequestBuilder';
 import {GetTeamsUserActivityUserCountsWithPeriodRequestBuilder} from './getTeamsUserActivityUserCountsWithPeriod/getTeamsUserActivityUserCountsWithPeriodRequestBuilder';
 import {GetTeamsUserActivityUserDetailWithDateRequestBuilder} from './getTeamsUserActivityUserDetailWithDate/getTeamsUserActivityUserDetailWithDateRequestBuilder';
@@ -102,14 +105,12 @@ import {ManagedDeviceEnrollmentFailureDetailsRequestBuilder} from './managedDevi
 import {ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder} from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken/managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresRequestBuilder} from './managedDeviceEnrollmentTopFailures/managedDeviceEnrollmentTopFailuresRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder} from './managedDeviceEnrollmentTopFailuresWithPeriod/managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder';
-import {PrintUsageByPrinterItemRequestBuilder as I464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByUserItemRequestBuilder as Ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c} from './monthlyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
 import {ReportsRequestBuilderGetRequestConfiguration} from './reportsRequestBuilderGetRequestConfiguration';
 import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBuilderPatchRequestConfiguration';
 import {SecurityRequestBuilder} from './security/securityRequestBuilder';
-import {BaseRequestBuilder, DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, DateOnly, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reportRoot singleton.
@@ -170,28 +171,6 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/reports{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintUsageByPrinterItemRequestBuilder
-     */
-    public dailyPrintUsageByPrinterById(id: string) : I040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByPrinter%2Did"] = id
-        return new I040d432bf097a5c3e088b5b286dc35b17b6fde7ba1189da8ab6b5cbe1c14edd4(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintUsageByUserItemRequestBuilder
-     */
-    public dailyPrintUsageByUserById(id: string) : I0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByUser%2Did"] = id
-        return new I0a6ffb5ab17952fcc5b605654a921e4b7048a059232acf91ceb8af666ce0f236(urlTplParams, this.requestAdapter);
     };
     /**
      * Get reports
@@ -848,6 +827,51 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
+     * Provides operations to call the getTeamsTeamActivityCounts method.
+     * @param period Usage: period='{period}'
+     * @returns a getTeamsTeamActivityCountsWithPeriodRequestBuilder
+     */
+    public getTeamsTeamActivityCountsWithPeriod(period: string | undefined) : GetTeamsTeamActivityCountsWithPeriodRequestBuilder {
+        if(!period) throw new Error("period cannot be undefined");
+        return new GetTeamsTeamActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
+    };
+    /**
+     * Provides operations to call the getTeamsTeamActivityDetail method.
+     * @param date Usage: date={date}
+     * @returns a getTeamsTeamActivityDetailWithDateRequestBuilder
+     */
+    public getTeamsTeamActivityDetailWithDate(date: DateOnly | undefined) : GetTeamsTeamActivityDetailWithDateRequestBuilder {
+        if(!date) throw new Error("date cannot be undefined");
+        return new GetTeamsTeamActivityDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
+    };
+    /**
+     * Provides operations to call the getTeamsTeamActivityDetail method.
+     * @param period Usage: period='{period}'
+     * @returns a getTeamsTeamActivityDetailWithPeriodRequestBuilder
+     */
+    public getTeamsTeamActivityDetailWithPeriod(period: string | undefined) : GetTeamsTeamActivityDetailWithPeriodRequestBuilder {
+        if(!period) throw new Error("period cannot be undefined");
+        return new GetTeamsTeamActivityDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
+    };
+    /**
+     * Provides operations to call the getTeamsTeamActivityDistributionCounts method.
+     * @param period Usage: period='{period}'
+     * @returns a getTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder
+     */
+    public getTeamsTeamActivityDistributionCountsWithPeriod(period: string | undefined) : GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder {
+        if(!period) throw new Error("period cannot be undefined");
+        return new GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
+    };
+    /**
+     * Provides operations to call the getTeamsTeamCounts method.
+     * @param period Usage: period='{period}'
+     * @returns a getTeamsTeamCountsWithPeriodRequestBuilder
+     */
+    public getTeamsTeamCountsWithPeriod(period: string | undefined) : GetTeamsTeamCountsWithPeriodRequestBuilder {
+        if(!period) throw new Error("period cannot be undefined");
+        return new GetTeamsTeamCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
+    };
+    /**
      * Provides operations to call the getTeamsUserActivityCounts method.
      * @param period Usage: period='{period}'
      * @returns a getTeamsUserActivityCountsWithPeriodRequestBuilder
@@ -1027,28 +1051,6 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
     public managedDeviceEnrollmentTopFailuresWithPeriod(period: string | undefined) : ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
         return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
-    };
-    /**
-     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintUsageByPrinterItemRequestBuilder
-     */
-    public monthlyPrintUsageByPrinterById(id: string) : I464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByPrinter%2Did"] = id
-        return new I464ef823ccbb3cda573d85f5b690bdfbadd75533d381eee43a717ec4bcf9e9da(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintUsageByUserItemRequestBuilder
-     */
-    public monthlyPrintUsageByUserById(id: string) : Ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByUser%2Did"] = id
-        return new Ib890b4082f7b0793dcec266773608fab2228163761130f66570881247e35699c(urlTplParams, this.requestAdapter);
     };
     /**
      * Update reports

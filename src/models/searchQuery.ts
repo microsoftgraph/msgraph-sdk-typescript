@@ -7,7 +7,7 @@ export class SearchQuery implements AdditionalDataHolder, Parsable {
     private _odataType?: string | undefined;
     /** The search query containing the search terms. Required. */
     private _queryString?: string | undefined;
-    /** The queryTemplate property */
+    /** Provides a way to decorate the query string. Supports both KQL and query variables. Optional. */
     private _queryTemplate?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -69,14 +69,14 @@ export class SearchQuery implements AdditionalDataHolder, Parsable {
         this._queryString = value;
     };
     /**
-     * Gets the queryTemplate property value. The queryTemplate property
+     * Gets the queryTemplate property value. Provides a way to decorate the query string. Supports both KQL and query variables. Optional.
      * @returns a string
      */
     public get queryTemplate() {
         return this._queryTemplate;
     };
     /**
-     * Sets the queryTemplate property value. The queryTemplate property
+     * Sets the queryTemplate property value. Provides a way to decorate the query string. Supports both KQL and query variables. Optional.
      * @param value Value to set for the queryTemplate property.
      */
     public set queryTemplate(value: string | undefined) {

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of timeOffRequest objects in the team.
+ * Get timeOffRequests from groups
  */
 export class TimeOffRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */

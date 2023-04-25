@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of connectedOrganization objects.
+ * References to a directory or domain of another organization whose users can request access.
  */
 export class ConnectedOrganizationsRequestBuilderGetQueryParameters {
     /** Include count of items */

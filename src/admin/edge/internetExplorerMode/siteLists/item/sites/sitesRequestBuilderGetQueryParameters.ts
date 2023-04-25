@@ -1,6 +1,6 @@
 
 /**
- * Get sites from admin
+ * A collection of sites defined for the site list.
  */
 export class SitesRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of swapShiftsChangeRequest objects in the team.
+ * Get swapShiftsChangeRequests from teams
  */
 export class SwapShiftsChangeRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */

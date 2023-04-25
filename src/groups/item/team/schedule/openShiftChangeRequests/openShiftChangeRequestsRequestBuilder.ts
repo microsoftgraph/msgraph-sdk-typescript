@@ -4,9 +4,10 @@ import {createOpenShiftChangeRequestFromDiscriminatorValue} from '../../../../..
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OpenShiftChangeRequestItemRequestBuilder} from './item/openShiftChangeRequestItemRequestBuilder';
 import {OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration} from './openShiftChangeRequestsRequestBuilderGetRequestConfiguration';
 import {OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration} from './openShiftChangeRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
@@ -17,6 +18,17 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
+     * @param openShiftChangeRequestId Unique identifier of the item
+     * @returns a OpenShiftChangeRequestItemRequestBuilder
+     */
+    public byOpenShiftChangeRequestId(openShiftChangeRequestId: string) : OpenShiftChangeRequestItemRequestBuilder {
+        if(!openShiftChangeRequestId) throw new Error("openShiftChangeRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["openShiftChangeRequest%2Did"] = openShiftChangeRequestId
+        return new OpenShiftChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new OpenShiftChangeRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/openShiftChangeRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of openShiftChangeRequest objects in a team.
+     * The open shift requests in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShiftChangeRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/openshiftchangerequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShiftChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OpenShiftChangeRequestCollectionResponse>(requestInfo, createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create instance of an openShiftChangeRequest object.
+     * Create new navigation property to openShiftChangeRequests for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShiftChangeRequest
-     * @see {@link https://docs.microsoft.com/graph/api/openshiftchangerequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OpenShiftChangeRequest | undefined, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShiftChangeRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OpenShiftChangeRequest>(requestInfo, createOpenShiftChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of openShiftChangeRequest objects in a team.
+     * The open shift requests in the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create instance of an openShiftChangeRequest object.
+     * Create new navigation property to openShiftChangeRequests for groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

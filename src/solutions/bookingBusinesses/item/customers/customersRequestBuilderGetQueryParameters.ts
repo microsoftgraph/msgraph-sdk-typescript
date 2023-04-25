@@ -1,6 +1,6 @@
 
 /**
- * Get a list of bookingCustomer objects of a business.
+ * All the customers of this business. Read-only. Nullable.
  */
 export class CustomersRequestBuilderGetQueryParameters {
     /** Include count of items */

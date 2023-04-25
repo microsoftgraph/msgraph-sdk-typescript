@@ -4,9 +4,10 @@ import {createTokenIssuancePolicyFromDiscriminatorValue} from '../../models/crea
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TokenIssuancePolicyItemRequestBuilder} from './item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilderGetRequestConfiguration} from './tokenIssuancePoliciesRequestBuilderGetRequestConfiguration';
 import {TokenIssuancePoliciesRequestBuilderPostRequestConfiguration} from './tokenIssuancePoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
@@ -17,6 +18,17 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
+     * @param tokenIssuancePolicyId Unique identifier of the item
+     * @returns a TokenIssuancePolicyItemRequestBuilder
+     */
+    public byTokenIssuancePolicyId(tokenIssuancePolicyId: string) : TokenIssuancePolicyItemRequestBuilder {
+        if(!tokenIssuancePolicyId) throw new Error("tokenIssuancePolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["tokenIssuancePolicy%2Did"] = tokenIssuancePolicyId
+        return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TokenIssuancePoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/tokenIssuancePolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of tokenIssuancePolicy objects.
+     * The policy that specifies the characteristics of SAML tokens issued by Azure AD.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TokenIssuancePolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tokenissuancepolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TokenIssuancePoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenIssuancePolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TokenIssuancePolicyCollectionResponse>(requestInfo, createTokenIssuancePolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new tokenIssuancePolicy object.
+     * Create new navigation property to tokenIssuancePolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TokenIssuancePolicy
-     * @see {@link https://docs.microsoft.com/graph/api/tokenissuancepolicy-post-tokenissuancepolicy?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TokenIssuancePolicy | undefined, requestConfiguration?: TokenIssuancePoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenIssuancePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TokenIssuancePolicy>(requestInfo, createTokenIssuancePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of tokenIssuancePolicy objects.
+     * The policy that specifies the characteristics of SAML tokens issued by Azure AD.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new tokenIssuancePolicy object.
+     * Create new navigation property to tokenIssuancePolicies for policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

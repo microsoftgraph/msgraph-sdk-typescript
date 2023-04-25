@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of named item associated with the worksheet. 
+ * Returns collection of names that are associated with the worksheet. Read-only.
  */
 export class NamesRequestBuilderGetQueryParameters {
     /** Include count of items */

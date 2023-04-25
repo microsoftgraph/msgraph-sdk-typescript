@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of tablecolumn objects.
+ * Represents a collection of all the columns in the table. Read-only.
  */
 export class ColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */

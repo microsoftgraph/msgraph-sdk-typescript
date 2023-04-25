@@ -5,10 +5,11 @@ import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookTableRowItemRequestBuilder} from './item/workbookTableRowItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {RowsRequestBuilderGetRequestConfiguration} from './rowsRequestBuilderGetRequestConfiguration';
 import {RowsRequestBuilderPostRequestConfiguration} from './rowsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
@@ -23,6 +24,17 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
+     * @param workbookTableRowId Unique identifier of the item
+     * @returns a WorkbookTableRowItemRequestBuilder
+     */
+    public byWorkbookTableRowId(workbookTableRowId: string) : WorkbookTableRowItemRequestBuilder {
+        if(!workbookTableRowId) throw new Error("workbookTableRowId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookTableRow%2Did"] = workbookTableRowId
+        return new WorkbookTableRowItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new RowsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -31,11 +43,10 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/rows{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of tablerow objects.
+     * Represents a collection of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableRowCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/table-list-rows?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RowsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,12 +68,11 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
-     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a `504 HTTP` error. The appropriate response to this error is to repeat the request.
+     * Create new navigation property to rows for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableRow
-     * @see {@link https://docs.microsoft.com/graph/api/table-post-rows?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkbookTableRow | undefined, requestConfiguration?: RowsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableRow | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +86,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookTableRow>(requestInfo, createWorkbookTableRowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of tablerow objects.
+     * Represents a collection of all the rows in the table. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +104,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a `504 HTTP` error. The appropriate response to this error is to repeat the request.
+     * Create new navigation property to rows for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

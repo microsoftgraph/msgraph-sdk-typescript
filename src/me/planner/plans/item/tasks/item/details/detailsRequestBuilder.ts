@@ -35,11 +35,10 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of a **plannerTaskDetails** object.
+     * Read-only. Nullable. Additional details about the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerTaskDetails
-     * @see {@link https://docs.microsoft.com/graph/api/plannertaskdetails-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DetailsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerTaskDetails | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +56,6 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerTaskDetails
-     * @see {@link https://docs.microsoft.com/graph/api/plannertaskdetails-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerTaskDetails | undefined, requestConfiguration?: DetailsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerTaskDetails | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -87,7 +85,7 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a **plannerTaskDetails** object.
+     * Read-only. Nullable. Additional details about the task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of authenticationContextClassReference objects.
+ * Read-only. Nullable. Returns a collection of the specified authentication context class references.
  */
 export class AuthenticationContextClassReferencesRequestBuilderGetQueryParameters {
     /** Include count of items */

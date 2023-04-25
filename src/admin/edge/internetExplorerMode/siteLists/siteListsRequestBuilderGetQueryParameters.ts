@@ -1,6 +1,6 @@
 
 /**
- * Get siteLists from admin
+ * A collection of site lists to support Internet Explorer mode.
  */
 export class SiteListsRequestBuilderGetQueryParameters {
     /** Include count of items */

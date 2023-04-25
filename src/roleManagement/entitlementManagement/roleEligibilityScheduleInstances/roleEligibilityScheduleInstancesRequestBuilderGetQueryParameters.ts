@@ -1,6 +1,6 @@
 
 /**
- * Get the instances of role eligibilities.
+ * Instances for role eligibility requests.
  */
 export class RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters {
     /** Include count of items */

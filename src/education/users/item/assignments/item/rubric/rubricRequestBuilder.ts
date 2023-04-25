@@ -40,11 +40,10 @@ export class RubricRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
+     * When set, the grading rubric attached to this assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationRubric
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-get-rubric?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RubricRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRubric | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -91,7 +90,7 @@ export class RubricRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
+     * When set, the grading rubric attached to this assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -6,12 +6,9 @@ import {AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration} from './
 import {AdministrativeUnitItemRequestBuilderGetRequestConfiguration} from './administrativeUnitItemRequestBuilderGetRequestConfiguration';
 import {AdministrativeUnitItemRequestBuilderPatchRequestConfiguration} from './administrativeUnitItemRequestBuilderPatchRequestConfiguration';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './members/item/directoryObjectItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {ScopedRoleMembershipItemRequestBuilder} from './scopedRoleMembers/item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedRoleMembersRequestBuilder} from './scopedRoleMembers/scopedRoleMembersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
@@ -53,17 +50,6 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity.
-     * @param id Unique identifier of the item
-     * @returns a ExtensionItemRequestBuilder
-     */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extension%2Did"] = id
-        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Conceptual container for user and group directory objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -78,17 +64,6 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item.members.item collection
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public membersById(id: string) : DirectoryObjectItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property administrativeUnits in directory
@@ -107,17 +82,6 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
-     * @param id Unique identifier of the item
-     * @returns a ScopedRoleMembershipItemRequestBuilder
-     */
-    public scopedRoleMembersById(id: string) : ScopedRoleMembershipItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["scopedRoleMembership%2Did"] = id
-        return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property administrativeUnits for directory

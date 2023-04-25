@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of apps installed in the specified team.
+ * The apps installed in this team.
  */
 export class InstalledAppsRequestBuilderGetQueryParameters {
     /** Include count of items */

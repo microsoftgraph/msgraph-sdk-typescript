@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the todoTaskList objects and their properties.
+ * The task lists in the users mailbox.
  */
 export class ListsRequestBuilderGetQueryParameters {
     /** Include count of items */

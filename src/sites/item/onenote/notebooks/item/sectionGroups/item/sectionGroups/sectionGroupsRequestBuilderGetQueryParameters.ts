@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of section groups from the specified section group.
+ * The section groups in the section. Read-only. Nullable.
  */
 export class SectionGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */

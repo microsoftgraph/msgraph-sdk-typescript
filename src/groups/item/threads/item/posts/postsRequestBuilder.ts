@@ -3,8 +3,9 @@ import {createPostCollectionResponseFromDiscriminatorValue} from '../../../../..
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PostItemRequestBuilder} from './item/postItemRequestBuilder';
 import {PostsRequestBuilderGetRequestConfiguration} from './postsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
@@ -15,6 +16,17 @@ export class PostsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
+     * @param postId Unique identifier of the item
+     * @returns a PostItemRequestBuilder
+     */
+    public byPostId(postId: string) : PostItemRequestBuilder {
+        if(!postId) throw new Error("postId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["post%2Did"] = postId
+        return new PostItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new PostsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -23,11 +35,10 @@ export class PostsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
+     * Get posts from groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PostCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PostsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PostCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -40,7 +51,7 @@ export class PostsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PostCollectionResponse>(requestInfo, createPostCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
+     * Get posts from groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

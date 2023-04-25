@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of printConnectors associated with the printer.
+ * The connectors that are associated with the printer.
  */
 export class ConnectorsRequestBuilderGetQueryParameters {
     /** Include count of items */

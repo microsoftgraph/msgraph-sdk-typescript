@@ -1,6 +1,6 @@
 
 /**
- * Read the properties and relationships of a crossTenantAccessPolicy object.
+ * The custom rules that define an access scenario when interacting with external Azure AD tenants.
  */
 export class CrossTenantAccessPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */

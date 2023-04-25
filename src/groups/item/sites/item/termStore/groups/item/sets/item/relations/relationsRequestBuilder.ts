@@ -4,9 +4,10 @@ import {Relation, RelationCollectionResponse} from '../../../../../../../../../.
 import {createRelationCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../../models/termStore/createRelationCollectionResponseFromDiscriminatorValue';
 import {createRelationFromDiscriminatorValue} from '../../../../../../../../../../models/termStore/createRelationFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RelationItemRequestBuilder} from './item/relationItemRequestBuilder';
 import {RelationsRequestBuilderGetRequestConfiguration} from './relationsRequestBuilderGetRequestConfiguration';
 import {RelationsRequestBuilderPostRequestConfiguration} from './relationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
@@ -17,6 +18,17 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
+     * @param relationId Unique identifier of the item
+     * @returns a RelationItemRequestBuilder
+     */
+    public byRelationId(relationId: string) : RelationItemRequestBuilder {
+        if(!relationId) throw new Error("relationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["relation%2Did"] = relationId
+        return new RelationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new RelationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/groups/{group%2Did1}/sets/{set%2Did}/relations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the different relation of a [term] or [set] from the relations navigation property.
+     * Indicates which terms have been pinned or reused directly under the set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RelationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-list-relations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RelationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RelationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Relation>(requestInfo, createRelationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the different relation of a [term] or [set] from the relations navigation property.
+     * Indicates which terms have been pinned or reused directly under the set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,6 +1,6 @@
 
 /**
- * Get this organizational contact's manager.
+ * Get manager from contacts
  */
 export class ManagerRequestBuilderGetQueryParameters {
     /** Expand related entities */

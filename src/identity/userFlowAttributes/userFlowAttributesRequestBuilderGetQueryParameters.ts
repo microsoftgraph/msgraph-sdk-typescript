@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of identityUserFlowAttribute objects.
+ * Represents entry point for identity userflow attributes.
  */
 export class UserFlowAttributesRequestBuilderGetQueryParameters {
     /** Include count of items */

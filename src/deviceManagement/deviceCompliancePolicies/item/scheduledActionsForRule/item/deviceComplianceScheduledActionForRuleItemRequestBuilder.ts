@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {DeviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration} from './deviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration} from './deviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration';
 import {DeviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration} from './deviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration';
-import {DeviceComplianceActionItemItemRequestBuilder} from './scheduledActionConfigurations/item/deviceComplianceActionItemItemRequestBuilder';
 import {ScheduledActionConfigurationsRequestBuilder} from './scheduledActionConfigurations/scheduledActionConfigurationsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -73,17 +72,6 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends Ba
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceComplianceActionItemItemRequestBuilder
-     */
-    public scheduledActionConfigurationsById(id: string) : DeviceComplianceActionItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceComplianceActionItem%2Did"] = id
-        return new DeviceComplianceActionItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property scheduledActionsForRule for deviceManagement

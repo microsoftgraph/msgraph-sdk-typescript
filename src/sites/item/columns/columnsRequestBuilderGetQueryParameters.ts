@@ -1,6 +1,6 @@
 
 /**
- * Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [site][site].
+ * The collection of column definitions reusable across lists under this site.
  */
 export class ColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */

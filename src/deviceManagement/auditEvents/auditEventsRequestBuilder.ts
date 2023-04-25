@@ -8,7 +8,8 @@ import {AuditEventsRequestBuilderPostRequestConfiguration} from './auditEventsRe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAuditActivityTypesWithCategoryRequestBuilder} from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
 import {GetAuditCategoriesRequestBuilder} from './getAuditCategories/getAuditCategoriesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AuditEventItemRequestBuilder} from './item/auditEventItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
@@ -22,6 +23,17 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
     public get getAuditCategories(): GetAuditCategoriesRequestBuilder {
         return new GetAuditCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
+     * @param auditEventId Unique identifier of the item
+     * @returns a AuditEventItemRequestBuilder
+     */
+    public byAuditEventId(auditEventId: string) : AuditEventItemRequestBuilder {
+        if(!auditEventId) throw new Error("auditEventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["auditEvent%2Did"] = auditEventId
+        return new AuditEventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AuditEventsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

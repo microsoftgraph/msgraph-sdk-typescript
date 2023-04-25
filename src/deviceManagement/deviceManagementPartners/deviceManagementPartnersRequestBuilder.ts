@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceManagementPartnersRequestBuilderGetRequestConfiguration} from './deviceManagementPartnersRequestBuilderGetRequestConfiguration';
 import {DeviceManagementPartnersRequestBuilderPostRequestConfiguration} from './deviceManagementPartnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceManagementPartnerItemRequestBuilder} from './item/deviceManagementPartnerItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class DeviceManagementPartnersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
+     * @param deviceManagementPartnerId Unique identifier of the item
+     * @returns a DeviceManagementPartnerItemRequestBuilder
+     */
+    public byDeviceManagementPartnerId(deviceManagementPartnerId: string) : DeviceManagementPartnerItemRequestBuilder {
+        if(!deviceManagementPartnerId) throw new Error("deviceManagementPartnerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceManagementPartner%2Did"] = deviceManagementPartnerId
+        return new DeviceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceManagementPartnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

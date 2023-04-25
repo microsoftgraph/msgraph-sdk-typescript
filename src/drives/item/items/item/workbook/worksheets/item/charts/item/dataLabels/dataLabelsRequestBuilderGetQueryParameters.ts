@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of chartdatalabels object.
+ * Represents the datalabels on the chart. Read-only.
  */
 export class DataLabelsRequestBuilderGetQueryParameters {
     /** Expand related entities */

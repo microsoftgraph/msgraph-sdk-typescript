@@ -4,9 +4,10 @@ import {createSharedWithChannelTeamInfoFromDiscriminatorValue} from '../../../..
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SharedWithChannelTeamInfoItemRequestBuilder} from './item/sharedWithChannelTeamInfoItemRequestBuilder';
 import {SharedWithTeamsRequestBuilderGetRequestConfiguration} from './sharedWithTeamsRequestBuilderGetRequestConfiguration';
 import {SharedWithTeamsRequestBuilderPostRequestConfiguration} from './sharedWithTeamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
@@ -17,6 +18,17 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
+     * @param sharedWithChannelTeamInfoId Unique identifier of the item
+     * @returns a SharedWithChannelTeamInfoItemRequestBuilder
+     */
+    public bySharedWithChannelTeamInfoId(sharedWithChannelTeamInfoId: string) : SharedWithChannelTeamInfoItemRequestBuilder {
+        if(!sharedWithChannelTeamInfoId) throw new Error("sharedWithChannelTeamInfoId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sharedWithChannelTeamInfo%2Did"] = sharedWithChannelTeamInfoId
+        return new SharedWithChannelTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SharedWithTeamsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/sharedWithTeams{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a **membershipType** value of `shared`.
+     * A collection of teams with which a channel is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SharedWithChannelTeamInfoCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/sharedwithchannelteaminfo-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharedWithTeamsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedWithChannelTeamInfoCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SharedWithChannelTeamInfo>(requestInfo, createSharedWithChannelTeamInfoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the list of teams that has been shared a specified channel. This operation is allowed only for channels with a **membershipType** value of `shared`.
+     * A collection of teams with which a channel is shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

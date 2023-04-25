@@ -3,8 +3,9 @@ import {createSectionGroupCollectionResponseFromDiscriminatorValue} from '../../
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SectionGroupItemRequestBuilder} from './item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilderGetRequestConfiguration} from './sectionGroupsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
@@ -15,6 +16,17 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
+     * @param sectionGroupId1 Unique identifier of the item
+     * @returns a SectionGroupItemRequestBuilder
+     */
+    public bySectionGroupId1(sectionGroupId1: string) : SectionGroupItemRequestBuilder {
+        if(!sectionGroupId1) throw new Error("sectionGroupId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sectionGroup%2Did1"] = sectionGroupId1
+        return new SectionGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SectionGroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -23,11 +35,10 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/onenote/sectionGroups/{sectionGroup%2Did}/sectionGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of section groups from the specified section group.
+     * The section groups in the section. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SectionGroupCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/sectiongroup-list-sectiongroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SectionGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SectionGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -40,7 +51,7 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SectionGroupCollectionResponse>(requestInfo, createSectionGroupCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of section groups from the specified section group.
+     * The section groups in the section. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

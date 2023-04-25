@@ -4,9 +4,10 @@ import {createOnenoteSectionFromDiscriminatorValue} from '../../../../../../../.
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OnenoteSectionItemRequestBuilder} from './item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilderGetRequestConfiguration} from './sectionsRequestBuilderGetRequestConfiguration';
 import {SectionsRequestBuilderPostRequestConfiguration} from './sectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
@@ -17,6 +18,17 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
+     * @param onenoteSectionId Unique identifier of the item
+     * @returns a OnenoteSectionItemRequestBuilder
+     */
+    public byOnenoteSectionId(onenoteSectionId: string) : OnenoteSectionItemRequestBuilder {
+        if(!onenoteSectionId) throw new Error("onenoteSectionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["onenoteSection%2Did"] = onenoteSectionId
+        return new OnenoteSectionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SectionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/onenote/notebooks/{notebook%2Did}/sectionGroups/{sectionGroup%2Did}/sections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of onenoteSection objects from the specified section group.
+     * The sections in the section group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteSectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/sectiongroup-list-sections?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SectionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteSectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OnenoteSectionCollectionResponse>(requestInfo, createOnenoteSectionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new onenoteSection in the specified section group.
+     * Create new navigation property to sections for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteSection
-     * @see {@link https://docs.microsoft.com/graph/api/sectiongroup-post-sections?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OnenoteSection | undefined, requestConfiguration?: SectionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteSection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OnenoteSection>(requestInfo, createOnenoteSectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of onenoteSection objects from the specified section group.
+     * The sections in the section group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new onenoteSection in the specified section group.
+     * Create new navigation property to sections for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

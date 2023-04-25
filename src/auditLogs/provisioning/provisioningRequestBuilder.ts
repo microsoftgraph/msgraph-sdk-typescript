@@ -4,9 +4,10 @@ import {createProvisioningObjectSummaryFromDiscriminatorValue} from '../../model
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ProvisioningObjectSummaryItemRequestBuilder} from './item/provisioningObjectSummaryItemRequestBuilder';
 import {ProvisioningRequestBuilderGetRequestConfiguration} from './provisioningRequestBuilderGetRequestConfiguration';
 import {ProvisioningRequestBuilderPostRequestConfiguration} from './provisioningRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
@@ -17,6 +18,17 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
+     * @param provisioningObjectSummaryId Unique identifier of the item
+     * @returns a ProvisioningObjectSummaryItemRequestBuilder
+     */
+    public byProvisioningObjectSummaryId(provisioningObjectSummaryId: string) : ProvisioningObjectSummaryItemRequestBuilder {
+        if(!provisioningObjectSummaryId) throw new Error("provisioningObjectSummaryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["provisioningObjectSummary%2Did"] = provisioningObjectSummaryId
+        return new ProvisioningObjectSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ProvisioningRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/auditLogs/provisioning{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+     * Get provisioning from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisioningObjectSummaryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProvisioningRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ProvisioningObjectSummary>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
+     * Get provisioning from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

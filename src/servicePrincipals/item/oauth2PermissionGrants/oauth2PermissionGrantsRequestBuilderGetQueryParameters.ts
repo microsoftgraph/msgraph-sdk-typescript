@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of oAuth2PermissionGrant entities, representing delegated permissions granted to the service principal (representing the client application) to access an API on behalf of a user.
+ * Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
  */
 export class Oauth2PermissionGrantsRequestBuilderGetQueryParameters {
     /** Include count of items */

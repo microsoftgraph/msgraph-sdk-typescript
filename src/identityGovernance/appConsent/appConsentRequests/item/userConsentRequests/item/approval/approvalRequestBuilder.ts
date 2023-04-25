@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {ApprovalRequestBuilderDeleteRequestConfiguration} from './approvalRequestBuilderDeleteRequestConfiguration';
 import {ApprovalRequestBuilderGetRequestConfiguration} from './approvalRequestBuilderGetRequestConfiguration';
 import {ApprovalRequestBuilderPatchRequestConfiguration} from './approvalRequestBuilderPatchRequestConfiguration';
-import {ApprovalStageItemRequestBuilder} from './stages/item/approvalStageItemRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the approval property of the microsoft.graph.userConsentRequest entity.
@@ -73,17 +72,6 @@ export class ApprovalRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the stages property of the microsoft.graph.approval entity.
-     * @param id Unique identifier of the item
-     * @returns a ApprovalStageItemRequestBuilder
-     */
-    public stagesById(id: string) : ApprovalStageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["approvalStage%2Did"] = id
-        return new ApprovalStageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property approval for identityGovernance

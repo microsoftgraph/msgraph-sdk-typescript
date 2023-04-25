@@ -18,12 +18,11 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/add");
     };
     /**
-     * Follow a user's site or multiple sites.
+     * Invoke action add
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AddResponse
-     * @see {@link https://docs.microsoft.com/graph/api/site-follow?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPostRequestBody | undefined, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -37,7 +36,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AddResponse>(requestInfo, createAddResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Follow a user's site or multiple sites.
+     * Invoke action add
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

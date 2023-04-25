@@ -1,6 +1,6 @@
 
 /**
- * Retrieve all localization branding objects, including the default branding.
+ * Add different branding based on a locale.
  */
 export class LocalizationsRequestBuilderGetQueryParameters {
     /** Include count of items */

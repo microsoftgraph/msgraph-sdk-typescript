@@ -16,10 +16,9 @@ export class RemoveFavoriteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/removeFavorite");
     };
     /**
-     * Remove the group from the list of the current user's favorite groups. Supported for Microsoft 365 groups only.
+     * Invoke action removeFavorite
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @see {@link https://docs.microsoft.com/graph/api/group-removefavorite?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RemoveFavoriteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -32,7 +31,7 @@ export class RemoveFavoriteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Remove the group from the list of the current user's favorite groups. Supported for Microsoft 365 groups only.
+     * Invoke action removeFavorite
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

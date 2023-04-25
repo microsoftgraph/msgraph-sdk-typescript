@@ -1,6 +1,6 @@
 
 /**
- * Get the userFlowLanguagePage resources from the overridesPages navigation property. These pages are used to customize the values shown to the user during a user journey in a user flow.
+ * Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
  */
 export class OverridesPagesRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -5,9 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AgreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration';
 import {AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderGetRequestConfiguration';
 import {AgreementFileLocalizationItemRequestBuilderPatchRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderPatchRequestConfiguration';
-import {AgreementFileVersionItemRequestBuilder} from './versions/item/agreementFileVersionItemRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the files property of the microsoft.graph.agreement entity.
@@ -127,16 +126,5 @@ export class AgreementFileLocalizationItemRequestBuilder extends BaseRequestBuil
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
-     * @param id Unique identifier of the item
-     * @returns a AgreementFileVersionItemRequestBuilder
-     */
-    public versionsById(id: string) : AgreementFileVersionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["agreementFileVersion%2Did"] = id
-        return new AgreementFileVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

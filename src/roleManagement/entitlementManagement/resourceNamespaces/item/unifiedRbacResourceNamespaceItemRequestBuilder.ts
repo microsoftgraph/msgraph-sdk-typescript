@@ -2,12 +2,11 @@ import {UnifiedRbacResourceNamespace} from '../../../../models/';
 import {createUnifiedRbacResourceNamespaceFromDiscriminatorValue} from '../../../../models/createUnifiedRbacResourceNamespaceFromDiscriminatorValue';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {UnifiedRbacResourceActionItemRequestBuilder} from './resourceActions/item/unifiedRbacResourceActionItemRequestBuilder';
 import {ResourceActionsRequestBuilder} from './resourceActions/resourceActionsRequestBuilder';
 import {UnifiedRbacResourceNamespaceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
@@ -73,17 +72,6 @@ export class UnifiedRbacResourceNamespaceItemRequestBuilder extends BaseRequestB
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<UnifiedRbacResourceNamespace>(requestInfo, createUnifiedRbacResourceNamespaceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
-     * @param id Unique identifier of the item
-     * @returns a UnifiedRbacResourceActionItemRequestBuilder
-     */
-    public resourceActionsById(id: string) : UnifiedRbacResourceActionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["unifiedRbacResourceAction%2Did"] = id
-        return new UnifiedRbacResourceActionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property resourceNamespaces for roleManagement

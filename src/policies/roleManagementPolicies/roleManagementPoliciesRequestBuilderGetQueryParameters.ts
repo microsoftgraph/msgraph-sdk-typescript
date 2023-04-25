@@ -1,6 +1,6 @@
 
 /**
- * Get role management policies and their details.
+ * Specifies the various policies associated with scopes and roles.
  */
 export class RoleManagementPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

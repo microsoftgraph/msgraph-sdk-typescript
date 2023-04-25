@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of chartgridlines object.
+ * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
  */
 export class MinorGridlinesRequestBuilderGetQueryParameters {
     /** Expand related entities */

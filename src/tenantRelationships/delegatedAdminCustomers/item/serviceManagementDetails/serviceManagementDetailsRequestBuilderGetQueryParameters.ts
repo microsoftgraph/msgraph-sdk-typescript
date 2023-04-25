@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
+ * Contains the management details of a service in the customer tenant that's managed by delegated administration.
  */
 export class ServiceManagementDetailsRequestBuilderGetQueryParameters {
     /** Include count of items */

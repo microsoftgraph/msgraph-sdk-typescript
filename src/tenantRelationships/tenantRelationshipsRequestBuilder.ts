@@ -3,12 +3,10 @@ import {createTenantRelationshipFromDiscriminatorValue} from '../models/createTe
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DelegatedAdminCustomersRequestBuilder} from './delegatedAdminCustomers/delegatedAdminCustomersRequestBuilder';
-import {DelegatedAdminCustomerItemRequestBuilder} from './delegatedAdminCustomers/item/delegatedAdminCustomerItemRequestBuilder';
 import {DelegatedAdminRelationshipsRequestBuilder} from './delegatedAdminRelationships/delegatedAdminRelationshipsRequestBuilder';
-import {DelegatedAdminRelationshipItemRequestBuilder} from './delegatedAdminRelationships/item/delegatedAdminRelationshipItemRequestBuilder';
 import {TenantRelationshipsRequestBuilderGetRequestConfiguration} from './tenantRelationshipsRequestBuilderGetRequestConfiguration';
 import {TenantRelationshipsRequestBuilderPatchRequestConfiguration} from './tenantRelationshipsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tenantRelationship singleton.
@@ -29,28 +27,6 @@ export class TenantRelationshipsRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
-     * @param id Unique identifier of the item
-     * @returns a DelegatedAdminCustomerItemRequestBuilder
-     */
-    public delegatedAdminCustomersById(id: string) : DelegatedAdminCustomerItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["delegatedAdminCustomer%2Did"] = id
-        return new DelegatedAdminCustomerItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
-     * @param id Unique identifier of the item
-     * @returns a DelegatedAdminRelationshipItemRequestBuilder
-     */
-    public delegatedAdminRelationshipsById(id: string) : DelegatedAdminRelationshipItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["delegatedAdminRelationship%2Did"] = id
-        return new DelegatedAdminRelationshipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get tenantRelationships

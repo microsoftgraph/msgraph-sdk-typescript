@@ -4,9 +4,10 @@ import {createSharedInsightFromDiscriminatorValue} from '../../../models/createS
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SharedInsightItemRequestBuilder} from './item/sharedInsightItemRequestBuilder';
 import {SharedRequestBuilderGetRequestConfiguration} from './sharedRequestBuilderGetRequestConfiguration';
 import {SharedRequestBuilderPostRequestConfiguration} from './sharedRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
@@ -16,6 +17,17 @@ export class SharedRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
+     * @param sharedInsightId Unique identifier of the item
+     * @returns a SharedInsightItemRequestBuilder
+     */
+    public bySharedInsightId(sharedInsightId: string) : SharedInsightItemRequestBuilder {
+        if(!sharedInsightId) throw new Error("sharedInsightId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["sharedInsight%2Did"] = sharedInsightId
+        return new SharedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SharedRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

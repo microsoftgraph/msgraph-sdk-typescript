@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of administrativeUnit objects.
+ * Conceptual container for user and group directory objects.
  */
 export class AdministrativeUnitsRequestBuilderGetQueryParameters {
     /** Include count of items */

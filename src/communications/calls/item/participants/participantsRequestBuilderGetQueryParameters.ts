@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of participant objects in the call.
+ * Get participants from communications
  */
 export class ParticipantsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {AssignmentPoliciesRequestBuilderGetRequestConfiguration} from './assignmentPoliciesRequestBuilderGetRequestConfiguration';
 import {AssignmentPoliciesRequestBuilderPostRequestConfiguration} from './assignmentPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessPackageAssignmentPolicyItemRequestBuilder} from './item/accessPackageAssignmentPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
@@ -16,6 +17,17 @@ export class AssignmentPoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
+     * @param accessPackageAssignmentPolicyId Unique identifier of the item
+     * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
+     */
+    public byAccessPackageAssignmentPolicyId(accessPackageAssignmentPolicyId: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
+        if(!accessPackageAssignmentPolicyId) throw new Error("accessPackageAssignmentPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackageAssignmentPolicy%2Did"] = accessPackageAssignmentPolicyId
+        return new AccessPackageAssignmentPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AssignmentPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

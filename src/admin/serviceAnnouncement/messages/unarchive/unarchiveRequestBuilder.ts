@@ -18,12 +18,11 @@ export class UnarchiveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/unarchive");
     };
     /**
-     * Unarchive a list of serviceUpdateMessages for the signed in user.
+     * Invoke action unarchive
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnarchiveResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-unarchive?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnarchivePostRequestBody | undefined, requestConfiguration?: UnarchiveRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnarchiveResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -37,7 +36,7 @@ export class UnarchiveRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UnarchiveResponse>(requestInfo, createUnarchiveResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Unarchive a list of serviceUpdateMessages for the signed in user.
+     * Invoke action unarchive
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

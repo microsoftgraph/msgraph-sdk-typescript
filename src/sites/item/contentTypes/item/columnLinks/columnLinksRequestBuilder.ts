@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {ColumnLinksRequestBuilderGetRequestConfiguration} from './columnLinksRequestBuilderGetRequestConfiguration';
 import {ColumnLinksRequestBuilderPostRequestConfiguration} from './columnLinksRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ColumnLinkItemRequestBuilder} from './item/columnLinkItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
@@ -16,6 +17,17 @@ export class ColumnLinksRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
+     * @param columnLinkId Unique identifier of the item
+     * @returns a ColumnLinkItemRequestBuilder
+     */
+    public byColumnLinkId(columnLinkId: string) : ColumnLinkItemRequestBuilder {
+        if(!columnLinkId) throw new Error("columnLinkId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["columnLink%2Did"] = columnLinkId
+        return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ColumnLinksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the tag objects and their properties.
+ * The tags associated with the team.
  */
 export class TagsRequestBuilderGetQueryParameters {
     /** Include count of items */

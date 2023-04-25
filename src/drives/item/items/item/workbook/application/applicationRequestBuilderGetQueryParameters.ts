@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of a workbookApplication object.
+ * Get application from drives
  */
 export class ApplicationRequestBuilderGetQueryParameters {
     /** Expand related entities */

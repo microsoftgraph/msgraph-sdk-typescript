@@ -1,6 +1,6 @@
 
 /**
- * Get the permission resources from the permissions navigation property on a site.
+ * The permissions associated with the site. Nullable.
  */
 export class PermissionsRequestBuilderGetQueryParameters {
     /** Include count of items */

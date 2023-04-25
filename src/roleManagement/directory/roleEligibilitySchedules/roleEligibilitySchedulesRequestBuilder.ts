@@ -5,9 +5,10 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {UnifiedRoleEligibilityScheduleItemRequestBuilder} from './item/unifiedRoleEligibilityScheduleItemRequestBuilder';
 import {RoleEligibilitySchedulesRequestBuilderGetRequestConfiguration} from './roleEligibilitySchedulesRequestBuilderGetRequestConfiguration';
 import {RoleEligibilitySchedulesRequestBuilderPostRequestConfiguration} from './roleEligibilitySchedulesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
@@ -17,6 +18,17 @@ export class RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
+     * @param unifiedRoleEligibilityScheduleId Unique identifier of the item
+     * @returns a UnifiedRoleEligibilityScheduleItemRequestBuilder
+     */
+    public byUnifiedRoleEligibilityScheduleId(unifiedRoleEligibilityScheduleId: string) : UnifiedRoleEligibilityScheduleItemRequestBuilder {
+        if(!unifiedRoleEligibilityScheduleId) throw new Error("unifiedRoleEligibilityScheduleId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleEligibilitySchedule%2Did"] = unifiedRoleEligibilityScheduleId
+        return new UnifiedRoleEligibilityScheduleItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleEligibilitySchedulesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -35,11 +47,10 @@ export class RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
+     * Schedules for role eligibility operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedules?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleEligibilitySchedulesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilityScheduleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,7 +81,7 @@ export class RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UnifiedRoleEligibilitySchedule>(requestInfo, createUnifiedRoleEligibilityScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the unifiedRoleEligibilitySchedule resources from the roleEligibilitySchedules navigation property.
+     * Schedules for role eligibility operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

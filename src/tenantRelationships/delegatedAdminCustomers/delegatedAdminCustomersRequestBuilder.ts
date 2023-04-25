@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminCustomersRequestBuilderGetRequestConfiguration} from './delegatedAdminCustomersRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminCustomersRequestBuilderPostRequestConfiguration} from './delegatedAdminCustomersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DelegatedAdminCustomerItemRequestBuilder} from './item/delegatedAdminCustomerItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
@@ -17,6 +18,17 @@ export class DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
+     * @param delegatedAdminCustomerId Unique identifier of the item
+     * @returns a DelegatedAdminCustomerItemRequestBuilder
+     */
+    public byDelegatedAdminCustomerId(delegatedAdminCustomerId: string) : DelegatedAdminCustomerItemRequestBuilder {
+        if(!delegatedAdminCustomerId) throw new Error("delegatedAdminCustomerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminCustomer%2Did"] = delegatedAdminCustomerId
+        return new DelegatedAdminCustomerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new DelegatedAdminCustomersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminCustomers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the delegatedAdminCustomer objects and their properties.
+     * The customer who has a delegated admin relationship with a Microsoft partner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminCustomerCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tenantrelationship-list-delegatedadmincustomers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminCustomersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminCustomerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DelegatedAdminCustomer>(requestInfo, createDelegatedAdminCustomerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the delegatedAdminCustomer objects and their properties.
+     * The customer who has a delegated admin relationship with a Microsoft partner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

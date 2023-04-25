@@ -4,9 +4,10 @@ import {createMobileThreatDefenseConnectorFromDiscriminatorValue} from '../../mo
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MobileThreatDefenseConnectorItemRequestBuilder} from './item/mobileThreatDefenseConnectorItemRequestBuilder';
 import {MobileThreatDefenseConnectorsRequestBuilderGetRequestConfiguration} from './mobileThreatDefenseConnectorsRequestBuilderGetRequestConfiguration';
 import {MobileThreatDefenseConnectorsRequestBuilderPostRequestConfiguration} from './mobileThreatDefenseConnectorsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
+     * @param mobileThreatDefenseConnectorId Unique identifier of the item
+     * @returns a MobileThreatDefenseConnectorItemRequestBuilder
+     */
+    public byMobileThreatDefenseConnectorId(mobileThreatDefenseConnectorId: string) : MobileThreatDefenseConnectorItemRequestBuilder {
+        if(!mobileThreatDefenseConnectorId) throw new Error("mobileThreatDefenseConnectorId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["mobileThreatDefenseConnector%2Did"] = mobileThreatDefenseConnectorId
+        return new MobileThreatDefenseConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MobileThreatDefenseConnectorsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../models/
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BrowserSiteItemRequestBuilder} from './item/browserSiteItemRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
 import {SitesRequestBuilderPostRequestConfiguration} from './sitesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
@@ -17,6 +18,17 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+     * @param browserSiteId Unique identifier of the item
+     * @returns a BrowserSiteItemRequestBuilder
+     */
+    public byBrowserSiteId(browserSiteId: string) : BrowserSiteItemRequestBuilder {
+        if(!browserSiteId) throw new Error("browserSiteId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["browserSite%2Did"] = browserSiteId
+        return new BrowserSiteItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SitesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,7 +37,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get sites from admin
+     * A collection of sites defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteCollectionResponse
@@ -59,7 +71,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSite>(requestInfo, createBrowserSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get sites from admin
+     * A collection of sites defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

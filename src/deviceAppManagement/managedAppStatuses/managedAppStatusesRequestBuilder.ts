@@ -4,9 +4,10 @@ import {createManagedAppStatusFromDiscriminatorValue} from '../../models/createM
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ManagedAppStatusItemRequestBuilder} from './item/managedAppStatusItemRequestBuilder';
 import {ManagedAppStatusesRequestBuilderGetRequestConfiguration} from './managedAppStatusesRequestBuilderGetRequestConfiguration';
 import {ManagedAppStatusesRequestBuilderPostRequestConfiguration} from './managedAppStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
+     * @param managedAppStatusId Unique identifier of the item
+     * @returns a ManagedAppStatusItemRequestBuilder
+     */
+    public byManagedAppStatusId(managedAppStatusId: string) : ManagedAppStatusItemRequestBuilder {
+        if(!managedAppStatusId) throw new Error("managedAppStatusId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedAppStatus%2Did"] = managedAppStatusId
+        return new ManagedAppStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ManagedAppStatusesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

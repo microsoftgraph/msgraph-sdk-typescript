@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of permissionGrantPolicy objects.
+ * The policy that specifies the conditions under which consent can be granted.
  */
 export class PermissionGrantPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

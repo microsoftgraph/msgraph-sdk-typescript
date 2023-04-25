@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of a **plannerPlanDetails** object.
+ * Read-only. Nullable. Additional details about the plan.
  */
 export class DetailsRequestBuilderGetQueryParameters {
     /** Expand related entities */

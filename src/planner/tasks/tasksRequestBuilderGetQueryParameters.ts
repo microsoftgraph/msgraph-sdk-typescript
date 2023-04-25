@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of **plannertask** objects.
+ * Read-only. Nullable. Returns a collection of the specified tasks
  */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items */

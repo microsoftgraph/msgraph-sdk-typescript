@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCompliancePoliciesRequestBuilderGetRequestConfiguration} from './deviceCompliancePoliciesRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePoliciesRequestBuilderPostRequestConfiguration} from './deviceCompliancePoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceCompliancePolicyItemRequestBuilder} from './item/deviceCompliancePolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
+     * @param deviceCompliancePolicyId Unique identifier of the item
+     * @returns a DeviceCompliancePolicyItemRequestBuilder
+     */
+    public byDeviceCompliancePolicyId(deviceCompliancePolicyId: string) : DeviceCompliancePolicyItemRequestBuilder {
+        if(!deviceCompliancePolicyId) throw new Error("deviceCompliancePolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceCompliancePolicy%2Did"] = deviceCompliancePolicyId
+        return new DeviceCompliancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceCompliancePoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

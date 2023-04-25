@@ -7,7 +7,8 @@ import {ChatsRequestBuilderGetRequestConfiguration} from './chatsRequestBuilderG
 import {ChatsRequestBuilderPostRequestConfiguration} from './chatsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ChatItemRequestBuilder} from './item/chatItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of chat entities.
@@ -21,6 +22,17 @@ export class ChatsRequestBuilder extends BaseRequestBuilder {
     public get getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of chat entities.
+     * @param chatId Unique identifier of the item
+     * @returns a ChatItemRequestBuilder
+     */
+    public byChatId(chatId: string) : ChatItemRequestBuilder {
+        if(!chatId) throw new Error("chatId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["chat%2Did"] = chatId
+        return new ChatItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChatsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,7 +4,6 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {DocumentSetVersionsRequestBuilder} from './documentSetVersions/documentSetVersionsRequestBuilder';
-import {DocumentSetVersionItemRequestBuilder} from './documentSetVersions/item/documentSetVersionItemRequestBuilder';
 import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
 import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
 import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
@@ -12,9 +11,8 @@ import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalReque
 import {ListItemItemRequestBuilderDeleteRequestConfiguration} from './listItemItemRequestBuilderDeleteRequestConfiguration';
 import {ListItemItemRequestBuilderGetRequestConfiguration} from './listItemItemRequestBuilderGetRequestConfiguration';
 import {ListItemItemRequestBuilderPatchRequestConfiguration} from './listItemItemRequestBuilderPatchRequestConfiguration';
-import {ListItemVersionItemRequestBuilder} from './versions/item/listItemVersionItemRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
@@ -66,17 +64,6 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
-     * @param id Unique identifier of the item
-     * @returns a DocumentSetVersionItemRequestBuilder
-     */
-    public documentSetVersionsById(id: string) : DocumentSetVersionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["documentSetVersion%2Did"] = id
-        return new DocumentSetVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * All items contained in the list.
@@ -178,16 +165,5 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
-     * @param id Unique identifier of the item
-     * @returns a ListItemVersionItemRequestBuilder
-     */
-    public versionsById(id: string) : ListItemVersionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["listItemVersion%2Did"] = id
-        return new ListItemVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

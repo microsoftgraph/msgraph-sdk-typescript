@@ -7,9 +7,7 @@ import {CleanWindowsDeviceRequestBuilder} from './cleanWindowsDevice/cleanWindow
 import {DeleteUserFromSharedAppleDeviceRequestBuilder} from './deleteUserFromSharedAppleDevice/deleteUserFromSharedAppleDeviceRequestBuilder';
 import {DeviceCategoryRequestBuilder} from './deviceCategory/deviceCategoryRequestBuilder';
 import {DeviceCompliancePolicyStatesRequestBuilder} from './deviceCompliancePolicyStates/deviceCompliancePolicyStatesRequestBuilder';
-import {DeviceCompliancePolicyStateItemRequestBuilder} from './deviceCompliancePolicyStates/item/deviceCompliancePolicyStateItemRequestBuilder';
 import {DeviceConfigurationStatesRequestBuilder} from './deviceConfigurationStates/deviceConfigurationStatesRequestBuilder';
-import {DeviceConfigurationStateItemRequestBuilder} from './deviceConfigurationStates/item/deviceConfigurationStateItemRequestBuilder';
 import {DisableLostModeRequestBuilder} from './disableLostMode/disableLostModeRequestBuilder';
 import {LocateDeviceRequestBuilder} from './locateDevice/locateDeviceRequestBuilder';
 import {LogoutSharedAppleDeviceActiveUserRequestBuilder} from './logoutSharedAppleDeviceActiveUser/logoutSharedAppleDeviceActiveUserRequestBuilder';
@@ -29,7 +27,7 @@ import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {WindowsDefenderScanRequestBuilder} from './windowsDefenderScan/windowsDefenderScanRequestBuilder';
 import {WindowsDefenderUpdateSignaturesRequestBuilder} from './windowsDefenderUpdateSignatures/windowsDefenderUpdateSignaturesRequestBuilder';
 import {WipeRequestBuilder} from './wipe/wipeRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.
@@ -145,28 +143,6 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceCompliancePolicyStateItemRequestBuilder
-     */
-    public deviceCompliancePolicyStatesById(id: string) : DeviceCompliancePolicyStateItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceCompliancePolicyState%2Did"] = id
-        return new DeviceCompliancePolicyStateItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationStateItemRequestBuilder
-     */
-    public deviceConfigurationStatesById(id: string) : DeviceConfigurationStateItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceConfigurationState%2Did"] = id
-        return new DeviceConfigurationStateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The managed devices associated with the user.

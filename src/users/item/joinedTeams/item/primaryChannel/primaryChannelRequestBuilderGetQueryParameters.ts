@@ -1,6 +1,6 @@
 
 /**
- * Get the default channel, **General**, of a team.
+ * The general channel for the team.
  */
 export class PrimaryChannelRequestBuilderGetQueryParameters {
     /** Expand related entities */

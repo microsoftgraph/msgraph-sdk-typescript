@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the educationClass objects and their properties.
+ * Get classes from education
  */
 export class ClassesRequestBuilderGetQueryParameters {
     /** Include count of items */

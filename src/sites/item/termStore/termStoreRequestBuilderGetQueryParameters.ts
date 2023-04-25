@@ -1,6 +1,6 @@
 
 /**
- * Read the properties and relationships of a store object.
+ * The default termStore under this site.
  */
 export class TermStoreRequestBuilderGetQueryParameters {
     /** Expand related entities */

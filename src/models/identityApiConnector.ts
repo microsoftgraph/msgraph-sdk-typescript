@@ -24,7 +24,7 @@ export class IdentityApiConnector extends Entity implements Parsable {
         this._authenticationConfiguration = value;
     };
     /**
-     * Instantiates a new IdentityApiConnector and sets the default values.
+     * Instantiates a new identityApiConnector and sets the default values.
      */
     public constructor() {
         super();

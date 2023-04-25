@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of plannerTask objects associated to a plannerBucket object.
+ * Read-only. Nullable. The collection of tasks in the bucket.
  */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items */

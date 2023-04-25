@@ -1,6 +1,6 @@
 
 /**
- * Get all the threads of a group.
+ * The group's conversation threads. Nullable.
  */
 export class ThreadsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryRequestBuilderGetRequestConfiguration} from './historyRequestBuilderGetRequestConfiguration';
 import {HistoryRequestBuilderPostRequestConfiguration} from './historyRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {RiskyServicePrincipalHistoryItemItemRequestBuilder} from './item/riskyServicePrincipalHistoryItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
@@ -17,6 +18,17 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
+     * @param riskyServicePrincipalHistoryItemId Unique identifier of the item
+     * @returns a RiskyServicePrincipalHistoryItemItemRequestBuilder
+     */
+    public byRiskyServicePrincipalHistoryItemId(riskyServicePrincipalHistoryItemId: string) : RiskyServicePrincipalHistoryItemItemRequestBuilder {
+        if(!riskyServicePrincipalHistoryItemId) throw new Error("riskyServicePrincipalHistoryItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskyServicePrincipalHistoryItem%2Did"] = riskyServicePrincipalHistoryItemId
+        return new RiskyServicePrincipalHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new HistoryRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyServicePrincipals/{riskyServicePrincipal%2Did}/history{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the risk history of a riskyServicePrincipal object.
+     * Represents the risk history of Azure AD service principals.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyServicePrincipalHistoryItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyServicePrincipalHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<RiskyServicePrincipalHistoryItem>(requestInfo, createRiskyServicePrincipalHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the risk history of a riskyServicePrincipal object.
+     * Represents the risk history of Azure AD service principals.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

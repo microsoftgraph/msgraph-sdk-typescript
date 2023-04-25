@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of featureRolloutPolicy objects.
+ * The feature rollout policy associated with a directory object.
  */
 export class FeatureRolloutPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder} from './item/managedDeviceMobileAppConfigurationAssignmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -16,6 +17,17 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
+     * @param managedDeviceMobileAppConfigurationAssignmentId Unique identifier of the item
+     * @returns a ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
+     */
+    public byManagedDeviceMobileAppConfigurationAssignmentId(managedDeviceMobileAppConfigurationAssignmentId: string) : ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {
+        if(!managedDeviceMobileAppConfigurationAssignmentId) throw new Error("managedDeviceMobileAppConfigurationAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedDeviceMobileAppConfigurationAssignment%2Did"] = managedDeviceMobileAppConfigurationAssignmentId
+        return new ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

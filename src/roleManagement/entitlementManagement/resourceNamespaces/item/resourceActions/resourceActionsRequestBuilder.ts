@@ -4,9 +4,10 @@ import {createUnifiedRbacResourceActionFromDiscriminatorValue} from '../../../..
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UnifiedRbacResourceActionItemRequestBuilder} from './item/unifiedRbacResourceActionItemRequestBuilder';
 import {ResourceActionsRequestBuilderGetRequestConfiguration} from './resourceActionsRequestBuilderGetRequestConfiguration';
 import {ResourceActionsRequestBuilderPostRequestConfiguration} from './resourceActionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
@@ -16,6 +17,17 @@ export class ResourceActionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
+     * @param unifiedRbacResourceActionId Unique identifier of the item
+     * @returns a UnifiedRbacResourceActionItemRequestBuilder
+     */
+    public byUnifiedRbacResourceActionId(unifiedRbacResourceActionId: string) : UnifiedRbacResourceActionItemRequestBuilder {
+        if(!unifiedRbacResourceActionId) throw new Error("unifiedRbacResourceActionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRbacResourceAction%2Did"] = unifiedRbacResourceActionId
+        return new UnifiedRbacResourceActionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ResourceActionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

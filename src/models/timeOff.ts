@@ -10,7 +10,7 @@ export class TimeOff extends ChangeTrackedEntity implements Parsable {
     /** ID of the user assigned to the timeOff. Required. */
     private _userId?: string | undefined;
     /**
-     * Instantiates a new TimeOff and sets the default values.
+     * Instantiates a new timeOff and sets the default values.
      */
     public constructor() {
         super();

@@ -18,12 +18,11 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/getMailTips");
     };
     /**
-     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a `POST` call to the `getMailTips` action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
+     * Invoke action getMailTips
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetMailTipsResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetMailTipsPostRequestBody | undefined, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailTipsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -37,7 +36,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<GetMailTipsResponse>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a `POST` call to the `getMailTips` action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
+     * Invoke action getMailTips
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

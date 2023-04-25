@@ -3,9 +3,8 @@ import {createBitlockerFromDiscriminatorValue} from '../../models/createBitlocke
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BitlockerRequestBuilderGetRequestConfiguration} from './bitlockerRequestBuilderGetRequestConfiguration';
-import {BitlockerRecoveryKeyItemRequestBuilder} from './recoveryKeys/item/bitlockerRecoveryKeyItemRequestBuilder';
 import {RecoveryKeysRequestBuilder} from './recoveryKeys/recoveryKeysRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
@@ -38,17 +37,6 @@ export class BitlockerRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Bitlocker>(requestInfo, createBitlockerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
-     * @param id Unique identifier of the item
-     * @returns a BitlockerRecoveryKeyItemRequestBuilder
-     */
-    public recoveryKeysById(id: string) : BitlockerRecoveryKeyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["bitlockerRecoveryKey%2Did"] = id
-        return new BitlockerRecoveryKeyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get bitlocker from informationProtection

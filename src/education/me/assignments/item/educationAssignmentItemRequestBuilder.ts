@@ -3,19 +3,16 @@ import {createEducationAssignmentFromDiscriminatorValue} from '../../../../model
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
-import {EducationCategoryItemRequestBuilder} from './categories/item/educationCategoryItemRequestBuilder';
 import {EducationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './educationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {EducationAssignmentItemRequestBuilderGetRequestConfiguration} from './educationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {EducationAssignmentItemRequestBuilderPatchRequestConfiguration} from './educationAssignmentItemRequestBuilderPatchRequestConfiguration';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {EducationAssignmentResourceItemRequestBuilder} from './resources/item/educationAssignmentResourceItemRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {RubricRequestBuilder} from './rubric/rubricRequestBuilder';
 import {SetUpFeedbackResourcesFolderRequestBuilder} from './setUpFeedbackResourcesFolder/setUpFeedbackResourcesFolderRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
-import {EducationSubmissionItemRequestBuilder} from './submissions/item/educationSubmissionItemRequestBuilder';
 import {SubmissionsRequestBuilder} from './submissions/submissionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
@@ -49,17 +46,6 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
     public get submissions(): SubmissionsRequestBuilder {
         return new SubmissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item.categories.item collection
-     * @param id Unique identifier of the item
-     * @returns a EducationCategoryItemRequestBuilder
-     */
-    public categoriesById(id: string) : EducationCategoryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationCategory%2Did"] = id
-        return new EducationCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new EducationAssignmentItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -116,28 +102,6 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<EducationAssignment>(requestInfo, createEducationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationAssignmentResourceItemRequestBuilder
-     */
-    public resourcesById(id: string) : EducationAssignmentResourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationAssignmentResource%2Did"] = id
-        return new EducationAssignmentResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationSubmissionItemRequestBuilder
-     */
-    public submissionsById(id: string) : EducationSubmissionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationSubmission%2Did"] = id
-        return new EducationSubmissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property assignments for education

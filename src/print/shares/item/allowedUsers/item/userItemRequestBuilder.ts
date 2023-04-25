@@ -1,3 +1,4 @@
+import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions';
 
@@ -5,6 +6,10 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedUsers/{user-id}
  */
 export class UserItemRequestBuilder extends BaseRequestBuilder {
+    /** The mailboxSettings property */
+    public get mailboxSettings(): MailboxSettingsRequestBuilder {
+        return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the collection of print entities. */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);

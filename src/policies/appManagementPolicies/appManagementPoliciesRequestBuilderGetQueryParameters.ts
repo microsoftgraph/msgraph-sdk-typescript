@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of appManagementPolicy objects.
+ * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
  */
 export class AppManagementPoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

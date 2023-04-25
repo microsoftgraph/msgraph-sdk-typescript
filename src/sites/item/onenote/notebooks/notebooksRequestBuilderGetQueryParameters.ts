@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of notebook objects.
+ * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
  */
 export class NotebooksRequestBuilderGetQueryParameters {
     /** Include count of items */

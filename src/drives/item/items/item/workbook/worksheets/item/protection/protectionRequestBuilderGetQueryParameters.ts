@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of worksheetprotection object.
+ * Returns sheet protection object for a worksheet. Read-only.
  */
 export class ProtectionRequestBuilderGetQueryParameters {
     /** Expand related entities */

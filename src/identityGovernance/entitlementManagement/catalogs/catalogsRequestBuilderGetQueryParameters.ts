@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of accessPackageCatalog objects.
+ * A container for access packages.
  */
 export class CatalogsRequestBuilderGetQueryParameters {
     /** Include count of items */

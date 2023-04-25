@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of chartlineformat object.
+ * Represents chart line formatting. Read-only.
  */
 export class LineRequestBuilderGetQueryParameters {
     /** Expand related entities */

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of tabs in the specified chat.
+ * A collection of all the tabs in the chat. Nullable.
  */
 export class TabsRequestBuilderGetQueryParameters {
     /** Include count of items */

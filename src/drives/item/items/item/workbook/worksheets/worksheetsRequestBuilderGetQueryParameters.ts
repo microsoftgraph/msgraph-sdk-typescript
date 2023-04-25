@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of worksheet objects.
+ * Represents a collection of worksheets associated with the workbook. Read-only.
  */
 export class WorksheetsRequestBuilderGetQueryParameters {
     /** Include count of items */

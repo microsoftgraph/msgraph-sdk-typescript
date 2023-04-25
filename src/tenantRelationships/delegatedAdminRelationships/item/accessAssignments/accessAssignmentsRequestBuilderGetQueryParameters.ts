@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the delegatedAdminAccessAssignment objects and their properties.
+ * The access assignments associated with the delegated admin relationship.
  */
 export class AccessAssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */

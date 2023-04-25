@@ -1,6 +1,6 @@
 
 /**
- * Read the properties and relationships of an adminConsentRequestPolicy object.
+ * The policy by which consent requests are created and managed for the entire tenant.
  */
 export class AdminConsentRequestPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */

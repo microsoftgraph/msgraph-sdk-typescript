@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the condition sets which are *excluded* in a permissionGrantPolicy.
+ * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
  */
 export class ExcludesRequestBuilderGetQueryParameters {
     /** Include count of items */

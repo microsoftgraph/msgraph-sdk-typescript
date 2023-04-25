@@ -4,9 +4,8 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ConversationItemRequestBuilderDeleteRequestConfiguration} from './conversationItemRequestBuilderDeleteRequestConfiguration';
 import {ConversationItemRequestBuilderGetRequestConfiguration} from './conversationItemRequestBuilderGetRequestConfiguration';
-import {ConversationThreadItemRequestBuilder} from './threads/item/conversationThreadItemRequestBuilder';
 import {ThreadsRequestBuilder} from './threads/threadsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
@@ -54,17 +53,6 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Conversation>(requestInfo, createConversationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the threads property of the microsoft.graph.conversation entity.
-     * @param id Unique identifier of the item
-     * @returns a ConversationThreadItemRequestBuilder
-     */
-    public threadsById(id: string) : ConversationThreadItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conversationThread%2Did"] = id
-        return new ConversationThreadItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property conversations for groups

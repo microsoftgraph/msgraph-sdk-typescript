@@ -25,7 +25,7 @@ export class Invitation extends Entity implements Parsable {
     /** The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error. */
     private _status?: string | undefined;
     /**
-     * Instantiates a new Invitation and sets the default values.
+     * Instantiates a new invitation and sets the default values.
      */
     public constructor() {
         super();

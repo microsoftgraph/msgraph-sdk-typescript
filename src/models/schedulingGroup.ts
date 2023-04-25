@@ -9,7 +9,7 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
     /** The list of user IDs that are a member of the schedulingGroup. Required. */
     private _userIds?: string[] | undefined;
     /**
-     * Instantiates a new SchedulingGroup and sets the default values.
+     * Instantiates a new schedulingGroup and sets the default values.
      */
     public constructor() {
         super();

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EndpointsRequestBuilderGetRequestConfiguration} from './endpointsRequestBuilderGetRequestConfiguration';
 import {EndpointsRequestBuilderPostRequestConfiguration} from './endpointsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EndpointItemRequestBuilder} from './item/endpointItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
@@ -16,6 +17,17 @@ export class EndpointsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
+     * @param endpointId Unique identifier of the item
+     * @returns a EndpointItemRequestBuilder
+     */
+    public byEndpointId(endpointId: string) : EndpointItemRequestBuilder {
+        if(!endpointId) throw new Error("endpointId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["endpoint%2Did"] = endpointId
+        return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new EndpointsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

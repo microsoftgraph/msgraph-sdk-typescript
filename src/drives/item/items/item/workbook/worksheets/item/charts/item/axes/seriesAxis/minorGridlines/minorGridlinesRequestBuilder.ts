@@ -40,11 +40,10 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of chartgridlines object.
+     * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartGridlines
-     * @see {@link https://docs.microsoft.com/graph/api/chartgridlines-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MinorGridlinesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartGridlines | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,12 +56,11 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChartGridlines>(requestInfo, createWorkbookChartGridlinesFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of chartgridlines object.
+     * Update the navigation property minorGridlines in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartGridlines
-     * @see {@link https://docs.microsoft.com/graph/api/chartgridlines-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartGridlines | undefined, requestConfiguration?: MinorGridlinesRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartGridlines | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -92,7 +90,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartgridlines object.
+     * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +108,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartgridlines object.
+     * Update the navigation property minorGridlines in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

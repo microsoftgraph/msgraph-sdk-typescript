@@ -1,6 +1,6 @@
 
 /**
- * Retrieves a list of groupLifecyclePolicy objects to which a group belongs.
+ * The collection of lifecycle policies for this group. Read-only. Nullable.
  */
 export class GroupLifecyclePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

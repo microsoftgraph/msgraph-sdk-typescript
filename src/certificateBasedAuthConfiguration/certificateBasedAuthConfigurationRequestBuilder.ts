@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration} from './certificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration';
 import {CertificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration} from './certificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CertificateBasedAuthConfigurationItemRequestBuilder} from './item/certificateBasedAuthConfigurationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
@@ -16,6 +17,17 @@ export class CertificateBasedAuthConfigurationRequestBuilder extends BaseRequest
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
+     * @param certificateBasedAuthConfigurationId Unique identifier of the item
+     * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
+     */
+    public byCertificateBasedAuthConfigurationId(certificateBasedAuthConfigurationId: string) : CertificateBasedAuthConfigurationItemRequestBuilder {
+        if(!certificateBasedAuthConfigurationId) throw new Error("certificateBasedAuthConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["certificateBasedAuthConfiguration%2Did"] = certificateBasedAuthConfigurationId
+        return new CertificateBasedAuthConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CertificateBasedAuthConfigurationRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of nameditem objects.
+ * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
  */
 export class NamesRequestBuilderGetQueryParameters {
     /** Include count of items */

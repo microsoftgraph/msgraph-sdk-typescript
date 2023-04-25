@@ -5,7 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {CalendarViewRequestBuilderGetRequestConfiguration} from './calendarViewRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
@@ -20,6 +21,17 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
+     * @param eventId Unique identifier of the item
+     * @returns a EventItemRequestBuilder
+     */
+    public byEventId(eventId: string) : EventItemRequestBuilder {
+        if(!eventId) throw new Error("eventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["event%2Did"] = eventId
+        return new EventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new CalendarViewRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -28,11 +40,10 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/calendarView{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar `(../me/calendarview)` or some other calendar of the user's.
+     * The calendar view for the calendar. Navigation property. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EventCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/calendar-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -45,7 +56,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EventCollectionResponse>(requestInfo, createEventCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the occurrences, exceptions and single instances of events in a calendar view defined by a time range,from a user's default calendar `(../me/calendarview)` or some other calendar of the user's.
+     * The calendar view for the calendar. Navigation property. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

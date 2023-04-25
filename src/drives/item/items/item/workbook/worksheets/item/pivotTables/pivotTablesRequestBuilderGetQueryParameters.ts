@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of workbookpivottable objects.
+ * Collection of PivotTables that are part of the worksheet.
  */
 export class PivotTablesRequestBuilderGetQueryParameters {
     /** Include count of items */

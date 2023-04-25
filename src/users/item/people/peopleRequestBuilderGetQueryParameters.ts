@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a collection of person objects ordered by their relevance to the user, which is determined by the user's communication and collaboration patterns, and business relationships. You can get this information via the People API. For examples, see the Examples section and the article Use the People API to get information about the people most relevant to you.
+ * People that are relevant to the user. Read-only. Nullable.
  */
 export class PeopleRequestBuilderGetQueryParameters {
     /** Include count of items */

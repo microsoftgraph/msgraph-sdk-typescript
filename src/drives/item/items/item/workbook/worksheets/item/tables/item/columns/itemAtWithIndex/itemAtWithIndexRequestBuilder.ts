@@ -24,7 +24,6 @@ export class ItemAtWithIndexRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumn
-     * @see {@link https://docs.microsoft.com/graph/api/tablecolumncollection-itemat?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ItemAtWithIndexRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumn | undefined> {
         const requestInfo = this.toGetRequestInformation(

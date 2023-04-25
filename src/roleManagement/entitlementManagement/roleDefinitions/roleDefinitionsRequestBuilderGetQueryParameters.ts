@@ -1,6 +1,6 @@
 
 /**
- * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD)
+ * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
  */
 export class RoleDefinitionsRequestBuilderGetQueryParameters {
     /** Include count of items */

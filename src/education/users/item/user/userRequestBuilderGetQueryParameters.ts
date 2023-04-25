@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the simple directory **user** that corresponds to this **educationUser**.
+ * The directory user that corresponds to this user.
  */
 export class UserRequestBuilderGetQueryParameters {
     /** Expand related entities */

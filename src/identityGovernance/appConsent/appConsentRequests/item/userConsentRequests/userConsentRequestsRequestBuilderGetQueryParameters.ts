@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a collection of userConsentRequest objects and their properties.
+ * A list of pending user consent requests. Supports $filter (eq).
  */
 export class UserConsentRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */

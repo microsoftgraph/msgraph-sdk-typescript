@@ -5,9 +5,10 @@ import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {AccessReviewStageItemRequestBuilder} from './item/accessReviewStageItemRequestBuilder';
 import {StagesRequestBuilderGetRequestConfiguration} from './stagesRequestBuilderGetRequestConfiguration';
 import {StagesRequestBuilderPostRequestConfiguration} from './stagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
@@ -17,6 +18,17 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
+     * @param accessReviewStageId Unique identifier of the item
+     * @returns a AccessReviewStageItemRequestBuilder
+     */
+    public byAccessReviewStageId(accessReviewStageId: string) : AccessReviewStageItemRequestBuilder {
+        if(!accessReviewStageId) throw new Error("accessReviewStageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewStage%2Did"] = accessReviewStageId
+        return new AccessReviewStageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new StagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -35,11 +47,10 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Retrieve the stages in a multi-stage access review instance.
+     * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewStageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-list-stages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: StagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewStageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,7 +81,7 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessReviewStage>(requestInfo, createAccessReviewStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the stages in a multi-stage access review instance.
+     * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

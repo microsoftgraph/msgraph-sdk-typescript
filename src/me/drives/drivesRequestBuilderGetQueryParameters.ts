@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the list of Drive resources available for a target User, Group, or Site.
+ * A collection of drives available for this user. Read-only.
  */
 export class DrivesRequestBuilderGetQueryParameters {
     /** Include count of items */

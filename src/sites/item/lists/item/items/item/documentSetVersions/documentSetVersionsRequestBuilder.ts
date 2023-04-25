@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentSetVersionsRequestBuilderGetRequestConfiguration} from './documentSetVersionsRequestBuilderGetRequestConfiguration';
 import {DocumentSetVersionsRequestBuilderPostRequestConfiguration} from './documentSetVersionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DocumentSetVersionItemRequestBuilder} from './item/documentSetVersionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
@@ -17,6 +18,17 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
+     * @param documentSetVersionId Unique identifier of the item
+     * @returns a DocumentSetVersionItemRequestBuilder
+     */
+    public byDocumentSetVersionId(documentSetVersionId: string) : DocumentSetVersionItemRequestBuilder {
+        if(!documentSetVersionId) throw new Error("documentSetVersionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["documentSetVersion%2Did"] = documentSetVersionId
+        return new DocumentSetVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new DocumentSetVersionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/documentSetVersions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the versions of a document set item in a list.
+     * Version information for a document set version created by a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DocumentSetVersionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-list-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DocumentSetVersionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DocumentSetVersionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DocumentSetVersionCollectionResponse>(requestInfo, createDocumentSetVersionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new version of a document set item in a list.
+     * Create new navigation property to documentSetVersions for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DocumentSetVersion
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-post-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DocumentSetVersion | undefined, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DocumentSetVersion | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DocumentSetVersion>(requestInfo, createDocumentSetVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the versions of a document set item in a list.
+     * Version information for a document set version created by a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new version of a document set item in a list.
+     * Create new navigation property to documentSetVersions for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

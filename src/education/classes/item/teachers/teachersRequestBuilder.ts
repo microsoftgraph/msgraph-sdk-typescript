@@ -3,9 +3,10 @@ import {createEducationUserCollectionResponseFromDiscriminatorValue} from '../..
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {TeachersRequestBuilderGetRequestConfiguration} from './teachersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teachers property of the microsoft.graph.educationClass entity.
@@ -20,6 +21,17 @@ export class TeachersRequestBuilder extends BaseRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.teachers.item collection
+     * @param educationUserId Unique identifier of the item
+     * @returns a EducationUserItemRequestBuilder
+     */
+    public byEducationUserId(educationUserId: string) : EducationUserItemRequestBuilder {
+        if(!educationUserId) throw new Error("educationUserId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationUser%2Did"] = educationUserId
+        return new EducationUserItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TeachersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -28,11 +40,10 @@ export class TeachersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/teachers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+     * All teachers in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationUserCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-list-teachers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeachersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -45,7 +56,7 @@ export class TeachersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationUserCollectionResponse>(requestInfo, createEducationUserCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list.
+     * All teachers in the class. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

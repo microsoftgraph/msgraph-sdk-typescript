@@ -4,13 +4,12 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetFinalAttachmentRequestBuilder} from './getFinalAttachment/getFinalAttachmentRequestBuilder';
 import {GetFinalReportRequestBuilder} from './getFinalReport/getFinalReportRequestBuilder';
-import {AuthoredNoteItemRequestBuilder} from './notes/item/authoredNoteItemRequestBuilder';
 import {NotesRequestBuilder} from './notes/notesRequestBuilder';
 import {SubjectRightsRequestItemRequestBuilderDeleteRequestConfiguration} from './subjectRightsRequestItemRequestBuilderDeleteRequestConfiguration';
 import {SubjectRightsRequestItemRequestBuilderGetRequestConfiguration} from './subjectRightsRequestItemRequestBuilderGetRequestConfiguration';
 import {SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration} from './subjectRightsRequestItemRequestBuilderPatchRequestConfiguration';
 import {TeamRequestBuilder} from './team/teamRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
@@ -70,17 +69,6 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SubjectRightsRequest>(requestInfo, createSubjectRightsRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
-     * @param id Unique identifier of the item
-     * @returns a AuthoredNoteItemRequestBuilder
-     */
-    public notesById(id: string) : AuthoredNoteItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["authoredNote%2Did"] = id
-        return new AuthoredNoteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property subjectRightsRequests in privacy

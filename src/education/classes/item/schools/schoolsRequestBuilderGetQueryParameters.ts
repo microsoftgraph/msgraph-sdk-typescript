@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of schools in which the class is taught.
+ * All schools that this class is associated with. Nullable.
  */
 export class SchoolsRequestBuilderGetQueryParameters {
     /** Include count of items */

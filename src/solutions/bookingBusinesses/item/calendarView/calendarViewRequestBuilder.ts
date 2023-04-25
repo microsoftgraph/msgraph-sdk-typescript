@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CalendarViewRequestBuilderGetRequestConfiguration} from './calendarViewRequestBuilderGetRequestConfiguration';
 import {CalendarViewRequestBuilderPostRequestConfiguration} from './calendarViewRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BookingAppointmentItemRequestBuilder} from './item/bookingAppointmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
@@ -16,6 +17,17 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
+     * @param bookingAppointmentId Unique identifier of the item
+     * @returns a BookingAppointmentItemRequestBuilder
+     */
+    public byBookingAppointmentId(bookingAppointmentId: string) : BookingAppointmentItemRequestBuilder {
+        if(!bookingAppointmentId) throw new Error("bookingAppointmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["bookingAppointment%2Did"] = bookingAppointmentId
+        return new BookingAppointmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new CalendarViewRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -29,7 +41,6 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingAppointmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingAppointmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

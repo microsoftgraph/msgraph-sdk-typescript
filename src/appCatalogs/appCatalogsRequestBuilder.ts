@@ -4,9 +4,8 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppCatalogsRequestBuilderGetRequestConfiguration} from './appCatalogsRequestBuilderGetRequestConfiguration';
 import {AppCatalogsRequestBuilderPatchRequestConfiguration} from './appCatalogsRequestBuilderPatchRequestConfiguration';
-import {TeamsAppItemRequestBuilder} from './teamsApps/item/teamsAppItemRequestBuilder';
 import {TeamsAppsRequestBuilder} from './teamsApps/teamsAppsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appCatalogs singleton.
@@ -57,17 +56,6 @@ export class AppCatalogsRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AppCatalogs>(requestInfo, createAppCatalogsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
-     * @param id Unique identifier of the item
-     * @returns a TeamsAppItemRequestBuilder
-     */
-    public teamsAppsById(id: string) : TeamsAppItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamsApp%2Did"] = id
-        return new TeamsAppItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get appCatalogs

@@ -2,12 +2,11 @@ import {ThreatAssessmentRequest} from '../../../models/';
 import {createThreatAssessmentRequestFromDiscriminatorValue} from '../../../models/createThreatAssessmentRequestFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {ThreatAssessmentResultItemRequestBuilder} from './results/item/threatAssessmentResultItemRequestBuilder';
 import {ResultsRequestBuilder} from './results/resultsRequestBuilder';
 import {ThreatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration';
 import {ThreatAssessmentRequestItemRequestBuilderGetRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderGetRequestConfiguration';
 import {ThreatAssessmentRequestItemRequestBuilderPatchRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
@@ -73,17 +72,6 @@ export class ThreatAssessmentRequestItemRequestBuilder extends BaseRequestBuilde
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ThreatAssessmentRequest>(requestInfo, createThreatAssessmentRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
-     * @param id Unique identifier of the item
-     * @returns a ThreatAssessmentResultItemRequestBuilder
-     */
-    public resultsById(id: string) : ThreatAssessmentResultItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["threatAssessmentResult%2Did"] = id
-        return new ThreatAssessmentResultItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property threatAssessmentRequests for informationProtection

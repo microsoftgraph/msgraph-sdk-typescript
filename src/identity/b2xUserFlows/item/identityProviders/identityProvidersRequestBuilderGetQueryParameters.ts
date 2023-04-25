@@ -1,6 +1,6 @@
 
 /**
- * Get the identity providers in a b2xIdentityUserFlow object.
+ * The identity providers included in the user flow.
  */
 export class IdentityProvidersRequestBuilderGetQueryParameters {
     /** Include count of items */

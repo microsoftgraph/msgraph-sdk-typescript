@@ -4,9 +4,10 @@ import {createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue} fro
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TemporaryAccessPassAuthenticationMethodItemRequestBuilder} from './item/temporaryAccessPassAuthenticationMethodItemRequestBuilder';
 import {TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderGetRequestConfiguration';
 import {TemporaryAccessPassMethodsRequestBuilderPostRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
@@ -17,6 +18,17 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+     * @param temporaryAccessPassAuthenticationMethodId Unique identifier of the item
+     * @returns a TemporaryAccessPassAuthenticationMethodItemRequestBuilder
+     */
+    public byTemporaryAccessPassAuthenticationMethodId(temporaryAccessPassAuthenticationMethodId: string) : TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
+        if(!temporaryAccessPassAuthenticationMethodId) throw new Error("temporaryAccessPassAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["temporaryAccessPassAuthenticationMethod%2Did"] = temporaryAccessPassAuthenticationMethodId
+        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TemporaryAccessPassMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/temporaryAccessPassMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of a user's temporaryAccessPassAuthenticationMethod objects and their properties. This API will only return a single object in the collection as a user can have only one Temporary Access Pass method.
+     * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TemporaryAccessPassAuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-list-temporaryaccesspassmethods?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TemporaryAccessPassAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<TemporaryAccessPassAuthenticationMethodCollectionResponse>(requestInfo, createTemporaryAccessPassAuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new temporaryAccessPassAuthenticationMethod object on a user. A user can only have one Temporary Access Pass that's usable within its specified lifetime. If the user requires a new Temporary Access Pass while the current Temporary Access Pass is valid, the admin can create a new Temporary Access Pass for the user, the previous Temporary Access Pass will be deleted, and a new Temporary Access Pass will be created.
+     * Create new navigation property to temporaryAccessPassMethods for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TemporaryAccessPassAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-post-temporaryaccesspassmethods?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TemporaryAccessPassAuthenticationMethod | undefined, requestConfiguration?: TemporaryAccessPassMethodsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TemporaryAccessPassAuthenticationMethod | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<TemporaryAccessPassAuthenticationMethod>(requestInfo, createTemporaryAccessPassAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of a user's temporaryAccessPassAuthenticationMethod objects and their properties. This API will only return a single object in the collection as a user can have only one Temporary Access Pass method.
+     * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Create a new temporaryAccessPassAuthenticationMethod object on a user. A user can only have one Temporary Access Pass that's usable within its specified lifetime. If the user requires a new Temporary Access Pass while the current Temporary Access Pass is valid, the admin can create a new Temporary Access Pass for the user, the previous Temporary Access Pass will be deleted, and a new Temporary Access Pass will be created.
+     * Create new navigation property to temporaryAccessPassMethods for users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

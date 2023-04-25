@@ -4,9 +4,10 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from '../
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilderGetRequestConfiguration} from './singleValueExtendedPropertiesRequestBuilderGetRequestConfiguration';
 import {SingleValueExtendedPropertiesRequestBuilderPostRequestConfiguration} from './singleValueExtendedPropertiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
@@ -16,6 +17,17 @@ export class SingleValueExtendedPropertiesRequestBuilder extends BaseRequestBuil
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.message entity.
+     * @param singleValueLegacyExtendedPropertyId Unique identifier of the item
+     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
+     */
+    public bySingleValueLegacyExtendedPropertyId(singleValueLegacyExtendedPropertyId: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
+        if(!singleValueLegacyExtendedPropertyId) throw new Error("singleValueLegacyExtendedPropertyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["singleValueLegacyExtendedProperty%2Did"] = singleValueLegacyExtendedPropertyId
+        return new SingleValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SingleValueExtendedPropertiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

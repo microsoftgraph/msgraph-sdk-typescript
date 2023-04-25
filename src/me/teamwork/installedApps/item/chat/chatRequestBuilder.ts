@@ -18,11 +18,10 @@ export class ChatRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}/chat{?%24select,%24expand}");
     };
     /**
-     * Retrieve the chat of the specified user and Teams app.
+     * The chat between the user and Teams app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
-     * @see {@link https://docs.microsoft.com/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +34,7 @@ export class ChatRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the chat of the specified user and Teams app.
+     * The chat between the user and Teams app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

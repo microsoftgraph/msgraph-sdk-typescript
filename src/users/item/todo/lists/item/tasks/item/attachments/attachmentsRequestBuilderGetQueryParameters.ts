@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
+ * A collection of file attachments for the task.
  */
 export class AttachmentsRequestBuilderGetQueryParameters {
     /** Include count of items */

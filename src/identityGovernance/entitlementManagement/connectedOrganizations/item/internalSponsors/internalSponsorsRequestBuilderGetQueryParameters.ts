@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of a connectedOrganization's internal sponsors.  The internal sponsors are a set of users who can approve requests on behalf of other users from that connected organization.
+ * Get internalSponsors from identityGovernance
  */
 export class InternalSponsorsRequestBuilderGetQueryParameters {
     /** Include count of items */

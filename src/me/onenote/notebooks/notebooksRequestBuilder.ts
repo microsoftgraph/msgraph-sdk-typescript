@@ -6,9 +6,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetNotebookFromWebUrlRequestBuilder} from './getNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
 import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './getRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
+import {NotebookItemRequestBuilder} from './item/notebookItemRequestBuilder';
 import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
@@ -23,6 +24,17 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         return new GetNotebookFromWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
+     * @param notebookId Unique identifier of the item
+     * @returns a NotebookItemRequestBuilder
+     */
+    public byNotebookId(notebookId: string) : NotebookItemRequestBuilder {
+        if(!notebookId) throw new Error("notebookId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["notebook%2Did"] = notebookId
+        return new NotebookItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new NotebooksRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -31,11 +43,10 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/onenote/notebooks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of notebook objects.
+     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of NotebookCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/onenote-list-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotebooksRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NotebookCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,12 +68,11 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(this.pathParameters, this.requestAdapter, includePersonalNotebooks);
     };
     /**
-     * Create a new OneNote notebook.
+     * Create new navigation property to notebooks for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Notebook
-     * @see {@link https://docs.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Notebook | undefined, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Notebook | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +86,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Notebook>(requestInfo, createNotebookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of notebook objects.
+     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +104,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new OneNote notebook.
+     * Create new navigation property to notebooks for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

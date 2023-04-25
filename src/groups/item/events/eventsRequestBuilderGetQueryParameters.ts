@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of event objects.
+ * The group's calendar events.
  */
 export class EventsRequestBuilderGetQueryParameters {
     /** Include count of items */

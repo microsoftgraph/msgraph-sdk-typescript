@@ -1,6 +1,6 @@
 
 /**
- * Get a list of group objects in a term store.
+ * Collection of all groups available in the term store.
  */
 export class GroupsRequestBuilderGetQueryParameters {
     /** Include count of items */

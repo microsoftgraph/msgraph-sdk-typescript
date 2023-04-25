@@ -16,10 +16,9 @@ export class RenewRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/renew");
     };
     /**
-     * Renews a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
+     * Invoke action renew
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @see {@link https://docs.microsoft.com/graph/api/group-renew?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RenewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -32,7 +31,7 @@ export class RenewRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Renews a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
+     * Invoke action renew
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

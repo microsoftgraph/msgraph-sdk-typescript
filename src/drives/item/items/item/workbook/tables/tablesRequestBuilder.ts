@@ -5,10 +5,11 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookTableItemRequestBuilder} from './item/workbookTableItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {TablesRequestBuilderGetRequestConfiguration} from './tablesRequestBuilderGetRequestConfiguration';
 import {TablesRequestBuilderPostRequestConfiguration} from './tablesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
@@ -23,6 +24,17 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
+     * @param workbookTableId Unique identifier of the item
+     * @returns a WorkbookTableItemRequestBuilder
+     */
+    public byWorkbookTableId(workbookTableId: string) : WorkbookTableItemRequestBuilder {
+        if(!workbookTableId) throw new Error("workbookTableId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookTable%2Did"] = workbookTableId
+        return new WorkbookTableItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TablesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -31,11 +43,10 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of table objects.
+     * Represents a collection of tables associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/table-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TablesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -75,7 +86,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of table objects.
+     * Represents a collection of tables associated with the workbook. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

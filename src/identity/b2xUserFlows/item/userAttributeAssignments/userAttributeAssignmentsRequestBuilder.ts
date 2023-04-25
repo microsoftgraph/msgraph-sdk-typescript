@@ -5,10 +5,11 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetOrderRequestBuilder} from './getOrder/getOrderRequestBuilder';
+import {IdentityUserFlowAttributeAssignmentItemRequestBuilder} from './item/identityUserFlowAttributeAssignmentItemRequestBuilder';
 import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
 import {UserAttributeAssignmentsRequestBuilderGetRequestConfiguration} from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
 import {UserAttributeAssignmentsRequestBuilderPostRequestConfiguration} from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -27,6 +28,17 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
         return new SetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
+     * @param identityUserFlowAttributeAssignmentId Unique identifier of the item
+     * @returns a IdentityUserFlowAttributeAssignmentItemRequestBuilder
+     */
+    public byIdentityUserFlowAttributeAssignmentId(identityUserFlowAttributeAssignmentId: string) : IdentityUserFlowAttributeAssignmentItemRequestBuilder {
+        if(!identityUserFlowAttributeAssignmentId) throw new Error("identityUserFlowAttributeAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityUserFlowAttributeAssignment%2Did"] = identityUserFlowAttributeAssignmentId
+        return new IdentityUserFlowAttributeAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new UserAttributeAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -35,11 +47,10 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow.
+     * The user attribute assignments included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-list-userattributeassignments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserAttributeAssignmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -52,12 +63,11 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignmentCollectionResponse>(requestInfo, createIdentityUserFlowAttributeAssignmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
+     * Create new navigation property to userAttributeAssignments for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-post-userattributeassignments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityUserFlowAttributeAssignment | undefined, requestConfiguration?: UserAttributeAssignmentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -71,7 +81,7 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignment>(requestInfo, createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the identityUserFlowAttributeAssignment resources from the userAttributeAssignments navigation property in a b2xIdentityUserFlow.
+     * The user attribute assignments included in the user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +99,7 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new identityUserFlowAttributeAssignment object in a b2xIdentityUserFlow.
+     * Create new navigation property to userAttributeAssignments for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

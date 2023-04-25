@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of riskyServicePrincipal objects.
+ * Azure AD service principals that are at risk.
  */
 export class RiskyServicePrincipalsRequestBuilderGetQueryParameters {
     /** Include count of items */

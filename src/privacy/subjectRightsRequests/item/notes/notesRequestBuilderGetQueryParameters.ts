@@ -1,6 +1,6 @@
 
 /**
- * Get the list of authored notes assoicated with a subject rights request. 
+ * List of notes associcated with the request.
  */
 export class NotesRequestBuilderGetQueryParameters {
     /** Include count of items */

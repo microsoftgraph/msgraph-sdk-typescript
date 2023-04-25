@@ -1,6 +1,6 @@
 
 /**
- * Get the educationClass resources owned by an educationSchool.
+ * Classes taught at the school. Nullable.
  */
 export class ClassesRequestBuilderGetQueryParameters {
     /** Include count of items */

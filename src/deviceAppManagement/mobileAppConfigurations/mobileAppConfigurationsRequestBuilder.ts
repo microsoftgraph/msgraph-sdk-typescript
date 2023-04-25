@@ -4,9 +4,10 @@ import {createManagedDeviceMobileAppConfigurationFromDiscriminatorValue} from '.
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationItemRequestBuilder} from './item/managedDeviceMobileAppConfigurationItemRequestBuilder';
 import {MobileAppConfigurationsRequestBuilderGetRequestConfiguration} from './mobileAppConfigurationsRequestBuilderGetRequestConfiguration';
 import {MobileAppConfigurationsRequestBuilderPostRequestConfiguration} from './mobileAppConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +17,17 @@ export class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+     * @param managedDeviceMobileAppConfigurationId Unique identifier of the item
+     * @returns a ManagedDeviceMobileAppConfigurationItemRequestBuilder
+     */
+    public byManagedDeviceMobileAppConfigurationId(managedDeviceMobileAppConfigurationId: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder {
+        if(!managedDeviceMobileAppConfigurationId) throw new Error("managedDeviceMobileAppConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedDeviceMobileAppConfiguration%2Did"] = managedDeviceMobileAppConfigurationId
+        return new ManagedDeviceMobileAppConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MobileAppConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

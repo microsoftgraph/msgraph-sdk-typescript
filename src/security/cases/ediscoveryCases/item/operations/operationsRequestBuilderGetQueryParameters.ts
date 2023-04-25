@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the caseOperation objects and their properties.
+ * Returns a list of case caseOperation objects for this case.
  */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */

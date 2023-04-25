@@ -1,6 +1,6 @@
 
 /**
- * Get a collection of subsites defined for a [site][].
+ * The collection of the sub-sites under this site.
  */
 export class SitesRequestBuilderGetQueryParameters {
     /** Include count of items */

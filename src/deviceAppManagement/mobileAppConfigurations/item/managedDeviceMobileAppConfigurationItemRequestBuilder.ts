@@ -4,17 +4,14 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder} from './assignments/item/managedDeviceMobileAppConfigurationAssignmentItemRequestBuilder';
 import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder} from './deviceStatuses/item/managedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder';
 import {DeviceStatusSummaryRequestBuilder} from './deviceStatusSummary/deviceStatusSummaryRequestBuilder';
 import {ManagedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration} from './managedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder} from './userStatuses/item/managedDeviceMobileAppConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
 import {UserStatusSummaryRequestBuilder} from './userStatusSummary/userStatusSummaryRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -45,17 +42,6 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
         return new UserStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedDeviceMobileAppConfigurationAssignment%2Did"] = id
-        return new ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new ManagedDeviceMobileAppConfigurationItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -77,17 +63,6 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder
-     */
-    public deviceStatusesById(id: string) : ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedDeviceMobileAppConfigurationDeviceStatus%2Did"] = id
-        return new ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The Managed Device Mobile Application Configurations.
@@ -176,16 +151,5 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
         }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
-     */
-    public userStatusesById(id: string) : ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedDeviceMobileAppConfigurationUserStatus%2Did"] = id
-        return new ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

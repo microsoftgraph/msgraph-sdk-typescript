@@ -3,24 +3,17 @@ import {createEntitlementManagementFromDiscriminatorValue} from '../../models/cr
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessPackageAssignmentApprovalsRequestBuilder} from './accessPackageAssignmentApprovals/accessPackageAssignmentApprovalsRequestBuilder';
-import {ApprovalItemRequestBuilder} from './accessPackageAssignmentApprovals/item/approvalItemRequestBuilder';
 import {AccessPackagesRequestBuilder} from './accessPackages/accessPackagesRequestBuilder';
-import {AccessPackageItemRequestBuilder} from './accessPackages/item/accessPackageItemRequestBuilder';
 import {AssignmentPoliciesRequestBuilder} from './assignmentPolicies/assignmentPoliciesRequestBuilder';
-import {AccessPackageAssignmentPolicyItemRequestBuilder} from './assignmentPolicies/item/accessPackageAssignmentPolicyItemRequestBuilder';
 import {AssignmentRequestsRequestBuilder} from './assignmentRequests/assignmentRequestsRequestBuilder';
-import {AccessPackageAssignmentRequestItemRequestBuilder} from './assignmentRequests/item/accessPackageAssignmentRequestItemRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {AccessPackageAssignmentItemRequestBuilder} from './assignments/item/accessPackageAssignmentItemRequestBuilder';
 import {CatalogsRequestBuilder} from './catalogs/catalogsRequestBuilder';
-import {AccessPackageCatalogItemRequestBuilder} from './catalogs/item/accessPackageCatalogItemRequestBuilder';
 import {ConnectedOrganizationsRequestBuilder} from './connectedOrganizations/connectedOrganizationsRequestBuilder';
-import {ConnectedOrganizationItemRequestBuilder} from './connectedOrganizations/item/connectedOrganizationItemRequestBuilder';
 import {EntitlementManagementRequestBuilderDeleteRequestConfiguration} from './entitlementManagementRequestBuilderDeleteRequestConfiguration';
 import {EntitlementManagementRequestBuilderGetRequestConfiguration} from './entitlementManagementRequestBuilderGetRequestConfiguration';
 import {EntitlementManagementRequestBuilderPatchRequestConfiguration} from './entitlementManagementRequestBuilderPatchRequestConfiguration';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
@@ -58,83 +51,6 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
-     * @param id Unique identifier of the item
-     * @returns a ApprovalItemRequestBuilder
-     */
-    public accessPackageAssignmentApprovalsById(id: string) : ApprovalItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["approval%2Did"] = id
-        return new ApprovalItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageItemRequestBuilder
-     */
-    public accessPackagesById(id: string) : AccessPackageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackage%2Did"] = id
-        return new AccessPackageItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
-     */
-    public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageAssignmentPolicy%2Did"] = id
-        return new AccessPackageAssignmentPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageAssignmentRequestItemRequestBuilder
-     */
-    public assignmentRequestsById(id: string) : AccessPackageAssignmentRequestItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageAssignmentRequest%2Did"] = id
-        return new AccessPackageAssignmentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : AccessPackageAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageAssignment%2Did"] = id
-        return new AccessPackageAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageCatalogItemRequestBuilder
-     */
-    public catalogsById(id: string) : AccessPackageCatalogItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageCatalog%2Did"] = id
-        return new AccessPackageCatalogItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
-     * @param id Unique identifier of the item
-     * @returns a ConnectedOrganizationItemRequestBuilder
-     */
-    public connectedOrganizationsById(id: string) : ConnectedOrganizationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["connectedOrganization%2Did"] = id
-        return new ConnectedOrganizationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -18,12 +18,11 @@ export class UnfavoriteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/unfavorite");
     };
     /**
-     * Remove the favorite status of serviceUpdateMessages for the signed in user.
+     * Invoke action unfavorite
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnfavoriteResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-unfavorite?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnfavoritePostRequestBody | undefined, requestConfiguration?: UnfavoriteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnfavoriteResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -37,7 +36,7 @@ export class UnfavoriteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UnfavoriteResponse>(requestInfo, createUnfavoriteResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Remove the favorite status of serviceUpdateMessages for the signed in user.
+     * Invoke action unfavorite
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

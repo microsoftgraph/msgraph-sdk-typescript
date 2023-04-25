@@ -19,12 +19,11 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants/invite");
     };
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
+     * Invoke action invite
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InviteParticipantsOperation
-     * @see {@link https://docs.microsoft.com/graph/api/participant-invite?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InvitePostRequestBody | undefined, requestConfiguration?: InviteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InviteParticipantsOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +37,7 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<InviteParticipantsOperation>(requestInfo, createInviteParticipantsOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invite participants to the active call. For more information about how to handle operations, see commsOperation.
+     * Invoke action invite
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

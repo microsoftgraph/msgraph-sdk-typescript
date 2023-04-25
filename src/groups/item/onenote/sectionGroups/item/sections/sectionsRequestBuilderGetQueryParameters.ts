@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of onenoteSection objects from the specified section group.
+ * The sections in the section group. Read-only. Nullable.
  */
 export class SectionsRequestBuilderGetQueryParameters {
     /** Include count of items */

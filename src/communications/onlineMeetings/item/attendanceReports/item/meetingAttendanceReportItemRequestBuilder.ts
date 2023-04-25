@@ -3,11 +3,10 @@ import {createMeetingAttendanceReportFromDiscriminatorValue} from '../../../../.
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AttendanceRecordsRequestBuilder} from './attendanceRecords/attendanceRecordsRequestBuilder';
-import {AttendanceRecordItemRequestBuilder} from './attendanceRecords/item/attendanceRecordItemRequestBuilder';
 import {MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration';
 import {MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderGetRequestConfiguration';
 import {MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
@@ -17,17 +16,6 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
     public get attendanceRecords(): AttendanceRecordsRequestBuilder {
         return new AttendanceRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
-     * @param id Unique identifier of the item
-     * @returns a AttendanceRecordItemRequestBuilder
-     */
-    public attendanceRecordsById(id: string) : AttendanceRecordItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["attendanceRecord%2Did"] = id
-        return new AttendanceRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new MeetingAttendanceReportItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

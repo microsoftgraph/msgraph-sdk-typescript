@@ -1,6 +1,6 @@
 
 /**
- * Get a list of rich long-running operations associated with a site.
+ * The collection of long-running operations on the site.
  */
 export class OperationsRequestBuilderGetQueryParameters {
     /** Include count of items */

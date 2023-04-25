@@ -4,9 +4,10 @@ import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceComplianceScheduledActionForRuleItemRequestBuilder} from './item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilderGetRequestConfiguration} from './scheduledActionsForRuleRequestBuilderGetRequestConfiguration';
 import {ScheduledActionsForRuleRequestBuilderPostRequestConfiguration} from './scheduledActionsForRuleRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -16,6 +17,17 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
+     * @param deviceComplianceScheduledActionForRuleId Unique identifier of the item
+     * @returns a DeviceComplianceScheduledActionForRuleItemRequestBuilder
+     */
+    public byDeviceComplianceScheduledActionForRuleId(deviceComplianceScheduledActionForRuleId: string) : DeviceComplianceScheduledActionForRuleItemRequestBuilder {
+        if(!deviceComplianceScheduledActionForRuleId) throw new Error("deviceComplianceScheduledActionForRuleId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceComplianceScheduledActionForRule%2Did"] = deviceComplianceScheduledActionForRuleId
+        return new DeviceComplianceScheduledActionForRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ScheduledActionsForRuleRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

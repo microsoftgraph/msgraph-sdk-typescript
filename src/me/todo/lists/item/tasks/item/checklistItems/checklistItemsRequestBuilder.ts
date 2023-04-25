@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {ChecklistItemsRequestBuilderGetRequestConfiguration} from './checklistItemsRequestBuilderGetRequestConfiguration';
 import {ChecklistItemsRequestBuilderPostRequestConfiguration} from './checklistItemsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ChecklistItemItemRequestBuilder} from './item/checklistItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
@@ -16,6 +17,17 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+     * @param checklistItemId Unique identifier of the item
+     * @returns a ChecklistItemItemRequestBuilder
+     */
+    public byChecklistItemId(checklistItemId: string) : ChecklistItemItemRequestBuilder {
+        if(!checklistItemId) throw new Error("checklistItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["checklistItem%2Did"] = checklistItemId
+        return new ChecklistItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChecklistItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

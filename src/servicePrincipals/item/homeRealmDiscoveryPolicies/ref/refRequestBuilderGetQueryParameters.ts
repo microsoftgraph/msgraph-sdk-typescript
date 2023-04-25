@@ -1,6 +1,6 @@
 
 /**
- * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
+ * The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
  */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */

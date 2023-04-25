@@ -1,6 +1,6 @@
 
 /**
- * Get the list of schedulingGroups in this schedule.
+ * The logical grouping of users in the schedule (usually by role).
  */
 export class SchedulingGroupsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EndpointsRequestBuilderGetRequestConfiguration} from './endpointsRequestBuilderGetRequestConfiguration';
 import {EndpointsRequestBuilderPostRequestConfiguration} from './endpointsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PrintServiceEndpointItemRequestBuilder} from './item/printServiceEndpointItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
@@ -17,6 +18,17 @@ export class EndpointsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
+     * @param printServiceEndpointId Unique identifier of the item
+     * @returns a PrintServiceEndpointItemRequestBuilder
+     */
+    public byPrintServiceEndpointId(printServiceEndpointId: string) : PrintServiceEndpointItemRequestBuilder {
+        if(!printServiceEndpointId) throw new Error("printServiceEndpointId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["printServiceEndpoint%2Did"] = printServiceEndpointId
+        return new PrintServiceEndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new EndpointsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class EndpointsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/services/{printService%2Did}/endpoints{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of endpoints exposed by a print service.
+     * Endpoints that can be used to access the service. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintServiceEndpointCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/printservice-list-endpoints?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EndpointsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintServiceEndpointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class EndpointsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PrintServiceEndpoint>(requestInfo, createPrintServiceEndpointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of endpoints exposed by a print service.
+     * Endpoints that can be used to access the service. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

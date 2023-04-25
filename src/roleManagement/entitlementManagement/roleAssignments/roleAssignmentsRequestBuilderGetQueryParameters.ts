@@ -1,6 +1,6 @@
 
 /**
- * Get a list of unifiedRoleAssignment objects for the RBAC provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD)
+ * Resource to grant access to users or groups.
  */
 export class RoleAssignmentsRequestBuilderGetQueryParameters {
     /** Include count of items */

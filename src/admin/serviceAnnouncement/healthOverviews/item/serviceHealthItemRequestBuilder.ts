@@ -3,11 +3,10 @@ import {createServiceHealthFromDiscriminatorValue} from '../../../../models/crea
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
-import {ServiceHealthIssueItemRequestBuilder} from './issues/item/serviceHealthIssueItemRequestBuilder';
 import {ServiceHealthItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceHealthItemRequestBuilderGetRequestConfiguration} from './serviceHealthItemRequestBuilderGetRequestConfiguration';
 import {ServiceHealthItemRequestBuilderPatchRequestConfiguration} from './serviceHealthItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
@@ -55,17 +54,6 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
-     * @param id Unique identifier of the item
-     * @returns a ServiceHealthIssueItemRequestBuilder
-     */
-    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["serviceHealthIssue%2Did"] = id
-        return new ServiceHealthIssueItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property healthOverviews in admin

@@ -8,7 +8,8 @@ import {CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} fro
 import {CallRecordsRequestBuilderGetRequestConfiguration} from './callRecordsRequestBuilderGetRequestConfiguration';
 import {CallRecordsRequestBuilderPostRequestConfiguration} from './callRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CallRecordItemRequestBuilder} from './item/callRecordItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
@@ -18,6 +19,17 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+     * @param callRecordId Unique identifier of the item
+     * @returns a CallRecordItemRequestBuilder
+     */
+    public byCallRecordId(callRecordId: string) : CallRecordItemRequestBuilder {
+        if(!callRecordId) throw new Error("callRecordId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["callRecord%2Did"] = callRecordId
+        return new CallRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Provides operations to call the getDirectRoutingCalls method.
      * @param fromDateTime Usage: fromDateTime={fromDateTime}

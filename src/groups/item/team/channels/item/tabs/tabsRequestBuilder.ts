@@ -4,9 +4,10 @@ import {createTeamsTabFromDiscriminatorValue} from '../../../../../../models/cre
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamsTabItemRequestBuilder} from './item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilderGetRequestConfiguration} from './tabsRequestBuilderGetRequestConfiguration';
 import {TabsRequestBuilderPostRequestConfiguration} from './tabsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
@@ -17,6 +18,17 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
+     * @param teamsTabId Unique identifier of the item
+     * @returns a TeamsTabItemRequestBuilder
+     */
+    public byTeamsTabId(teamsTabId: string) : TeamsTabItemRequestBuilder {
+        if(!teamsTabId) throw new Error("teamsTabId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsTab%2Did"] = teamsTabId
+        return new TeamsTabItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TabsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/tabs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of tabs in the specified channel within a team. 
+     * A collection of all the tabs in the channel. A navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTabCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/channel-list-tabs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TabsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTabCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamsTab>(requestInfo, createTeamsTabFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the list of tabs in the specified channel within a team. 
+     * A collection of all the tabs in the channel. A navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

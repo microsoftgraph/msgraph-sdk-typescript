@@ -51,12 +51,11 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<FieldValueSet>(requestInfo, createFieldValueSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties on a **[listItem][]**.
+     * Update the navigation property fields in sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FieldValueSet
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: FieldValueSet | undefined, requestConfiguration?: FieldsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FieldValueSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -104,7 +103,7 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties on a **[listItem][]**.
+     * Update the navigation property fields in sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

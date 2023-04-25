@@ -1,6 +1,6 @@
 
 /**
- * Get the conversationMember collection of a team.
+ * Members and owners of the team.
  */
 export class MembersRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -1,6 +1,6 @@
 
 /**
- * Read the properties and relationships of an authenticationFlowsPolicy object.
+ * The policy configuration of the self-service sign-up experience of external users.
  */
 export class AuthenticationFlowsPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */

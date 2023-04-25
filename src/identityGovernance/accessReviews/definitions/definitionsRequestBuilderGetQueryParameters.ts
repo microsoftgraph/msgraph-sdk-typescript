@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the accessReviewScheduleDefinition objects and their properties.
+ * Represents the template and scheduling for an access review.
  */
 export class DefinitionsRequestBuilderGetQueryParameters {
     /** Include count of items */

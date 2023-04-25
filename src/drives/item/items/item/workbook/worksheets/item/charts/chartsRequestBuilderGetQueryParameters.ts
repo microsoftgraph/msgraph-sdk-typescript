@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of chart objects.
+ * Returns collection of charts that are part of the worksheet. Read-only.
  */
 export class ChartsRequestBuilderGetQueryParameters {
     /** Include count of items */

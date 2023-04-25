@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of tablerow objects.
+ * Represents a collection of all the rows in the table. Read-only.
  */
 export class RowsRequestBuilderGetQueryParameters {
     /** Include count of items */

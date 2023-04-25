@@ -1,6 +1,6 @@
 
 /**
- * Get a list of namedLocation objects.
+ * Read-only. Nullable. Returns a collection of the specified named locations.
  */
 export class NamedLocationsRequestBuilderGetQueryParameters {
     /** Include count of items */

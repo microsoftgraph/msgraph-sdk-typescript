@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicySettingStateSummariesRequestBuilderPostRequestConfiguration} from './deviceCompliancePolicySettingStateSummariesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilder} from './item/deviceCompliancePolicySettingStateSummaryItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +17,17 @@ export class DeviceCompliancePolicySettingStateSummariesRequestBuilder extends B
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+     * @param deviceCompliancePolicySettingStateSummaryId Unique identifier of the item
+     * @returns a DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
+     */
+    public byDeviceCompliancePolicySettingStateSummaryId(deviceCompliancePolicySettingStateSummaryId: string) : DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
+        if(!deviceCompliancePolicySettingStateSummaryId) throw new Error("deviceCompliancePolicySettingStateSummaryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceCompliancePolicySettingStateSummary%2Did"] = deviceCompliancePolicySettingStateSummaryId
+        return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceCompliancePolicySettingStateSummariesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

@@ -4,9 +4,10 @@ import {createWorkbookCommentReplyFromDiscriminatorValue} from '../../../../../.
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookCommentReplyItemRequestBuilder} from './item/workbookCommentReplyItemRequestBuilder';
 import {RepliesRequestBuilderGetRequestConfiguration} from './repliesRequestBuilderGetRequestConfiguration';
 import {RepliesRequestBuilderPostRequestConfiguration} from './repliesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
@@ -16,6 +17,17 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
+     * @param workbookCommentReplyId Unique identifier of the item
+     * @returns a WorkbookCommentReplyItemRequestBuilder
+     */
+    public byWorkbookCommentReplyId(workbookCommentReplyId: string) : WorkbookCommentReplyItemRequestBuilder {
+        if(!workbookCommentReplyId) throw new Error("workbookCommentReplyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookCommentReply%2Did"] = workbookCommentReplyId
+        return new WorkbookCommentReplyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RepliesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

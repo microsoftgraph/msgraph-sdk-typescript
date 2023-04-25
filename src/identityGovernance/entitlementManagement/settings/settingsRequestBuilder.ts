@@ -35,11 +35,10 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties of an entitlementManagementSettings object.
+     * The settings that control the behavior of Azure AD entitlement management.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EntitlementManagementSettings
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagementsettings-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SettingsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagementSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -52,12 +51,11 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EntitlementManagementSettings>(requestInfo, createEntitlementManagementSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update an existing entitlementManagementSettings object to change one or more of its properties.
+     * Update the navigation property settings in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EntitlementManagementSettings
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagementsettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EntitlementManagementSettings | undefined, requestConfiguration?: SettingsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagementSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -87,7 +85,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties of an entitlementManagementSettings object.
+     * The settings that control the behavior of Azure AD entitlement management.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +103,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update an existing entitlementManagementSettings object to change one or more of its properties.
+     * Update the navigation property settings in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

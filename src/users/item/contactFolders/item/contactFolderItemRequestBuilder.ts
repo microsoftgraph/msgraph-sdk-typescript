@@ -3,17 +3,13 @@ import {createContactFolderFromDiscriminatorValue} from '../../../../models/crea
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {ContactFolderItemRequestBuilder as Ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75} from './childFolders/item/contactFolderItemRequestBuilder';
 import {ContactFolderItemRequestBuilderDeleteRequestConfiguration} from './contactFolderItemRequestBuilderDeleteRequestConfiguration';
 import {ContactFolderItemRequestBuilderGetRequestConfiguration} from './contactFolderItemRequestBuilderGetRequestConfiguration';
 import {ContactFolderItemRequestBuilderPatchRequestConfiguration} from './contactFolderItemRequestBuilderPatchRequestConfiguration';
 import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
-import {ContactItemRequestBuilder} from './contacts/item/contactItemRequestBuilder';
-import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
@@ -36,34 +32,12 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a ContactFolderItemRequestBuilder
-     */
-    public childFoldersById(id: string) : Ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contactFolder%2Did1"] = id
-        return new Ib3d4e782e14a554d30100ea0257a0cdd0333f0997f7ea93f174264d3c9d26d75(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new ContactFolderItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a ContactItemRequestBuilder
-     */
-    public contactsById(id: string) : ContactItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contact%2Did"] = id
-        return new ContactItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property contactFolders for users
@@ -97,17 +71,6 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.contactFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
-        return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Update the navigation property contactFolders in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
@@ -124,17 +87,6 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.contactFolder entity.
-     * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id
-        return new SingleValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property contactFolders for users

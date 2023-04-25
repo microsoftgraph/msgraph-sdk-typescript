@@ -2,12 +2,11 @@ import {LearningProvider} from '../../../models/';
 import {createLearningProviderFromDiscriminatorValue} from '../../../models/createLearningProviderFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {LearningContentItemRequestBuilder} from './learningContents/item/learningContentItemRequestBuilder';
 import {LearningContentsRequestBuilder} from './learningContents/learningContentsRequestBuilder';
 import {LearningProviderItemRequestBuilderDeleteRequestConfiguration} from './learningProviderItemRequestBuilderDeleteRequestConfiguration';
 import {LearningProviderItemRequestBuilderGetRequestConfiguration} from './learningProviderItemRequestBuilderGetRequestConfiguration';
 import {LearningProviderItemRequestBuilderPatchRequestConfiguration} from './learningProviderItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
@@ -55,17 +54,6 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
-     * @param id Unique identifier of the item
-     * @returns a LearningContentItemRequestBuilder
-     */
-    public learningContentsById(id: string) : LearningContentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["learningContent%2Did"] = id
-        return new LearningContentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property learningProviders in employeeExperience

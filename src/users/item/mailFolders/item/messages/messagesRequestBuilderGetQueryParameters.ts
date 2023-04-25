@@ -1,6 +1,6 @@
 
 /**
- * Get all the messages in the specified user's mailbox, or those messages in a specified folder in the mailbox.
+ * The collection of messages in the mailFolder.
  */
 export class MessagesRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -1,6 +1,6 @@
 
 /**
- * Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [content type][contentType].
+ * The collection of column definitions for this contentType.
  */
 export class ColumnsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -4,9 +4,10 @@ import {createExternalItemFromDiscriminatorValue} from '../../../models/external
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ExternalItemItemRequestBuilder} from './item/externalItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
 import {ItemsRequestBuilderPostRequestConfiguration} from './itemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -16,6 +17,17 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
+     * @param externalItemId Unique identifier of the item
+     * @returns a ExternalItemItemRequestBuilder
+     */
+    public byExternalItemId(externalItemId: string) : ExternalItemItemRequestBuilder {
+        if(!externalItemId) throw new Error("externalItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["externalItem%2Did"] = externalItemId
+        return new ExternalItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

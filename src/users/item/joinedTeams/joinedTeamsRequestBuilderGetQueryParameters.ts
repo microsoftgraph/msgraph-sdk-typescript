@@ -1,6 +1,6 @@
 
 /**
- * Get the teams in Microsoft Teams that the user is a direct member of.
+ * Get joinedTeams from users
  */
 export class JoinedTeamsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -6,8 +6,7 @@ import {CasesRequestBuilderDeleteRequestConfiguration} from './casesRequestBuild
 import {CasesRequestBuilderGetRequestConfiguration} from './casesRequestBuilderGetRequestConfiguration';
 import {CasesRequestBuilderPatchRequestConfiguration} from './casesRequestBuilderPatchRequestConfiguration';
 import {EdiscoveryCasesRequestBuilder} from './ediscoveryCases/ediscoveryCasesRequestBuilder';
-import {EdiscoveryCaseItemRequestBuilder} from './ediscoveryCases/item/ediscoveryCaseItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cases property of the microsoft.graph.security entity.
@@ -39,17 +38,6 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryCaseItemRequestBuilder
-     */
-    public ediscoveryCasesById(id: string) : EdiscoveryCaseItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryCase%2Did"] = id
-        return new EdiscoveryCaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get cases from security

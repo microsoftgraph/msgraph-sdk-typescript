@@ -1,6 +1,6 @@
 
 /**
- * List the tokenLifetimePolicy objects that are assigned to an application.
+ * Get tokenLifetimePolicies from applications
  */
 export class TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

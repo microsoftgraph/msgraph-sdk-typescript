@@ -4,9 +4,10 @@ import {createSwapShiftsChangeRequestFromDiscriminatorValue} from '../../../../.
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SwapShiftsChangeRequestItemRequestBuilder} from './item/swapShiftsChangeRequestItemRequestBuilder';
 import {SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration} from './swapShiftsChangeRequestsRequestBuilderGetRequestConfiguration';
 import {SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration} from './swapShiftsChangeRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
@@ -17,6 +18,17 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
+     * @param swapShiftsChangeRequestId Unique identifier of the item
+     * @returns a SwapShiftsChangeRequestItemRequestBuilder
+     */
+    public bySwapShiftsChangeRequestId(swapShiftsChangeRequestId: string) : SwapShiftsChangeRequestItemRequestBuilder {
+        if(!swapShiftsChangeRequestId) throw new Error("swapShiftsChangeRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["swapShiftsChangeRequest%2Did"] = swapShiftsChangeRequestId
+        return new SwapShiftsChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SwapShiftsChangeRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/swapShiftsChangeRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team.
+     * Get swapShiftsChangeRequests from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SwapShiftsChangeRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SwapShiftsChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SwapShiftsChangeRequestCollectionResponse>(requestInfo, createSwapShiftsChangeRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create an instance of a swapShiftsChangeRequest object.
+     * Create new navigation property to swapShiftsChangeRequests for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SwapShiftsChangeRequest
-     * @see {@link https://docs.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SwapShiftsChangeRequest | undefined, requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SwapShiftsChangeRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SwapShiftsChangeRequest>(requestInfo, createSwapShiftsChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of swapShiftsChangeRequest objects in the team.
+     * Get swapShiftsChangeRequests from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an instance of a swapShiftsChangeRequest object.
+     * Create new navigation property to swapShiftsChangeRequests for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

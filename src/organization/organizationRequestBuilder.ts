@@ -7,10 +7,11 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {OrganizationItemRequestBuilder} from './item/organizationItemRequestBuilder';
 import {OrganizationRequestBuilderGetRequestConfiguration} from './organizationRequestBuilderGetRequestConfiguration';
 import {OrganizationRequestBuilderPostRequestConfiguration} from './organizationRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organization entities.
@@ -36,6 +37,17 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of organization entities.
+     * @param organizationId Unique identifier of the item
+     * @returns a OrganizationItemRequestBuilder
+     */
+    public byOrganizationId(organizationId: string) : OrganizationItemRequestBuilder {
+        if(!organizationId) throw new Error("organizationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["organization%2Did"] = organizationId
+        return new OrganizationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OrganizationRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

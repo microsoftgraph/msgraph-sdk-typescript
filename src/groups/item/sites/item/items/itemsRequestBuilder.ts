@@ -3,8 +3,9 @@ import {createBaseItemCollectionResponseFromDiscriminatorValue} from '../../../.
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {BaseItemItemRequestBuilder} from './item/baseItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.site entity.
@@ -14,6 +15,17 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.site entity.
+     * @param baseItemId Unique identifier of the item
+     * @returns a BaseItemItemRequestBuilder
+     */
+    public byBaseItemId(baseItemId: string) : BaseItemItemRequestBuilder {
+        if(!baseItemId) throw new Error("baseItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["baseItem%2Did"] = baseItemId
+        return new BaseItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

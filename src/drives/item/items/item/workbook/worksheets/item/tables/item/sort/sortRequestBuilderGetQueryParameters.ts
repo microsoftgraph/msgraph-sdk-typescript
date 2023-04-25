@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties and relationships of tablesort object.
+ * Represents the sorting for the table. Read-only.
  */
 export class SortRequestBuilderGetQueryParameters {
     /** Expand related entities */

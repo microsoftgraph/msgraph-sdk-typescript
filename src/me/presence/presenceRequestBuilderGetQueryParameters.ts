@@ -1,6 +1,6 @@
 
 /**
- * Get a user's presence information.
+ * Get presence from me
  */
 export class PresenceRequestBuilderGetQueryParameters {
     /** Expand related entities */

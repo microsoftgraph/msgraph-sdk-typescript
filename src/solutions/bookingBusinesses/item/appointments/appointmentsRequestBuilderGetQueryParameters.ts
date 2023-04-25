@@ -1,6 +1,6 @@
 
 /**
- * Get a list of bookingAppointment objects for the specified bookingBusiness.
+ * All the appointments of this business. Read-only. Nullable.
  */
 export class AppointmentsRequestBuilderGetQueryParameters {
     /** Include count of items */

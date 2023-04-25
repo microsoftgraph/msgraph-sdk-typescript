@@ -1,6 +1,6 @@
 
 /**
- * Get the schedules for active role assignment operations.
+ * Schedules for active role assignment operations.
  */
 export class RoleAssignmentSchedulesRequestBuilderGetQueryParameters {
     /** Include count of items */

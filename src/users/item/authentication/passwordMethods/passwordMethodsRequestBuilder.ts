@@ -4,9 +4,10 @@ import {createPasswordAuthenticationMethodFromDiscriminatorValue} from '../../..
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PasswordAuthenticationMethodItemRequestBuilder} from './item/passwordAuthenticationMethodItemRequestBuilder';
 import {PasswordMethodsRequestBuilderGetRequestConfiguration} from './passwordMethodsRequestBuilderGetRequestConfiguration';
 import {PasswordMethodsRequestBuilderPostRequestConfiguration} from './passwordMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
@@ -17,6 +18,17 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
+     * @param passwordAuthenticationMethodId Unique identifier of the item
+     * @returns a PasswordAuthenticationMethodItemRequestBuilder
+     */
+    public byPasswordAuthenticationMethodId(passwordAuthenticationMethodId: string) : PasswordAuthenticationMethodItemRequestBuilder {
+        if(!passwordAuthenticationMethodId) throw new Error("passwordAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["passwordAuthenticationMethod%2Did"] = passwordAuthenticationMethodId
+        return new PasswordAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new PasswordMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/passwordMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This will return exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the **password** property is always `null`.
+     * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PasswordAuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-list-passwordmethods?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PasswordMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PasswordAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,7 +71,7 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PasswordAuthenticationMethod>(requestInfo, createPasswordAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of the passwords registered to a user, represented by a passwordAuthenticationMethod object. This will return exactly one object, as a user can have exactly one password. For security, the password itself will never be returned in the object and the **password** property is always `null`.
+     * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

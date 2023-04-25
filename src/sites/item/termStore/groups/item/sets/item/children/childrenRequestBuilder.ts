@@ -6,7 +6,8 @@ import {createTermFromDiscriminatorValue} from '../../../../../../../../models/t
 import {ChildrenRequestBuilderGetRequestConfiguration} from './childrenRequestBuilderGetRequestConfiguration';
 import {ChildrenRequestBuilderPostRequestConfiguration} from './childrenRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TermItemRequestBuilder} from './item/termItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
@@ -17,6 +18,17 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
+     * @param termId Unique identifier of the item
+     * @returns a TermItemRequestBuilder
+     */
+    public byTermId(termId: string) : TermItemRequestBuilder {
+        if(!termId) throw new Error("termId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["term%2Did"] = termId
+        return new TermItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ChildrenRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStore/groups/{group%2Did}/sets/{set%2Did}/children{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the first level children of a [set] or [term] resource using the children navigation property.
+     * Children terms of set in term [store].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-list-children?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChildrenRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TermCollectionResponse>(requestInfo, createTermCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new term object.
+     * Create new navigation property to children for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Term
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Term | undefined, requestConfiguration?: ChildrenRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Term | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Term>(requestInfo, createTermFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the first level children of a [set] or [term] resource using the children navigation property.
+     * Children terms of set in term [store].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new term object.
+     * Create new navigation property to children for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

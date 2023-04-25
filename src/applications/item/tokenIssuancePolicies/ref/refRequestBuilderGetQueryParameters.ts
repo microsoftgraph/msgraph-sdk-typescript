@@ -1,6 +1,6 @@
 
 /**
- * List the tokenIssuancePolicy objects that are assigned to an application.
+ * Get ref of tokenIssuancePolicies from applications
  */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */

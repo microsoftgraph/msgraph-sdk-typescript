@@ -19,11 +19,10 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24select,%24expand}");
     };
     /**
-     * Get a list of **administrativeUnits** associated with an educationSchool object.
+     * The underlying administrativeUnit for this school.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdministrativeUnit
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -54,7 +53,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of **administrativeUnits** associated with an educationSchool object.
+     * The underlying administrativeUnit for this school.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

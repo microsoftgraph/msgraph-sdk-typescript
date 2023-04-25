@@ -4,15 +4,13 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignRequestBuilder} from './assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {MobileAppAssignmentItemRequestBuilder} from './assignments/item/mobileAppAssignmentItemRequestBuilder';
 import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
-import {MobileAppCategoryItemRequestBuilder} from './categories/item/mobileAppCategoryItemRequestBuilder';
 import {GraphManagedMobileLobAppRequestBuilder} from './graphManagedMobileLobApp/graphManagedMobileLobAppRequestBuilder';
 import {GraphMobileLobAppRequestBuilder} from './graphMobileLobApp/graphMobileLobAppRequestBuilder';
 import {MobileAppItemRequestBuilderDeleteRequestConfiguration} from './mobileAppItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppItemRequestBuilderGetRequestConfiguration} from './mobileAppItemRequestBuilderGetRequestConfiguration';
 import {MobileAppItemRequestBuilderPatchRequestConfiguration} from './mobileAppItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
@@ -38,28 +36,6 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
     public get graphMobileLobApp(): GraphMobileLobAppRequestBuilder {
         return new GraphMobileLobAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
-     * @param id Unique identifier of the item
-     * @returns a MobileAppAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : MobileAppAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["mobileAppAssignment%2Did"] = id
-        return new MobileAppAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
-     * @param id Unique identifier of the item
-     * @returns a MobileAppCategoryItemRequestBuilder
-     */
-    public categoriesById(id: string) : MobileAppCategoryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["mobileAppCategory%2Did"] = id
-        return new MobileAppCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new MobileAppItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

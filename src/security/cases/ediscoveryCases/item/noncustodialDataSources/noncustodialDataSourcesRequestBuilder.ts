@@ -4,11 +4,12 @@ import {EdiscoveryNoncustodialDataSource, EdiscoveryNoncustodialDataSourceCollec
 import {createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialDataSourcesRequestBuilderGetRequestConfiguration} from './noncustodialDataSourcesRequestBuilderGetRequestConfiguration';
 import {NoncustodialDataSourcesRequestBuilderPostRequestConfiguration} from './noncustodialDataSourcesRequestBuilderPostRequestConfiguration';
 import {SecurityApplyHoldRequestBuilder} from './securityApplyHold/securityApplyHoldRequestBuilder';
 import {SecurityRemoveHoldRequestBuilder} from './securityRemoveHold/securityRemoveHoldRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
@@ -26,6 +27,17 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
     public get securityRemoveHold(): SecurityRemoveHoldRequestBuilder {
         return new SecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param ediscoveryNoncustodialDataSourceId Unique identifier of the item
+     * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
+     */
+    public byEdiscoveryNoncustodialDataSourceId(ediscoveryNoncustodialDataSourceId: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder {
+        if(!ediscoveryNoncustodialDataSourceId) throw new Error("ediscoveryNoncustodialDataSourceId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryNoncustodialDataSource%2Did"] = ediscoveryNoncustodialDataSourceId
+        return new EdiscoveryNoncustodialDataSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new NoncustodialDataSourcesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -51,12 +63,11 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSourceCollectionResponse>(requestInfo, createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new ediscoveryNoncustodialDataSource object.
+     * Create new navigation property to noncustodialDataSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryNoncustodialDataSource
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-noncustodialdatasources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryNoncustodialDataSource | undefined, requestConfiguration?: NoncustodialDataSourcesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -88,7 +99,7 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new ediscoveryNoncustodialDataSource object.
+     * Create new navigation property to noncustodialDataSources for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

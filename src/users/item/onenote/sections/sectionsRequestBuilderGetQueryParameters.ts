@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of onenoteSection objects.
+ * The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
  */
 export class SectionsRequestBuilderGetQueryParameters {
     /** Include count of items */

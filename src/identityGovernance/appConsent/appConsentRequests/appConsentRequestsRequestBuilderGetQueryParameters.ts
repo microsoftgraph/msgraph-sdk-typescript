@@ -1,6 +1,6 @@
 
 /**
- * Retrieve appConsentRequest objects and their properties.
+ * A collection of userConsentRequest objects for a specific application.
  */
 export class AppConsentRequestsRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -4,10 +4,11 @@ import {createWorkbookChartPointFromDiscriminatorValue} from '../../../../../../
 import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookChartPointItemRequestBuilder} from './item/workbookChartPointItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {PointsRequestBuilderGetRequestConfiguration} from './pointsRequestBuilderGetRequestConfiguration';
 import {PointsRequestBuilderPostRequestConfiguration} from './pointsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
@@ -18,6 +19,17 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
+     * @param workbookChartPointId Unique identifier of the item
+     * @returns a WorkbookChartPointItemRequestBuilder
+     */
+    public byWorkbookChartPointId(workbookChartPointId: string) : WorkbookChartPointItemRequestBuilder {
+        if(!workbookChartPointId) throw new Error("workbookChartPointId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookChartPoint%2Did"] = workbookChartPointId
+        return new WorkbookChartPointItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new PointsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -26,11 +38,10 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}/points{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of chartpoint objects.
+     * Represents a collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartPointCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PointsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -52,12 +63,11 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
-     * Use this API to create a new ChartPoints.
+     * Create new navigation property to points for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartPoint
-     * @see {@link https://docs.microsoft.com/graph/api/chartseries-post-points?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkbookChartPoint | undefined, requestConfiguration?: PointsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartPoint | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -71,7 +81,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of chartpoint objects.
+     * Represents a collection of all points in the series. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +99,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Use this API to create a new ChartPoints.
+     * Create new navigation property to points for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

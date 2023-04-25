@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
+ * The access packages whose assigned users are ineligible to be assigned this access package.
  */
 export class RefRequestBuilderGetQueryParameters {
     /** Include count of items */

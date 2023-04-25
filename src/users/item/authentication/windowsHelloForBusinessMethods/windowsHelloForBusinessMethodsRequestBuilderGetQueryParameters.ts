@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+ * Represents the Windows Hello for Business authentication method registered to a user for authentication.
  */
 export class WindowsHelloForBusinessMethodsRequestBuilderGetQueryParameters {
     /** Include count of items */

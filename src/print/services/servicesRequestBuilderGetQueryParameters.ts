@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of **printService** objects that represent the services available to your tenant.
+ * The list of available Universal Print service endpoints.
  */
 export class ServicesRequestBuilderGetQueryParameters {
     /** Include count of items */

@@ -1,6 +1,6 @@
 
 /**
- * Get a list of all partner configurations within a cross-tenant access policy.
+ * Defines partner-specific configurations for external Azure Active Directory organizations.
  */
 export class PartnersRequestBuilderGetQueryParameters {
     /** Include count of items */

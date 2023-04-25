@@ -1,6 +1,6 @@
 
 /**
- * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
+ * The policy that represents the security defaults that protect against common attacks.
  */
 export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetQueryParameters {
     /** Expand related entities */

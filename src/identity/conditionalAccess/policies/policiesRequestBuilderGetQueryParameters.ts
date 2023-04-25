@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of conditionalAccessPolicy objects.
+ * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
  */
 export class PoliciesRequestBuilderGetQueryParameters {
     /** Include count of items */

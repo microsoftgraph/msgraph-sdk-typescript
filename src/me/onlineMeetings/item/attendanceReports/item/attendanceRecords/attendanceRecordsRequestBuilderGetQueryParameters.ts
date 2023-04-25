@@ -1,6 +1,6 @@
 
 /**
- * Get a list of attendanceRecord objects and their properties.
+ * List of attendance records of an attendance report. Read-only.
  */
 export class AttendanceRecordsRequestBuilderGetQueryParameters {
     /** Include count of items */

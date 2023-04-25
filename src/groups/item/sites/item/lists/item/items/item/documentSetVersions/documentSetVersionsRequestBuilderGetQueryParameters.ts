@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the versions of a document set item in a list.
+ * Version information for a document set version created by a user.
  */
 export class DocumentSetVersionsRequestBuilderGetQueryParameters {
     /** Include count of items */

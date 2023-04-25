@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of workforceIntegration objects.
+ * Get workforceIntegrations from teamwork
  */
 export class WorkforceIntegrationsRequestBuilderGetQueryParameters {
     /** Include count of items */

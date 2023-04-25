@@ -1,6 +1,6 @@
 
 /**
- * List all app installations within a chat.
+ * A collection of all the apps in the chat. Nullable.
  */
 export class InstalledAppsRequestBuilderGetQueryParameters {
     /** Include count of items */

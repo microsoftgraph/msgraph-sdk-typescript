@@ -2,12 +2,11 @@ import {Todo} from '../../../models/';
 import {createTodoFromDiscriminatorValue} from '../../../models/createTodoFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {TodoTaskListItemRequestBuilder} from './lists/item/todoTaskListItemRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {TodoRequestBuilderDeleteRequestConfiguration} from './todoRequestBuilderDeleteRequestConfiguration';
 import {TodoRequestBuilderGetRequestConfiguration} from './todoRequestBuilderGetRequestConfiguration';
 import {TodoRequestBuilderPatchRequestConfiguration} from './todoRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the todo property of the microsoft.graph.user entity.
@@ -55,17 +54,6 @@ export class TodoRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<Todo>(requestInfo, createTodoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the lists property of the microsoft.graph.todo entity.
-     * @param id Unique identifier of the item
-     * @returns a TodoTaskListItemRequestBuilder
-     */
-    public listsById(id: string) : TodoTaskListItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["todoTaskList%2Did"] = id
-        return new TodoTaskListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property todo in users

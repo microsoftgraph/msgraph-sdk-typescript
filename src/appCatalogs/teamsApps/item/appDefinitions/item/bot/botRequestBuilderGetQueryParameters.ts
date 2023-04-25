@@ -1,6 +1,6 @@
 
 /**
- * Get the bot associated with a specific definition of the  TeamsApp.
+ * The details of the bot specified in the Teams app manifest.
  */
 export class BotRequestBuilderGetQueryParameters {
     /** Expand related entities */

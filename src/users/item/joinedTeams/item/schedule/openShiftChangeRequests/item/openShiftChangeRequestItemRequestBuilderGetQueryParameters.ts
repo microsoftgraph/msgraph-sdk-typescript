@@ -1,6 +1,6 @@
 
 /**
- * Get openShiftChangeRequests from users
+ * The open shift requests in the schedule.
  */
 export class OpenShiftChangeRequestItemRequestBuilderGetQueryParameters {
     /** Expand related entities */

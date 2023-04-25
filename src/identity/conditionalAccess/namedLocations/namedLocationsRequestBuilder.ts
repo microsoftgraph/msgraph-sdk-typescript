@@ -4,9 +4,10 @@ import {createNamedLocationFromDiscriminatorValue} from '../../../models/createN
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {NamedLocationItemRequestBuilder} from './item/namedLocationItemRequestBuilder';
 import {NamedLocationsRequestBuilderGetRequestConfiguration} from './namedLocationsRequestBuilderGetRequestConfiguration';
 import {NamedLocationsRequestBuilderPostRequestConfiguration} from './namedLocationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
@@ -17,6 +18,17 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
+     * @param namedLocationId Unique identifier of the item
+     * @returns a NamedLocationItemRequestBuilder
+     */
+    public byNamedLocationId(namedLocationId: string) : NamedLocationItemRequestBuilder {
+        if(!namedLocationId) throw new Error("namedLocationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["namedLocation%2Did"] = namedLocationId
+        return new NamedLocationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new NamedLocationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,11 +37,10 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/namedLocations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of namedLocation objects.
+     * Read-only. Nullable. Returns a collection of the specified named locations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of NamedLocationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamedLocationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NamedLocationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -42,12 +53,11 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<NamedLocationCollectionResponse>(requestInfo, createNamedLocationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
+     * Create new navigation property to namedLocations for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of NamedLocation
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccessroot-post-namedlocations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: NamedLocation | undefined, requestConfiguration?: NamedLocationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NamedLocation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -61,7 +71,7 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of namedLocation objects.
+     * Read-only. Nullable. Returns a collection of the specified named locations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +89,7 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new namedLocation object. Named locations can be either ipNamedLocation or countryNamedLocation objects.
+     * Create new navigation property to namedLocations for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

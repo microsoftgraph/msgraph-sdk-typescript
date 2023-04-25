@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of attachment objects attached to a post.
+ * Read-only. Nullable. Supports $expand.
  */
 export class AttachmentsRequestBuilderGetQueryParameters {
     /** Include count of items */

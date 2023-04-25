@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the deletedTeam objects and their properties.
+ * The deleted team.
  */
 export class DeletedTeamsRequestBuilderGetQueryParameters {
     /** Include count of items */

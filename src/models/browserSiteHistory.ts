@@ -11,21 +11,21 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class BrowserSiteHistory implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Boolean attribute that controls the behavior of redirected sites */
+    /** Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain. */
     private _allowRedirect?: boolean | undefined;
-    /** The content for the site */
+    /** The comment for the site. */
     private _comment?: string | undefined;
-    /** Controls what compatibility setting is used for specific sites or domains */
+    /** Controls what compatibility setting is used for specific sites or domains. The possible values are: default, internetExplorer8Enterprise, internetExplorer7Enterprise, internetExplorer11, internetExplorer10, internetExplorer9, internetExplorer8, internetExplorer7, internetExplorer5, unknownFutureValue. */
     private _compatibilityMode?: BrowserSiteCompatibilityMode | undefined;
-    /** The user who modified the site */
+    /** The user who last modified the site. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** The merge type of the site */
+    /** The merge type of the site. The possible values are: noMerge, default, unknownFutureValue. */
     private _mergeType?: BrowserSiteMergeType | undefined;
     /** The OdataType property */
     private _odataType?: string | undefined;
-    /** The time the site was last published */
+    /** The date and time when the site was last published. */
     private _publishedDateTime?: Date | undefined;
-    /** The render mode in Edge client that the site is supposed to open in */
+    /** The target environment that the site should open in. The possible values are: internetExplorerMode, internetExplorer11, microsoftEdge, configurable, none, unknownFutureValue.Prior to June 15, 2022, the internetExplorer11 option would allow opening a site in the Internet Explorer 11 (IE11) desktop application. Following the retirement of IE11 on June 15, 2022, the internetExplorer11 option will no longer open an IE11 window and will instead behave the same as the internetExplorerMode option. */
     private _targetEnvironment?: BrowserSiteTargetEnvironment | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -42,42 +42,42 @@ export class BrowserSiteHistory implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the allowRedirect property value. Boolean attribute that controls the behavior of redirected sites
+     * Gets the allowRedirect property value. Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
      * @returns a boolean
      */
     public get allowRedirect() {
         return this._allowRedirect;
     };
     /**
-     * Sets the allowRedirect property value. Boolean attribute that controls the behavior of redirected sites
+     * Sets the allowRedirect property value. Controls the behavior of redirected sites. If true, indicates that the site will open in Internet Explorer 11 or Microsoft Edge even if the site is navigated to as part of a HTTP or meta refresh redirection chain.
      * @param value Value to set for the allowRedirect property.
      */
     public set allowRedirect(value: boolean | undefined) {
         this._allowRedirect = value;
     };
     /**
-     * Gets the comment property value. The content for the site
+     * Gets the comment property value. The comment for the site.
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. The content for the site
+     * Sets the comment property value. The comment for the site.
      * @param value Value to set for the comment property.
      */
     public set comment(value: string | undefined) {
         this._comment = value;
     };
     /**
-     * Gets the compatibilityMode property value. Controls what compatibility setting is used for specific sites or domains
+     * Gets the compatibilityMode property value. Controls what compatibility setting is used for specific sites or domains. The possible values are: default, internetExplorer8Enterprise, internetExplorer7Enterprise, internetExplorer11, internetExplorer10, internetExplorer9, internetExplorer8, internetExplorer7, internetExplorer5, unknownFutureValue.
      * @returns a browserSiteCompatibilityMode
      */
     public get compatibilityMode() {
         return this._compatibilityMode;
     };
     /**
-     * Sets the compatibilityMode property value. Controls what compatibility setting is used for specific sites or domains
+     * Sets the compatibilityMode property value. Controls what compatibility setting is used for specific sites or domains. The possible values are: default, internetExplorer8Enterprise, internetExplorer7Enterprise, internetExplorer11, internetExplorer10, internetExplorer9, internetExplorer8, internetExplorer7, internetExplorer5, unknownFutureValue.
      * @param value Value to set for the compatibilityMode property.
      */
     public set compatibilityMode(value: BrowserSiteCompatibilityMode | undefined) {
@@ -106,28 +106,28 @@ export class BrowserSiteHistory implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the lastModifiedBy property value. The user who modified the site
+     * Gets the lastModifiedBy property value. The user who last modified the site.
      * @returns a identitySet
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
     };
     /**
-     * Sets the lastModifiedBy property value. The user who modified the site
+     * Sets the lastModifiedBy property value. The user who last modified the site.
      * @param value Value to set for the lastModifiedBy property.
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         this._lastModifiedBy = value;
     };
     /**
-     * Gets the mergeType property value. The merge type of the site
+     * Gets the mergeType property value. The merge type of the site. The possible values are: noMerge, default, unknownFutureValue.
      * @returns a browserSiteMergeType
      */
     public get mergeType() {
         return this._mergeType;
     };
     /**
-     * Sets the mergeType property value. The merge type of the site
+     * Sets the mergeType property value. The merge type of the site. The possible values are: noMerge, default, unknownFutureValue.
      * @param value Value to set for the mergeType property.
      */
     public set mergeType(value: BrowserSiteMergeType | undefined) {
@@ -148,14 +148,14 @@ export class BrowserSiteHistory implements AdditionalDataHolder, Parsable {
         this._odataType = value;
     };
     /**
-     * Gets the publishedDateTime property value. The time the site was last published
+     * Gets the publishedDateTime property value. The date and time when the site was last published.
      * @returns a Date
      */
     public get publishedDateTime() {
         return this._publishedDateTime;
     };
     /**
-     * Sets the publishedDateTime property value. The time the site was last published
+     * Sets the publishedDateTime property value. The date and time when the site was last published.
      * @param value Value to set for the publishedDateTime property.
      */
     public set publishedDateTime(value: Date | undefined) {
@@ -178,14 +178,14 @@ export class BrowserSiteHistory implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the targetEnvironment property value. The render mode in Edge client that the site is supposed to open in
+     * Gets the targetEnvironment property value. The target environment that the site should open in. The possible values are: internetExplorerMode, internetExplorer11, microsoftEdge, configurable, none, unknownFutureValue.Prior to June 15, 2022, the internetExplorer11 option would allow opening a site in the Internet Explorer 11 (IE11) desktop application. Following the retirement of IE11 on June 15, 2022, the internetExplorer11 option will no longer open an IE11 window and will instead behave the same as the internetExplorerMode option.
      * @returns a browserSiteTargetEnvironment
      */
     public get targetEnvironment() {
         return this._targetEnvironment;
     };
     /**
-     * Sets the targetEnvironment property value. The render mode in Edge client that the site is supposed to open in
+     * Sets the targetEnvironment property value. The target environment that the site should open in. The possible values are: internetExplorerMode, internetExplorer11, microsoftEdge, configurable, none, unknownFutureValue.Prior to June 15, 2022, the internetExplorer11 option would allow opening a site in the Internet Explorer 11 (IE11) desktop application. Following the retirement of IE11 on June 15, 2022, the internetExplorer11 option will no longer open an IE11 window and will instead behave the same as the internetExplorerMode option.
      * @param value Value to set for the targetEnvironment property.
      */
     public set targetEnvironment(value: BrowserSiteTargetEnvironment | undefined) {

@@ -7,7 +7,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DecisionsRequestBuilderGetRequestConfiguration} from './decisionsRequestBuilderGetRequestConfiguration';
 import {DecisionsRequestBuilderPostRequestConfiguration} from './decisionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './item/accessReviewInstanceDecisionItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
@@ -17,6 +18,17 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
+     * @param accessReviewInstanceDecisionItemId Unique identifier of the item
+     * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
+     */
+    public byAccessReviewInstanceDecisionItemId(accessReviewInstanceDecisionItemId: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
+        if(!accessReviewInstanceDecisionItemId) throw new Error("accessReviewInstanceDecisionItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewInstanceDecisionItem%2Did"] = accessReviewInstanceDecisionItemId
+        return new AccessReviewInstanceDecisionItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DecisionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -35,11 +47,10 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+     * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewInstanceDecisionItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewstage-list-decisions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DecisionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstanceDecisionItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,7 +81,7 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessReviewInstanceDecisionItem>(requestInfo, createAccessReviewInstanceDecisionItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
+     * Each user reviewed in an accessReviewStage has a decision item representing if they were approved, denied, or not yet reviewed.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

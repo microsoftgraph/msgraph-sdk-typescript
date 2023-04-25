@@ -18,11 +18,10 @@ export class DataBodyRangeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/dataBodyRange()");
     };
     /**
-     * Gets the range object associated with the data body of the table.
+     * Invoke function dataBodyRange
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookRange
-     * @see {@link https://docs.microsoft.com/graph/api/table-databodyrange?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DataBodyRangeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +34,7 @@ export class DataBodyRangeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Gets the range object associated with the data body of the table.
+     * Invoke function dataBodyRange
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

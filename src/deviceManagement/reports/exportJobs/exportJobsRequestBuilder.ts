@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExportJobsRequestBuilderGetRequestConfiguration} from './exportJobsRequestBuilderGetRequestConfiguration';
 import {ExportJobsRequestBuilderPostRequestConfiguration} from './exportJobsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceManagementExportJobItemRequestBuilder} from './item/deviceManagementExportJobItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
@@ -16,6 +17,17 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
+     * @param deviceManagementExportJobId Unique identifier of the item
+     * @returns a DeviceManagementExportJobItemRequestBuilder
+     */
+    public byDeviceManagementExportJobId(deviceManagementExportJobId: string) : DeviceManagementExportJobItemRequestBuilder {
+        if(!deviceManagementExportJobId) throw new Error("deviceManagementExportJobId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceManagementExportJob%2Did"] = deviceManagementExportJobId
+        return new DeviceManagementExportJobItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ExportJobsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

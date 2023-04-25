@@ -7,7 +7,8 @@ import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsReq
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AttachmentItemRequestBuilder} from './item/attachmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.post entity.
@@ -22,6 +23,17 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the attachments property of the microsoft.graph.post entity.
+     * @param attachmentId Unique identifier of the item
+     * @returns a AttachmentItemRequestBuilder
+     */
+    public byAttachmentId(attachmentId: string) : AttachmentItemRequestBuilder {
+        if(!attachmentId) throw new Error("attachmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["attachment%2Did"] = attachmentId
+        return new AttachmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new AttachmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -30,11 +42,10 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts/{post%2Did}/attachments{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of attachment objects attached to a post.
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/post-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +76,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Attachment>(requestInfo, createAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of attachment objects attached to a post.
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

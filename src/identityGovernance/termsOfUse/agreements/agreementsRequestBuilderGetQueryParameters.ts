@@ -1,6 +1,6 @@
 
 /**
- * Retrieve a list of agreement objects.
+ * Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
  */
 export class AgreementsRequestBuilderGetQueryParameters {
     /** Include count of items */

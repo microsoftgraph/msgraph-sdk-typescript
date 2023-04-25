@@ -6,10 +6,8 @@ import {AccessReviewsRequestBuilderDeleteRequestConfiguration} from './accessRev
 import {AccessReviewsRequestBuilderGetRequestConfiguration} from './accessReviewsRequestBuilderGetRequestConfiguration';
 import {AccessReviewsRequestBuilderPatchRequestConfiguration} from './accessReviewsRequestBuilderPatchRequestConfiguration';
 import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder';
-import {AccessReviewScheduleDefinitionItemRequestBuilder} from './definitions/item/accessReviewScheduleDefinitionItemRequestBuilder';
 import {HistoryDefinitionsRequestBuilder} from './historyDefinitions/historyDefinitionsRequestBuilder';
-import {AccessReviewHistoryDefinitionItemRequestBuilder} from './historyDefinitions/item/accessReviewHistoryDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
@@ -30,17 +28,6 @@ export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewScheduleDefinitionItemRequestBuilder
-     */
-    public definitionsById(id: string) : AccessReviewScheduleDefinitionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewScheduleDefinition%2Did"] = id
-        return new AccessReviewScheduleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property accessReviews for identityGovernance
@@ -72,17 +59,6 @@ export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<AccessReviewSet>(requestInfo, createAccessReviewSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewHistoryDefinitionItemRequestBuilder
-     */
-    public historyDefinitionsById(id: string) : AccessReviewHistoryDefinitionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewHistoryDefinition%2Did"] = id
-        return new AccessReviewHistoryDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property accessReviews in identityGovernance

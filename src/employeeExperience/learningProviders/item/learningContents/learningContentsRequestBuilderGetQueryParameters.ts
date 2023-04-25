@@ -1,6 +1,6 @@
 
 /**
- * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
+ * Learning catalog items for the provider.
  */
 export class LearningContentsRequestBuilderGetQueryParameters {
     /** Include count of items */

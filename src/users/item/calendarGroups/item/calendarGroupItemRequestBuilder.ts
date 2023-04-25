@@ -6,8 +6,7 @@ import {CalendarGroupItemRequestBuilderDeleteRequestConfiguration} from './calen
 import {CalendarGroupItemRequestBuilderGetRequestConfiguration} from './calendarGroupItemRequestBuilderGetRequestConfiguration';
 import {CalendarGroupItemRequestBuilderPatchRequestConfiguration} from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
-import {CalendarItemRequestBuilder} from './calendars/item/calendarItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
@@ -17,17 +16,6 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
     public get calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
-     * @param id Unique identifier of the item
-     * @returns a CalendarItemRequestBuilder
-     */
-    public calendarsById(id: string) : CalendarItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["calendar%2Did"] = id
-        return new CalendarItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new CalendarGroupItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

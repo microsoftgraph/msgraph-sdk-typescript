@@ -35,11 +35,10 @@ export class BotRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the bot associated with a specific definition of the  TeamsApp.
+     * The details of the bot specified in the Teams app manifest.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkBot
-     * @see {@link https://docs.microsoft.com/graph/api/teamworkbot-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BotRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkBot | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +85,7 @@ export class BotRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the bot associated with a specific definition of the  TeamsApp.
+     * The details of the bot specified in the Teams app manifest.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

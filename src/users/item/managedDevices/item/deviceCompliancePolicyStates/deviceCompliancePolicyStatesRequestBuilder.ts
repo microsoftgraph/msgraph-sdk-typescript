@@ -6,7 +6,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCompliancePolicyStatesRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyStatesRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyStatesRequestBuilderPostRequestConfiguration} from './deviceCompliancePolicyStatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceCompliancePolicyStateItemRequestBuilder} from './item/deviceCompliancePolicyStateItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
@@ -16,6 +17,17 @@ export class DeviceCompliancePolicyStatesRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
+     * @param deviceCompliancePolicyStateId Unique identifier of the item
+     * @returns a DeviceCompliancePolicyStateItemRequestBuilder
+     */
+    public byDeviceCompliancePolicyStateId(deviceCompliancePolicyStateId: string) : DeviceCompliancePolicyStateItemRequestBuilder {
+        if(!deviceCompliancePolicyStateId) throw new Error("deviceCompliancePolicyStateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceCompliancePolicyState%2Did"] = deviceCompliancePolicyStateId
+        return new DeviceCompliancePolicyStateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceCompliancePolicyStatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
