@@ -1,0 +1,40 @@
+import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function deserializeIntoDeviceHealthAttestationState(deviceHealthAttestationState: DeviceHealthAttestationState | undefined = {} as DeviceHealthAttestationState) : Record<string, (node: ParseNode) => void> {
+    return {
+        "attestationIdentityKey": n => { deviceHealthAttestationState.attestationIdentityKey = n.getStringValue(); },
+        "bitLockerStatus": n => { deviceHealthAttestationState.bitLockerStatus = n.getStringValue(); },
+        "bootAppSecurityVersion": n => { deviceHealthAttestationState.bootAppSecurityVersion = n.getStringValue(); },
+        "bootDebugging": n => { deviceHealthAttestationState.bootDebugging = n.getStringValue(); },
+        "bootManagerSecurityVersion": n => { deviceHealthAttestationState.bootManagerSecurityVersion = n.getStringValue(); },
+        "bootManagerVersion": n => { deviceHealthAttestationState.bootManagerVersion = n.getStringValue(); },
+        "bootRevisionListInfo": n => { deviceHealthAttestationState.bootRevisionListInfo = n.getStringValue(); },
+        "codeIntegrity": n => { deviceHealthAttestationState.codeIntegrity = n.getStringValue(); },
+        "codeIntegrityCheckVersion": n => { deviceHealthAttestationState.codeIntegrityCheckVersion = n.getStringValue(); },
+        "codeIntegrityPolicy": n => { deviceHealthAttestationState.codeIntegrityPolicy = n.getStringValue(); },
+        "contentNamespaceUrl": n => { deviceHealthAttestationState.contentNamespaceUrl = n.getStringValue(); },
+        "contentVersion": n => { deviceHealthAttestationState.contentVersion = n.getStringValue(); },
+        "dataExcutionPolicy": n => { deviceHealthAttestationState.dataExcutionPolicy = n.getStringValue(); },
+        "deviceHealthAttestationStatus": n => { deviceHealthAttestationState.deviceHealthAttestationStatus = n.getStringValue(); },
+        "earlyLaunchAntiMalwareDriverProtection": n => { deviceHealthAttestationState.earlyLaunchAntiMalwareDriverProtection = n.getStringValue(); },
+        "healthAttestationSupportedStatus": n => { deviceHealthAttestationState.healthAttestationSupportedStatus = n.getStringValue(); },
+        "healthStatusMismatchInfo": n => { deviceHealthAttestationState.healthStatusMismatchInfo = n.getStringValue(); },
+        "issuedDateTime": n => { deviceHealthAttestationState.issuedDateTime = n.getDateValue(); },
+        "lastUpdateDateTime": n => { deviceHealthAttestationState.lastUpdateDateTime = n.getStringValue(); },
+        "@odata.type": n => { deviceHealthAttestationState.odataType = n.getStringValue(); },
+        "operatingSystemKernelDebugging": n => { deviceHealthAttestationState.operatingSystemKernelDebugging = n.getStringValue(); },
+        "operatingSystemRevListInfo": n => { deviceHealthAttestationState.operatingSystemRevListInfo = n.getStringValue(); },
+        "pcr0": n => { deviceHealthAttestationState.pcr0 = n.getStringValue(); },
+        "pcrHashAlgorithm": n => { deviceHealthAttestationState.pcrHashAlgorithm = n.getStringValue(); },
+        "resetCount": n => { deviceHealthAttestationState.resetCount = n.getNumberValue(); },
+        "restartCount": n => { deviceHealthAttestationState.restartCount = n.getNumberValue(); },
+        "safeMode": n => { deviceHealthAttestationState.safeMode = n.getStringValue(); },
+        "secureBoot": n => { deviceHealthAttestationState.secureBoot = n.getStringValue(); },
+        "secureBootConfigurationPolicyFingerPrint": n => { deviceHealthAttestationState.secureBootConfigurationPolicyFingerPrint = n.getStringValue(); },
+        "testSigning": n => { deviceHealthAttestationState.testSigning = n.getStringValue(); },
+        "tpmVersion": n => { deviceHealthAttestationState.tpmVersion = n.getStringValue(); },
+        "virtualSecureMode": n => { deviceHealthAttestationState.virtualSecureMode = n.getStringValue(); },
+        "windowsPE": n => { deviceHealthAttestationState.windowsPE = n.getStringValue(); },
+    }
+}

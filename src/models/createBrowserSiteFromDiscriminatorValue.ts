@@ -1,7 +1,8 @@
+import {deserializeIntoBrowserSite} from './deserializeIntoBrowserSite';
 import {BrowserSite} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBrowserSiteFromDiscriminatorValue(parseNode: ParseNode | undefined) : BrowserSite {
+export function createBrowserSiteFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BrowserSite();
+    return deserializeIntoBrowserSite;
 }

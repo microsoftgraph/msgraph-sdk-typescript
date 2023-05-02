@@ -1,17 +1,17 @@
-import {ContentType} from '../../../../../models/';
+import {ContentType} from '../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../models/createContentTypeFromDiscriminatorValue';
+import {deserializeIntoContentType} from '../../../../../models/deserializeIntoContentType';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeContentType} from '../../../../../models/serializeContentType';
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilderEscaped} from './base/baseRequestBuilderEscaped';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as I0b2e055424deca4cc95f62bb1b91e492b7caa4f3696c5b7b03ad6c1d41ddb196} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
-import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as I772335c45a59a9b6de3abb507ebc47c7c6da97375fe607c6a8e2ca2d810b1d3b} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as Ieba30cb76ca76407441a01ab7abbaf3b5503944fa34952f670124c7ea5be76dc} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
 import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
 import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
@@ -19,7 +19,7 @@ import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContent
 import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
@@ -66,50 +66,6 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ContentTypeItemRequestBuilder
-     */
-    public baseTypesById(id: string) : I0b2e055424deca4cc95f62bb1b91e492b7caa4f3696c5b7b03ad6c1d41ddb196 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contentType%2Did1"] = id
-        return new I0b2e055424deca4cc95f62bb1b91e492b7caa4f3696c5b7b03ad6c1d41ddb196(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ColumnLinkItemRequestBuilder
-     */
-    public columnLinksById(id: string) : ColumnLinkItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnLink%2Did"] = id
-        return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ColumnDefinitionItemRequestBuilder
-     */
-    public columnPositionsById(id: string) : I772335c45a59a9b6de3abb507ebc47c7c6da97375fe607c6a8e2ca2d810b1d3b {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnDefinition%2Did"] = id
-        return new I772335c45a59a9b6de3abb507ebc47c7c6da97375fe607c6a8e2ca2d810b1d3b(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
-     * @param id Unique identifier of the item
-     * @returns a ColumnDefinitionItemRequestBuilder
-     */
-    public columnsById(id: string) : Ieba30cb76ca76407441a01ab7abbaf3b5503944fa34952f670124c7ea5be76dc {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnDefinition%2Did"] = id
-        return new Ieba30cb76ca76407441a01ab7abbaf3b5503944fa34952f670124c7ea5be76dc(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -126,10 +82,10 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -142,10 +98,10 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -160,10 +116,10 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -217,7 +173,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeContentType);
         return requestInfo;
     };
 }

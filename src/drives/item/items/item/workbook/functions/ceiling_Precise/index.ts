@@ -1,1 +1,5 @@
 export * from './ceiling_PrecisePostRequestBody'
+export * from './ceiling_PreciseRequestBuilderPostRequestConfiguration'
+export * from './createCeiling_PrecisePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCeiling_PrecisePostRequestBody'
+export * from './serializeCeiling_PrecisePostRequestBody'

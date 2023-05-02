@@ -1,7 +1,9 @@
+import {deserializeIntoEducationSubmissionIndividualRecipient} from './deserializeIntoEducationSubmissionIndividualRecipient';
+import {deserializeIntoEducationSubmissionRecipient} from './deserializeIntoEducationSubmissionRecipient';
 import {EducationSubmissionIndividualRecipient, EducationSubmissionRecipient} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationSubmissionRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationSubmissionRecipient {
+export function createEducationSubmissionRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createEducationSubmissionRecipientFromDiscriminatorValue(parseNo
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.educationSubmissionIndividualRecipient":
-                    return new EducationSubmissionIndividualRecipient();
+                    return deserializeIntoEducationSubmissionIndividualRecipient;
             }
         }
     }
-    return new EducationSubmissionRecipient();
+    return deserializeIntoEducationSubmissionRecipient;
 }

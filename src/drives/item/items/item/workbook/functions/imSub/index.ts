@@ -1,1 +1,5 @@
+export * from './createImSubPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImSubPostRequestBody'
 export * from './imSubPostRequestBody'
+export * from './imSubRequestBuilderPostRequestConfiguration'
+export * from './serializeImSubPostRequestBody'

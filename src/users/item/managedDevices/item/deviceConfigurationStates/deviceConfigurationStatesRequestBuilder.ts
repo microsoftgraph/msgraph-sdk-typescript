@@ -1,12 +1,18 @@
-import {DeviceConfigurationState, DeviceConfigurationStateCollectionResponse} from '../../../../../models/';
+import {DeviceConfigurationStateCollectionResponse} from '../../../../../models/';
 import {createDeviceConfigurationStateCollectionResponseFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationStateCollectionResponseFromDiscriminatorValue';
 import {createDeviceConfigurationStateFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationStateFromDiscriminatorValue';
+import {deserializeIntoDeviceConfigurationState} from '../../../../../models/deserializeIntoDeviceConfigurationState';
+import {DeviceConfigurationState} from '../../../../../models/deviceConfigurationState';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeDeviceConfigurationState} from '../../../../../models/serializeDeviceConfigurationState';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceConfigurationStatesRequestBuilderGetRequestConfiguration} from './deviceConfigurationStatesRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationStatesRequestBuilderPostRequestConfiguration} from './deviceConfigurationStatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceConfigurationStateItemRequestBuilder} from './item/deviceConfigurationStateItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
@@ -16,6 +22,17 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
+     * @param deviceConfigurationStateId Unique identifier of the item
+     * @returns a DeviceConfigurationStateItemRequestBuilder
+     */
+    public byDeviceConfigurationStateId(deviceConfigurationStateId: string) : DeviceConfigurationStateItemRequestBuilder {
+        if(!deviceConfigurationStateId) throw new Error("deviceConfigurationStateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceConfigurationState%2Did"] = deviceConfigurationStateId
+        return new DeviceConfigurationStateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceConfigurationStatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceConfigurationStateCollectionResponse>(requestInfo, createDeviceConfigurationStateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceConfigurationState>(requestInfo, createDeviceConfigurationStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceConfigurationState);
         return requestInfo;
     };
 }

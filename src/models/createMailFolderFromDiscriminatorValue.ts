@@ -1,7 +1,9 @@
+import {deserializeIntoMailFolder} from './deserializeIntoMailFolder';
+import {deserializeIntoMailSearchFolder} from './deserializeIntoMailSearchFolder';
 import {MailFolder, MailSearchFolder} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMailFolderFromDiscriminatorValue(parseNode: ParseNode | undefined) : MailFolder {
+export function createMailFolderFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createMailFolderFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.mailSearchFolder":
-                    return new MailSearchFolder();
+                    return deserializeIntoMailSearchFolder;
             }
         }
     }
-    return new MailFolder();
+    return deserializeIntoMailFolder;
 }

@@ -1,1 +1,5 @@
 export * from './coshPostRequestBody'
+export * from './coshRequestBuilderPostRequestConfiguration'
+export * from './createCoshPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCoshPostRequestBody'
+export * from './serializeCoshPostRequestBody'

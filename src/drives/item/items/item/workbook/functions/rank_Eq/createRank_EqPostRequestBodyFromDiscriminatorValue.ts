@@ -1,7 +1,8 @@
+import {deserializeIntoRank_EqPostRequestBody} from './deserializeIntoRank_EqPostRequestBody';
 import {Rank_EqPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : Rank_EqPostRequestBody {
+export function createRank_EqPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Rank_EqPostRequestBody();
+    return deserializeIntoRank_EqPostRequestBody;
 }

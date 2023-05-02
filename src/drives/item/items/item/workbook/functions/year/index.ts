@@ -1,1 +1,5 @@
+export * from './createYearPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoYearPostRequestBody'
+export * from './serializeYearPostRequestBody'
 export * from './yearPostRequestBody'
+export * from './yearRequestBuilderPostRequestConfiguration'

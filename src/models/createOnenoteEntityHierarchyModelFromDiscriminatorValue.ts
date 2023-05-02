@@ -1,7 +1,11 @@
+import {deserializeIntoNotebook} from './deserializeIntoNotebook';
+import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
+import {deserializeIntoOnenoteSection} from './deserializeIntoOnenoteSection';
+import {deserializeIntoSectionGroup} from './deserializeIntoSectionGroup';
 import {Notebook, OnenoteEntityHierarchyModel, OnenoteSection, SectionGroup} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteEntityHierarchyModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityHierarchyModel {
+export function createOnenoteEntityHierarchyModelFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createOnenoteEntityHierarchyModelFromDiscriminatorValue(parseNod
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.notebook":
-                    return new Notebook();
+                    return deserializeIntoNotebook;
                 case "#microsoft.graph.onenoteSection":
-                    return new OnenoteSection();
+                    return deserializeIntoOnenoteSection;
                 case "#microsoft.graph.sectionGroup":
-                    return new SectionGroup();
+                    return deserializeIntoSectionGroup;
             }
         }
     }
-    return new OnenoteEntityHierarchyModel();
+    return deserializeIntoOnenoteEntityHierarchyModel;
 }

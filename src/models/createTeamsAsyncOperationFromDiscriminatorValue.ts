@@ -1,7 +1,8 @@
+import {deserializeIntoTeamsAsyncOperation} from './deserializeIntoTeamsAsyncOperation';
 import {TeamsAsyncOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamsAsyncOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamsAsyncOperation {
+export function createTeamsAsyncOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TeamsAsyncOperation();
+    return deserializeIntoTeamsAsyncOperation;
 }

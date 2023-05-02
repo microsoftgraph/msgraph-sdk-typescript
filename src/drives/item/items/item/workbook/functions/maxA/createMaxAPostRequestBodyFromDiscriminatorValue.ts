@@ -1,7 +1,8 @@
+import {deserializeIntoMaxAPostRequestBody} from './deserializeIntoMaxAPostRequestBody';
 import {MaxAPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMaxAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : MaxAPostRequestBody {
+export function createMaxAPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MaxAPostRequestBody();
+    return deserializeIntoMaxAPostRequestBody;
 }

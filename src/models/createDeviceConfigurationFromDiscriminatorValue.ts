@@ -1,7 +1,34 @@
+import {deserializeIntoAndroidCustomConfiguration} from './deserializeIntoAndroidCustomConfiguration';
+import {deserializeIntoAndroidGeneralDeviceConfiguration} from './deserializeIntoAndroidGeneralDeviceConfiguration';
+import {deserializeIntoAndroidWorkProfileCustomConfiguration} from './deserializeIntoAndroidWorkProfileCustomConfiguration';
+import {deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration} from './deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration';
+import {deserializeIntoAppleDeviceFeaturesConfigurationBase} from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
+import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
+import {deserializeIntoEditionUpgradeConfiguration} from './deserializeIntoEditionUpgradeConfiguration';
+import {deserializeIntoIosCertificateProfile} from './deserializeIntoIosCertificateProfile';
+import {deserializeIntoIosCustomConfiguration} from './deserializeIntoIosCustomConfiguration';
+import {deserializeIntoIosDeviceFeaturesConfiguration} from './deserializeIntoIosDeviceFeaturesConfiguration';
+import {deserializeIntoIosGeneralDeviceConfiguration} from './deserializeIntoIosGeneralDeviceConfiguration';
+import {deserializeIntoIosUpdateConfiguration} from './deserializeIntoIosUpdateConfiguration';
+import {deserializeIntoMacOSCustomConfiguration} from './deserializeIntoMacOSCustomConfiguration';
+import {deserializeIntoMacOSDeviceFeaturesConfiguration} from './deserializeIntoMacOSDeviceFeaturesConfiguration';
+import {deserializeIntoMacOSGeneralDeviceConfiguration} from './deserializeIntoMacOSGeneralDeviceConfiguration';
+import {deserializeIntoSharedPCConfiguration} from './deserializeIntoSharedPCConfiguration';
+import {deserializeIntoWindows10CustomConfiguration} from './deserializeIntoWindows10CustomConfiguration';
+import {deserializeIntoWindows10EndpointProtectionConfiguration} from './deserializeIntoWindows10EndpointProtectionConfiguration';
+import {deserializeIntoWindows10EnterpriseModernAppManagementConfiguration} from './deserializeIntoWindows10EnterpriseModernAppManagementConfiguration';
+import {deserializeIntoWindows10GeneralConfiguration} from './deserializeIntoWindows10GeneralConfiguration';
+import {deserializeIntoWindows10SecureAssessmentConfiguration} from './deserializeIntoWindows10SecureAssessmentConfiguration';
+import {deserializeIntoWindows10TeamGeneralConfiguration} from './deserializeIntoWindows10TeamGeneralConfiguration';
+import {deserializeIntoWindows81GeneralConfiguration} from './deserializeIntoWindows81GeneralConfiguration';
+import {deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration} from './deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration';
+import {deserializeIntoWindowsPhone81CustomConfiguration} from './deserializeIntoWindowsPhone81CustomConfiguration';
+import {deserializeIntoWindowsPhone81GeneralConfiguration} from './deserializeIntoWindowsPhone81GeneralConfiguration';
+import {deserializeIntoWindowsUpdateForBusinessConfiguration} from './deserializeIntoWindowsUpdateForBusinessConfiguration';
 import {AndroidCustomConfiguration, AndroidGeneralDeviceConfiguration, AndroidWorkProfileCustomConfiguration, AndroidWorkProfileGeneralDeviceConfiguration, AppleDeviceFeaturesConfigurationBase, DeviceConfiguration, EditionUpgradeConfiguration, IosCertificateProfile, IosCustomConfiguration, IosDeviceFeaturesConfiguration, IosGeneralDeviceConfiguration, IosUpdateConfiguration, MacOSCustomConfiguration, MacOSDeviceFeaturesConfiguration, MacOSGeneralDeviceConfiguration, SharedPCConfiguration, Windows10CustomConfiguration, Windows10EndpointProtectionConfiguration, Windows10EnterpriseModernAppManagementConfiguration, Windows10GeneralConfiguration, Windows10SecureAssessmentConfiguration, Windows10TeamGeneralConfiguration, Windows81GeneralConfiguration, WindowsDefenderAdvancedThreatProtectionConfiguration, WindowsPhone81CustomConfiguration, WindowsPhone81GeneralConfiguration, WindowsUpdateForBusinessConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfiguration {
+export function createDeviceConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,59 +36,59 @@ export function createDeviceConfigurationFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.androidCustomConfiguration":
-                    return new AndroidCustomConfiguration();
+                    return deserializeIntoAndroidCustomConfiguration;
                 case "#microsoft.graph.androidGeneralDeviceConfiguration":
-                    return new AndroidGeneralDeviceConfiguration();
+                    return deserializeIntoAndroidGeneralDeviceConfiguration;
                 case "#microsoft.graph.androidWorkProfileCustomConfiguration":
-                    return new AndroidWorkProfileCustomConfiguration();
+                    return deserializeIntoAndroidWorkProfileCustomConfiguration;
                 case "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration":
-                    return new AndroidWorkProfileGeneralDeviceConfiguration();
+                    return deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration;
                 case "#microsoft.graph.appleDeviceFeaturesConfigurationBase":
-                    return new AppleDeviceFeaturesConfigurationBase();
+                    return deserializeIntoAppleDeviceFeaturesConfigurationBase;
                 case "#microsoft.graph.editionUpgradeConfiguration":
-                    return new EditionUpgradeConfiguration();
+                    return deserializeIntoEditionUpgradeConfiguration;
                 case "#microsoft.graph.iosCertificateProfile":
-                    return new IosCertificateProfile();
+                    return deserializeIntoIosCertificateProfile;
                 case "#microsoft.graph.iosCustomConfiguration":
-                    return new IosCustomConfiguration();
+                    return deserializeIntoIosCustomConfiguration;
                 case "#microsoft.graph.iosDeviceFeaturesConfiguration":
-                    return new IosDeviceFeaturesConfiguration();
+                    return deserializeIntoIosDeviceFeaturesConfiguration;
                 case "#microsoft.graph.iosGeneralDeviceConfiguration":
-                    return new IosGeneralDeviceConfiguration();
+                    return deserializeIntoIosGeneralDeviceConfiguration;
                 case "#microsoft.graph.iosUpdateConfiguration":
-                    return new IosUpdateConfiguration();
+                    return deserializeIntoIosUpdateConfiguration;
                 case "#microsoft.graph.macOSCustomConfiguration":
-                    return new MacOSCustomConfiguration();
+                    return deserializeIntoMacOSCustomConfiguration;
                 case "#microsoft.graph.macOSDeviceFeaturesConfiguration":
-                    return new MacOSDeviceFeaturesConfiguration();
+                    return deserializeIntoMacOSDeviceFeaturesConfiguration;
                 case "#microsoft.graph.macOSGeneralDeviceConfiguration":
-                    return new MacOSGeneralDeviceConfiguration();
+                    return deserializeIntoMacOSGeneralDeviceConfiguration;
                 case "#microsoft.graph.sharedPCConfiguration":
-                    return new SharedPCConfiguration();
+                    return deserializeIntoSharedPCConfiguration;
                 case "#microsoft.graph.windows10CustomConfiguration":
-                    return new Windows10CustomConfiguration();
+                    return deserializeIntoWindows10CustomConfiguration;
                 case "#microsoft.graph.windows10EndpointProtectionConfiguration":
-                    return new Windows10EndpointProtectionConfiguration();
+                    return deserializeIntoWindows10EndpointProtectionConfiguration;
                 case "#microsoft.graph.windows10EnterpriseModernAppManagementConfiguration":
-                    return new Windows10EnterpriseModernAppManagementConfiguration();
+                    return deserializeIntoWindows10EnterpriseModernAppManagementConfiguration;
                 case "#microsoft.graph.windows10GeneralConfiguration":
-                    return new Windows10GeneralConfiguration();
+                    return deserializeIntoWindows10GeneralConfiguration;
                 case "#microsoft.graph.windows10SecureAssessmentConfiguration":
-                    return new Windows10SecureAssessmentConfiguration();
+                    return deserializeIntoWindows10SecureAssessmentConfiguration;
                 case "#microsoft.graph.windows10TeamGeneralConfiguration":
-                    return new Windows10TeamGeneralConfiguration();
+                    return deserializeIntoWindows10TeamGeneralConfiguration;
                 case "#microsoft.graph.windows81GeneralConfiguration":
-                    return new Windows81GeneralConfiguration();
+                    return deserializeIntoWindows81GeneralConfiguration;
                 case "#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration":
-                    return new WindowsDefenderAdvancedThreatProtectionConfiguration();
+                    return deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration;
                 case "#microsoft.graph.windowsPhone81CustomConfiguration":
-                    return new WindowsPhone81CustomConfiguration();
+                    return deserializeIntoWindowsPhone81CustomConfiguration;
                 case "#microsoft.graph.windowsPhone81GeneralConfiguration":
-                    return new WindowsPhone81GeneralConfiguration();
+                    return deserializeIntoWindowsPhone81GeneralConfiguration;
                 case "#microsoft.graph.windowsUpdateForBusinessConfiguration":
-                    return new WindowsUpdateForBusinessConfiguration();
+                    return deserializeIntoWindowsUpdateForBusinessConfiguration;
             }
         }
     }
-    return new DeviceConfiguration();
+    return deserializeIntoDeviceConfiguration;
 }

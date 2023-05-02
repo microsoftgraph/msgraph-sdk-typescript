@@ -1,14 +1,17 @@
-import {WorkbookChartSeries} from '../../../../../../../../../../../models/';
 import {createWorkbookChartSeriesFromDiscriminatorValue} from '../../../../../../../../../../../models/createWorkbookChartSeriesFromDiscriminatorValue';
+import {deserializeIntoWorkbookChartSeries} from '../../../../../../../../../../../models/deserializeIntoWorkbookChartSeries';
 import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookChartSeries} from '../../../../../../../../../../../models/serializeWorkbookChartSeries';
+import {WorkbookChartSeries} from '../../../../../../../../../../../models/workbookChartSeries';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {WorkbookChartPointItemRequestBuilder} from './points/item/workbookChartPointItemRequestBuilder';
 import {PointsRequestBuilder} from './points/pointsRequestBuilder';
 import {WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration} from './workbookChartSeriesItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration} from './workbookChartSeriesItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration} from './workbookChartSeriesItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
@@ -39,10 +42,10 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -55,10 +58,10 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartSeries>(requestInfo, createWorkbookChartSeriesFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -73,22 +76,11 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartSeries>(requestInfo, createWorkbookChartSeriesFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookChartPointItemRequestBuilder
-     */
-    public pointsById(id: string) : WorkbookChartPointItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookChartPoint%2Did"] = id
-        return new WorkbookChartPointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property series for drives
@@ -141,7 +133,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartSeries);
         return requestInfo;
     };
 }

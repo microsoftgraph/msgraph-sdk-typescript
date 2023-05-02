@@ -1,7 +1,10 @@
+import {deserializeIntoAppHostedMediaConfig} from './deserializeIntoAppHostedMediaConfig';
+import {deserializeIntoMediaConfig} from './deserializeIntoMediaConfig';
+import {deserializeIntoServiceHostedMediaConfig} from './deserializeIntoServiceHostedMediaConfig';
 import {AppHostedMediaConfig, MediaConfig, ServiceHostedMediaConfig} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMediaConfigFromDiscriminatorValue(parseNode: ParseNode | undefined) : MediaConfig {
+export function createMediaConfigFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createMediaConfigFromDiscriminatorValue(parseNode: ParseNode | u
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.appHostedMediaConfig":
-                    return new AppHostedMediaConfig();
+                    return deserializeIntoAppHostedMediaConfig;
                 case "#microsoft.graph.serviceHostedMediaConfig":
-                    return new ServiceHostedMediaConfig();
+                    return deserializeIntoServiceHostedMediaConfig;
             }
         }
     }
-    return new MediaConfig();
+    return deserializeIntoMediaConfig;
 }

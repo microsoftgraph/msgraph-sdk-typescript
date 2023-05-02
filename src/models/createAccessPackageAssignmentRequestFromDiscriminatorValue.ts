@@ -1,7 +1,8 @@
+import {deserializeIntoAccessPackageAssignmentRequest} from './deserializeIntoAccessPackageAssignmentRequest';
 import {AccessPackageAssignmentRequest} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessPackageAssignmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageAssignmentRequest {
+export function createAccessPackageAssignmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessPackageAssignmentRequest();
+    return deserializeIntoAccessPackageAssignmentRequest;
 }

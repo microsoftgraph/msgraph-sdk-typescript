@@ -1,7 +1,13 @@
+import {deserializeIntoActivityBasedTimeoutPolicy} from './deserializeIntoActivityBasedTimeoutPolicy';
+import {deserializeIntoClaimsMappingPolicy} from './deserializeIntoClaimsMappingPolicy';
+import {deserializeIntoHomeRealmDiscoveryPolicy} from './deserializeIntoHomeRealmDiscoveryPolicy';
+import {deserializeIntoStsPolicy} from './deserializeIntoStsPolicy';
+import {deserializeIntoTokenIssuancePolicy} from './deserializeIntoTokenIssuancePolicy';
+import {deserializeIntoTokenLifetimePolicy} from './deserializeIntoTokenLifetimePolicy';
 import {ActivityBasedTimeoutPolicy, ClaimsMappingPolicy, HomeRealmDiscoveryPolicy, StsPolicy, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StsPolicy {
+export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,17 +15,17 @@ export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | und
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.activityBasedTimeoutPolicy":
-                    return new ActivityBasedTimeoutPolicy();
+                    return deserializeIntoActivityBasedTimeoutPolicy;
                 case "#microsoft.graph.claimsMappingPolicy":
-                    return new ClaimsMappingPolicy();
+                    return deserializeIntoClaimsMappingPolicy;
                 case "#microsoft.graph.homeRealmDiscoveryPolicy":
-                    return new HomeRealmDiscoveryPolicy();
+                    return deserializeIntoHomeRealmDiscoveryPolicy;
                 case "#microsoft.graph.tokenIssuancePolicy":
-                    return new TokenIssuancePolicy();
+                    return deserializeIntoTokenIssuancePolicy;
                 case "#microsoft.graph.tokenLifetimePolicy":
-                    return new TokenLifetimePolicy();
+                    return deserializeIntoTokenLifetimePolicy;
             }
         }
     }
-    return new StsPolicy();
+    return deserializeIntoStsPolicy;
 }

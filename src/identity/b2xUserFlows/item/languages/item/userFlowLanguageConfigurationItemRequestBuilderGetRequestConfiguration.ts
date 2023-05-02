@@ -1,14 +1,11 @@
 import {UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters} from './userFlowLanguageConfigurationItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration {
+export interface UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: UserFlowLanguageConfigurationItemRequestBuilderGetQueryParameters | undefined;
 }

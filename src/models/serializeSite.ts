@@ -1,0 +1,53 @@
+import {BaseItem} from './baseItem';
+import {ColumnDefinition} from './columnDefinition';
+import {ContentType} from './contentType';
+import {Drive} from './drive';
+import {ItemAnalytics} from './itemAnalytics';
+import {List} from './list';
+import {Onenote} from './onenote';
+import {Permission} from './permission';
+import {PublicError} from './publicError';
+import {RichLongRunningOperation} from './richLongRunningOperation';
+import {Root} from './root';
+import {serializeBaseItem} from './serializeBaseItem';
+import {serializeColumnDefinition} from './serializeColumnDefinition';
+import {serializeContentType} from './serializeContentType';
+import {serializeDrive} from './serializeDrive';
+import {serializeItemAnalytics} from './serializeItemAnalytics';
+import {serializeList} from './serializeList';
+import {serializeOnenote} from './serializeOnenote';
+import {serializePermission} from './serializePermission';
+import {serializePublicError} from './serializePublicError';
+import {serializeRichLongRunningOperation} from './serializeRichLongRunningOperation';
+import {serializeRoot} from './serializeRoot';
+import {serializeSharepointIds} from './serializeSharepointIds';
+import {serializeSiteCollection} from './serializeSiteCollection';
+import {SharepointIds} from './sharepointIds';
+import {Site} from './site';
+import {SiteCollection} from './siteCollection';
+import {serializeStore} from './termStore/serializeStore';
+import {Store} from './termStore/store';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeSite(writer: SerializationWriter, site: Site | undefined = {} as Site) : void {
+        serializeBaseItem(writer, site)
+        writer.writeObjectValue<ItemAnalytics>("analytics", site.analytics, serializeItemAnalytics);
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", site.columns, serializeColumnDefinition);
+        writer.writeCollectionOfObjectValues<ContentType>("contentTypes", site.contentTypes, serializeContentType);
+        writer.writeStringValue("displayName", site.displayName);
+        writer.writeObjectValue<Drive>("drive", site.drive, serializeDrive);
+        writer.writeCollectionOfObjectValues<Drive>("drives", site.drives, serializeDrive);
+        writer.writeObjectValue<PublicError>("error", site.errorEscaped, serializePublicError);
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("externalColumns", site.externalColumns, serializeColumnDefinition);
+        writer.writeCollectionOfObjectValues<BaseItem>("items", site.items, serializeBaseItem);
+        writer.writeCollectionOfObjectValues<List>("lists", site.lists, serializeList);
+        writer.writeObjectValue<Onenote>("onenote", site.onenote, serializeOnenote);
+        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("operations", site.operations, serializeRichLongRunningOperation);
+        writer.writeCollectionOfObjectValues<Permission>("permissions", site.permissions, serializePermission);
+        writer.writeObjectValue<Root>("root", site.root, serializeRoot);
+        writer.writeObjectValue<SharepointIds>("sharepointIds", site.sharepointIds, serializeSharepointIds);
+        writer.writeObjectValue<SiteCollection>("siteCollection", site.siteCollection, serializeSiteCollection);
+        writer.writeCollectionOfObjectValues<Site>("sites", site.sites, serializeSite);
+        writer.writeObjectValue<Store>("termStore", site.termStore, serializeStore);
+        writer.writeCollectionOfObjectValues<Store>("termStores", site.termStores, serializeStore);
+}

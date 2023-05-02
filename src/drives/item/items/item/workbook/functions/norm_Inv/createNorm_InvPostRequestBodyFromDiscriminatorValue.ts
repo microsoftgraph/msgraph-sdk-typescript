@@ -1,7 +1,8 @@
+import {deserializeIntoNorm_InvPostRequestBody} from './deserializeIntoNorm_InvPostRequestBody';
 import {Norm_InvPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : Norm_InvPostRequestBody {
+export function createNorm_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Norm_InvPostRequestBody();
+    return deserializeIntoNorm_InvPostRequestBody;
 }

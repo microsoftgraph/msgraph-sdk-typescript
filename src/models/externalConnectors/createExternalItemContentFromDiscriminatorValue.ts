@@ -1,7 +1,8 @@
+import {deserializeIntoExternalItemContent} from './deserializeIntoExternalItemContent';
 import {ExternalItemContent} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createExternalItemContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExternalItemContent {
+export function createExternalItemContentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ExternalItemContent();
+    return deserializeIntoExternalItemContent;
 }

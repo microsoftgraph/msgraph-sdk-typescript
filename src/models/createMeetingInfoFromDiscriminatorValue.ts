@@ -1,7 +1,11 @@
+import {deserializeIntoJoinMeetingIdMeetingInfo} from './deserializeIntoJoinMeetingIdMeetingInfo';
+import {deserializeIntoMeetingInfo} from './deserializeIntoMeetingInfo';
+import {deserializeIntoOrganizerMeetingInfo} from './deserializeIntoOrganizerMeetingInfo';
+import {deserializeIntoTokenMeetingInfo} from './deserializeIntoTokenMeetingInfo';
 import {JoinMeetingIdMeetingInfo, MeetingInfo, OrganizerMeetingInfo, TokenMeetingInfo} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : MeetingInfo {
+export function createMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createMeetingInfoFromDiscriminatorValue(parseNode: ParseNode | u
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.joinMeetingIdMeetingInfo":
-                    return new JoinMeetingIdMeetingInfo();
+                    return deserializeIntoJoinMeetingIdMeetingInfo;
                 case "#microsoft.graph.organizerMeetingInfo":
-                    return new OrganizerMeetingInfo();
+                    return deserializeIntoOrganizerMeetingInfo;
                 case "#microsoft.graph.tokenMeetingInfo":
-                    return new TokenMeetingInfo();
+                    return deserializeIntoTokenMeetingInfo;
             }
         }
     }
-    return new MeetingInfo();
+    return deserializeIntoMeetingInfo;
 }

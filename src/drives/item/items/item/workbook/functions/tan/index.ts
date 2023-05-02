@@ -1,1 +1,5 @@
+export * from './createTanPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoTanPostRequestBody'
+export * from './serializeTanPostRequestBody'
 export * from './tanPostRequestBody'
+export * from './tanRequestBuilderPostRequestConfiguration'

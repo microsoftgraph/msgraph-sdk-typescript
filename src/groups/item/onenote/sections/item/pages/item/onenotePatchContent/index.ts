@@ -1,1 +1,5 @@
+export * from './createOnenotePatchContentPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoOnenotePatchContentPostRequestBody'
 export * from './onenotePatchContentPostRequestBody'
+export * from './onenotePatchContentRequestBuilderPostRequestConfiguration'
+export * from './serializeOnenotePatchContentPostRequestBody'

@@ -1,1 +1,5 @@
+export * from './createIsNumberPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoIsNumberPostRequestBody'
 export * from './isNumberPostRequestBody'
+export * from './isNumberRequestBuilderPostRequestConfiguration'
+export * from './serializeIsNumberPostRequestBody'

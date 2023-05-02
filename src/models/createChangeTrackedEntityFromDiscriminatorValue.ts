@@ -1,7 +1,20 @@
+import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
+import {deserializeIntoOfferShiftRequest} from './deserializeIntoOfferShiftRequest';
+import {deserializeIntoOpenShift} from './deserializeIntoOpenShift';
+import {deserializeIntoOpenShiftChangeRequest} from './deserializeIntoOpenShiftChangeRequest';
+import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
+import {deserializeIntoSchedulingGroup} from './deserializeIntoSchedulingGroup';
+import {deserializeIntoShift} from './deserializeIntoShift';
+import {deserializeIntoShiftPreferences} from './deserializeIntoShiftPreferences';
+import {deserializeIntoSwapShiftsChangeRequest} from './deserializeIntoSwapShiftsChangeRequest';
+import {deserializeIntoTimeOff} from './deserializeIntoTimeOff';
+import {deserializeIntoTimeOffReason} from './deserializeIntoTimeOffReason';
+import {deserializeIntoTimeOffRequest} from './deserializeIntoTimeOffRequest';
+import {deserializeIntoWorkforceIntegration} from './deserializeIntoWorkforceIntegration';
 import {ChangeTrackedEntity, OfferShiftRequest, OpenShift, OpenShiftChangeRequest, ScheduleChangeRequest, SchedulingGroup, Shift, ShiftPreferences, SwapShiftsChangeRequest, TimeOff, TimeOffReason, TimeOffRequest, WorkforceIntegration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createChangeTrackedEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChangeTrackedEntity {
+export function createChangeTrackedEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,31 +22,31 @@ export function createChangeTrackedEntityFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.offerShiftRequest":
-                    return new OfferShiftRequest();
+                    return deserializeIntoOfferShiftRequest;
                 case "#microsoft.graph.openShift":
-                    return new OpenShift();
+                    return deserializeIntoOpenShift;
                 case "#microsoft.graph.openShiftChangeRequest":
-                    return new OpenShiftChangeRequest();
+                    return deserializeIntoOpenShiftChangeRequest;
                 case "#microsoft.graph.scheduleChangeRequest":
-                    return new ScheduleChangeRequest();
+                    return deserializeIntoScheduleChangeRequest;
                 case "#microsoft.graph.schedulingGroup":
-                    return new SchedulingGroup();
+                    return deserializeIntoSchedulingGroup;
                 case "#microsoft.graph.shift":
-                    return new Shift();
+                    return deserializeIntoShift;
                 case "#microsoft.graph.shiftPreferences":
-                    return new ShiftPreferences();
+                    return deserializeIntoShiftPreferences;
                 case "#microsoft.graph.swapShiftsChangeRequest":
-                    return new SwapShiftsChangeRequest();
+                    return deserializeIntoSwapShiftsChangeRequest;
                 case "#microsoft.graph.timeOff":
-                    return new TimeOff();
+                    return deserializeIntoTimeOff;
                 case "#microsoft.graph.timeOffReason":
-                    return new TimeOffReason();
+                    return deserializeIntoTimeOffReason;
                 case "#microsoft.graph.timeOffRequest":
-                    return new TimeOffRequest();
+                    return deserializeIntoTimeOffRequest;
                 case "#microsoft.graph.workforceIntegration":
-                    return new WorkforceIntegration();
+                    return deserializeIntoWorkforceIntegration;
             }
         }
     }
-    return new ChangeTrackedEntity();
+    return deserializeIntoChangeTrackedEntity;
 }

@@ -1,12 +1,18 @@
-import {WindowsAutopilotDeviceIdentity, WindowsAutopilotDeviceIdentityCollectionResponse} from '../../models/';
+import {WindowsAutopilotDeviceIdentityCollectionResponse} from '../../models/';
 import {createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue} from '../../models/createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue';
 import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import {deserializeIntoWindowsAutopilotDeviceIdentity} from '../../models/deserializeIntoWindowsAutopilotDeviceIdentity';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeWindowsAutopilotDeviceIdentity} from '../../models/serializeWindowsAutopilotDeviceIdentity';
+import {WindowsAutopilotDeviceIdentity} from '../../models/windowsAutopilotDeviceIdentity';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/windowsAutopilotDeviceIdentityItemRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequestB
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
+     * @param windowsAutopilotDeviceIdentityId Unique identifier of the item
+     * @returns a WindowsAutopilotDeviceIdentityItemRequestBuilder
+     */
+    public byWindowsAutopilotDeviceIdentityId(windowsAutopilotDeviceIdentityId: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder {
+        if(!windowsAutopilotDeviceIdentityId) throw new Error("windowsAutopilotDeviceIdentityId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsAutopilotDeviceIdentity%2Did"] = windowsAutopilotDeviceIdentityId
+        return new WindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WindowsAutopilotDeviceIdentitiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequestB
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsAutopilotDeviceIdentityCollectionResponse>(requestInfo, createWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequestB
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsAutopilotDeviceIdentity>(requestInfo, createWindowsAutopilotDeviceIdentityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsAutopilotDeviceIdentity);
         return requestInfo;
     };
 }

@@ -1,7 +1,18 @@
+import {deserializeIntoAttributeRuleMembers} from './deserializeIntoAttributeRuleMembers';
+import {deserializeIntoConnectedOrganizationMembers} from './deserializeIntoConnectedOrganizationMembers';
+import {deserializeIntoExternalSponsors} from './deserializeIntoExternalSponsors';
+import {deserializeIntoGroupMembers} from './deserializeIntoGroupMembers';
+import {deserializeIntoInternalSponsors} from './deserializeIntoInternalSponsors';
+import {deserializeIntoRequestorManager} from './deserializeIntoRequestorManager';
+import {deserializeIntoSingleServicePrincipal} from './deserializeIntoSingleServicePrincipal';
+import {deserializeIntoSingleUser} from './deserializeIntoSingleUser';
+import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
+import {deserializeIntoTargetApplicationOwners} from './deserializeIntoTargetApplicationOwners';
+import {deserializeIntoTargetManager} from './deserializeIntoTargetManager';
 import {AttributeRuleMembers, ConnectedOrganizationMembers, ExternalSponsors, GroupMembers, InternalSponsors, RequestorManager, SingleServicePrincipal, SingleUser, SubjectSet, TargetApplicationOwners, TargetManager} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSubjectSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : SubjectSet {
+export function createSubjectSetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,27 +20,27 @@ export function createSubjectSetFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.attributeRuleMembers":
-                    return new AttributeRuleMembers();
+                    return deserializeIntoAttributeRuleMembers;
                 case "#microsoft.graph.connectedOrganizationMembers":
-                    return new ConnectedOrganizationMembers();
+                    return deserializeIntoConnectedOrganizationMembers;
                 case "#microsoft.graph.externalSponsors":
-                    return new ExternalSponsors();
+                    return deserializeIntoExternalSponsors;
                 case "#microsoft.graph.groupMembers":
-                    return new GroupMembers();
+                    return deserializeIntoGroupMembers;
                 case "#microsoft.graph.internalSponsors":
-                    return new InternalSponsors();
+                    return deserializeIntoInternalSponsors;
                 case "#microsoft.graph.requestorManager":
-                    return new RequestorManager();
+                    return deserializeIntoRequestorManager;
                 case "#microsoft.graph.singleServicePrincipal":
-                    return new SingleServicePrincipal();
+                    return deserializeIntoSingleServicePrincipal;
                 case "#microsoft.graph.singleUser":
-                    return new SingleUser();
+                    return deserializeIntoSingleUser;
                 case "#microsoft.graph.targetApplicationOwners":
-                    return new TargetApplicationOwners();
+                    return deserializeIntoTargetApplicationOwners;
                 case "#microsoft.graph.targetManager":
-                    return new TargetManager();
+                    return deserializeIntoTargetManager;
             }
         }
     }
-    return new SubjectSet();
+    return deserializeIntoSubjectSet;
 }

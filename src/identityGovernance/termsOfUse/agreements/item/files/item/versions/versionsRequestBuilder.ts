@@ -1,12 +1,18 @@
-import {AgreementFileVersion, AgreementFileVersionCollectionResponse} from '../../../../../../../models/';
+import {AgreementFileVersionCollectionResponse} from '../../../../../../../models/';
+import {AgreementFileVersion} from '../../../../../../../models/agreementFileVersion';
 import {createAgreementFileVersionCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAgreementFileVersionCollectionResponseFromDiscriminatorValue';
 import {createAgreementFileVersionFromDiscriminatorValue} from '../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
+import {deserializeIntoAgreementFileVersion} from '../../../../../../../models/deserializeIntoAgreementFileVersion';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeAgreementFileVersion} from '../../../../../../../models/serializeAgreementFileVersion';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {AgreementFileVersionItemRequestBuilder} from './item/agreementFileVersionItemRequestBuilder';
 import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
 import {VersionsRequestBuilderPostRequestConfiguration} from './versionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
@@ -16,6 +22,17 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
+     * @param agreementFileVersionId Unique identifier of the item
+     * @returns a AgreementFileVersionItemRequestBuilder
+     */
+    public byAgreementFileVersionId(agreementFileVersionId: string) : AgreementFileVersionItemRequestBuilder {
+        if(!agreementFileVersionId) throw new Error("agreementFileVersionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["agreementFileVersion%2Did"] = agreementFileVersionId
+        return new AgreementFileVersionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new VersionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AgreementFileVersionCollectionResponse>(requestInfo, createAgreementFileVersionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AgreementFileVersion>(requestInfo, createAgreementFileVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAgreementFileVersion);
         return requestInfo;
     };
 }

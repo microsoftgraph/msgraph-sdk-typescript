@@ -1,1 +1,5 @@
+export * from './createOct2HexPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoOct2HexPostRequestBody'
 export * from './oct2HexPostRequestBody'
+export * from './oct2HexRequestBuilderPostRequestConfiguration'
+export * from './serializeOct2HexPostRequestBody'

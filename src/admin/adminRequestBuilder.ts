@@ -1,11 +1,16 @@
-import {Admin} from '../models/';
+import {Admin} from '../models/admin';
 import {createAdminFromDiscriminatorValue} from '../models/createAdminFromDiscriminatorValue';
+import {deserializeIntoAdmin} from '../models/deserializeIntoAdmin';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeAdmin} from '../models/serializeAdmin';
 import {AdminRequestBuilderGetRequestConfiguration} from './adminRequestBuilderGetRequestConfiguration';
 import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilderPatchRequestConfiguration';
 import {EdgeRequestBuilder} from './edge/edgeRequestBuilder';
 import {ServiceAnnouncementRequestBuilder} from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
+import {SharepointRequestBuilder} from './sharepoint/sharepointRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -19,6 +24,10 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
     public get serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the sharepoint property of the microsoft.graph.admin entity. */
+    public get sharepoint(): SharepointRequestBuilder {
+        return new SharepointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new AdminRequestBuilder and sets the default values.
@@ -38,10 +47,10 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Admin>(requestInfo, createAdminFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -56,10 +65,10 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Admin>(requestInfo, createAdminFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -97,7 +106,7 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAdmin);
         return requestInfo;
     };
 }

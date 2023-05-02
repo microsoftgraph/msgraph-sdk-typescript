@@ -1,7 +1,8 @@
+import {deserializeIntoUsdollarPostRequestBody} from './deserializeIntoUsdollarPostRequestBody';
 import {UsdollarPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUsdollarPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UsdollarPostRequestBody {
+export function createUsdollarPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UsdollarPostRequestBody();
+    return deserializeIntoUsdollarPostRequestBody;
 }

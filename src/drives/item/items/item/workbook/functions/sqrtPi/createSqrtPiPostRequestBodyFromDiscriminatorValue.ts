@@ -1,7 +1,8 @@
+import {deserializeIntoSqrtPiPostRequestBody} from './deserializeIntoSqrtPiPostRequestBody';
 import {SqrtPiPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSqrtPiPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SqrtPiPostRequestBody {
+export function createSqrtPiPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SqrtPiPostRequestBody();
+    return deserializeIntoSqrtPiPostRequestBody;
 }

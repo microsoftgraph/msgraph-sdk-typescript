@@ -1,7 +1,8 @@
+import {deserializeIntoDminPostRequestBody} from './deserializeIntoDminPostRequestBody';
 import {DminPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDminPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : DminPostRequestBody {
+export function createDminPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DminPostRequestBody();
+    return deserializeIntoDminPostRequestBody;
 }

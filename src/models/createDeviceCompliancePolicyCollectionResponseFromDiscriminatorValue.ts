@@ -1,7 +1,8 @@
+import {deserializeIntoDeviceCompliancePolicyCollectionResponse} from './deserializeIntoDeviceCompliancePolicyCollectionResponse';
 import {DeviceCompliancePolicyCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceCompliancePolicyCollectionResponse {
+export function createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceCompliancePolicyCollectionResponse();
+    return deserializeIntoDeviceCompliancePolicyCollectionResponse;
 }

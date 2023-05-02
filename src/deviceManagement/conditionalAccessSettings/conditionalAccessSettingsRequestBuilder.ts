@@ -1,7 +1,11 @@
-import {OnPremisesConditionalAccessSettings} from '../../models/';
 import {createOnPremisesConditionalAccessSettingsFromDiscriminatorValue} from '../../models/createOnPremisesConditionalAccessSettingsFromDiscriminatorValue';
+import {deserializeIntoOnPremisesConditionalAccessSettings} from '../../models/deserializeIntoOnPremisesConditionalAccessSettings';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {OnPremisesConditionalAccessSettings} from '../../models/onPremisesConditionalAccessSettings';
+import {serializeOnPremisesConditionalAccessSettings} from '../../models/serializeOnPremisesConditionalAccessSettings';
 import {ConditionalAccessSettingsRequestBuilderDeleteRequestConfiguration} from './conditionalAccessSettingsRequestBuilderDeleteRequestConfiguration';
 import {ConditionalAccessSettingsRequestBuilderGetRequestConfiguration} from './conditionalAccessSettingsRequestBuilderGetRequestConfiguration';
 import {ConditionalAccessSettingsRequestBuilderPatchRequestConfiguration} from './conditionalAccessSettingsRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OnPremisesConditionalAccessSettings>(requestInfo, createOnPremisesConditionalAccessSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OnPremisesConditionalAccessSettings>(requestInfo, createOnPremisesConditionalAccessSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOnPremisesConditionalAccessSettings);
         return requestInfo;
     };
 }

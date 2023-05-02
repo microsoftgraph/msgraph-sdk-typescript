@@ -1,12 +1,18 @@
-import {DelegatedAdminRelationshipOperation, DelegatedAdminRelationshipOperationCollectionResponse} from '../../../../models/';
+import {DelegatedAdminRelationshipOperationCollectionResponse} from '../../../../models/';
 import {createDelegatedAdminRelationshipOperationCollectionResponseFromDiscriminatorValue} from '../../../../models/createDelegatedAdminRelationshipOperationCollectionResponseFromDiscriminatorValue';
 import {createDelegatedAdminRelationshipOperationFromDiscriminatorValue} from '../../../../models/createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
+import {DelegatedAdminRelationshipOperation} from '../../../../models/delegatedAdminRelationshipOperation';
+import {deserializeIntoDelegatedAdminRelationshipOperation} from '../../../../models/deserializeIntoDelegatedAdminRelationshipOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeDelegatedAdminRelationshipOperation} from '../../../../models/serializeDelegatedAdminRelationshipOperation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DelegatedAdminRelationshipOperationItemRequestBuilder} from './item/delegatedAdminRelationshipOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -17,6 +23,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
+     * @param delegatedAdminRelationshipOperationId Unique identifier of the item
+     * @returns a DelegatedAdminRelationshipOperationItemRequestBuilder
+     */
+    public byDelegatedAdminRelationshipOperationId(delegatedAdminRelationshipOperationId: string) : DelegatedAdminRelationshipOperationItemRequestBuilder {
+        if(!delegatedAdminRelationshipOperationId) throw new Error("delegatedAdminRelationshipOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminRelationshipOperation%2Did"] = delegatedAdminRelationshipOperationId
+        return new DelegatedAdminRelationshipOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,20 +42,19 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the delegatedAdminRelationshipOperation objects and their properties.
+     * The long running operations associated with the delegated admin relationship.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipOperationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-list-operations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OperationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipOperationCollectionResponse>(requestInfo, createDelegatedAdminRelationshipOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,14 +69,14 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipOperation>(requestInfo, createDelegatedAdminRelationshipOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the delegatedAdminRelationshipOperation objects and their properties.
+     * The long running operations associated with the delegated admin relationship.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +110,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminRelationshipOperation);
         return requestInfo;
     };
 }

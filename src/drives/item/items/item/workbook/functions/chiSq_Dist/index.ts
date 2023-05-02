@@ -1,1 +1,5 @@
 export * from './chiSq_DistPostRequestBody'
+export * from './chiSq_DistRequestBuilderPostRequestConfiguration'
+export * from './createChiSq_DistPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoChiSq_DistPostRequestBody'
+export * from './serializeChiSq_DistPostRequestBody'

@@ -1,27 +1,26 @@
-import {Chat} from '../../../models/';
+import {Chat} from '../../../models/chat';
 import {createChatFromDiscriminatorValue} from '../../../models/createChatFromDiscriminatorValue';
+import {deserializeIntoChat} from '../../../models/deserializeIntoChat';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeChat} from '../../../models/serializeChat';
 import {ChatItemRequestBuilderDeleteRequestConfiguration} from './chatItemRequestBuilderDeleteRequestConfiguration';
 import {ChatItemRequestBuilderGetRequestConfiguration} from './chatItemRequestBuilderGetRequestConfiguration';
 import {ChatItemRequestBuilderPatchRequestConfiguration} from './chatItemRequestBuilderPatchRequestConfiguration';
 import {HideForUserRequestBuilder} from './hideForUser/hideForUserRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
-import {TeamsAppInstallationItemRequestBuilder} from './installedApps/item/teamsAppInstallationItemRequestBuilder';
 import {LastMessagePreviewRequestBuilder} from './lastMessagePreview/lastMessagePreviewRequestBuilder';
 import {MarkChatReadForUserRequestBuilder} from './markChatReadForUser/markChatReadForUserRequestBuilder';
 import {MarkChatUnreadForUserRequestBuilder} from './markChatUnreadForUser/markChatUnreadForUserRequestBuilder';
-import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {PinnedChatMessageInfoItemRequestBuilder} from './pinnedMessages/item/pinnedChatMessageInfoItemRequestBuilder';
 import {PinnedMessagesRequestBuilder} from './pinnedMessages/pinnedMessagesRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
-import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {UnhideForUserRequestBuilder} from './unhideForUser/unhideForUserRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the chats property of the microsoft.graph.user entity.
@@ -88,10 +87,10 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -104,44 +103,11 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
-     * @param id Unique identifier of the item
-     * @returns a TeamsAppInstallationItemRequestBuilder
-     */
-    public installedAppsById(id: string) : TeamsAppInstallationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamsAppInstallation%2Did"] = id
-        return new TeamsAppInstallationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.chat entity.
-     * @param id Unique identifier of the item
-     * @returns a ConversationMemberItemRequestBuilder
-     */
-    public membersById(id: string) : ConversationMemberItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conversationMember%2Did"] = id
-        return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the messages property of the microsoft.graph.chat entity.
-     * @param id Unique identifier of the item
-     * @returns a ChatMessageItemRequestBuilder
-     */
-    public messagesById(id: string) : ChatMessageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["chatMessage%2Did"] = id
-        return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property chats in me
@@ -155,33 +121,11 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
-     * @param id Unique identifier of the item
-     * @returns a PinnedChatMessageInfoItemRequestBuilder
-     */
-    public pinnedMessagesById(id: string) : PinnedChatMessageInfoItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["pinnedChatMessageInfo%2Did"] = id
-        return new PinnedChatMessageInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
-     * @param id Unique identifier of the item
-     * @returns a TeamsTabItemRequestBuilder
-     */
-    public tabsById(id: string) : TeamsTabItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamsTab%2Did"] = id
-        return new TeamsTabItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property chats for me
@@ -234,7 +178,7 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChat);
         return requestInfo;
     };
 }

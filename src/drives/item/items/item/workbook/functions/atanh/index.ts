@@ -1,1 +1,5 @@
 export * from './atanhPostRequestBody'
+export * from './atanhRequestBuilderPostRequestConfiguration'
+export * from './createAtanhPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAtanhPostRequestBody'
+export * from './serializeAtanhPostRequestBody'

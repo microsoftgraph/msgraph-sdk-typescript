@@ -1,14 +1,20 @@
-import {CallRecord, CallRecordCollectionResponse} from '../../models/callRecords/';
+import {CallRecordCollectionResponse} from '../../models/callRecords/';
+import {CallRecord} from '../../models/callRecords/callRecord';
 import {createCallRecordCollectionResponseFromDiscriminatorValue} from '../../models/callRecords/createCallRecordCollectionResponseFromDiscriminatorValue';
 import {createCallRecordFromDiscriminatorValue} from '../../models/callRecords/createCallRecordFromDiscriminatorValue';
+import {deserializeIntoCallRecord} from '../../models/callRecords/deserializeIntoCallRecord';
+import {serializeCallRecord} from '../../models/callRecords/serializeCallRecord';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {CallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {CallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './callRecordsGetPstnCallsWithFromDateTimeWithToDateTime/callRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {CallRecordsRequestBuilderGetRequestConfiguration} from './callRecordsRequestBuilderGetRequestConfiguration';
 import {CallRecordsRequestBuilderPostRequestConfiguration} from './callRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CallRecordItemRequestBuilder} from './item/callRecordItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
@@ -18,6 +24,17 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+     * @param callRecordId Unique identifier of the item
+     * @returns a CallRecordItemRequestBuilder
+     */
+    public byCallRecordId(callRecordId: string) : CallRecordItemRequestBuilder {
+        if(!callRecordId) throw new Error("callRecordId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["callRecord%2Did"] = callRecordId
+        return new CallRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Provides operations to call the getDirectRoutingCalls method.
      * @param fromDateTime Usage: fromDateTime={fromDateTime}
@@ -58,10 +75,10 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<CallRecordCollectionResponse>(requestInfo, createCallRecordCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -76,10 +93,10 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<CallRecord>(requestInfo, createCallRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -117,7 +134,7 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCallRecord);
         return requestInfo;
     };
 }

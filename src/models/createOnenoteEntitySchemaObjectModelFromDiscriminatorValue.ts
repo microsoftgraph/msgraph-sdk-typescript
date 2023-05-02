@@ -1,7 +1,13 @@
+import {deserializeIntoNotebook} from './deserializeIntoNotebook';
+import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
+import {deserializeIntoOnenoteEntitySchemaObjectModel} from './deserializeIntoOnenoteEntitySchemaObjectModel';
+import {deserializeIntoOnenotePage} from './deserializeIntoOnenotePage';
+import {deserializeIntoOnenoteSection} from './deserializeIntoOnenoteSection';
+import {deserializeIntoSectionGroup} from './deserializeIntoSectionGroup';
 import {Notebook, OnenoteEntityHierarchyModel, OnenoteEntitySchemaObjectModel, OnenotePage, OnenoteSection, SectionGroup} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteEntitySchemaObjectModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntitySchemaObjectModel {
+export function createOnenoteEntitySchemaObjectModelFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,17 +15,17 @@ export function createOnenoteEntitySchemaObjectModelFromDiscriminatorValue(parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.notebook":
-                    return new Notebook();
+                    return deserializeIntoNotebook;
                 case "#microsoft.graph.onenoteEntityHierarchyModel":
-                    return new OnenoteEntityHierarchyModel();
+                    return deserializeIntoOnenoteEntityHierarchyModel;
                 case "#microsoft.graph.onenotePage":
-                    return new OnenotePage();
+                    return deserializeIntoOnenotePage;
                 case "#microsoft.graph.onenoteSection":
-                    return new OnenoteSection();
+                    return deserializeIntoOnenoteSection;
                 case "#microsoft.graph.sectionGroup":
-                    return new SectionGroup();
+                    return deserializeIntoSectionGroup;
             }
         }
     }
-    return new OnenoteEntitySchemaObjectModel();
+    return deserializeIntoOnenoteEntitySchemaObjectModel;
 }

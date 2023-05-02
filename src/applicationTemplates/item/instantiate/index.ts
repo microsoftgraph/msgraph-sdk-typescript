@@ -1,1 +1,5 @@
+export * from './createInstantiatePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoInstantiatePostRequestBody'
 export * from './instantiatePostRequestBody'
+export * from './instantiateRequestBuilderPostRequestConfiguration'
+export * from './serializeInstantiatePostRequestBody'

@@ -1,7 +1,11 @@
-import {WorkbookChartLegend} from '../../../../../../../../../../models/';
 import {createWorkbookChartLegendFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookChartLegendFromDiscriminatorValue';
+import {deserializeIntoWorkbookChartLegend} from '../../../../../../../../../../models/deserializeIntoWorkbookChartLegend';
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookChartLegend} from '../../../../../../../../../../models/serializeWorkbookChartLegend';
+import {WorkbookChartLegend} from '../../../../../../../../../../models/workbookChartLegend';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {LegendRequestBuilderDeleteRequestConfiguration} from './legendRequestBuilderDeleteRequestConfiguration';
 import {LegendRequestBuilderGetRequestConfiguration} from './legendRequestBuilderGetRequestConfiguration';
@@ -33,46 +37,44 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of chartlegend object.
+     * Represents the legend for the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartLegend
-     * @see {@link https://docs.microsoft.com/graph/api/chartlegend-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LegendRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartLegend | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartLegend>(requestInfo, createWorkbookChartLegendFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of chartlegend object.
+     * Update the navigation property legend in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartLegend
-     * @see {@link https://docs.microsoft.com/graph/api/chartlegend-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartLegend | undefined, requestConfiguration?: LegendRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartLegend | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartLegend>(requestInfo, createWorkbookChartLegendFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -92,7 +94,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartlegend object.
+     * Represents the legend for the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +112,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartlegend object.
+     * Update the navigation property legend in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -126,7 +128,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartLegend);
         return requestInfo;
     };
 }

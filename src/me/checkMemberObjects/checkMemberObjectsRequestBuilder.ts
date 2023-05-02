@@ -1,8 +1,15 @@
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {CheckMemberObjectsPostRequestBody} from './checkMemberObjectsPostRequestBody';
 import {CheckMemberObjectsRequestBuilderPostRequestConfiguration} from './checkMemberObjectsRequestBuilderPostRequestConfiguration';
+import {CheckMemberObjectsResponse} from './checkMemberObjectsResponse';
 import {createCheckMemberObjectsResponseFromDiscriminatorValue} from './createCheckMemberObjectsResponseFromDiscriminatorValue';
-import {CheckMemberObjectsPostRequestBody, CheckMemberObjectsResponse} from './index';
+import {deserializeIntoCheckMemberObjectsPostRequestBody} from './deserializeIntoCheckMemberObjectsPostRequestBody';
+import {deserializeIntoCheckMemberObjectsResponse} from './deserializeIntoCheckMemberObjectsResponse';
+import {serializeCheckMemberObjectsPostRequestBody} from './serializeCheckMemberObjectsPostRequestBody';
+import {serializeCheckMemberObjectsResponse} from './serializeCheckMemberObjectsResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -29,10 +36,10 @@ export class CheckMemberObjectsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<CheckMemberObjectsResponse>(requestInfo, createCheckMemberObjectsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,7 +59,7 @@ export class CheckMemberObjectsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCheckMemberObjectsPostRequestBody);
         return requestInfo;
     };
 }

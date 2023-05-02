@@ -1,1 +1,5 @@
 export * from './associateWithHubSitesPostRequestBody'
+export * from './associateWithHubSitesRequestBuilderPostRequestConfiguration'
+export * from './createAssociateWithHubSitesPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAssociateWithHubSitesPostRequestBody'
+export * from './serializeAssociateWithHubSitesPostRequestBody'

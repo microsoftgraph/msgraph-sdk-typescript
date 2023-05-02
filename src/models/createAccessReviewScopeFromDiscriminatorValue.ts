@@ -1,7 +1,11 @@
+import {deserializeIntoAccessReviewInactiveUsersQueryScope} from './deserializeIntoAccessReviewInactiveUsersQueryScope';
+import {deserializeIntoAccessReviewQueryScope} from './deserializeIntoAccessReviewQueryScope';
+import {deserializeIntoAccessReviewScope} from './deserializeIntoAccessReviewScope';
+import {deserializeIntoPrincipalResourceMembershipsScope} from './deserializeIntoPrincipalResourceMembershipsScope';
 import {AccessReviewInactiveUsersQueryScope, AccessReviewQueryScope, AccessReviewScope, PrincipalResourceMembershipsScope} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewScopeFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewScope {
+export function createAccessReviewScopeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createAccessReviewScopeFromDiscriminatorValue(parseNode: ParseNo
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.accessReviewInactiveUsersQueryScope":
-                    return new AccessReviewInactiveUsersQueryScope();
+                    return deserializeIntoAccessReviewInactiveUsersQueryScope;
                 case "#microsoft.graph.accessReviewQueryScope":
-                    return new AccessReviewQueryScope();
+                    return deserializeIntoAccessReviewQueryScope;
                 case "#microsoft.graph.principalResourceMembershipsScope":
-                    return new PrincipalResourceMembershipsScope();
+                    return deserializeIntoPrincipalResourceMembershipsScope;
             }
         }
     }
-    return new AccessReviewScope();
+    return deserializeIntoAccessReviewScope;
 }

@@ -1,7 +1,9 @@
+import {deserializeIntoEducationOrganization} from './deserializeIntoEducationOrganization';
+import {deserializeIntoEducationSchool} from './deserializeIntoEducationSchool';
 import {EducationOrganization, EducationSchool} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationOrganizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationOrganization {
+export function createEducationOrganizationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createEducationOrganizationFromDiscriminatorValue(parseNode: Par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.educationSchool":
-                    return new EducationSchool();
+                    return deserializeIntoEducationSchool;
             }
         }
     }
-    return new EducationOrganization();
+    return deserializeIntoEducationOrganization;
 }

@@ -1,0 +1,10 @@
+import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
+import {ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse} from './managedDeviceMobileAppConfigurationUserStatusCollectionResponse';
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeManagedDeviceMobileAppConfigurationUserStatus} from './serializeManagedDeviceMobileAppConfigurationUserStatus';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeManagedDeviceMobileAppConfigurationUserStatusCollectionResponse(writer: SerializationWriter, managedDeviceMobileAppConfigurationUserStatusCollectionResponse: ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationUserStatusCollectionResponse)
+        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatus>("value", managedDeviceMobileAppConfigurationUserStatusCollectionResponse.value, serializeManagedDeviceMobileAppConfigurationUserStatus);
+}

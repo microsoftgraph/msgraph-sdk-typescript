@@ -1,7 +1,11 @@
-import {TenantAppManagementPolicy} from '../../models/';
 import {createTenantAppManagementPolicyFromDiscriminatorValue} from '../../models/createTenantAppManagementPolicyFromDiscriminatorValue';
+import {deserializeIntoTenantAppManagementPolicy} from '../../models/deserializeIntoTenantAppManagementPolicy';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeTenantAppManagementPolicy} from '../../models/serializeTenantAppManagementPolicy';
+import {TenantAppManagementPolicy} from '../../models/tenantAppManagementPolicy';
 import {DefaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration';
 import {DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderGetRequestConfiguration';
 import {DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderPatchRequestConfiguration';
@@ -28,46 +32,44 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the properties of a tenantAppManagementPolicy object.
+     * The tenant-wide policy that enforces app management restrictions for all applications and service principals.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TenantAppManagementPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/tenantappmanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TenantAppManagementPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TenantAppManagementPolicy>(requestInfo, createTenantAppManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of a tenantAppManagementPolicy object.
+     * Update the navigation property defaultAppManagementPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TenantAppManagementPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/tenantappmanagementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TenantAppManagementPolicy | undefined, requestConfiguration?: DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TenantAppManagementPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TenantAppManagementPolicy>(requestInfo, createTenantAppManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -87,7 +89,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Read the properties of a tenantAppManagementPolicy object.
+     * The tenant-wide policy that enforces app management restrictions for all applications and service principals.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +107,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Update the properties of a tenantAppManagementPolicy object.
+     * Update the navigation property defaultAppManagementPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -121,7 +123,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTenantAppManagementPolicy);
         return requestInfo;
     };
 }

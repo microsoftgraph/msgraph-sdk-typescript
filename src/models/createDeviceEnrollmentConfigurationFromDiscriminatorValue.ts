@@ -1,7 +1,11 @@
+import {deserializeIntoDeviceEnrollmentConfiguration} from './deserializeIntoDeviceEnrollmentConfiguration';
+import {deserializeIntoDeviceEnrollmentLimitConfiguration} from './deserializeIntoDeviceEnrollmentLimitConfiguration';
+import {deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration} from './deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration';
+import {deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration';
 import {DeviceEnrollmentConfiguration, DeviceEnrollmentLimitConfiguration, DeviceEnrollmentPlatformRestrictionsConfiguration, DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceEnrollmentConfiguration {
+export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseN
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.deviceEnrollmentLimitConfiguration":
-                    return new DeviceEnrollmentLimitConfiguration();
+                    return deserializeIntoDeviceEnrollmentLimitConfiguration;
                 case "#microsoft.graph.deviceEnrollmentPlatformRestrictionsConfiguration":
-                    return new DeviceEnrollmentPlatformRestrictionsConfiguration();
+                    return deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration;
                 case "#microsoft.graph.deviceEnrollmentWindowsHelloForBusinessConfiguration":
-                    return new DeviceEnrollmentWindowsHelloForBusinessConfiguration();
+                    return deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration;
             }
         }
     }
-    return new DeviceEnrollmentConfiguration();
+    return deserializeIntoDeviceEnrollmentConfiguration;
 }

@@ -1,21 +1,20 @@
-import {TodoTask} from '../../../../../../models/';
 import {createTodoTaskFromDiscriminatorValue} from '../../../../../../models/createTodoTaskFromDiscriminatorValue';
+import {deserializeIntoTodoTask} from '../../../../../../models/deserializeIntoTodoTask';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeTodoTask} from '../../../../../../models/serializeTodoTask';
+import {TodoTask} from '../../../../../../models/todoTask';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
-import {AttachmentBaseItemRequestBuilder} from './attachments/item/attachmentBaseItemRequestBuilder';
 import {AttachmentSessionsRequestBuilder} from './attachmentSessions/attachmentSessionsRequestBuilder';
-import {AttachmentSessionItemRequestBuilder} from './attachmentSessions/item/attachmentSessionItemRequestBuilder';
 import {ChecklistItemsRequestBuilder} from './checklistItems/checklistItemsRequestBuilder';
-import {ChecklistItemItemRequestBuilder} from './checklistItems/item/checklistItemItemRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
-import {LinkedResourceItemRequestBuilder} from './linkedResources/item/linkedResourceItemRequestBuilder';
 import {LinkedResourcesRequestBuilder} from './linkedResources/linkedResourcesRequestBuilder';
 import {TodoTaskItemRequestBuilderDeleteRequestConfiguration} from './todoTaskItemRequestBuilderDeleteRequestConfiguration';
 import {TodoTaskItemRequestBuilderGetRequestConfiguration} from './todoTaskItemRequestBuilderGetRequestConfiguration';
 import {TodoTaskItemRequestBuilderPatchRequestConfiguration} from './todoTaskItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
@@ -42,39 +41,6 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
         return new LinkedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
-     * @param id Unique identifier of the item
-     * @returns a AttachmentBaseItemRequestBuilder
-     */
-    public attachmentsById(id: string) : AttachmentBaseItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["attachmentBase%2Did"] = id
-        return new AttachmentBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
-     * @param id Unique identifier of the item
-     * @returns a AttachmentSessionItemRequestBuilder
-     */
-    public attachmentSessionsById(id: string) : AttachmentSessionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["attachmentSession%2Did"] = id
-        return new AttachmentSessionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
-     * @param id Unique identifier of the item
-     * @returns a ChecklistItemItemRequestBuilder
-     */
-    public checklistItemsById(id: string) : ChecklistItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["checklistItem%2Did"] = id
-        return new ChecklistItemItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new TodoTaskItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -91,22 +57,11 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the extensions property of the microsoft.graph.todoTask entity.
-     * @param id Unique identifier of the item
-     * @returns a ExtensionItemRequestBuilder
-     */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extension%2Did"] = id
-        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The tasks in this task list. Read-only. Nullable.
@@ -118,22 +73,11 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
-     * @param id Unique identifier of the item
-     * @returns a LinkedResourceItemRequestBuilder
-     */
-    public linkedResourcesById(id: string) : LinkedResourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["linkedResource%2Did"] = id
-        return new LinkedResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property tasks in me
@@ -147,10 +91,10 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -204,7 +148,7 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTodoTask);
         return requestInfo;
     };
 }

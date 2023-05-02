@@ -1,24 +1,24 @@
-import {Channel} from '../../../../models/';
+import {Channel} from '../../../../models/channel';
 import {createChannelFromDiscriminatorValue} from '../../../../models/createChannelFromDiscriminatorValue';
+import {deserializeIntoChannel} from '../../../../models/deserializeIntoChannel';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeChannel} from '../../../../models/serializeChannel';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder} from './doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName/doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
-import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {PrimaryChannelRequestBuilderDeleteRequestConfiguration} from './primaryChannelRequestBuilderDeleteRequestConfiguration';
 import {PrimaryChannelRequestBuilderGetRequestConfiguration} from './primaryChannelRequestBuilderGetRequestConfiguration';
 import {PrimaryChannelRequestBuilderPatchRequestConfiguration} from './primaryChannelRequestBuilderPatchRequestConfiguration';
 import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailRequestBuilder';
 import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
-import {SharedWithChannelTeamInfoItemRequestBuilder} from './sharedWithTeams/item/sharedWithChannelTeamInfoItemRequestBuilder';
 import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
-import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.
@@ -77,50 +77,27 @@ export class PrimaryChannelRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the default channel, **General**, of a team.
+     * The general channel for the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
-     * @see {@link https://docs.microsoft.com/graph/api/team-get-primarychannel?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrimaryChannelRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the members property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a ConversationMemberItemRequestBuilder
-     */
-    public membersById(id: string) : ConversationMemberItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conversationMember%2Did"] = id
-        return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the messages property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a ChatMessageItemRequestBuilder
-     */
-    public messagesById(id: string) : ChatMessageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["chatMessage%2Did"] = id
-        return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property primaryChannel in groups
@@ -134,33 +111,11 @@ export class PrimaryChannelRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a SharedWithChannelTeamInfoItemRequestBuilder
-     */
-    public sharedWithTeamsById(id: string) : SharedWithChannelTeamInfoItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["sharedWithChannelTeamInfo%2Did"] = id
-        return new SharedWithChannelTeamInfoItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
-     * @param id Unique identifier of the item
-     * @returns a TeamsTabItemRequestBuilder
-     */
-    public tabsById(id: string) : TeamsTabItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamsTab%2Did"] = id
-        return new TeamsTabItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property primaryChannel for groups
@@ -179,7 +134,7 @@ export class PrimaryChannelRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the default channel, **General**, of a team.
+     * The general channel for the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -213,7 +168,7 @@ export class PrimaryChannelRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChannel);
         return requestInfo;
     };
 }

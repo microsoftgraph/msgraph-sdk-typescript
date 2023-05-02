@@ -1,1 +1,5 @@
 export * from './binom_Dist_RangePostRequestBody'
+export * from './binom_Dist_RangeRequestBuilderPostRequestConfiguration'
+export * from './createBinom_Dist_RangePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBinom_Dist_RangePostRequestBody'
+export * from './serializeBinom_Dist_RangePostRequestBody'

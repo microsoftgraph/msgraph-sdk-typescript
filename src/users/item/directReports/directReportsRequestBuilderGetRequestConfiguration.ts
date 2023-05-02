@@ -1,14 +1,11 @@
 import {DirectReportsRequestBuilderGetQueryParameters} from './directReportsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class DirectReportsRequestBuilderGetRequestConfiguration {
+export interface DirectReportsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: DirectReportsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: DirectReportsRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoCoupDaysNcPostRequestBody} from './deserializeIntoCoupDaysNcPostRequestBody';
 import {CoupDaysNcPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCoupDaysNcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CoupDaysNcPostRequestBody {
+export function createCoupDaysNcPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CoupDaysNcPostRequestBody();
+    return deserializeIntoCoupDaysNcPostRequestBody;
 }

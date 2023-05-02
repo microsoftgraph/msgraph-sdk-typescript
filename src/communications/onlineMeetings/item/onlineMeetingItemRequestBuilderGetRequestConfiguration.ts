@@ -1,14 +1,11 @@
 import {OnlineMeetingItemRequestBuilderGetQueryParameters} from './onlineMeetingItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class OnlineMeetingItemRequestBuilderGetRequestConfiguration {
+export interface OnlineMeetingItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: OnlineMeetingItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: OnlineMeetingItemRequestBuilderGetQueryParameters | undefined;
 }

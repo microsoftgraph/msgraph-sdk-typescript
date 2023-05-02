@@ -1,7 +1,11 @@
-import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/';
 import {createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
+import {deserializeIntoManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationAssignment';
+import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/managedDeviceMobileAppConfigurationAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/serializeManagedDeviceMobileAppConfigurationAssignment';
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationAssignment>(requestInfo, createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationAssignment>(requestInfo, createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedDeviceMobileAppConfigurationAssignment);
         return requestInfo;
     };
 }

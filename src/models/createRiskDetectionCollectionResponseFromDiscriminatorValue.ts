@@ -1,7 +1,8 @@
+import {deserializeIntoRiskDetectionCollectionResponse} from './deserializeIntoRiskDetectionCollectionResponse';
 import {RiskDetectionCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRiskDetectionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskDetectionCollectionResponse {
+export function createRiskDetectionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RiskDetectionCollectionResponse();
+    return deserializeIntoRiskDetectionCollectionResponse;
 }

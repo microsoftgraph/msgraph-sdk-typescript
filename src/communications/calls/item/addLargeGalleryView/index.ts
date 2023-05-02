@@ -1,1 +1,5 @@
 export * from './addLargeGalleryViewPostRequestBody'
+export * from './addLargeGalleryViewRequestBuilderPostRequestConfiguration'
+export * from './createAddLargeGalleryViewPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAddLargeGalleryViewPostRequestBody'
+export * from './serializeAddLargeGalleryViewPostRequestBody'

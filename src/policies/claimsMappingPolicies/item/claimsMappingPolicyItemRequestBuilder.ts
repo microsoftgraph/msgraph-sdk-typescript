@@ -1,7 +1,11 @@
-import {ClaimsMappingPolicy} from '../../../models/';
+import {ClaimsMappingPolicy} from '../../../models/claimsMappingPolicy';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from '../../../models/createClaimsMappingPolicyFromDiscriminatorValue';
+import {deserializeIntoClaimsMappingPolicy} from '../../../models/deserializeIntoClaimsMappingPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeClaimsMappingPolicy} from '../../../models/serializeClaimsMappingPolicy';
 import {ClaimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration} from './claimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration} from './claimsMappingPolicyItemRequestBuilderGetRequestConfiguration';
 import {ClaimsMappingPolicyItemRequestBuilderPatchRequestConfiguration} from './claimsMappingPolicyItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ClaimsMappingPolicy>(requestInfo, createClaimsMappingPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ClaimsMappingPolicy>(requestInfo, createClaimsMappingPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeClaimsMappingPolicy);
         return requestInfo;
     };
 }

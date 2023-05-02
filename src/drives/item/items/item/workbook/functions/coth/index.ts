@@ -1,1 +1,5 @@
 export * from './cothPostRequestBody'
+export * from './cothRequestBuilderPostRequestConfiguration'
+export * from './createCothPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCothPostRequestBody'
+export * from './serializeCothPostRequestBody'

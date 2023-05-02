@@ -1,7 +1,10 @@
+import {deserializeIntoAccessReviewApplyAction} from './deserializeIntoAccessReviewApplyAction';
+import {deserializeIntoDisableAndDeleteUserApplyAction} from './deserializeIntoDisableAndDeleteUserApplyAction';
+import {deserializeIntoRemoveAccessApplyAction} from './deserializeIntoRemoveAccessApplyAction';
 import {AccessReviewApplyAction, DisableAndDeleteUserApplyAction, RemoveAccessApplyAction} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewApplyActionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewApplyAction {
+export function createAccessReviewApplyActionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createAccessReviewApplyActionFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.disableAndDeleteUserApplyAction":
-                    return new DisableAndDeleteUserApplyAction();
+                    return deserializeIntoDisableAndDeleteUserApplyAction;
                 case "#microsoft.graph.removeAccessApplyAction":
-                    return new RemoveAccessApplyAction();
+                    return deserializeIntoRemoveAccessApplyAction;
             }
         }
     }
-    return new AccessReviewApplyAction();
+    return deserializeIntoAccessReviewApplyAction;
 }

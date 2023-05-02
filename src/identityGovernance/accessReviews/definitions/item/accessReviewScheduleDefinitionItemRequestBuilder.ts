@@ -1,14 +1,17 @@
-import {AccessReviewScheduleDefinition} from '../../../../models/';
+import {AccessReviewScheduleDefinition} from '../../../../models/accessReviewScheduleDefinition';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from '../../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
+import {deserializeIntoAccessReviewScheduleDefinition} from '../../../../models/deserializeIntoAccessReviewScheduleDefinition';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeAccessReviewScheduleDefinition} from '../../../../models/serializeAccessReviewScheduleDefinition';
 import {AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {AccessReviewInstanceItemRequestBuilder} from './instances/item/accessReviewInstanceItemRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
@@ -39,10 +42,10 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -55,22 +58,11 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewInstanceItemRequestBuilder
-     */
-    public instancesById(id: string) : AccessReviewInstanceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewInstance%2Did"] = id
-        return new AccessReviewInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property definitions in identityGovernance
@@ -84,10 +76,10 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -141,7 +133,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessReviewScheduleDefinition);
         return requestInfo;
     };
 }

@@ -1,1 +1,5 @@
 export * from './bin2HexPostRequestBody'
+export * from './bin2HexRequestBuilderPostRequestConfiguration'
+export * from './createBin2HexPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBin2HexPostRequestBody'
+export * from './serializeBin2HexPostRequestBody'

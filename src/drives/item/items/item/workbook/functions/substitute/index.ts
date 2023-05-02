@@ -1,1 +1,5 @@
+export * from './createSubstitutePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSubstitutePostRequestBody'
+export * from './serializeSubstitutePostRequestBody'
 export * from './substitutePostRequestBody'
+export * from './substituteRequestBuilderPostRequestConfiguration'

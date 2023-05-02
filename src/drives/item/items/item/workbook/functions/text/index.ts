@@ -1,1 +1,5 @@
+export * from './createTextPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoTextPostRequestBody'
+export * from './serializeTextPostRequestBody'
 export * from './textPostRequestBody'
+export * from './textRequestBuilderPostRequestConfiguration'

@@ -1,1 +1,6 @@
+export * from './callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters'
+export * from './callRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration'
+export * from './createGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse'
 export * from './getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse'
+export * from './serializeGetDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse'

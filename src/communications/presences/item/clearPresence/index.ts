@@ -1,1 +1,5 @@
 export * from './clearPresencePostRequestBody'
+export * from './clearPresenceRequestBuilderPostRequestConfiguration'
+export * from './createClearPresencePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoClearPresencePostRequestBody'
+export * from './serializeClearPresencePostRequestBody'

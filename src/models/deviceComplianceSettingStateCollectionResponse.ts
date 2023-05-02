@@ -1,46 +1,8 @@
-import {createDeviceComplianceSettingStateFromDiscriminatorValue} from './createDeviceComplianceSettingStateFromDiscriminatorValue';
-import {BaseCollectionPaginationCountResponse, DeviceComplianceSettingState} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class DeviceComplianceSettingStateCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+export interface DeviceComplianceSettingStateCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /** The value property */
-    private _value?: DeviceComplianceSettingState[] | undefined;
-    /**
-     * Instantiates a new DeviceComplianceSettingStateCollectionResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<DeviceComplianceSettingState>(createDeviceComplianceSettingStateFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<DeviceComplianceSettingState>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a deviceComplianceSettingState
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: DeviceComplianceSettingState[] | undefined) {
-        this._value = value;
-    };
+    value?: DeviceComplianceSettingState[] | undefined;
 }

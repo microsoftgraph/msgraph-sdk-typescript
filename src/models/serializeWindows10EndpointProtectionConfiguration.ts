@@ -1,0 +1,53 @@
+import {ApplicationGuardBlockClipboardSharingType} from './applicationGuardBlockClipboardSharingType';
+import {ApplicationGuardBlockFileTransferType} from './applicationGuardBlockFileTransferType';
+import {AppLockerApplicationControlType} from './appLockerApplicationControlType';
+import {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
+import {FirewallCertificateRevocationListCheckMethodType} from './firewallCertificateRevocationListCheckMethodType';
+import {FirewallPacketQueueingMethodType} from './firewallPacketQueueingMethodType';
+import {FirewallPreSharedKeyEncodingMethodType} from './firewallPreSharedKeyEncodingMethodType';
+import {serializeBitLockerRemovableDrivePolicy} from './serializeBitLockerRemovableDrivePolicy';
+import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
+import {serializeWindowsFirewallNetworkProfile} from './serializeWindowsFirewallNetworkProfile';
+import {Windows10EndpointProtectionConfiguration} from './windows10EndpointProtectionConfiguration';
+import {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeWindows10EndpointProtectionConfiguration(writer: SerializationWriter, windows10EndpointProtectionConfiguration: Windows10EndpointProtectionConfiguration | undefined = {} as Windows10EndpointProtectionConfiguration) : void {
+        serializeDeviceConfiguration(writer, windows10EndpointProtectionConfiguration)
+        writer.writeBooleanValue("applicationGuardAllowPersistence", windows10EndpointProtectionConfiguration.applicationGuardAllowPersistence);
+        writer.writeBooleanValue("applicationGuardAllowPrintToLocalPrinters", windows10EndpointProtectionConfiguration.applicationGuardAllowPrintToLocalPrinters);
+        writer.writeBooleanValue("applicationGuardAllowPrintToNetworkPrinters", windows10EndpointProtectionConfiguration.applicationGuardAllowPrintToNetworkPrinters);
+        writer.writeBooleanValue("applicationGuardAllowPrintToPDF", windows10EndpointProtectionConfiguration.applicationGuardAllowPrintToPDF);
+        writer.writeBooleanValue("applicationGuardAllowPrintToXPS", windows10EndpointProtectionConfiguration.applicationGuardAllowPrintToXPS);
+        writer.writeEnumValue<ApplicationGuardBlockClipboardSharingType>("applicationGuardBlockClipboardSharing", windows10EndpointProtectionConfiguration.applicationGuardBlockClipboardSharing);
+        writer.writeEnumValue<ApplicationGuardBlockFileTransferType>("applicationGuardBlockFileTransfer", windows10EndpointProtectionConfiguration.applicationGuardBlockFileTransfer);
+        writer.writeBooleanValue("applicationGuardBlockNonEnterpriseContent", windows10EndpointProtectionConfiguration.applicationGuardBlockNonEnterpriseContent);
+        writer.writeBooleanValue("applicationGuardEnabled", windows10EndpointProtectionConfiguration.applicationGuardEnabled);
+        writer.writeBooleanValue("applicationGuardForceAuditing", windows10EndpointProtectionConfiguration.applicationGuardForceAuditing);
+        writer.writeEnumValue<AppLockerApplicationControlType>("appLockerApplicationControl", windows10EndpointProtectionConfiguration.appLockerApplicationControl);
+        writer.writeBooleanValue("bitLockerDisableWarningForOtherDiskEncryption", windows10EndpointProtectionConfiguration.bitLockerDisableWarningForOtherDiskEncryption);
+        writer.writeBooleanValue("bitLockerEnableStorageCardEncryptionOnMobile", windows10EndpointProtectionConfiguration.bitLockerEnableStorageCardEncryptionOnMobile);
+        writer.writeBooleanValue("bitLockerEncryptDevice", windows10EndpointProtectionConfiguration.bitLockerEncryptDevice);
+        writer.writeObjectValue<BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy", windows10EndpointProtectionConfiguration.bitLockerRemovableDrivePolicy, serializeBitLockerRemovableDrivePolicy);
+        writer.writeCollectionOfPrimitiveValues<string>("defenderAdditionalGuardedFolders", windows10EndpointProtectionConfiguration.defenderAdditionalGuardedFolders);
+        writer.writeCollectionOfPrimitiveValues<string>("defenderAttackSurfaceReductionExcludedPaths", windows10EndpointProtectionConfiguration.defenderAttackSurfaceReductionExcludedPaths);
+        writer.writeStringValue("defenderExploitProtectionXml", windows10EndpointProtectionConfiguration.defenderExploitProtectionXml);
+        writer.writeStringValue("defenderExploitProtectionXmlFileName", windows10EndpointProtectionConfiguration.defenderExploitProtectionXmlFileName);
+        writer.writeCollectionOfPrimitiveValues<string>("defenderGuardedFoldersAllowedAppPaths", windows10EndpointProtectionConfiguration.defenderGuardedFoldersAllowedAppPaths);
+        writer.writeBooleanValue("defenderSecurityCenterBlockExploitProtectionOverride", windows10EndpointProtectionConfiguration.defenderSecurityCenterBlockExploitProtectionOverride);
+        writer.writeBooleanValue("firewallBlockStatefulFTP", windows10EndpointProtectionConfiguration.firewallBlockStatefulFTP);
+        writer.writeEnumValue<FirewallCertificateRevocationListCheckMethodType>("firewallCertificateRevocationListCheckMethod", windows10EndpointProtectionConfiguration.firewallCertificateRevocationListCheckMethod);
+        writer.writeNumberValue("firewallIdleTimeoutForSecurityAssociationInSeconds", windows10EndpointProtectionConfiguration.firewallIdleTimeoutForSecurityAssociationInSeconds);
+        writer.writeBooleanValue("firewallIPSecExemptionsAllowDHCP", windows10EndpointProtectionConfiguration.firewallIPSecExemptionsAllowDHCP);
+        writer.writeBooleanValue("firewallIPSecExemptionsAllowICMP", windows10EndpointProtectionConfiguration.firewallIPSecExemptionsAllowICMP);
+        writer.writeBooleanValue("firewallIPSecExemptionsAllowNeighborDiscovery", windows10EndpointProtectionConfiguration.firewallIPSecExemptionsAllowNeighborDiscovery);
+        writer.writeBooleanValue("firewallIPSecExemptionsAllowRouterDiscovery", windows10EndpointProtectionConfiguration.firewallIPSecExemptionsAllowRouterDiscovery);
+        writer.writeBooleanValue("firewallMergeKeyingModuleSettings", windows10EndpointProtectionConfiguration.firewallMergeKeyingModuleSettings);
+        writer.writeEnumValue<FirewallPacketQueueingMethodType>("firewallPacketQueueingMethod", windows10EndpointProtectionConfiguration.firewallPacketQueueingMethod);
+        writer.writeEnumValue<FirewallPreSharedKeyEncodingMethodType>("firewallPreSharedKeyEncodingMethod", windows10EndpointProtectionConfiguration.firewallPreSharedKeyEncodingMethod);
+        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfileDomain", windows10EndpointProtectionConfiguration.firewallProfileDomain, serializeWindowsFirewallNetworkProfile);
+        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePrivate", windows10EndpointProtectionConfiguration.firewallProfilePrivate, serializeWindowsFirewallNetworkProfile);
+        writer.writeObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePublic", windows10EndpointProtectionConfiguration.firewallProfilePublic, serializeWindowsFirewallNetworkProfile);
+        writer.writeBooleanValue("smartScreenBlockOverrideForFiles", windows10EndpointProtectionConfiguration.smartScreenBlockOverrideForFiles);
+        writer.writeBooleanValue("smartScreenEnableInShell", windows10EndpointProtectionConfiguration.smartScreenEnableInShell);
+}

@@ -1,7 +1,11 @@
-import {AuthoredNote} from '../../../../../models/';
+import {AuthoredNote} from '../../../../../models/authoredNote';
 import {createAuthoredNoteFromDiscriminatorValue} from '../../../../../models/createAuthoredNoteFromDiscriminatorValue';
+import {deserializeIntoAuthoredNote} from '../../../../../models/deserializeIntoAuthoredNote';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeAuthoredNote} from '../../../../../models/serializeAuthoredNote';
 import {AuthoredNoteItemRequestBuilderDeleteRequestConfiguration} from './authoredNoteItemRequestBuilderDeleteRequestConfiguration';
 import {AuthoredNoteItemRequestBuilderGetRequestConfiguration} from './authoredNoteItemRequestBuilderGetRequestConfiguration';
 import {AuthoredNoteItemRequestBuilderPatchRequestConfiguration} from './authoredNoteItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuthoredNote>(requestInfo, createAuthoredNoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuthoredNote>(requestInfo, createAuthoredNoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthoredNote);
         return requestInfo;
     };
 }

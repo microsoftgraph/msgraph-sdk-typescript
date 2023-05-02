@@ -1,7 +1,10 @@
+import {deserializeIntoUnifiedRoleAssignmentSchedule} from './deserializeIntoUnifiedRoleAssignmentSchedule';
+import {deserializeIntoUnifiedRoleEligibilitySchedule} from './deserializeIntoUnifiedRoleEligibilitySchedule';
+import {deserializeIntoUnifiedRoleScheduleBase} from './deserializeIntoUnifiedRoleScheduleBase';
 import {UnifiedRoleAssignmentSchedule, UnifiedRoleEligibilitySchedule, UnifiedRoleScheduleBase} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleScheduleBase {
+export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createUnifiedRoleScheduleBaseFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.unifiedRoleAssignmentSchedule":
-                    return new UnifiedRoleAssignmentSchedule();
+                    return deserializeIntoUnifiedRoleAssignmentSchedule;
                 case "#microsoft.graph.unifiedRoleEligibilitySchedule":
-                    return new UnifiedRoleEligibilitySchedule();
+                    return deserializeIntoUnifiedRoleEligibilitySchedule;
             }
         }
     }
-    return new UnifiedRoleScheduleBase();
+    return deserializeIntoUnifiedRoleScheduleBase;
 }

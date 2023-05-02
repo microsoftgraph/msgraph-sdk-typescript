@@ -1,1 +1,5 @@
+export * from './createPlayPromptPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoPlayPromptPostRequestBody'
 export * from './playPromptPostRequestBody'
+export * from './playPromptRequestBuilderPostRequestConfiguration'
+export * from './serializePlayPromptPostRequestBody'

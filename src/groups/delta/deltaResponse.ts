@@ -1,46 +1,8 @@
-import {BaseDeltaFunctionResponse, Group} from '../../models/';
-import {createGroupFromDiscriminatorValue} from '../../models/createGroupFromDiscriminatorValue';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {BaseDeltaFunctionResponse} from '../../models/baseDeltaFunctionResponse';
+import {Group} from '../../models/group';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class DeltaResponse extends BaseDeltaFunctionResponse implements Parsable {
+export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {
     /** The value property */
-    private _value?: Group[] | undefined;
-    /**
-     * Instantiates a new deltaResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<Group>(createGroupFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<Group>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a group
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: Group[] | undefined) {
-        this._value = value;
-    };
+    value?: Group[] | undefined;
 }

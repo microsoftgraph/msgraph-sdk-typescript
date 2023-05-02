@@ -1,15 +1,18 @@
-import {AccessPackageAssignmentPolicy} from '../../../../../../../../models/';
+import {AccessPackageAssignmentPolicy} from '../../../../../../../../models/accessPackageAssignmentPolicy';
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from '../../../../../../../../models/createAccessPackageAssignmentPolicyFromDiscriminatorValue';
+import {deserializeIntoAccessPackageAssignmentPolicy} from '../../../../../../../../models/deserializeIntoAccessPackageAssignmentPolicy';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeAccessPackageAssignmentPolicy} from '../../../../../../../../models/serializeAccessPackageAssignmentPolicy';
 import {AccessPackageRequestBuilder} from './accessPackage/accessPackageRequestBuilder';
 import {AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentPolicyItemRequestBuilderPatchRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderPatchRequestConfiguration';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
-import {AccessPackageQuestionItemRequestBuilder} from './questions/item/accessPackageQuestionItemRequestBuilder';
 import {QuestionsRequestBuilder} from './questions/questionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
@@ -44,10 +47,10 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -60,10 +63,10 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -78,22 +81,11 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageQuestionItemRequestBuilder
-     */
-    public questionsById(id: string) : AccessPackageQuestionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageQuestion%2Did"] = id
-        return new AccessPackageQuestionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property assignmentPolicies for identityGovernance
@@ -146,7 +138,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageAssignmentPolicy);
         return requestInfo;
     };
 }

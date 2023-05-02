@@ -1,7 +1,8 @@
+import {deserializeIntoApplyDynamicFilterPostRequestBody} from './deserializeIntoApplyDynamicFilterPostRequestBody';
 import {ApplyDynamicFilterPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createApplyDynamicFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ApplyDynamicFilterPostRequestBody {
+export function createApplyDynamicFilterPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ApplyDynamicFilterPostRequestBody();
+    return deserializeIntoApplyDynamicFilterPostRequestBody;
 }

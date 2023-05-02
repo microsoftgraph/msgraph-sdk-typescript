@@ -1,7 +1,9 @@
+import {deserializeIntoExclusionGroupAssignmentTarget} from './deserializeIntoExclusionGroupAssignmentTarget';
+import {deserializeIntoGroupAssignmentTarget} from './deserializeIntoGroupAssignmentTarget';
 import {ExclusionGroupAssignmentTarget, GroupAssignmentTarget} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGroupAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) : GroupAssignmentTarget {
+export function createGroupAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createGroupAssignmentTargetFromDiscriminatorValue(parseNode: Par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.exclusionGroupAssignmentTarget":
-                    return new ExclusionGroupAssignmentTarget();
+                    return deserializeIntoExclusionGroupAssignmentTarget;
             }
         }
     }
-    return new GroupAssignmentTarget();
+    return deserializeIntoGroupAssignmentTarget;
 }

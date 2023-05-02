@@ -1,7 +1,8 @@
+import {deserializeIntoChiSq_InvPostRequestBody} from './deserializeIntoChiSq_InvPostRequestBody';
 import {ChiSq_InvPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createChiSq_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChiSq_InvPostRequestBody {
+export function createChiSq_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ChiSq_InvPostRequestBody();
+    return deserializeIntoChiSq_InvPostRequestBody;
 }

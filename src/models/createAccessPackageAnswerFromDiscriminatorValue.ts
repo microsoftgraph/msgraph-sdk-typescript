@@ -1,7 +1,9 @@
+import {deserializeIntoAccessPackageAnswer} from './deserializeIntoAccessPackageAnswer';
+import {deserializeIntoAccessPackageAnswerString} from './deserializeIntoAccessPackageAnswerString';
 import {AccessPackageAnswer, AccessPackageAnswerString} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessPackageAnswerFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageAnswer {
+export function createAccessPackageAnswerFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createAccessPackageAnswerFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.accessPackageAnswerString":
-                    return new AccessPackageAnswerString();
+                    return deserializeIntoAccessPackageAnswerString;
             }
         }
     }
-    return new AccessPackageAnswer();
+    return deserializeIntoAccessPackageAnswer;
 }

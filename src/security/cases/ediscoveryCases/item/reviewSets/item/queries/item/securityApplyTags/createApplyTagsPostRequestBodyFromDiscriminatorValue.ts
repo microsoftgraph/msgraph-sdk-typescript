@@ -1,7 +1,8 @@
+import {deserializeIntoApplyTagsPostRequestBody} from './deserializeIntoApplyTagsPostRequestBody';
 import {ApplyTagsPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createApplyTagsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ApplyTagsPostRequestBody {
+export function createApplyTagsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ApplyTagsPostRequestBody();
+    return deserializeIntoApplyTagsPostRequestBody;
 }

@@ -1,1 +1,6 @@
+export * from './createGetAttackSimulationTrainingUserCoverageResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetAttackSimulationTrainingUserCoverageResponse'
+export * from './getAttackSimulationTrainingUserCoverageRequestBuilderGetQueryParameters'
+export * from './getAttackSimulationTrainingUserCoverageRequestBuilderGetRequestConfiguration'
 export * from './getAttackSimulationTrainingUserCoverageResponse'
+export * from './serializeGetAttackSimulationTrainingUserCoverageResponse'

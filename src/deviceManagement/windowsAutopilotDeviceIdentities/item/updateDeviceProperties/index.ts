@@ -1,1 +1,5 @@
+export * from './createUpdateDevicePropertiesPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoUpdateDevicePropertiesPostRequestBody'
+export * from './serializeUpdateDevicePropertiesPostRequestBody'
 export * from './updateDevicePropertiesPostRequestBody'
+export * from './updateDevicePropertiesRequestBuilderPostRequestConfiguration'

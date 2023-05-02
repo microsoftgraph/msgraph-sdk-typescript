@@ -1,11 +1,699 @@
 import {CallRecord, Segment, Session} from './callRecords/';
+import {deserializeIntoCallRecord} from './callRecords/deserializeIntoCallRecord';
+import {deserializeIntoSegment} from './callRecords/deserializeIntoSegment';
+import {deserializeIntoSession} from './callRecords/deserializeIntoSession';
+import {deserializeIntoAadUserConversationMember} from './deserializeIntoAadUserConversationMember';
+import {deserializeIntoAccessPackage} from './deserializeIntoAccessPackage';
+import {deserializeIntoAccessPackageAssignment} from './deserializeIntoAccessPackageAssignment';
+import {deserializeIntoAccessPackageAssignmentPolicy} from './deserializeIntoAccessPackageAssignmentPolicy';
+import {deserializeIntoAccessPackageAssignmentRequest} from './deserializeIntoAccessPackageAssignmentRequest';
+import {deserializeIntoAccessPackageCatalog} from './deserializeIntoAccessPackageCatalog';
+import {deserializeIntoAccessPackageMultipleChoiceQuestion} from './deserializeIntoAccessPackageMultipleChoiceQuestion';
+import {deserializeIntoAccessPackageQuestion} from './deserializeIntoAccessPackageQuestion';
+import {deserializeIntoAccessPackageSubject} from './deserializeIntoAccessPackageSubject';
+import {deserializeIntoAccessPackageTextInputQuestion} from './deserializeIntoAccessPackageTextInputQuestion';
+import {deserializeIntoAccessReviewHistoryDefinition} from './deserializeIntoAccessReviewHistoryDefinition';
+import {deserializeIntoAccessReviewHistoryInstance} from './deserializeIntoAccessReviewHistoryInstance';
+import {deserializeIntoAccessReviewInstance} from './deserializeIntoAccessReviewInstance';
+import {deserializeIntoAccessReviewInstanceDecisionItem} from './deserializeIntoAccessReviewInstanceDecisionItem';
+import {deserializeIntoAccessReviewReviewer} from './deserializeIntoAccessReviewReviewer';
+import {deserializeIntoAccessReviewScheduleDefinition} from './deserializeIntoAccessReviewScheduleDefinition';
+import {deserializeIntoAccessReviewSet} from './deserializeIntoAccessReviewSet';
+import {deserializeIntoAccessReviewStage} from './deserializeIntoAccessReviewStage';
+import {deserializeIntoActivityBasedTimeoutPolicy} from './deserializeIntoActivityBasedTimeoutPolicy';
+import {deserializeIntoActivityHistoryItem} from './deserializeIntoActivityHistoryItem';
+import {deserializeIntoAddLargeGalleryViewOperation} from './deserializeIntoAddLargeGalleryViewOperation';
+import {deserializeIntoAdminConsentRequestPolicy} from './deserializeIntoAdminConsentRequestPolicy';
+import {deserializeIntoAdministrativeUnit} from './deserializeIntoAdministrativeUnit';
+import {deserializeIntoAgreement} from './deserializeIntoAgreement';
+import {deserializeIntoAgreementAcceptance} from './deserializeIntoAgreementAcceptance';
+import {deserializeIntoAgreementFile} from './deserializeIntoAgreementFile';
+import {deserializeIntoAgreementFileLocalization} from './deserializeIntoAgreementFileLocalization';
+import {deserializeIntoAgreementFileProperties} from './deserializeIntoAgreementFileProperties';
+import {deserializeIntoAgreementFileVersion} from './deserializeIntoAgreementFileVersion';
+import {deserializeIntoAlert as I31715a026b1ced0f6a88616d35905e458c4d7672e4ac2cfaebeef17eefa762ea} from './deserializeIntoAlert';
+import {deserializeIntoAllowedValue} from './deserializeIntoAllowedValue';
+import {deserializeIntoAndroidCompliancePolicy} from './deserializeIntoAndroidCompliancePolicy';
+import {deserializeIntoAndroidCustomConfiguration} from './deserializeIntoAndroidCustomConfiguration';
+import {deserializeIntoAndroidGeneralDeviceConfiguration} from './deserializeIntoAndroidGeneralDeviceConfiguration';
+import {deserializeIntoAndroidLobApp} from './deserializeIntoAndroidLobApp';
+import {deserializeIntoAndroidManagedAppProtection} from './deserializeIntoAndroidManagedAppProtection';
+import {deserializeIntoAndroidManagedAppRegistration} from './deserializeIntoAndroidManagedAppRegistration';
+import {deserializeIntoAndroidStoreApp} from './deserializeIntoAndroidStoreApp';
+import {deserializeIntoAndroidWorkProfileCompliancePolicy} from './deserializeIntoAndroidWorkProfileCompliancePolicy';
+import {deserializeIntoAndroidWorkProfileCustomConfiguration} from './deserializeIntoAndroidWorkProfileCustomConfiguration';
+import {deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration} from './deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration';
+import {deserializeIntoAnonymousGuestConversationMember} from './deserializeIntoAnonymousGuestConversationMember';
+import {deserializeIntoAppCatalogs} from './deserializeIntoAppCatalogs';
+import {deserializeIntoAppConsentApprovalRoute} from './deserializeIntoAppConsentApprovalRoute';
+import {deserializeIntoAppConsentRequest} from './deserializeIntoAppConsentRequest';
+import {deserializeIntoAppleDeviceFeaturesConfigurationBase} from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
+import {deserializeIntoAppleManagedIdentityProvider} from './deserializeIntoAppleManagedIdentityProvider';
+import {deserializeIntoApplePushNotificationCertificate} from './deserializeIntoApplePushNotificationCertificate';
+import {deserializeIntoApplication} from './deserializeIntoApplication';
+import {deserializeIntoApplicationTemplate} from './deserializeIntoApplicationTemplate';
+import {deserializeIntoAppManagementPolicy} from './deserializeIntoAppManagementPolicy';
+import {deserializeIntoAppRoleAssignment} from './deserializeIntoAppRoleAssignment';
+import {deserializeIntoApproval} from './deserializeIntoApproval';
+import {deserializeIntoApprovalStage} from './deserializeIntoApprovalStage';
+import {deserializeIntoAppScope} from './deserializeIntoAppScope';
+import {deserializeIntoAssociatedTeamInfo} from './deserializeIntoAssociatedTeamInfo';
+import {deserializeIntoAttachment} from './deserializeIntoAttachment';
+import {deserializeIntoAttachmentBase} from './deserializeIntoAttachmentBase';
+import {deserializeIntoAttachmentSession} from './deserializeIntoAttachmentSession';
+import {deserializeIntoAttackSimulationRoot} from './deserializeIntoAttackSimulationRoot';
+import {deserializeIntoAttendanceRecord} from './deserializeIntoAttendanceRecord';
+import {deserializeIntoAttributeSet} from './deserializeIntoAttributeSet';
+import {deserializeIntoAudioRoutingGroup} from './deserializeIntoAudioRoutingGroup';
+import {deserializeIntoAuditEvent} from './deserializeIntoAuditEvent';
+import {deserializeIntoAuditLogRoot} from './deserializeIntoAuditLogRoot';
+import {deserializeIntoAuthentication} from './deserializeIntoAuthentication';
+import {deserializeIntoAuthenticationCombinationConfiguration} from './deserializeIntoAuthenticationCombinationConfiguration';
+import {deserializeIntoAuthenticationContextClassReference} from './deserializeIntoAuthenticationContextClassReference';
+import {deserializeIntoAuthenticationFlowsPolicy} from './deserializeIntoAuthenticationFlowsPolicy';
+import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
+import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
+import {deserializeIntoAuthenticationMethodModeDetail} from './deserializeIntoAuthenticationMethodModeDetail';
+import {deserializeIntoAuthenticationMethodsPolicy} from './deserializeIntoAuthenticationMethodsPolicy';
+import {deserializeIntoAuthenticationMethodTarget} from './deserializeIntoAuthenticationMethodTarget';
+import {deserializeIntoAuthenticationStrengthPolicy} from './deserializeIntoAuthenticationStrengthPolicy';
+import {deserializeIntoAuthenticationStrengthRoot} from './deserializeIntoAuthenticationStrengthRoot';
+import {deserializeIntoAuthoredNote} from './deserializeIntoAuthoredNote';
+import {deserializeIntoAuthorizationPolicy} from './deserializeIntoAuthorizationPolicy';
+import {deserializeIntoAzureCommunicationServicesUserConversationMember} from './deserializeIntoAzureCommunicationServicesUserConversationMember';
+import {deserializeIntoB2xIdentityUserFlow} from './deserializeIntoB2xIdentityUserFlow';
+import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
+import {deserializeIntoBaseItemVersion} from './deserializeIntoBaseItemVersion';
+import {deserializeIntoBitlocker} from './deserializeIntoBitlocker';
+import {deserializeIntoBitlockerRecoveryKey} from './deserializeIntoBitlockerRecoveryKey';
+import {deserializeIntoBookingAppointment} from './deserializeIntoBookingAppointment';
+import {deserializeIntoBookingBusiness} from './deserializeIntoBookingBusiness';
+import {deserializeIntoBookingCurrency} from './deserializeIntoBookingCurrency';
+import {deserializeIntoBookingCustomer} from './deserializeIntoBookingCustomer';
+import {deserializeIntoBookingCustomerBase} from './deserializeIntoBookingCustomerBase';
+import {deserializeIntoBookingCustomQuestion} from './deserializeIntoBookingCustomQuestion';
+import {deserializeIntoBookingService} from './deserializeIntoBookingService';
+import {deserializeIntoBookingStaffMember} from './deserializeIntoBookingStaffMember';
+import {deserializeIntoBookingStaffMemberBase} from './deserializeIntoBookingStaffMemberBase';
+import {deserializeIntoBrowserSharedCookie} from './deserializeIntoBrowserSharedCookie';
+import {deserializeIntoBrowserSite} from './deserializeIntoBrowserSite';
+import {deserializeIntoBrowserSiteList} from './deserializeIntoBrowserSiteList';
+import {deserializeIntoBuiltInIdentityProvider} from './deserializeIntoBuiltInIdentityProvider';
+import {deserializeIntoCalendar} from './deserializeIntoCalendar';
+import {deserializeIntoCalendarGroup} from './deserializeIntoCalendarGroup';
+import {deserializeIntoCalendarPermission} from './deserializeIntoCalendarPermission';
+import {deserializeIntoCalendarSharingMessage} from './deserializeIntoCalendarSharingMessage';
+import {deserializeIntoCall} from './deserializeIntoCall';
+import {deserializeIntoCancelMediaProcessingOperation} from './deserializeIntoCancelMediaProcessingOperation';
+import {deserializeIntoCertificateBasedAuthConfiguration} from './deserializeIntoCertificateBasedAuthConfiguration';
+import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
+import {deserializeIntoChannel} from './deserializeIntoChannel';
+import {deserializeIntoChat} from './deserializeIntoChat';
+import {deserializeIntoChatMessage} from './deserializeIntoChatMessage';
+import {deserializeIntoChatMessageHostedContent} from './deserializeIntoChatMessageHostedContent';
+import {deserializeIntoChatMessageInfo} from './deserializeIntoChatMessageInfo';
+import {deserializeIntoChecklistItem} from './deserializeIntoChecklistItem';
+import {deserializeIntoClaimsMappingPolicy} from './deserializeIntoClaimsMappingPolicy';
+import {deserializeIntoColumnDefinition} from './deserializeIntoColumnDefinition';
+import {deserializeIntoColumnLink} from './deserializeIntoColumnLink';
+import {deserializeIntoCommsOperation} from './deserializeIntoCommsOperation';
+import {deserializeIntoComplianceManagementPartner} from './deserializeIntoComplianceManagementPartner';
+import {deserializeIntoConditionalAccessPolicy} from './deserializeIntoConditionalAccessPolicy';
+import {deserializeIntoConditionalAccessRoot} from './deserializeIntoConditionalAccessRoot';
+import {deserializeIntoConditionalAccessTemplate} from './deserializeIntoConditionalAccessTemplate';
+import {deserializeIntoConnectedOrganization} from './deserializeIntoConnectedOrganization';
+import {deserializeIntoContact} from './deserializeIntoContact';
+import {deserializeIntoContactFolder} from './deserializeIntoContactFolder';
+import {deserializeIntoContentSharingSession} from './deserializeIntoContentSharingSession';
+import {deserializeIntoContentType} from './deserializeIntoContentType';
+import {deserializeIntoContract} from './deserializeIntoContract';
+import {deserializeIntoConversation} from './deserializeIntoConversation';
+import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
+import {deserializeIntoConversationThread} from './deserializeIntoConversationThread';
+import {deserializeIntoCountryNamedLocation} from './deserializeIntoCountryNamedLocation';
+import {deserializeIntoCrossTenantAccessPolicy} from './deserializeIntoCrossTenantAccessPolicy';
+import {deserializeIntoCrossTenantAccessPolicyConfigurationDefault} from './deserializeIntoCrossTenantAccessPolicyConfigurationDefault';
+import {deserializeIntoCustomSecurityAttributeDefinition} from './deserializeIntoCustomSecurityAttributeDefinition';
+import {deserializeIntoDataPolicyOperation} from './deserializeIntoDataPolicyOperation';
+import {deserializeIntoDefaultManagedAppProtection} from './deserializeIntoDefaultManagedAppProtection';
+import {deserializeIntoDelegatedAdminAccessAssignment} from './deserializeIntoDelegatedAdminAccessAssignment';
+import {deserializeIntoDelegatedAdminCustomer} from './deserializeIntoDelegatedAdminCustomer';
+import {deserializeIntoDelegatedAdminRelationship} from './deserializeIntoDelegatedAdminRelationship';
+import {deserializeIntoDelegatedAdminRelationshipOperation} from './deserializeIntoDelegatedAdminRelationshipOperation';
+import {deserializeIntoDelegatedAdminRelationshipRequest} from './deserializeIntoDelegatedAdminRelationshipRequest';
+import {deserializeIntoDelegatedAdminServiceManagementDetail} from './deserializeIntoDelegatedAdminServiceManagementDetail';
+import {deserializeIntoDelegatedPermissionClassification} from './deserializeIntoDelegatedPermissionClassification';
+import {deserializeIntoDeletedTeam} from './deserializeIntoDeletedTeam';
+import {deserializeIntoDetectedApp} from './deserializeIntoDetectedApp';
+import {deserializeIntoDevice} from './deserializeIntoDevice';
+import {deserializeIntoDeviceAndAppManagementRoleAssignment} from './deserializeIntoDeviceAndAppManagementRoleAssignment';
+import {deserializeIntoDeviceAndAppManagementRoleDefinition} from './deserializeIntoDeviceAndAppManagementRoleDefinition';
+import {deserializeIntoDeviceAppManagement} from './deserializeIntoDeviceAppManagement';
+import {deserializeIntoDeviceCategory} from './deserializeIntoDeviceCategory';
+import {deserializeIntoDeviceComplianceActionItem} from './deserializeIntoDeviceComplianceActionItem';
+import {deserializeIntoDeviceComplianceDeviceOverview} from './deserializeIntoDeviceComplianceDeviceOverview';
+import {deserializeIntoDeviceComplianceDeviceStatus} from './deserializeIntoDeviceComplianceDeviceStatus';
+import {deserializeIntoDeviceCompliancePolicy} from './deserializeIntoDeviceCompliancePolicy';
+import {deserializeIntoDeviceCompliancePolicyAssignment} from './deserializeIntoDeviceCompliancePolicyAssignment';
+import {deserializeIntoDeviceCompliancePolicyDeviceStateSummary} from './deserializeIntoDeviceCompliancePolicyDeviceStateSummary';
+import {deserializeIntoDeviceCompliancePolicySettingStateSummary} from './deserializeIntoDeviceCompliancePolicySettingStateSummary';
+import {deserializeIntoDeviceCompliancePolicyState} from './deserializeIntoDeviceCompliancePolicyState';
+import {deserializeIntoDeviceComplianceScheduledActionForRule} from './deserializeIntoDeviceComplianceScheduledActionForRule';
+import {deserializeIntoDeviceComplianceSettingState} from './deserializeIntoDeviceComplianceSettingState';
+import {deserializeIntoDeviceComplianceUserOverview} from './deserializeIntoDeviceComplianceUserOverview';
+import {deserializeIntoDeviceComplianceUserStatus} from './deserializeIntoDeviceComplianceUserStatus';
+import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
+import {deserializeIntoDeviceConfigurationAssignment} from './deserializeIntoDeviceConfigurationAssignment';
+import {deserializeIntoDeviceConfigurationDeviceOverview} from './deserializeIntoDeviceConfigurationDeviceOverview';
+import {deserializeIntoDeviceConfigurationDeviceStateSummary} from './deserializeIntoDeviceConfigurationDeviceStateSummary';
+import {deserializeIntoDeviceConfigurationDeviceStatus} from './deserializeIntoDeviceConfigurationDeviceStatus';
+import {deserializeIntoDeviceConfigurationState} from './deserializeIntoDeviceConfigurationState';
+import {deserializeIntoDeviceConfigurationUserOverview} from './deserializeIntoDeviceConfigurationUserOverview';
+import {deserializeIntoDeviceConfigurationUserStatus} from './deserializeIntoDeviceConfigurationUserStatus';
+import {deserializeIntoDeviceEnrollmentConfiguration} from './deserializeIntoDeviceEnrollmentConfiguration';
+import {deserializeIntoDeviceEnrollmentLimitConfiguration} from './deserializeIntoDeviceEnrollmentLimitConfiguration';
+import {deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration} from './deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration';
+import {deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration';
+import {deserializeIntoDeviceInstallState} from './deserializeIntoDeviceInstallState';
+import {deserializeIntoDeviceManagement} from './deserializeIntoDeviceManagement';
+import {deserializeIntoDeviceManagementExchangeConnector} from './deserializeIntoDeviceManagementExchangeConnector';
+import {deserializeIntoDeviceManagementExportJob} from './deserializeIntoDeviceManagementExportJob';
+import {deserializeIntoDeviceManagementPartner} from './deserializeIntoDeviceManagementPartner';
+import {deserializeIntoDeviceManagementReports} from './deserializeIntoDeviceManagementReports';
+import {deserializeIntoDeviceManagementTroubleshootingEvent} from './deserializeIntoDeviceManagementTroubleshootingEvent';
+import {deserializeIntoDirectory} from './deserializeIntoDirectory';
+import {deserializeIntoDirectoryAudit} from './deserializeIntoDirectoryAudit';
+import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
+import {deserializeIntoDirectoryObjectPartnerReference} from './deserializeIntoDirectoryObjectPartnerReference';
+import {deserializeIntoDirectoryRole} from './deserializeIntoDirectoryRole';
+import {deserializeIntoDirectoryRoleTemplate} from './deserializeIntoDirectoryRoleTemplate';
+import {deserializeIntoDocumentSetVersion} from './deserializeIntoDocumentSetVersion';
+import {deserializeIntoDomain} from './deserializeIntoDomain';
+import {deserializeIntoDomainDnsCnameRecord} from './deserializeIntoDomainDnsCnameRecord';
+import {deserializeIntoDomainDnsMxRecord} from './deserializeIntoDomainDnsMxRecord';
+import {deserializeIntoDomainDnsRecord} from './deserializeIntoDomainDnsRecord';
+import {deserializeIntoDomainDnsSrvRecord} from './deserializeIntoDomainDnsSrvRecord';
+import {deserializeIntoDomainDnsTxtRecord} from './deserializeIntoDomainDnsTxtRecord';
+import {deserializeIntoDomainDnsUnavailableRecord} from './deserializeIntoDomainDnsUnavailableRecord';
+import {deserializeIntoDrive} from './deserializeIntoDrive';
+import {deserializeIntoDriveItem} from './deserializeIntoDriveItem';
+import {deserializeIntoDriveItemVersion} from './deserializeIntoDriveItemVersion';
+import {deserializeIntoEBookInstallSummary} from './deserializeIntoEBookInstallSummary';
+import {deserializeIntoEdge} from './deserializeIntoEdge';
+import {deserializeIntoEditionUpgradeConfiguration} from './deserializeIntoEditionUpgradeConfiguration';
+import {deserializeIntoEducationAssignment} from './deserializeIntoEducationAssignment';
+import {deserializeIntoEducationAssignmentDefaults} from './deserializeIntoEducationAssignmentDefaults';
+import {deserializeIntoEducationAssignmentResource} from './deserializeIntoEducationAssignmentResource';
+import {deserializeIntoEducationAssignmentSettings} from './deserializeIntoEducationAssignmentSettings';
+import {deserializeIntoEducationCategory} from './deserializeIntoEducationCategory';
+import {deserializeIntoEducationClass} from './deserializeIntoEducationClass';
+import {deserializeIntoEducationFeedbackOutcome} from './deserializeIntoEducationFeedbackOutcome';
+import {deserializeIntoEducationFeedbackResourceOutcome} from './deserializeIntoEducationFeedbackResourceOutcome';
+import {deserializeIntoEducationOrganization} from './deserializeIntoEducationOrganization';
+import {deserializeIntoEducationOutcome} from './deserializeIntoEducationOutcome';
+import {deserializeIntoEducationPointsOutcome} from './deserializeIntoEducationPointsOutcome';
+import {deserializeIntoEducationRubric} from './deserializeIntoEducationRubric';
+import {deserializeIntoEducationRubricOutcome} from './deserializeIntoEducationRubricOutcome';
+import {deserializeIntoEducationSchool} from './deserializeIntoEducationSchool';
+import {deserializeIntoEducationSubmission} from './deserializeIntoEducationSubmission';
+import {deserializeIntoEducationSubmissionResource} from './deserializeIntoEducationSubmissionResource';
+import {deserializeIntoEducationUser} from './deserializeIntoEducationUser';
+import {deserializeIntoEmailAuthenticationMethod} from './deserializeIntoEmailAuthenticationMethod';
+import {deserializeIntoEmailAuthenticationMethodConfiguration} from './deserializeIntoEmailAuthenticationMethodConfiguration';
+import {deserializeIntoEmailFileAssessmentRequest} from './deserializeIntoEmailFileAssessmentRequest';
+import {deserializeIntoEndpoint} from './deserializeIntoEndpoint';
+import {deserializeIntoEnrollmentConfigurationAssignment} from './deserializeIntoEnrollmentConfigurationAssignment';
+import {deserializeIntoEnrollmentTroubleshootingEvent} from './deserializeIntoEnrollmentTroubleshootingEvent';
+import {deserializeIntoEnterpriseCodeSigningCertificate} from './deserializeIntoEnterpriseCodeSigningCertificate';
+import {deserializeIntoEntitlementManagement} from './deserializeIntoEntitlementManagement';
+import {deserializeIntoEntitlementManagementSettings} from './deserializeIntoEntitlementManagementSettings';
+import {deserializeIntoEntity} from './deserializeIntoEntity';
+import {deserializeIntoEvent} from './deserializeIntoEvent';
+import {deserializeIntoEventMessage} from './deserializeIntoEventMessage';
+import {deserializeIntoEventMessageRequest} from './deserializeIntoEventMessageRequest';
+import {deserializeIntoEventMessageResponse} from './deserializeIntoEventMessageResponse';
+import {deserializeIntoExtension} from './deserializeIntoExtension';
+import {deserializeIntoExtensionProperty} from './deserializeIntoExtensionProperty';
+import {deserializeIntoExternalDomainName} from './deserializeIntoExternalDomainName';
+import {deserializeIntoFeatureRolloutPolicy} from './deserializeIntoFeatureRolloutPolicy';
+import {deserializeIntoFederatedIdentityCredential} from './deserializeIntoFederatedIdentityCredential';
+import {deserializeIntoFido2AuthenticationMethod} from './deserializeIntoFido2AuthenticationMethod';
+import {deserializeIntoFido2AuthenticationMethodConfiguration} from './deserializeIntoFido2AuthenticationMethodConfiguration';
+import {deserializeIntoFido2CombinationConfiguration} from './deserializeIntoFido2CombinationConfiguration';
+import {deserializeIntoFieldValueSet} from './deserializeIntoFieldValueSet';
+import {deserializeIntoFileAssessmentRequest} from './deserializeIntoFileAssessmentRequest';
+import {deserializeIntoFileAttachment} from './deserializeIntoFileAttachment';
+import {deserializeIntoGroup as I23e16b52d4b109c19ebd3ab2e05b0d3e8411c17b6a4e64b58a4565adab867a21} from './deserializeIntoGroup';
+import {deserializeIntoGroupLifecyclePolicy} from './deserializeIntoGroupLifecyclePolicy';
+import {deserializeIntoGroupSetting} from './deserializeIntoGroupSetting';
+import {deserializeIntoGroupSettingTemplate} from './deserializeIntoGroupSettingTemplate';
+import {deserializeIntoHomeRealmDiscoveryPolicy} from './deserializeIntoHomeRealmDiscoveryPolicy';
+import {deserializeIntoIdentityApiConnector} from './deserializeIntoIdentityApiConnector';
+import {deserializeIntoIdentityBuiltInUserFlowAttribute} from './deserializeIntoIdentityBuiltInUserFlowAttribute';
+import {deserializeIntoIdentityContainer} from './deserializeIntoIdentityContainer';
+import {deserializeIntoIdentityCustomUserFlowAttribute} from './deserializeIntoIdentityCustomUserFlowAttribute';
+import {deserializeIntoIdentityProvider} from './deserializeIntoIdentityProvider';
+import {deserializeIntoIdentityProviderBase} from './deserializeIntoIdentityProviderBase';
+import {deserializeIntoIdentitySecurityDefaultsEnforcementPolicy} from './deserializeIntoIdentitySecurityDefaultsEnforcementPolicy';
+import {deserializeIntoIdentityUserFlow} from './deserializeIntoIdentityUserFlow';
+import {deserializeIntoIdentityUserFlowAttribute} from './deserializeIntoIdentityUserFlowAttribute';
+import {deserializeIntoIdentityUserFlowAttributeAssignment} from './deserializeIntoIdentityUserFlowAttributeAssignment';
+import {deserializeIntoImportedWindowsAutopilotDeviceIdentity} from './deserializeIntoImportedWindowsAutopilotDeviceIdentity';
+import {deserializeIntoImportedWindowsAutopilotDeviceIdentityUpload} from './deserializeIntoImportedWindowsAutopilotDeviceIdentityUpload';
+import {deserializeIntoInferenceClassification} from './deserializeIntoInferenceClassification';
+import {deserializeIntoInferenceClassificationOverride} from './deserializeIntoInferenceClassificationOverride';
+import {deserializeIntoInternalDomainFederation} from './deserializeIntoInternalDomainFederation';
+import {deserializeIntoInternetExplorerMode} from './deserializeIntoInternetExplorerMode';
+import {deserializeIntoInvitation} from './deserializeIntoInvitation';
+import {deserializeIntoInviteParticipantsOperation} from './deserializeIntoInviteParticipantsOperation';
+import {deserializeIntoIosCertificateProfile} from './deserializeIntoIosCertificateProfile';
+import {deserializeIntoIosCompliancePolicy} from './deserializeIntoIosCompliancePolicy';
+import {deserializeIntoIosCustomConfiguration} from './deserializeIntoIosCustomConfiguration';
+import {deserializeIntoIosDeviceFeaturesConfiguration} from './deserializeIntoIosDeviceFeaturesConfiguration';
+import {deserializeIntoIosGeneralDeviceConfiguration} from './deserializeIntoIosGeneralDeviceConfiguration';
+import {deserializeIntoIosiPadOSWebClip} from './deserializeIntoIosiPadOSWebClip';
+import {deserializeIntoIosLobApp} from './deserializeIntoIosLobApp';
+import {deserializeIntoIosLobAppProvisioningConfigurationAssignment} from './deserializeIntoIosLobAppProvisioningConfigurationAssignment';
+import {deserializeIntoIosManagedAppProtection} from './deserializeIntoIosManagedAppProtection';
+import {deserializeIntoIosManagedAppRegistration} from './deserializeIntoIosManagedAppRegistration';
+import {deserializeIntoIosMobileAppConfiguration} from './deserializeIntoIosMobileAppConfiguration';
+import {deserializeIntoIosStoreApp} from './deserializeIntoIosStoreApp';
+import {deserializeIntoIosUpdateConfiguration} from './deserializeIntoIosUpdateConfiguration';
+import {deserializeIntoIosUpdateDeviceStatus} from './deserializeIntoIosUpdateDeviceStatus';
+import {deserializeIntoIosVppApp} from './deserializeIntoIosVppApp';
+import {deserializeIntoIosVppEBook} from './deserializeIntoIosVppEBook';
+import {deserializeIntoIosVppEBookAssignment} from './deserializeIntoIosVppEBookAssignment';
+import {deserializeIntoIpNamedLocation} from './deserializeIntoIpNamedLocation';
+import {deserializeIntoItemActivity} from './deserializeIntoItemActivity';
+import {deserializeIntoItemActivityStat} from './deserializeIntoItemActivityStat';
+import {deserializeIntoItemAnalytics} from './deserializeIntoItemAnalytics';
+import {deserializeIntoItemAttachment} from './deserializeIntoItemAttachment';
+import {deserializeIntoLearningContent} from './deserializeIntoLearningContent';
+import {deserializeIntoLearningProvider} from './deserializeIntoLearningProvider';
+import {deserializeIntoLicenseDetails} from './deserializeIntoLicenseDetails';
+import {deserializeIntoLinkedResource} from './deserializeIntoLinkedResource';
+import {deserializeIntoList} from './deserializeIntoList';
+import {deserializeIntoListItem} from './deserializeIntoListItem';
+import {deserializeIntoListItemVersion} from './deserializeIntoListItemVersion';
+import {deserializeIntoLocalizedNotificationMessage} from './deserializeIntoLocalizedNotificationMessage';
+import {deserializeIntoLongRunningOperation} from './deserializeIntoLongRunningOperation';
+import {deserializeIntoMacOSCompliancePolicy} from './deserializeIntoMacOSCompliancePolicy';
+import {deserializeIntoMacOSCustomConfiguration} from './deserializeIntoMacOSCustomConfiguration';
+import {deserializeIntoMacOSDeviceFeaturesConfiguration} from './deserializeIntoMacOSDeviceFeaturesConfiguration';
+import {deserializeIntoMacOSGeneralDeviceConfiguration} from './deserializeIntoMacOSGeneralDeviceConfiguration';
+import {deserializeIntoMacOSLobApp} from './deserializeIntoMacOSLobApp';
+import {deserializeIntoMacOSMicrosoftEdgeApp} from './deserializeIntoMacOSMicrosoftEdgeApp';
+import {deserializeIntoMacOSOfficeSuiteApp} from './deserializeIntoMacOSOfficeSuiteApp';
+import {deserializeIntoMailAssessmentRequest} from './deserializeIntoMailAssessmentRequest';
+import {deserializeIntoMailFolder} from './deserializeIntoMailFolder';
+import {deserializeIntoMailSearchFolder} from './deserializeIntoMailSearchFolder';
+import {deserializeIntoManagedAndroidLobApp} from './deserializeIntoManagedAndroidLobApp';
+import {deserializeIntoManagedAndroidStoreApp} from './deserializeIntoManagedAndroidStoreApp';
+import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
+import {deserializeIntoManagedAppConfiguration} from './deserializeIntoManagedAppConfiguration';
+import {deserializeIntoManagedAppOperation} from './deserializeIntoManagedAppOperation';
+import {deserializeIntoManagedAppPolicy} from './deserializeIntoManagedAppPolicy';
+import {deserializeIntoManagedAppPolicyDeploymentSummary} from './deserializeIntoManagedAppPolicyDeploymentSummary';
+import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppProtection';
+import {deserializeIntoManagedAppRegistration} from './deserializeIntoManagedAppRegistration';
+import {deserializeIntoManagedAppStatus} from './deserializeIntoManagedAppStatus';
+import {deserializeIntoManagedAppStatusRaw} from './deserializeIntoManagedAppStatusRaw';
+import {deserializeIntoManagedDevice} from './deserializeIntoManagedDevice';
+import {deserializeIntoManagedDeviceMobileAppConfiguration} from './deserializeIntoManagedDeviceMobileAppConfiguration';
+import {deserializeIntoManagedDeviceMobileAppConfigurationAssignment} from './deserializeIntoManagedDeviceMobileAppConfigurationAssignment';
+import {deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus} from './deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus';
+import {deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary} from './deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary';
+import {deserializeIntoManagedDeviceMobileAppConfigurationUserStatus} from './deserializeIntoManagedDeviceMobileAppConfigurationUserStatus';
+import {deserializeIntoManagedDeviceMobileAppConfigurationUserSummary} from './deserializeIntoManagedDeviceMobileAppConfigurationUserSummary';
+import {deserializeIntoManagedDeviceOverview} from './deserializeIntoManagedDeviceOverview';
+import {deserializeIntoManagedEBook} from './deserializeIntoManagedEBook';
+import {deserializeIntoManagedEBookAssignment} from './deserializeIntoManagedEBookAssignment';
+import {deserializeIntoManagedIOSLobApp} from './deserializeIntoManagedIOSLobApp';
+import {deserializeIntoManagedIOSStoreApp} from './deserializeIntoManagedIOSStoreApp';
+import {deserializeIntoManagedMobileApp} from './deserializeIntoManagedMobileApp';
+import {deserializeIntoManagedMobileLobApp} from './deserializeIntoManagedMobileLobApp';
+import {deserializeIntoMdmWindowsInformationProtectionPolicy} from './deserializeIntoMdmWindowsInformationProtectionPolicy';
+import {deserializeIntoMeetingAttendanceReport} from './deserializeIntoMeetingAttendanceReport';
+import {deserializeIntoMessage} from './deserializeIntoMessage';
+import {deserializeIntoMessageRule} from './deserializeIntoMessageRule';
+import {deserializeIntoMicrosoftAccountUserConversationMember} from './deserializeIntoMicrosoftAccountUserConversationMember';
+import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethod} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethod';
+import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethodConfiguration} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodConfiguration';
+import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget';
+import {deserializeIntoMicrosoftStoreForBusinessApp} from './deserializeIntoMicrosoftStoreForBusinessApp';
+import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
+import {deserializeIntoMobileAppAssignment} from './deserializeIntoMobileAppAssignment';
+import {deserializeIntoMobileAppCategory} from './deserializeIntoMobileAppCategory';
+import {deserializeIntoMobileAppContent} from './deserializeIntoMobileAppContent';
+import {deserializeIntoMobileAppContentFile} from './deserializeIntoMobileAppContentFile';
+import {deserializeIntoMobileContainedApp} from './deserializeIntoMobileContainedApp';
+import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
+import {deserializeIntoMobileThreatDefenseConnector} from './deserializeIntoMobileThreatDefenseConnector';
+import {deserializeIntoMultiValueLegacyExtendedProperty} from './deserializeIntoMultiValueLegacyExtendedProperty';
+import {deserializeIntoMuteParticipantOperation} from './deserializeIntoMuteParticipantOperation';
+import {deserializeIntoNamedLocation} from './deserializeIntoNamedLocation';
+import {deserializeIntoNotebook} from './deserializeIntoNotebook';
+import {deserializeIntoNotificationMessageTemplate} from './deserializeIntoNotificationMessageTemplate';
+import {deserializeIntoOAuth2PermissionGrant} from './deserializeIntoOAuth2PermissionGrant';
+import {deserializeIntoOfferShiftRequest} from './deserializeIntoOfferShiftRequest';
+import {deserializeIntoOfficeGraphInsights} from './deserializeIntoOfficeGraphInsights';
+import {deserializeIntoOnenote} from './deserializeIntoOnenote';
+import {deserializeIntoOnenoteEntityBaseModel} from './deserializeIntoOnenoteEntityBaseModel';
+import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
+import {deserializeIntoOnenoteEntitySchemaObjectModel} from './deserializeIntoOnenoteEntitySchemaObjectModel';
+import {deserializeIntoOnenoteOperation} from './deserializeIntoOnenoteOperation';
+import {deserializeIntoOnenotePage} from './deserializeIntoOnenotePage';
+import {deserializeIntoOnenoteResource} from './deserializeIntoOnenoteResource';
+import {deserializeIntoOnenoteSection} from './deserializeIntoOnenoteSection';
+import {deserializeIntoOnlineMeeting} from './deserializeIntoOnlineMeeting';
+import {deserializeIntoOnPremisesConditionalAccessSettings} from './deserializeIntoOnPremisesConditionalAccessSettings';
+import {deserializeIntoOnPremisesDirectorySynchronization} from './deserializeIntoOnPremisesDirectorySynchronization';
+import {deserializeIntoOpenShift} from './deserializeIntoOpenShift';
+import {deserializeIntoOpenShiftChangeRequest} from './deserializeIntoOpenShiftChangeRequest';
+import {deserializeIntoOpenTypeExtension} from './deserializeIntoOpenTypeExtension';
+import {deserializeIntoOperation} from './deserializeIntoOperation';
+import {deserializeIntoOrganization} from './deserializeIntoOrganization';
+import {deserializeIntoOrganizationalBranding} from './deserializeIntoOrganizationalBranding';
+import {deserializeIntoOrganizationalBrandingLocalization} from './deserializeIntoOrganizationalBrandingLocalization';
+import {deserializeIntoOrganizationalBrandingProperties} from './deserializeIntoOrganizationalBrandingProperties';
+import {deserializeIntoOrgContact} from './deserializeIntoOrgContact';
+import {deserializeIntoOutlookCategory} from './deserializeIntoOutlookCategory';
+import {deserializeIntoOutlookItem} from './deserializeIntoOutlookItem';
+import {deserializeIntoOutlookUser} from './deserializeIntoOutlookUser';
+import {deserializeIntoParticipant} from './deserializeIntoParticipant';
+import {deserializeIntoParticipantJoiningNotification} from './deserializeIntoParticipantJoiningNotification';
+import {deserializeIntoParticipantLeftNotification} from './deserializeIntoParticipantLeftNotification';
+import {deserializeIntoPasswordAuthenticationMethod} from './deserializeIntoPasswordAuthenticationMethod';
+import {deserializeIntoPermission} from './deserializeIntoPermission';
+import {deserializeIntoPermissionGrantConditionSet} from './deserializeIntoPermissionGrantConditionSet';
+import {deserializeIntoPermissionGrantPolicy} from './deserializeIntoPermissionGrantPolicy';
+import {deserializeIntoPerson} from './deserializeIntoPerson';
+import {deserializeIntoPhoneAuthenticationMethod} from './deserializeIntoPhoneAuthenticationMethod';
+import {deserializeIntoPinnedChatMessageInfo} from './deserializeIntoPinnedChatMessageInfo';
+import {deserializeIntoPlace} from './deserializeIntoPlace';
+import {deserializeIntoPlanner} from './deserializeIntoPlanner';
+import {deserializeIntoPlannerAssignedToTaskBoardTaskFormat} from './deserializeIntoPlannerAssignedToTaskBoardTaskFormat';
+import {deserializeIntoPlannerBucket} from './deserializeIntoPlannerBucket';
+import {deserializeIntoPlannerBucketTaskBoardTaskFormat} from './deserializeIntoPlannerBucketTaskBoardTaskFormat';
+import {deserializeIntoPlannerGroup} from './deserializeIntoPlannerGroup';
+import {deserializeIntoPlannerPlan} from './deserializeIntoPlannerPlan';
+import {deserializeIntoPlannerPlanDetails} from './deserializeIntoPlannerPlanDetails';
+import {deserializeIntoPlannerProgressTaskBoardTaskFormat} from './deserializeIntoPlannerProgressTaskBoardTaskFormat';
+import {deserializeIntoPlannerTask} from './deserializeIntoPlannerTask';
+import {deserializeIntoPlannerTaskDetails} from './deserializeIntoPlannerTaskDetails';
+import {deserializeIntoPlannerUser} from './deserializeIntoPlannerUser';
+import {deserializeIntoPlayPromptOperation} from './deserializeIntoPlayPromptOperation';
+import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
+import {deserializeIntoPolicyRoot} from './deserializeIntoPolicyRoot';
+import {deserializeIntoPost} from './deserializeIntoPost';
+import {deserializeIntoPresence} from './deserializeIntoPresence';
+import {deserializeIntoPrintConnector} from './deserializeIntoPrintConnector';
+import {deserializeIntoPrintDocument} from './deserializeIntoPrintDocument';
+import {deserializeIntoPrinter} from './deserializeIntoPrinter';
+import {deserializeIntoPrinterBase} from './deserializeIntoPrinterBase';
+import {deserializeIntoPrinterCreateOperation} from './deserializeIntoPrinterCreateOperation';
+import {deserializeIntoPrinterShare} from './deserializeIntoPrinterShare';
+import {deserializeIntoPrintJob} from './deserializeIntoPrintJob';
+import {deserializeIntoPrintOperation} from './deserializeIntoPrintOperation';
+import {deserializeIntoPrintService} from './deserializeIntoPrintService';
+import {deserializeIntoPrintServiceEndpoint} from './deserializeIntoPrintServiceEndpoint';
+import {deserializeIntoPrintTask} from './deserializeIntoPrintTask';
+import {deserializeIntoPrintTaskDefinition} from './deserializeIntoPrintTaskDefinition';
+import {deserializeIntoPrintTaskTrigger} from './deserializeIntoPrintTaskTrigger';
+import {deserializeIntoPrintUsage} from './deserializeIntoPrintUsage';
+import {deserializeIntoPrintUsageByPrinter} from './deserializeIntoPrintUsageByPrinter';
+import {deserializeIntoPrintUsageByUser} from './deserializeIntoPrintUsageByUser';
+import {deserializeIntoProfilePhoto} from './deserializeIntoProfilePhoto';
+import {deserializeIntoProvisioningObjectSummary} from './deserializeIntoProvisioningObjectSummary';
+import {deserializeIntoRbacApplication} from './deserializeIntoRbacApplication';
+import {deserializeIntoRecordOperation} from './deserializeIntoRecordOperation';
+import {deserializeIntoReferenceAttachment} from './deserializeIntoReferenceAttachment';
+import {deserializeIntoRemoteAssistancePartner} from './deserializeIntoRemoteAssistancePartner';
+import {deserializeIntoRequest} from './deserializeIntoRequest';
+import {deserializeIntoResourceOperation} from './deserializeIntoResourceOperation';
+import {deserializeIntoResourceSpecificPermissionGrant} from './deserializeIntoResourceSpecificPermissionGrant';
+import {deserializeIntoRichLongRunningOperation} from './deserializeIntoRichLongRunningOperation';
+import {deserializeIntoRiskDetection} from './deserializeIntoRiskDetection';
+import {deserializeIntoRiskyServicePrincipal} from './deserializeIntoRiskyServicePrincipal';
+import {deserializeIntoRiskyServicePrincipalHistoryItem} from './deserializeIntoRiskyServicePrincipalHistoryItem';
+import {deserializeIntoRiskyUser} from './deserializeIntoRiskyUser';
+import {deserializeIntoRiskyUserHistoryItem} from './deserializeIntoRiskyUserHistoryItem';
+import {deserializeIntoRoleAssignment} from './deserializeIntoRoleAssignment';
+import {deserializeIntoRoleDefinition} from './deserializeIntoRoleDefinition';
+import {deserializeIntoRoom} from './deserializeIntoRoom';
+import {deserializeIntoRoomList} from './deserializeIntoRoomList';
+import {deserializeIntoSamlOrWsFedExternalDomainFederation} from './deserializeIntoSamlOrWsFedExternalDomainFederation';
+import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedProvider';
+import {deserializeIntoSchedule} from './deserializeIntoSchedule';
+import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
+import {deserializeIntoSchedulingGroup} from './deserializeIntoSchedulingGroup';
+import {deserializeIntoSchemaExtension} from './deserializeIntoSchemaExtension';
+import {deserializeIntoScopedRoleMembership} from './deserializeIntoScopedRoleMembership';
+import {deserializeIntoSearchEntity} from './deserializeIntoSearchEntity';
+import {deserializeIntoSectionGroup} from './deserializeIntoSectionGroup';
+import {deserializeIntoSecureScore} from './deserializeIntoSecureScore';
+import {deserializeIntoSecureScoreControlProfile} from './deserializeIntoSecureScoreControlProfile';
+import {deserializeIntoSecurity} from './deserializeIntoSecurity';
+import {deserializeIntoSecurityReportsRoot} from './deserializeIntoSecurityReportsRoot';
+import {deserializeIntoServiceAnnouncement} from './deserializeIntoServiceAnnouncement';
+import {deserializeIntoServiceAnnouncementAttachment} from './deserializeIntoServiceAnnouncementAttachment';
+import {deserializeIntoServiceAnnouncementBase} from './deserializeIntoServiceAnnouncementBase';
+import {deserializeIntoServiceHealth} from './deserializeIntoServiceHealth';
+import {deserializeIntoServiceHealthIssue} from './deserializeIntoServiceHealthIssue';
+import {deserializeIntoServicePrincipal} from './deserializeIntoServicePrincipal';
+import {deserializeIntoServicePrincipalRiskDetection} from './deserializeIntoServicePrincipalRiskDetection';
+import {deserializeIntoServiceUpdateMessage} from './deserializeIntoServiceUpdateMessage';
+import {deserializeIntoSettingStateDeviceSummary} from './deserializeIntoSettingStateDeviceSummary';
+import {deserializeIntoSharedDriveItem} from './deserializeIntoSharedDriveItem';
+import {deserializeIntoSharedInsight} from './deserializeIntoSharedInsight';
+import {deserializeIntoSharedPCConfiguration} from './deserializeIntoSharedPCConfiguration';
+import {deserializeIntoSharedWithChannelTeamInfo} from './deserializeIntoSharedWithChannelTeamInfo';
+import {deserializeIntoSharepoint} from './deserializeIntoSharepoint';
+import {deserializeIntoSharepointSettings} from './deserializeIntoSharepointSettings';
+import {deserializeIntoShift} from './deserializeIntoShift';
+import {deserializeIntoShiftPreferences} from './deserializeIntoShiftPreferences';
+import {deserializeIntoSignIn} from './deserializeIntoSignIn';
+import {deserializeIntoSimulation} from './deserializeIntoSimulation';
+import {deserializeIntoSimulationAutomation} from './deserializeIntoSimulationAutomation';
+import {deserializeIntoSimulationAutomationRun} from './deserializeIntoSimulationAutomationRun';
+import {deserializeIntoSingleValueLegacyExtendedProperty} from './deserializeIntoSingleValueLegacyExtendedProperty';
+import {deserializeIntoSite} from './deserializeIntoSite';
+import {deserializeIntoSkypeForBusinessUserConversationMember} from './deserializeIntoSkypeForBusinessUserConversationMember';
+import {deserializeIntoSkypeUserConversationMember} from './deserializeIntoSkypeUserConversationMember';
+import {deserializeIntoSmsAuthenticationMethodConfiguration} from './deserializeIntoSmsAuthenticationMethodConfiguration';
+import {deserializeIntoSmsAuthenticationMethodTarget} from './deserializeIntoSmsAuthenticationMethodTarget';
+import {deserializeIntoSocialIdentityProvider} from './deserializeIntoSocialIdentityProvider';
+import {deserializeIntoSoftwareOathAuthenticationMethod} from './deserializeIntoSoftwareOathAuthenticationMethod';
+import {deserializeIntoSoftwareOathAuthenticationMethodConfiguration} from './deserializeIntoSoftwareOathAuthenticationMethodConfiguration';
+import {deserializeIntoSoftwareUpdateStatusSummary} from './deserializeIntoSoftwareUpdateStatusSummary';
+import {deserializeIntoStartHoldMusicOperation} from './deserializeIntoStartHoldMusicOperation';
+import {deserializeIntoStopHoldMusicOperation} from './deserializeIntoStopHoldMusicOperation';
+import {deserializeIntoStsPolicy} from './deserializeIntoStsPolicy';
+import {deserializeIntoSubjectRightsRequest} from './deserializeIntoSubjectRightsRequest';
+import {deserializeIntoSubscribedSku} from './deserializeIntoSubscribedSku';
+import {deserializeIntoSubscribeToToneOperation} from './deserializeIntoSubscribeToToneOperation';
+import {deserializeIntoSubscription} from './deserializeIntoSubscription';
+import {deserializeIntoSwapShiftsChangeRequest} from './deserializeIntoSwapShiftsChangeRequest';
+import {deserializeIntoTargetedManagedAppConfiguration} from './deserializeIntoTargetedManagedAppConfiguration';
+import {deserializeIntoTargetedManagedAppPolicyAssignment} from './deserializeIntoTargetedManagedAppPolicyAssignment';
+import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
+import {deserializeIntoTaskFileAttachment} from './deserializeIntoTaskFileAttachment';
+import {deserializeIntoTeam} from './deserializeIntoTeam';
+import {deserializeIntoTeamInfo} from './deserializeIntoTeamInfo';
+import {deserializeIntoTeamsApp} from './deserializeIntoTeamsApp';
+import {deserializeIntoTeamsAppDefinition} from './deserializeIntoTeamsAppDefinition';
+import {deserializeIntoTeamsAppInstallation} from './deserializeIntoTeamsAppInstallation';
+import {deserializeIntoTeamsAsyncOperation} from './deserializeIntoTeamsAsyncOperation';
+import {deserializeIntoTeamsTab} from './deserializeIntoTeamsTab';
+import {deserializeIntoTeamsTemplate} from './deserializeIntoTeamsTemplate';
+import {deserializeIntoTeamwork} from './deserializeIntoTeamwork';
+import {deserializeIntoTeamworkBot} from './deserializeIntoTeamworkBot';
+import {deserializeIntoTeamworkHostedContent} from './deserializeIntoTeamworkHostedContent';
+import {deserializeIntoTeamworkTag} from './deserializeIntoTeamworkTag';
+import {deserializeIntoTeamworkTagMember} from './deserializeIntoTeamworkTagMember';
+import {deserializeIntoTelecomExpenseManagementPartner} from './deserializeIntoTelecomExpenseManagementPartner';
+import {deserializeIntoTemporaryAccessPassAuthenticationMethod} from './deserializeIntoTemporaryAccessPassAuthenticationMethod';
+import {deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration} from './deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration';
+import {deserializeIntoTenantAppManagementPolicy} from './deserializeIntoTenantAppManagementPolicy';
+import {deserializeIntoTermsAndConditions} from './deserializeIntoTermsAndConditions';
+import {deserializeIntoTermsAndConditionsAcceptanceStatus} from './deserializeIntoTermsAndConditionsAcceptanceStatus';
+import {deserializeIntoTermsAndConditionsAssignment} from './deserializeIntoTermsAndConditionsAssignment';
+import {deserializeIntoTermsOfUseContainer} from './deserializeIntoTermsOfUseContainer';
+import {deserializeIntoThreatAssessmentRequest} from './deserializeIntoThreatAssessmentRequest';
+import {deserializeIntoThreatAssessmentResult} from './deserializeIntoThreatAssessmentResult';
+import {deserializeIntoThumbnailSet} from './deserializeIntoThumbnailSet';
+import {deserializeIntoTimeOff} from './deserializeIntoTimeOff';
+import {deserializeIntoTimeOffReason} from './deserializeIntoTimeOffReason';
+import {deserializeIntoTimeOffRequest} from './deserializeIntoTimeOffRequest';
+import {deserializeIntoTodo} from './deserializeIntoTodo';
+import {deserializeIntoTodoTask} from './deserializeIntoTodoTask';
+import {deserializeIntoTodoTaskList} from './deserializeIntoTodoTaskList';
+import {deserializeIntoTokenIssuancePolicy} from './deserializeIntoTokenIssuancePolicy';
+import {deserializeIntoTokenLifetimePolicy} from './deserializeIntoTokenLifetimePolicy';
+import {deserializeIntoTrending} from './deserializeIntoTrending';
+import {deserializeIntoUnifiedRbacResourceAction} from './deserializeIntoUnifiedRbacResourceAction';
+import {deserializeIntoUnifiedRbacResourceNamespace} from './deserializeIntoUnifiedRbacResourceNamespace';
+import {deserializeIntoUnifiedRoleAssignment} from './deserializeIntoUnifiedRoleAssignment';
+import {deserializeIntoUnifiedRoleAssignmentSchedule} from './deserializeIntoUnifiedRoleAssignmentSchedule';
+import {deserializeIntoUnifiedRoleAssignmentScheduleInstance} from './deserializeIntoUnifiedRoleAssignmentScheduleInstance';
+import {deserializeIntoUnifiedRoleAssignmentScheduleRequest} from './deserializeIntoUnifiedRoleAssignmentScheduleRequest';
+import {deserializeIntoUnifiedRoleDefinition} from './deserializeIntoUnifiedRoleDefinition';
+import {deserializeIntoUnifiedRoleEligibilitySchedule} from './deserializeIntoUnifiedRoleEligibilitySchedule';
+import {deserializeIntoUnifiedRoleEligibilityScheduleInstance} from './deserializeIntoUnifiedRoleEligibilityScheduleInstance';
+import {deserializeIntoUnifiedRoleEligibilityScheduleRequest} from './deserializeIntoUnifiedRoleEligibilityScheduleRequest';
+import {deserializeIntoUnifiedRoleManagementPolicy} from './deserializeIntoUnifiedRoleManagementPolicy';
+import {deserializeIntoUnifiedRoleManagementPolicyApprovalRule} from './deserializeIntoUnifiedRoleManagementPolicyApprovalRule';
+import {deserializeIntoUnifiedRoleManagementPolicyAssignment} from './deserializeIntoUnifiedRoleManagementPolicyAssignment';
+import {deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule} from './deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule';
+import {deserializeIntoUnifiedRoleManagementPolicyEnablementRule} from './deserializeIntoUnifiedRoleManagementPolicyEnablementRule';
+import {deserializeIntoUnifiedRoleManagementPolicyExpirationRule} from './deserializeIntoUnifiedRoleManagementPolicyExpirationRule';
+import {deserializeIntoUnifiedRoleManagementPolicyNotificationRule} from './deserializeIntoUnifiedRoleManagementPolicyNotificationRule';
+import {deserializeIntoUnifiedRoleManagementPolicyRule} from './deserializeIntoUnifiedRoleManagementPolicyRule';
+import {deserializeIntoUnifiedRoleScheduleBase} from './deserializeIntoUnifiedRoleScheduleBase';
+import {deserializeIntoUnifiedRoleScheduleInstanceBase} from './deserializeIntoUnifiedRoleScheduleInstanceBase';
+import {deserializeIntoUnmuteParticipantOperation} from './deserializeIntoUnmuteParticipantOperation';
+import {deserializeIntoUpdateRecordingStatusOperation} from './deserializeIntoUpdateRecordingStatusOperation';
+import {deserializeIntoUrlAssessmentRequest} from './deserializeIntoUrlAssessmentRequest';
+import {deserializeIntoUsedInsight} from './deserializeIntoUsedInsight';
+import {deserializeIntoUser} from './deserializeIntoUser';
+import {deserializeIntoUserActivity} from './deserializeIntoUserActivity';
+import {deserializeIntoUserConsentRequest} from './deserializeIntoUserConsentRequest';
+import {deserializeIntoUserExperienceAnalyticsDevicePerformance} from './deserializeIntoUserExperienceAnalyticsDevicePerformance';
+import {deserializeIntoUserFlowLanguageConfiguration} from './deserializeIntoUserFlowLanguageConfiguration';
+import {deserializeIntoUserFlowLanguagePage} from './deserializeIntoUserFlowLanguagePage';
+import {deserializeIntoUserInstallStateSummary} from './deserializeIntoUserInstallStateSummary';
+import {deserializeIntoUserScopeTeamsAppInstallation} from './deserializeIntoUserScopeTeamsAppInstallation';
+import {deserializeIntoUserSettings} from './deserializeIntoUserSettings';
+import {deserializeIntoUserTeamwork} from './deserializeIntoUserTeamwork';
+import {deserializeIntoVoiceAuthenticationMethodConfiguration} from './deserializeIntoVoiceAuthenticationMethodConfiguration';
+import {deserializeIntoVppToken} from './deserializeIntoVppToken';
+import {deserializeIntoWebApp} from './deserializeIntoWebApp';
+import {deserializeIntoWin32LobApp} from './deserializeIntoWin32LobApp';
+import {deserializeIntoWindows10CompliancePolicy} from './deserializeIntoWindows10CompliancePolicy';
+import {deserializeIntoWindows10CustomConfiguration} from './deserializeIntoWindows10CustomConfiguration';
+import {deserializeIntoWindows10EndpointProtectionConfiguration} from './deserializeIntoWindows10EndpointProtectionConfiguration';
+import {deserializeIntoWindows10EnterpriseModernAppManagementConfiguration} from './deserializeIntoWindows10EnterpriseModernAppManagementConfiguration';
+import {deserializeIntoWindows10GeneralConfiguration} from './deserializeIntoWindows10GeneralConfiguration';
+import {deserializeIntoWindows10MobileCompliancePolicy} from './deserializeIntoWindows10MobileCompliancePolicy';
+import {deserializeIntoWindows10SecureAssessmentConfiguration} from './deserializeIntoWindows10SecureAssessmentConfiguration';
+import {deserializeIntoWindows10TeamGeneralConfiguration} from './deserializeIntoWindows10TeamGeneralConfiguration';
+import {deserializeIntoWindows81CompliancePolicy} from './deserializeIntoWindows81CompliancePolicy';
+import {deserializeIntoWindows81GeneralConfiguration} from './deserializeIntoWindows81GeneralConfiguration';
+import {deserializeIntoWindowsAppX} from './deserializeIntoWindowsAppX';
+import {deserializeIntoWindowsAutopilotDeviceIdentity} from './deserializeIntoWindowsAutopilotDeviceIdentity';
+import {deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration} from './deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration';
+import {deserializeIntoWindowsHelloForBusinessAuthenticationMethod} from './deserializeIntoWindowsHelloForBusinessAuthenticationMethod';
+import {deserializeIntoWindowsInformationProtection} from './deserializeIntoWindowsInformationProtection';
+import {deserializeIntoWindowsInformationProtectionAppLearningSummary} from './deserializeIntoWindowsInformationProtectionAppLearningSummary';
+import {deserializeIntoWindowsInformationProtectionAppLockerFile} from './deserializeIntoWindowsInformationProtectionAppLockerFile';
+import {deserializeIntoWindowsInformationProtectionNetworkLearningSummary} from './deserializeIntoWindowsInformationProtectionNetworkLearningSummary';
+import {deserializeIntoWindowsInformationProtectionPolicy} from './deserializeIntoWindowsInformationProtectionPolicy';
+import {deserializeIntoWindowsMicrosoftEdgeApp} from './deserializeIntoWindowsMicrosoftEdgeApp';
+import {deserializeIntoWindowsMobileMSI} from './deserializeIntoWindowsMobileMSI';
+import {deserializeIntoWindowsPhone81CompliancePolicy} from './deserializeIntoWindowsPhone81CompliancePolicy';
+import {deserializeIntoWindowsPhone81CustomConfiguration} from './deserializeIntoWindowsPhone81CustomConfiguration';
+import {deserializeIntoWindowsPhone81GeneralConfiguration} from './deserializeIntoWindowsPhone81GeneralConfiguration';
+import {deserializeIntoWindowsUniversalAppX} from './deserializeIntoWindowsUniversalAppX';
+import {deserializeIntoWindowsUniversalAppXContainedApp} from './deserializeIntoWindowsUniversalAppXContainedApp';
+import {deserializeIntoWindowsUpdateForBusinessConfiguration} from './deserializeIntoWindowsUpdateForBusinessConfiguration';
+import {deserializeIntoWindowsWebApp} from './deserializeIntoWindowsWebApp';
+import {deserializeIntoWorkbook} from './deserializeIntoWorkbook';
+import {deserializeIntoWorkbookApplication} from './deserializeIntoWorkbookApplication';
+import {deserializeIntoWorkbookChart} from './deserializeIntoWorkbookChart';
+import {deserializeIntoWorkbookChartAreaFormat} from './deserializeIntoWorkbookChartAreaFormat';
+import {deserializeIntoWorkbookChartAxes} from './deserializeIntoWorkbookChartAxes';
+import {deserializeIntoWorkbookChartAxis} from './deserializeIntoWorkbookChartAxis';
+import {deserializeIntoWorkbookChartAxisFormat} from './deserializeIntoWorkbookChartAxisFormat';
+import {deserializeIntoWorkbookChartAxisTitle} from './deserializeIntoWorkbookChartAxisTitle';
+import {deserializeIntoWorkbookChartAxisTitleFormat} from './deserializeIntoWorkbookChartAxisTitleFormat';
+import {deserializeIntoWorkbookChartDataLabelFormat} from './deserializeIntoWorkbookChartDataLabelFormat';
+import {deserializeIntoWorkbookChartDataLabels} from './deserializeIntoWorkbookChartDataLabels';
+import {deserializeIntoWorkbookChartFill} from './deserializeIntoWorkbookChartFill';
+import {deserializeIntoWorkbookChartFont} from './deserializeIntoWorkbookChartFont';
+import {deserializeIntoWorkbookChartGridlines} from './deserializeIntoWorkbookChartGridlines';
+import {deserializeIntoWorkbookChartGridlinesFormat} from './deserializeIntoWorkbookChartGridlinesFormat';
+import {deserializeIntoWorkbookChartLegend} from './deserializeIntoWorkbookChartLegend';
+import {deserializeIntoWorkbookChartLegendFormat} from './deserializeIntoWorkbookChartLegendFormat';
+import {deserializeIntoWorkbookChartLineFormat} from './deserializeIntoWorkbookChartLineFormat';
+import {deserializeIntoWorkbookChartPoint} from './deserializeIntoWorkbookChartPoint';
+import {deserializeIntoWorkbookChartPointFormat} from './deserializeIntoWorkbookChartPointFormat';
+import {deserializeIntoWorkbookChartSeries} from './deserializeIntoWorkbookChartSeries';
+import {deserializeIntoWorkbookChartSeriesFormat} from './deserializeIntoWorkbookChartSeriesFormat';
+import {deserializeIntoWorkbookChartTitle} from './deserializeIntoWorkbookChartTitle';
+import {deserializeIntoWorkbookChartTitleFormat} from './deserializeIntoWorkbookChartTitleFormat';
+import {deserializeIntoWorkbookComment} from './deserializeIntoWorkbookComment';
+import {deserializeIntoWorkbookCommentReply} from './deserializeIntoWorkbookCommentReply';
+import {deserializeIntoWorkbookFilter} from './deserializeIntoWorkbookFilter';
+import {deserializeIntoWorkbookFormatProtection} from './deserializeIntoWorkbookFormatProtection';
+import {deserializeIntoWorkbookFunctionResult} from './deserializeIntoWorkbookFunctionResult';
+import {deserializeIntoWorkbookFunctions} from './deserializeIntoWorkbookFunctions';
+import {deserializeIntoWorkbookNamedItem} from './deserializeIntoWorkbookNamedItem';
+import {deserializeIntoWorkbookOperation} from './deserializeIntoWorkbookOperation';
+import {deserializeIntoWorkbookPivotTable} from './deserializeIntoWorkbookPivotTable';
+import {deserializeIntoWorkbookRange} from './deserializeIntoWorkbookRange';
+import {deserializeIntoWorkbookRangeBorder} from './deserializeIntoWorkbookRangeBorder';
+import {deserializeIntoWorkbookRangeFill} from './deserializeIntoWorkbookRangeFill';
+import {deserializeIntoWorkbookRangeFont} from './deserializeIntoWorkbookRangeFont';
+import {deserializeIntoWorkbookRangeFormat} from './deserializeIntoWorkbookRangeFormat';
+import {deserializeIntoWorkbookRangeSort} from './deserializeIntoWorkbookRangeSort';
+import {deserializeIntoWorkbookRangeView} from './deserializeIntoWorkbookRangeView';
+import {deserializeIntoWorkbookTable} from './deserializeIntoWorkbookTable';
+import {deserializeIntoWorkbookTableColumn} from './deserializeIntoWorkbookTableColumn';
+import {deserializeIntoWorkbookTableRow} from './deserializeIntoWorkbookTableRow';
+import {deserializeIntoWorkbookTableSort} from './deserializeIntoWorkbookTableSort';
+import {deserializeIntoWorkbookWorksheet} from './deserializeIntoWorkbookWorksheet';
+import {deserializeIntoWorkbookWorksheetProtection} from './deserializeIntoWorkbookWorksheetProtection';
+import {deserializeIntoWorkforceIntegration} from './deserializeIntoWorkforceIntegration';
+import {deserializeIntoX509CertificateAuthenticationMethodConfiguration} from './deserializeIntoX509CertificateAuthenticationMethodConfiguration';
 import {ConnectionOperation, ExternalConnection, ExternalGroup, ExternalItem, Identity, Schema} from './externalConnectors/';
-import {AadUserConversationMember, AccessPackage, AccessPackageAssignment, AccessPackageAssignmentPolicy, AccessPackageAssignmentRequest, AccessPackageCatalog, AccessPackageMultipleChoiceQuestion, AccessPackageQuestion, AccessPackageSubject, AccessPackageTextInputQuestion, AccessReviewHistoryDefinition, AccessReviewHistoryInstance, AccessReviewInstance, AccessReviewInstanceDecisionItem, AccessReviewReviewer, AccessReviewScheduleDefinition, AccessReviewSet, AccessReviewStage, ActivityBasedTimeoutPolicy, ActivityHistoryItem, AddLargeGalleryViewOperation, AdminConsentRequestPolicy, AdministrativeUnit, Agreement, AgreementAcceptance, AgreementFile, AgreementFileLocalization, AgreementFileProperties, AgreementFileVersion, Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AndroidCompliancePolicy, AndroidCustomConfiguration, AndroidGeneralDeviceConfiguration, AndroidLobApp, AndroidManagedAppProtection, AndroidManagedAppRegistration, AndroidStoreApp, AndroidWorkProfileCompliancePolicy, AndroidWorkProfileCustomConfiguration, AndroidWorkProfileGeneralDeviceConfiguration, AnonymousGuestConversationMember, AppCatalogs, AppConsentApprovalRoute, AppConsentRequest, AppleDeviceFeaturesConfigurationBase, AppleManagedIdentityProvider, ApplePushNotificationCertificate, Application, ApplicationTemplate, AppManagementPolicy, AppRoleAssignment, Approval, ApprovalStage, AppScope, AssociatedTeamInfo, Attachment, AttachmentBase, AttachmentSession, AttackSimulationRoot, AttendanceRecord, AudioRoutingGroup, AuditEvent, AuditLogRoot, Authentication, AuthenticationContextClassReference, AuthenticationFlowsPolicy, AuthenticationMethod, AuthenticationMethodConfiguration, AuthenticationMethodsPolicy, AuthenticationMethodTarget, AuthoredNote, AuthorizationPolicy, AzureCommunicationServicesUserConversationMember, B2xIdentityUserFlow, BaseItem, BaseItemVersion, Bitlocker, BitlockerRecoveryKey, BookingAppointment, BookingBusiness, BookingCurrency, BookingCustomer, BookingCustomerBase, BookingCustomQuestion, BookingService, BookingStaffMember, BookingStaffMemberBase, BrowserSharedCookie, BrowserSite, BrowserSiteList, BuiltInIdentityProvider, Calendar, CalendarGroup, CalendarPermission, CalendarSharingMessage, Call, CancelMediaProcessingOperation, CertificateBasedAuthConfiguration, ChangeTrackedEntity, Channel, Chat, ChatMessage, ChatMessageHostedContent, ChatMessageInfo, ChecklistItem, ClaimsMappingPolicy, CloudCommunications, ColumnDefinition, ColumnLink, CommsOperation, ComplianceManagementPartner, ConditionalAccessPolicy, ConditionalAccessRoot, ConditionalAccessTemplate, ConnectedOrganization, Contact, ContactFolder, ContentSharingSession, ContentType, Contract, Conversation, ConversationMember, ConversationThread, CountryNamedLocation, CrossTenantAccessPolicy, CrossTenantAccessPolicyConfigurationDefault, DataPolicyOperation, DefaultManagedAppProtection, DelegatedAdminAccessAssignment, DelegatedAdminCustomer, DelegatedAdminRelationship, DelegatedAdminRelationshipOperation, DelegatedAdminRelationshipRequest, DelegatedAdminServiceManagementDetail, DelegatedPermissionClassification, DeletedTeam, DetectedApp, Device, DeviceAndAppManagementRoleAssignment, DeviceAndAppManagementRoleDefinition, DeviceAppManagement, DeviceCategory, DeviceComplianceActionItem, DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicy, DeviceCompliancePolicyAssignment, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceCompliancePolicyState, DeviceComplianceScheduledActionForRule, DeviceComplianceSettingState, DeviceComplianceUserOverview, DeviceComplianceUserStatus, DeviceConfiguration, DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, DeviceConfigurationDeviceStateSummary, DeviceConfigurationDeviceStatus, DeviceConfigurationState, DeviceConfigurationUserOverview, DeviceConfigurationUserStatus, DeviceEnrollmentConfiguration, DeviceEnrollmentLimitConfiguration, DeviceEnrollmentPlatformRestrictionsConfiguration, DeviceEnrollmentWindowsHelloForBusinessConfiguration, DeviceInstallState, DeviceManagement, DeviceManagementExchangeConnector, DeviceManagementExportJob, DeviceManagementPartner, DeviceManagementReports, DeviceManagementTroubleshootingEvent, Directory, DirectoryAudit, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, DocumentSetVersion, Domain, DomainDnsCnameRecord, DomainDnsMxRecord, DomainDnsRecord, DomainDnsSrvRecord, DomainDnsTxtRecord, DomainDnsUnavailableRecord, Drive, DriveItem, DriveItemVersion, EBookInstallSummary, Edge, EditionUpgradeConfiguration, EducationAssignment, EducationAssignmentDefaults, EducationAssignmentResource, EducationAssignmentSettings, EducationCategory, EducationClass, EducationFeedbackOutcome, EducationFeedbackResourceOutcome, EducationOrganization, EducationOutcome, EducationPointsOutcome, EducationRubric, EducationRubricOutcome, EducationSchool, EducationSubmission, EducationSubmissionResource, EducationUser, EmailAuthenticationMethod, EmailAuthenticationMethodConfiguration, EmailFileAssessmentRequest, Endpoint, EnrollmentConfigurationAssignment, EnrollmentTroubleshootingEvent, EnterpriseCodeSigningCertificate, EntitlementManagement, EntitlementManagementSettings, Entity, Event, EventMessage, EventMessageRequest, EventMessageResponse, Extension, ExtensionProperty, ExternalDomainName, FeatureRolloutPolicy, FederatedIdentityCredential, Fido2AuthenticationMethod, Fido2AuthenticationMethodConfiguration, FieldValueSet, FileAssessmentRequest, FileAttachment, Group as I3e7b9c76ff5af74e19ec22c86fc8ccaa080b0f7639cb61d00a2dab8100f45b82, GroupLifecyclePolicy, GroupSetting, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentityApiConnector, IdentityBuiltInUserFlowAttribute, IdentityContainer, IdentityCustomUserFlowAttribute, IdentityProvider, IdentityProviderBase, IdentitySecurityDefaultsEnforcementPolicy, IdentityUserFlow, IdentityUserFlowAttribute, IdentityUserFlowAttributeAssignment, ImportedWindowsAutopilotDeviceIdentity, ImportedWindowsAutopilotDeviceIdentityUpload, InferenceClassification, InferenceClassificationOverride, InternalDomainFederation, InternetExplorerMode, Invitation, InviteParticipantsOperation, IosCertificateProfile, IosCompliancePolicy, IosCustomConfiguration, IosDeviceFeaturesConfiguration, IosGeneralDeviceConfiguration, IosiPadOSWebClip, IosLobApp, IosLobAppProvisioningConfigurationAssignment, IosManagedAppProtection, IosManagedAppRegistration, IosMobileAppConfiguration, IosStoreApp, IosUpdateConfiguration, IosUpdateDeviceStatus, IosVppApp, IosVppEBook, IosVppEBookAssignment, IpNamedLocation, ItemActivity, ItemActivityStat, ItemAnalytics, ItemAttachment, LearningContent, LearningProvider, LicenseDetails, LinkedResource, List, ListItem, ListItemVersion, LocalizedNotificationMessage, LongRunningOperation, MacOSCompliancePolicy, MacOSCustomConfiguration, MacOSDeviceFeaturesConfiguration, MacOSGeneralDeviceConfiguration, MacOSLobApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, MailAssessmentRequest, MailFolder, MailSearchFolder, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedAppConfiguration, ManagedAppOperation, ManagedAppPolicy, ManagedAppPolicyDeploymentSummary, ManagedAppProtection, ManagedAppRegistration, ManagedAppStatus, ManagedAppStatusRaw, ManagedDevice, ManagedDeviceMobileAppConfiguration, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobileAppConfigurationDeviceStatus, ManagedDeviceMobileAppConfigurationDeviceSummary, ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserSummary, ManagedDeviceOverview, ManagedEBook, ManagedEBookAssignment, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileApp, ManagedMobileLobApp, MdmWindowsInformationProtectionPolicy, MeetingAttendanceReport, Message, MessageRule, MicrosoftAccountUserConversationMember, MicrosoftAuthenticatorAuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodTarget, MicrosoftStoreForBusinessApp, MobileApp, MobileAppAssignment, MobileAppCategory, MobileAppContent, MobileAppContentFile, MobileContainedApp, MobileLobApp, MobileThreatDefenseConnector, MultiValueLegacyExtendedProperty, MuteParticipantOperation, NamedLocation, Notebook, NotificationMessageTemplate, OAuth2PermissionGrant, OfferShiftRequest, OfficeGraphInsights, Onenote, OnenoteEntityBaseModel, OnenoteEntityHierarchyModel, OnenoteEntitySchemaObjectModel, OnenoteOperation, OnenotePage, OnenoteResource, OnenoteSection, OnlineMeeting, OnPremisesConditionalAccessSettings, OnPremisesDirectorySynchronization, OpenShift, OpenShiftChangeRequest, OpenTypeExtension, Operation, Organization, OrganizationalBranding, OrganizationalBrandingLocalization, OrganizationalBrandingProperties, OrgContact, OutlookCategory, OutlookItem, OutlookUser, Participant, ParticipantJoiningNotification, ParticipantLeftNotification, PasswordAuthenticationMethod, Permission, PermissionGrantConditionSet, PermissionGrantPolicy, Person, PhoneAuthenticationMethod, PinnedChatMessageInfo, Place, Planner, PlannerAssignedToTaskBoardTaskFormat, PlannerBucket, PlannerBucketTaskBoardTaskFormat, PlannerGroup, PlannerPlan, PlannerPlanDetails, PlannerProgressTaskBoardTaskFormat, PlannerTask, PlannerTaskDetails, PlannerUser, PlayPromptOperation, PolicyBase, PolicyRoot, Post, Presence, PrintConnector, PrintDocument, Printer, PrinterBase, PrinterCreateOperation, PrinterShare, PrintJob, PrintOperation, PrintService, PrintServiceEndpoint, PrintTask, PrintTaskDefinition, PrintTaskTrigger, PrintUsage, PrintUsageByPrinter, PrintUsageByUser, ProfilePhoto, ProvisioningObjectSummary, RbacApplication, RecordOperation, ReferenceAttachment, RemoteAssistancePartner, Request, ResourceOperation, ResourceSpecificPermissionGrant, RichLongRunningOperation, RiskDetection, RiskyServicePrincipal, RiskyServicePrincipalHistoryItem, RiskyUser, RiskyUserHistoryItem, RoleAssignment, RoleDefinition, Room, RoomList, SamlOrWsFedExternalDomainFederation, SamlOrWsFedProvider, Schedule, ScheduleChangeRequest, SchedulingGroup, SchemaExtension, ScopedRoleMembership, SearchEntity, SectionGroup, SecureScore, SecureScoreControlProfile, Security, SecurityReportsRoot, ServiceAnnouncement, ServiceAnnouncementAttachment, ServiceAnnouncementBase, ServiceHealth, ServiceHealthIssue, ServicePrincipal, ServicePrincipalRiskDetection, ServiceUpdateMessage, SettingStateDeviceSummary, SharedDriveItem, SharedInsight, SharedPCConfiguration, SharedWithChannelTeamInfo, Shift, ShiftPreferences, SignIn, Simulation, SimulationAutomation, SimulationAutomationRun, SingleValueLegacyExtendedProperty, Site, SkypeForBusinessUserConversationMember, SkypeUserConversationMember, SmsAuthenticationMethodConfiguration, SmsAuthenticationMethodTarget, SocialIdentityProvider, SoftwareOathAuthenticationMethod, SoftwareOathAuthenticationMethodConfiguration, SoftwareUpdateStatusSummary, StartHoldMusicOperation, StopHoldMusicOperation, StsPolicy, SubjectRightsRequest, SubscribedSku, SubscribeToToneOperation, Subscription, SwapShiftsChangeRequest, TargetedManagedAppConfiguration, TargetedManagedAppPolicyAssignment, TargetedManagedAppProtection, TaskFileAttachment, Team, TeamInfo, TeamsApp, TeamsAppDefinition, TeamsAppInstallation, TeamsAsyncOperation, TeamsTab, TeamsTemplate, Teamwork, TeamworkBot, TeamworkHostedContent, TeamworkTag, TeamworkTagMember, TelecomExpenseManagementPartner, TemporaryAccessPassAuthenticationMethod, TemporaryAccessPassAuthenticationMethodConfiguration, TenantAppManagementPolicy, TermsAndConditions, TermsAndConditionsAcceptanceStatus, TermsAndConditionsAssignment, TermsOfUseContainer, ThreatAssessmentRequest, ThreatAssessmentResult, ThumbnailSet, TimeOff, TimeOffReason, TimeOffRequest, Todo, TodoTask, TodoTaskList, TokenIssuancePolicy, TokenLifetimePolicy, Trending, UnifiedRbacResourceAction, UnifiedRbacResourceNamespace, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyApprovalRule, UnifiedRoleManagementPolicyAssignment, UnifiedRoleManagementPolicyAuthenticationContextRule, UnifiedRoleManagementPolicyEnablementRule, UnifiedRoleManagementPolicyExpirationRule, UnifiedRoleManagementPolicyNotificationRule, UnifiedRoleManagementPolicyRule, UnifiedRoleScheduleBase, UnifiedRoleScheduleInstanceBase, UnmuteParticipantOperation, UpdateRecordingStatusOperation, UrlAssessmentRequest, UsedInsight, User, UserActivity, UserConsentRequest, UserExperienceAnalyticsDevicePerformance, UserFlowLanguageConfiguration, UserFlowLanguagePage, UserInstallStateSummary, UserScopeTeamsAppInstallation, UserSettings, UserTeamwork, VoiceAuthenticationMethodConfiguration, VppToken, WebApp, Win32LobApp, Windows10CompliancePolicy, Windows10CustomConfiguration, Windows10EndpointProtectionConfiguration, Windows10EnterpriseModernAppManagementConfiguration, Windows10GeneralConfiguration, Windows10MobileCompliancePolicy, Windows10SecureAssessmentConfiguration, Windows10TeamGeneralConfiguration, Windows81CompliancePolicy, Windows81GeneralConfiguration, WindowsAppX, WindowsAutopilotDeviceIdentity, WindowsDefenderAdvancedThreatProtectionConfiguration, WindowsHelloForBusinessAuthenticationMethod, WindowsInformationProtection, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionAppLockerFile, WindowsInformationProtectionNetworkLearningSummary, WindowsInformationProtectionPolicy, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsPhone81CompliancePolicy, WindowsPhone81CustomConfiguration, WindowsPhone81GeneralConfiguration, WindowsUniversalAppX, WindowsUniversalAppXContainedApp, WindowsUpdateForBusinessConfiguration, WindowsWebApp, Workbook, WorkbookApplication, WorkbookChart, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartAxis, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookChartAxisTitleFormat, WorkbookChartDataLabelFormat, WorkbookChartDataLabels, WorkbookChartFill, WorkbookChartFont, WorkbookChartGridlines, WorkbookChartGridlinesFormat, WorkbookChartLegend, WorkbookChartLegendFormat, WorkbookChartLineFormat, WorkbookChartPoint, WorkbookChartPointFormat, WorkbookChartSeries, WorkbookChartSeriesFormat, WorkbookChartTitle, WorkbookChartTitleFormat, WorkbookComment, WorkbookCommentReply, WorkbookFilter, WorkbookFormatProtection, WorkbookFunctionResult, WorkbookFunctions, WorkbookNamedItem, WorkbookOperation, WorkbookPivotTable, WorkbookRange, WorkbookRangeBorder, WorkbookRangeFill, WorkbookRangeFont, WorkbookRangeFormat, WorkbookRangeSort, WorkbookRangeView, WorkbookTable, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, WorkbookWorksheet, WorkbookWorksheetProtection, WorkforceIntegration, X509CertificateAuthenticationMethodConfiguration} from './index';
+import {deserializeIntoConnectionOperation} from './externalConnectors/deserializeIntoConnectionOperation';
+import {deserializeIntoExternalConnection} from './externalConnectors/deserializeIntoExternalConnection';
+import {deserializeIntoExternalGroup} from './externalConnectors/deserializeIntoExternalGroup';
+import {deserializeIntoExternalItem} from './externalConnectors/deserializeIntoExternalItem';
+import {deserializeIntoIdentity} from './externalConnectors/deserializeIntoIdentity';
+import {deserializeIntoSchema} from './externalConnectors/deserializeIntoSchema';
+import {AadUserConversationMember, AccessPackage, AccessPackageAssignment, AccessPackageAssignmentPolicy, AccessPackageAssignmentRequest, AccessPackageCatalog, AccessPackageMultipleChoiceQuestion, AccessPackageQuestion, AccessPackageSubject, AccessPackageTextInputQuestion, AccessReviewHistoryDefinition, AccessReviewHistoryInstance, AccessReviewInstance, AccessReviewInstanceDecisionItem, AccessReviewReviewer, AccessReviewScheduleDefinition, AccessReviewSet, AccessReviewStage, ActivityBasedTimeoutPolicy, ActivityHistoryItem, AddLargeGalleryViewOperation, AdminConsentRequestPolicy, AdministrativeUnit, Agreement, AgreementAcceptance, AgreementFile, AgreementFileLocalization, AgreementFileProperties, AgreementFileVersion, Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AllowedValue, AndroidCompliancePolicy, AndroidCustomConfiguration, AndroidGeneralDeviceConfiguration, AndroidLobApp, AndroidManagedAppProtection, AndroidManagedAppRegistration, AndroidStoreApp, AndroidWorkProfileCompliancePolicy, AndroidWorkProfileCustomConfiguration, AndroidWorkProfileGeneralDeviceConfiguration, AnonymousGuestConversationMember, AppCatalogs, AppConsentApprovalRoute, AppConsentRequest, AppleDeviceFeaturesConfigurationBase, AppleManagedIdentityProvider, ApplePushNotificationCertificate, Application, ApplicationTemplate, AppManagementPolicy, AppRoleAssignment, Approval, ApprovalStage, AppScope, AssociatedTeamInfo, Attachment, AttachmentBase, AttachmentSession, AttackSimulationRoot, AttendanceRecord, AttributeSet, AudioRoutingGroup, AuditEvent, AuditLogRoot, Authentication, AuthenticationCombinationConfiguration, AuthenticationContextClassReference, AuthenticationFlowsPolicy, AuthenticationMethod, AuthenticationMethodConfiguration, AuthenticationMethodModeDetail, AuthenticationMethodsPolicy, AuthenticationMethodTarget, AuthenticationStrengthPolicy, AuthenticationStrengthRoot, AuthoredNote, AuthorizationPolicy, AzureCommunicationServicesUserConversationMember, B2xIdentityUserFlow, BaseItem, BaseItemVersion, Bitlocker, BitlockerRecoveryKey, BookingAppointment, BookingBusiness, BookingCurrency, BookingCustomer, BookingCustomerBase, BookingCustomQuestion, BookingService, BookingStaffMember, BookingStaffMemberBase, BrowserSharedCookie, BrowserSite, BrowserSiteList, BuiltInIdentityProvider, Calendar, CalendarGroup, CalendarPermission, CalendarSharingMessage, Call, CancelMediaProcessingOperation, CertificateBasedAuthConfiguration, ChangeTrackedEntity, Channel, Chat, ChatMessage, ChatMessageHostedContent, ChatMessageInfo, ChecklistItem, ClaimsMappingPolicy, ColumnDefinition, ColumnLink, CommsOperation, ComplianceManagementPartner, ConditionalAccessPolicy, ConditionalAccessRoot, ConditionalAccessTemplate, ConnectedOrganization, Contact, ContactFolder, ContentSharingSession, ContentType, Contract, Conversation, ConversationMember, ConversationThread, CountryNamedLocation, CrossTenantAccessPolicy, CrossTenantAccessPolicyConfigurationDefault, CustomSecurityAttributeDefinition, DataPolicyOperation, DefaultManagedAppProtection, DelegatedAdminAccessAssignment, DelegatedAdminCustomer, DelegatedAdminRelationship, DelegatedAdminRelationshipOperation, DelegatedAdminRelationshipRequest, DelegatedAdminServiceManagementDetail, DelegatedPermissionClassification, DeletedTeam, DetectedApp, Device, DeviceAndAppManagementRoleAssignment, DeviceAndAppManagementRoleDefinition, DeviceAppManagement, DeviceCategory, DeviceComplianceActionItem, DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicy, DeviceCompliancePolicyAssignment, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceCompliancePolicyState, DeviceComplianceScheduledActionForRule, DeviceComplianceSettingState, DeviceComplianceUserOverview, DeviceComplianceUserStatus, DeviceConfiguration, DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, DeviceConfigurationDeviceStateSummary, DeviceConfigurationDeviceStatus, DeviceConfigurationState, DeviceConfigurationUserOverview, DeviceConfigurationUserStatus, DeviceEnrollmentConfiguration, DeviceEnrollmentLimitConfiguration, DeviceEnrollmentPlatformRestrictionsConfiguration, DeviceEnrollmentWindowsHelloForBusinessConfiguration, DeviceInstallState, DeviceManagement, DeviceManagementExchangeConnector, DeviceManagementExportJob, DeviceManagementPartner, DeviceManagementReports, DeviceManagementTroubleshootingEvent, Directory, DirectoryAudit, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, DocumentSetVersion, Domain, DomainDnsCnameRecord, DomainDnsMxRecord, DomainDnsRecord, DomainDnsSrvRecord, DomainDnsTxtRecord, DomainDnsUnavailableRecord, Drive, DriveItem, DriveItemVersion, EBookInstallSummary, Edge, EditionUpgradeConfiguration, EducationAssignment, EducationAssignmentDefaults, EducationAssignmentResource, EducationAssignmentSettings, EducationCategory, EducationClass, EducationFeedbackOutcome, EducationFeedbackResourceOutcome, EducationOrganization, EducationOutcome, EducationPointsOutcome, EducationRubric, EducationRubricOutcome, EducationSchool, EducationSubmission, EducationSubmissionResource, EducationUser, EmailAuthenticationMethod, EmailAuthenticationMethodConfiguration, EmailFileAssessmentRequest, Endpoint, EnrollmentConfigurationAssignment, EnrollmentTroubleshootingEvent, EnterpriseCodeSigningCertificate, EntitlementManagement, EntitlementManagementSettings, Entity, Event, EventMessage, EventMessageRequest, EventMessageResponse, Extension, ExtensionProperty, ExternalDomainName, FeatureRolloutPolicy, FederatedIdentityCredential, Fido2AuthenticationMethod, Fido2AuthenticationMethodConfiguration, Fido2CombinationConfiguration, FieldValueSet, FileAssessmentRequest, FileAttachment, Group as I3e7b9c76ff5af74e19ec22c86fc8ccaa080b0f7639cb61d00a2dab8100f45b82, GroupLifecyclePolicy, GroupSetting, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentityApiConnector, IdentityBuiltInUserFlowAttribute, IdentityContainer, IdentityCustomUserFlowAttribute, IdentityProvider, IdentityProviderBase, IdentitySecurityDefaultsEnforcementPolicy, IdentityUserFlow, IdentityUserFlowAttribute, IdentityUserFlowAttributeAssignment, ImportedWindowsAutopilotDeviceIdentity, ImportedWindowsAutopilotDeviceIdentityUpload, InferenceClassification, InferenceClassificationOverride, InternalDomainFederation, InternetExplorerMode, Invitation, InviteParticipantsOperation, IosCertificateProfile, IosCompliancePolicy, IosCustomConfiguration, IosDeviceFeaturesConfiguration, IosGeneralDeviceConfiguration, IosiPadOSWebClip, IosLobApp, IosLobAppProvisioningConfigurationAssignment, IosManagedAppProtection, IosManagedAppRegistration, IosMobileAppConfiguration, IosStoreApp, IosUpdateConfiguration, IosUpdateDeviceStatus, IosVppApp, IosVppEBook, IosVppEBookAssignment, IpNamedLocation, ItemActivity, ItemActivityStat, ItemAnalytics, ItemAttachment, LearningContent, LearningProvider, LicenseDetails, LinkedResource, List, ListItem, ListItemVersion, LocalizedNotificationMessage, LongRunningOperation, MacOSCompliancePolicy, MacOSCustomConfiguration, MacOSDeviceFeaturesConfiguration, MacOSGeneralDeviceConfiguration, MacOSLobApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, MailAssessmentRequest, MailFolder, MailSearchFolder, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedAppConfiguration, ManagedAppOperation, ManagedAppPolicy, ManagedAppPolicyDeploymentSummary, ManagedAppProtection, ManagedAppRegistration, ManagedAppStatus, ManagedAppStatusRaw, ManagedDevice, ManagedDeviceMobileAppConfiguration, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobileAppConfigurationDeviceStatus, ManagedDeviceMobileAppConfigurationDeviceSummary, ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserSummary, ManagedDeviceOverview, ManagedEBook, ManagedEBookAssignment, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileApp, ManagedMobileLobApp, MdmWindowsInformationProtectionPolicy, MeetingAttendanceReport, Message, MessageRule, MicrosoftAccountUserConversationMember, MicrosoftAuthenticatorAuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodTarget, MicrosoftStoreForBusinessApp, MobileApp, MobileAppAssignment, MobileAppCategory, MobileAppContent, MobileAppContentFile, MobileContainedApp, MobileLobApp, MobileThreatDefenseConnector, MultiValueLegacyExtendedProperty, MuteParticipantOperation, NamedLocation, Notebook, NotificationMessageTemplate, OAuth2PermissionGrant, OfferShiftRequest, OfficeGraphInsights, Onenote, OnenoteEntityBaseModel, OnenoteEntityHierarchyModel, OnenoteEntitySchemaObjectModel, OnenoteOperation, OnenotePage, OnenoteResource, OnenoteSection, OnlineMeeting, OnPremisesConditionalAccessSettings, OnPremisesDirectorySynchronization, OpenShift, OpenShiftChangeRequest, OpenTypeExtension, Operation, Organization, OrganizationalBranding, OrganizationalBrandingLocalization, OrganizationalBrandingProperties, OrgContact, OutlookCategory, OutlookItem, OutlookUser, Participant, ParticipantJoiningNotification, ParticipantLeftNotification, PasswordAuthenticationMethod, Permission, PermissionGrantConditionSet, PermissionGrantPolicy, Person, PhoneAuthenticationMethod, PinnedChatMessageInfo, Place, Planner, PlannerAssignedToTaskBoardTaskFormat, PlannerBucket, PlannerBucketTaskBoardTaskFormat, PlannerGroup, PlannerPlan, PlannerPlanDetails, PlannerProgressTaskBoardTaskFormat, PlannerTask, PlannerTaskDetails, PlannerUser, PlayPromptOperation, PolicyBase, PolicyRoot, Post, Presence, PrintConnector, PrintDocument, Printer, PrinterBase, PrinterCreateOperation, PrinterShare, PrintJob, PrintOperation, PrintService, PrintServiceEndpoint, PrintTask, PrintTaskDefinition, PrintTaskTrigger, PrintUsage, PrintUsageByPrinter, PrintUsageByUser, ProfilePhoto, ProvisioningObjectSummary, RbacApplication, RecordOperation, ReferenceAttachment, RemoteAssistancePartner, Request, ResourceOperation, ResourceSpecificPermissionGrant, RichLongRunningOperation, RiskDetection, RiskyServicePrincipal, RiskyServicePrincipalHistoryItem, RiskyUser, RiskyUserHistoryItem, RoleAssignment, RoleDefinition, Room, RoomList, SamlOrWsFedExternalDomainFederation, SamlOrWsFedProvider, Schedule, ScheduleChangeRequest, SchedulingGroup, SchemaExtension, ScopedRoleMembership, SearchEntity, SectionGroup, SecureScore, SecureScoreControlProfile, Security, SecurityReportsRoot, ServiceAnnouncement, ServiceAnnouncementAttachment, ServiceAnnouncementBase, ServiceHealth, ServiceHealthIssue, ServicePrincipal, ServicePrincipalRiskDetection, ServiceUpdateMessage, SettingStateDeviceSummary, SharedDriveItem, SharedInsight, SharedPCConfiguration, SharedWithChannelTeamInfo, Sharepoint, SharepointSettings, Shift, ShiftPreferences, SignIn, Simulation, SimulationAutomation, SimulationAutomationRun, SingleValueLegacyExtendedProperty, Site, SkypeForBusinessUserConversationMember, SkypeUserConversationMember, SmsAuthenticationMethodConfiguration, SmsAuthenticationMethodTarget, SocialIdentityProvider, SoftwareOathAuthenticationMethod, SoftwareOathAuthenticationMethodConfiguration, SoftwareUpdateStatusSummary, StartHoldMusicOperation, StopHoldMusicOperation, StsPolicy, SubjectRightsRequest, SubscribedSku, SubscribeToToneOperation, Subscription, SwapShiftsChangeRequest, TargetedManagedAppConfiguration, TargetedManagedAppPolicyAssignment, TargetedManagedAppProtection, TaskFileAttachment, Team, TeamInfo, TeamsApp, TeamsAppDefinition, TeamsAppInstallation, TeamsAsyncOperation, TeamsTab, TeamsTemplate, Teamwork, TeamworkBot, TeamworkHostedContent, TeamworkTag, TeamworkTagMember, TelecomExpenseManagementPartner, TemporaryAccessPassAuthenticationMethod, TemporaryAccessPassAuthenticationMethodConfiguration, TenantAppManagementPolicy, TermsAndConditions, TermsAndConditionsAcceptanceStatus, TermsAndConditionsAssignment, TermsOfUseContainer, ThreatAssessmentRequest, ThreatAssessmentResult, ThumbnailSet, TimeOff, TimeOffReason, TimeOffRequest, Todo, TodoTask, TodoTaskList, TokenIssuancePolicy, TokenLifetimePolicy, Trending, UnifiedRbacResourceAction, UnifiedRbacResourceNamespace, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyApprovalRule, UnifiedRoleManagementPolicyAssignment, UnifiedRoleManagementPolicyAuthenticationContextRule, UnifiedRoleManagementPolicyEnablementRule, UnifiedRoleManagementPolicyExpirationRule, UnifiedRoleManagementPolicyNotificationRule, UnifiedRoleManagementPolicyRule, UnifiedRoleScheduleBase, UnifiedRoleScheduleInstanceBase, UnmuteParticipantOperation, UpdateRecordingStatusOperation, UrlAssessmentRequest, UsedInsight, User, UserActivity, UserConsentRequest, UserExperienceAnalyticsDevicePerformance, UserFlowLanguageConfiguration, UserFlowLanguagePage, UserInstallStateSummary, UserScopeTeamsAppInstallation, UserSettings, UserTeamwork, VoiceAuthenticationMethodConfiguration, VppToken, WebApp, Win32LobApp, Windows10CompliancePolicy, Windows10CustomConfiguration, Windows10EndpointProtectionConfiguration, Windows10EnterpriseModernAppManagementConfiguration, Windows10GeneralConfiguration, Windows10MobileCompliancePolicy, Windows10SecureAssessmentConfiguration, Windows10TeamGeneralConfiguration, Windows81CompliancePolicy, Windows81GeneralConfiguration, WindowsAppX, WindowsAutopilotDeviceIdentity, WindowsDefenderAdvancedThreatProtectionConfiguration, WindowsHelloForBusinessAuthenticationMethod, WindowsInformationProtection, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionAppLockerFile, WindowsInformationProtectionNetworkLearningSummary, WindowsInformationProtectionPolicy, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsPhone81CompliancePolicy, WindowsPhone81CustomConfiguration, WindowsPhone81GeneralConfiguration, WindowsUniversalAppX, WindowsUniversalAppXContainedApp, WindowsUpdateForBusinessConfiguration, WindowsWebApp, Workbook, WorkbookApplication, WorkbookChart, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartAxis, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookChartAxisTitleFormat, WorkbookChartDataLabelFormat, WorkbookChartDataLabels, WorkbookChartFill, WorkbookChartFont, WorkbookChartGridlines, WorkbookChartGridlinesFormat, WorkbookChartLegend, WorkbookChartLegendFormat, WorkbookChartLineFormat, WorkbookChartPoint, WorkbookChartPointFormat, WorkbookChartSeries, WorkbookChartSeriesFormat, WorkbookChartTitle, WorkbookChartTitleFormat, WorkbookComment, WorkbookCommentReply, WorkbookFilter, WorkbookFormatProtection, WorkbookFunctionResult, WorkbookFunctions, WorkbookNamedItem, WorkbookOperation, WorkbookPivotTable, WorkbookRange, WorkbookRangeBorder, WorkbookRangeFill, WorkbookRangeFont, WorkbookRangeFormat, WorkbookRangeSort, WorkbookRangeView, WorkbookTable, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, WorkbookWorksheet, WorkbookWorksheetProtection, WorkforceIntegration, X509CertificateAuthenticationMethodConfiguration} from './index';
 import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, CaseEscaped, CaseOperation, CasesRoot, DataSet, DataSource, DataSourceContainer, EdiscoveryAddToReviewSetOperation, EdiscoveryCase, EdiscoveryCaseSettings, EdiscoveryCustodian, EdiscoveryEstimateOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryNoncustodialDataSource, EdiscoveryPurgeDataOperation, EdiscoveryReviewSet, EdiscoveryReviewSetQuery, EdiscoveryReviewTag, EdiscoverySearch, EdiscoveryTagOperation, Incident, RetentionEvent, RetentionEventType, Search, SiteSource, Tag, TriggersRoot, TriggerTypesRoot, UnifiedGroupSource, UserSource} from './security/';
+import {deserializeIntoAlert as I6505bc1c6fce3ff5954d022e7fc93d3127679a577fa33bf9d60b79a6ac991f2c} from './security/deserializeIntoAlert';
+import {deserializeIntoCaseEscaped} from './security/deserializeIntoCaseEscaped';
+import {deserializeIntoCaseOperation} from './security/deserializeIntoCaseOperation';
+import {deserializeIntoCasesRoot} from './security/deserializeIntoCasesRoot';
+import {deserializeIntoDataSet} from './security/deserializeIntoDataSet';
+import {deserializeIntoDataSource} from './security/deserializeIntoDataSource';
+import {deserializeIntoDataSourceContainer} from './security/deserializeIntoDataSourceContainer';
+import {deserializeIntoEdiscoveryAddToReviewSetOperation} from './security/deserializeIntoEdiscoveryAddToReviewSetOperation';
+import {deserializeIntoEdiscoveryCase} from './security/deserializeIntoEdiscoveryCase';
+import {deserializeIntoEdiscoveryCaseSettings} from './security/deserializeIntoEdiscoveryCaseSettings';
+import {deserializeIntoEdiscoveryCustodian} from './security/deserializeIntoEdiscoveryCustodian';
+import {deserializeIntoEdiscoveryEstimateOperation} from './security/deserializeIntoEdiscoveryEstimateOperation';
+import {deserializeIntoEdiscoveryHoldOperation} from './security/deserializeIntoEdiscoveryHoldOperation';
+import {deserializeIntoEdiscoveryIndexOperation} from './security/deserializeIntoEdiscoveryIndexOperation';
+import {deserializeIntoEdiscoveryNoncustodialDataSource} from './security/deserializeIntoEdiscoveryNoncustodialDataSource';
+import {deserializeIntoEdiscoveryPurgeDataOperation} from './security/deserializeIntoEdiscoveryPurgeDataOperation';
+import {deserializeIntoEdiscoveryReviewSet} from './security/deserializeIntoEdiscoveryReviewSet';
+import {deserializeIntoEdiscoveryReviewSetQuery} from './security/deserializeIntoEdiscoveryReviewSetQuery';
+import {deserializeIntoEdiscoveryReviewTag} from './security/deserializeIntoEdiscoveryReviewTag';
+import {deserializeIntoEdiscoverySearch} from './security/deserializeIntoEdiscoverySearch';
+import {deserializeIntoEdiscoveryTagOperation} from './security/deserializeIntoEdiscoveryTagOperation';
+import {deserializeIntoIncident} from './security/deserializeIntoIncident';
+import {deserializeIntoRetentionEvent} from './security/deserializeIntoRetentionEvent';
+import {deserializeIntoRetentionEventType} from './security/deserializeIntoRetentionEventType';
+import {deserializeIntoSearch} from './security/deserializeIntoSearch';
+import {deserializeIntoSiteSource} from './security/deserializeIntoSiteSource';
+import {deserializeIntoTag} from './security/deserializeIntoTag';
+import {deserializeIntoTriggersRoot} from './security/deserializeIntoTriggersRoot';
+import {deserializeIntoTriggerTypesRoot} from './security/deserializeIntoTriggerTypesRoot';
+import {deserializeIntoUnifiedGroupSource} from './security/deserializeIntoUnifiedGroupSource';
+import {deserializeIntoUserSource} from './security/deserializeIntoUserSource';
 import {Group as I4e18a3882f273ff649b31b0adac5448533e694e026e54aa608d86a59539e9206, Relation, Set, Store, Term} from './termStore/';
+import {deserializeIntoGroup as I68b49c30a4e01821ddd2d5b4d80947215a00ae0cb3aba3ad127e906da74c8ed6} from './termStore/deserializeIntoGroup';
+import {deserializeIntoRelation} from './termStore/deserializeIntoRelation';
+import {deserializeIntoSet} from './termStore/deserializeIntoSet';
+import {deserializeIntoStore} from './termStore/deserializeIntoStore';
+import {deserializeIntoTerm} from './termStore/deserializeIntoTerm';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : Entity {
+export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -13,1363 +701,1381 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.aadUserConversationMember":
-                    return new AadUserConversationMember();
+                    return deserializeIntoAadUserConversationMember;
                 case "#microsoft.graph.accessPackage":
-                    return new AccessPackage();
+                    return deserializeIntoAccessPackage;
                 case "#microsoft.graph.accessPackageAssignment":
-                    return new AccessPackageAssignment();
+                    return deserializeIntoAccessPackageAssignment;
                 case "#microsoft.graph.accessPackageAssignmentPolicy":
-                    return new AccessPackageAssignmentPolicy();
+                    return deserializeIntoAccessPackageAssignmentPolicy;
                 case "#microsoft.graph.accessPackageAssignmentRequest":
-                    return new AccessPackageAssignmentRequest();
+                    return deserializeIntoAccessPackageAssignmentRequest;
                 case "#microsoft.graph.accessPackageCatalog":
-                    return new AccessPackageCatalog();
+                    return deserializeIntoAccessPackageCatalog;
                 case "#microsoft.graph.accessPackageMultipleChoiceQuestion":
-                    return new AccessPackageMultipleChoiceQuestion();
+                    return deserializeIntoAccessPackageMultipleChoiceQuestion;
                 case "#microsoft.graph.accessPackageQuestion":
-                    return new AccessPackageQuestion();
+                    return deserializeIntoAccessPackageQuestion;
                 case "#microsoft.graph.accessPackageSubject":
-                    return new AccessPackageSubject();
+                    return deserializeIntoAccessPackageSubject;
                 case "#microsoft.graph.accessPackageTextInputQuestion":
-                    return new AccessPackageTextInputQuestion();
+                    return deserializeIntoAccessPackageTextInputQuestion;
                 case "#microsoft.graph.accessReviewHistoryDefinition":
-                    return new AccessReviewHistoryDefinition();
+                    return deserializeIntoAccessReviewHistoryDefinition;
                 case "#microsoft.graph.accessReviewHistoryInstance":
-                    return new AccessReviewHistoryInstance();
+                    return deserializeIntoAccessReviewHistoryInstance;
                 case "#microsoft.graph.accessReviewInstance":
-                    return new AccessReviewInstance();
+                    return deserializeIntoAccessReviewInstance;
                 case "#microsoft.graph.accessReviewInstanceDecisionItem":
-                    return new AccessReviewInstanceDecisionItem();
+                    return deserializeIntoAccessReviewInstanceDecisionItem;
                 case "#microsoft.graph.accessReviewReviewer":
-                    return new AccessReviewReviewer();
+                    return deserializeIntoAccessReviewReviewer;
                 case "#microsoft.graph.accessReviewScheduleDefinition":
-                    return new AccessReviewScheduleDefinition();
+                    return deserializeIntoAccessReviewScheduleDefinition;
                 case "#microsoft.graph.accessReviewSet":
-                    return new AccessReviewSet();
+                    return deserializeIntoAccessReviewSet;
                 case "#microsoft.graph.accessReviewStage":
-                    return new AccessReviewStage();
+                    return deserializeIntoAccessReviewStage;
                 case "#microsoft.graph.activityBasedTimeoutPolicy":
-                    return new ActivityBasedTimeoutPolicy();
+                    return deserializeIntoActivityBasedTimeoutPolicy;
                 case "#microsoft.graph.activityHistoryItem":
-                    return new ActivityHistoryItem();
+                    return deserializeIntoActivityHistoryItem;
                 case "#microsoft.graph.addLargeGalleryViewOperation":
-                    return new AddLargeGalleryViewOperation();
+                    return deserializeIntoAddLargeGalleryViewOperation;
                 case "#microsoft.graph.adminConsentRequestPolicy":
-                    return new AdminConsentRequestPolicy();
+                    return deserializeIntoAdminConsentRequestPolicy;
                 case "#microsoft.graph.administrativeUnit":
-                    return new AdministrativeUnit();
+                    return deserializeIntoAdministrativeUnit;
                 case "#microsoft.graph.agreement":
-                    return new Agreement();
+                    return deserializeIntoAgreement;
                 case "#microsoft.graph.agreementAcceptance":
-                    return new AgreementAcceptance();
+                    return deserializeIntoAgreementAcceptance;
                 case "#microsoft.graph.agreementFile":
-                    return new AgreementFile();
+                    return deserializeIntoAgreementFile;
                 case "#microsoft.graph.agreementFileLocalization":
-                    return new AgreementFileLocalization();
+                    return deserializeIntoAgreementFileLocalization;
                 case "#microsoft.graph.agreementFileProperties":
-                    return new AgreementFileProperties();
+                    return deserializeIntoAgreementFileProperties;
                 case "#microsoft.graph.agreementFileVersion":
-                    return new AgreementFileVersion();
+                    return deserializeIntoAgreementFileVersion;
                 case "#microsoft.graph.alert":
-                    return new If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3();
+                    return I31715a026b1ced0f6a88616d35905e458c4d7672e4ac2cfaebeef17eefa762ea;
+                case "#microsoft.graph.allowedValue":
+                    return deserializeIntoAllowedValue;
                 case "#microsoft.graph.androidCompliancePolicy":
-                    return new AndroidCompliancePolicy();
+                    return deserializeIntoAndroidCompliancePolicy;
                 case "#microsoft.graph.androidCustomConfiguration":
-                    return new AndroidCustomConfiguration();
+                    return deserializeIntoAndroidCustomConfiguration;
                 case "#microsoft.graph.androidGeneralDeviceConfiguration":
-                    return new AndroidGeneralDeviceConfiguration();
+                    return deserializeIntoAndroidGeneralDeviceConfiguration;
                 case "#microsoft.graph.androidLobApp":
-                    return new AndroidLobApp();
+                    return deserializeIntoAndroidLobApp;
                 case "#microsoft.graph.androidManagedAppProtection":
-                    return new AndroidManagedAppProtection();
+                    return deserializeIntoAndroidManagedAppProtection;
                 case "#microsoft.graph.androidManagedAppRegistration":
-                    return new AndroidManagedAppRegistration();
+                    return deserializeIntoAndroidManagedAppRegistration;
                 case "#microsoft.graph.androidStoreApp":
-                    return new AndroidStoreApp();
+                    return deserializeIntoAndroidStoreApp;
                 case "#microsoft.graph.androidWorkProfileCompliancePolicy":
-                    return new AndroidWorkProfileCompliancePolicy();
+                    return deserializeIntoAndroidWorkProfileCompliancePolicy;
                 case "#microsoft.graph.androidWorkProfileCustomConfiguration":
-                    return new AndroidWorkProfileCustomConfiguration();
+                    return deserializeIntoAndroidWorkProfileCustomConfiguration;
                 case "#microsoft.graph.androidWorkProfileGeneralDeviceConfiguration":
-                    return new AndroidWorkProfileGeneralDeviceConfiguration();
+                    return deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration;
                 case "#microsoft.graph.anonymousGuestConversationMember":
-                    return new AnonymousGuestConversationMember();
+                    return deserializeIntoAnonymousGuestConversationMember;
                 case "#microsoft.graph.appCatalogs":
-                    return new AppCatalogs();
+                    return deserializeIntoAppCatalogs;
                 case "#microsoft.graph.appConsentApprovalRoute":
-                    return new AppConsentApprovalRoute();
+                    return deserializeIntoAppConsentApprovalRoute;
                 case "#microsoft.graph.appConsentRequest":
-                    return new AppConsentRequest();
+                    return deserializeIntoAppConsentRequest;
                 case "#microsoft.graph.appleDeviceFeaturesConfigurationBase":
-                    return new AppleDeviceFeaturesConfigurationBase();
+                    return deserializeIntoAppleDeviceFeaturesConfigurationBase;
                 case "#microsoft.graph.appleManagedIdentityProvider":
-                    return new AppleManagedIdentityProvider();
+                    return deserializeIntoAppleManagedIdentityProvider;
                 case "#microsoft.graph.applePushNotificationCertificate":
-                    return new ApplePushNotificationCertificate();
+                    return deserializeIntoApplePushNotificationCertificate;
                 case "#microsoft.graph.application":
-                    return new Application();
+                    return deserializeIntoApplication;
                 case "#microsoft.graph.applicationTemplate":
-                    return new ApplicationTemplate();
+                    return deserializeIntoApplicationTemplate;
                 case "#microsoft.graph.appManagementPolicy":
-                    return new AppManagementPolicy();
+                    return deserializeIntoAppManagementPolicy;
                 case "#microsoft.graph.appRoleAssignment":
-                    return new AppRoleAssignment();
+                    return deserializeIntoAppRoleAssignment;
                 case "#microsoft.graph.approval":
-                    return new Approval();
+                    return deserializeIntoApproval;
                 case "#microsoft.graph.approvalStage":
-                    return new ApprovalStage();
+                    return deserializeIntoApprovalStage;
                 case "#microsoft.graph.appScope":
-                    return new AppScope();
+                    return deserializeIntoAppScope;
                 case "#microsoft.graph.associatedTeamInfo":
-                    return new AssociatedTeamInfo();
+                    return deserializeIntoAssociatedTeamInfo;
                 case "#microsoft.graph.attachment":
-                    return new Attachment();
+                    return deserializeIntoAttachment;
                 case "#microsoft.graph.attachmentBase":
-                    return new AttachmentBase();
+                    return deserializeIntoAttachmentBase;
                 case "#microsoft.graph.attachmentSession":
-                    return new AttachmentSession();
+                    return deserializeIntoAttachmentSession;
                 case "#microsoft.graph.attackSimulationRoot":
-                    return new AttackSimulationRoot();
+                    return deserializeIntoAttackSimulationRoot;
                 case "#microsoft.graph.attendanceRecord":
-                    return new AttendanceRecord();
+                    return deserializeIntoAttendanceRecord;
+                case "#microsoft.graph.attributeSet":
+                    return deserializeIntoAttributeSet;
                 case "#microsoft.graph.audioRoutingGroup":
-                    return new AudioRoutingGroup();
+                    return deserializeIntoAudioRoutingGroup;
                 case "#microsoft.graph.auditEvent":
-                    return new AuditEvent();
+                    return deserializeIntoAuditEvent;
                 case "#microsoft.graph.auditLogRoot":
-                    return new AuditLogRoot();
+                    return deserializeIntoAuditLogRoot;
                 case "#microsoft.graph.authentication":
-                    return new Authentication();
+                    return deserializeIntoAuthentication;
+                case "#microsoft.graph.authenticationCombinationConfiguration":
+                    return deserializeIntoAuthenticationCombinationConfiguration;
                 case "#microsoft.graph.authenticationContextClassReference":
-                    return new AuthenticationContextClassReference();
+                    return deserializeIntoAuthenticationContextClassReference;
                 case "#microsoft.graph.authenticationFlowsPolicy":
-                    return new AuthenticationFlowsPolicy();
+                    return deserializeIntoAuthenticationFlowsPolicy;
                 case "#microsoft.graph.authenticationMethod":
-                    return new AuthenticationMethod();
+                    return deserializeIntoAuthenticationMethod;
                 case "#microsoft.graph.authenticationMethodConfiguration":
-                    return new AuthenticationMethodConfiguration();
+                    return deserializeIntoAuthenticationMethodConfiguration;
+                case "#microsoft.graph.authenticationMethodModeDetail":
+                    return deserializeIntoAuthenticationMethodModeDetail;
                 case "#microsoft.graph.authenticationMethodsPolicy":
-                    return new AuthenticationMethodsPolicy();
+                    return deserializeIntoAuthenticationMethodsPolicy;
                 case "#microsoft.graph.authenticationMethodTarget":
-                    return new AuthenticationMethodTarget();
+                    return deserializeIntoAuthenticationMethodTarget;
+                case "#microsoft.graph.authenticationStrengthPolicy":
+                    return deserializeIntoAuthenticationStrengthPolicy;
+                case "#microsoft.graph.authenticationStrengthRoot":
+                    return deserializeIntoAuthenticationStrengthRoot;
                 case "#microsoft.graph.authoredNote":
-                    return new AuthoredNote();
+                    return deserializeIntoAuthoredNote;
                 case "#microsoft.graph.authorizationPolicy":
-                    return new AuthorizationPolicy();
+                    return deserializeIntoAuthorizationPolicy;
                 case "#microsoft.graph.azureCommunicationServicesUserConversationMember":
-                    return new AzureCommunicationServicesUserConversationMember();
+                    return deserializeIntoAzureCommunicationServicesUserConversationMember;
                 case "#microsoft.graph.b2xIdentityUserFlow":
-                    return new B2xIdentityUserFlow();
+                    return deserializeIntoB2xIdentityUserFlow;
                 case "#microsoft.graph.baseItem":
-                    return new BaseItem();
+                    return deserializeIntoBaseItem;
                 case "#microsoft.graph.baseItemVersion":
-                    return new BaseItemVersion();
+                    return deserializeIntoBaseItemVersion;
                 case "#microsoft.graph.bitlocker":
-                    return new Bitlocker();
+                    return deserializeIntoBitlocker;
                 case "#microsoft.graph.bitlockerRecoveryKey":
-                    return new BitlockerRecoveryKey();
+                    return deserializeIntoBitlockerRecoveryKey;
                 case "#microsoft.graph.bookingAppointment":
-                    return new BookingAppointment();
+                    return deserializeIntoBookingAppointment;
                 case "#microsoft.graph.bookingBusiness":
-                    return new BookingBusiness();
+                    return deserializeIntoBookingBusiness;
                 case "#microsoft.graph.bookingCurrency":
-                    return new BookingCurrency();
+                    return deserializeIntoBookingCurrency;
                 case "#microsoft.graph.bookingCustomer":
-                    return new BookingCustomer();
+                    return deserializeIntoBookingCustomer;
                 case "#microsoft.graph.bookingCustomerBase":
-                    return new BookingCustomerBase();
+                    return deserializeIntoBookingCustomerBase;
                 case "#microsoft.graph.bookingCustomQuestion":
-                    return new BookingCustomQuestion();
+                    return deserializeIntoBookingCustomQuestion;
                 case "#microsoft.graph.bookingService":
-                    return new BookingService();
+                    return deserializeIntoBookingService;
                 case "#microsoft.graph.bookingStaffMember":
-                    return new BookingStaffMember();
+                    return deserializeIntoBookingStaffMember;
                 case "#microsoft.graph.bookingStaffMemberBase":
-                    return new BookingStaffMemberBase();
+                    return deserializeIntoBookingStaffMemberBase;
                 case "#microsoft.graph.browserSharedCookie":
-                    return new BrowserSharedCookie();
+                    return deserializeIntoBrowserSharedCookie;
                 case "#microsoft.graph.browserSite":
-                    return new BrowserSite();
+                    return deserializeIntoBrowserSite;
                 case "#microsoft.graph.browserSiteList":
-                    return new BrowserSiteList();
+                    return deserializeIntoBrowserSiteList;
                 case "#microsoft.graph.builtInIdentityProvider":
-                    return new BuiltInIdentityProvider();
+                    return deserializeIntoBuiltInIdentityProvider;
                 case "#microsoft.graph.calendar":
-                    return new Calendar();
+                    return deserializeIntoCalendar;
                 case "#microsoft.graph.calendarGroup":
-                    return new CalendarGroup();
+                    return deserializeIntoCalendarGroup;
                 case "#microsoft.graph.calendarPermission":
-                    return new CalendarPermission();
+                    return deserializeIntoCalendarPermission;
                 case "#microsoft.graph.calendarSharingMessage":
-                    return new CalendarSharingMessage();
+                    return deserializeIntoCalendarSharingMessage;
                 case "#microsoft.graph.call":
-                    return new Call();
+                    return deserializeIntoCall;
                 case "#microsoft.graph.callRecords.callRecord":
-                    return new CallRecord();
+                    return deserializeIntoCallRecord;
                 case "#microsoft.graph.callRecords.segment":
-                    return new Segment();
+                    return deserializeIntoSegment;
                 case "#microsoft.graph.callRecords.session":
-                    return new Session();
+                    return deserializeIntoSession;
                 case "#microsoft.graph.cancelMediaProcessingOperation":
-                    return new CancelMediaProcessingOperation();
+                    return deserializeIntoCancelMediaProcessingOperation;
                 case "#microsoft.graph.certificateBasedAuthConfiguration":
-                    return new CertificateBasedAuthConfiguration();
+                    return deserializeIntoCertificateBasedAuthConfiguration;
                 case "#microsoft.graph.changeTrackedEntity":
-                    return new ChangeTrackedEntity();
+                    return deserializeIntoChangeTrackedEntity;
                 case "#microsoft.graph.channel":
-                    return new Channel();
+                    return deserializeIntoChannel;
                 case "#microsoft.graph.chat":
-                    return new Chat();
+                    return deserializeIntoChat;
                 case "#microsoft.graph.chatMessage":
-                    return new ChatMessage();
+                    return deserializeIntoChatMessage;
                 case "#microsoft.graph.chatMessageHostedContent":
-                    return new ChatMessageHostedContent();
+                    return deserializeIntoChatMessageHostedContent;
                 case "#microsoft.graph.chatMessageInfo":
-                    return new ChatMessageInfo();
+                    return deserializeIntoChatMessageInfo;
                 case "#microsoft.graph.checklistItem":
-                    return new ChecklistItem();
+                    return deserializeIntoChecklistItem;
                 case "#microsoft.graph.claimsMappingPolicy":
-                    return new ClaimsMappingPolicy();
-                case "#microsoft.graph.cloudCommunications":
-                    return new CloudCommunications();
+                    return deserializeIntoClaimsMappingPolicy;
                 case "#microsoft.graph.columnDefinition":
-                    return new ColumnDefinition();
+                    return deserializeIntoColumnDefinition;
                 case "#microsoft.graph.columnLink":
-                    return new ColumnLink();
+                    return deserializeIntoColumnLink;
                 case "#microsoft.graph.commsOperation":
-                    return new CommsOperation();
+                    return deserializeIntoCommsOperation;
                 case "#microsoft.graph.complianceManagementPartner":
-                    return new ComplianceManagementPartner();
+                    return deserializeIntoComplianceManagementPartner;
                 case "#microsoft.graph.conditionalAccessPolicy":
-                    return new ConditionalAccessPolicy();
+                    return deserializeIntoConditionalAccessPolicy;
                 case "#microsoft.graph.conditionalAccessRoot":
-                    return new ConditionalAccessRoot();
+                    return deserializeIntoConditionalAccessRoot;
                 case "#microsoft.graph.conditionalAccessTemplate":
-                    return new ConditionalAccessTemplate();
+                    return deserializeIntoConditionalAccessTemplate;
                 case "#microsoft.graph.connectedOrganization":
-                    return new ConnectedOrganization();
+                    return deserializeIntoConnectedOrganization;
                 case "#microsoft.graph.contact":
-                    return new Contact();
+                    return deserializeIntoContact;
                 case "#microsoft.graph.contactFolder":
-                    return new ContactFolder();
+                    return deserializeIntoContactFolder;
                 case "#microsoft.graph.contentSharingSession":
-                    return new ContentSharingSession();
+                    return deserializeIntoContentSharingSession;
                 case "#microsoft.graph.contentType":
-                    return new ContentType();
+                    return deserializeIntoContentType;
                 case "#microsoft.graph.contract":
-                    return new Contract();
+                    return deserializeIntoContract;
                 case "#microsoft.graph.conversation":
-                    return new Conversation();
+                    return deserializeIntoConversation;
                 case "#microsoft.graph.conversationMember":
-                    return new ConversationMember();
+                    return deserializeIntoConversationMember;
                 case "#microsoft.graph.conversationThread":
-                    return new ConversationThread();
+                    return deserializeIntoConversationThread;
                 case "#microsoft.graph.countryNamedLocation":
-                    return new CountryNamedLocation();
+                    return deserializeIntoCountryNamedLocation;
                 case "#microsoft.graph.crossTenantAccessPolicy":
-                    return new CrossTenantAccessPolicy();
+                    return deserializeIntoCrossTenantAccessPolicy;
                 case "#microsoft.graph.crossTenantAccessPolicyConfigurationDefault":
-                    return new CrossTenantAccessPolicyConfigurationDefault();
+                    return deserializeIntoCrossTenantAccessPolicyConfigurationDefault;
+                case "#microsoft.graph.customSecurityAttributeDefinition":
+                    return deserializeIntoCustomSecurityAttributeDefinition;
                 case "#microsoft.graph.dataPolicyOperation":
-                    return new DataPolicyOperation();
+                    return deserializeIntoDataPolicyOperation;
                 case "#microsoft.graph.defaultManagedAppProtection":
-                    return new DefaultManagedAppProtection();
+                    return deserializeIntoDefaultManagedAppProtection;
                 case "#microsoft.graph.delegatedAdminAccessAssignment":
-                    return new DelegatedAdminAccessAssignment();
+                    return deserializeIntoDelegatedAdminAccessAssignment;
                 case "#microsoft.graph.delegatedAdminCustomer":
-                    return new DelegatedAdminCustomer();
+                    return deserializeIntoDelegatedAdminCustomer;
                 case "#microsoft.graph.delegatedAdminRelationship":
-                    return new DelegatedAdminRelationship();
+                    return deserializeIntoDelegatedAdminRelationship;
                 case "#microsoft.graph.delegatedAdminRelationshipOperation":
-                    return new DelegatedAdminRelationshipOperation();
+                    return deserializeIntoDelegatedAdminRelationshipOperation;
                 case "#microsoft.graph.delegatedAdminRelationshipRequest":
-                    return new DelegatedAdminRelationshipRequest();
+                    return deserializeIntoDelegatedAdminRelationshipRequest;
                 case "#microsoft.graph.delegatedAdminServiceManagementDetail":
-                    return new DelegatedAdminServiceManagementDetail();
+                    return deserializeIntoDelegatedAdminServiceManagementDetail;
                 case "#microsoft.graph.delegatedPermissionClassification":
-                    return new DelegatedPermissionClassification();
+                    return deserializeIntoDelegatedPermissionClassification;
                 case "#microsoft.graph.deletedTeam":
-                    return new DeletedTeam();
+                    return deserializeIntoDeletedTeam;
                 case "#microsoft.graph.detectedApp":
-                    return new DetectedApp();
+                    return deserializeIntoDetectedApp;
                 case "#microsoft.graph.device":
-                    return new Device();
+                    return deserializeIntoDevice;
                 case "#microsoft.graph.deviceAndAppManagementRoleAssignment":
-                    return new DeviceAndAppManagementRoleAssignment();
+                    return deserializeIntoDeviceAndAppManagementRoleAssignment;
                 case "#microsoft.graph.deviceAndAppManagementRoleDefinition":
-                    return new DeviceAndAppManagementRoleDefinition();
+                    return deserializeIntoDeviceAndAppManagementRoleDefinition;
                 case "#microsoft.graph.deviceAppManagement":
-                    return new DeviceAppManagement();
+                    return deserializeIntoDeviceAppManagement;
                 case "#microsoft.graph.deviceCategory":
-                    return new DeviceCategory();
+                    return deserializeIntoDeviceCategory;
                 case "#microsoft.graph.deviceComplianceActionItem":
-                    return new DeviceComplianceActionItem();
+                    return deserializeIntoDeviceComplianceActionItem;
                 case "#microsoft.graph.deviceComplianceDeviceOverview":
-                    return new DeviceComplianceDeviceOverview();
+                    return deserializeIntoDeviceComplianceDeviceOverview;
                 case "#microsoft.graph.deviceComplianceDeviceStatus":
-                    return new DeviceComplianceDeviceStatus();
+                    return deserializeIntoDeviceComplianceDeviceStatus;
                 case "#microsoft.graph.deviceCompliancePolicy":
-                    return new DeviceCompliancePolicy();
+                    return deserializeIntoDeviceCompliancePolicy;
                 case "#microsoft.graph.deviceCompliancePolicyAssignment":
-                    return new DeviceCompliancePolicyAssignment();
+                    return deserializeIntoDeviceCompliancePolicyAssignment;
                 case "#microsoft.graph.deviceCompliancePolicyDeviceStateSummary":
-                    return new DeviceCompliancePolicyDeviceStateSummary();
+                    return deserializeIntoDeviceCompliancePolicyDeviceStateSummary;
                 case "#microsoft.graph.deviceCompliancePolicySettingStateSummary":
-                    return new DeviceCompliancePolicySettingStateSummary();
+                    return deserializeIntoDeviceCompliancePolicySettingStateSummary;
                 case "#microsoft.graph.deviceCompliancePolicyState":
-                    return new DeviceCompliancePolicyState();
+                    return deserializeIntoDeviceCompliancePolicyState;
                 case "#microsoft.graph.deviceComplianceScheduledActionForRule":
-                    return new DeviceComplianceScheduledActionForRule();
+                    return deserializeIntoDeviceComplianceScheduledActionForRule;
                 case "#microsoft.graph.deviceComplianceSettingState":
-                    return new DeviceComplianceSettingState();
+                    return deserializeIntoDeviceComplianceSettingState;
                 case "#microsoft.graph.deviceComplianceUserOverview":
-                    return new DeviceComplianceUserOverview();
+                    return deserializeIntoDeviceComplianceUserOverview;
                 case "#microsoft.graph.deviceComplianceUserStatus":
-                    return new DeviceComplianceUserStatus();
+                    return deserializeIntoDeviceComplianceUserStatus;
                 case "#microsoft.graph.deviceConfiguration":
-                    return new DeviceConfiguration();
+                    return deserializeIntoDeviceConfiguration;
                 case "#microsoft.graph.deviceConfigurationAssignment":
-                    return new DeviceConfigurationAssignment();
+                    return deserializeIntoDeviceConfigurationAssignment;
                 case "#microsoft.graph.deviceConfigurationDeviceOverview":
-                    return new DeviceConfigurationDeviceOverview();
+                    return deserializeIntoDeviceConfigurationDeviceOverview;
                 case "#microsoft.graph.deviceConfigurationDeviceStateSummary":
-                    return new DeviceConfigurationDeviceStateSummary();
+                    return deserializeIntoDeviceConfigurationDeviceStateSummary;
                 case "#microsoft.graph.deviceConfigurationDeviceStatus":
-                    return new DeviceConfigurationDeviceStatus();
+                    return deserializeIntoDeviceConfigurationDeviceStatus;
                 case "#microsoft.graph.deviceConfigurationState":
-                    return new DeviceConfigurationState();
+                    return deserializeIntoDeviceConfigurationState;
                 case "#microsoft.graph.deviceConfigurationUserOverview":
-                    return new DeviceConfigurationUserOverview();
+                    return deserializeIntoDeviceConfigurationUserOverview;
                 case "#microsoft.graph.deviceConfigurationUserStatus":
-                    return new DeviceConfigurationUserStatus();
+                    return deserializeIntoDeviceConfigurationUserStatus;
                 case "#microsoft.graph.deviceEnrollmentConfiguration":
-                    return new DeviceEnrollmentConfiguration();
+                    return deserializeIntoDeviceEnrollmentConfiguration;
                 case "#microsoft.graph.deviceEnrollmentLimitConfiguration":
-                    return new DeviceEnrollmentLimitConfiguration();
+                    return deserializeIntoDeviceEnrollmentLimitConfiguration;
                 case "#microsoft.graph.deviceEnrollmentPlatformRestrictionsConfiguration":
-                    return new DeviceEnrollmentPlatformRestrictionsConfiguration();
+                    return deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration;
                 case "#microsoft.graph.deviceEnrollmentWindowsHelloForBusinessConfiguration":
-                    return new DeviceEnrollmentWindowsHelloForBusinessConfiguration();
+                    return deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration;
                 case "#microsoft.graph.deviceInstallState":
-                    return new DeviceInstallState();
+                    return deserializeIntoDeviceInstallState;
                 case "#microsoft.graph.deviceManagement":
-                    return new DeviceManagement();
+                    return deserializeIntoDeviceManagement;
                 case "#microsoft.graph.deviceManagementExchangeConnector":
-                    return new DeviceManagementExchangeConnector();
+                    return deserializeIntoDeviceManagementExchangeConnector;
                 case "#microsoft.graph.deviceManagementExportJob":
-                    return new DeviceManagementExportJob();
+                    return deserializeIntoDeviceManagementExportJob;
                 case "#microsoft.graph.deviceManagementPartner":
-                    return new DeviceManagementPartner();
+                    return deserializeIntoDeviceManagementPartner;
                 case "#microsoft.graph.deviceManagementReports":
-                    return new DeviceManagementReports();
+                    return deserializeIntoDeviceManagementReports;
                 case "#microsoft.graph.deviceManagementTroubleshootingEvent":
-                    return new DeviceManagementTroubleshootingEvent();
+                    return deserializeIntoDeviceManagementTroubleshootingEvent;
                 case "#microsoft.graph.directory":
-                    return new Directory();
+                    return deserializeIntoDirectory;
                 case "#microsoft.graph.directoryAudit":
-                    return new DirectoryAudit();
+                    return deserializeIntoDirectoryAudit;
                 case "#microsoft.graph.directoryObject":
-                    return new DirectoryObject();
+                    return deserializeIntoDirectoryObject;
                 case "#microsoft.graph.directoryObjectPartnerReference":
-                    return new DirectoryObjectPartnerReference();
+                    return deserializeIntoDirectoryObjectPartnerReference;
                 case "#microsoft.graph.directoryRole":
-                    return new DirectoryRole();
+                    return deserializeIntoDirectoryRole;
                 case "#microsoft.graph.directoryRoleTemplate":
-                    return new DirectoryRoleTemplate();
+                    return deserializeIntoDirectoryRoleTemplate;
                 case "#microsoft.graph.documentSetVersion":
-                    return new DocumentSetVersion();
+                    return deserializeIntoDocumentSetVersion;
                 case "#microsoft.graph.domain":
-                    return new Domain();
+                    return deserializeIntoDomain;
                 case "#microsoft.graph.domainDnsCnameRecord":
-                    return new DomainDnsCnameRecord();
+                    return deserializeIntoDomainDnsCnameRecord;
                 case "#microsoft.graph.domainDnsMxRecord":
-                    return new DomainDnsMxRecord();
+                    return deserializeIntoDomainDnsMxRecord;
                 case "#microsoft.graph.domainDnsRecord":
-                    return new DomainDnsRecord();
+                    return deserializeIntoDomainDnsRecord;
                 case "#microsoft.graph.domainDnsSrvRecord":
-                    return new DomainDnsSrvRecord();
+                    return deserializeIntoDomainDnsSrvRecord;
                 case "#microsoft.graph.domainDnsTxtRecord":
-                    return new DomainDnsTxtRecord();
+                    return deserializeIntoDomainDnsTxtRecord;
                 case "#microsoft.graph.domainDnsUnavailableRecord":
-                    return new DomainDnsUnavailableRecord();
+                    return deserializeIntoDomainDnsUnavailableRecord;
                 case "#microsoft.graph.drive":
-                    return new Drive();
+                    return deserializeIntoDrive;
                 case "#microsoft.graph.driveItem":
-                    return new DriveItem();
+                    return deserializeIntoDriveItem;
                 case "#microsoft.graph.driveItemVersion":
-                    return new DriveItemVersion();
+                    return deserializeIntoDriveItemVersion;
                 case "#microsoft.graph.eBookInstallSummary":
-                    return new EBookInstallSummary();
+                    return deserializeIntoEBookInstallSummary;
                 case "#microsoft.graph.edge":
-                    return new Edge();
+                    return deserializeIntoEdge;
                 case "#microsoft.graph.editionUpgradeConfiguration":
-                    return new EditionUpgradeConfiguration();
+                    return deserializeIntoEditionUpgradeConfiguration;
                 case "#microsoft.graph.educationAssignment":
-                    return new EducationAssignment();
+                    return deserializeIntoEducationAssignment;
                 case "#microsoft.graph.educationAssignmentDefaults":
-                    return new EducationAssignmentDefaults();
+                    return deserializeIntoEducationAssignmentDefaults;
                 case "#microsoft.graph.educationAssignmentResource":
-                    return new EducationAssignmentResource();
+                    return deserializeIntoEducationAssignmentResource;
                 case "#microsoft.graph.educationAssignmentSettings":
-                    return new EducationAssignmentSettings();
+                    return deserializeIntoEducationAssignmentSettings;
                 case "#microsoft.graph.educationCategory":
-                    return new EducationCategory();
+                    return deserializeIntoEducationCategory;
                 case "#microsoft.graph.educationClass":
-                    return new EducationClass();
+                    return deserializeIntoEducationClass;
                 case "#microsoft.graph.educationFeedbackOutcome":
-                    return new EducationFeedbackOutcome();
+                    return deserializeIntoEducationFeedbackOutcome;
                 case "#microsoft.graph.educationFeedbackResourceOutcome":
-                    return new EducationFeedbackResourceOutcome();
+                    return deserializeIntoEducationFeedbackResourceOutcome;
                 case "#microsoft.graph.educationOrganization":
-                    return new EducationOrganization();
+                    return deserializeIntoEducationOrganization;
                 case "#microsoft.graph.educationOutcome":
-                    return new EducationOutcome();
+                    return deserializeIntoEducationOutcome;
                 case "#microsoft.graph.educationPointsOutcome":
-                    return new EducationPointsOutcome();
+                    return deserializeIntoEducationPointsOutcome;
                 case "#microsoft.graph.educationRubric":
-                    return new EducationRubric();
+                    return deserializeIntoEducationRubric;
                 case "#microsoft.graph.educationRubricOutcome":
-                    return new EducationRubricOutcome();
+                    return deserializeIntoEducationRubricOutcome;
                 case "#microsoft.graph.educationSchool":
-                    return new EducationSchool();
+                    return deserializeIntoEducationSchool;
                 case "#microsoft.graph.educationSubmission":
-                    return new EducationSubmission();
+                    return deserializeIntoEducationSubmission;
                 case "#microsoft.graph.educationSubmissionResource":
-                    return new EducationSubmissionResource();
+                    return deserializeIntoEducationSubmissionResource;
                 case "#microsoft.graph.educationUser":
-                    return new EducationUser();
+                    return deserializeIntoEducationUser;
                 case "#microsoft.graph.emailAuthenticationMethod":
-                    return new EmailAuthenticationMethod();
+                    return deserializeIntoEmailAuthenticationMethod;
                 case "#microsoft.graph.emailAuthenticationMethodConfiguration":
-                    return new EmailAuthenticationMethodConfiguration();
+                    return deserializeIntoEmailAuthenticationMethodConfiguration;
                 case "#microsoft.graph.emailFileAssessmentRequest":
-                    return new EmailFileAssessmentRequest();
+                    return deserializeIntoEmailFileAssessmentRequest;
                 case "#microsoft.graph.endpoint":
-                    return new Endpoint();
+                    return deserializeIntoEndpoint;
                 case "#microsoft.graph.enrollmentConfigurationAssignment":
-                    return new EnrollmentConfigurationAssignment();
+                    return deserializeIntoEnrollmentConfigurationAssignment;
                 case "#microsoft.graph.enrollmentTroubleshootingEvent":
-                    return new EnrollmentTroubleshootingEvent();
+                    return deserializeIntoEnrollmentTroubleshootingEvent;
                 case "#microsoft.graph.enterpriseCodeSigningCertificate":
-                    return new EnterpriseCodeSigningCertificate();
+                    return deserializeIntoEnterpriseCodeSigningCertificate;
                 case "#microsoft.graph.entitlementManagement":
-                    return new EntitlementManagement();
+                    return deserializeIntoEntitlementManagement;
                 case "#microsoft.graph.entitlementManagementSettings":
-                    return new EntitlementManagementSettings();
+                    return deserializeIntoEntitlementManagementSettings;
                 case "#microsoft.graph.event":
-                    return new Event();
+                    return deserializeIntoEvent;
                 case "#microsoft.graph.eventMessage":
-                    return new EventMessage();
+                    return deserializeIntoEventMessage;
                 case "#microsoft.graph.eventMessageRequest":
-                    return new EventMessageRequest();
+                    return deserializeIntoEventMessageRequest;
                 case "#microsoft.graph.eventMessageResponse":
-                    return new EventMessageResponse();
+                    return deserializeIntoEventMessageResponse;
                 case "#microsoft.graph.extension":
-                    return new Extension();
+                    return deserializeIntoExtension;
                 case "#microsoft.graph.extensionProperty":
-                    return new ExtensionProperty();
+                    return deserializeIntoExtensionProperty;
                 case "#microsoft.graph.externalConnectors.connectionOperation":
-                    return new ConnectionOperation();
+                    return deserializeIntoConnectionOperation;
                 case "#microsoft.graph.externalConnectors.externalConnection":
-                    return new ExternalConnection();
+                    return deserializeIntoExternalConnection;
                 case "#microsoft.graph.externalConnectors.externalGroup":
-                    return new ExternalGroup();
+                    return deserializeIntoExternalGroup;
                 case "#microsoft.graph.externalConnectors.externalItem":
-                    return new ExternalItem();
+                    return deserializeIntoExternalItem;
                 case "#microsoft.graph.externalConnectors.identity":
-                    return new Identity();
+                    return deserializeIntoIdentity;
                 case "#microsoft.graph.externalConnectors.schema":
-                    return new Schema();
+                    return deserializeIntoSchema;
                 case "#microsoft.graph.externalDomainName":
-                    return new ExternalDomainName();
+                    return deserializeIntoExternalDomainName;
                 case "#microsoft.graph.featureRolloutPolicy":
-                    return new FeatureRolloutPolicy();
+                    return deserializeIntoFeatureRolloutPolicy;
                 case "#microsoft.graph.federatedIdentityCredential":
-                    return new FederatedIdentityCredential();
+                    return deserializeIntoFederatedIdentityCredential;
                 case "#microsoft.graph.fido2AuthenticationMethod":
-                    return new Fido2AuthenticationMethod();
+                    return deserializeIntoFido2AuthenticationMethod;
                 case "#microsoft.graph.fido2AuthenticationMethodConfiguration":
-                    return new Fido2AuthenticationMethodConfiguration();
+                    return deserializeIntoFido2AuthenticationMethodConfiguration;
+                case "#microsoft.graph.fido2CombinationConfiguration":
+                    return deserializeIntoFido2CombinationConfiguration;
                 case "#microsoft.graph.fieldValueSet":
-                    return new FieldValueSet();
+                    return deserializeIntoFieldValueSet;
                 case "#microsoft.graph.fileAssessmentRequest":
-                    return new FileAssessmentRequest();
+                    return deserializeIntoFileAssessmentRequest;
                 case "#microsoft.graph.fileAttachment":
-                    return new FileAttachment();
+                    return deserializeIntoFileAttachment;
                 case "#microsoft.graph.group":
-                    return new I3e7b9c76ff5af74e19ec22c86fc8ccaa080b0f7639cb61d00a2dab8100f45b82();
+                    return I23e16b52d4b109c19ebd3ab2e05b0d3e8411c17b6a4e64b58a4565adab867a21;
                 case "#microsoft.graph.groupLifecyclePolicy":
-                    return new GroupLifecyclePolicy();
+                    return deserializeIntoGroupLifecyclePolicy;
                 case "#microsoft.graph.groupSetting":
-                    return new GroupSetting();
+                    return deserializeIntoGroupSetting;
                 case "#microsoft.graph.groupSettingTemplate":
-                    return new GroupSettingTemplate();
+                    return deserializeIntoGroupSettingTemplate;
                 case "#microsoft.graph.homeRealmDiscoveryPolicy":
-                    return new HomeRealmDiscoveryPolicy();
+                    return deserializeIntoHomeRealmDiscoveryPolicy;
                 case "#microsoft.graph.identityApiConnector":
-                    return new IdentityApiConnector();
+                    return deserializeIntoIdentityApiConnector;
                 case "#microsoft.graph.identityBuiltInUserFlowAttribute":
-                    return new IdentityBuiltInUserFlowAttribute();
+                    return deserializeIntoIdentityBuiltInUserFlowAttribute;
                 case "#microsoft.graph.identityContainer":
-                    return new IdentityContainer();
+                    return deserializeIntoIdentityContainer;
                 case "#microsoft.graph.identityCustomUserFlowAttribute":
-                    return new IdentityCustomUserFlowAttribute();
+                    return deserializeIntoIdentityCustomUserFlowAttribute;
                 case "#microsoft.graph.identityProvider":
-                    return new IdentityProvider();
+                    return deserializeIntoIdentityProvider;
                 case "#microsoft.graph.identityProviderBase":
-                    return new IdentityProviderBase();
+                    return deserializeIntoIdentityProviderBase;
                 case "#microsoft.graph.identitySecurityDefaultsEnforcementPolicy":
-                    return new IdentitySecurityDefaultsEnforcementPolicy();
+                    return deserializeIntoIdentitySecurityDefaultsEnforcementPolicy;
                 case "#microsoft.graph.identityUserFlow":
-                    return new IdentityUserFlow();
+                    return deserializeIntoIdentityUserFlow;
                 case "#microsoft.graph.identityUserFlowAttribute":
-                    return new IdentityUserFlowAttribute();
+                    return deserializeIntoIdentityUserFlowAttribute;
                 case "#microsoft.graph.identityUserFlowAttributeAssignment":
-                    return new IdentityUserFlowAttributeAssignment();
+                    return deserializeIntoIdentityUserFlowAttributeAssignment;
                 case "#microsoft.graph.importedWindowsAutopilotDeviceIdentity":
-                    return new ImportedWindowsAutopilotDeviceIdentity();
+                    return deserializeIntoImportedWindowsAutopilotDeviceIdentity;
                 case "#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload":
-                    return new ImportedWindowsAutopilotDeviceIdentityUpload();
+                    return deserializeIntoImportedWindowsAutopilotDeviceIdentityUpload;
                 case "#microsoft.graph.inferenceClassification":
-                    return new InferenceClassification();
+                    return deserializeIntoInferenceClassification;
                 case "#microsoft.graph.inferenceClassificationOverride":
-                    return new InferenceClassificationOverride();
+                    return deserializeIntoInferenceClassificationOverride;
                 case "#microsoft.graph.internalDomainFederation":
-                    return new InternalDomainFederation();
+                    return deserializeIntoInternalDomainFederation;
                 case "#microsoft.graph.internetExplorerMode":
-                    return new InternetExplorerMode();
+                    return deserializeIntoInternetExplorerMode;
                 case "#microsoft.graph.invitation":
-                    return new Invitation();
+                    return deserializeIntoInvitation;
                 case "#microsoft.graph.inviteParticipantsOperation":
-                    return new InviteParticipantsOperation();
+                    return deserializeIntoInviteParticipantsOperation;
                 case "#microsoft.graph.iosCertificateProfile":
-                    return new IosCertificateProfile();
+                    return deserializeIntoIosCertificateProfile;
                 case "#microsoft.graph.iosCompliancePolicy":
-                    return new IosCompliancePolicy();
+                    return deserializeIntoIosCompliancePolicy;
                 case "#microsoft.graph.iosCustomConfiguration":
-                    return new IosCustomConfiguration();
+                    return deserializeIntoIosCustomConfiguration;
                 case "#microsoft.graph.iosDeviceFeaturesConfiguration":
-                    return new IosDeviceFeaturesConfiguration();
+                    return deserializeIntoIosDeviceFeaturesConfiguration;
                 case "#microsoft.graph.iosGeneralDeviceConfiguration":
-                    return new IosGeneralDeviceConfiguration();
+                    return deserializeIntoIosGeneralDeviceConfiguration;
                 case "#microsoft.graph.iosiPadOSWebClip":
-                    return new IosiPadOSWebClip();
+                    return deserializeIntoIosiPadOSWebClip;
                 case "#microsoft.graph.iosLobApp":
-                    return new IosLobApp();
+                    return deserializeIntoIosLobApp;
                 case "#microsoft.graph.iosLobAppProvisioningConfigurationAssignment":
-                    return new IosLobAppProvisioningConfigurationAssignment();
+                    return deserializeIntoIosLobAppProvisioningConfigurationAssignment;
                 case "#microsoft.graph.iosManagedAppProtection":
-                    return new IosManagedAppProtection();
+                    return deserializeIntoIosManagedAppProtection;
                 case "#microsoft.graph.iosManagedAppRegistration":
-                    return new IosManagedAppRegistration();
+                    return deserializeIntoIosManagedAppRegistration;
                 case "#microsoft.graph.iosMobileAppConfiguration":
-                    return new IosMobileAppConfiguration();
+                    return deserializeIntoIosMobileAppConfiguration;
                 case "#microsoft.graph.iosStoreApp":
-                    return new IosStoreApp();
+                    return deserializeIntoIosStoreApp;
                 case "#microsoft.graph.iosUpdateConfiguration":
-                    return new IosUpdateConfiguration();
+                    return deserializeIntoIosUpdateConfiguration;
                 case "#microsoft.graph.iosUpdateDeviceStatus":
-                    return new IosUpdateDeviceStatus();
+                    return deserializeIntoIosUpdateDeviceStatus;
                 case "#microsoft.graph.iosVppApp":
-                    return new IosVppApp();
+                    return deserializeIntoIosVppApp;
                 case "#microsoft.graph.iosVppEBook":
-                    return new IosVppEBook();
+                    return deserializeIntoIosVppEBook;
                 case "#microsoft.graph.iosVppEBookAssignment":
-                    return new IosVppEBookAssignment();
+                    return deserializeIntoIosVppEBookAssignment;
                 case "#microsoft.graph.ipNamedLocation":
-                    return new IpNamedLocation();
+                    return deserializeIntoIpNamedLocation;
                 case "#microsoft.graph.itemActivity":
-                    return new ItemActivity();
+                    return deserializeIntoItemActivity;
                 case "#microsoft.graph.itemActivityStat":
-                    return new ItemActivityStat();
+                    return deserializeIntoItemActivityStat;
                 case "#microsoft.graph.itemAnalytics":
-                    return new ItemAnalytics();
+                    return deserializeIntoItemAnalytics;
                 case "#microsoft.graph.itemAttachment":
-                    return new ItemAttachment();
+                    return deserializeIntoItemAttachment;
                 case "#microsoft.graph.learningContent":
-                    return new LearningContent();
+                    return deserializeIntoLearningContent;
                 case "#microsoft.graph.learningProvider":
-                    return new LearningProvider();
+                    return deserializeIntoLearningProvider;
                 case "#microsoft.graph.licenseDetails":
-                    return new LicenseDetails();
+                    return deserializeIntoLicenseDetails;
                 case "#microsoft.graph.linkedResource":
-                    return new LinkedResource();
+                    return deserializeIntoLinkedResource;
                 case "#microsoft.graph.list":
-                    return new List();
+                    return deserializeIntoList;
                 case "#microsoft.graph.listItem":
-                    return new ListItem();
+                    return deserializeIntoListItem;
                 case "#microsoft.graph.listItemVersion":
-                    return new ListItemVersion();
+                    return deserializeIntoListItemVersion;
                 case "#microsoft.graph.localizedNotificationMessage":
-                    return new LocalizedNotificationMessage();
+                    return deserializeIntoLocalizedNotificationMessage;
                 case "#microsoft.graph.longRunningOperation":
-                    return new LongRunningOperation();
+                    return deserializeIntoLongRunningOperation;
                 case "#microsoft.graph.macOSCompliancePolicy":
-                    return new MacOSCompliancePolicy();
+                    return deserializeIntoMacOSCompliancePolicy;
                 case "#microsoft.graph.macOSCustomConfiguration":
-                    return new MacOSCustomConfiguration();
+                    return deserializeIntoMacOSCustomConfiguration;
                 case "#microsoft.graph.macOSDeviceFeaturesConfiguration":
-                    return new MacOSDeviceFeaturesConfiguration();
+                    return deserializeIntoMacOSDeviceFeaturesConfiguration;
                 case "#microsoft.graph.macOSGeneralDeviceConfiguration":
-                    return new MacOSGeneralDeviceConfiguration();
+                    return deserializeIntoMacOSGeneralDeviceConfiguration;
                 case "#microsoft.graph.macOSLobApp":
-                    return new MacOSLobApp();
+                    return deserializeIntoMacOSLobApp;
                 case "#microsoft.graph.macOSMicrosoftEdgeApp":
-                    return new MacOSMicrosoftEdgeApp();
+                    return deserializeIntoMacOSMicrosoftEdgeApp;
                 case "#microsoft.graph.macOSOfficeSuiteApp":
-                    return new MacOSOfficeSuiteApp();
+                    return deserializeIntoMacOSOfficeSuiteApp;
                 case "#microsoft.graph.mailAssessmentRequest":
-                    return new MailAssessmentRequest();
+                    return deserializeIntoMailAssessmentRequest;
                 case "#microsoft.graph.mailFolder":
-                    return new MailFolder();
+                    return deserializeIntoMailFolder;
                 case "#microsoft.graph.mailSearchFolder":
-                    return new MailSearchFolder();
+                    return deserializeIntoMailSearchFolder;
                 case "#microsoft.graph.managedAndroidLobApp":
-                    return new ManagedAndroidLobApp();
+                    return deserializeIntoManagedAndroidLobApp;
                 case "#microsoft.graph.managedAndroidStoreApp":
-                    return new ManagedAndroidStoreApp();
+                    return deserializeIntoManagedAndroidStoreApp;
                 case "#microsoft.graph.managedApp":
-                    return new ManagedApp();
+                    return deserializeIntoManagedApp;
                 case "#microsoft.graph.managedAppConfiguration":
-                    return new ManagedAppConfiguration();
+                    return deserializeIntoManagedAppConfiguration;
                 case "#microsoft.graph.managedAppOperation":
-                    return new ManagedAppOperation();
+                    return deserializeIntoManagedAppOperation;
                 case "#microsoft.graph.managedAppPolicy":
-                    return new ManagedAppPolicy();
+                    return deserializeIntoManagedAppPolicy;
                 case "#microsoft.graph.managedAppPolicyDeploymentSummary":
-                    return new ManagedAppPolicyDeploymentSummary();
+                    return deserializeIntoManagedAppPolicyDeploymentSummary;
                 case "#microsoft.graph.managedAppProtection":
-                    return new ManagedAppProtection();
+                    return deserializeIntoManagedAppProtection;
                 case "#microsoft.graph.managedAppRegistration":
-                    return new ManagedAppRegistration();
+                    return deserializeIntoManagedAppRegistration;
                 case "#microsoft.graph.managedAppStatus":
-                    return new ManagedAppStatus();
+                    return deserializeIntoManagedAppStatus;
                 case "#microsoft.graph.managedAppStatusRaw":
-                    return new ManagedAppStatusRaw();
+                    return deserializeIntoManagedAppStatusRaw;
                 case "#microsoft.graph.managedDevice":
-                    return new ManagedDevice();
+                    return deserializeIntoManagedDevice;
                 case "#microsoft.graph.managedDeviceMobileAppConfiguration":
-                    return new ManagedDeviceMobileAppConfiguration();
+                    return deserializeIntoManagedDeviceMobileAppConfiguration;
                 case "#microsoft.graph.managedDeviceMobileAppConfigurationAssignment":
-                    return new ManagedDeviceMobileAppConfigurationAssignment();
+                    return deserializeIntoManagedDeviceMobileAppConfigurationAssignment;
                 case "#microsoft.graph.managedDeviceMobileAppConfigurationDeviceStatus":
-                    return new ManagedDeviceMobileAppConfigurationDeviceStatus();
+                    return deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus;
                 case "#microsoft.graph.managedDeviceMobileAppConfigurationDeviceSummary":
-                    return new ManagedDeviceMobileAppConfigurationDeviceSummary();
+                    return deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary;
                 case "#microsoft.graph.managedDeviceMobileAppConfigurationUserStatus":
-                    return new ManagedDeviceMobileAppConfigurationUserStatus();
+                    return deserializeIntoManagedDeviceMobileAppConfigurationUserStatus;
                 case "#microsoft.graph.managedDeviceMobileAppConfigurationUserSummary":
-                    return new ManagedDeviceMobileAppConfigurationUserSummary();
+                    return deserializeIntoManagedDeviceMobileAppConfigurationUserSummary;
                 case "#microsoft.graph.managedDeviceOverview":
-                    return new ManagedDeviceOverview();
+                    return deserializeIntoManagedDeviceOverview;
                 case "#microsoft.graph.managedEBook":
-                    return new ManagedEBook();
+                    return deserializeIntoManagedEBook;
                 case "#microsoft.graph.managedEBookAssignment":
-                    return new ManagedEBookAssignment();
+                    return deserializeIntoManagedEBookAssignment;
                 case "#microsoft.graph.managedIOSLobApp":
-                    return new ManagedIOSLobApp();
+                    return deserializeIntoManagedIOSLobApp;
                 case "#microsoft.graph.managedIOSStoreApp":
-                    return new ManagedIOSStoreApp();
+                    return deserializeIntoManagedIOSStoreApp;
                 case "#microsoft.graph.managedMobileApp":
-                    return new ManagedMobileApp();
+                    return deserializeIntoManagedMobileApp;
                 case "#microsoft.graph.managedMobileLobApp":
-                    return new ManagedMobileLobApp();
+                    return deserializeIntoManagedMobileLobApp;
                 case "#microsoft.graph.mdmWindowsInformationProtectionPolicy":
-                    return new MdmWindowsInformationProtectionPolicy();
+                    return deserializeIntoMdmWindowsInformationProtectionPolicy;
                 case "#microsoft.graph.meetingAttendanceReport":
-                    return new MeetingAttendanceReport();
+                    return deserializeIntoMeetingAttendanceReport;
                 case "#microsoft.graph.message":
-                    return new Message();
+                    return deserializeIntoMessage;
                 case "#microsoft.graph.messageRule":
-                    return new MessageRule();
+                    return deserializeIntoMessageRule;
                 case "#microsoft.graph.microsoftAccountUserConversationMember":
-                    return new MicrosoftAccountUserConversationMember();
+                    return deserializeIntoMicrosoftAccountUserConversationMember;
                 case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethod":
-                    return new MicrosoftAuthenticatorAuthenticationMethod();
+                    return deserializeIntoMicrosoftAuthenticatorAuthenticationMethod;
                 case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration":
-                    return new MicrosoftAuthenticatorAuthenticationMethodConfiguration();
+                    return deserializeIntoMicrosoftAuthenticatorAuthenticationMethodConfiguration;
                 case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget":
-                    return new MicrosoftAuthenticatorAuthenticationMethodTarget();
+                    return deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget;
                 case "#microsoft.graph.microsoftStoreForBusinessApp":
-                    return new MicrosoftStoreForBusinessApp();
+                    return deserializeIntoMicrosoftStoreForBusinessApp;
                 case "#microsoft.graph.mobileApp":
-                    return new MobileApp();
+                    return deserializeIntoMobileApp;
                 case "#microsoft.graph.mobileAppAssignment":
-                    return new MobileAppAssignment();
+                    return deserializeIntoMobileAppAssignment;
                 case "#microsoft.graph.mobileAppCategory":
-                    return new MobileAppCategory();
+                    return deserializeIntoMobileAppCategory;
                 case "#microsoft.graph.mobileAppContent":
-                    return new MobileAppContent();
+                    return deserializeIntoMobileAppContent;
                 case "#microsoft.graph.mobileAppContentFile":
-                    return new MobileAppContentFile();
+                    return deserializeIntoMobileAppContentFile;
                 case "#microsoft.graph.mobileContainedApp":
-                    return new MobileContainedApp();
+                    return deserializeIntoMobileContainedApp;
                 case "#microsoft.graph.mobileLobApp":
-                    return new MobileLobApp();
+                    return deserializeIntoMobileLobApp;
                 case "#microsoft.graph.mobileThreatDefenseConnector":
-                    return new MobileThreatDefenseConnector();
+                    return deserializeIntoMobileThreatDefenseConnector;
                 case "#microsoft.graph.multiValueLegacyExtendedProperty":
-                    return new MultiValueLegacyExtendedProperty();
+                    return deserializeIntoMultiValueLegacyExtendedProperty;
                 case "#microsoft.graph.muteParticipantOperation":
-                    return new MuteParticipantOperation();
+                    return deserializeIntoMuteParticipantOperation;
                 case "#microsoft.graph.namedLocation":
-                    return new NamedLocation();
+                    return deserializeIntoNamedLocation;
                 case "#microsoft.graph.notebook":
-                    return new Notebook();
+                    return deserializeIntoNotebook;
                 case "#microsoft.graph.notificationMessageTemplate":
-                    return new NotificationMessageTemplate();
+                    return deserializeIntoNotificationMessageTemplate;
                 case "#microsoft.graph.oAuth2PermissionGrant":
-                    return new OAuth2PermissionGrant();
+                    return deserializeIntoOAuth2PermissionGrant;
                 case "#microsoft.graph.offerShiftRequest":
-                    return new OfferShiftRequest();
+                    return deserializeIntoOfferShiftRequest;
                 case "#microsoft.graph.officeGraphInsights":
-                    return new OfficeGraphInsights();
+                    return deserializeIntoOfficeGraphInsights;
                 case "#microsoft.graph.onenote":
-                    return new Onenote();
+                    return deserializeIntoOnenote;
                 case "#microsoft.graph.onenoteEntityBaseModel":
-                    return new OnenoteEntityBaseModel();
+                    return deserializeIntoOnenoteEntityBaseModel;
                 case "#microsoft.graph.onenoteEntityHierarchyModel":
-                    return new OnenoteEntityHierarchyModel();
+                    return deserializeIntoOnenoteEntityHierarchyModel;
                 case "#microsoft.graph.onenoteEntitySchemaObjectModel":
-                    return new OnenoteEntitySchemaObjectModel();
+                    return deserializeIntoOnenoteEntitySchemaObjectModel;
                 case "#microsoft.graph.onenoteOperation":
-                    return new OnenoteOperation();
+                    return deserializeIntoOnenoteOperation;
                 case "#microsoft.graph.onenotePage":
-                    return new OnenotePage();
+                    return deserializeIntoOnenotePage;
                 case "#microsoft.graph.onenoteResource":
-                    return new OnenoteResource();
+                    return deserializeIntoOnenoteResource;
                 case "#microsoft.graph.onenoteSection":
-                    return new OnenoteSection();
+                    return deserializeIntoOnenoteSection;
                 case "#microsoft.graph.onlineMeeting":
-                    return new OnlineMeeting();
+                    return deserializeIntoOnlineMeeting;
                 case "#microsoft.graph.onPremisesConditionalAccessSettings":
-                    return new OnPremisesConditionalAccessSettings();
+                    return deserializeIntoOnPremisesConditionalAccessSettings;
                 case "#microsoft.graph.onPremisesDirectorySynchronization":
-                    return new OnPremisesDirectorySynchronization();
+                    return deserializeIntoOnPremisesDirectorySynchronization;
                 case "#microsoft.graph.openShift":
-                    return new OpenShift();
+                    return deserializeIntoOpenShift;
                 case "#microsoft.graph.openShiftChangeRequest":
-                    return new OpenShiftChangeRequest();
+                    return deserializeIntoOpenShiftChangeRequest;
                 case "#microsoft.graph.openTypeExtension":
-                    return new OpenTypeExtension();
+                    return deserializeIntoOpenTypeExtension;
                 case "#microsoft.graph.operation":
-                    return new Operation();
+                    return deserializeIntoOperation;
                 case "#microsoft.graph.organization":
-                    return new Organization();
+                    return deserializeIntoOrganization;
                 case "#microsoft.graph.organizationalBranding":
-                    return new OrganizationalBranding();
+                    return deserializeIntoOrganizationalBranding;
                 case "#microsoft.graph.organizationalBrandingLocalization":
-                    return new OrganizationalBrandingLocalization();
+                    return deserializeIntoOrganizationalBrandingLocalization;
                 case "#microsoft.graph.organizationalBrandingProperties":
-                    return new OrganizationalBrandingProperties();
+                    return deserializeIntoOrganizationalBrandingProperties;
                 case "#microsoft.graph.orgContact":
-                    return new OrgContact();
+                    return deserializeIntoOrgContact;
                 case "#microsoft.graph.outlookCategory":
-                    return new OutlookCategory();
+                    return deserializeIntoOutlookCategory;
                 case "#microsoft.graph.outlookItem":
-                    return new OutlookItem();
+                    return deserializeIntoOutlookItem;
                 case "#microsoft.graph.outlookUser":
-                    return new OutlookUser();
+                    return deserializeIntoOutlookUser;
                 case "#microsoft.graph.participant":
-                    return new Participant();
+                    return deserializeIntoParticipant;
                 case "#microsoft.graph.participantJoiningNotification":
-                    return new ParticipantJoiningNotification();
+                    return deserializeIntoParticipantJoiningNotification;
                 case "#microsoft.graph.participantLeftNotification":
-                    return new ParticipantLeftNotification();
+                    return deserializeIntoParticipantLeftNotification;
                 case "#microsoft.graph.passwordAuthenticationMethod":
-                    return new PasswordAuthenticationMethod();
+                    return deserializeIntoPasswordAuthenticationMethod;
                 case "#microsoft.graph.permission":
-                    return new Permission();
+                    return deserializeIntoPermission;
                 case "#microsoft.graph.permissionGrantConditionSet":
-                    return new PermissionGrantConditionSet();
+                    return deserializeIntoPermissionGrantConditionSet;
                 case "#microsoft.graph.permissionGrantPolicy":
-                    return new PermissionGrantPolicy();
+                    return deserializeIntoPermissionGrantPolicy;
                 case "#microsoft.graph.person":
-                    return new Person();
+                    return deserializeIntoPerson;
                 case "#microsoft.graph.phoneAuthenticationMethod":
-                    return new PhoneAuthenticationMethod();
+                    return deserializeIntoPhoneAuthenticationMethod;
                 case "#microsoft.graph.pinnedChatMessageInfo":
-                    return new PinnedChatMessageInfo();
+                    return deserializeIntoPinnedChatMessageInfo;
                 case "#microsoft.graph.place":
-                    return new Place();
+                    return deserializeIntoPlace;
                 case "#microsoft.graph.planner":
-                    return new Planner();
+                    return deserializeIntoPlanner;
                 case "#microsoft.graph.plannerAssignedToTaskBoardTaskFormat":
-                    return new PlannerAssignedToTaskBoardTaskFormat();
+                    return deserializeIntoPlannerAssignedToTaskBoardTaskFormat;
                 case "#microsoft.graph.plannerBucket":
-                    return new PlannerBucket();
+                    return deserializeIntoPlannerBucket;
                 case "#microsoft.graph.plannerBucketTaskBoardTaskFormat":
-                    return new PlannerBucketTaskBoardTaskFormat();
+                    return deserializeIntoPlannerBucketTaskBoardTaskFormat;
                 case "#microsoft.graph.plannerGroup":
-                    return new PlannerGroup();
+                    return deserializeIntoPlannerGroup;
                 case "#microsoft.graph.plannerPlan":
-                    return new PlannerPlan();
+                    return deserializeIntoPlannerPlan;
                 case "#microsoft.graph.plannerPlanDetails":
-                    return new PlannerPlanDetails();
+                    return deserializeIntoPlannerPlanDetails;
                 case "#microsoft.graph.plannerProgressTaskBoardTaskFormat":
-                    return new PlannerProgressTaskBoardTaskFormat();
+                    return deserializeIntoPlannerProgressTaskBoardTaskFormat;
                 case "#microsoft.graph.plannerTask":
-                    return new PlannerTask();
+                    return deserializeIntoPlannerTask;
                 case "#microsoft.graph.plannerTaskDetails":
-                    return new PlannerTaskDetails();
+                    return deserializeIntoPlannerTaskDetails;
                 case "#microsoft.graph.plannerUser":
-                    return new PlannerUser();
+                    return deserializeIntoPlannerUser;
                 case "#microsoft.graph.playPromptOperation":
-                    return new PlayPromptOperation();
+                    return deserializeIntoPlayPromptOperation;
                 case "#microsoft.graph.policyBase":
-                    return new PolicyBase();
+                    return deserializeIntoPolicyBase;
                 case "#microsoft.graph.policyRoot":
-                    return new PolicyRoot();
+                    return deserializeIntoPolicyRoot;
                 case "#microsoft.graph.post":
-                    return new Post();
+                    return deserializeIntoPost;
                 case "#microsoft.graph.presence":
-                    return new Presence();
+                    return deserializeIntoPresence;
                 case "#microsoft.graph.printConnector":
-                    return new PrintConnector();
+                    return deserializeIntoPrintConnector;
                 case "#microsoft.graph.printDocument":
-                    return new PrintDocument();
+                    return deserializeIntoPrintDocument;
                 case "#microsoft.graph.printer":
-                    return new Printer();
+                    return deserializeIntoPrinter;
                 case "#microsoft.graph.printerBase":
-                    return new PrinterBase();
+                    return deserializeIntoPrinterBase;
                 case "#microsoft.graph.printerCreateOperation":
-                    return new PrinterCreateOperation();
+                    return deserializeIntoPrinterCreateOperation;
                 case "#microsoft.graph.printerShare":
-                    return new PrinterShare();
+                    return deserializeIntoPrinterShare;
                 case "#microsoft.graph.printJob":
-                    return new PrintJob();
+                    return deserializeIntoPrintJob;
                 case "#microsoft.graph.printOperation":
-                    return new PrintOperation();
+                    return deserializeIntoPrintOperation;
                 case "#microsoft.graph.printService":
-                    return new PrintService();
+                    return deserializeIntoPrintService;
                 case "#microsoft.graph.printServiceEndpoint":
-                    return new PrintServiceEndpoint();
+                    return deserializeIntoPrintServiceEndpoint;
                 case "#microsoft.graph.printTask":
-                    return new PrintTask();
+                    return deserializeIntoPrintTask;
                 case "#microsoft.graph.printTaskDefinition":
-                    return new PrintTaskDefinition();
+                    return deserializeIntoPrintTaskDefinition;
                 case "#microsoft.graph.printTaskTrigger":
-                    return new PrintTaskTrigger();
+                    return deserializeIntoPrintTaskTrigger;
                 case "#microsoft.graph.printUsage":
-                    return new PrintUsage();
+                    return deserializeIntoPrintUsage;
                 case "#microsoft.graph.printUsageByPrinter":
-                    return new PrintUsageByPrinter();
+                    return deserializeIntoPrintUsageByPrinter;
                 case "#microsoft.graph.printUsageByUser":
-                    return new PrintUsageByUser();
+                    return deserializeIntoPrintUsageByUser;
                 case "#microsoft.graph.profilePhoto":
-                    return new ProfilePhoto();
+                    return deserializeIntoProfilePhoto;
                 case "#microsoft.graph.provisioningObjectSummary":
-                    return new ProvisioningObjectSummary();
+                    return deserializeIntoProvisioningObjectSummary;
                 case "#microsoft.graph.rbacApplication":
-                    return new RbacApplication();
+                    return deserializeIntoRbacApplication;
                 case "#microsoft.graph.recordOperation":
-                    return new RecordOperation();
+                    return deserializeIntoRecordOperation;
                 case "#microsoft.graph.referenceAttachment":
-                    return new ReferenceAttachment();
+                    return deserializeIntoReferenceAttachment;
                 case "#microsoft.graph.remoteAssistancePartner":
-                    return new RemoteAssistancePartner();
+                    return deserializeIntoRemoteAssistancePartner;
                 case "#microsoft.graph.request":
-                    return new Request();
+                    return deserializeIntoRequest;
                 case "#microsoft.graph.resourceOperation":
-                    return new ResourceOperation();
+                    return deserializeIntoResourceOperation;
                 case "#microsoft.graph.resourceSpecificPermissionGrant":
-                    return new ResourceSpecificPermissionGrant();
+                    return deserializeIntoResourceSpecificPermissionGrant;
                 case "#microsoft.graph.richLongRunningOperation":
-                    return new RichLongRunningOperation();
+                    return deserializeIntoRichLongRunningOperation;
                 case "#microsoft.graph.riskDetection":
-                    return new RiskDetection();
+                    return deserializeIntoRiskDetection;
                 case "#microsoft.graph.riskyServicePrincipal":
-                    return new RiskyServicePrincipal();
+                    return deserializeIntoRiskyServicePrincipal;
                 case "#microsoft.graph.riskyServicePrincipalHistoryItem":
-                    return new RiskyServicePrincipalHistoryItem();
+                    return deserializeIntoRiskyServicePrincipalHistoryItem;
                 case "#microsoft.graph.riskyUser":
-                    return new RiskyUser();
+                    return deserializeIntoRiskyUser;
                 case "#microsoft.graph.riskyUserHistoryItem":
-                    return new RiskyUserHistoryItem();
+                    return deserializeIntoRiskyUserHistoryItem;
                 case "#microsoft.graph.roleAssignment":
-                    return new RoleAssignment();
+                    return deserializeIntoRoleAssignment;
                 case "#microsoft.graph.roleDefinition":
-                    return new RoleDefinition();
+                    return deserializeIntoRoleDefinition;
                 case "#microsoft.graph.room":
-                    return new Room();
+                    return deserializeIntoRoom;
                 case "#microsoft.graph.roomList":
-                    return new RoomList();
+                    return deserializeIntoRoomList;
                 case "#microsoft.graph.samlOrWsFedExternalDomainFederation":
-                    return new SamlOrWsFedExternalDomainFederation();
+                    return deserializeIntoSamlOrWsFedExternalDomainFederation;
                 case "#microsoft.graph.samlOrWsFedProvider":
-                    return new SamlOrWsFedProvider();
+                    return deserializeIntoSamlOrWsFedProvider;
                 case "#microsoft.graph.schedule":
-                    return new Schedule();
+                    return deserializeIntoSchedule;
                 case "#microsoft.graph.scheduleChangeRequest":
-                    return new ScheduleChangeRequest();
+                    return deserializeIntoScheduleChangeRequest;
                 case "#microsoft.graph.schedulingGroup":
-                    return new SchedulingGroup();
+                    return deserializeIntoSchedulingGroup;
                 case "#microsoft.graph.schemaExtension":
-                    return new SchemaExtension();
+                    return deserializeIntoSchemaExtension;
                 case "#microsoft.graph.scopedRoleMembership":
-                    return new ScopedRoleMembership();
+                    return deserializeIntoScopedRoleMembership;
                 case "#microsoft.graph.searchEntity":
-                    return new SearchEntity();
+                    return deserializeIntoSearchEntity;
                 case "#microsoft.graph.sectionGroup":
-                    return new SectionGroup();
+                    return deserializeIntoSectionGroup;
                 case "#microsoft.graph.secureScore":
-                    return new SecureScore();
+                    return deserializeIntoSecureScore;
                 case "#microsoft.graph.secureScoreControlProfile":
-                    return new SecureScoreControlProfile();
+                    return deserializeIntoSecureScoreControlProfile;
                 case "#microsoft.graph.security":
-                    return new Security();
+                    return deserializeIntoSecurity;
                 case "#microsoft.graph.security.alert":
-                    return new I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8();
+                    return I31715a026b1ced0f6a88616d35905e458c4d7672e4ac2cfaebeef17eefa762ea;
                 case "#microsoft.graph.security.case":
-                    return new CaseEscaped();
+                    return deserializeIntoCaseEscaped;
                 case "#microsoft.graph.security.caseOperation":
-                    return new CaseOperation();
+                    return deserializeIntoCaseOperation;
                 case "#microsoft.graph.security.casesRoot":
-                    return new CasesRoot();
+                    return deserializeIntoCasesRoot;
                 case "#microsoft.graph.security.dataSet":
-                    return new DataSet();
+                    return deserializeIntoDataSet;
                 case "#microsoft.graph.security.dataSource":
-                    return new DataSource();
+                    return deserializeIntoDataSource;
                 case "#microsoft.graph.security.dataSourceContainer":
-                    return new DataSourceContainer();
+                    return deserializeIntoDataSourceContainer;
                 case "#microsoft.graph.security.ediscoveryAddToReviewSetOperation":
-                    return new EdiscoveryAddToReviewSetOperation();
+                    return deserializeIntoEdiscoveryAddToReviewSetOperation;
                 case "#microsoft.graph.security.ediscoveryCase":
-                    return new EdiscoveryCase();
+                    return deserializeIntoEdiscoveryCase;
                 case "#microsoft.graph.security.ediscoveryCaseSettings":
-                    return new EdiscoveryCaseSettings();
+                    return deserializeIntoEdiscoveryCaseSettings;
                 case "#microsoft.graph.security.ediscoveryCustodian":
-                    return new EdiscoveryCustodian();
+                    return deserializeIntoEdiscoveryCustodian;
                 case "#microsoft.graph.security.ediscoveryEstimateOperation":
-                    return new EdiscoveryEstimateOperation();
+                    return deserializeIntoEdiscoveryEstimateOperation;
                 case "#microsoft.graph.security.ediscoveryHoldOperation":
-                    return new EdiscoveryHoldOperation();
+                    return deserializeIntoEdiscoveryHoldOperation;
                 case "#microsoft.graph.security.ediscoveryIndexOperation":
-                    return new EdiscoveryIndexOperation();
+                    return deserializeIntoEdiscoveryIndexOperation;
                 case "#microsoft.graph.security.ediscoveryNoncustodialDataSource":
-                    return new EdiscoveryNoncustodialDataSource();
+                    return deserializeIntoEdiscoveryNoncustodialDataSource;
                 case "#microsoft.graph.security.ediscoveryPurgeDataOperation":
-                    return new EdiscoveryPurgeDataOperation();
+                    return deserializeIntoEdiscoveryPurgeDataOperation;
                 case "#microsoft.graph.security.ediscoveryReviewSet":
-                    return new EdiscoveryReviewSet();
+                    return deserializeIntoEdiscoveryReviewSet;
                 case "#microsoft.graph.security.ediscoveryReviewSetQuery":
-                    return new EdiscoveryReviewSetQuery();
+                    return deserializeIntoEdiscoveryReviewSetQuery;
                 case "#microsoft.graph.security.ediscoveryReviewTag":
-                    return new EdiscoveryReviewTag();
+                    return deserializeIntoEdiscoveryReviewTag;
                 case "#microsoft.graph.security.ediscoverySearch":
-                    return new EdiscoverySearch();
+                    return deserializeIntoEdiscoverySearch;
                 case "#microsoft.graph.security.ediscoveryTagOperation":
-                    return new EdiscoveryTagOperation();
+                    return deserializeIntoEdiscoveryTagOperation;
                 case "#microsoft.graph.security.incident":
-                    return new Incident();
+                    return deserializeIntoIncident;
                 case "#microsoft.graph.security.retentionEvent":
-                    return new RetentionEvent();
+                    return deserializeIntoRetentionEvent;
                 case "#microsoft.graph.security.retentionEventType":
-                    return new RetentionEventType();
+                    return deserializeIntoRetentionEventType;
                 case "#microsoft.graph.security.search":
-                    return new Search();
+                    return deserializeIntoSearch;
                 case "#microsoft.graph.security.siteSource":
-                    return new SiteSource();
+                    return deserializeIntoSiteSource;
                 case "#microsoft.graph.security.tag":
-                    return new Tag();
+                    return deserializeIntoTag;
                 case "#microsoft.graph.security.triggersRoot":
-                    return new TriggersRoot();
+                    return deserializeIntoTriggersRoot;
                 case "#microsoft.graph.security.triggerTypesRoot":
-                    return new TriggerTypesRoot();
+                    return deserializeIntoTriggerTypesRoot;
                 case "#microsoft.graph.security.unifiedGroupSource":
-                    return new UnifiedGroupSource();
+                    return deserializeIntoUnifiedGroupSource;
                 case "#microsoft.graph.security.userSource":
-                    return new UserSource();
+                    return deserializeIntoUserSource;
                 case "#microsoft.graph.securityReportsRoot":
-                    return new SecurityReportsRoot();
+                    return deserializeIntoSecurityReportsRoot;
                 case "#microsoft.graph.serviceAnnouncement":
-                    return new ServiceAnnouncement();
+                    return deserializeIntoServiceAnnouncement;
                 case "#microsoft.graph.serviceAnnouncementAttachment":
-                    return new ServiceAnnouncementAttachment();
+                    return deserializeIntoServiceAnnouncementAttachment;
                 case "#microsoft.graph.serviceAnnouncementBase":
-                    return new ServiceAnnouncementBase();
+                    return deserializeIntoServiceAnnouncementBase;
                 case "#microsoft.graph.serviceHealth":
-                    return new ServiceHealth();
+                    return deserializeIntoServiceHealth;
                 case "#microsoft.graph.serviceHealthIssue":
-                    return new ServiceHealthIssue();
+                    return deserializeIntoServiceHealthIssue;
                 case "#microsoft.graph.servicePrincipal":
-                    return new ServicePrincipal();
+                    return deserializeIntoServicePrincipal;
                 case "#microsoft.graph.servicePrincipalRiskDetection":
-                    return new ServicePrincipalRiskDetection();
+                    return deserializeIntoServicePrincipalRiskDetection;
                 case "#microsoft.graph.serviceUpdateMessage":
-                    return new ServiceUpdateMessage();
+                    return deserializeIntoServiceUpdateMessage;
                 case "#microsoft.graph.settingStateDeviceSummary":
-                    return new SettingStateDeviceSummary();
+                    return deserializeIntoSettingStateDeviceSummary;
                 case "#microsoft.graph.sharedDriveItem":
-                    return new SharedDriveItem();
+                    return deserializeIntoSharedDriveItem;
                 case "#microsoft.graph.sharedInsight":
-                    return new SharedInsight();
+                    return deserializeIntoSharedInsight;
                 case "#microsoft.graph.sharedPCConfiguration":
-                    return new SharedPCConfiguration();
+                    return deserializeIntoSharedPCConfiguration;
                 case "#microsoft.graph.sharedWithChannelTeamInfo":
-                    return new SharedWithChannelTeamInfo();
+                    return deserializeIntoSharedWithChannelTeamInfo;
+                case "#microsoft.graph.sharepoint":
+                    return deserializeIntoSharepoint;
+                case "#microsoft.graph.sharepointSettings":
+                    return deserializeIntoSharepointSettings;
                 case "#microsoft.graph.shift":
-                    return new Shift();
+                    return deserializeIntoShift;
                 case "#microsoft.graph.shiftPreferences":
-                    return new ShiftPreferences();
+                    return deserializeIntoShiftPreferences;
                 case "#microsoft.graph.signIn":
-                    return new SignIn();
+                    return deserializeIntoSignIn;
                 case "#microsoft.graph.simulation":
-                    return new Simulation();
+                    return deserializeIntoSimulation;
                 case "#microsoft.graph.simulationAutomation":
-                    return new SimulationAutomation();
+                    return deserializeIntoSimulationAutomation;
                 case "#microsoft.graph.simulationAutomationRun":
-                    return new SimulationAutomationRun();
+                    return deserializeIntoSimulationAutomationRun;
                 case "#microsoft.graph.singleValueLegacyExtendedProperty":
-                    return new SingleValueLegacyExtendedProperty();
+                    return deserializeIntoSingleValueLegacyExtendedProperty;
                 case "#microsoft.graph.site":
-                    return new Site();
+                    return deserializeIntoSite;
                 case "#microsoft.graph.skypeForBusinessUserConversationMember":
-                    return new SkypeForBusinessUserConversationMember();
+                    return deserializeIntoSkypeForBusinessUserConversationMember;
                 case "#microsoft.graph.skypeUserConversationMember":
-                    return new SkypeUserConversationMember();
+                    return deserializeIntoSkypeUserConversationMember;
                 case "#microsoft.graph.smsAuthenticationMethodConfiguration":
-                    return new SmsAuthenticationMethodConfiguration();
+                    return deserializeIntoSmsAuthenticationMethodConfiguration;
                 case "#microsoft.graph.smsAuthenticationMethodTarget":
-                    return new SmsAuthenticationMethodTarget();
+                    return deserializeIntoSmsAuthenticationMethodTarget;
                 case "#microsoft.graph.socialIdentityProvider":
-                    return new SocialIdentityProvider();
+                    return deserializeIntoSocialIdentityProvider;
                 case "#microsoft.graph.softwareOathAuthenticationMethod":
-                    return new SoftwareOathAuthenticationMethod();
+                    return deserializeIntoSoftwareOathAuthenticationMethod;
                 case "#microsoft.graph.softwareOathAuthenticationMethodConfiguration":
-                    return new SoftwareOathAuthenticationMethodConfiguration();
+                    return deserializeIntoSoftwareOathAuthenticationMethodConfiguration;
                 case "#microsoft.graph.softwareUpdateStatusSummary":
-                    return new SoftwareUpdateStatusSummary();
+                    return deserializeIntoSoftwareUpdateStatusSummary;
                 case "#microsoft.graph.startHoldMusicOperation":
-                    return new StartHoldMusicOperation();
+                    return deserializeIntoStartHoldMusicOperation;
                 case "#microsoft.graph.stopHoldMusicOperation":
-                    return new StopHoldMusicOperation();
+                    return deserializeIntoStopHoldMusicOperation;
                 case "#microsoft.graph.stsPolicy":
-                    return new StsPolicy();
+                    return deserializeIntoStsPolicy;
                 case "#microsoft.graph.subjectRightsRequest":
-                    return new SubjectRightsRequest();
+                    return deserializeIntoSubjectRightsRequest;
                 case "#microsoft.graph.subscribedSku":
-                    return new SubscribedSku();
+                    return deserializeIntoSubscribedSku;
                 case "#microsoft.graph.subscribeToToneOperation":
-                    return new SubscribeToToneOperation();
+                    return deserializeIntoSubscribeToToneOperation;
                 case "#microsoft.graph.subscription":
-                    return new Subscription();
+                    return deserializeIntoSubscription;
                 case "#microsoft.graph.swapShiftsChangeRequest":
-                    return new SwapShiftsChangeRequest();
+                    return deserializeIntoSwapShiftsChangeRequest;
                 case "#microsoft.graph.targetedManagedAppConfiguration":
-                    return new TargetedManagedAppConfiguration();
+                    return deserializeIntoTargetedManagedAppConfiguration;
                 case "#microsoft.graph.targetedManagedAppPolicyAssignment":
-                    return new TargetedManagedAppPolicyAssignment();
+                    return deserializeIntoTargetedManagedAppPolicyAssignment;
                 case "#microsoft.graph.targetedManagedAppProtection":
-                    return new TargetedManagedAppProtection();
+                    return deserializeIntoTargetedManagedAppProtection;
                 case "#microsoft.graph.taskFileAttachment":
-                    return new TaskFileAttachment();
+                    return deserializeIntoTaskFileAttachment;
                 case "#microsoft.graph.team":
-                    return new Team();
+                    return deserializeIntoTeam;
                 case "#microsoft.graph.teamInfo":
-                    return new TeamInfo();
+                    return deserializeIntoTeamInfo;
                 case "#microsoft.graph.teamsApp":
-                    return new TeamsApp();
+                    return deserializeIntoTeamsApp;
                 case "#microsoft.graph.teamsAppDefinition":
-                    return new TeamsAppDefinition();
+                    return deserializeIntoTeamsAppDefinition;
                 case "#microsoft.graph.teamsAppInstallation":
-                    return new TeamsAppInstallation();
+                    return deserializeIntoTeamsAppInstallation;
                 case "#microsoft.graph.teamsAsyncOperation":
-                    return new TeamsAsyncOperation();
+                    return deserializeIntoTeamsAsyncOperation;
                 case "#microsoft.graph.teamsTab":
-                    return new TeamsTab();
+                    return deserializeIntoTeamsTab;
                 case "#microsoft.graph.teamsTemplate":
-                    return new TeamsTemplate();
+                    return deserializeIntoTeamsTemplate;
                 case "#microsoft.graph.teamwork":
-                    return new Teamwork();
+                    return deserializeIntoTeamwork;
                 case "#microsoft.graph.teamworkBot":
-                    return new TeamworkBot();
+                    return deserializeIntoTeamworkBot;
                 case "#microsoft.graph.teamworkHostedContent":
-                    return new TeamworkHostedContent();
+                    return deserializeIntoTeamworkHostedContent;
                 case "#microsoft.graph.teamworkTag":
-                    return new TeamworkTag();
+                    return deserializeIntoTeamworkTag;
                 case "#microsoft.graph.teamworkTagMember":
-                    return new TeamworkTagMember();
+                    return deserializeIntoTeamworkTagMember;
                 case "#microsoft.graph.telecomExpenseManagementPartner":
-                    return new TelecomExpenseManagementPartner();
+                    return deserializeIntoTelecomExpenseManagementPartner;
                 case "#microsoft.graph.temporaryAccessPassAuthenticationMethod":
-                    return new TemporaryAccessPassAuthenticationMethod();
+                    return deserializeIntoTemporaryAccessPassAuthenticationMethod;
                 case "#microsoft.graph.temporaryAccessPassAuthenticationMethodConfiguration":
-                    return new TemporaryAccessPassAuthenticationMethodConfiguration();
+                    return deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration;
                 case "#microsoft.graph.tenantAppManagementPolicy":
-                    return new TenantAppManagementPolicy();
+                    return deserializeIntoTenantAppManagementPolicy;
                 case "#microsoft.graph.termsAndConditions":
-                    return new TermsAndConditions();
+                    return deserializeIntoTermsAndConditions;
                 case "#microsoft.graph.termsAndConditionsAcceptanceStatus":
-                    return new TermsAndConditionsAcceptanceStatus();
+                    return deserializeIntoTermsAndConditionsAcceptanceStatus;
                 case "#microsoft.graph.termsAndConditionsAssignment":
-                    return new TermsAndConditionsAssignment();
+                    return deserializeIntoTermsAndConditionsAssignment;
                 case "#microsoft.graph.termsOfUseContainer":
-                    return new TermsOfUseContainer();
+                    return deserializeIntoTermsOfUseContainer;
                 case "#microsoft.graph.termStore.group":
-                    return new I4e18a3882f273ff649b31b0adac5448533e694e026e54aa608d86a59539e9206();
+                    return I23e16b52d4b109c19ebd3ab2e05b0d3e8411c17b6a4e64b58a4565adab867a21;
                 case "#microsoft.graph.termStore.relation":
-                    return new Relation();
+                    return deserializeIntoRelation;
                 case "#microsoft.graph.termStore.set":
-                    return new Set();
+                    return deserializeIntoSet;
                 case "#microsoft.graph.termStore.store":
-                    return new Store();
+                    return deserializeIntoStore;
                 case "#microsoft.graph.termStore.term":
-                    return new Term();
+                    return deserializeIntoTerm;
                 case "#microsoft.graph.threatAssessmentRequest":
-                    return new ThreatAssessmentRequest();
+                    return deserializeIntoThreatAssessmentRequest;
                 case "#microsoft.graph.threatAssessmentResult":
-                    return new ThreatAssessmentResult();
+                    return deserializeIntoThreatAssessmentResult;
                 case "#microsoft.graph.thumbnailSet":
-                    return new ThumbnailSet();
+                    return deserializeIntoThumbnailSet;
                 case "#microsoft.graph.timeOff":
-                    return new TimeOff();
+                    return deserializeIntoTimeOff;
                 case "#microsoft.graph.timeOffReason":
-                    return new TimeOffReason();
+                    return deserializeIntoTimeOffReason;
                 case "#microsoft.graph.timeOffRequest":
-                    return new TimeOffRequest();
+                    return deserializeIntoTimeOffRequest;
                 case "#microsoft.graph.todo":
-                    return new Todo();
+                    return deserializeIntoTodo;
                 case "#microsoft.graph.todoTask":
-                    return new TodoTask();
+                    return deserializeIntoTodoTask;
                 case "#microsoft.graph.todoTaskList":
-                    return new TodoTaskList();
+                    return deserializeIntoTodoTaskList;
                 case "#microsoft.graph.tokenIssuancePolicy":
-                    return new TokenIssuancePolicy();
+                    return deserializeIntoTokenIssuancePolicy;
                 case "#microsoft.graph.tokenLifetimePolicy":
-                    return new TokenLifetimePolicy();
+                    return deserializeIntoTokenLifetimePolicy;
                 case "#microsoft.graph.trending":
-                    return new Trending();
+                    return deserializeIntoTrending;
                 case "#microsoft.graph.unifiedRbacResourceAction":
-                    return new UnifiedRbacResourceAction();
+                    return deserializeIntoUnifiedRbacResourceAction;
                 case "#microsoft.graph.unifiedRbacResourceNamespace":
-                    return new UnifiedRbacResourceNamespace();
+                    return deserializeIntoUnifiedRbacResourceNamespace;
                 case "#microsoft.graph.unifiedRoleAssignment":
-                    return new UnifiedRoleAssignment();
+                    return deserializeIntoUnifiedRoleAssignment;
                 case "#microsoft.graph.unifiedRoleAssignmentSchedule":
-                    return new UnifiedRoleAssignmentSchedule();
+                    return deserializeIntoUnifiedRoleAssignmentSchedule;
                 case "#microsoft.graph.unifiedRoleAssignmentScheduleInstance":
-                    return new UnifiedRoleAssignmentScheduleInstance();
+                    return deserializeIntoUnifiedRoleAssignmentScheduleInstance;
                 case "#microsoft.graph.unifiedRoleAssignmentScheduleRequest":
-                    return new UnifiedRoleAssignmentScheduleRequest();
+                    return deserializeIntoUnifiedRoleAssignmentScheduleRequest;
                 case "#microsoft.graph.unifiedRoleDefinition":
-                    return new UnifiedRoleDefinition();
+                    return deserializeIntoUnifiedRoleDefinition;
                 case "#microsoft.graph.unifiedRoleEligibilitySchedule":
-                    return new UnifiedRoleEligibilitySchedule();
+                    return deserializeIntoUnifiedRoleEligibilitySchedule;
                 case "#microsoft.graph.unifiedRoleEligibilityScheduleInstance":
-                    return new UnifiedRoleEligibilityScheduleInstance();
+                    return deserializeIntoUnifiedRoleEligibilityScheduleInstance;
                 case "#microsoft.graph.unifiedRoleEligibilityScheduleRequest":
-                    return new UnifiedRoleEligibilityScheduleRequest();
+                    return deserializeIntoUnifiedRoleEligibilityScheduleRequest;
                 case "#microsoft.graph.unifiedRoleManagementPolicy":
-                    return new UnifiedRoleManagementPolicy();
+                    return deserializeIntoUnifiedRoleManagementPolicy;
                 case "#microsoft.graph.unifiedRoleManagementPolicyApprovalRule":
-                    return new UnifiedRoleManagementPolicyApprovalRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyApprovalRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyAssignment":
-                    return new UnifiedRoleManagementPolicyAssignment();
+                    return deserializeIntoUnifiedRoleManagementPolicyAssignment;
                 case "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule":
-                    return new UnifiedRoleManagementPolicyAuthenticationContextRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule":
-                    return new UnifiedRoleManagementPolicyEnablementRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyEnablementRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule":
-                    return new UnifiedRoleManagementPolicyExpirationRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyExpirationRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyNotificationRule":
-                    return new UnifiedRoleManagementPolicyNotificationRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyNotificationRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyRule":
-                    return new UnifiedRoleManagementPolicyRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyRule;
                 case "#microsoft.graph.unifiedRoleScheduleBase":
-                    return new UnifiedRoleScheduleBase();
+                    return deserializeIntoUnifiedRoleScheduleBase;
                 case "#microsoft.graph.unifiedRoleScheduleInstanceBase":
-                    return new UnifiedRoleScheduleInstanceBase();
+                    return deserializeIntoUnifiedRoleScheduleInstanceBase;
                 case "#microsoft.graph.unmuteParticipantOperation":
-                    return new UnmuteParticipantOperation();
+                    return deserializeIntoUnmuteParticipantOperation;
                 case "#microsoft.graph.updateRecordingStatusOperation":
-                    return new UpdateRecordingStatusOperation();
+                    return deserializeIntoUpdateRecordingStatusOperation;
                 case "#microsoft.graph.urlAssessmentRequest":
-                    return new UrlAssessmentRequest();
+                    return deserializeIntoUrlAssessmentRequest;
                 case "#microsoft.graph.usedInsight":
-                    return new UsedInsight();
+                    return deserializeIntoUsedInsight;
                 case "#microsoft.graph.user":
-                    return new User();
+                    return deserializeIntoUser;
                 case "#microsoft.graph.userActivity":
-                    return new UserActivity();
+                    return deserializeIntoUserActivity;
                 case "#microsoft.graph.userConsentRequest":
-                    return new UserConsentRequest();
+                    return deserializeIntoUserConsentRequest;
                 case "#microsoft.graph.userExperienceAnalyticsDevicePerformance":
-                    return new UserExperienceAnalyticsDevicePerformance();
+                    return deserializeIntoUserExperienceAnalyticsDevicePerformance;
                 case "#microsoft.graph.userFlowLanguageConfiguration":
-                    return new UserFlowLanguageConfiguration();
+                    return deserializeIntoUserFlowLanguageConfiguration;
                 case "#microsoft.graph.userFlowLanguagePage":
-                    return new UserFlowLanguagePage();
+                    return deserializeIntoUserFlowLanguagePage;
                 case "#microsoft.graph.userInstallStateSummary":
-                    return new UserInstallStateSummary();
+                    return deserializeIntoUserInstallStateSummary;
                 case "#microsoft.graph.userScopeTeamsAppInstallation":
-                    return new UserScopeTeamsAppInstallation();
+                    return deserializeIntoUserScopeTeamsAppInstallation;
                 case "#microsoft.graph.userSettings":
-                    return new UserSettings();
+                    return deserializeIntoUserSettings;
                 case "#microsoft.graph.userTeamwork":
-                    return new UserTeamwork();
+                    return deserializeIntoUserTeamwork;
                 case "#microsoft.graph.voiceAuthenticationMethodConfiguration":
-                    return new VoiceAuthenticationMethodConfiguration();
+                    return deserializeIntoVoiceAuthenticationMethodConfiguration;
                 case "#microsoft.graph.vppToken":
-                    return new VppToken();
+                    return deserializeIntoVppToken;
                 case "#microsoft.graph.webApp":
-                    return new WebApp();
+                    return deserializeIntoWebApp;
                 case "#microsoft.graph.win32LobApp":
-                    return new Win32LobApp();
+                    return deserializeIntoWin32LobApp;
                 case "#microsoft.graph.windows10CompliancePolicy":
-                    return new Windows10CompliancePolicy();
+                    return deserializeIntoWindows10CompliancePolicy;
                 case "#microsoft.graph.windows10CustomConfiguration":
-                    return new Windows10CustomConfiguration();
+                    return deserializeIntoWindows10CustomConfiguration;
                 case "#microsoft.graph.windows10EndpointProtectionConfiguration":
-                    return new Windows10EndpointProtectionConfiguration();
+                    return deserializeIntoWindows10EndpointProtectionConfiguration;
                 case "#microsoft.graph.windows10EnterpriseModernAppManagementConfiguration":
-                    return new Windows10EnterpriseModernAppManagementConfiguration();
+                    return deserializeIntoWindows10EnterpriseModernAppManagementConfiguration;
                 case "#microsoft.graph.windows10GeneralConfiguration":
-                    return new Windows10GeneralConfiguration();
+                    return deserializeIntoWindows10GeneralConfiguration;
                 case "#microsoft.graph.windows10MobileCompliancePolicy":
-                    return new Windows10MobileCompliancePolicy();
+                    return deserializeIntoWindows10MobileCompliancePolicy;
                 case "#microsoft.graph.windows10SecureAssessmentConfiguration":
-                    return new Windows10SecureAssessmentConfiguration();
+                    return deserializeIntoWindows10SecureAssessmentConfiguration;
                 case "#microsoft.graph.windows10TeamGeneralConfiguration":
-                    return new Windows10TeamGeneralConfiguration();
+                    return deserializeIntoWindows10TeamGeneralConfiguration;
                 case "#microsoft.graph.windows81CompliancePolicy":
-                    return new Windows81CompliancePolicy();
+                    return deserializeIntoWindows81CompliancePolicy;
                 case "#microsoft.graph.windows81GeneralConfiguration":
-                    return new Windows81GeneralConfiguration();
+                    return deserializeIntoWindows81GeneralConfiguration;
                 case "#microsoft.graph.windowsAppX":
-                    return new WindowsAppX();
+                    return deserializeIntoWindowsAppX;
                 case "#microsoft.graph.windowsAutopilotDeviceIdentity":
-                    return new WindowsAutopilotDeviceIdentity();
+                    return deserializeIntoWindowsAutopilotDeviceIdentity;
                 case "#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration":
-                    return new WindowsDefenderAdvancedThreatProtectionConfiguration();
+                    return deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration;
                 case "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod":
-                    return new WindowsHelloForBusinessAuthenticationMethod();
+                    return deserializeIntoWindowsHelloForBusinessAuthenticationMethod;
                 case "#microsoft.graph.windowsInformationProtection":
-                    return new WindowsInformationProtection();
+                    return deserializeIntoWindowsInformationProtection;
                 case "#microsoft.graph.windowsInformationProtectionAppLearningSummary":
-                    return new WindowsInformationProtectionAppLearningSummary();
+                    return deserializeIntoWindowsInformationProtectionAppLearningSummary;
                 case "#microsoft.graph.windowsInformationProtectionAppLockerFile":
-                    return new WindowsInformationProtectionAppLockerFile();
+                    return deserializeIntoWindowsInformationProtectionAppLockerFile;
                 case "#microsoft.graph.windowsInformationProtectionNetworkLearningSummary":
-                    return new WindowsInformationProtectionNetworkLearningSummary();
+                    return deserializeIntoWindowsInformationProtectionNetworkLearningSummary;
                 case "#microsoft.graph.windowsInformationProtectionPolicy":
-                    return new WindowsInformationProtectionPolicy();
+                    return deserializeIntoWindowsInformationProtectionPolicy;
                 case "#microsoft.graph.windowsMicrosoftEdgeApp":
-                    return new WindowsMicrosoftEdgeApp();
+                    return deserializeIntoWindowsMicrosoftEdgeApp;
                 case "#microsoft.graph.windowsMobileMSI":
-                    return new WindowsMobileMSI();
+                    return deserializeIntoWindowsMobileMSI;
                 case "#microsoft.graph.windowsPhone81CompliancePolicy":
-                    return new WindowsPhone81CompliancePolicy();
+                    return deserializeIntoWindowsPhone81CompliancePolicy;
                 case "#microsoft.graph.windowsPhone81CustomConfiguration":
-                    return new WindowsPhone81CustomConfiguration();
+                    return deserializeIntoWindowsPhone81CustomConfiguration;
                 case "#microsoft.graph.windowsPhone81GeneralConfiguration":
-                    return new WindowsPhone81GeneralConfiguration();
+                    return deserializeIntoWindowsPhone81GeneralConfiguration;
                 case "#microsoft.graph.windowsUniversalAppX":
-                    return new WindowsUniversalAppX();
+                    return deserializeIntoWindowsUniversalAppX;
                 case "#microsoft.graph.windowsUniversalAppXContainedApp":
-                    return new WindowsUniversalAppXContainedApp();
+                    return deserializeIntoWindowsUniversalAppXContainedApp;
                 case "#microsoft.graph.windowsUpdateForBusinessConfiguration":
-                    return new WindowsUpdateForBusinessConfiguration();
+                    return deserializeIntoWindowsUpdateForBusinessConfiguration;
                 case "#microsoft.graph.windowsWebApp":
-                    return new WindowsWebApp();
+                    return deserializeIntoWindowsWebApp;
                 case "#microsoft.graph.workbook":
-                    return new Workbook();
+                    return deserializeIntoWorkbook;
                 case "#microsoft.graph.workbookApplication":
-                    return new WorkbookApplication();
+                    return deserializeIntoWorkbookApplication;
                 case "#microsoft.graph.workbookChart":
-                    return new WorkbookChart();
+                    return deserializeIntoWorkbookChart;
                 case "#microsoft.graph.workbookChartAreaFormat":
-                    return new WorkbookChartAreaFormat();
+                    return deserializeIntoWorkbookChartAreaFormat;
                 case "#microsoft.graph.workbookChartAxes":
-                    return new WorkbookChartAxes();
+                    return deserializeIntoWorkbookChartAxes;
                 case "#microsoft.graph.workbookChartAxis":
-                    return new WorkbookChartAxis();
+                    return deserializeIntoWorkbookChartAxis;
                 case "#microsoft.graph.workbookChartAxisFormat":
-                    return new WorkbookChartAxisFormat();
+                    return deserializeIntoWorkbookChartAxisFormat;
                 case "#microsoft.graph.workbookChartAxisTitle":
-                    return new WorkbookChartAxisTitle();
+                    return deserializeIntoWorkbookChartAxisTitle;
                 case "#microsoft.graph.workbookChartAxisTitleFormat":
-                    return new WorkbookChartAxisTitleFormat();
+                    return deserializeIntoWorkbookChartAxisTitleFormat;
                 case "#microsoft.graph.workbookChartDataLabelFormat":
-                    return new WorkbookChartDataLabelFormat();
+                    return deserializeIntoWorkbookChartDataLabelFormat;
                 case "#microsoft.graph.workbookChartDataLabels":
-                    return new WorkbookChartDataLabels();
+                    return deserializeIntoWorkbookChartDataLabels;
                 case "#microsoft.graph.workbookChartFill":
-                    return new WorkbookChartFill();
+                    return deserializeIntoWorkbookChartFill;
                 case "#microsoft.graph.workbookChartFont":
-                    return new WorkbookChartFont();
+                    return deserializeIntoWorkbookChartFont;
                 case "#microsoft.graph.workbookChartGridlines":
-                    return new WorkbookChartGridlines();
+                    return deserializeIntoWorkbookChartGridlines;
                 case "#microsoft.graph.workbookChartGridlinesFormat":
-                    return new WorkbookChartGridlinesFormat();
+                    return deserializeIntoWorkbookChartGridlinesFormat;
                 case "#microsoft.graph.workbookChartLegend":
-                    return new WorkbookChartLegend();
+                    return deserializeIntoWorkbookChartLegend;
                 case "#microsoft.graph.workbookChartLegendFormat":
-                    return new WorkbookChartLegendFormat();
+                    return deserializeIntoWorkbookChartLegendFormat;
                 case "#microsoft.graph.workbookChartLineFormat":
-                    return new WorkbookChartLineFormat();
+                    return deserializeIntoWorkbookChartLineFormat;
                 case "#microsoft.graph.workbookChartPoint":
-                    return new WorkbookChartPoint();
+                    return deserializeIntoWorkbookChartPoint;
                 case "#microsoft.graph.workbookChartPointFormat":
-                    return new WorkbookChartPointFormat();
+                    return deserializeIntoWorkbookChartPointFormat;
                 case "#microsoft.graph.workbookChartSeries":
-                    return new WorkbookChartSeries();
+                    return deserializeIntoWorkbookChartSeries;
                 case "#microsoft.graph.workbookChartSeriesFormat":
-                    return new WorkbookChartSeriesFormat();
+                    return deserializeIntoWorkbookChartSeriesFormat;
                 case "#microsoft.graph.workbookChartTitle":
-                    return new WorkbookChartTitle();
+                    return deserializeIntoWorkbookChartTitle;
                 case "#microsoft.graph.workbookChartTitleFormat":
-                    return new WorkbookChartTitleFormat();
+                    return deserializeIntoWorkbookChartTitleFormat;
                 case "#microsoft.graph.workbookComment":
-                    return new WorkbookComment();
+                    return deserializeIntoWorkbookComment;
                 case "#microsoft.graph.workbookCommentReply":
-                    return new WorkbookCommentReply();
+                    return deserializeIntoWorkbookCommentReply;
                 case "#microsoft.graph.workbookFilter":
-                    return new WorkbookFilter();
+                    return deserializeIntoWorkbookFilter;
                 case "#microsoft.graph.workbookFormatProtection":
-                    return new WorkbookFormatProtection();
+                    return deserializeIntoWorkbookFormatProtection;
                 case "#microsoft.graph.workbookFunctionResult":
-                    return new WorkbookFunctionResult();
+                    return deserializeIntoWorkbookFunctionResult;
                 case "#microsoft.graph.workbookFunctions":
-                    return new WorkbookFunctions();
+                    return deserializeIntoWorkbookFunctions;
                 case "#microsoft.graph.workbookNamedItem":
-                    return new WorkbookNamedItem();
+                    return deserializeIntoWorkbookNamedItem;
                 case "#microsoft.graph.workbookOperation":
-                    return new WorkbookOperation();
+                    return deserializeIntoWorkbookOperation;
                 case "#microsoft.graph.workbookPivotTable":
-                    return new WorkbookPivotTable();
+                    return deserializeIntoWorkbookPivotTable;
                 case "#microsoft.graph.workbookRange":
-                    return new WorkbookRange();
+                    return deserializeIntoWorkbookRange;
                 case "#microsoft.graph.workbookRangeBorder":
-                    return new WorkbookRangeBorder();
+                    return deserializeIntoWorkbookRangeBorder;
                 case "#microsoft.graph.workbookRangeFill":
-                    return new WorkbookRangeFill();
+                    return deserializeIntoWorkbookRangeFill;
                 case "#microsoft.graph.workbookRangeFont":
-                    return new WorkbookRangeFont();
+                    return deserializeIntoWorkbookRangeFont;
                 case "#microsoft.graph.workbookRangeFormat":
-                    return new WorkbookRangeFormat();
+                    return deserializeIntoWorkbookRangeFormat;
                 case "#microsoft.graph.workbookRangeSort":
-                    return new WorkbookRangeSort();
+                    return deserializeIntoWorkbookRangeSort;
                 case "#microsoft.graph.workbookRangeView":
-                    return new WorkbookRangeView();
+                    return deserializeIntoWorkbookRangeView;
                 case "#microsoft.graph.workbookTable":
-                    return new WorkbookTable();
+                    return deserializeIntoWorkbookTable;
                 case "#microsoft.graph.workbookTableColumn":
-                    return new WorkbookTableColumn();
+                    return deserializeIntoWorkbookTableColumn;
                 case "#microsoft.graph.workbookTableRow":
-                    return new WorkbookTableRow();
+                    return deserializeIntoWorkbookTableRow;
                 case "#microsoft.graph.workbookTableSort":
-                    return new WorkbookTableSort();
+                    return deserializeIntoWorkbookTableSort;
                 case "#microsoft.graph.workbookWorksheet":
-                    return new WorkbookWorksheet();
+                    return deserializeIntoWorkbookWorksheet;
                 case "#microsoft.graph.workbookWorksheetProtection":
-                    return new WorkbookWorksheetProtection();
+                    return deserializeIntoWorkbookWorksheetProtection;
                 case "#microsoft.graph.workforceIntegration":
-                    return new WorkforceIntegration();
+                    return deserializeIntoWorkforceIntegration;
                 case "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration":
-                    return new X509CertificateAuthenticationMethodConfiguration();
+                    return deserializeIntoX509CertificateAuthenticationMethodConfiguration;
             }
         }
     }
-    return new Entity();
+    return deserializeIntoEntity;
 }

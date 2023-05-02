@@ -1,1 +1,5 @@
+export * from './createGetDeviceManagementIntentSettingsReportPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoGetDeviceManagementIntentSettingsReportPostRequestBody'
 export * from './getDeviceManagementIntentSettingsReportPostRequestBody'
+export * from './getDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration'
+export * from './serializeGetDeviceManagementIntentSettingsReportPostRequestBody'

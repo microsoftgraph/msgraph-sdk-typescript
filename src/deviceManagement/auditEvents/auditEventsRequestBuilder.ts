@@ -1,14 +1,20 @@
-import {AuditEvent, AuditEventCollectionResponse} from '../../models/';
+import {AuditEventCollectionResponse} from '../../models/';
+import {AuditEvent} from '../../models/auditEvent';
 import {createAuditEventCollectionResponseFromDiscriminatorValue} from '../../models/createAuditEventCollectionResponseFromDiscriminatorValue';
 import {createAuditEventFromDiscriminatorValue} from '../../models/createAuditEventFromDiscriminatorValue';
+import {deserializeIntoAuditEvent} from '../../models/deserializeIntoAuditEvent';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeAuditEvent} from '../../models/serializeAuditEvent';
 import {AuditEventsRequestBuilderGetRequestConfiguration} from './auditEventsRequestBuilderGetRequestConfiguration';
 import {AuditEventsRequestBuilderPostRequestConfiguration} from './auditEventsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAuditActivityTypesWithCategoryRequestBuilder} from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
 import {GetAuditCategoriesRequestBuilder} from './getAuditCategories/getAuditCategoriesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AuditEventItemRequestBuilder} from './item/auditEventItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
@@ -22,6 +28,17 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
     public get getAuditCategories(): GetAuditCategoriesRequestBuilder {
         return new GetAuditCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
+     * @param auditEventId Unique identifier of the item
+     * @returns a AuditEventItemRequestBuilder
+     */
+    public byAuditEventId(auditEventId: string) : AuditEventItemRequestBuilder {
+        if(!auditEventId) throw new Error("auditEventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["auditEvent%2Did"] = auditEventId
+        return new AuditEventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AuditEventsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -40,10 +57,10 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuditEventCollectionResponse>(requestInfo, createAuditEventCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +84,10 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -108,7 +125,7 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuditEvent);
         return requestInfo;
     };
 }

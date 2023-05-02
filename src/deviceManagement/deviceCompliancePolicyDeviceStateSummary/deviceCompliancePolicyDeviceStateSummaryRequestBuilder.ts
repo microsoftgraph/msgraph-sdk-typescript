@@ -1,7 +1,11 @@
-import {DeviceCompliancePolicyDeviceStateSummary} from '../../models/';
 import {createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue} from '../../models/createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue';
+import {deserializeIntoDeviceCompliancePolicyDeviceStateSummary} from '../../models/deserializeIntoDeviceCompliancePolicyDeviceStateSummary';
+import {DeviceCompliancePolicyDeviceStateSummary} from '../../models/deviceCompliancePolicyDeviceStateSummary';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDeviceCompliancePolicyDeviceStateSummary} from '../../models/serializeDeviceCompliancePolicyDeviceStateSummary';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceCompliancePolicyDeviceStateSummary>(requestInfo, createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceCompliancePolicyDeviceStateSummary>(requestInfo, createDeviceCompliancePolicyDeviceStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceCompliancePolicyDeviceStateSummary);
         return requestInfo;
     };
 }

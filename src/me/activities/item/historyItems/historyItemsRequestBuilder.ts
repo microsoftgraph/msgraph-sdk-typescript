@@ -1,12 +1,18 @@
-import {ActivityHistoryItem, ActivityHistoryItemCollectionResponse} from '../../../../models/';
+import {ActivityHistoryItemCollectionResponse} from '../../../../models/';
+import {ActivityHistoryItem} from '../../../../models/activityHistoryItem';
 import {createActivityHistoryItemCollectionResponseFromDiscriminatorValue} from '../../../../models/createActivityHistoryItemCollectionResponseFromDiscriminatorValue';
 import {createActivityHistoryItemFromDiscriminatorValue} from '../../../../models/createActivityHistoryItemFromDiscriminatorValue';
+import {deserializeIntoActivityHistoryItem} from '../../../../models/deserializeIntoActivityHistoryItem';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeActivityHistoryItem} from '../../../../models/serializeActivityHistoryItem';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryItemsRequestBuilderGetRequestConfiguration} from './historyItemsRequestBuilderGetRequestConfiguration';
 import {HistoryItemsRequestBuilderPostRequestConfiguration} from './historyItemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ActivityHistoryItemItemRequestBuilder} from './item/activityHistoryItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
@@ -16,6 +22,17 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+     * @param activityHistoryItemId Unique identifier of the item
+     * @returns a ActivityHistoryItemItemRequestBuilder
+     */
+    public byActivityHistoryItemId(activityHistoryItemId: string) : ActivityHistoryItemItemRequestBuilder {
+        if(!activityHistoryItemId) throw new Error("activityHistoryItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["activityHistoryItem%2Did"] = activityHistoryItemId
+        return new ActivityHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new HistoryItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ActivityHistoryItemCollectionResponse>(requestInfo, createActivityHistoryItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ActivityHistoryItem>(requestInfo, createActivityHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeActivityHistoryItem);
         return requestInfo;
     };
 }

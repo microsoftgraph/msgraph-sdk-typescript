@@ -1,12 +1,18 @@
-import {TermsAndConditionsAssignment, TermsAndConditionsAssignmentCollectionResponse} from '../../../../models/';
+import {TermsAndConditionsAssignmentCollectionResponse} from '../../../../models/';
 import {createTermsAndConditionsAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createTermsAndConditionsAssignmentCollectionResponseFromDiscriminatorValue';
 import {createTermsAndConditionsAssignmentFromDiscriminatorValue} from '../../../../models/createTermsAndConditionsAssignmentFromDiscriminatorValue';
+import {deserializeIntoTermsAndConditionsAssignment} from '../../../../models/deserializeIntoTermsAndConditionsAssignment';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeTermsAndConditionsAssignment} from '../../../../models/serializeTermsAndConditionsAssignment';
+import {TermsAndConditionsAssignment} from '../../../../models/termsAndConditionsAssignment';
 import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TermsAndConditionsAssignmentItemRequestBuilder} from './item/termsAndConditionsAssignmentItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
@@ -16,6 +22,17 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
+     * @param termsAndConditionsAssignmentId Unique identifier of the item
+     * @returns a TermsAndConditionsAssignmentItemRequestBuilder
+     */
+    public byTermsAndConditionsAssignmentId(termsAndConditionsAssignmentId: string) : TermsAndConditionsAssignmentItemRequestBuilder {
+        if(!termsAndConditionsAssignmentId) throw new Error("termsAndConditionsAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["termsAndConditionsAssignment%2Did"] = termsAndConditionsAssignmentId
+        return new TermsAndConditionsAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TermsAndConditionsAssignmentCollectionResponse>(requestInfo, createTermsAndConditionsAssignmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TermsAndConditionsAssignment>(requestInfo, createTermsAndConditionsAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTermsAndConditionsAssignment);
         return requestInfo;
     };
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoF_DistPostRequestBody} from './deserializeIntoF_DistPostRequestBody';
 import {F_DistPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createF_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : F_DistPostRequestBody {
+export function createF_DistPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new F_DistPostRequestBody();
+    return deserializeIntoF_DistPostRequestBody;
 }

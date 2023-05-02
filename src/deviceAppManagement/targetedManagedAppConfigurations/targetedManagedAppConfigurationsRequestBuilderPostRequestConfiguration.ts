@@ -1,11 +1,8 @@
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration {
+export interface TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
 }

@@ -1,1 +1,5 @@
+export * from './createDdbPostRequestBodyFromDiscriminatorValue'
 export * from './ddbPostRequestBody'
+export * from './ddbRequestBuilderPostRequestConfiguration'
+export * from './deserializeIntoDdbPostRequestBody'
+export * from './serializeDdbPostRequestBody'

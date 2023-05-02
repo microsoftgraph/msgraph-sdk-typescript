@@ -1,7 +1,11 @@
-import {RiskyServicePrincipalHistoryItem} from '../../../../../models/';
 import {createRiskyServicePrincipalHistoryItemFromDiscriminatorValue} from '../../../../../models/createRiskyServicePrincipalHistoryItemFromDiscriminatorValue';
+import {deserializeIntoRiskyServicePrincipalHistoryItem} from '../../../../../models/deserializeIntoRiskyServicePrincipalHistoryItem';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {RiskyServicePrincipalHistoryItem} from '../../../../../models/riskyServicePrincipalHistoryItem';
+import {serializeRiskyServicePrincipalHistoryItem} from '../../../../../models/serializeRiskyServicePrincipalHistoryItem';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RiskyServicePrincipalHistoryItem>(requestInfo, createRiskyServicePrincipalHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RiskyServicePrincipalHistoryItem>(requestInfo, createRiskyServicePrincipalHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRiskyServicePrincipalHistoryItem);
         return requestInfo;
     };
 }

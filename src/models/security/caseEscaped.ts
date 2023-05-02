@@ -1,5 +1,6 @@
-import {Entity, IdentitySet} from '../';
+import {Entity} from '../';
 import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
+import {IdentitySet} from '../identitySet';
 import {CaseStatus} from './caseStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -65,20 +66,6 @@ export class CaseEscaped extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
-            "description": n => { this.description = n.getStringValue(); },
-            "displayName": n => { this.displayName = n.getStringValue(); },
-            "lastModifiedBy": n => { this.lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "status": n => { this.status = n.getEnumValue<CaseStatus>(CaseStatus); },
-        };
-    };
-    /**
      * Gets the lastModifiedBy property value. The lastModifiedBy property
      * @returns a identitySet
      */
@@ -105,20 +92,6 @@ export class CaseEscaped extends Entity implements Parsable {
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
-        writer.writeStringValue("description", this.description);
-        writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeEnumValue<CaseStatus>("status", this.status);
     };
     /**
      * Gets the status property value. The status property

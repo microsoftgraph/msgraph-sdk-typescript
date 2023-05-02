@@ -1,7 +1,12 @@
+import {deserializeIntoApplicationEnforcedRestrictionsSessionControl} from './deserializeIntoApplicationEnforcedRestrictionsSessionControl';
+import {deserializeIntoCloudAppSecuritySessionControl} from './deserializeIntoCloudAppSecuritySessionControl';
+import {deserializeIntoConditionalAccessSessionControl} from './deserializeIntoConditionalAccessSessionControl';
+import {deserializeIntoPersistentBrowserSessionControl} from './deserializeIntoPersistentBrowserSessionControl';
+import {deserializeIntoSignInFrequencySessionControl} from './deserializeIntoSignInFrequencySessionControl';
 import {ApplicationEnforcedRestrictionsSessionControl, CloudAppSecuritySessionControl, ConditionalAccessSessionControl, PersistentBrowserSessionControl, SignInFrequencySessionControl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createConditionalAccessSessionControlFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConditionalAccessSessionControl {
+export function createConditionalAccessSessionControlFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createConditionalAccessSessionControlFromDiscriminatorValue(pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.applicationEnforcedRestrictionsSessionControl":
-                    return new ApplicationEnforcedRestrictionsSessionControl();
+                    return deserializeIntoApplicationEnforcedRestrictionsSessionControl;
                 case "#microsoft.graph.cloudAppSecuritySessionControl":
-                    return new CloudAppSecuritySessionControl();
+                    return deserializeIntoCloudAppSecuritySessionControl;
                 case "#microsoft.graph.persistentBrowserSessionControl":
-                    return new PersistentBrowserSessionControl();
+                    return deserializeIntoPersistentBrowserSessionControl;
                 case "#microsoft.graph.signInFrequencySessionControl":
-                    return new SignInFrequencySessionControl();
+                    return deserializeIntoSignInFrequencySessionControl;
             }
         }
     }
-    return new ConditionalAccessSessionControl();
+    return deserializeIntoConditionalAccessSessionControl;
 }

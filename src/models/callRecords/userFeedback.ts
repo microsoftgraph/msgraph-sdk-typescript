@@ -1,117 +1,16 @@
-import {createFeedbackTokenSetFromDiscriminatorValue} from './createFeedbackTokenSetFromDiscriminatorValue';
-import {FeedbackTokenSet} from './index';
+import {FeedbackTokenSet} from './feedbackTokenSet';
 import {UserFeedbackRating} from './userFeedbackRating';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export class UserFeedback implements AdditionalDataHolder, Parsable {
+export interface UserFeedback extends AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The OdataType property */
-    private _odataType?: string | undefined;
+    odataType?: string | undefined;
     /** The rating property */
-    private _rating?: UserFeedbackRating | undefined;
+    rating?: UserFeedbackRating | undefined;
     /** The feedback text provided by the user of this endpoint for the session. */
-    private _text?: string | undefined;
+    text?: string | undefined;
     /** The set of feedback tokens provided by the user of this endpoint for the session. This is a set of Boolean properties. The property names should not be relied upon since they may change depending on what tokens are offered to the user. */
-    private _tokens?: FeedbackTokenSet | undefined;
-    /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Record<string, unknown>
-     */
-    public get additionalData() {
-        return this._additionalData;
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Record<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Instantiates a new userFeedback and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = {};
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {
-            "@odata.type": n => { this.odataType = n.getStringValue(); },
-            "rating": n => { this.rating = n.getEnumValue<UserFeedbackRating>(UserFeedbackRating); },
-            "text": n => { this.text = n.getStringValue(); },
-            "tokens": n => { this.tokens = n.getObjectValue<FeedbackTokenSet>(createFeedbackTokenSetFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @returns a string
-     */
-    public get odataType() {
-        return this._odataType;
-    };
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param value Value to set for the OdataType property.
-     */
-    public set odataType(value: string | undefined) {
-        this._odataType = value;
-    };
-    /**
-     * Gets the rating property value. The rating property
-     * @returns a userFeedbackRating
-     */
-    public get rating() {
-        return this._rating;
-    };
-    /**
-     * Sets the rating property value. The rating property
-     * @param value Value to set for the rating property.
-     */
-    public set rating(value: UserFeedbackRating | undefined) {
-        this._rating = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("@odata.type", this.odataType);
-        writer.writeEnumValue<UserFeedbackRating>("rating", this.rating);
-        writer.writeStringValue("text", this.text);
-        writer.writeObjectValue<FeedbackTokenSet>("tokens", this.tokens);
-        writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Gets the text property value. The feedback text provided by the user of this endpoint for the session.
-     * @returns a string
-     */
-    public get text() {
-        return this._text;
-    };
-    /**
-     * Sets the text property value. The feedback text provided by the user of this endpoint for the session.
-     * @param value Value to set for the text property.
-     */
-    public set text(value: string | undefined) {
-        this._text = value;
-    };
-    /**
-     * Gets the tokens property value. The set of feedback tokens provided by the user of this endpoint for the session. This is a set of Boolean properties. The property names should not be relied upon since they may change depending on what tokens are offered to the user.
-     * @returns a feedbackTokenSet
-     */
-    public get tokens() {
-        return this._tokens;
-    };
-    /**
-     * Sets the tokens property value. The set of feedback tokens provided by the user of this endpoint for the session. This is a set of Boolean properties. The property names should not be relied upon since they may change depending on what tokens are offered to the user.
-     * @param value Value to set for the tokens property.
-     */
-    public set tokens(value: FeedbackTokenSet | undefined) {
-        this._tokens = value;
-    };
+    tokens?: FeedbackTokenSet | undefined;
 }

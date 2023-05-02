@@ -1,15 +1,17 @@
-import {UnifiedRoleManagementPolicy} from '../../../models/';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from '../../../models/createUnifiedRoleManagementPolicyFromDiscriminatorValue';
+import {deserializeIntoUnifiedRoleManagementPolicy} from '../../../models/deserializeIntoUnifiedRoleManagementPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeUnifiedRoleManagementPolicy} from '../../../models/serializeUnifiedRoleManagementPolicy';
+import {UnifiedRoleManagementPolicy} from '../../../models/unifiedRoleManagementPolicy';
 import {EffectiveRulesRequestBuilder} from './effectiveRules/effectiveRulesRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
 import {RulesRequestBuilder} from './rules/rulesRequestBuilder';
 import {UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -40,22 +42,11 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder extends BaseRequestBu
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the effectiveRules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
-     */
-    public effectiveRulesById(id: string) : Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new Ic6f793d374160642c2768dc2f8671aa9a06b7f3811c80234f6e9d5cc58f5a0ba(urlTplParams, this.requestAdapter);
     };
     /**
      * Specifies the various policies associated with scopes and roles.
@@ -67,10 +58,10 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder extends BaseRequestBu
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicy>(requestInfo, createUnifiedRoleManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -85,22 +76,11 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder extends BaseRequestBu
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicy>(requestInfo, createUnifiedRoleManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
-     * @param id Unique identifier of the item
-     * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
-     */
-    public rulesById(id: string) : I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new I4ae2fbd1842d4f5f7e2d464a244d1228c38ab27331849285a85c0173edbf44da(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property roleManagementPolicies for policies
@@ -153,7 +133,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleManagementPolicy);
         return requestInfo;
     };
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoRubricQualitySelectedColumnModel} from './deserializeIntoRubricQualitySelectedColumnModel';
 import {RubricQualitySelectedColumnModel} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRubricQualitySelectedColumnModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : RubricQualitySelectedColumnModel {
+export function createRubricQualitySelectedColumnModelFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RubricQualitySelectedColumnModel();
+    return deserializeIntoRubricQualitySelectedColumnModel;
 }

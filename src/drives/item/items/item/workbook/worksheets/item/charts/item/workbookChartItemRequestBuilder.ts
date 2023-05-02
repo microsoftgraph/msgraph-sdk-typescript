@@ -1,7 +1,11 @@
-import {WorkbookChart} from '../../../../../../../../../models/';
 import {createWorkbookChartFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookChartFromDiscriminatorValue';
+import {deserializeIntoWorkbookChart} from '../../../../../../../../../models/deserializeIntoWorkbookChart';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookChart} from '../../../../../../../../../models/serializeWorkbookChart';
+import {WorkbookChart} from '../../../../../../../../../models/workbookChart';
 import {AxesRequestBuilder} from './axes/axesRequestBuilder';
 import {DataLabelsRequestBuilder} from './dataLabels/dataLabelsRequestBuilder';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
@@ -10,7 +14,6 @@ import {ImageWithWidthRequestBuilder} from './imageWithWidth/imageWithWidthReque
 import {ImageWithWidthWithHeightRequestBuilder} from './imageWithWidthWithHeight/imageWithWidthWithHeightRequestBuilder';
 import {ImageWithWidthWithHeightWithFittingModeRequestBuilder} from './imageWithWidthWithHeightWithFittingMode/imageWithWidthWithHeightWithFittingModeRequestBuilder';
 import {LegendRequestBuilder} from './legend/legendRequestBuilder';
-import {WorkbookChartSeriesItemRequestBuilder} from './series/item/workbookChartSeriesItemRequestBuilder';
 import {SeriesRequestBuilder} from './series/seriesRequestBuilder';
 import {SetDataRequestBuilder} from './setData/setDataRequestBuilder';
 import {SetPositionRequestBuilder} from './setPosition/setPositionRequestBuilder';
@@ -19,7 +22,7 @@ import {WorkbookChartItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookChartItemRequestBuilderGetRequestConfiguration} from './workbookChartItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartItemRequestBuilderPatchRequestConfiguration} from './workbookChartItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -82,10 +85,10 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -98,10 +101,10 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -149,22 +152,11 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookChartSeriesItemRequestBuilder
-     */
-    public seriesById(id: string) : WorkbookChartSeriesItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookChartSeries%2Did"] = id
-        return new WorkbookChartSeriesItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property charts for drives
@@ -217,7 +209,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChart);
         return requestInfo;
     };
 }

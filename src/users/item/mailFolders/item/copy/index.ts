@@ -1,1 +1,5 @@
 export * from './copyPostRequestBody'
+export * from './copyRequestBuilderPostRequestConfiguration'
+export * from './createCopyPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCopyPostRequestBody'
+export * from './serializeCopyPostRequestBody'

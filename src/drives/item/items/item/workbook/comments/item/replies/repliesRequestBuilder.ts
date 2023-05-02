@@ -1,12 +1,18 @@
-import {WorkbookCommentReply, WorkbookCommentReplyCollectionResponse} from '../../../../../../../../models/';
+import {WorkbookCommentReplyCollectionResponse} from '../../../../../../../../models/';
 import {createWorkbookCommentReplyCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookCommentReplyCollectionResponseFromDiscriminatorValue';
 import {createWorkbookCommentReplyFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookCommentReplyFromDiscriminatorValue';
+import {deserializeIntoWorkbookCommentReply} from '../../../../../../../../models/deserializeIntoWorkbookCommentReply';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookCommentReply} from '../../../../../../../../models/serializeWorkbookCommentReply';
+import {WorkbookCommentReply} from '../../../../../../../../models/workbookCommentReply';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WorkbookCommentReplyItemRequestBuilder} from './item/workbookCommentReplyItemRequestBuilder';
 import {RepliesRequestBuilderGetRequestConfiguration} from './repliesRequestBuilderGetRequestConfiguration';
 import {RepliesRequestBuilderPostRequestConfiguration} from './repliesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
@@ -16,6 +22,17 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
+     * @param workbookCommentReplyId Unique identifier of the item
+     * @returns a WorkbookCommentReplyItemRequestBuilder
+     */
+    public byWorkbookCommentReplyId(workbookCommentReplyId: string) : WorkbookCommentReplyItemRequestBuilder {
+        if(!workbookCommentReplyId) throw new Error("workbookCommentReplyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["workbookCommentReply%2Did"] = workbookCommentReplyId
+        return new WorkbookCommentReplyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RepliesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookCommentReplyCollectionResponse>(requestInfo, createWorkbookCommentReplyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookCommentReply>(requestInfo, createWorkbookCommentReplyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookCommentReply);
         return requestInfo;
     };
 }

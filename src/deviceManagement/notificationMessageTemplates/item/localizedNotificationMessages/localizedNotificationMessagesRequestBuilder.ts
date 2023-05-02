@@ -1,12 +1,18 @@
-import {LocalizedNotificationMessage, LocalizedNotificationMessageCollectionResponse} from '../../../../models/';
+import {LocalizedNotificationMessageCollectionResponse} from '../../../../models/';
 import {createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue} from '../../../../models/createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue';
 import {createLocalizedNotificationMessageFromDiscriminatorValue} from '../../../../models/createLocalizedNotificationMessageFromDiscriminatorValue';
+import {deserializeIntoLocalizedNotificationMessage} from '../../../../models/deserializeIntoLocalizedNotificationMessage';
+import {LocalizedNotificationMessage} from '../../../../models/localizedNotificationMessage';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeLocalizedNotificationMessage} from '../../../../models/serializeLocalizedNotificationMessage';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {LocalizedNotificationMessageItemRequestBuilder} from './item/localizedNotificationMessageItemRequestBuilder';
 import {LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration} from './localizedNotificationMessagesRequestBuilderGetRequestConfiguration';
 import {LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration} from './localizedNotificationMessagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
@@ -16,6 +22,17 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
+     * @param localizedNotificationMessageId Unique identifier of the item
+     * @returns a LocalizedNotificationMessageItemRequestBuilder
+     */
+    public byLocalizedNotificationMessageId(localizedNotificationMessageId: string) : LocalizedNotificationMessageItemRequestBuilder {
+        if(!localizedNotificationMessageId) throw new Error("localizedNotificationMessageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["localizedNotificationMessage%2Did"] = localizedNotificationMessageId
+        return new LocalizedNotificationMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new LocalizedNotificationMessagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<LocalizedNotificationMessageCollectionResponse>(requestInfo, createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<LocalizedNotificationMessage>(requestInfo, createLocalizedNotificationMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLocalizedNotificationMessage);
         return requestInfo;
     };
 }

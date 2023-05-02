@@ -1,46 +1,8 @@
-import {createDeviceConfigurationFromDiscriminatorValue} from './createDeviceConfigurationFromDiscriminatorValue';
-import {BaseCollectionPaginationCountResponse, DeviceConfiguration} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import {DeviceConfiguration} from './deviceConfiguration';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class DeviceConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+export interface DeviceConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /** The value property */
-    private _value?: DeviceConfiguration[] | undefined;
-    /**
-     * Instantiates a new DeviceConfigurationCollectionResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<DeviceConfiguration>(createDeviceConfigurationFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<DeviceConfiguration>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a deviceConfiguration
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: DeviceConfiguration[] | undefined) {
-        this._value = value;
-    };
+    value?: DeviceConfiguration[] | undefined;
 }

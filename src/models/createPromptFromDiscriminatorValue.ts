@@ -1,7 +1,9 @@
+import {deserializeIntoMediaPrompt} from './deserializeIntoMediaPrompt';
+import {deserializeIntoPrompt} from './deserializeIntoPrompt';
 import {MediaPrompt, Prompt} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPromptFromDiscriminatorValue(parseNode: ParseNode | undefined) : Prompt {
+export function createPromptFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createPromptFromDiscriminatorValue(parseNode: ParseNode | undefi
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.mediaPrompt":
-                    return new MediaPrompt();
+                    return deserializeIntoMediaPrompt;
             }
         }
     }
-    return new Prompt();
+    return deserializeIntoPrompt;
 }

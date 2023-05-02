@@ -1,1 +1,5 @@
 export * from './changePasswordPostRequestBody'
+export * from './changePasswordRequestBuilderPostRequestConfiguration'
+export * from './createChangePasswordPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoChangePasswordPostRequestBody'
+export * from './serializeChangePasswordPostRequestBody'

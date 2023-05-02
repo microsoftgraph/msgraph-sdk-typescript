@@ -1,0 +1,4 @@
+export * from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration'
+export * from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters'
+export * from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration'
+export * from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration'

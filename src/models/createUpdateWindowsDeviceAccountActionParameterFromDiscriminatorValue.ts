@@ -1,7 +1,8 @@
+import {deserializeIntoUpdateWindowsDeviceAccountActionParameter} from './deserializeIntoUpdateWindowsDeviceAccountActionParameter';
 import {UpdateWindowsDeviceAccountActionParameter} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue(parseNode: ParseNode | undefined) : UpdateWindowsDeviceAccountActionParameter {
+export function createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UpdateWindowsDeviceAccountActionParameter();
+    return deserializeIntoUpdateWindowsDeviceAccountActionParameter;
 }

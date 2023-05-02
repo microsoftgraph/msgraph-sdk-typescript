@@ -1,46 +1,8 @@
-import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTriggerFromDiscriminatorValue';
-import {BaseCollectionPaginationCountResponse, PrintTaskTrigger} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import {PrintTaskTrigger} from './printTaskTrigger';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class PrintTaskTriggerCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+export interface PrintTaskTriggerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /** The value property */
-    private _value?: PrintTaskTrigger[] | undefined;
-    /**
-     * Instantiates a new PrintTaskTriggerCollectionResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<PrintTaskTrigger>(createPrintTaskTriggerFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<PrintTaskTrigger>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a printTaskTrigger
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: PrintTaskTrigger[] | undefined) {
-        this._value = value;
-    };
+    value?: PrintTaskTrigger[] | undefined;
 }

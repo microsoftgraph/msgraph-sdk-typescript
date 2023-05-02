@@ -1,7 +1,11 @@
-import {WorkbookChartAxis} from '../../../../../../../../../../../models/';
 import {createWorkbookChartAxisFromDiscriminatorValue} from '../../../../../../../../../../../models/createWorkbookChartAxisFromDiscriminatorValue';
+import {deserializeIntoWorkbookChartAxis} from '../../../../../../../../../../../models/deserializeIntoWorkbookChartAxis';
 import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookChartAxis} from '../../../../../../../../../../../models/serializeWorkbookChartAxis';
+import {WorkbookChartAxis} from '../../../../../../../../../../../models/workbookChartAxis';
 import {CategoryAxisRequestBuilderDeleteRequestConfiguration} from './categoryAxisRequestBuilderDeleteRequestConfiguration';
 import {CategoryAxisRequestBuilderGetRequestConfiguration} from './categoryAxisRequestBuilderGetRequestConfiguration';
 import {CategoryAxisRequestBuilderPatchRequestConfiguration} from './categoryAxisRequestBuilderPatchRequestConfiguration';
@@ -48,10 +52,10 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -64,10 +68,10 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -82,10 +86,10 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -139,7 +143,7 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartAxis);
         return requestInfo;
     };
 }

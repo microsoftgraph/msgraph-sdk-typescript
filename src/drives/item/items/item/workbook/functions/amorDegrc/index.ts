@@ -1,1 +1,5 @@
 export * from './amorDegrcPostRequestBody'
+export * from './amorDegrcRequestBuilderPostRequestConfiguration'
+export * from './createAmorDegrcPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAmorDegrcPostRequestBody'
+export * from './serializeAmorDegrcPostRequestBody'

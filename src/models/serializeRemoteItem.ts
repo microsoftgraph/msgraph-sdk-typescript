@@ -1,0 +1,48 @@
+import {File} from './file';
+import {FileSystemInfo} from './fileSystemInfo';
+import {Folder} from './folder';
+import {IdentitySet} from './identitySet';
+import {Image} from './image';
+import {ItemReference} from './itemReference';
+import {PackageEscaped} from './packageEscaped';
+import {RemoteItem} from './remoteItem';
+import {serializeFile} from './serializeFile';
+import {serializeFileSystemInfo} from './serializeFileSystemInfo';
+import {serializeFolder} from './serializeFolder';
+import {serializeIdentitySet} from './serializeIdentitySet';
+import {serializeImage} from './serializeImage';
+import {serializeItemReference} from './serializeItemReference';
+import {serializePackageEscaped} from './serializePackageEscaped';
+import {serializeShared} from './serializeShared';
+import {serializeSharepointIds} from './serializeSharepointIds';
+import {serializeSpecialFolder} from './serializeSpecialFolder';
+import {serializeVideo} from './serializeVideo';
+import {Shared} from './shared';
+import {SharepointIds} from './sharepointIds';
+import {SpecialFolder} from './specialFolder';
+import {Video} from './video';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeRemoteItem(writer: SerializationWriter, remoteItem: RemoteItem | undefined = {} as RemoteItem) : void {
+        writer.writeObjectValue<IdentitySet>("createdBy", remoteItem.createdBy, serializeIdentitySet);
+        writer.writeDateValue("createdDateTime", remoteItem.createdDateTime);
+        writer.writeObjectValue<File>("file", remoteItem.file, serializeFile);
+        writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", remoteItem.fileSystemInfo, serializeFileSystemInfo);
+        writer.writeObjectValue<Folder>("folder", remoteItem.folder, serializeFolder);
+        writer.writeStringValue("id", remoteItem.id);
+        writer.writeObjectValue<Image>("image", remoteItem.image, serializeImage);
+        writer.writeObjectValue<IdentitySet>("lastModifiedBy", remoteItem.lastModifiedBy, serializeIdentitySet);
+        writer.writeDateValue("lastModifiedDateTime", remoteItem.lastModifiedDateTime);
+        writer.writeStringValue("name", remoteItem.name);
+        writer.writeStringValue("@odata.type", remoteItem.odataType);
+        writer.writeObjectValue<PackageEscaped>("package", remoteItem.packageEscaped, serializePackageEscaped);
+        writer.writeObjectValue<ItemReference>("parentReference", remoteItem.parentReference, serializeItemReference);
+        writer.writeObjectValue<Shared>("shared", remoteItem.shared, serializeShared);
+        writer.writeObjectValue<SharepointIds>("sharepointIds", remoteItem.sharepointIds, serializeSharepointIds);
+        writer.writeNumberValue("size", remoteItem.size);
+        writer.writeObjectValue<SpecialFolder>("specialFolder", remoteItem.specialFolder, serializeSpecialFolder);
+        writer.writeObjectValue<Video>("video", remoteItem.video, serializeVideo);
+        writer.writeStringValue("webDavUrl", remoteItem.webDavUrl);
+        writer.writeStringValue("webUrl", remoteItem.webUrl);
+        writer.writeAdditionalData(remoteItem.additionalData);
+}

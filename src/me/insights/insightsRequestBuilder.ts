@@ -1,17 +1,18 @@
-import {OfficeGraphInsights} from '../../models/';
 import {createOfficeGraphInsightsFromDiscriminatorValue} from '../../models/createOfficeGraphInsightsFromDiscriminatorValue';
+import {deserializeIntoOfficeGraphInsights} from '../../models/deserializeIntoOfficeGraphInsights';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {OfficeGraphInsights} from '../../models/officeGraphInsights';
+import {serializeOfficeGraphInsights} from '../../models/serializeOfficeGraphInsights';
 import {InsightsRequestBuilderDeleteRequestConfiguration} from './insightsRequestBuilderDeleteRequestConfiguration';
 import {InsightsRequestBuilderGetRequestConfiguration} from './insightsRequestBuilderGetRequestConfiguration';
 import {InsightsRequestBuilderPatchRequestConfiguration} from './insightsRequestBuilderPatchRequestConfiguration';
-import {SharedInsightItemRequestBuilder} from './shared/item/sharedInsightItemRequestBuilder';
 import {SharedRequestBuilder} from './shared/sharedRequestBuilder';
-import {TrendingItemRequestBuilder} from './trending/item/trendingItemRequestBuilder';
 import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';
-import {UsedInsightItemRequestBuilder} from './used/item/usedInsightItemRequestBuilder';
 import {UsedRequestBuilder} from './used/usedRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the insights property of the microsoft.graph.user entity.
@@ -46,10 +47,10 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +63,10 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, createOfficeGraphInsightsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -80,22 +81,11 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, createOfficeGraphInsightsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
-     * @param id Unique identifier of the item
-     * @returns a SharedInsightItemRequestBuilder
-     */
-    public sharedById(id: string) : SharedInsightItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["sharedInsight%2Did"] = id
-        return new SharedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property insights for me
@@ -148,29 +138,7 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOfficeGraphInsights);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
-     * @param id Unique identifier of the item
-     * @returns a TrendingItemRequestBuilder
-     */
-    public trendingById(id: string) : TrendingItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["trending%2Did"] = id
-        return new TrendingItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
-     * @param id Unique identifier of the item
-     * @returns a UsedInsightItemRequestBuilder
-     */
-    public usedById(id: string) : UsedInsightItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["usedInsight%2Did"] = id
-        return new UsedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

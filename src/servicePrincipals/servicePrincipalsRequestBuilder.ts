@@ -1,16 +1,22 @@
-import {ServicePrincipal, ServicePrincipalCollectionResponse} from '../models/';
+import {ServicePrincipalCollectionResponse} from '../models/';
 import {createServicePrincipalCollectionResponseFromDiscriminatorValue} from '../models/createServicePrincipalCollectionResponseFromDiscriminatorValue';
 import {createServicePrincipalFromDiscriminatorValue} from '../models/createServicePrincipalFromDiscriminatorValue';
+import {deserializeIntoServicePrincipal} from '../models/deserializeIntoServicePrincipal';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeServicePrincipal} from '../models/serializeServicePrincipal';
+import {ServicePrincipal} from '../models/servicePrincipal';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {ServicePrincipalItemRequestBuilder} from './item/servicePrincipalItemRequestBuilder';
 import {ServicePrincipalsRequestBuilderGetRequestConfiguration} from './servicePrincipalsRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalsRequestBuilderPostRequestConfiguration} from './servicePrincipalsRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
@@ -37,6 +43,17 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the collection of servicePrincipal entities.
+     * @param servicePrincipalId Unique identifier of the item
+     * @returns a ServicePrincipalItemRequestBuilder
+     */
+    public byServicePrincipalId(servicePrincipalId: string) : ServicePrincipalItemRequestBuilder {
+        if(!servicePrincipalId) throw new Error("servicePrincipalId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["servicePrincipal%2Did"] = servicePrincipalId
+        return new ServicePrincipalItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ServicePrincipalsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -55,10 +72,10 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ServicePrincipalCollectionResponse>(requestInfo, createServicePrincipalCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -74,10 +91,10 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ServicePrincipal>(requestInfo, createServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -115,7 +132,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServicePrincipal);
         return requestInfo;
     };
 }

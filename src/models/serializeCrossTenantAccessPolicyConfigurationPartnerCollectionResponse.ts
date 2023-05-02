@@ -1,0 +1,10 @@
+import {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPolicyConfigurationPartner';
+import {CrossTenantAccessPolicyConfigurationPartnerCollectionResponse} from './crossTenantAccessPolicyConfigurationPartnerCollectionResponse';
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeCrossTenantAccessPolicyConfigurationPartner} from './serializeCrossTenantAccessPolicyConfigurationPartner';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeCrossTenantAccessPolicyConfigurationPartnerCollectionResponse(writer: SerializationWriter, crossTenantAccessPolicyConfigurationPartnerCollectionResponse: CrossTenantAccessPolicyConfigurationPartnerCollectionResponse | undefined = {} as CrossTenantAccessPolicyConfigurationPartnerCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, crossTenantAccessPolicyConfigurationPartnerCollectionResponse)
+        writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyConfigurationPartner>("value", crossTenantAccessPolicyConfigurationPartnerCollectionResponse.value, serializeCrossTenantAccessPolicyConfigurationPartner);
+}

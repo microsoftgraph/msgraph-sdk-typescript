@@ -1,7 +1,8 @@
+import {deserializeIntoWindows10MobileCompliancePolicy} from './deserializeIntoWindows10MobileCompliancePolicy';
 import {Windows10MobileCompliancePolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindows10MobileCompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : Windows10MobileCompliancePolicy {
+export function createWindows10MobileCompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Windows10MobileCompliancePolicy();
+    return deserializeIntoWindows10MobileCompliancePolicy;
 }

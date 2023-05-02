@@ -1,7 +1,8 @@
+import {deserializeIntoLobbyBypassSettings} from './deserializeIntoLobbyBypassSettings';
 import {LobbyBypassSettings} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLobbyBypassSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : LobbyBypassSettings {
+export function createLobbyBypassSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LobbyBypassSettings();
+    return deserializeIntoLobbyBypassSettings;
 }

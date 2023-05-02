@@ -1,7 +1,15 @@
+import {deserializeIntoNotebook} from './deserializeIntoNotebook';
+import {deserializeIntoOnenoteEntityBaseModel} from './deserializeIntoOnenoteEntityBaseModel';
+import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
+import {deserializeIntoOnenoteEntitySchemaObjectModel} from './deserializeIntoOnenoteEntitySchemaObjectModel';
+import {deserializeIntoOnenotePage} from './deserializeIntoOnenotePage';
+import {deserializeIntoOnenoteResource} from './deserializeIntoOnenoteResource';
+import {deserializeIntoOnenoteSection} from './deserializeIntoOnenoteSection';
+import {deserializeIntoSectionGroup} from './deserializeIntoSectionGroup';
 import {Notebook, OnenoteEntityBaseModel, OnenoteEntityHierarchyModel, OnenoteEntitySchemaObjectModel, OnenotePage, OnenoteResource, OnenoteSection, SectionGroup} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityBaseModel {
+export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,21 +17,21 @@ export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: Pa
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.notebook":
-                    return new Notebook();
+                    return deserializeIntoNotebook;
                 case "#microsoft.graph.onenoteEntityHierarchyModel":
-                    return new OnenoteEntityHierarchyModel();
+                    return deserializeIntoOnenoteEntityHierarchyModel;
                 case "#microsoft.graph.onenoteEntitySchemaObjectModel":
-                    return new OnenoteEntitySchemaObjectModel();
+                    return deserializeIntoOnenoteEntitySchemaObjectModel;
                 case "#microsoft.graph.onenotePage":
-                    return new OnenotePage();
+                    return deserializeIntoOnenotePage;
                 case "#microsoft.graph.onenoteResource":
-                    return new OnenoteResource();
+                    return deserializeIntoOnenoteResource;
                 case "#microsoft.graph.onenoteSection":
-                    return new OnenoteSection();
+                    return deserializeIntoOnenoteSection;
                 case "#microsoft.graph.sectionGroup":
-                    return new SectionGroup();
+                    return deserializeIntoSectionGroup;
             }
         }
     }
-    return new OnenoteEntityBaseModel();
+    return deserializeIntoOnenoteEntityBaseModel;
 }

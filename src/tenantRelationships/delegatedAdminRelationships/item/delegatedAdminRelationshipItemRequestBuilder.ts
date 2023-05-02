@@ -1,17 +1,18 @@
-import {DelegatedAdminRelationship} from '../../../models/';
 import {createDelegatedAdminRelationshipFromDiscriminatorValue} from '../../../models/createDelegatedAdminRelationshipFromDiscriminatorValue';
+import {DelegatedAdminRelationship} from '../../../models/delegatedAdminRelationship';
+import {deserializeIntoDelegatedAdminRelationship} from '../../../models/deserializeIntoDelegatedAdminRelationship';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeDelegatedAdminRelationship} from '../../../models/serializeDelegatedAdminRelationship';
 import {AccessAssignmentsRequestBuilder} from './accessAssignments/accessAssignmentsRequestBuilder';
-import {DelegatedAdminAccessAssignmentItemRequestBuilder} from './accessAssignments/item/delegatedAdminAccessAssignmentItemRequestBuilder';
 import {DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration';
-import {DelegatedAdminRelationshipOperationItemRequestBuilder} from './operations/item/delegatedAdminRelationshipOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {DelegatedAdminRelationshipRequestItemRequestBuilder} from './requests/item/delegatedAdminRelationshipRequestItemRequestBuilder';
 import {RequestsRequestBuilder} from './requests/requestsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
@@ -30,17 +31,6 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return new RequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
-     * @param id Unique identifier of the item
-     * @returns a DelegatedAdminAccessAssignmentItemRequestBuilder
-     */
-    public accessAssignmentsById(id: string) : DelegatedAdminAccessAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["delegatedAdminAccessAssignment%2Did"] = id
-        return new DelegatedAdminAccessAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new DelegatedAdminRelationshipItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -57,10 +47,10 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -73,22 +63,11 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
-     * @param id Unique identifier of the item
-     * @returns a DelegatedAdminRelationshipOperationItemRequestBuilder
-     */
-    public operationsById(id: string) : DelegatedAdminRelationshipOperationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["delegatedAdminRelationshipOperation%2Did"] = id
-        return new DelegatedAdminRelationshipOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property delegatedAdminRelationships in tenantRelationships
@@ -102,22 +81,11 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
-     * @param id Unique identifier of the item
-     * @returns a DelegatedAdminRelationshipRequestItemRequestBuilder
-     */
-    public requestsById(id: string) : DelegatedAdminRelationshipRequestItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["delegatedAdminRelationshipRequest%2Did"] = id
-        return new DelegatedAdminRelationshipRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property delegatedAdminRelationships for tenantRelationships
@@ -170,7 +138,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminRelationship);
         return requestInfo;
     };
 }

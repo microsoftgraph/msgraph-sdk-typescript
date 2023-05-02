@@ -1,7 +1,10 @@
+import {deserializeIntoCountryNamedLocation} from './deserializeIntoCountryNamedLocation';
+import {deserializeIntoIpNamedLocation} from './deserializeIntoIpNamedLocation';
+import {deserializeIntoNamedLocation} from './deserializeIntoNamedLocation';
 import {CountryNamedLocation, IpNamedLocation, NamedLocation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) : NamedLocation {
+export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createNamedLocationFromDiscriminatorValue(parseNode: ParseNode |
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.countryNamedLocation":
-                    return new CountryNamedLocation();
+                    return deserializeIntoCountryNamedLocation;
                 case "#microsoft.graph.ipNamedLocation":
-                    return new IpNamedLocation();
+                    return deserializeIntoIpNamedLocation;
             }
         }
     }
-    return new NamedLocation();
+    return deserializeIntoNamedLocation;
 }

@@ -1,1 +1,5 @@
+export * from './createRevokeSignInSessionsResponseFromDiscriminatorValue'
+export * from './deserializeIntoRevokeSignInSessionsResponse'
+export * from './revokeSignInSessionsRequestBuilderPostRequestConfiguration'
 export * from './revokeSignInSessionsResponse'
+export * from './serializeRevokeSignInSessionsResponse'

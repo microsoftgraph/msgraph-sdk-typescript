@@ -1,7 +1,11 @@
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody} from './deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody';
+import {GetConfigurationPolicyNonComplianceReportPostRequestBody} from './getConfigurationPolicyNonComplianceReportPostRequestBody';
 import {GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration} from './getConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {GetConfigurationPolicyNonComplianceReportPostRequestBody} from './index';
+import {serializeGetConfigurationPolicyNonComplianceReportPostRequestBody} from './serializeGetConfigurationPolicyNonComplianceReportPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -28,10 +32,10 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder extends Bas
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,7 +54,7 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetConfigurationPolicyNonComplianceReportPostRequestBody);
         return requestInfo;
     };
 }

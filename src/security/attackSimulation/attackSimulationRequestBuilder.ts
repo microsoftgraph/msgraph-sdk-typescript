@@ -1,15 +1,17 @@
-import {AttackSimulationRoot} from '../../models/';
+import {AttackSimulationRoot} from '../../models/attackSimulationRoot';
 import {createAttackSimulationRootFromDiscriminatorValue} from '../../models/createAttackSimulationRootFromDiscriminatorValue';
+import {deserializeIntoAttackSimulationRoot} from '../../models/deserializeIntoAttackSimulationRoot';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeAttackSimulationRoot} from '../../models/serializeAttackSimulationRoot';
 import {AttackSimulationRequestBuilderDeleteRequestConfiguration} from './attackSimulationRequestBuilderDeleteRequestConfiguration';
 import {AttackSimulationRequestBuilderGetRequestConfiguration} from './attackSimulationRequestBuilderGetRequestConfiguration';
 import {AttackSimulationRequestBuilderPatchRequestConfiguration} from './attackSimulationRequestBuilderPatchRequestConfiguration';
-import {SimulationAutomationItemRequestBuilder} from './simulationAutomations/item/simulationAutomationItemRequestBuilder';
 import {SimulationAutomationsRequestBuilder} from './simulationAutomations/simulationAutomationsRequestBuilder';
-import {SimulationItemRequestBuilder} from './simulations/item/simulationItemRequestBuilder';
 import {SimulationsRequestBuilder} from './simulations/simulationsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
@@ -40,10 +42,10 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -56,10 +58,10 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AttackSimulationRoot>(requestInfo, createAttackSimulationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -74,33 +76,11 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AttackSimulationRoot>(requestInfo, createAttackSimulationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a SimulationAutomationItemRequestBuilder
-     */
-    public simulationAutomationsById(id: string) : SimulationAutomationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["simulationAutomation%2Did"] = id
-        return new SimulationAutomationItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a SimulationItemRequestBuilder
-     */
-    public simulationsById(id: string) : SimulationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["simulation%2Did"] = id
-        return new SimulationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property attackSimulation for security
@@ -153,7 +133,7 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttackSimulationRoot);
         return requestInfo;
     };
 }

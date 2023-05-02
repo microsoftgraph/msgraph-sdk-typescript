@@ -1,46 +1,8 @@
-import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from './createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
-import {BaseCollectionPaginationCountResponse, DeviceManagementTroubleshootingEvent} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class DeviceManagementTroubleshootingEventCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+export interface DeviceManagementTroubleshootingEventCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /** The value property */
-    private _value?: DeviceManagementTroubleshootingEvent[] | undefined;
-    /**
-     * Instantiates a new DeviceManagementTroubleshootingEventCollectionResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>(createDeviceManagementTroubleshootingEventFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a deviceManagementTroubleshootingEvent
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: DeviceManagementTroubleshootingEvent[] | undefined) {
-        this._value = value;
-    };
+    value?: DeviceManagementTroubleshootingEvent[] | undefined;
 }

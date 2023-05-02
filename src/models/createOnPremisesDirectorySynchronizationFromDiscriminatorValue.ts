@@ -1,7 +1,8 @@
+import {deserializeIntoOnPremisesDirectorySynchronization} from './deserializeIntoOnPremisesDirectorySynchronization';
 import {OnPremisesDirectorySynchronization} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnPremisesDirectorySynchronizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnPremisesDirectorySynchronization {
+export function createOnPremisesDirectorySynchronizationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OnPremisesDirectorySynchronization();
+    return deserializeIntoOnPremisesDirectorySynchronization;
 }

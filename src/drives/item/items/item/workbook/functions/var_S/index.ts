@@ -1,1 +1,5 @@
+export * from './createVar_SPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoVar_SPostRequestBody'
+export * from './serializeVar_SPostRequestBody'
 export * from './var_SPostRequestBody'
+export * from './var_SRequestBuilderPostRequestConfiguration'

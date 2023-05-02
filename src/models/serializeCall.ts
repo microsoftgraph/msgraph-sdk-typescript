@@ -1,0 +1,67 @@
+import {AudioRoutingGroup} from './audioRoutingGroup';
+import {Call} from './call';
+import {CallDirection} from './callDirection';
+import {CallMediaState} from './callMediaState';
+import {CallOptions} from './callOptions';
+import {CallRoute} from './callRoute';
+import {CallState} from './callState';
+import {CallTranscriptionInfo} from './callTranscriptionInfo';
+import {ChatInfo} from './chatInfo';
+import {CommsOperation} from './commsOperation';
+import {ContentSharingSession} from './contentSharingSession';
+import {IncomingContext} from './incomingContext';
+import {InvitationParticipantInfo} from './invitationParticipantInfo';
+import {MediaConfig} from './mediaConfig';
+import {MeetingInfo} from './meetingInfo';
+import {Modality} from './modality';
+import {Participant} from './participant';
+import {ParticipantInfo} from './participantInfo';
+import {ResultInfo} from './resultInfo';
+import {serializeAudioRoutingGroup} from './serializeAudioRoutingGroup';
+import {serializeCallMediaState} from './serializeCallMediaState';
+import {serializeCallOptions} from './serializeCallOptions';
+import {serializeCallRoute} from './serializeCallRoute';
+import {serializeCallTranscriptionInfo} from './serializeCallTranscriptionInfo';
+import {serializeChatInfo} from './serializeChatInfo';
+import {serializeCommsOperation} from './serializeCommsOperation';
+import {serializeContentSharingSession} from './serializeContentSharingSession';
+import {serializeEntity} from './serializeEntity';
+import {serializeIncomingContext} from './serializeIncomingContext';
+import {serializeInvitationParticipantInfo} from './serializeInvitationParticipantInfo';
+import {serializeMediaConfig} from './serializeMediaConfig';
+import {serializeMeetingInfo} from './serializeMeetingInfo';
+import {serializeParticipant} from './serializeParticipant';
+import {serializeParticipantInfo} from './serializeParticipantInfo';
+import {serializeResultInfo} from './serializeResultInfo';
+import {serializeToneInfo} from './serializeToneInfo';
+import {ToneInfo} from './toneInfo';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeCall(writer: SerializationWriter, call: Call | undefined = {} as Call) : void {
+        serializeEntity(writer, call)
+        writer.writeCollectionOfObjectValues<AudioRoutingGroup>("audioRoutingGroups", call.audioRoutingGroups, serializeAudioRoutingGroup);
+        writer.writeStringValue("callbackUri", call.callbackUri);
+        writer.writeStringValue("callChainId", call.callChainId);
+        writer.writeObjectValue<CallOptions>("callOptions", call.callOptions, serializeCallOptions);
+        writer.writeCollectionOfObjectValues<CallRoute>("callRoutes", call.callRoutes, serializeCallRoute);
+        writer.writeObjectValue<ChatInfo>("chatInfo", call.chatInfo, serializeChatInfo);
+        writer.writeCollectionOfObjectValues<ContentSharingSession>("contentSharingSessions", call.contentSharingSessions, serializeContentSharingSession);
+        writer.writeEnumValue<CallDirection>("direction", call.direction);
+        writer.writeObjectValue<IncomingContext>("incomingContext", call.incomingContext, serializeIncomingContext);
+        writer.writeObjectValue<MediaConfig>("mediaConfig", call.mediaConfig, serializeMediaConfig);
+        writer.writeObjectValue<CallMediaState>("mediaState", call.mediaState, serializeCallMediaState);
+        writer.writeObjectValue<MeetingInfo>("meetingInfo", call.meetingInfo, serializeMeetingInfo);
+        writer.writeStringValue("myParticipantId", call.myParticipantId);
+        writer.writeCollectionOfObjectValues<CommsOperation>("operations", call.operations, serializeCommsOperation);
+        writer.writeCollectionOfObjectValues<Participant>("participants", call.participants, serializeParticipant);
+        if(call.requestedModalities)
+        writer.writeEnumValue<Modality>("requestedModalities", ...call.requestedModalities);
+        writer.writeObjectValue<ResultInfo>("resultInfo", call.resultInfo, serializeResultInfo);
+        writer.writeObjectValue<ParticipantInfo>("source", call.source, serializeParticipantInfo);
+        writer.writeEnumValue<CallState>("state", call.state);
+        writer.writeStringValue("subject", call.subject);
+        writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", call.targets, serializeInvitationParticipantInfo);
+        writer.writeStringValue("tenantId", call.tenantId);
+        writer.writeObjectValue<ToneInfo>("toneInfo", call.toneInfo, serializeToneInfo);
+        writer.writeObjectValue<CallTranscriptionInfo>("transcription", call.transcription, serializeCallTranscriptionInfo);
+}

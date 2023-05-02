@@ -1,7 +1,9 @@
+import {deserializeIntoDictionary} from './deserializeIntoDictionary';
+import {deserializeIntoResultTemplateDictionary} from './deserializeIntoResultTemplateDictionary';
 import {Dictionary, ResultTemplateDictionary} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) : Dictionary {
+export function createDictionaryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createDictionaryFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.resultTemplateDictionary":
-                    return new ResultTemplateDictionary();
+                    return deserializeIntoResultTemplateDictionary;
             }
         }
     }
-    return new Dictionary();
+    return deserializeIntoDictionary;
 }

@@ -1,7 +1,10 @@
+import {deserializeIntoIosHomeScreenApp} from './deserializeIntoIosHomeScreenApp';
+import {deserializeIntoIosHomeScreenFolder} from './deserializeIntoIosHomeScreenFolder';
+import {deserializeIntoIosHomeScreenItem} from './deserializeIntoIosHomeScreenItem';
 import {IosHomeScreenApp, IosHomeScreenFolder, IosHomeScreenItem} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIosHomeScreenItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : IosHomeScreenItem {
+export function createIosHomeScreenItemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createIosHomeScreenItemFromDiscriminatorValue(parseNode: ParseNo
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.iosHomeScreenApp":
-                    return new IosHomeScreenApp();
+                    return deserializeIntoIosHomeScreenApp;
                 case "#microsoft.graph.iosHomeScreenFolder":
-                    return new IosHomeScreenFolder();
+                    return deserializeIntoIosHomeScreenFolder;
             }
         }
     }
-    return new IosHomeScreenItem();
+    return deserializeIntoIosHomeScreenItem;
 }

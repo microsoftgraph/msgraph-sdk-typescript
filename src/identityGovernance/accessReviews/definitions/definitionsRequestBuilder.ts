@@ -1,13 +1,19 @@
-import {AccessReviewScheduleDefinition, AccessReviewScheduleDefinitionCollectionResponse} from '../../../models/';
+import {AccessReviewScheduleDefinitionCollectionResponse} from '../../../models/';
+import {AccessReviewScheduleDefinition} from '../../../models/accessReviewScheduleDefinition';
 import {createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from '../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
+import {deserializeIntoAccessReviewScheduleDefinition} from '../../../models/deserializeIntoAccessReviewScheduleDefinition';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeAccessReviewScheduleDefinition} from '../../../models/serializeAccessReviewScheduleDefinition';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefinitionsRequestBuilderGetRequestConfiguration} from './definitionsRequestBuilderGetRequestConfiguration';
 import {DefinitionsRequestBuilderPostRequestConfiguration} from './definitionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AccessReviewScheduleDefinitionItemRequestBuilder} from './item/accessReviewScheduleDefinitionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
@@ -17,6 +23,17 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
+     * @param accessReviewScheduleDefinitionId Unique identifier of the item
+     * @returns a AccessReviewScheduleDefinitionItemRequestBuilder
+     */
+    public byAccessReviewScheduleDefinitionId(accessReviewScheduleDefinitionId: string) : AccessReviewScheduleDefinitionItemRequestBuilder {
+        if(!accessReviewScheduleDefinitionId) throw new Error("accessReviewScheduleDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewScheduleDefinition%2Did"] = accessReviewScheduleDefinitionId
+        return new AccessReviewScheduleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -35,43 +52,41 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get a list of the accessReviewScheduleDefinition objects and their properties.
+     * Represents the template and scheduling for an access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewScheduleDefinitionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DefinitionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewScheduleDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinitionCollectionResponse>(requestInfo, createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new accessReviewScheduleDefinition object.
+     * Create new navigation property to definitions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewScheduleDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessReviewScheduleDefinition | undefined, requestConfiguration?: DefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the accessReviewScheduleDefinition objects and their properties.
+     * Represents the template and scheduling for an access review.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +104,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new accessReviewScheduleDefinition object.
+     * Create new navigation property to definitions for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -105,7 +120,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessReviewScheduleDefinition);
         return requestInfo;
     };
 }

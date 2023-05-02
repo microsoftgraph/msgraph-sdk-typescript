@@ -1,119 +1,17 @@
 import {CalendarRoleType} from './calendarRoleType';
-import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
-import {EmailAddress, Entity} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {EmailAddress} from './emailAddress';
+import {Entity} from './entity';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class CalendarPermission extends Entity implements Parsable {
+export interface CalendarPermission extends Entity, Parsable {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
-    private _allowedRoles?: CalendarRoleType[] | undefined;
+    allowedRoles?: CalendarRoleType[] | undefined;
     /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
-    private _emailAddress?: EmailAddress | undefined;
+    emailAddress?: EmailAddress | undefined;
     /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner. */
-    private _isInsideOrganization?: boolean | undefined;
+    isInsideOrganization?: boolean | undefined;
     /** True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar. */
-    private _isRemovable?: boolean | undefined;
+    isRemovable?: boolean | undefined;
     /** Current permission level of the calendar sharee or delegate. */
-    private _role?: CalendarRoleType | undefined;
-    /**
-     * Gets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-     * @returns a calendarRoleType
-     */
-    public get allowedRoles() {
-        return this._allowedRoles;
-    };
-    /**
-     * Sets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-     * @param value Value to set for the allowedRoles property.
-     */
-    public set allowedRoles(value: CalendarRoleType[] | undefined) {
-        this._allowedRoles = value;
-    };
-    /**
-     * Instantiates a new calendarPermission and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * Gets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
-     * @returns a emailAddress
-     */
-    public get emailAddress() {
-        return this._emailAddress;
-    };
-    /**
-     * Sets the emailAddress property value. Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.
-     * @param value Value to set for the emailAddress property.
-     */
-    public set emailAddress(value: EmailAddress | undefined) {
-        this._emailAddress = value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "allowedRoles": n => { this.allowedRoles = n.getEnumValues<CalendarRoleType>(CalendarRoleType); },
-            "emailAddress": n => { this.emailAddress = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
-            "isInsideOrganization": n => { this.isInsideOrganization = n.getBooleanValue(); },
-            "isRemovable": n => { this.isRemovable = n.getBooleanValue(); },
-            "role": n => { this.role = n.getEnumValue<CalendarRoleType>(CalendarRoleType); },
-        };
-    };
-    /**
-     * Gets the isInsideOrganization property value. True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.
-     * @returns a boolean
-     */
-    public get isInsideOrganization() {
-        return this._isInsideOrganization;
-    };
-    /**
-     * Sets the isInsideOrganization property value. True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.
-     * @param value Value to set for the isInsideOrganization property.
-     */
-    public set isInsideOrganization(value: boolean | undefined) {
-        this._isInsideOrganization = value;
-    };
-    /**
-     * Gets the isRemovable property value. True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar.
-     * @returns a boolean
-     */
-    public get isRemovable() {
-        return this._isRemovable;
-    };
-    /**
-     * Sets the isRemovable property value. True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar.
-     * @param value Value to set for the isRemovable property.
-     */
-    public set isRemovable(value: boolean | undefined) {
-        this._isRemovable = value;
-    };
-    /**
-     * Gets the role property value. Current permission level of the calendar sharee or delegate.
-     * @returns a calendarRoleType
-     */
-    public get role() {
-        return this._role;
-    };
-    /**
-     * Sets the role property value. Current permission level of the calendar sharee or delegate.
-     * @param value Value to set for the role property.
-     */
-    public set role(value: CalendarRoleType | undefined) {
-        this._role = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        this.allowedRoles && writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...this.allowedRoles);
-        writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
-        writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
-        writer.writeBooleanValue("isRemovable", this.isRemovable);
-        writer.writeEnumValue<CalendarRoleType>("role", this.role);
-    };
+    role?: CalendarRoleType | undefined;
 }

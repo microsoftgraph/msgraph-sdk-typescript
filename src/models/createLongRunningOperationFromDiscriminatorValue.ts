@@ -1,7 +1,9 @@
+import {deserializeIntoLongRunningOperation} from './deserializeIntoLongRunningOperation';
+import {deserializeIntoRichLongRunningOperation} from './deserializeIntoRichLongRunningOperation';
 import {LongRunningOperation, RichLongRunningOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : LongRunningOperation {
+export function createLongRunningOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createLongRunningOperationFromDiscriminatorValue(parseNode: Pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.richLongRunningOperation":
-                    return new RichLongRunningOperation();
+                    return deserializeIntoRichLongRunningOperation;
             }
         }
     }
-    return new LongRunningOperation();
+    return deserializeIntoLongRunningOperation;
 }

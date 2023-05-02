@@ -1,1 +1,5 @@
+export * from './createCreateLinkPostRequestBodyFromDiscriminatorValue'
 export * from './createLinkPostRequestBody'
+export * from './createLinkRequestBuilderPostRequestConfiguration'
+export * from './deserializeIntoCreateLinkPostRequestBody'
+export * from './serializeCreateLinkPostRequestBody'

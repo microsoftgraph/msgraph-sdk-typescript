@@ -1,1 +1,5 @@
 export * from './addCopyFromContentTypeHubPostRequestBody'
+export * from './addCopyFromContentTypeHubRequestBuilderPostRequestConfiguration'
+export * from './createAddCopyFromContentTypeHubPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAddCopyFromContentTypeHubPostRequestBody'
+export * from './serializeAddCopyFromContentTypeHubPostRequestBody'

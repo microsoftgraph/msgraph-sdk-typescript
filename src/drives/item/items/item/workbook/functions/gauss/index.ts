@@ -1,1 +1,5 @@
+export * from './createGaussPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoGaussPostRequestBody'
 export * from './gaussPostRequestBody'
+export * from './gaussRequestBuilderPostRequestConfiguration'
+export * from './serializeGaussPostRequestBody'

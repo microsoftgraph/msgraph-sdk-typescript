@@ -1,7 +1,8 @@
+import {deserializeIntoWindows10CustomConfiguration} from './deserializeIntoWindows10CustomConfiguration';
 import {Windows10CustomConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindows10CustomConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : Windows10CustomConfiguration {
+export function createWindows10CustomConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Windows10CustomConfiguration();
+    return deserializeIntoWindows10CustomConfiguration;
 }

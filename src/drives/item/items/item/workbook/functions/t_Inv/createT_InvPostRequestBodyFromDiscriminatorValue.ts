@@ -1,7 +1,8 @@
+import {deserializeIntoT_InvPostRequestBody} from './deserializeIntoT_InvPostRequestBody';
 import {T_InvPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createT_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : T_InvPostRequestBody {
+export function createT_InvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new T_InvPostRequestBody();
+    return deserializeIntoT_InvPostRequestBody;
 }

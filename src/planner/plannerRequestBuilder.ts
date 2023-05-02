@@ -1,16 +1,17 @@
-import {Planner} from '../models/';
 import {createPlannerFromDiscriminatorValue} from '../models/createPlannerFromDiscriminatorValue';
+import {deserializeIntoPlanner} from '../models/deserializeIntoPlanner';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {Planner} from '../models/planner';
+import {serializePlanner} from '../models/serializePlanner';
 import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
-import {PlannerBucketItemRequestBuilder} from './buckets/item/plannerBucketItemRequestBuilder';
 import {PlannerRequestBuilderGetRequestConfiguration} from './plannerRequestBuilderGetRequestConfiguration';
 import {PlannerRequestBuilderPatchRequestConfiguration} from './plannerRequestBuilderPatchRequestConfiguration';
-import {PlannerPlanItemRequestBuilder} from './plans/item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
-import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the planner singleton.
@@ -29,17 +30,6 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
-     * @param id Unique identifier of the item
-     * @returns a PlannerBucketItemRequestBuilder
-     */
-    public bucketsById(id: string) : PlannerBucketItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["plannerBucket%2Did"] = id
-        return new PlannerBucketItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new PlannerRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -57,10 +47,10 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Planner>(requestInfo, createPlannerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -75,33 +65,11 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Planner>(requestInfo, createPlannerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the plans property of the microsoft.graph.planner entity.
-     * @param id Unique identifier of the item
-     * @returns a PlannerPlanItemRequestBuilder
-     */
-    public plansById(id: string) : PlannerPlanItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["plannerPlan%2Did"] = id
-        return new PlannerPlanItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
-     * @param id Unique identifier of the item
-     * @returns a PlannerTaskItemRequestBuilder
-     */
-    public tasksById(id: string) : PlannerTaskItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["plannerTask%2Did"] = id
-        return new PlannerTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get planner
@@ -138,7 +106,7 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlanner);
         return requestInfo;
     };
 }

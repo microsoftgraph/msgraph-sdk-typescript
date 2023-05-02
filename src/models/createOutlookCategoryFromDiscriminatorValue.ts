@@ -1,7 +1,8 @@
+import {deserializeIntoOutlookCategory} from './deserializeIntoOutlookCategory';
 import {OutlookCategory} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOutlookCategoryFromDiscriminatorValue(parseNode: ParseNode | undefined) : OutlookCategory {
+export function createOutlookCategoryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OutlookCategory();
+    return deserializeIntoOutlookCategory;
 }

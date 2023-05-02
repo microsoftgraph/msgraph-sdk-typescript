@@ -1,21 +1,21 @@
-import {AccessPackage} from '../../../../../../models/';
+import {AccessPackage} from '../../../../../../models/accessPackage';
 import {createAccessPackageFromDiscriminatorValue} from '../../../../../../models/createAccessPackageFromDiscriminatorValue';
+import {deserializeIntoAccessPackage} from '../../../../../../models/deserializeIntoAccessPackage';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeAccessPackage} from '../../../../../../models/serializeAccessPackage';
 import {AccessPackageItemRequestBuilderDeleteRequestConfiguration} from './accessPackageItemRequestBuilderDeleteRequestConfiguration';
 import {AccessPackageItemRequestBuilderGetRequestConfiguration} from './accessPackageItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageItemRequestBuilderPatchRequestConfiguration} from './accessPackageItemRequestBuilderPatchRequestConfiguration';
 import {AccessPackagesIncompatibleWithRequestBuilder} from './accessPackagesIncompatibleWith/accessPackagesIncompatibleWithRequestBuilder';
-import {AccessPackageItemRequestBuilder as I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5} from './accessPackagesIncompatibleWith/item/accessPackageItemRequestBuilder';
 import {AssignmentPoliciesRequestBuilder} from './assignmentPolicies/assignmentPoliciesRequestBuilder';
-import {AccessPackageAssignmentPolicyItemRequestBuilder} from './assignmentPolicies/item/accessPackageAssignmentPolicyItemRequestBuilder';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {GetApplicablePolicyRequirementsRequestBuilder} from './getApplicablePolicyRequirements/getApplicablePolicyRequirementsRequestBuilder';
 import {IncompatibleAccessPackagesRequestBuilder} from './incompatibleAccessPackages/incompatibleAccessPackagesRequestBuilder';
-import {AccessPackageItemRequestBuilder as I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764} from './incompatibleAccessPackages/item/accessPackageItemRequestBuilder';
 import {IncompatibleGroupsRequestBuilder} from './incompatibleGroups/incompatibleGroupsRequestBuilder';
-import {GroupItemRequestBuilder} from './incompatibleGroups/item/groupItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
@@ -46,28 +46,6 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return new IncompatibleGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageItemRequestBuilder
-     */
-    public accessPackagesIncompatibleWithById(id: string) : I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackage%2Did1"] = id
-        return new I0f7e6b283e479d72a6d9d336ee5e2552141f4d76a9a6ac81fe249c4bc7bcd2e5(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageAssignmentPolicyItemRequestBuilder
-     */
-    public assignmentPoliciesById(id: string) : AccessPackageAssignmentPolicyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackageAssignmentPolicy%2Did"] = id
-        return new AccessPackageAssignmentPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new AccessPackageItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -84,10 +62,10 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -100,33 +78,11 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.incompatibleAccessPackages.item collection
-     * @param id Unique identifier of the item
-     * @returns a AccessPackageItemRequestBuilder
-     */
-    public incompatibleAccessPackagesById(id: string) : I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessPackage%2Did1"] = id
-        return new I8cfc274500b86997c5a1d8da7cc7aabfd9284b78e1a192fee878c6c9bff1e764(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.incompatibleGroups.item collection
-     * @param id Unique identifier of the item
-     * @returns a GroupItemRequestBuilder
-     */
-    public incompatibleGroupsById(id: string) : GroupItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["group%2Did"] = id
-        return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property accessPackages in identityGovernance
@@ -140,10 +96,10 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -197,7 +153,7 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackage);
         return requestInfo;
     };
 }

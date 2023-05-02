@@ -1,7 +1,9 @@
+import {deserializeIntoRiskyUser} from './deserializeIntoRiskyUser';
+import {deserializeIntoRiskyUserHistoryItem} from './deserializeIntoRiskyUserHistoryItem';
 import {RiskyUser, RiskyUserHistoryItem} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskyUser {
+export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | und
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.riskyUserHistoryItem":
-                    return new RiskyUserHistoryItem();
+                    return deserializeIntoRiskyUserHistoryItem;
             }
         }
     }
-    return new RiskyUser();
+    return deserializeIntoRiskyUser;
 }

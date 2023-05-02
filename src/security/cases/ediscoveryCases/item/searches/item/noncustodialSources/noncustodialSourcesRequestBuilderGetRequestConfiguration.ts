@@ -1,14 +1,11 @@
 import {NoncustodialSourcesRequestBuilderGetQueryParameters} from './noncustodialSourcesRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class NoncustodialSourcesRequestBuilderGetRequestConfiguration {
+export interface NoncustodialSourcesRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: NoncustodialSourcesRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: NoncustodialSourcesRequestBuilderGetQueryParameters | undefined;
 }

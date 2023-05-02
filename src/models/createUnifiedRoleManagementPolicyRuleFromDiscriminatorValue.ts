@@ -1,7 +1,13 @@
+import {deserializeIntoUnifiedRoleManagementPolicyApprovalRule} from './deserializeIntoUnifiedRoleManagementPolicyApprovalRule';
+import {deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule} from './deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule';
+import {deserializeIntoUnifiedRoleManagementPolicyEnablementRule} from './deserializeIntoUnifiedRoleManagementPolicyEnablementRule';
+import {deserializeIntoUnifiedRoleManagementPolicyExpirationRule} from './deserializeIntoUnifiedRoleManagementPolicyExpirationRule';
+import {deserializeIntoUnifiedRoleManagementPolicyNotificationRule} from './deserializeIntoUnifiedRoleManagementPolicyNotificationRule';
+import {deserializeIntoUnifiedRoleManagementPolicyRule} from './deserializeIntoUnifiedRoleManagementPolicyRule';
 import {UnifiedRoleManagementPolicyApprovalRule, UnifiedRoleManagementPolicyAuthenticationContextRule, UnifiedRoleManagementPolicyEnablementRule, UnifiedRoleManagementPolicyExpirationRule, UnifiedRoleManagementPolicyNotificationRule, UnifiedRoleManagementPolicyRule} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleManagementPolicyRule {
+export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,17 +15,17 @@ export function createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue(pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.unifiedRoleManagementPolicyApprovalRule":
-                    return new UnifiedRoleManagementPolicyApprovalRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyApprovalRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyAuthenticationContextRule":
-                    return new UnifiedRoleManagementPolicyAuthenticationContextRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule":
-                    return new UnifiedRoleManagementPolicyEnablementRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyEnablementRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule":
-                    return new UnifiedRoleManagementPolicyExpirationRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyExpirationRule;
                 case "#microsoft.graph.unifiedRoleManagementPolicyNotificationRule":
-                    return new UnifiedRoleManagementPolicyNotificationRule();
+                    return deserializeIntoUnifiedRoleManagementPolicyNotificationRule;
             }
         }
     }
-    return new UnifiedRoleManagementPolicyRule();
+    return deserializeIntoUnifiedRoleManagementPolicyRule;
 }

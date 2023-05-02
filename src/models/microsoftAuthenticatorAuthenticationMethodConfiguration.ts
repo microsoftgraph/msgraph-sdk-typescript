@@ -1,84 +1,13 @@
-import {createMicrosoftAuthenticatorAuthenticationMethodTargetFromDiscriminatorValue} from './createMicrosoftAuthenticatorAuthenticationMethodTargetFromDiscriminatorValue';
-import {createMicrosoftAuthenticatorFeatureSettingsFromDiscriminatorValue} from './createMicrosoftAuthenticatorFeatureSettingsFromDiscriminatorValue';
-import {AuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodTarget, MicrosoftAuthenticatorFeatureSettings} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import {MicrosoftAuthenticatorAuthenticationMethodTarget} from './microsoftAuthenticatorAuthenticationMethodTarget';
+import {MicrosoftAuthenticatorFeatureSettings} from './microsoftAuthenticatorFeatureSettings';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration implements Parsable {
+export interface MicrosoftAuthenticatorAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {
     /** A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only. */
-    private _featureSettings?: MicrosoftAuthenticatorFeatureSettings | undefined;
+    featureSettings?: MicrosoftAuthenticatorFeatureSettings | undefined;
     /** A collection of groups that are enabled to use the authentication method. Expanded by default. */
-    private _includeTargets?: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined;
+    includeTargets?: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined;
     /** The isSoftwareOathEnabled property */
-    private _isSoftwareOathEnabled?: boolean | undefined;
-    /**
-     * Instantiates a new MicrosoftAuthenticatorAuthenticationMethodConfiguration and sets the default values.
-     */
-    public constructor() {
-        super();
-        this.odataType = "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration";
-    };
-    /**
-     * Gets the featureSettings property value. A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.
-     * @returns a microsoftAuthenticatorFeatureSettings
-     */
-    public get featureSettings() {
-        return this._featureSettings;
-    };
-    /**
-     * Sets the featureSettings property value. A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.
-     * @param value Value to set for the featureSettings property.
-     */
-    public set featureSettings(value: MicrosoftAuthenticatorFeatureSettings | undefined) {
-        this._featureSettings = value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "featureSettings": n => { this.featureSettings = n.getObjectValue<MicrosoftAuthenticatorFeatureSettings>(createMicrosoftAuthenticatorFeatureSettingsFromDiscriminatorValue); },
-            "includeTargets": n => { this.includeTargets = n.getCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>(createMicrosoftAuthenticatorAuthenticationMethodTargetFromDiscriminatorValue); },
-            "isSoftwareOathEnabled": n => { this.isSoftwareOathEnabled = n.getBooleanValue(); },
-        };
-    };
-    /**
-     * Gets the includeTargets property value. A collection of groups that are enabled to use the authentication method. Expanded by default.
-     * @returns a microsoftAuthenticatorAuthenticationMethodTarget
-     */
-    public get includeTargets() {
-        return this._includeTargets;
-    };
-    /**
-     * Sets the includeTargets property value. A collection of groups that are enabled to use the authentication method. Expanded by default.
-     * @param value Value to set for the includeTargets property.
-     */
-    public set includeTargets(value: MicrosoftAuthenticatorAuthenticationMethodTarget[] | undefined) {
-        this._includeTargets = value;
-    };
-    /**
-     * Gets the isSoftwareOathEnabled property value. The isSoftwareOathEnabled property
-     * @returns a boolean
-     */
-    public get isSoftwareOathEnabled() {
-        return this._isSoftwareOathEnabled;
-    };
-    /**
-     * Sets the isSoftwareOathEnabled property value. The isSoftwareOathEnabled property
-     * @param value Value to set for the isSoftwareOathEnabled property.
-     */
-    public set isSoftwareOathEnabled(value: boolean | undefined) {
-        this._isSoftwareOathEnabled = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeObjectValue<MicrosoftAuthenticatorFeatureSettings>("featureSettings", this.featureSettings);
-        writer.writeCollectionOfObjectValues<MicrosoftAuthenticatorAuthenticationMethodTarget>("includeTargets", this.includeTargets);
-        writer.writeBooleanValue("isSoftwareOathEnabled", this.isSoftwareOathEnabled);
-    };
+    isSoftwareOathEnabled?: boolean | undefined;
 }

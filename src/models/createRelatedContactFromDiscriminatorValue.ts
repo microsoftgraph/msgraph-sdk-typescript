@@ -1,7 +1,8 @@
+import {deserializeIntoRelatedContact} from './deserializeIntoRelatedContact';
 import {RelatedContact} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRelatedContactFromDiscriminatorValue(parseNode: ParseNode | undefined) : RelatedContact {
+export function createRelatedContactFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RelatedContact();
+    return deserializeIntoRelatedContact;
 }

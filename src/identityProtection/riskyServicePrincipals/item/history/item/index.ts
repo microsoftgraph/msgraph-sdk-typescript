@@ -1,0 +1,4 @@
+export * from './riskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration'
+export * from './riskyServicePrincipalHistoryItemItemRequestBuilderGetQueryParameters'
+export * from './riskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration'
+export * from './riskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration'

@@ -1,101 +1,15 @@
-import {createAppConsentRequestScopeFromDiscriminatorValue} from './createAppConsentRequestScopeFromDiscriminatorValue';
-import {createUserConsentRequestFromDiscriminatorValue} from './createUserConsentRequestFromDiscriminatorValue';
-import {AppConsentRequestScope, Entity, UserConsentRequest} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AppConsentRequestScope} from './appConsentRequestScope';
+import {Entity} from './entity';
+import {UserConsentRequest} from './userConsentRequest';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class AppConsentRequest extends Entity implements Parsable {
+export interface AppConsentRequest extends Entity, Parsable {
     /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
-    private _appDisplayName?: string | undefined;
+    appDisplayName?: string | undefined;
     /** The identifier of the application. Required. Supports $filter (eq only) and $orderby. */
-    private _appId?: string | undefined;
+    appId?: string | undefined;
     /** A list of pending scopes waiting for approval. Required. */
-    private _pendingScopes?: AppConsentRequestScope[] | undefined;
+    pendingScopes?: AppConsentRequestScope[] | undefined;
     /** A list of pending user consent requests. Supports $filter (eq). */
-    private _userConsentRequests?: UserConsentRequest[] | undefined;
-    /**
-     * Gets the appDisplayName property value. The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
-     * @returns a string
-     */
-    public get appDisplayName() {
-        return this._appDisplayName;
-    };
-    /**
-     * Sets the appDisplayName property value. The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
-     * @param value Value to set for the appDisplayName property.
-     */
-    public set appDisplayName(value: string | undefined) {
-        this._appDisplayName = value;
-    };
-    /**
-     * Gets the appId property value. The identifier of the application. Required. Supports $filter (eq only) and $orderby.
-     * @returns a string
-     */
-    public get appId() {
-        return this._appId;
-    };
-    /**
-     * Sets the appId property value. The identifier of the application. Required. Supports $filter (eq only) and $orderby.
-     * @param value Value to set for the appId property.
-     */
-    public set appId(value: string | undefined) {
-        this._appId = value;
-    };
-    /**
-     * Instantiates a new appConsentRequest and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "appDisplayName": n => { this.appDisplayName = n.getStringValue(); },
-            "appId": n => { this.appId = n.getStringValue(); },
-            "pendingScopes": n => { this.pendingScopes = n.getCollectionOfObjectValues<AppConsentRequestScope>(createAppConsentRequestScopeFromDiscriminatorValue); },
-            "userConsentRequests": n => { this.userConsentRequests = n.getCollectionOfObjectValues<UserConsentRequest>(createUserConsentRequestFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
-     * @returns a appConsentRequestScope
-     */
-    public get pendingScopes() {
-        return this._pendingScopes;
-    };
-    /**
-     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
-     * @param value Value to set for the pendingScopes property.
-     */
-    public set pendingScopes(value: AppConsentRequestScope[] | undefined) {
-        this._pendingScopes = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeStringValue("appDisplayName", this.appDisplayName);
-        writer.writeStringValue("appId", this.appId);
-        writer.writeCollectionOfObjectValues<AppConsentRequestScope>("pendingScopes", this.pendingScopes);
-        writer.writeCollectionOfObjectValues<UserConsentRequest>("userConsentRequests", this.userConsentRequests);
-    };
-    /**
-     * Gets the userConsentRequests property value. A list of pending user consent requests. Supports $filter (eq).
-     * @returns a userConsentRequest
-     */
-    public get userConsentRequests() {
-        return this._userConsentRequests;
-    };
-    /**
-     * Sets the userConsentRequests property value. A list of pending user consent requests. Supports $filter (eq).
-     * @param value Value to set for the userConsentRequests property.
-     */
-    public set userConsentRequests(value: UserConsentRequest[] | undefined) {
-        this._userConsentRequests = value;
-    };
+    userConsentRequests?: UserConsentRequest[] | undefined;
 }

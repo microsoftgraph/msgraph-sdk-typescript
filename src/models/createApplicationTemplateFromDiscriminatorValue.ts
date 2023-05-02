@@ -1,7 +1,8 @@
+import {deserializeIntoApplicationTemplate} from './deserializeIntoApplicationTemplate';
 import {ApplicationTemplate} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createApplicationTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) : ApplicationTemplate {
+export function createApplicationTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ApplicationTemplate();
+    return deserializeIntoApplicationTemplate;
 }

@@ -1,7 +1,16 @@
+import {deserializeIntoEducationExcelResource} from './deserializeIntoEducationExcelResource';
+import {deserializeIntoEducationExternalResource} from './deserializeIntoEducationExternalResource';
+import {deserializeIntoEducationFileResource} from './deserializeIntoEducationFileResource';
+import {deserializeIntoEducationLinkResource} from './deserializeIntoEducationLinkResource';
+import {deserializeIntoEducationMediaResource} from './deserializeIntoEducationMediaResource';
+import {deserializeIntoEducationPowerPointResource} from './deserializeIntoEducationPowerPointResource';
+import {deserializeIntoEducationResource} from './deserializeIntoEducationResource';
+import {deserializeIntoEducationTeamsAppResource} from './deserializeIntoEducationTeamsAppResource';
+import {deserializeIntoEducationWordResource} from './deserializeIntoEducationWordResource';
 import {EducationExcelResource, EducationExternalResource, EducationFileResource, EducationLinkResource, EducationMediaResource, EducationPowerPointResource, EducationResource, EducationTeamsAppResource, EducationWordResource} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationResource {
+export function createEducationResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,23 +18,23 @@ export function createEducationResourceFromDiscriminatorValue(parseNode: ParseNo
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.educationExcelResource":
-                    return new EducationExcelResource();
+                    return deserializeIntoEducationExcelResource;
                 case "#microsoft.graph.educationExternalResource":
-                    return new EducationExternalResource();
+                    return deserializeIntoEducationExternalResource;
                 case "#microsoft.graph.educationFileResource":
-                    return new EducationFileResource();
+                    return deserializeIntoEducationFileResource;
                 case "#microsoft.graph.educationLinkResource":
-                    return new EducationLinkResource();
+                    return deserializeIntoEducationLinkResource;
                 case "#microsoft.graph.educationMediaResource":
-                    return new EducationMediaResource();
+                    return deserializeIntoEducationMediaResource;
                 case "#microsoft.graph.educationPowerPointResource":
-                    return new EducationPowerPointResource();
+                    return deserializeIntoEducationPowerPointResource;
                 case "#microsoft.graph.educationTeamsAppResource":
-                    return new EducationTeamsAppResource();
+                    return deserializeIntoEducationTeamsAppResource;
                 case "#microsoft.graph.educationWordResource":
-                    return new EducationWordResource();
+                    return deserializeIntoEducationWordResource;
             }
         }
     }
-    return new EducationResource();
+    return deserializeIntoEducationResource;
 }

@@ -1,7 +1,10 @@
+import {deserializeIntoAppleDeviceFeaturesConfigurationBase} from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
+import {deserializeIntoIosDeviceFeaturesConfiguration} from './deserializeIntoIosDeviceFeaturesConfiguration';
+import {deserializeIntoMacOSDeviceFeaturesConfiguration} from './deserializeIntoMacOSDeviceFeaturesConfiguration';
 import {AppleDeviceFeaturesConfigurationBase, IosDeviceFeaturesConfiguration, MacOSDeviceFeaturesConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAppleDeviceFeaturesConfigurationBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AppleDeviceFeaturesConfigurationBase {
+export function createAppleDeviceFeaturesConfigurationBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createAppleDeviceFeaturesConfigurationBaseFromDiscriminatorValue
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.iosDeviceFeaturesConfiguration":
-                    return new IosDeviceFeaturesConfiguration();
+                    return deserializeIntoIosDeviceFeaturesConfiguration;
                 case "#microsoft.graph.macOSDeviceFeaturesConfiguration":
-                    return new MacOSDeviceFeaturesConfiguration();
+                    return deserializeIntoMacOSDeviceFeaturesConfiguration;
             }
         }
     }
-    return new AppleDeviceFeaturesConfigurationBase();
+    return deserializeIntoAppleDeviceFeaturesConfigurationBase;
 }

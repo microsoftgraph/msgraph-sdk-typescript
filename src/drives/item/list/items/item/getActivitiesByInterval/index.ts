@@ -1,1 +1,6 @@
+export * from './createGetActivitiesByIntervalResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetActivitiesByIntervalResponse'
+export * from './getActivitiesByIntervalRequestBuilderGetQueryParameters'
+export * from './getActivitiesByIntervalRequestBuilderGetRequestConfiguration'
 export * from './getActivitiesByIntervalResponse'
+export * from './serializeGetActivitiesByIntervalResponse'

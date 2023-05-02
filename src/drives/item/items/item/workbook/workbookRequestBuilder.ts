@@ -1,28 +1,27 @@
-import {Workbook} from '../../../../../models/';
 import {createWorkbookFromDiscriminatorValue} from '../../../../../models/createWorkbookFromDiscriminatorValue';
+import {deserializeIntoWorkbook} from '../../../../../models/deserializeIntoWorkbook';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbook} from '../../../../../models/serializeWorkbook';
+import {Workbook} from '../../../../../models/workbook';
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CloseSessionRequestBuilder} from './closeSession/closeSessionRequestBuilder';
 import {CommentsRequestBuilder} from './comments/commentsRequestBuilder';
-import {WorkbookCommentItemRequestBuilder} from './comments/item/workbookCommentItemRequestBuilder';
 import {CreateSessionRequestBuilder} from './createSession/createSessionRequestBuilder';
 import {FunctionsRequestBuilder} from './functions/functionsRequestBuilder';
-import {WorkbookNamedItemItemRequestBuilder} from './names/item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
-import {WorkbookOperationItemRequestBuilder} from './operations/item/workbookOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionRequestBuilder';
 import {SessionInfoResourceWithKeyRequestBuilder} from './sessionInfoResourceWithKey/sessionInfoResourceWithKeyRequestBuilder';
 import {TableRowOperationResultWithKeyRequestBuilder} from './tableRowOperationResultWithKey/tableRowOperationResultWithKeyRequestBuilder';
-import {WorkbookTableItemRequestBuilder} from './tables/item/workbookTableItemRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
 import {WorkbookRequestBuilderDeleteRequestConfiguration} from './workbookRequestBuilderDeleteRequestConfiguration';
 import {WorkbookRequestBuilderGetRequestConfiguration} from './workbookRequestBuilderGetRequestConfiguration';
 import {WorkbookRequestBuilderPatchRequestConfiguration} from './workbookRequestBuilderPatchRequestConfiguration';
-import {WorkbookWorksheetItemRequestBuilder} from './worksheets/item/workbookWorksheetItemRequestBuilder';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
@@ -69,17 +68,6 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
         return new WorksheetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookCommentItemRequestBuilder
-     */
-    public commentsById(id: string) : WorkbookCommentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookComment%2Did"] = id
-        return new WorkbookCommentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new WorkbookRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -96,10 +84,10 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -112,33 +100,11 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the names property of the microsoft.graph.workbook entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookNamedItemItemRequestBuilder
-     */
-    public namesById(id: string) : WorkbookNamedItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookNamedItem%2Did"] = id
-        return new WorkbookNamedItemItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookOperationItemRequestBuilder
-     */
-    public operationsById(id: string) : WorkbookOperationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookOperation%2Did"] = id
-        return new WorkbookOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property workbook in drives
@@ -152,10 +118,10 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -175,17 +141,6 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
     public tableRowOperationResultWithKey(key: string | undefined) : TableRowOperationResultWithKeyRequestBuilder {
         if(!key) throw new Error("key cannot be undefined");
         return new TableRowOperationResultWithKeyRequestBuilder(this.pathParameters, this.requestAdapter, key);
-    };
-    /**
-     * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookTableItemRequestBuilder
-     */
-    public tablesById(id: string) : WorkbookTableItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookTable%2Did"] = id
-        return new WorkbookTableItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property workbook for drives
@@ -238,18 +193,7 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbook);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookWorksheetItemRequestBuilder
-     */
-    public worksheetsById(id: string) : WorkbookWorksheetItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookWorksheet%2Did"] = id
-        return new WorkbookWorksheetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

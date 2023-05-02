@@ -1,1 +1,5 @@
+export * from './createDecimalPostRequestBodyFromDiscriminatorValue'
 export * from './decimalPostRequestBody'
+export * from './decimalRequestBuilderPostRequestConfiguration'
+export * from './deserializeIntoDecimalPostRequestBody'
+export * from './serializeDecimalPostRequestBody'

@@ -1,7 +1,12 @@
+import {deserializeIntoChatMessageFromIdentitySet} from './deserializeIntoChatMessageFromIdentitySet';
+import {deserializeIntoChatMessageMentionedIdentitySet} from './deserializeIntoChatMessageMentionedIdentitySet';
+import {deserializeIntoChatMessageReactionIdentitySet} from './deserializeIntoChatMessageReactionIdentitySet';
+import {deserializeIntoIdentitySet} from './deserializeIntoIdentitySet';
+import {deserializeIntoSharePointIdentitySet} from './deserializeIntoSharePointIdentitySet';
 import {ChatMessageFromIdentitySet, ChatMessageMentionedIdentitySet, ChatMessageReactionIdentitySet, IdentitySet, SharePointIdentitySet} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentitySetFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentitySet {
+export function createIdentitySetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createIdentitySetFromDiscriminatorValue(parseNode: ParseNode | u
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.chatMessageFromIdentitySet":
-                    return new ChatMessageFromIdentitySet();
+                    return deserializeIntoChatMessageFromIdentitySet;
                 case "#microsoft.graph.chatMessageMentionedIdentitySet":
-                    return new ChatMessageMentionedIdentitySet();
+                    return deserializeIntoChatMessageMentionedIdentitySet;
                 case "#microsoft.graph.chatMessageReactionIdentitySet":
-                    return new ChatMessageReactionIdentitySet();
+                    return deserializeIntoChatMessageReactionIdentitySet;
                 case "#microsoft.graph.sharePointIdentitySet":
-                    return new SharePointIdentitySet();
+                    return deserializeIntoSharePointIdentitySet;
             }
         }
     }
-    return new IdentitySet();
+    return deserializeIntoIdentitySet;
 }

@@ -1,12 +1,18 @@
-import {TeamsTemplate, TeamsTemplateCollectionResponse} from '../models/';
+import {TeamsTemplateCollectionResponse} from '../models/';
 import {createTeamsTemplateCollectionResponseFromDiscriminatorValue} from '../models/createTeamsTemplateCollectionResponseFromDiscriminatorValue';
 import {createTeamsTemplateFromDiscriminatorValue} from '../models/createTeamsTemplateFromDiscriminatorValue';
+import {deserializeIntoTeamsTemplate} from '../models/deserializeIntoTeamsTemplate';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeTeamsTemplate} from '../models/serializeTeamsTemplate';
+import {TeamsTemplate} from '../models/teamsTemplate';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamsTemplateItemRequestBuilder} from './item/teamsTemplateItemRequestBuilder';
 import {TeamsTemplatesRequestBuilderGetRequestConfiguration} from './teamsTemplatesRequestBuilderGetRequestConfiguration';
 import {TeamsTemplatesRequestBuilderPostRequestConfiguration} from './teamsTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of teamsTemplate entities.
@@ -16,6 +22,17 @@ export class TeamsTemplatesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of teamsTemplate entities.
+     * @param teamsTemplateId Unique identifier of the item
+     * @returns a TeamsTemplateItemRequestBuilder
+     */
+    public byTeamsTemplateId(teamsTemplateId: string) : TeamsTemplateItemRequestBuilder {
+        if(!teamsTemplateId) throw new Error("teamsTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsTemplate%2Did"] = teamsTemplateId
+        return new TeamsTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TeamsTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class TeamsTemplatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TeamsTemplateCollectionResponse>(requestInfo, createTeamsTemplateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class TeamsTemplatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TeamsTemplate>(requestInfo, createTeamsTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class TeamsTemplatesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsTemplate);
         return requestInfo;
     };
 }

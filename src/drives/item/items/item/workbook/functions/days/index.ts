@@ -1,1 +1,5 @@
+export * from './createDaysPostRequestBodyFromDiscriminatorValue'
 export * from './daysPostRequestBody'
+export * from './daysRequestBuilderPostRequestConfiguration'
+export * from './deserializeIntoDaysPostRequestBody'
+export * from './serializeDaysPostRequestBody'

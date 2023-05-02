@@ -1,8 +1,15 @@
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {createImportResponseFromDiscriminatorValue} from './createImportResponseFromDiscriminatorValue';
+import {deserializeIntoImportPostRequestBody} from './deserializeIntoImportPostRequestBody';
+import {deserializeIntoImportResponse} from './deserializeIntoImportResponse';
+import {ImportPostRequestBody} from './importPostRequestBody';
 import {ImportRequestBuilderPostRequestConfiguration} from './importRequestBuilderPostRequestConfiguration';
-import {ImportPostRequestBody, ImportResponse} from './index';
+import {ImportResponse} from './importResponse';
+import {serializeImportPostRequestBody} from './serializeImportPostRequestBody';
+import {serializeImportResponse} from './serializeImportResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -29,10 +36,10 @@ export class ImportRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ImportResponse>(requestInfo, createImportResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,7 +59,7 @@ export class ImportRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeImportPostRequestBody);
         return requestInfo;
     };
 }

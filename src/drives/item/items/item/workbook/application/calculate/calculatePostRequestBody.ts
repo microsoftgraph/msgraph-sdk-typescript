@@ -1,60 +1,8 @@
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export class CalculatePostRequestBody implements AdditionalDataHolder, Parsable {
+export interface CalculatePostRequestBody extends AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The calculationType property */
-    private _calculationType?: string | undefined;
-    /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Record<string, unknown>
-     */
-    public get additionalData() {
-        return this._additionalData;
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Record<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Gets the calculationType property value. The calculationType property
-     * @returns a string
-     */
-    public get calculationType() {
-        return this._calculationType;
-    };
-    /**
-     * Sets the calculationType property value. The calculationType property
-     * @param value Value to set for the calculationType property.
-     */
-    public set calculationType(value: string | undefined) {
-        this._calculationType = value;
-    };
-    /**
-     * Instantiates a new calculatePostRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = {};
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {
-            "calculationType": n => { this.calculationType = n.getStringValue(); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("calculationType", this.calculationType);
-        writer.writeAdditionalData(this.additionalData);
-    };
+    calculationType?: string | undefined;
 }

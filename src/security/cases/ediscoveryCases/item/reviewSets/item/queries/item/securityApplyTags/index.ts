@@ -1,1 +1,5 @@
 export * from './applyTagsPostRequestBody'
+export * from './createApplyTagsPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoApplyTagsPostRequestBody'
+export * from './securityApplyTagsRequestBuilderPostRequestConfiguration'
+export * from './serializeApplyTagsPostRequestBody'

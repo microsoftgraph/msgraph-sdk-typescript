@@ -1,7 +1,8 @@
+import {deserializeIntoDocumentSetVersionCollectionResponse} from './deserializeIntoDocumentSetVersionCollectionResponse';
 import {DocumentSetVersionCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDocumentSetVersionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DocumentSetVersionCollectionResponse {
+export function createDocumentSetVersionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DocumentSetVersionCollectionResponse();
+    return deserializeIntoDocumentSetVersionCollectionResponse;
 }

@@ -1,1 +1,6 @@
+export * from './callRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters'
+export * from './callRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration'
+export * from './createGetPstnCallsWithFromDateTimeWithToDateTimeResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetPstnCallsWithFromDateTimeWithToDateTimeResponse'
 export * from './getPstnCallsWithFromDateTimeWithToDateTimeResponse'
+export * from './serializeGetPstnCallsWithFromDateTimeWithToDateTimeResponse'

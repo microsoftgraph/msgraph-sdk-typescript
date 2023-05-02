@@ -1,7 +1,8 @@
+import {deserializeIntoSharePostRequestBody} from './deserializeIntoSharePostRequestBody';
 import {SharePostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSharePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SharePostRequestBody {
+export function createSharePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SharePostRequestBody();
+    return deserializeIntoSharePostRequestBody;
 }
