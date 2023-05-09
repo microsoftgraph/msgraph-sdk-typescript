@@ -1,24 +1,26 @@
-import {Drive} from '../../models/';
 import {createDriveFromDiscriminatorValue} from '../../models/createDriveFromDiscriminatorValue';
+import {deserializeIntoDrive} from '../../models/deserializeIntoDrive';
+import {Drive} from '../../models/drive';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDrive} from '../../models/serializeDrive';
 import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
-import {DriveItemItemRequestBuilder as Ic17766c894fe9c47c72c35e0c51c01c59ff6a482bcd7f82dc38d2cb9be761d19} from './bundles/item/driveItemItemRequestBuilder';
+import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
 import {DriveItemRequestBuilderDeleteRequestConfiguration} from './driveItemRequestBuilderDeleteRequestConfiguration';
 import {DriveItemRequestBuilderGetRequestConfiguration} from './driveItemRequestBuilderGetRequestConfiguration';
 import {DriveItemRequestBuilderPatchRequestConfiguration} from './driveItemRequestBuilderPatchRequestConfiguration';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemItemRequestBuilder as I7f5f4145310d9edad52ec20c81824966b63d1306babe6aaf454d97b05369ed09} from './following/item/driveItemItemRequestBuilder';
-import {DriveItemItemRequestBuilder as Ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
+import {LastModifiedByUserRequestBuilder} from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemItemRequestBuilder as I1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of drive entities.
@@ -28,6 +30,10 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
     public get bundles(): BundlesRequestBuilder {
         return new BundlesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    public get createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the following property of the microsoft.graph.drive entity. */
     public get following(): FollowingRequestBuilder {
         return new FollowingRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -35,6 +41,10 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the items property of the microsoft.graph.drive entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the list property of the microsoft.graph.drive entity. */
     public get list(): ListRequestBuilder {
@@ -57,17 +67,6 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
         return new SpecialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
-     * @param id Unique identifier of the item
-     * @returns a DriveItemItemRequestBuilder
-     */
-    public bundlesById(id: string) : Ic17766c894fe9c47c72c35e0c51c01c59ff6a482bcd7f82dc38d2cb9be761d19 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem%2Did"] = id
-        return new Ic17766c894fe9c47c72c35e0c51c01c59ff6a482bcd7f82dc38d2cb9be761d19(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -84,50 +83,27 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Provides operations to manage the following property of the microsoft.graph.drive entity.
-     * @param id Unique identifier of the item
-     * @returns a DriveItemItemRequestBuilder
-     */
-    public followingById(id: string) : I7f5f4145310d9edad52ec20c81824966b63d1306babe6aaf454d97b05369ed09 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem%2Did"] = id
-        return new I7f5f4145310d9edad52ec20c81824966b63d1306babe6aaf454d97b05369ed09(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * Get entity from drives by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
-     * @see {@link https://docs.microsoft.com/graph/api/drive-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the items property of the microsoft.graph.drive entity.
-     * @param id Unique identifier of the item
-     * @returns a DriveItemItemRequestBuilder
-     */
-    public itemsById(id: string) : Ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem%2Did"] = id
-        return new Ic919f0371ab1a51b15716e78a986527bb8d26e115e43915d5fba38e698a04897(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in drives
@@ -141,10 +117,10 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -155,17 +131,6 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
     public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
         if(!q) throw new Error("q cannot be undefined");
         return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
-    };
-    /**
-     * Provides operations to manage the special property of the microsoft.graph.drive entity.
-     * @param id Unique identifier of the item
-     * @returns a DriveItemItemRequestBuilder
-     */
-    public specialById(id: string) : I1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem%2Did"] = id
-        return new I1ef832aeaa20ced832dac75e4dfcfda159a73096b13d18aa63497da50840af3a(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete entity from drives
@@ -184,7 +149,7 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
+     * Get entity from drives by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -218,7 +183,7 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDrive);
         return requestInfo;
     };
 }

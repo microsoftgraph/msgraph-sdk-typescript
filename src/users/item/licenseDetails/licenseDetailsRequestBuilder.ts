@@ -1,12 +1,18 @@
-import {LicenseDetails, LicenseDetailsCollectionResponse} from '../../../models/';
+import {LicenseDetailsCollectionResponse} from '../../../models/';
 import {createLicenseDetailsCollectionResponseFromDiscriminatorValue} from '../../../models/createLicenseDetailsCollectionResponseFromDiscriminatorValue';
 import {createLicenseDetailsFromDiscriminatorValue} from '../../../models/createLicenseDetailsFromDiscriminatorValue';
+import {deserializeIntoLicenseDetails} from '../../../models/deserializeIntoLicenseDetails';
+import {LicenseDetails} from '../../../models/licenseDetails';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeLicenseDetails} from '../../../models/serializeLicenseDetails';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {LicenseDetailsItemRequestBuilder} from './item/licenseDetailsItemRequestBuilder';
 import {LicenseDetailsRequestBuilderGetRequestConfiguration} from './licenseDetailsRequestBuilderGetRequestConfiguration';
 import {LicenseDetailsRequestBuilderPostRequestConfiguration} from './licenseDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
@@ -17,6 +23,17 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
+     * @param licenseDetailsId Unique identifier of the item
+     * @returns a LicenseDetailsItemRequestBuilder
+     */
+    public byLicenseDetailsId(licenseDetailsId: string) : LicenseDetailsItemRequestBuilder {
+        if(!licenseDetailsId) throw new Error("licenseDetailsId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["licenseDetails%2Did"] = licenseDetailsId
+        return new LicenseDetailsItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new LicenseDetailsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,20 +42,19 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/licenseDetails{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+     * A collection of this user's license details. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LicenseDetailsCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-licensedetails?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LicenseDetailsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LicenseDetailsCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<LicenseDetailsCollectionResponse>(requestInfo, createLicenseDetailsCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,14 +69,14 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<LicenseDetails>(requestInfo, createLicenseDetailsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
+     * A collection of this user's license details. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +110,7 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLicenseDetails);
         return requestInfo;
     };
 }

@@ -1,7 +1,11 @@
-import {DeviceManagementExchangeConnector} from '../../../models/';
 import {createDeviceManagementExchangeConnectorFromDiscriminatorValue} from '../../../models/createDeviceManagementExchangeConnectorFromDiscriminatorValue';
+import {deserializeIntoDeviceManagementExchangeConnector} from '../../../models/deserializeIntoDeviceManagementExchangeConnector';
+import {DeviceManagementExchangeConnector} from '../../../models/deviceManagementExchangeConnector';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeDeviceManagementExchangeConnector} from '../../../models/serializeDeviceManagementExchangeConnector';
 import {DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration';
@@ -33,10 +37,10 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,10 +53,10 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceManagementExchangeConnector>(requestInfo, createDeviceManagementExchangeConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +71,10 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceManagementExchangeConnector>(requestInfo, createDeviceManagementExchangeConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -124,7 +128,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementExchangeConnector);
         return requestInfo;
     };
 }

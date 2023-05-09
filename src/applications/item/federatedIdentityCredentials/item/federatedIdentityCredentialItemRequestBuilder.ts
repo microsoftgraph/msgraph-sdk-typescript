@@ -1,7 +1,11 @@
-import {FederatedIdentityCredential} from '../../../../models/';
 import {createFederatedIdentityCredentialFromDiscriminatorValue} from '../../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
+import {deserializeIntoFederatedIdentityCredential} from '../../../../models/deserializeIntoFederatedIdentityCredential';
+import {FederatedIdentityCredential} from '../../../../models/federatedIdentityCredential';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeFederatedIdentityCredential} from '../../../../models/serializeFederatedIdentityCredential';
 import {FederatedIdentityCredentialItemRequestBuilderDeleteRequestConfiguration} from './federatedIdentityCredentialItemRequestBuilderDeleteRequestConfiguration';
 import {FederatedIdentityCredentialItemRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialItemRequestBuilderGetRequestConfiguration';
 import {FederatedIdentityCredentialItemRequestBuilderPatchRequestConfiguration} from './federatedIdentityCredentialItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class FederatedIdentityCredentialItemRequestBuilder extends BaseRequestBu
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class FederatedIdentityCredentialItemRequestBuilder extends BaseRequestBu
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<FederatedIdentityCredential>(requestInfo, createFederatedIdentityCredentialFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class FederatedIdentityCredentialItemRequestBuilder extends BaseRequestBu
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<FederatedIdentityCredential>(requestInfo, createFederatedIdentityCredentialFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class FederatedIdentityCredentialItemRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeFederatedIdentityCredential);
         return requestInfo;
     };
 }

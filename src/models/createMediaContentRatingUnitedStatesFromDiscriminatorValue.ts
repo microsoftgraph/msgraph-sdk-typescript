@@ -1,7 +1,8 @@
+import {deserializeIntoMediaContentRatingUnitedStates} from './deserializeIntoMediaContentRatingUnitedStates';
 import {MediaContentRatingUnitedStates} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMediaContentRatingUnitedStatesFromDiscriminatorValue(parseNode: ParseNode | undefined) : MediaContentRatingUnitedStates {
+export function createMediaContentRatingUnitedStatesFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MediaContentRatingUnitedStates();
+    return deserializeIntoMediaContentRatingUnitedStates;
 }

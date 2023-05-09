@@ -1,7 +1,8 @@
+import {deserializeIntoAttackSimulationRepeatOffender} from './deserializeIntoAttackSimulationRepeatOffender';
 import {AttackSimulationRepeatOffender} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAttackSimulationRepeatOffenderFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttackSimulationRepeatOffender {
+export function createAttackSimulationRepeatOffenderFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AttackSimulationRepeatOffender();
+    return deserializeIntoAttackSimulationRepeatOffender;
 }

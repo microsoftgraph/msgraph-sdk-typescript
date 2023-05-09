@@ -1,22 +1,23 @@
-import {List} from '../../../models/';
 import {createListFromDiscriminatorValue} from '../../../models/createListFromDiscriminatorValue';
+import {deserializeIntoList} from '../../../models/deserializeIntoList';
+import {List} from '../../../models/list';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeList} from '../../../models/serializeList';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder} from './contentTypes/item/contentTypeItemRequestBuilder';
+import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
-import {ListItemItemRequestBuilder} from './items/item/listItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
+import {LastModifiedByUserRequestBuilder} from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
 import {ListRequestBuilderDeleteRequestConfiguration} from './listRequestBuilderDeleteRequestConfiguration';
 import {ListRequestBuilderGetRequestConfiguration} from './listRequestBuilderGetRequestConfiguration';
 import {ListRequestBuilderPatchRequestConfiguration} from './listRequestBuilderPatchRequestConfiguration';
-import {RichLongRunningOperationItemRequestBuilder} from './operations/item/richLongRunningOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {SubscriptionItemRequestBuilder} from './subscriptions/item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
@@ -30,6 +31,10 @@ export class ListRequestBuilder extends BaseRequestBuilder {
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    public get createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the drive property of the microsoft.graph.list entity. */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -37,6 +42,10 @@ export class ListRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the items property of the microsoft.graph.list entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the operations property of the microsoft.graph.list entity. */
     public get operations(): OperationsRequestBuilder {
@@ -47,34 +56,12 @@ export class ListRequestBuilder extends BaseRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the columns property of the microsoft.graph.list entity.
-     * @param id Unique identifier of the item
-     * @returns a ColumnDefinitionItemRequestBuilder
-     */
-    public columnsById(id: string) : ColumnDefinitionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnDefinition%2Did"] = id
-        return new ColumnDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new ListRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/shares/{sharedDriveItem%2Did}/list{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
-     * @param id Unique identifier of the item
-     * @returns a ContentTypeItemRequestBuilder
-     */
-    public contentTypesById(id: string) : ContentTypeItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contentType%2Did"] = id
-        return new ContentTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property list for shares
@@ -85,10 +72,10 @@ export class ListRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -101,33 +88,11 @@ export class ListRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the items property of the microsoft.graph.list entity.
-     * @param id Unique identifier of the item
-     * @returns a ListItemItemRequestBuilder
-     */
-    public itemsById(id: string) : ListItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["listItem%2Did"] = id
-        return new ListItemItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the operations property of the microsoft.graph.list entity.
-     * @param id Unique identifier of the item
-     * @returns a RichLongRunningOperationItemRequestBuilder
-     */
-    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["richLongRunningOperation%2Did"] = id
-        return new RichLongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property list in shares
@@ -141,22 +106,11 @@ export class ListRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
-     * @param id Unique identifier of the item
-     * @returns a SubscriptionItemRequestBuilder
-     */
-    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["subscription%2Did"] = id
-        return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property list for shares
@@ -209,7 +163,7 @@ export class ListRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeList);
         return requestInfo;
     };
 }

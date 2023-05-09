@@ -1,7 +1,8 @@
+import {deserializeIntoRiskyUserCollectionResponse} from './deserializeIntoRiskyUserCollectionResponse';
 import {RiskyUserCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRiskyUserCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskyUserCollectionResponse {
+export function createRiskyUserCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RiskyUserCollectionResponse();
+    return deserializeIntoRiskyUserCollectionResponse;
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoPlannerPlanCollectionResponse} from './deserializeIntoPlannerPlanCollectionResponse';
 import {PlannerPlanCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPlannerPlanCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlannerPlanCollectionResponse {
+export function createPlannerPlanCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PlannerPlanCollectionResponse();
+    return deserializeIntoPlannerPlanCollectionResponse;
 }

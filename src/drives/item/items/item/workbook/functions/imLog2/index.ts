@@ -1,1 +1,5 @@
+export * from './createImLog2PostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImLog2PostRequestBody'
 export * from './imLog2PostRequestBody'
+export * from './imLog2RequestBuilderPostRequestConfiguration'
+export * from './serializeImLog2PostRequestBody'

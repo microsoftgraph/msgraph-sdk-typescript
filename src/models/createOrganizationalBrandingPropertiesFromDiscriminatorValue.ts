@@ -1,7 +1,10 @@
+import {deserializeIntoOrganizationalBranding} from './deserializeIntoOrganizationalBranding';
+import {deserializeIntoOrganizationalBrandingLocalization} from './deserializeIntoOrganizationalBrandingLocalization';
+import {deserializeIntoOrganizationalBrandingProperties} from './deserializeIntoOrganizationalBrandingProperties';
 import {OrganizationalBranding, OrganizationalBrandingLocalization, OrganizationalBrandingProperties} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOrganizationalBrandingPropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : OrganizationalBrandingProperties {
+export function createOrganizationalBrandingPropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createOrganizationalBrandingPropertiesFromDiscriminatorValue(par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.organizationalBranding":
-                    return new OrganizationalBranding();
+                    return deserializeIntoOrganizationalBranding;
                 case "#microsoft.graph.organizationalBrandingLocalization":
-                    return new OrganizationalBrandingLocalization();
+                    return deserializeIntoOrganizationalBrandingLocalization;
             }
         }
     }
-    return new OrganizationalBrandingProperties();
+    return deserializeIntoOrganizationalBrandingProperties;
 }

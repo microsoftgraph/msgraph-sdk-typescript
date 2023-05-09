@@ -1,7 +1,12 @@
+import {deserializeIntoAzureActiveDirectoryTenant} from './deserializeIntoAzureActiveDirectoryTenant';
+import {deserializeIntoCrossCloudAzureActiveDirectoryTenant} from './deserializeIntoCrossCloudAzureActiveDirectoryTenant';
+import {deserializeIntoDomainIdentitySource} from './deserializeIntoDomainIdentitySource';
+import {deserializeIntoExternalDomainFederation} from './deserializeIntoExternalDomainFederation';
+import {deserializeIntoIdentitySource} from './deserializeIntoIdentitySource';
 import {AzureActiveDirectoryTenant, CrossCloudAzureActiveDirectoryTenant, DomainIdentitySource, ExternalDomainFederation, IdentitySource} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentitySourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentitySource {
+export function createIdentitySourceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createIdentitySourceFromDiscriminatorValue(parseNode: ParseNode 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.azureActiveDirectoryTenant":
-                    return new AzureActiveDirectoryTenant();
+                    return deserializeIntoAzureActiveDirectoryTenant;
                 case "#microsoft.graph.crossCloudAzureActiveDirectoryTenant":
-                    return new CrossCloudAzureActiveDirectoryTenant();
+                    return deserializeIntoCrossCloudAzureActiveDirectoryTenant;
                 case "#microsoft.graph.domainIdentitySource":
-                    return new DomainIdentitySource();
+                    return deserializeIntoDomainIdentitySource;
                 case "#microsoft.graph.externalDomainFederation":
-                    return new ExternalDomainFederation();
+                    return deserializeIntoExternalDomainFederation;
             }
         }
     }
-    return new IdentitySource();
+    return deserializeIntoIdentitySource;
 }

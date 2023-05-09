@@ -1,0 +1,13 @@
+import {AccessReviewReviewer} from './accessReviewReviewer';
+import {AccessReviewReviewerCollectionResponse} from './accessReviewReviewerCollectionResponse';
+import {createAccessReviewReviewerFromDiscriminatorValue} from './createAccessReviewReviewerFromDiscriminatorValue';
+import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
+import {serializeAccessReviewReviewer} from './serializeAccessReviewReviewer';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function deserializeIntoAccessReviewReviewerCollectionResponse(accessReviewReviewerCollectionResponse: AccessReviewReviewerCollectionResponse | undefined = {} as AccessReviewReviewerCollectionResponse) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(accessReviewReviewerCollectionResponse),
+        "value": n => { accessReviewReviewerCollectionResponse.value = n.getCollectionOfObjectValues<AccessReviewReviewer>(createAccessReviewReviewerFromDiscriminatorValue); },
+    }
+}

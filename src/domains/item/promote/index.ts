@@ -1,1 +1,5 @@
+export * from './createPromoteResponseFromDiscriminatorValue'
+export * from './deserializeIntoPromoteResponse'
+export * from './promoteRequestBuilderPostRequestConfiguration'
 export * from './promoteResponse'
+export * from './serializePromoteResponse'

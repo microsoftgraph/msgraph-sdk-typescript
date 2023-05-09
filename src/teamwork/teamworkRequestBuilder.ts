@@ -1,15 +1,17 @@
-import {Teamwork} from '../models/';
 import {createTeamworkFromDiscriminatorValue} from '../models/createTeamworkFromDiscriminatorValue';
+import {deserializeIntoTeamwork} from '../models/deserializeIntoTeamwork';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeTeamwork} from '../models/serializeTeamwork';
+import {Teamwork} from '../models/teamwork';
 import {DeletedTeamsRequestBuilder} from './deletedTeams/deletedTeamsRequestBuilder';
-import {DeletedTeamItemRequestBuilder} from './deletedTeams/item/deletedTeamItemRequestBuilder';
 import {SendActivityNotificationToRecipientsRequestBuilder} from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
-import {WorkforceIntegrationItemRequestBuilder} from './workforceIntegrations/item/workforceIntegrationItemRequestBuilder';
 import {WorkforceIntegrationsRequestBuilder} from './workforceIntegrations/workforceIntegrationsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamwork singleton.
@@ -36,17 +38,6 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork{?%24select,%24expand}");
     };
     /**
-     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
-     * @param id Unique identifier of the item
-     * @returns a DeletedTeamItemRequestBuilder
-     */
-    public deletedTeamsById(id: string) : DeletedTeamItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deletedTeam%2Did"] = id
-        return new DeletedTeamItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Get teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -56,10 +47,10 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Teamwork>(requestInfo, createTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -74,10 +65,10 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Teamwork>(requestInfo, createTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -115,18 +106,7 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamwork);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkforceIntegrationItemRequestBuilder
-     */
-    public workforceIntegrationsById(id: string) : WorkforceIntegrationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workforceIntegration%2Did"] = id
-        return new WorkforceIntegrationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

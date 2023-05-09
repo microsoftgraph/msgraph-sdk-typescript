@@ -1,12 +1,18 @@
-import {WindowsInformationProtectionPolicy, WindowsInformationProtectionPolicyCollectionResponse} from '../../models/';
+import {WindowsInformationProtectionPolicyCollectionResponse} from '../../models/';
 import {createWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue';
 import {createWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../models/createWindowsInformationProtectionPolicyFromDiscriminatorValue';
+import {deserializeIntoWindowsInformationProtectionPolicy} from '../../models/deserializeIntoWindowsInformationProtectionPolicy';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeWindowsInformationProtectionPolicy} from '../../models/serializeWindowsInformationProtectionPolicy';
+import {WindowsInformationProtectionPolicy} from '../../models/windowsInformationProtectionPolicy';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsInformationProtectionPolicyItemRequestBuilder} from './item/windowsInformationProtectionPolicyItemRequestBuilder';
 import {WindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration} from './windowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +22,17 @@ export class WindowsInformationProtectionPoliciesRequestBuilder extends BaseRequ
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
+     * @param windowsInformationProtectionPolicyId Unique identifier of the item
+     * @returns a WindowsInformationProtectionPolicyItemRequestBuilder
+     */
+    public byWindowsInformationProtectionPolicyId(windowsInformationProtectionPolicyId: string) : WindowsInformationProtectionPolicyItemRequestBuilder {
+        if(!windowsInformationProtectionPolicyId) throw new Error("windowsInformationProtectionPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsInformationProtectionPolicy%2Did"] = windowsInformationProtectionPolicyId
+        return new WindowsInformationProtectionPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WindowsInformationProtectionPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class WindowsInformationProtectionPoliciesRequestBuilder extends BaseRequ
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionPolicyCollectionResponse>(requestInfo, createWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class WindowsInformationProtectionPoliciesRequestBuilder extends BaseRequ
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionPolicy>(requestInfo, createWindowsInformationProtectionPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class WindowsInformationProtectionPoliciesRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsInformationProtectionPolicy);
         return requestInfo;
     };
 }

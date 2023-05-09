@@ -1,1 +1,6 @@
+export * from './createDeltaWithTokenResponseFromDiscriminatorValue'
+export * from './deltaWithTokenRequestBuilderGetQueryParameters'
+export * from './deltaWithTokenRequestBuilderGetRequestConfiguration'
 export * from './deltaWithTokenResponse'
+export * from './deserializeIntoDeltaWithTokenResponse'
+export * from './serializeDeltaWithTokenResponse'

@@ -1,14 +1,20 @@
-import {RiskyServicePrincipal, RiskyServicePrincipalCollectionResponse} from '../../models/';
+import {RiskyServicePrincipalCollectionResponse} from '../../models/';
 import {createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue} from '../../models/createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue';
 import {createRiskyServicePrincipalFromDiscriminatorValue} from '../../models/createRiskyServicePrincipalFromDiscriminatorValue';
+import {deserializeIntoRiskyServicePrincipal} from '../../models/deserializeIntoRiskyServicePrincipal';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {RiskyServicePrincipal} from '../../models/riskyServicePrincipal';
+import {serializeRiskyServicePrincipal} from '../../models/serializeRiskyServicePrincipal';
 import {ConfirmCompromisedRequestBuilder} from './confirmCompromised/confirmCompromisedRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
+import {RiskyServicePrincipalItemRequestBuilder} from './item/riskyServicePrincipalItemRequestBuilder';
 import {RiskyServicePrincipalsRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalsRequestBuilderPostRequestConfiguration} from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
@@ -27,6 +33,17 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         return new DismissRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
+     * @param riskyServicePrincipalId Unique identifier of the item
+     * @returns a RiskyServicePrincipalItemRequestBuilder
+     */
+    public byRiskyServicePrincipalId(riskyServicePrincipalId: string) : RiskyServicePrincipalItemRequestBuilder {
+        if(!riskyServicePrincipalId) throw new Error("riskyServicePrincipalId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["riskyServicePrincipal%2Did"] = riskyServicePrincipalId
+        return new RiskyServicePrincipalItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new RiskyServicePrincipalsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -35,20 +52,19 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyServicePrincipals{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of riskyServicePrincipal objects.
+     * Azure AD service principals that are at risk.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyServicePrincipalCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskyServicePrincipalsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyServicePrincipalCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RiskyServicePrincipalCollectionResponse>(requestInfo, createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -63,14 +79,14 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RiskyServicePrincipal>(requestInfo, createRiskyServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of riskyServicePrincipal objects.
+     * Azure AD service principals that are at risk.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +120,7 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRiskyServicePrincipal);
         return requestInfo;
     };
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoEoMonthPostRequestBody} from './deserializeIntoEoMonthPostRequestBody';
 import {EoMonthPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEoMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : EoMonthPostRequestBody {
+export function createEoMonthPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EoMonthPostRequestBody();
+    return deserializeIntoEoMonthPostRequestBody;
 }

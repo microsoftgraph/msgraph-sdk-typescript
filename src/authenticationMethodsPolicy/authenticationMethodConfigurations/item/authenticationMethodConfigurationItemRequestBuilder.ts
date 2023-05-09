@@ -1,7 +1,11 @@
-import {AuthenticationMethodConfiguration} from '../../../models/';
+import {AuthenticationMethodConfiguration} from '../../../models/authenticationMethodConfiguration';
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from '../../../models/createAuthenticationMethodConfigurationFromDiscriminatorValue';
+import {deserializeIntoAuthenticationMethodConfiguration} from '../../../models/deserializeIntoAuthenticationMethodConfiguration';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeAuthenticationMethodConfiguration} from '../../../models/serializeAuthenticationMethodConfiguration';
 import {AuthenticationMethodConfigurationItemRequestBuilderDeleteRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class AuthenticationMethodConfigurationItemRequestBuilder extends BaseReq
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class AuthenticationMethodConfigurationItemRequestBuilder extends BaseReq
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuthenticationMethodConfiguration>(requestInfo, createAuthenticationMethodConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class AuthenticationMethodConfigurationItemRequestBuilder extends BaseReq
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuthenticationMethodConfiguration>(requestInfo, createAuthenticationMethodConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class AuthenticationMethodConfigurationItemRequestBuilder extends BaseReq
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthenticationMethodConfiguration);
         return requestInfo;
     };
 }

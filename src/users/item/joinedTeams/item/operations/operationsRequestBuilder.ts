@@ -1,12 +1,18 @@
-import {TeamsAsyncOperation, TeamsAsyncOperationCollectionResponse} from '../../../../../models/';
+import {TeamsAsyncOperationCollectionResponse} from '../../../../../models/';
 import {createTeamsAsyncOperationCollectionResponseFromDiscriminatorValue} from '../../../../../models/createTeamsAsyncOperationCollectionResponseFromDiscriminatorValue';
 import {createTeamsAsyncOperationFromDiscriminatorValue} from '../../../../../models/createTeamsAsyncOperationFromDiscriminatorValue';
+import {deserializeIntoTeamsAsyncOperation} from '../../../../../models/deserializeIntoTeamsAsyncOperation';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeTeamsAsyncOperation} from '../../../../../models/serializeTeamsAsyncOperation';
+import {TeamsAsyncOperation} from '../../../../../models/teamsAsyncOperation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TeamsAsyncOperationItemRequestBuilder} from './item/teamsAsyncOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.team entity.
@@ -16,6 +22,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.team entity.
+     * @param teamsAsyncOperationId Unique identifier of the item
+     * @returns a TeamsAsyncOperationItemRequestBuilder
+     */
+    public byTeamsAsyncOperationId(teamsAsyncOperationId: string) : TeamsAsyncOperationItemRequestBuilder {
+        if(!teamsAsyncOperationId) throw new Error("teamsAsyncOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsAsyncOperation%2Did"] = teamsAsyncOperationId
+        return new TeamsAsyncOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TeamsAsyncOperationCollectionResponse>(requestInfo, createTeamsAsyncOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TeamsAsyncOperation>(requestInfo, createTeamsAsyncOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsAsyncOperation);
         return requestInfo;
     };
 }

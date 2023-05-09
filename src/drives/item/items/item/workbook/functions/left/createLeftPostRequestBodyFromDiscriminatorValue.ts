@@ -1,7 +1,8 @@
+import {deserializeIntoLeftPostRequestBody} from './deserializeIntoLeftPostRequestBody';
 import {LeftPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLeftPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : LeftPostRequestBody {
+export function createLeftPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LeftPostRequestBody();
+    return deserializeIntoLeftPostRequestBody;
 }

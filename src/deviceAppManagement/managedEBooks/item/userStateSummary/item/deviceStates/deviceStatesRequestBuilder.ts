@@ -1,12 +1,18 @@
-import {DeviceInstallState, DeviceInstallStateCollectionResponse} from '../../../../../../models/';
+import {DeviceInstallStateCollectionResponse} from '../../../../../../models/';
 import {createDeviceInstallStateCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createDeviceInstallStateCollectionResponseFromDiscriminatorValue';
 import {createDeviceInstallStateFromDiscriminatorValue} from '../../../../../../models/createDeviceInstallStateFromDiscriminatorValue';
+import {deserializeIntoDeviceInstallState} from '../../../../../../models/deserializeIntoDeviceInstallState';
+import {DeviceInstallState} from '../../../../../../models/deviceInstallState';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeDeviceInstallState} from '../../../../../../models/serializeDeviceInstallState';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceStatesRequestBuilderGetRequestConfiguration} from './deviceStatesRequestBuilderGetRequestConfiguration';
 import {DeviceStatesRequestBuilderPostRequestConfiguration} from './deviceStatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceInstallStateItemRequestBuilder} from './item/deviceInstallStateItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
@@ -16,6 +22,17 @@ export class DeviceStatesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
+     * @param deviceInstallStateId Unique identifier of the item
+     * @returns a DeviceInstallStateItemRequestBuilder
+     */
+    public byDeviceInstallStateId(deviceInstallStateId: string) : DeviceInstallStateItemRequestBuilder {
+        if(!deviceInstallStateId) throw new Error("deviceInstallStateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceInstallState%2Did"] = deviceInstallStateId
+        return new DeviceInstallStateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceStatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class DeviceStatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceInstallStateCollectionResponse>(requestInfo, createDeviceInstallStateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class DeviceStatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceInstallState>(requestInfo, createDeviceInstallStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class DeviceStatesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceInstallState);
         return requestInfo;
     };
 }

@@ -1,19 +1,28 @@
-import {DirectoryObject, DirectoryObjectCollectionResponse} from '../../models/';
+import {DirectoryObjectCollectionResponse} from '../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../models/createDirectoryObjectFromDiscriminatorValue';
+import {deserializeIntoDirectoryObject} from '../../models/deserializeIntoDirectoryObject';
+import {DirectoryObject} from '../../models/directoryObject';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDirectoryObject} from '../../models/serializeDirectoryObject';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeletedItemsRequestBuilderGetRequestConfiguration} from './deletedItemsRequestBuilderGetRequestConfiguration';
 import {DeletedItemsRequestBuilderPostRequestConfiguration} from './deletedItemsRequestBuilderPostRequestConfiguration';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {GraphAdministrativeUnitRequestBuilder} from './graphAdministrativeUnit/graphAdministrativeUnitRequestBuilder';
 import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
+import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
+import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
+import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
@@ -35,13 +44,25 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
     public get getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to administrativeUnit. */
+    public get graphAdministrativeUnit(): GraphAdministrativeUnitRequestBuilder {
+        return new GraphAdministrativeUnitRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to application. */
     public get graphApplication(): GraphApplicationRequestBuilder {
         return new GraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to device. */
+    public get graphDevice(): GraphDeviceRequestBuilder {
+        return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to group. */
     public get graphGroup(): GraphGroupRequestBuilder {
         return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to servicePrincipal. */
+    public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
+        return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to user. */
     public get graphUser(): GraphUserRequestBuilder {
@@ -51,6 +72,17 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
+     * @param directoryObjectId Unique identifier of the item
+     * @returns a DirectoryObjectItemRequestBuilder
+     */
+    public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {
+        if(!directoryObjectId) throw new Error("directoryObjectId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject%2Did"] = directoryObjectId
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeletedItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -69,10 +101,10 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryObjectCollectionResponse>(requestInfo, createDirectoryObjectCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -87,10 +119,10 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -128,7 +160,7 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryObject);
         return requestInfo;
     };
 }

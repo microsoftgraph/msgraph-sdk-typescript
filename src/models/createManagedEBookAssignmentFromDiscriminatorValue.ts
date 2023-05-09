@@ -1,7 +1,9 @@
+import {deserializeIntoIosVppEBookAssignment} from './deserializeIntoIosVppEBookAssignment';
+import {deserializeIntoManagedEBookAssignment} from './deserializeIntoManagedEBookAssignment';
 import {IosVppEBookAssignment, ManagedEBookAssignment} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedEBookAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedEBookAssignment {
+export function createManagedEBookAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createManagedEBookAssignmentFromDiscriminatorValue(parseNode: Pa
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.iosVppEBookAssignment":
-                    return new IosVppEBookAssignment();
+                    return deserializeIntoIosVppEBookAssignment;
             }
         }
     }
-    return new ManagedEBookAssignment();
+    return deserializeIntoManagedEBookAssignment;
 }

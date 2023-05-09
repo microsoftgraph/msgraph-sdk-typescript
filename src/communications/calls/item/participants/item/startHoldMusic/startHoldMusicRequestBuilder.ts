@@ -1,8 +1,14 @@
-import {StartHoldMusicOperation} from '../../../../../../models/';
 import {createStartHoldMusicOperationFromDiscriminatorValue} from '../../../../../../models/createStartHoldMusicOperationFromDiscriminatorValue';
+import {deserializeIntoStartHoldMusicOperation} from '../../../../../../models/deserializeIntoStartHoldMusicOperation';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {StartHoldMusicPostRequestBody} from './index';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeStartHoldMusicOperation} from '../../../../../../models/serializeStartHoldMusicOperation';
+import {StartHoldMusicOperation} from '../../../../../../models/startHoldMusicOperation';
+import {deserializeIntoStartHoldMusicPostRequestBody} from './deserializeIntoStartHoldMusicPostRequestBody';
+import {serializeStartHoldMusicPostRequestBody} from './serializeStartHoldMusicPostRequestBody';
+import {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
 import {StartHoldMusicRequestBuilderPostRequestConfiguration} from './startHoldMusicRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -19,26 +25,25 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}/startHoldMusic");
     };
     /**
-     * Put a participant on hold and play music in the background.
+     * Invoke action startHoldMusic
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StartHoldMusicOperation
-     * @see {@link https://docs.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-1.0|Find more info here}
      */
     public post(body: StartHoldMusicPostRequestBody | undefined, requestConfiguration?: StartHoldMusicRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StartHoldMusicOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<StartHoldMusicOperation>(requestInfo, createStartHoldMusicOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Put a participant on hold and play music in the background.
+     * Invoke action startHoldMusic
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -54,7 +59,7 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeStartHoldMusicPostRequestBody);
         return requestInfo;
     };
 }

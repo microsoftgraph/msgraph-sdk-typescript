@@ -1,7 +1,8 @@
+import {deserializeIntoProcess} from './deserializeIntoProcess';
 import {Process} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createProcessFromDiscriminatorValue(parseNode: ParseNode | undefined) : Process {
+export function createProcessFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Process();
+    return deserializeIntoProcess;
 }

@@ -1,9 +1,15 @@
-import {WorkbookTable} from '../../../../../../../../../models/';
 import {createWorkbookTableFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookTableFromDiscriminatorValue';
+import {deserializeIntoWorkbookTable} from '../../../../../../../../../models/deserializeIntoWorkbookTable';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookTable} from '../../../../../../../../../models/serializeWorkbookTable';
+import {WorkbookTable} from '../../../../../../../../../models/workbookTable';
+import {AddPostRequestBody} from './addPostRequestBody';
 import {AddRequestBuilderPostRequestConfiguration} from './addRequestBuilderPostRequestConfiguration';
-import {AddPostRequestBody} from './index';
+import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequestBody';
+import {serializeAddPostRequestBody} from './serializeAddPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -30,10 +36,10 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,7 +59,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddPostRequestBody);
         return requestInfo;
     };
 }

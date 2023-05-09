@@ -1,7 +1,8 @@
+import {deserializeIntoIpmtPostRequestBody} from './deserializeIntoIpmtPostRequestBody';
 import {IpmtPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIpmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : IpmtPostRequestBody {
+export function createIpmtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IpmtPostRequestBody();
+    return deserializeIntoIpmtPostRequestBody;
 }

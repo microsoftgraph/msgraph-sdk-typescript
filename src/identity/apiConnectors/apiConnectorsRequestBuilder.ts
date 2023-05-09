@@ -1,12 +1,18 @@
-import {IdentityApiConnector, IdentityApiConnectorCollectionResponse} from '../../models/';
+import {IdentityApiConnectorCollectionResponse} from '../../models/';
 import {createIdentityApiConnectorCollectionResponseFromDiscriminatorValue} from '../../models/createIdentityApiConnectorCollectionResponseFromDiscriminatorValue';
 import {createIdentityApiConnectorFromDiscriminatorValue} from '../../models/createIdentityApiConnectorFromDiscriminatorValue';
+import {deserializeIntoIdentityApiConnector} from '../../models/deserializeIntoIdentityApiConnector';
+import {IdentityApiConnector} from '../../models/identityApiConnector';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeIdentityApiConnector} from '../../models/serializeIdentityApiConnector';
 import {ApiConnectorsRequestBuilderGetRequestConfiguration} from './apiConnectorsRequestBuilderGetRequestConfiguration';
 import {ApiConnectorsRequestBuilderPostRequestConfiguration} from './apiConnectorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {IdentityApiConnectorItemRequestBuilder} from './item/identityApiConnectorItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
@@ -17,6 +23,17 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
+     * @param identityApiConnectorId Unique identifier of the item
+     * @returns a IdentityApiConnectorItemRequestBuilder
+     */
+    public byIdentityApiConnectorId(identityApiConnectorId: string) : IdentityApiConnectorItemRequestBuilder {
+        if(!identityApiConnectorId) throw new Error("identityApiConnectorId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityApiConnector%2Did"] = identityApiConnectorId
+        return new IdentityApiConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ApiConnectorsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,43 +42,41 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/apiConnectors{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read the properties of an identityApiConnector object.
+     * Represents entry point for API connectors.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityApiConnectorCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApiConnectorsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnectorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IdentityApiConnectorCollectionResponse>(requestInfo, createIdentityApiConnectorCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new identityApiConnector object.
+     * Create new navigation property to apiConnectors for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityApiConnector
-     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityApiConnector | undefined, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IdentityApiConnector>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the properties of an identityApiConnector object.
+     * Represents entry point for API connectors.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +94,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new identityApiConnector object.
+     * Create new navigation property to apiConnectors for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -95,7 +110,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityApiConnector);
         return requestInfo;
     };
 }

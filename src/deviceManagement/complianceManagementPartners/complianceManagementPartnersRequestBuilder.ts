@@ -1,12 +1,18 @@
-import {ComplianceManagementPartner, ComplianceManagementPartnerCollectionResponse} from '../../models/';
+import {ComplianceManagementPartnerCollectionResponse} from '../../models/';
+import {ComplianceManagementPartner} from '../../models/complianceManagementPartner';
 import {createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue} from '../../models/createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue';
 import {createComplianceManagementPartnerFromDiscriminatorValue} from '../../models/createComplianceManagementPartnerFromDiscriminatorValue';
+import {deserializeIntoComplianceManagementPartner} from '../../models/deserializeIntoComplianceManagementPartner';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeComplianceManagementPartner} from '../../models/serializeComplianceManagementPartner';
 import {ComplianceManagementPartnersRequestBuilderGetRequestConfiguration} from './complianceManagementPartnersRequestBuilderGetRequestConfiguration';
 import {ComplianceManagementPartnersRequestBuilderPostRequestConfiguration} from './complianceManagementPartnersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ComplianceManagementPartnerItemRequestBuilder} from './item/complianceManagementPartnerItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
+     * @param complianceManagementPartnerId Unique identifier of the item
+     * @returns a ComplianceManagementPartnerItemRequestBuilder
+     */
+    public byComplianceManagementPartnerId(complianceManagementPartnerId: string) : ComplianceManagementPartnerItemRequestBuilder {
+        if(!complianceManagementPartnerId) throw new Error("complianceManagementPartnerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["complianceManagementPartner%2Did"] = complianceManagementPartnerId
+        return new ComplianceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ComplianceManagementPartnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ComplianceManagementPartnerCollectionResponse>(requestInfo, createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ComplianceManagementPartner>(requestInfo, createComplianceManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeComplianceManagementPartner);
         return requestInfo;
     };
 }

@@ -1,1 +1,5 @@
+export * from './createDismissPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoDismissPostRequestBody'
 export * from './dismissPostRequestBody'
+export * from './dismissRequestBuilderPostRequestConfiguration'
+export * from './serializeDismissPostRequestBody'

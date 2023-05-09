@@ -1,7 +1,8 @@
+import {deserializeIntoUserInstallStateSummaryCollectionResponse} from './deserializeIntoUserInstallStateSummaryCollectionResponse';
 import {UserInstallStateSummaryCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UserInstallStateSummaryCollectionResponse {
+export function createUserInstallStateSummaryCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UserInstallStateSummaryCollectionResponse();
+    return deserializeIntoUserInstallStateSummaryCollectionResponse;
 }

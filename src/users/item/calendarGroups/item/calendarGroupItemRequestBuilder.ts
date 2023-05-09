@@ -1,13 +1,16 @@
-import {CalendarGroup} from '../../../../models/';
+import {CalendarGroup} from '../../../../models/calendarGroup';
 import {createCalendarGroupFromDiscriminatorValue} from '../../../../models/createCalendarGroupFromDiscriminatorValue';
+import {deserializeIntoCalendarGroup} from '../../../../models/deserializeIntoCalendarGroup';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeCalendarGroup} from '../../../../models/serializeCalendarGroup';
 import {CalendarGroupItemRequestBuilderDeleteRequestConfiguration} from './calendarGroupItemRequestBuilderDeleteRequestConfiguration';
 import {CalendarGroupItemRequestBuilderGetRequestConfiguration} from './calendarGroupItemRequestBuilderGetRequestConfiguration';
 import {CalendarGroupItemRequestBuilderPatchRequestConfiguration} from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
-import {CalendarItemRequestBuilder} from './calendars/item/calendarItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
@@ -17,17 +20,6 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
     public get calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
-     * @param id Unique identifier of the item
-     * @returns a CalendarItemRequestBuilder
-     */
-    public calendarsById(id: string) : CalendarItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["calendar%2Did"] = id
-        return new CalendarItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new CalendarGroupItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -45,10 +37,10 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -61,10 +53,10 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -79,10 +71,10 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCalendarGroup);
         return requestInfo;
     };
 }

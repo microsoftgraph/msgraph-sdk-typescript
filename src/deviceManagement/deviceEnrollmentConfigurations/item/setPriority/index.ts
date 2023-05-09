@@ -1,1 +1,5 @@
+export * from './createSetPriorityPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSetPriorityPostRequestBody'
+export * from './serializeSetPriorityPostRequestBody'
 export * from './setPriorityPostRequestBody'
+export * from './setPriorityRequestBuilderPostRequestConfiguration'

@@ -1,1 +1,5 @@
+export * from './createDmaxPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoDmaxPostRequestBody'
 export * from './dmaxPostRequestBody'
+export * from './dmaxRequestBuilderPostRequestConfiguration'
+export * from './serializeDmaxPostRequestBody'

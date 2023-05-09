@@ -1,12 +1,18 @@
-import {AccessPackageQuestion, AccessPackageQuestionCollectionResponse} from '../../../../../../../models/';
+import {AccessPackageQuestionCollectionResponse} from '../../../../../../../models/';
+import {AccessPackageQuestion} from '../../../../../../../models/accessPackageQuestion';
 import {createAccessPackageQuestionCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageQuestionCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageQuestionFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageQuestionFromDiscriminatorValue';
+import {deserializeIntoAccessPackageQuestion} from '../../../../../../../models/deserializeIntoAccessPackageQuestion';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeAccessPackageQuestion} from '../../../../../../../models/serializeAccessPackageQuestion';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {AccessPackageQuestionItemRequestBuilder} from './item/accessPackageQuestionItemRequestBuilder';
 import {QuestionsRequestBuilderGetRequestConfiguration} from './questionsRequestBuilderGetRequestConfiguration';
 import {QuestionsRequestBuilderPostRequestConfiguration} from './questionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -16,6 +22,17 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     * @param accessPackageQuestionId Unique identifier of the item
+     * @returns a AccessPackageQuestionItemRequestBuilder
+     */
+    public byAccessPackageQuestionId(accessPackageQuestionId: string) : AccessPackageQuestionItemRequestBuilder {
+        if(!accessPackageQuestionId) throw new Error("accessPackageQuestionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessPackageQuestion%2Did"] = accessPackageQuestionId
+        return new AccessPackageQuestionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new QuestionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessPackageQuestionCollectionResponse>(requestInfo, createAccessPackageQuestionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessPackageQuestion>(requestInfo, createAccessPackageQuestionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageQuestion);
         return requestInfo;
     };
 }

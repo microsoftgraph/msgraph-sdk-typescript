@@ -1,1 +1,5 @@
 export * from './bitorPostRequestBody'
+export * from './bitorRequestBuilderPostRequestConfiguration'
+export * from './createBitorPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBitorPostRequestBody'
+export * from './serializeBitorPostRequestBody'

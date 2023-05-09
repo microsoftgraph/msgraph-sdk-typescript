@@ -1,7 +1,8 @@
+import {deserializeIntoWin32LobAppProductCodeRule} from './deserializeIntoWin32LobAppProductCodeRule';
 import {Win32LobAppProductCodeRule} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWin32LobAppProductCodeRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : Win32LobAppProductCodeRule {
+export function createWin32LobAppProductCodeRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Win32LobAppProductCodeRule();
+    return deserializeIntoWin32LobAppProductCodeRule;
 }

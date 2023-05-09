@@ -1,1 +1,5 @@
 export * from './assignUserToDevicePostRequestBody'
+export * from './assignUserToDeviceRequestBuilderPostRequestConfiguration'
+export * from './createAssignUserToDevicePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAssignUserToDevicePostRequestBody'
+export * from './serializeAssignUserToDevicePostRequestBody'

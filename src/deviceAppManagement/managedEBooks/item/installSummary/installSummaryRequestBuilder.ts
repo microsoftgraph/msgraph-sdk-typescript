@@ -1,7 +1,11 @@
-import {EBookInstallSummary} from '../../../../models/';
 import {createEBookInstallSummaryFromDiscriminatorValue} from '../../../../models/createEBookInstallSummaryFromDiscriminatorValue';
+import {deserializeIntoEBookInstallSummary} from '../../../../models/deserializeIntoEBookInstallSummary';
+import {EBookInstallSummary} from '../../../../models/eBookInstallSummary';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeEBookInstallSummary} from '../../../../models/serializeEBookInstallSummary';
 import {InstallSummaryRequestBuilderDeleteRequestConfiguration} from './installSummaryRequestBuilderDeleteRequestConfiguration';
 import {InstallSummaryRequestBuilderGetRequestConfiguration} from './installSummaryRequestBuilderGetRequestConfiguration';
 import {InstallSummaryRequestBuilderPatchRequestConfiguration} from './installSummaryRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EBookInstallSummary>(requestInfo, createEBookInstallSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EBookInstallSummary>(requestInfo, createEBookInstallSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEBookInstallSummary);
         return requestInfo;
     };
 }

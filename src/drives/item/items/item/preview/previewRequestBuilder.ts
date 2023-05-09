@@ -1,9 +1,15 @@
-import {ItemPreviewInfo} from '../../../../../models/';
 import {createItemPreviewInfoFromDiscriminatorValue} from '../../../../../models/createItemPreviewInfoFromDiscriminatorValue';
+import {deserializeIntoItemPreviewInfo} from '../../../../../models/deserializeIntoItemPreviewInfo';
+import {ItemPreviewInfo} from '../../../../../models/itemPreviewInfo';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {PreviewPostRequestBody} from './index';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeItemPreviewInfo} from '../../../../../models/serializeItemPreviewInfo';
+import {deserializeIntoPreviewPostRequestBody} from './deserializeIntoPreviewPostRequestBody';
+import {PreviewPostRequestBody} from './previewPostRequestBody';
 import {PreviewRequestBuilderPostRequestConfiguration} from './previewRequestBuilderPostRequestConfiguration';
+import {serializePreviewPostRequestBody} from './serializePreviewPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -30,10 +36,10 @@ export class PreviewRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ItemPreviewInfo>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,7 +59,7 @@ export class PreviewRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePreviewPostRequestBody);
         return requestInfo;
     };
 }

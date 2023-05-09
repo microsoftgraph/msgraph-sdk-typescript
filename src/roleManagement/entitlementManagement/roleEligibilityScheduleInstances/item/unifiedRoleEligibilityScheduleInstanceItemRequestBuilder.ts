@@ -1,7 +1,15 @@
-import {UnifiedRoleEligibilityScheduleInstance} from '../../../../models/';
 import {createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue} from '../../../../models/createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
+import {deserializeIntoUnifiedRoleEligibilityScheduleInstance} from '../../../../models/deserializeIntoUnifiedRoleEligibilityScheduleInstance';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeUnifiedRoleEligibilityScheduleInstance} from '../../../../models/serializeUnifiedRoleEligibilityScheduleInstance';
+import {UnifiedRoleEligibilityScheduleInstance} from '../../../../models/unifiedRoleEligibilityScheduleInstance';
+import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
+import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
+import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
+import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
 import {UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration} from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
@@ -11,6 +19,22 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
  */
 export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get appScope(): AppScopeRequestBuilder {
+        return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get directoryScope(): DirectoryScopeRequestBuilder {
+        return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the principal property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get principal(): PrincipalRequestBuilder {
+        return new PrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get roleDefinition(): RoleDefinitionRequestBuilder {
+        return new RoleDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -28,10 +52,10 @@ export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends Ba
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +68,10 @@ export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends Ba
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleInstance>(requestInfo, createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +86,10 @@ export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends Ba
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleInstance>(requestInfo, createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +143,7 @@ export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends Ba
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleEligibilityScheduleInstance);
         return requestInfo;
     };
 }

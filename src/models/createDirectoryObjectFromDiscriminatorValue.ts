@@ -1,7 +1,38 @@
+import {deserializeIntoActivityBasedTimeoutPolicy} from './deserializeIntoActivityBasedTimeoutPolicy';
+import {deserializeIntoAdministrativeUnit} from './deserializeIntoAdministrativeUnit';
+import {deserializeIntoApplication} from './deserializeIntoApplication';
+import {deserializeIntoAppManagementPolicy} from './deserializeIntoAppManagementPolicy';
+import {deserializeIntoAppRoleAssignment} from './deserializeIntoAppRoleAssignment';
+import {deserializeIntoAuthorizationPolicy} from './deserializeIntoAuthorizationPolicy';
+import {deserializeIntoClaimsMappingPolicy} from './deserializeIntoClaimsMappingPolicy';
+import {deserializeIntoContract} from './deserializeIntoContract';
+import {deserializeIntoCrossTenantAccessPolicy} from './deserializeIntoCrossTenantAccessPolicy';
+import {deserializeIntoDevice} from './deserializeIntoDevice';
+import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
+import {deserializeIntoDirectoryObjectPartnerReference} from './deserializeIntoDirectoryObjectPartnerReference';
+import {deserializeIntoDirectoryRole} from './deserializeIntoDirectoryRole';
+import {deserializeIntoDirectoryRoleTemplate} from './deserializeIntoDirectoryRoleTemplate';
+import {deserializeIntoEndpoint} from './deserializeIntoEndpoint';
+import {deserializeIntoExtensionProperty} from './deserializeIntoExtensionProperty';
+import {deserializeIntoGroup} from './deserializeIntoGroup';
+import {deserializeIntoGroupSettingTemplate} from './deserializeIntoGroupSettingTemplate';
+import {deserializeIntoHomeRealmDiscoveryPolicy} from './deserializeIntoHomeRealmDiscoveryPolicy';
+import {deserializeIntoIdentitySecurityDefaultsEnforcementPolicy} from './deserializeIntoIdentitySecurityDefaultsEnforcementPolicy';
+import {deserializeIntoOrganization} from './deserializeIntoOrganization';
+import {deserializeIntoOrgContact} from './deserializeIntoOrgContact';
+import {deserializeIntoPermissionGrantPolicy} from './deserializeIntoPermissionGrantPolicy';
+import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
+import {deserializeIntoResourceSpecificPermissionGrant} from './deserializeIntoResourceSpecificPermissionGrant';
+import {deserializeIntoServicePrincipal} from './deserializeIntoServicePrincipal';
+import {deserializeIntoStsPolicy} from './deserializeIntoStsPolicy';
+import {deserializeIntoTenantAppManagementPolicy} from './deserializeIntoTenantAppManagementPolicy';
+import {deserializeIntoTokenIssuancePolicy} from './deserializeIntoTokenIssuancePolicy';
+import {deserializeIntoTokenLifetimePolicy} from './deserializeIntoTokenLifetimePolicy';
+import {deserializeIntoUser} from './deserializeIntoUser';
 import {ActivityBasedTimeoutPolicy, AdministrativeUnit, Application, AppManagementPolicy, AppRoleAssignment, AuthorizationPolicy, ClaimsMappingPolicy, Contract, CrossTenantAccessPolicy, Device, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, Endpoint, ExtensionProperty, Group, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, Organization, OrgContact, PermissionGrantPolicy, PolicyBase, ResourceSpecificPermissionGrant, ServicePrincipal, StsPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy, User} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryObject {
+export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,67 +40,67 @@ export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.activityBasedTimeoutPolicy":
-                    return new ActivityBasedTimeoutPolicy();
+                    return deserializeIntoActivityBasedTimeoutPolicy;
                 case "#microsoft.graph.administrativeUnit":
-                    return new AdministrativeUnit();
+                    return deserializeIntoAdministrativeUnit;
                 case "#microsoft.graph.application":
-                    return new Application();
+                    return deserializeIntoApplication;
                 case "#microsoft.graph.appManagementPolicy":
-                    return new AppManagementPolicy();
+                    return deserializeIntoAppManagementPolicy;
                 case "#microsoft.graph.appRoleAssignment":
-                    return new AppRoleAssignment();
+                    return deserializeIntoAppRoleAssignment;
                 case "#microsoft.graph.authorizationPolicy":
-                    return new AuthorizationPolicy();
+                    return deserializeIntoAuthorizationPolicy;
                 case "#microsoft.graph.claimsMappingPolicy":
-                    return new ClaimsMappingPolicy();
+                    return deserializeIntoClaimsMappingPolicy;
                 case "#microsoft.graph.contract":
-                    return new Contract();
+                    return deserializeIntoContract;
                 case "#microsoft.graph.crossTenantAccessPolicy":
-                    return new CrossTenantAccessPolicy();
+                    return deserializeIntoCrossTenantAccessPolicy;
                 case "#microsoft.graph.device":
-                    return new Device();
+                    return deserializeIntoDevice;
                 case "#microsoft.graph.directoryObjectPartnerReference":
-                    return new DirectoryObjectPartnerReference();
+                    return deserializeIntoDirectoryObjectPartnerReference;
                 case "#microsoft.graph.directoryRole":
-                    return new DirectoryRole();
+                    return deserializeIntoDirectoryRole;
                 case "#microsoft.graph.directoryRoleTemplate":
-                    return new DirectoryRoleTemplate();
+                    return deserializeIntoDirectoryRoleTemplate;
                 case "#microsoft.graph.endpoint":
-                    return new Endpoint();
+                    return deserializeIntoEndpoint;
                 case "#microsoft.graph.extensionProperty":
-                    return new ExtensionProperty();
+                    return deserializeIntoExtensionProperty;
                 case "#microsoft.graph.group":
-                    return new Group();
+                    return deserializeIntoGroup;
                 case "#microsoft.graph.groupSettingTemplate":
-                    return new GroupSettingTemplate();
+                    return deserializeIntoGroupSettingTemplate;
                 case "#microsoft.graph.homeRealmDiscoveryPolicy":
-                    return new HomeRealmDiscoveryPolicy();
+                    return deserializeIntoHomeRealmDiscoveryPolicy;
                 case "#microsoft.graph.identitySecurityDefaultsEnforcementPolicy":
-                    return new IdentitySecurityDefaultsEnforcementPolicy();
+                    return deserializeIntoIdentitySecurityDefaultsEnforcementPolicy;
                 case "#microsoft.graph.organization":
-                    return new Organization();
+                    return deserializeIntoOrganization;
                 case "#microsoft.graph.orgContact":
-                    return new OrgContact();
+                    return deserializeIntoOrgContact;
                 case "#microsoft.graph.permissionGrantPolicy":
-                    return new PermissionGrantPolicy();
+                    return deserializeIntoPermissionGrantPolicy;
                 case "#microsoft.graph.policyBase":
-                    return new PolicyBase();
+                    return deserializeIntoPolicyBase;
                 case "#microsoft.graph.resourceSpecificPermissionGrant":
-                    return new ResourceSpecificPermissionGrant();
+                    return deserializeIntoResourceSpecificPermissionGrant;
                 case "#microsoft.graph.servicePrincipal":
-                    return new ServicePrincipal();
+                    return deserializeIntoServicePrincipal;
                 case "#microsoft.graph.stsPolicy":
-                    return new StsPolicy();
+                    return deserializeIntoStsPolicy;
                 case "#microsoft.graph.tenantAppManagementPolicy":
-                    return new TenantAppManagementPolicy();
+                    return deserializeIntoTenantAppManagementPolicy;
                 case "#microsoft.graph.tokenIssuancePolicy":
-                    return new TokenIssuancePolicy();
+                    return deserializeIntoTokenIssuancePolicy;
                 case "#microsoft.graph.tokenLifetimePolicy":
-                    return new TokenLifetimePolicy();
+                    return deserializeIntoTokenLifetimePolicy;
                 case "#microsoft.graph.user":
-                    return new User();
+                    return deserializeIntoUser;
             }
         }
     }
-    return new DirectoryObject();
+    return deserializeIntoDirectoryObject;
 }

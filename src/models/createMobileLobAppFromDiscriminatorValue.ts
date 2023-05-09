@@ -1,7 +1,15 @@
+import {deserializeIntoAndroidLobApp} from './deserializeIntoAndroidLobApp';
+import {deserializeIntoIosLobApp} from './deserializeIntoIosLobApp';
+import {deserializeIntoMacOSLobApp} from './deserializeIntoMacOSLobApp';
+import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
+import {deserializeIntoWin32LobApp} from './deserializeIntoWin32LobApp';
+import {deserializeIntoWindowsAppX} from './deserializeIntoWindowsAppX';
+import {deserializeIntoWindowsMobileMSI} from './deserializeIntoWindowsMobileMSI';
+import {deserializeIntoWindowsUniversalAppX} from './deserializeIntoWindowsUniversalAppX';
 import {AndroidLobApp, IosLobApp, MacOSLobApp, MobileLobApp, Win32LobApp, WindowsAppX, WindowsMobileMSI, WindowsUniversalAppX} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileLobApp {
+export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,21 +17,21 @@ export function createMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.androidLobApp":
-                    return new AndroidLobApp();
+                    return deserializeIntoAndroidLobApp;
                 case "#microsoft.graph.iosLobApp":
-                    return new IosLobApp();
+                    return deserializeIntoIosLobApp;
                 case "#microsoft.graph.macOSLobApp":
-                    return new MacOSLobApp();
+                    return deserializeIntoMacOSLobApp;
                 case "#microsoft.graph.win32LobApp":
-                    return new Win32LobApp();
+                    return deserializeIntoWin32LobApp;
                 case "#microsoft.graph.windowsAppX":
-                    return new WindowsAppX();
+                    return deserializeIntoWindowsAppX;
                 case "#microsoft.graph.windowsMobileMSI":
-                    return new WindowsMobileMSI();
+                    return deserializeIntoWindowsMobileMSI;
                 case "#microsoft.graph.windowsUniversalAppX":
-                    return new WindowsUniversalAppX();
+                    return deserializeIntoWindowsUniversalAppX;
             }
         }
     }
-    return new MobileLobApp();
+    return deserializeIntoMobileLobApp;
 }

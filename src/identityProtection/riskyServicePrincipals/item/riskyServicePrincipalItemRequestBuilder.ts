@@ -1,13 +1,16 @@
-import {RiskyServicePrincipal} from '../../../models/';
 import {createRiskyServicePrincipalFromDiscriminatorValue} from '../../../models/createRiskyServicePrincipalFromDiscriminatorValue';
+import {deserializeIntoRiskyServicePrincipal} from '../../../models/deserializeIntoRiskyServicePrincipal';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {RiskyServicePrincipal} from '../../../models/riskyServicePrincipal';
+import {serializeRiskyServicePrincipal} from '../../../models/serializeRiskyServicePrincipal';
 import {HistoryRequestBuilder} from './history/historyRequestBuilder';
-import {RiskyServicePrincipalHistoryItemItemRequestBuilder} from './history/item/riskyServicePrincipalHistoryItemItemRequestBuilder';
 import {RiskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalItemRequestBuilderPatchRequestConfiguration} from './riskyServicePrincipalItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
@@ -34,10 +37,10 @@ export class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,22 +53,11 @@ export class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RiskyServicePrincipal>(requestInfo, createRiskyServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
-     * @param id Unique identifier of the item
-     * @returns a RiskyServicePrincipalHistoryItemItemRequestBuilder
-     */
-    public historyById(id: string) : RiskyServicePrincipalHistoryItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["riskyServicePrincipalHistoryItem%2Did"] = id
-        return new RiskyServicePrincipalHistoryItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property riskyServicePrincipals in identityProtection
@@ -79,10 +71,10 @@ export class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RiskyServicePrincipal>(requestInfo, createRiskyServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRiskyServicePrincipal);
         return requestInfo;
     };
 }

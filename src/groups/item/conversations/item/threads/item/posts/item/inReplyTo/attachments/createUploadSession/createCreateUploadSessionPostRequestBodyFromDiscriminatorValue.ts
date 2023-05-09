@@ -1,7 +1,8 @@
+import {deserializeIntoCreateUploadSessionPostRequestBody} from './deserializeIntoCreateUploadSessionPostRequestBody';
 import {CreateUploadSessionPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCreateUploadSessionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CreateUploadSessionPostRequestBody {
+export function createCreateUploadSessionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CreateUploadSessionPostRequestBody();
+    return deserializeIntoCreateUploadSessionPostRequestBody;
 }

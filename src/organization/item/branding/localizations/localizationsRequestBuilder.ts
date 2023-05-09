@@ -1,12 +1,18 @@
-import {OrganizationalBrandingLocalization, OrganizationalBrandingLocalizationCollectionResponse} from '../../../../models/';
+import {OrganizationalBrandingLocalizationCollectionResponse} from '../../../../models/';
 import {createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue} from '../../../../models/createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue';
 import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from '../../../../models/createOrganizationalBrandingLocalizationFromDiscriminatorValue';
+import {deserializeIntoOrganizationalBrandingLocalization} from '../../../../models/deserializeIntoOrganizationalBrandingLocalization';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {OrganizationalBrandingLocalization} from '../../../../models/organizationalBrandingLocalization';
+import {serializeOrganizationalBrandingLocalization} from '../../../../models/serializeOrganizationalBrandingLocalization';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OrganizationalBrandingLocalizationItemRequestBuilder} from './item/organizationalBrandingLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
 import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
@@ -17,6 +23,17 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
+     * @param organizationalBrandingLocalizationId Unique identifier of the item
+     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
+     */
+    public byOrganizationalBrandingLocalizationId(organizationalBrandingLocalizationId: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
+        if(!organizationalBrandingLocalizationId) throw new Error("organizationalBrandingLocalizationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["organizationalBrandingLocalization%2Did"] = organizationalBrandingLocalizationId
+        return new OrganizationalBrandingLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new LocalizationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,43 +42,41 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/organization/{organization%2Did}/branding/localizations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve all localization branding objects, including the default branding.
+     * Add different branding based on a locale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBrandingLocalizationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LocalizationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBrandingLocalizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalizationCollectionResponse>(requestInfo, createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding.
+     * Create new navigation property to localizations for organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBrandingLocalization
-     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-post-localizations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OrganizationalBrandingLocalization | undefined, requestConfiguration?: LocalizationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBrandingLocalization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve all localization branding objects, including the default branding.
+     * Add different branding based on a locale.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +94,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new organizationalBrandingLocalization object. This creates a localized branding and at the same time, the default branding if it doesn't exist. The default branding is created only once. It's loaded when a localized branding isn't configured for the user's browser language. To retrieve the default branding, see Get branding.
+     * Create new navigation property to localizations for organization
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -95,7 +110,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOrganizationalBrandingLocalization);
         return requestInfo;
     };
 }

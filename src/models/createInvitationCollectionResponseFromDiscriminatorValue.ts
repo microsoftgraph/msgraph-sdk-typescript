@@ -1,7 +1,8 @@
+import {deserializeIntoInvitationCollectionResponse} from './deserializeIntoInvitationCollectionResponse';
 import {InvitationCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInvitationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : InvitationCollectionResponse {
+export function createInvitationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InvitationCollectionResponse();
+    return deserializeIntoInvitationCollectionResponse;
 }

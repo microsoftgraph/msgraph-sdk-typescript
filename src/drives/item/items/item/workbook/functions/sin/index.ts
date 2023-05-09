@@ -1,1 +1,5 @@
+export * from './createSinPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSinPostRequestBody'
+export * from './serializeSinPostRequestBody'
 export * from './sinPostRequestBody'
+export * from './sinRequestBuilderPostRequestConfiguration'

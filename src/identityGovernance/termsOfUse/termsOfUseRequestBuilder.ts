@@ -1,15 +1,17 @@
-import {TermsOfUseContainer} from '../../models/';
 import {createTermsOfUseContainerFromDiscriminatorValue} from '../../models/createTermsOfUseContainerFromDiscriminatorValue';
+import {deserializeIntoTermsOfUseContainer} from '../../models/deserializeIntoTermsOfUseContainer';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeTermsOfUseContainer} from '../../models/serializeTermsOfUseContainer';
+import {TermsOfUseContainer} from '../../models/termsOfUseContainer';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
-import {AgreementAcceptanceItemRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceItemRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
-import {AgreementItemRequestBuilder} from './agreements/item/agreementItemRequestBuilder';
 import {TermsOfUseRequestBuilderDeleteRequestConfiguration} from './termsOfUseRequestBuilderDeleteRequestConfiguration';
 import {TermsOfUseRequestBuilderGetRequestConfiguration} from './termsOfUseRequestBuilderGetRequestConfiguration';
 import {TermsOfUseRequestBuilderPatchRequestConfiguration} from './termsOfUseRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.
@@ -23,28 +25,6 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
     public get agreements(): AgreementsRequestBuilder {
         return new AgreementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.
-     * @param id Unique identifier of the item
-     * @returns a AgreementAcceptanceItemRequestBuilder
-     */
-    public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["agreementAcceptance%2Did"] = id
-        return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
-     * @param id Unique identifier of the item
-     * @returns a AgreementItemRequestBuilder
-     */
-    public agreementsById(id: string) : AgreementItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["agreement%2Did"] = id
-        return new AgreementItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new TermsOfUseRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -62,10 +42,10 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -78,10 +58,10 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TermsOfUseContainer>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -96,10 +76,10 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TermsOfUseContainer>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -153,7 +133,7 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTermsOfUseContainer);
         return requestInfo;
     };
 }

@@ -1,7 +1,11 @@
-import {BrowserSite} from '../../../../../../../models/';
+import {BrowserSite} from '../../../../../../../models/browserSite';
 import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../../models/createBrowserSiteFromDiscriminatorValue';
+import {deserializeIntoBrowserSite} from '../../../../../../../models/deserializeIntoBrowserSite';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeBrowserSite} from '../../../../../../../models/serializeBrowserSite';
 import {BrowserSiteItemRequestBuilderDeleteRequestConfiguration} from './browserSiteItemRequestBuilderDeleteRequestConfiguration';
 import {BrowserSiteItemRequestBuilderGetRequestConfiguration} from './browserSiteItemRequestBuilderGetRequestConfiguration';
 import {BrowserSiteItemRequestBuilderPatchRequestConfiguration} from './browserSiteItemRequestBuilderPatchRequestConfiguration';
@@ -28,14 +32,14 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get sites from admin
+     * A collection of sites defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSite
@@ -44,10 +48,10 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BrowserSite>(requestInfo, createBrowserSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BrowserSite>(requestInfo, createBrowserSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -85,7 +89,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get sites from admin
+     * A collection of sites defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +123,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBrowserSite);
         return requestInfo;
     };
 }

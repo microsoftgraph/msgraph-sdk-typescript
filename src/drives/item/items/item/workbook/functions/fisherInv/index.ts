@@ -1,1 +1,5 @@
+export * from './createFisherInvPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoFisherInvPostRequestBody'
 export * from './fisherInvPostRequestBody'
+export * from './fisherInvRequestBuilderPostRequestConfiguration'
+export * from './serializeFisherInvPostRequestBody'

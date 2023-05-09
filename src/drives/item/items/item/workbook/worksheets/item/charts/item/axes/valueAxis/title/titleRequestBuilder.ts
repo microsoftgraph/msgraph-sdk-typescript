@@ -1,7 +1,11 @@
-import {WorkbookChartAxisTitle} from '../../../../../../../../../../../../models/';
 import {createWorkbookChartAxisTitleFromDiscriminatorValue} from '../../../../../../../../../../../../models/createWorkbookChartAxisTitleFromDiscriminatorValue';
+import {deserializeIntoWorkbookChartAxisTitle} from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartAxisTitle';
 import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookChartAxisTitle} from '../../../../../../../../../../../../models/serializeWorkbookChartAxisTitle';
+import {WorkbookChartAxisTitle} from '../../../../../../../../../../../../models/workbookChartAxisTitle';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {TitleRequestBuilderDeleteRequestConfiguration} from './titleRequestBuilderDeleteRequestConfiguration';
 import {TitleRequestBuilderGetRequestConfiguration} from './titleRequestBuilderGetRequestConfiguration';
@@ -33,46 +37,44 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of chartaxistitle object.
+     * Represents the axis title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartAxisTitle
-     * @see {@link https://docs.microsoft.com/graph/api/chartaxistitle-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TitleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartAxisTitle | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartAxisTitle>(requestInfo, createWorkbookChartAxisTitleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of chartaxistitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartAxisTitle
-     * @see {@link https://docs.microsoft.com/graph/api/chartaxistitle-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartAxisTitle | undefined, requestConfiguration?: TitleRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartAxisTitle | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartAxisTitle>(requestInfo, createWorkbookChartAxisTitleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -92,7 +94,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartaxistitle object.
+     * Represents the axis title. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +112,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartaxistitle object.
+     * Update the navigation property title in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -126,7 +128,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartAxisTitle);
         return requestInfo;
     };
 }

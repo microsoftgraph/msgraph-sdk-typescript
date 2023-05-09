@@ -1,7 +1,8 @@
+import {deserializeIntoImSecPostRequestBody} from './deserializeIntoImSecPostRequestBody';
 import {ImSecPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createImSecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ImSecPostRequestBody {
+export function createImSecPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ImSecPostRequestBody();
+    return deserializeIntoImSecPostRequestBody;
 }

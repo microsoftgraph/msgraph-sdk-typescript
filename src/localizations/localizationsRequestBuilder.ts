@@ -1,12 +1,18 @@
-import {OrganizationalBrandingLocalization, OrganizationalBrandingLocalizationCollectionResponse} from '../models/';
+import {OrganizationalBrandingLocalizationCollectionResponse} from '../models/';
 import {createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue} from '../models/createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue';
 import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from '../models/createOrganizationalBrandingLocalizationFromDiscriminatorValue';
+import {deserializeIntoOrganizationalBrandingLocalization} from '../models/deserializeIntoOrganizationalBrandingLocalization';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {OrganizationalBrandingLocalization} from '../models/organizationalBrandingLocalization';
+import {serializeOrganizationalBrandingLocalization} from '../models/serializeOrganizationalBrandingLocalization';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OrganizationalBrandingLocalizationItemRequestBuilder} from './item/organizationalBrandingLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
 import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organizationalBrandingLocalization entities.
@@ -16,6 +22,17 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of organizationalBrandingLocalization entities.
+     * @param organizationalBrandingLocalizationId Unique identifier of the item
+     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
+     */
+    public byOrganizationalBrandingLocalizationId(organizationalBrandingLocalizationId: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
+        if(!organizationalBrandingLocalizationId) throw new Error("organizationalBrandingLocalizationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["organizationalBrandingLocalization%2Did"] = organizationalBrandingLocalizationId
+        return new OrganizationalBrandingLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new LocalizationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalizationCollectionResponse>(requestInfo, createOrganizationalBrandingLocalizationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOrganizationalBrandingLocalization);
         return requestInfo;
     };
 }

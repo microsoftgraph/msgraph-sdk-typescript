@@ -1,46 +1,7 @@
-import {PrintUsage} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {PrintUsage} from './printUsage';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class PrintUsageByPrinter extends PrintUsage implements Parsable {
+export interface PrintUsageByPrinter extends Parsable, PrintUsage {
     /** The printerId property */
-    private _printerId?: string | undefined;
-    /**
-     * Instantiates a new PrintUsageByPrinter and sets the default values.
-     */
-    public constructor() {
-        super();
-        this.odataType = "#microsoft.graph.printUsageByPrinter";
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "printerId": n => { this.printerId = n.getStringValue(); },
-        };
-    };
-    /**
-     * Gets the printerId property value. The printerId property
-     * @returns a string
-     */
-    public get printerId() {
-        return this._printerId;
-    };
-    /**
-     * Sets the printerId property value. The printerId property
-     * @param value Value to set for the printerId property.
-     */
-    public set printerId(value: string | undefined) {
-        this._printerId = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeStringValue("printerId", this.printerId);
-    };
+    printerId?: string | undefined;
 }

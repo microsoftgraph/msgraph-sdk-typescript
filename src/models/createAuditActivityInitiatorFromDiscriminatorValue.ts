@@ -1,7 +1,8 @@
+import {deserializeIntoAuditActivityInitiator} from './deserializeIntoAuditActivityInitiator';
 import {AuditActivityInitiator} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuditActivityInitiatorFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuditActivityInitiator {
+export function createAuditActivityInitiatorFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AuditActivityInitiator();
+    return deserializeIntoAuditActivityInitiator;
 }

@@ -1,13 +1,16 @@
-import {WorkbookComment} from '../../../../../../../models/';
 import {createWorkbookCommentFromDiscriminatorValue} from '../../../../../../../models/createWorkbookCommentFromDiscriminatorValue';
+import {deserializeIntoWorkbookComment} from '../../../../../../../models/deserializeIntoWorkbookComment';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {WorkbookCommentReplyItemRequestBuilder} from './replies/item/workbookCommentReplyItemRequestBuilder';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookComment} from '../../../../../../../models/serializeWorkbookComment';
+import {WorkbookComment} from '../../../../../../../models/workbookComment';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {WorkbookCommentItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookCommentItemRequestBuilderGetRequestConfiguration} from './workbookCommentItemRequestBuilderGetRequestConfiguration';
 import {WorkbookCommentItemRequestBuilderPatchRequestConfiguration} from './workbookCommentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
@@ -34,10 +37,10 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,10 +53,10 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookComment>(requestInfo, createWorkbookCommentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -68,22 +71,11 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookComment>(requestInfo, createWorkbookCommentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookCommentReplyItemRequestBuilder
-     */
-    public repliesById(id: string) : WorkbookCommentReplyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookCommentReply%2Did"] = id
-        return new WorkbookCommentReplyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property comments for drives
@@ -136,7 +128,7 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookComment);
         return requestInfo;
     };
 }

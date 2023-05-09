@@ -1,1 +1,5 @@
 export * from './beta_DistPostRequestBody'
+export * from './beta_DistRequestBuilderPostRequestConfiguration'
+export * from './createBeta_DistPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBeta_DistPostRequestBody'
+export * from './serializeBeta_DistPostRequestBody'

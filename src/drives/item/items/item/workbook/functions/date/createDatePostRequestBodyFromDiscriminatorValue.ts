@@ -1,7 +1,8 @@
+import {deserializeIntoDatePostRequestBody} from './deserializeIntoDatePostRequestBody';
 import {DatePostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : DatePostRequestBody {
+export function createDatePostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DatePostRequestBody();
+    return deserializeIntoDatePostRequestBody;
 }

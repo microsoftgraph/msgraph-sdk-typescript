@@ -1,1 +1,5 @@
+export * from './createHyperlinkPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoHyperlinkPostRequestBody'
 export * from './hyperlinkPostRequestBody'
+export * from './hyperlinkRequestBuilderPostRequestConfiguration'
+export * from './serializeHyperlinkPostRequestBody'

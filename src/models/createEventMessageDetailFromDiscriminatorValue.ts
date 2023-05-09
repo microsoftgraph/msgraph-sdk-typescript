@@ -1,7 +1,38 @@
+import {deserializeIntoCallEndedEventMessageDetail} from './deserializeIntoCallEndedEventMessageDetail';
+import {deserializeIntoCallRecordingEventMessageDetail} from './deserializeIntoCallRecordingEventMessageDetail';
+import {deserializeIntoCallStartedEventMessageDetail} from './deserializeIntoCallStartedEventMessageDetail';
+import {deserializeIntoCallTranscriptEventMessageDetail} from './deserializeIntoCallTranscriptEventMessageDetail';
+import {deserializeIntoChannelAddedEventMessageDetail} from './deserializeIntoChannelAddedEventMessageDetail';
+import {deserializeIntoChannelDeletedEventMessageDetail} from './deserializeIntoChannelDeletedEventMessageDetail';
+import {deserializeIntoChannelDescriptionUpdatedEventMessageDetail} from './deserializeIntoChannelDescriptionUpdatedEventMessageDetail';
+import {deserializeIntoChannelRenamedEventMessageDetail} from './deserializeIntoChannelRenamedEventMessageDetail';
+import {deserializeIntoChannelSetAsFavoriteByDefaultEventMessageDetail} from './deserializeIntoChannelSetAsFavoriteByDefaultEventMessageDetail';
+import {deserializeIntoChannelUnsetAsFavoriteByDefaultEventMessageDetail} from './deserializeIntoChannelUnsetAsFavoriteByDefaultEventMessageDetail';
+import {deserializeIntoChatRenamedEventMessageDetail} from './deserializeIntoChatRenamedEventMessageDetail';
+import {deserializeIntoConversationMemberRoleUpdatedEventMessageDetail} from './deserializeIntoConversationMemberRoleUpdatedEventMessageDetail';
+import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
+import {deserializeIntoMeetingPolicyUpdatedEventMessageDetail} from './deserializeIntoMeetingPolicyUpdatedEventMessageDetail';
+import {deserializeIntoMembersAddedEventMessageDetail} from './deserializeIntoMembersAddedEventMessageDetail';
+import {deserializeIntoMembersDeletedEventMessageDetail} from './deserializeIntoMembersDeletedEventMessageDetail';
+import {deserializeIntoMembersJoinedEventMessageDetail} from './deserializeIntoMembersJoinedEventMessageDetail';
+import {deserializeIntoMembersLeftEventMessageDetail} from './deserializeIntoMembersLeftEventMessageDetail';
+import {deserializeIntoMessagePinnedEventMessageDetail} from './deserializeIntoMessagePinnedEventMessageDetail';
+import {deserializeIntoMessageUnpinnedEventMessageDetail} from './deserializeIntoMessageUnpinnedEventMessageDetail';
+import {deserializeIntoTabUpdatedEventMessageDetail} from './deserializeIntoTabUpdatedEventMessageDetail';
+import {deserializeIntoTeamArchivedEventMessageDetail} from './deserializeIntoTeamArchivedEventMessageDetail';
+import {deserializeIntoTeamCreatedEventMessageDetail} from './deserializeIntoTeamCreatedEventMessageDetail';
+import {deserializeIntoTeamDescriptionUpdatedEventMessageDetail} from './deserializeIntoTeamDescriptionUpdatedEventMessageDetail';
+import {deserializeIntoTeamJoiningDisabledEventMessageDetail} from './deserializeIntoTeamJoiningDisabledEventMessageDetail';
+import {deserializeIntoTeamJoiningEnabledEventMessageDetail} from './deserializeIntoTeamJoiningEnabledEventMessageDetail';
+import {deserializeIntoTeamRenamedEventMessageDetail} from './deserializeIntoTeamRenamedEventMessageDetail';
+import {deserializeIntoTeamsAppInstalledEventMessageDetail} from './deserializeIntoTeamsAppInstalledEventMessageDetail';
+import {deserializeIntoTeamsAppRemovedEventMessageDetail} from './deserializeIntoTeamsAppRemovedEventMessageDetail';
+import {deserializeIntoTeamsAppUpgradedEventMessageDetail} from './deserializeIntoTeamsAppUpgradedEventMessageDetail';
+import {deserializeIntoTeamUnarchivedEventMessageDetail} from './deserializeIntoTeamUnarchivedEventMessageDetail';
 import {CallEndedEventMessageDetail, CallRecordingEventMessageDetail, CallStartedEventMessageDetail, CallTranscriptEventMessageDetail, ChannelAddedEventMessageDetail, ChannelDeletedEventMessageDetail, ChannelDescriptionUpdatedEventMessageDetail, ChannelRenamedEventMessageDetail, ChannelSetAsFavoriteByDefaultEventMessageDetail, ChannelUnsetAsFavoriteByDefaultEventMessageDetail, ChatRenamedEventMessageDetail, ConversationMemberRoleUpdatedEventMessageDetail, EventMessageDetail, MeetingPolicyUpdatedEventMessageDetail, MembersAddedEventMessageDetail, MembersDeletedEventMessageDetail, MembersJoinedEventMessageDetail, MembersLeftEventMessageDetail, MessagePinnedEventMessageDetail, MessageUnpinnedEventMessageDetail, TabUpdatedEventMessageDetail, TeamArchivedEventMessageDetail, TeamCreatedEventMessageDetail, TeamDescriptionUpdatedEventMessageDetail, TeamJoiningDisabledEventMessageDetail, TeamJoiningEnabledEventMessageDetail, TeamRenamedEventMessageDetail, TeamsAppInstalledEventMessageDetail, TeamsAppRemovedEventMessageDetail, TeamsAppUpgradedEventMessageDetail, TeamUnarchivedEventMessageDetail} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEventMessageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : EventMessageDetail {
+export function createEventMessageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,67 +40,67 @@ export function createEventMessageDetailFromDiscriminatorValue(parseNode: ParseN
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.callEndedEventMessageDetail":
-                    return new CallEndedEventMessageDetail();
+                    return deserializeIntoCallEndedEventMessageDetail;
                 case "#microsoft.graph.callRecordingEventMessageDetail":
-                    return new CallRecordingEventMessageDetail();
+                    return deserializeIntoCallRecordingEventMessageDetail;
                 case "#microsoft.graph.callStartedEventMessageDetail":
-                    return new CallStartedEventMessageDetail();
+                    return deserializeIntoCallStartedEventMessageDetail;
                 case "#microsoft.graph.callTranscriptEventMessageDetail":
-                    return new CallTranscriptEventMessageDetail();
+                    return deserializeIntoCallTranscriptEventMessageDetail;
                 case "#microsoft.graph.channelAddedEventMessageDetail":
-                    return new ChannelAddedEventMessageDetail();
+                    return deserializeIntoChannelAddedEventMessageDetail;
                 case "#microsoft.graph.channelDeletedEventMessageDetail":
-                    return new ChannelDeletedEventMessageDetail();
+                    return deserializeIntoChannelDeletedEventMessageDetail;
                 case "#microsoft.graph.channelDescriptionUpdatedEventMessageDetail":
-                    return new ChannelDescriptionUpdatedEventMessageDetail();
+                    return deserializeIntoChannelDescriptionUpdatedEventMessageDetail;
                 case "#microsoft.graph.channelRenamedEventMessageDetail":
-                    return new ChannelRenamedEventMessageDetail();
+                    return deserializeIntoChannelRenamedEventMessageDetail;
                 case "#microsoft.graph.channelSetAsFavoriteByDefaultEventMessageDetail":
-                    return new ChannelSetAsFavoriteByDefaultEventMessageDetail();
+                    return deserializeIntoChannelSetAsFavoriteByDefaultEventMessageDetail;
                 case "#microsoft.graph.channelUnsetAsFavoriteByDefaultEventMessageDetail":
-                    return new ChannelUnsetAsFavoriteByDefaultEventMessageDetail();
+                    return deserializeIntoChannelUnsetAsFavoriteByDefaultEventMessageDetail;
                 case "#microsoft.graph.chatRenamedEventMessageDetail":
-                    return new ChatRenamedEventMessageDetail();
+                    return deserializeIntoChatRenamedEventMessageDetail;
                 case "#microsoft.graph.conversationMemberRoleUpdatedEventMessageDetail":
-                    return new ConversationMemberRoleUpdatedEventMessageDetail();
+                    return deserializeIntoConversationMemberRoleUpdatedEventMessageDetail;
                 case "#microsoft.graph.meetingPolicyUpdatedEventMessageDetail":
-                    return new MeetingPolicyUpdatedEventMessageDetail();
+                    return deserializeIntoMeetingPolicyUpdatedEventMessageDetail;
                 case "#microsoft.graph.membersAddedEventMessageDetail":
-                    return new MembersAddedEventMessageDetail();
+                    return deserializeIntoMembersAddedEventMessageDetail;
                 case "#microsoft.graph.membersDeletedEventMessageDetail":
-                    return new MembersDeletedEventMessageDetail();
+                    return deserializeIntoMembersDeletedEventMessageDetail;
                 case "#microsoft.graph.membersJoinedEventMessageDetail":
-                    return new MembersJoinedEventMessageDetail();
+                    return deserializeIntoMembersJoinedEventMessageDetail;
                 case "#microsoft.graph.membersLeftEventMessageDetail":
-                    return new MembersLeftEventMessageDetail();
+                    return deserializeIntoMembersLeftEventMessageDetail;
                 case "#microsoft.graph.messagePinnedEventMessageDetail":
-                    return new MessagePinnedEventMessageDetail();
+                    return deserializeIntoMessagePinnedEventMessageDetail;
                 case "#microsoft.graph.messageUnpinnedEventMessageDetail":
-                    return new MessageUnpinnedEventMessageDetail();
+                    return deserializeIntoMessageUnpinnedEventMessageDetail;
                 case "#microsoft.graph.tabUpdatedEventMessageDetail":
-                    return new TabUpdatedEventMessageDetail();
+                    return deserializeIntoTabUpdatedEventMessageDetail;
                 case "#microsoft.graph.teamArchivedEventMessageDetail":
-                    return new TeamArchivedEventMessageDetail();
+                    return deserializeIntoTeamArchivedEventMessageDetail;
                 case "#microsoft.graph.teamCreatedEventMessageDetail":
-                    return new TeamCreatedEventMessageDetail();
+                    return deserializeIntoTeamCreatedEventMessageDetail;
                 case "#microsoft.graph.teamDescriptionUpdatedEventMessageDetail":
-                    return new TeamDescriptionUpdatedEventMessageDetail();
+                    return deserializeIntoTeamDescriptionUpdatedEventMessageDetail;
                 case "#microsoft.graph.teamJoiningDisabledEventMessageDetail":
-                    return new TeamJoiningDisabledEventMessageDetail();
+                    return deserializeIntoTeamJoiningDisabledEventMessageDetail;
                 case "#microsoft.graph.teamJoiningEnabledEventMessageDetail":
-                    return new TeamJoiningEnabledEventMessageDetail();
+                    return deserializeIntoTeamJoiningEnabledEventMessageDetail;
                 case "#microsoft.graph.teamRenamedEventMessageDetail":
-                    return new TeamRenamedEventMessageDetail();
+                    return deserializeIntoTeamRenamedEventMessageDetail;
                 case "#microsoft.graph.teamsAppInstalledEventMessageDetail":
-                    return new TeamsAppInstalledEventMessageDetail();
+                    return deserializeIntoTeamsAppInstalledEventMessageDetail;
                 case "#microsoft.graph.teamsAppRemovedEventMessageDetail":
-                    return new TeamsAppRemovedEventMessageDetail();
+                    return deserializeIntoTeamsAppRemovedEventMessageDetail;
                 case "#microsoft.graph.teamsAppUpgradedEventMessageDetail":
-                    return new TeamsAppUpgradedEventMessageDetail();
+                    return deserializeIntoTeamsAppUpgradedEventMessageDetail;
                 case "#microsoft.graph.teamUnarchivedEventMessageDetail":
-                    return new TeamUnarchivedEventMessageDetail();
+                    return deserializeIntoTeamUnarchivedEventMessageDetail;
             }
         }
     }
-    return new EventMessageDetail();
+    return deserializeIntoEventMessageDetail;
 }

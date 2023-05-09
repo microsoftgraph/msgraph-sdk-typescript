@@ -1,16 +1,35 @@
-import {MdmWindowsInformationProtectionPolicy} from '../../../models/';
 import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
+import {deserializeIntoMdmWindowsInformationProtectionPolicy} from '../../../models/deserializeIntoMdmWindowsInformationProtectionPolicy';
+import {MdmWindowsInformationProtectionPolicy} from '../../../models/mdmWindowsInformationProtectionPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeMdmWindowsInformationProtectionPolicy} from '../../../models/serializeMdmWindowsInformationProtectionPolicy';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {ExemptAppLockerFilesRequestBuilder} from './exemptAppLockerFiles/exemptAppLockerFilesRequestBuilder';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
+import {ProtectedAppLockerFilesRequestBuilder} from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
  */
 export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the assignments property of the microsoft.graph.windowsInformationProtection entity. */
+    public get assignments(): AssignmentsRequestBuilder {
+        return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the exemptAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity. */
+    public get exemptAppLockerFiles(): ExemptAppLockerFilesRequestBuilder {
+        return new ExemptAppLockerFilesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity. */
+    public get protectedAppLockerFiles(): ProtectedAppLockerFilesRequestBuilder {
+        return new ProtectedAppLockerFilesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new MdmWindowsInformationProtectionPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -28,10 +47,10 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +63,10 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<MdmWindowsInformationProtectionPolicy>(requestInfo, createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +81,10 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<MdmWindowsInformationProtectionPolicy>(requestInfo, createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +138,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMdmWindowsInformationProtectionPolicy);
         return requestInfo;
     };
 }

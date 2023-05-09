@@ -1,12 +1,18 @@
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {EdiscoveryReviewSet, EdiscoveryReviewSetCollectionResponse} from '../../../../../models/security/';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {EdiscoveryReviewSetCollectionResponse} from '../../../../../models/security/';
 import {createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryReviewSetFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewSetFromDiscriminatorValue';
+import {deserializeIntoEdiscoveryReviewSet} from '../../../../../models/security/deserializeIntoEdiscoveryReviewSet';
+import {EdiscoveryReviewSet} from '../../../../../models/security/ediscoveryReviewSet';
+import {serializeEdiscoveryReviewSet} from '../../../../../models/security/serializeEdiscoveryReviewSet';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EdiscoveryReviewSetItemRequestBuilder} from './item/ediscoveryReviewSetItemRequestBuilder';
 import {ReviewSetsRequestBuilderGetRequestConfiguration} from './reviewSetsRequestBuilderGetRequestConfiguration';
 import {ReviewSetsRequestBuilderPostRequestConfiguration} from './reviewSetsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
@@ -17,6 +23,17 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
+     * @param ediscoveryReviewSetId Unique identifier of the item
+     * @returns a EdiscoveryReviewSetItemRequestBuilder
+     */
+    public byEdiscoveryReviewSetId(ediscoveryReviewSetId: string) : EdiscoveryReviewSetItemRequestBuilder {
+        if(!ediscoveryReviewSetId) throw new Error("ediscoveryReviewSetId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryReviewSet%2Did"] = ediscoveryReviewSetId
+        return new EdiscoveryReviewSetItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new ReviewSetsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,43 +42,41 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+     * Returns a list of eDiscoveryReviewSet objects in the case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryReviewSetCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-reviewsets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReviewSetsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryReviewSetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryReviewSetCollectionResponse>(requestInfo, createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new ediscoveryReviewSet object.
+     * Create new navigation property to reviewSets for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryReviewSet
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-reviewsets?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryReviewSet | undefined, requestConfiguration?: ReviewSetsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryReviewSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryReviewSet>(requestInfo, createEdiscoveryReviewSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
+     * Returns a list of eDiscoveryReviewSet objects in the case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +94,7 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new ediscoveryReviewSet object.
+     * Create new navigation property to reviewSets for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -95,7 +110,7 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryReviewSet);
         return requestInfo;
     };
 }

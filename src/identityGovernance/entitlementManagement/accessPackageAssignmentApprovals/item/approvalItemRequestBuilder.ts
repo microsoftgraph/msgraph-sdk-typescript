@@ -1,13 +1,16 @@
-import {Approval} from '../../../../models/';
+import {Approval} from '../../../../models/approval';
 import {createApprovalFromDiscriminatorValue} from '../../../../models/createApprovalFromDiscriminatorValue';
+import {deserializeIntoApproval} from '../../../../models/deserializeIntoApproval';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeApproval} from '../../../../models/serializeApproval';
 import {ApprovalItemRequestBuilderDeleteRequestConfiguration} from './approvalItemRequestBuilderDeleteRequestConfiguration';
 import {ApprovalItemRequestBuilderGetRequestConfiguration} from './approvalItemRequestBuilderGetRequestConfiguration';
 import {ApprovalItemRequestBuilderPatchRequestConfiguration} from './approvalItemRequestBuilderPatchRequestConfiguration';
-import {ApprovalStageItemRequestBuilder} from './stages/item/approvalStageItemRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
@@ -34,10 +37,10 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,10 +53,10 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -68,22 +71,11 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the stages property of the microsoft.graph.approval entity.
-     * @param id Unique identifier of the item
-     * @returns a ApprovalStageItemRequestBuilder
-     */
-    public stagesById(id: string) : ApprovalStageItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["approvalStage%2Did"] = id
-        return new ApprovalStageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property accessPackageAssignmentApprovals for identityGovernance
@@ -136,7 +128,7 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApproval);
         return requestInfo;
     };
 }

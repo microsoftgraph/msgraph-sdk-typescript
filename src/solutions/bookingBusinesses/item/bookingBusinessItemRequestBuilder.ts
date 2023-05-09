@@ -1,26 +1,24 @@
-import {BookingBusiness} from '../../../models/';
+import {BookingBusiness} from '../../../models/bookingBusiness';
 import {createBookingBusinessFromDiscriminatorValue} from '../../../models/createBookingBusinessFromDiscriminatorValue';
+import {deserializeIntoBookingBusiness} from '../../../models/deserializeIntoBookingBusiness';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeBookingBusiness} from '../../../models/serializeBookingBusiness';
 import {AppointmentsRequestBuilder} from './appointments/appointmentsRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d} from './appointments/item/bookingAppointmentItemRequestBuilder';
 import {BookingBusinessItemRequestBuilderDeleteRequestConfiguration} from './bookingBusinessItemRequestBuilderDeleteRequestConfiguration';
 import {BookingBusinessItemRequestBuilderGetRequestConfiguration} from './bookingBusinessItemRequestBuilderGetRequestConfiguration';
 import {BookingBusinessItemRequestBuilderPatchRequestConfiguration} from './bookingBusinessItemRequestBuilderPatchRequestConfiguration';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {BookingAppointmentItemRequestBuilder as Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4} from './calendarView/item/bookingAppointmentItemRequestBuilder';
 import {CustomersRequestBuilder} from './customers/customersRequestBuilder';
-import {BookingCustomerBaseItemRequestBuilder} from './customers/item/bookingCustomerBaseItemRequestBuilder';
 import {CustomQuestionsRequestBuilder} from './customQuestions/customQuestionsRequestBuilder';
-import {BookingCustomQuestionItemRequestBuilder} from './customQuestions/item/bookingCustomQuestionItemRequestBuilder';
 import {GetStaffAvailabilityRequestBuilder} from './getStaffAvailability/getStaffAvailabilityRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {BookingServiceItemRequestBuilder} from './services/item/bookingServiceItemRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
-import {BookingStaffMemberBaseItemRequestBuilder} from './staffMembers/item/bookingStaffMemberBaseItemRequestBuilder';
 import {StaffMembersRequestBuilder} from './staffMembers/staffMembersRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
@@ -63,56 +61,12 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
-     * @param id Unique identifier of the item
-     * @returns a BookingAppointmentItemRequestBuilder
-     */
-    public appointmentsById(id: string) : If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["bookingAppointment%2Did"] = id
-        return new If8492a98c98902c4f6ba4863614de95da278d3415d72f020e0e93895216cb97d(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
-     * @param id Unique identifier of the item
-     * @returns a BookingAppointmentItemRequestBuilder
-     */
-    public calendarViewById(id: string) : Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["bookingAppointment%2Did"] = id
-        return new Ibaa5b72e3646c195719ac2d5f1bdd23edfb26f61b42918c45bc195a6229375c4(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new BookingBusinessItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
-     * @param id Unique identifier of the item
-     * @returns a BookingCustomerBaseItemRequestBuilder
-     */
-    public customersById(id: string) : BookingCustomerBaseItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["bookingCustomerBase%2Did"] = id
-        return new BookingCustomerBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
-     * @param id Unique identifier of the item
-     * @returns a BookingCustomQuestionItemRequestBuilder
-     */
-    public customQuestionsById(id: string) : BookingCustomQuestionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["bookingCustomQuestion%2Did"] = id
-        return new BookingCustomQuestionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property bookingBusinesses for solutions
@@ -123,10 +77,10 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -139,10 +93,10 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -157,33 +111,11 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
-     * @param id Unique identifier of the item
-     * @returns a BookingServiceItemRequestBuilder
-     */
-    public servicesById(id: string) : BookingServiceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["bookingService%2Did"] = id
-        return new BookingServiceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
-     * @param id Unique identifier of the item
-     * @returns a BookingStaffMemberBaseItemRequestBuilder
-     */
-    public staffMembersById(id: string) : BookingStaffMemberBaseItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["bookingStaffMemberBase%2Did"] = id
-        return new BookingStaffMemberBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property bookingBusinesses for solutions
@@ -236,7 +168,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingBusiness);
         return requestInfo;
     };
 }

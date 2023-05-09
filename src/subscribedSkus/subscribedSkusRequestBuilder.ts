@@ -1,16 +1,33 @@
-import {SubscribedSku, SubscribedSkuCollectionResponse} from '../models/';
+import {SubscribedSkuCollectionResponse} from '../models/';
 import {createSubscribedSkuCollectionResponseFromDiscriminatorValue} from '../models/createSubscribedSkuCollectionResponseFromDiscriminatorValue';
 import {createSubscribedSkuFromDiscriminatorValue} from '../models/createSubscribedSkuFromDiscriminatorValue';
+import {deserializeIntoSubscribedSku} from '../models/deserializeIntoSubscribedSku';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeSubscribedSku} from '../models/serializeSubscribedSku';
+import {SubscribedSku} from '../models/subscribedSku';
+import {SubscribedSkuItemRequestBuilder} from './item/subscribedSkuItemRequestBuilder';
 import {SubscribedSkusRequestBuilderGetRequestConfiguration} from './subscribedSkusRequestBuilderGetRequestConfiguration';
 import {SubscribedSkusRequestBuilderPostRequestConfiguration} from './subscribedSkusRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscribedSku entities.
  */
 export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to manage the collection of subscribedSku entities.
+     * @param subscribedSkuId Unique identifier of the item
+     * @returns a SubscribedSkuItemRequestBuilder
+     */
+    public bySubscribedSkuId(subscribedSkuId: string) : SubscribedSkuItemRequestBuilder {
+        if(!subscribedSkuId) throw new Error("subscribedSkuId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["subscribedSku%2Did"] = subscribedSkuId
+        return new SubscribedSkuItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SubscribedSkusRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -30,10 +47,10 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SubscribedSkuCollectionResponse>(requestInfo, createSubscribedSkuCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -48,10 +65,10 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SubscribedSku>(requestInfo, createSubscribedSkuFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -89,7 +106,7 @@ export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSubscribedSku);
         return requestInfo;
     };
 }

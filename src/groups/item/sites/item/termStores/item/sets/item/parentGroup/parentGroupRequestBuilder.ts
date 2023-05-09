@@ -1,13 +1,16 @@
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Group} from '../../../../../../../../../models/termStore/';
+import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
 import {createGroupFromDiscriminatorValue} from '../../../../../../../../../models/termStore/createGroupFromDiscriminatorValue';
+import {deserializeIntoGroup} from '../../../../../../../../../models/termStore/deserializeIntoGroup';
+import {Group} from '../../../../../../../../../models/termStore/group';
+import {serializeGroup} from '../../../../../../../../../models/termStore/serializeGroup';
 import {ParentGroupRequestBuilderDeleteRequestConfiguration} from './parentGroupRequestBuilderDeleteRequestConfiguration';
 import {ParentGroupRequestBuilderGetRequestConfiguration} from './parentGroupRequestBuilderGetRequestConfiguration';
 import {ParentGroupRequestBuilderPatchRequestConfiguration} from './parentGroupRequestBuilderPatchRequestConfiguration';
-import {SetItemRequestBuilder} from './sets/item/setItemRequestBuilder';
 import {SetsRequestBuilder} from './sets/setsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the parentGroup property of the microsoft.graph.termStore.set entity.
@@ -34,10 +37,10 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,10 +53,10 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -68,22 +71,11 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
-     * @param id Unique identifier of the item
-     * @returns a SetItemRequestBuilder
-     */
-    public setsById(id: string) : SetItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["set%2Did1"] = id
-        return new SetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property parentGroup for groups
@@ -136,7 +128,7 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGroup);
         return requestInfo;
     };
 }

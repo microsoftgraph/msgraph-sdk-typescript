@@ -1,7 +1,10 @@
+import {deserializeIntoDataSourceContainer} from './deserializeIntoDataSourceContainer';
+import {deserializeIntoEdiscoveryCustodian} from './deserializeIntoEdiscoveryCustodian';
+import {deserializeIntoEdiscoveryNoncustodialDataSource} from './deserializeIntoEdiscoveryNoncustodialDataSource';
 import {DataSourceContainer, EdiscoveryCustodian, EdiscoveryNoncustodialDataSource} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDataSourceContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) : DataSourceContainer {
+export function createDataSourceContainerFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createDataSourceContainerFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.security.ediscoveryCustodian":
-                    return new EdiscoveryCustodian();
+                    return deserializeIntoEdiscoveryCustodian;
                 case "#microsoft.graph.security.ediscoveryNoncustodialDataSource":
-                    return new EdiscoveryNoncustodialDataSource();
+                    return deserializeIntoEdiscoveryNoncustodialDataSource;
             }
         }
     }
-    return new DataSourceContainer();
+    return deserializeIntoDataSourceContainer;
 }

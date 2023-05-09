@@ -1,16 +1,22 @@
-import {DirectoryRoleTemplate, DirectoryRoleTemplateCollectionResponse} from '../models/';
+import {DirectoryRoleTemplateCollectionResponse} from '../models/';
 import {createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue} from '../models/createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue';
 import {createDirectoryRoleTemplateFromDiscriminatorValue} from '../models/createDirectoryRoleTemplateFromDiscriminatorValue';
+import {deserializeIntoDirectoryRoleTemplate} from '../models/deserializeIntoDirectoryRoleTemplate';
+import {DirectoryRoleTemplate} from '../models/directoryRoleTemplate';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeDirectoryRoleTemplate} from '../models/serializeDirectoryRoleTemplate';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration} from './directoryRoleTemplatesRequestBuilderGetRequestConfiguration';
 import {DirectoryRoleTemplatesRequestBuilderPostRequestConfiguration} from './directoryRoleTemplatesRequestBuilderPostRequestConfiguration';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {DirectoryRoleTemplateItemRequestBuilder} from './item/directoryRoleTemplateItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRoleTemplate entities.
@@ -37,6 +43,17 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the collection of directoryRoleTemplate entities.
+     * @param directoryRoleTemplateId Unique identifier of the item
+     * @returns a DirectoryRoleTemplateItemRequestBuilder
+     */
+    public byDirectoryRoleTemplateId(directoryRoleTemplateId: string) : DirectoryRoleTemplateItemRequestBuilder {
+        if(!directoryRoleTemplateId) throw new Error("directoryRoleTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryRoleTemplate%2Did"] = directoryRoleTemplateId
+        return new DirectoryRoleTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new DirectoryRoleTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -55,10 +72,10 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryRoleTemplateCollectionResponse>(requestInfo, createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -73,10 +90,10 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryRoleTemplate>(requestInfo, createDirectoryRoleTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -114,7 +131,7 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryRoleTemplate);
         return requestInfo;
     };
 }

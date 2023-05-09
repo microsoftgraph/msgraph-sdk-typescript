@@ -1,7 +1,11 @@
-import {PlannerAssignedToTaskBoardTaskFormat} from '../../../../../../../../../models/';
 import {createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue} from '../../../../../../../../../models/createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue';
+import {deserializeIntoPlannerAssignedToTaskBoardTaskFormat} from '../../../../../../../../../models/deserializeIntoPlannerAssignedToTaskBoardTaskFormat';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import {PlannerAssignedToTaskBoardTaskFormat} from '../../../../../../../../../models/plannerAssignedToTaskBoardTaskFormat';
+import {serializePlannerAssignedToTaskBoardTaskFormat} from '../../../../../../../../../models/serializePlannerAssignedToTaskBoardTaskFormat';
 import {AssignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderGetRequestConfiguration';
 import {AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration';
@@ -28,27 +32,26 @@ export class AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of a **plannerAssignedToTaskBoardTaskFormat** object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerAssignedToTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerAssignedToTaskBoardTaskFormat>(requestInfo, createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -57,17 +60,16 @@ export class AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerAssignedToTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerAssignedToTaskBoardTaskFormat | undefined, requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerAssignedToTaskBoardTaskFormat>(requestInfo, createPlannerAssignedToTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -87,7 +89,7 @@ export class AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a **plannerAssignedToTaskBoardTaskFormat** object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -121,7 +123,7 @@ export class AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlannerAssignedToTaskBoardTaskFormat);
         return requestInfo;
     };
 }

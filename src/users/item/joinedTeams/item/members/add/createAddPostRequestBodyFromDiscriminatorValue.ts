@@ -1,7 +1,8 @@
+import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequestBody';
 import {AddPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AddPostRequestBody {
+export function createAddPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AddPostRequestBody();
+    return deserializeIntoAddPostRequestBody;
 }

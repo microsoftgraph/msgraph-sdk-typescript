@@ -1,1 +1,5 @@
+export * from './createVar_PPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoVar_PPostRequestBody'
+export * from './serializeVar_PPostRequestBody'
 export * from './var_PPostRequestBody'
+export * from './var_PRequestBuilderPostRequestConfiguration'

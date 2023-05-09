@@ -1,15 +1,18 @@
-import {OrganizationalBranding} from '../models/';
 import {createOrganizationalBrandingFromDiscriminatorValue} from '../models/createOrganizationalBrandingFromDiscriminatorValue';
+import {deserializeIntoOrganizationalBranding} from '../models/deserializeIntoOrganizationalBranding';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {OrganizationalBranding} from '../models/organizationalBranding';
+import {serializeOrganizationalBranding} from '../models/serializeOrganizationalBranding';
 import {BackgroundImageRequestBuilder} from './backgroundImage/backgroundImageRequestBuilder';
 import {BannerLogoRequestBuilder} from './bannerLogo/bannerLogoRequestBuilder';
 import {BrandingRequestBuilderGetRequestConfiguration} from './brandingRequestBuilderGetRequestConfiguration';
 import {BrandingRequestBuilderPatchRequestConfiguration} from './brandingRequestBuilderPatchRequestConfiguration';
-import {OrganizationalBrandingLocalizationItemRequestBuilder} from './localizations/item/organizationalBrandingLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the organizationalBranding singleton.
@@ -49,22 +52,11 @@ export class BrandingRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBranding>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
-     * @param id Unique identifier of the item
-     * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
-     */
-    public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["organizationalBrandingLocalization%2Did"] = id
-        return new OrganizationalBrandingLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update branding
@@ -78,10 +70,10 @@ export class BrandingRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBranding>(requestInfo, createOrganizationalBrandingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +111,7 @@ export class BrandingRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOrganizationalBranding);
         return requestInfo;
     };
 }

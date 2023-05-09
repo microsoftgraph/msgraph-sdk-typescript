@@ -1,13 +1,16 @@
-import {UserInstallStateSummary} from '../../../../../models/';
 import {createUserInstallStateSummaryFromDiscriminatorValue} from '../../../../../models/createUserInstallStateSummaryFromDiscriminatorValue';
+import {deserializeIntoUserInstallStateSummary} from '../../../../../models/deserializeIntoUserInstallStateSummary';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeUserInstallStateSummary} from '../../../../../models/serializeUserInstallStateSummary';
+import {UserInstallStateSummary} from '../../../../../models/userInstallStateSummary';
 import {DeviceStatesRequestBuilder} from './deviceStates/deviceStatesRequestBuilder';
-import {DeviceInstallStateItemRequestBuilder} from './deviceStates/item/deviceInstallStateItemRequestBuilder';
 import {UserInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderGetRequestConfiguration';
 import {UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
@@ -34,22 +37,11 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
-     * @param id Unique identifier of the item
-     * @returns a DeviceInstallStateItemRequestBuilder
-     */
-    public deviceStatesById(id: string) : DeviceInstallStateItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceInstallState%2Did"] = id
-        return new DeviceInstallStateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The list of installation states for this eBook.
@@ -61,10 +53,10 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -79,10 +71,10 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserInstallStateSummary);
         return requestInfo;
     };
 }

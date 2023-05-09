@@ -1,14 +1,11 @@
 import {ConnectedOrganizationsRequestBuilderGetQueryParameters} from './connectedOrganizationsRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class ConnectedOrganizationsRequestBuilderGetRequestConfiguration {
+export interface ConnectedOrganizationsRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: ConnectedOrganizationsRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: ConnectedOrganizationsRequestBuilderGetQueryParameters | undefined;
 }

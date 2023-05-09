@@ -1,7 +1,9 @@
+import {deserializeIntoChatMessageHostedContent} from './deserializeIntoChatMessageHostedContent';
+import {deserializeIntoTeamworkHostedContent} from './deserializeIntoTeamworkHostedContent';
 import {ChatMessageHostedContent, TeamworkHostedContent} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamworkHostedContent {
+export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: Par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.chatMessageHostedContent":
-                    return new ChatMessageHostedContent();
+                    return deserializeIntoChatMessageHostedContent;
             }
         }
     }
-    return new TeamworkHostedContent();
+    return deserializeIntoTeamworkHostedContent;
 }

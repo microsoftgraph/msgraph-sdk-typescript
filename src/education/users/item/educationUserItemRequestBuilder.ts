@@ -1,22 +1,21 @@
-import {EducationUser} from '../../../models/';
 import {createEducationUserFromDiscriminatorValue} from '../../../models/createEducationUserFromDiscriminatorValue';
+import {deserializeIntoEducationUser} from '../../../models/deserializeIntoEducationUser';
+import {EducationUser} from '../../../models/educationUser';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeEducationUser} from '../../../models/serializeEducationUser';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {EducationAssignmentItemRequestBuilder} from './assignments/item/educationAssignmentItemRequestBuilder';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationClassItemRequestBuilder as Ib38c390945517a7b644542600be547bfafc5c86c35991a2dc357ce4df1ad55f4} from './classes/item/educationClassItemRequestBuilder';
 import {EducationUserItemRequestBuilderDeleteRequestConfiguration} from './educationUserItemRequestBuilderDeleteRequestConfiguration';
 import {EducationUserItemRequestBuilderGetRequestConfiguration} from './educationUserItemRequestBuilderGetRequestConfiguration';
 import {EducationUserItemRequestBuilderPatchRequestConfiguration} from './educationUserItemRequestBuilderPatchRequestConfiguration';
-import {EducationRubricItemRequestBuilder} from './rubrics/item/educationRubricItemRequestBuilder';
 import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
-import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationClassItemRequestBuilder as Ibef8b566bb62d3b8b627805ddf383f9168405569cf36ee75e830ac7faea094ef} from './taughtClasses/item/educationClassItemRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
@@ -47,28 +46,6 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationAssignmentItemRequestBuilder
-     */
-    public assignmentsById(id: string) : EducationAssignmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationAssignment%2Did"] = id
-        return new EducationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationClassItemRequestBuilder
-     */
-    public classesById(id: string) : Ib38c390945517a7b644542600be547bfafc5c86c35991a2dc357ce4df1ad55f4 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationClass%2Did"] = id
-        return new Ib38c390945517a7b644542600be547bfafc5c86c35991a2dc357ce4df1ad55f4(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new EducationUserItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -85,10 +62,10 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -101,10 +78,10 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,44 +96,11 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationRubricItemRequestBuilder
-     */
-    public rubricsById(id: string) : EducationRubricItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationRubric%2Did"] = id
-        return new EducationRubricItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationSchoolItemRequestBuilder
-     */
-    public schoolsById(id: string) : EducationSchoolItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationSchool%2Did"] = id
-        return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationClassItemRequestBuilder
-     */
-    public taughtClassesById(id: string) : Ibef8b566bb62d3b8b627805ddf383f9168405569cf36ee75e830ac7faea094ef {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationClass%2Did"] = id
-        return new Ibef8b566bb62d3b8b627805ddf383f9168405569cf36ee75e830ac7faea094ef(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property users for education
@@ -209,7 +153,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationUser);
         return requestInfo;
     };
 }

@@ -1,12 +1,15 @@
-import {EmployeeExperience} from '../models/';
 import {createEmployeeExperienceFromDiscriminatorValue} from '../models/createEmployeeExperienceFromDiscriminatorValue';
+import {deserializeIntoEmployeeExperience} from '../models/deserializeIntoEmployeeExperience';
+import {EmployeeExperience} from '../models/employeeExperience';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeEmployeeExperience} from '../models/serializeEmployeeExperience';
 import {EmployeeExperienceRequestBuilderGetRequestConfiguration} from './employeeExperienceRequestBuilderGetRequestConfiguration';
 import {EmployeeExperienceRequestBuilderPatchRequestConfiguration} from './employeeExperienceRequestBuilderPatchRequestConfiguration';
-import {LearningProviderItemRequestBuilder} from './learningProviders/item/learningProviderItemRequestBuilder';
 import {LearningProvidersRequestBuilder} from './learningProviders/learningProvidersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the employeeExperience singleton.
@@ -34,22 +37,11 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
-     * @param id Unique identifier of the item
-     * @returns a LearningProviderItemRequestBuilder
-     */
-    public learningProvidersById(id: string) : LearningProviderItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["learningProvider%2Did"] = id
-        return new LearningProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update employeeExperience
@@ -63,10 +55,10 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -104,7 +96,7 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEmployeeExperience);
         return requestInfo;
     };
 }

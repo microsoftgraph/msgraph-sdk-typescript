@@ -1,1 +1,5 @@
+export * from './createIsrefPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoIsrefPostRequestBody'
 export * from './isrefPostRequestBody'
+export * from './isrefRequestBuilderPostRequestConfiguration'
+export * from './serializeIsrefPostRequestBody'

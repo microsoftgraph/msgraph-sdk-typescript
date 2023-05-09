@@ -1,1 +1,5 @@
+export * from './createErf_PrecisePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoErf_PrecisePostRequestBody'
 export * from './erf_PrecisePostRequestBody'
+export * from './erf_PreciseRequestBuilderPostRequestConfiguration'
+export * from './serializeErf_PrecisePostRequestBody'

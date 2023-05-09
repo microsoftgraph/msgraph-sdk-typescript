@@ -1,1 +1,5 @@
 export * from './coupPcdPostRequestBody'
+export * from './coupPcdRequestBuilderPostRequestConfiguration'
+export * from './createCoupPcdPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCoupPcdPostRequestBody'
+export * from './serializeCoupPcdPostRequestBody'

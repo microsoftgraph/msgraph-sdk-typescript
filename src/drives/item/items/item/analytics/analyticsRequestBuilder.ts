@@ -1,15 +1,18 @@
-import {ItemAnalytics} from '../../../../../models/';
 import {createItemAnalyticsFromDiscriminatorValue} from '../../../../../models/createItemAnalyticsFromDiscriminatorValue';
+import {deserializeIntoItemAnalytics} from '../../../../../models/deserializeIntoItemAnalytics';
+import {ItemAnalytics} from '../../../../../models/itemAnalytics';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeItemAnalytics} from '../../../../../models/serializeItemAnalytics';
 import {AllTimeRequestBuilder} from './allTime/allTimeRequestBuilder';
 import {AnalyticsRequestBuilderDeleteRequestConfiguration} from './analyticsRequestBuilderDeleteRequestConfiguration';
 import {AnalyticsRequestBuilderGetRequestConfiguration} from './analyticsRequestBuilderGetRequestConfiguration';
 import {AnalyticsRequestBuilderPatchRequestConfiguration} from './analyticsRequestBuilderPatchRequestConfiguration';
-import {ItemActivityStatItemRequestBuilder} from './itemActivityStats/item/itemActivityStatItemRequestBuilder';
 import {ItemActivityStatsRequestBuilder} from './itemActivityStats/itemActivityStatsRequestBuilder';
 import {LastSevenDaysRequestBuilder} from './lastSevenDays/lastSevenDaysRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.
@@ -44,10 +47,10 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -60,22 +63,11 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
-     * @param id Unique identifier of the item
-     * @returns a ItemActivityStatItemRequestBuilder
-     */
-    public itemActivityStatsById(id: string) : ItemActivityStatItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["itemActivityStat%2Did"] = id
-        return new ItemActivityStatItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property analytics in drives
@@ -89,10 +81,10 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -146,7 +138,7 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeItemAnalytics);
         return requestInfo;
     };
 }

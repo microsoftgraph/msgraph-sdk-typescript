@@ -1,10 +1,13 @@
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {EdiscoveryReviewTagCollectionResponse} from '../../../../../../../models/security/';
 import {createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue';
 import {ChildTagsRequestBuilderGetRequestConfiguration} from './childTagsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EdiscoveryReviewTagItemRequestBuilder} from './item/ediscoveryReviewTagItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
@@ -14,6 +17,17 @@ export class ChildTagsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
+     * @param ediscoveryReviewTagId1 Unique identifier of the item
+     * @returns a EdiscoveryReviewTagItemRequestBuilder
+     */
+    public byEdiscoveryReviewTagId1(ediscoveryReviewTagId1: string) : EdiscoveryReviewTagItemRequestBuilder {
+        if(!ediscoveryReviewTagId1) throw new Error("ediscoveryReviewTagId1 cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryReviewTag%2Did1"] = ediscoveryReviewTagId1
+        return new EdiscoveryReviewTagItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChildTagsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -32,10 +46,10 @@ export class ChildTagsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryReviewTagCollectionResponse>(requestInfo, createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**

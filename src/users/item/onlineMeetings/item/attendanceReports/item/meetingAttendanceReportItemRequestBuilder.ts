@@ -1,13 +1,16 @@
-import {MeetingAttendanceReport} from '../../../../../../models/';
 import {createMeetingAttendanceReportFromDiscriminatorValue} from '../../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
+import {deserializeIntoMeetingAttendanceReport} from '../../../../../../models/deserializeIntoMeetingAttendanceReport';
+import {MeetingAttendanceReport} from '../../../../../../models/meetingAttendanceReport';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeMeetingAttendanceReport} from '../../../../../../models/serializeMeetingAttendanceReport';
 import {AttendanceRecordsRequestBuilder} from './attendanceRecords/attendanceRecordsRequestBuilder';
-import {AttendanceRecordItemRequestBuilder} from './attendanceRecords/item/attendanceRecordItemRequestBuilder';
 import {MeetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderDeleteRequestConfiguration';
 import {MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderGetRequestConfiguration';
 import {MeetingAttendanceReportItemRequestBuilderPatchRequestConfiguration} from './meetingAttendanceReportItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
@@ -17,17 +20,6 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
     public get attendanceRecords(): AttendanceRecordsRequestBuilder {
         return new AttendanceRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
-     * @param id Unique identifier of the item
-     * @returns a AttendanceRecordItemRequestBuilder
-     */
-    public attendanceRecordsById(id: string) : AttendanceRecordItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["attendanceRecord%2Did"] = id
-        return new AttendanceRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new MeetingAttendanceReportItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -45,10 +37,10 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -61,10 +53,10 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<MeetingAttendanceReport>(requestInfo, createMeetingAttendanceReportFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -79,10 +71,10 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<MeetingAttendanceReport>(requestInfo, createMeetingAttendanceReportFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMeetingAttendanceReport);
         return requestInfo;
     };
 }

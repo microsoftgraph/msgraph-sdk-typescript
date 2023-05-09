@@ -1,1 +1,5 @@
+export * from './createUnicharPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoUnicharPostRequestBody'
+export * from './serializeUnicharPostRequestBody'
 export * from './unicharPostRequestBody'
+export * from './unicharRequestBuilderPostRequestConfiguration'

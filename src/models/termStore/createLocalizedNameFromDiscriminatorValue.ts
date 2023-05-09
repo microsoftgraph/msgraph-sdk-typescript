@@ -1,7 +1,8 @@
+import {deserializeIntoLocalizedName} from './deserializeIntoLocalizedName';
 import {LocalizedName} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLocalizedNameFromDiscriminatorValue(parseNode: ParseNode | undefined) : LocalizedName {
+export function createLocalizedNameFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LocalizedName();
+    return deserializeIntoLocalizedName;
 }

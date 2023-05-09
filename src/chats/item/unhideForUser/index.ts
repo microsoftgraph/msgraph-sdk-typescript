@@ -1,1 +1,5 @@
+export * from './createUnhideForUserPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoUnhideForUserPostRequestBody'
+export * from './serializeUnhideForUserPostRequestBody'
 export * from './unhideForUserPostRequestBody'
+export * from './unhideForUserRequestBuilderPostRequestConfiguration'

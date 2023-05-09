@@ -1,1 +1,6 @@
+export * from './createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetManagedAppDiagnosticStatusesResponse'
+export * from './getManagedAppDiagnosticStatusesRequestBuilderGetQueryParameters'
+export * from './getManagedAppDiagnosticStatusesRequestBuilderGetRequestConfiguration'
 export * from './getManagedAppDiagnosticStatusesResponse'
+export * from './serializeGetManagedAppDiagnosticStatusesResponse'

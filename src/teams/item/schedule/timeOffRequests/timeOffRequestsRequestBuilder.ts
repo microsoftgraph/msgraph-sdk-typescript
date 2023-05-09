@@ -1,12 +1,18 @@
-import {TimeOffRequest, TimeOffRequestCollectionResponse} from '../../../../models/';
+import {TimeOffRequestCollectionResponse} from '../../../../models/';
 import {createTimeOffRequestCollectionResponseFromDiscriminatorValue} from '../../../../models/createTimeOffRequestCollectionResponseFromDiscriminatorValue';
 import {createTimeOffRequestFromDiscriminatorValue} from '../../../../models/createTimeOffRequestFromDiscriminatorValue';
+import {deserializeIntoTimeOffRequest} from '../../../../models/deserializeIntoTimeOffRequest';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeTimeOffRequest} from '../../../../models/serializeTimeOffRequest';
+import {TimeOffRequest} from '../../../../models/timeOffRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TimeOffRequestItemRequestBuilder} from './item/timeOffRequestItemRequestBuilder';
 import {TimeOffRequestsRequestBuilderGetRequestConfiguration} from './timeOffRequestsRequestBuilderGetRequestConfiguration';
 import {TimeOffRequestsRequestBuilderPostRequestConfiguration} from './timeOffRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
@@ -17,6 +23,17 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
+     * @param timeOffRequestId Unique identifier of the item
+     * @returns a TimeOffRequestItemRequestBuilder
+     */
+    public byTimeOffRequestId(timeOffRequestId: string) : TimeOffRequestItemRequestBuilder {
+        if(!timeOffRequestId) throw new Error("timeOffRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["timeOffRequest%2Did"] = timeOffRequestId
+        return new TimeOffRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TimeOffRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,20 +42,19 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/timeOffRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Retrieve a list of timeOffRequest objects in the team.
+     * Get timeOffRequests from teams
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimeOffRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TimeOffRequestCollectionResponse>(requestInfo, createTimeOffRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,14 +69,14 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TimeOffRequest>(requestInfo, createTimeOffRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of timeOffRequest objects in the team.
+     * Get timeOffRequests from teams
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +110,7 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTimeOffRequest);
         return requestInfo;
     };
 }

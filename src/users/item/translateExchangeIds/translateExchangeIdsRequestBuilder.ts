@@ -1,8 +1,15 @@
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {createTranslateExchangeIdsResponseFromDiscriminatorValue} from './createTranslateExchangeIdsResponseFromDiscriminatorValue';
-import {TranslateExchangeIdsPostRequestBody, TranslateExchangeIdsResponse} from './index';
+import {deserializeIntoTranslateExchangeIdsPostRequestBody} from './deserializeIntoTranslateExchangeIdsPostRequestBody';
+import {deserializeIntoTranslateExchangeIdsResponse} from './deserializeIntoTranslateExchangeIdsResponse';
+import {serializeTranslateExchangeIdsPostRequestBody} from './serializeTranslateExchangeIdsPostRequestBody';
+import {serializeTranslateExchangeIdsResponse} from './serializeTranslateExchangeIdsResponse';
+import {TranslateExchangeIdsPostRequestBody} from './translateExchangeIdsPostRequestBody';
 import {TranslateExchangeIdsRequestBuilderPostRequestConfiguration} from './translateExchangeIdsRequestBuilderPostRequestConfiguration';
+import {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,26 +25,25 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/translateExchangeIds");
     };
     /**
-     * Translate identifiers of Outlook-related resources between formats.
+     * Invoke action translateExchangeIds
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TranslateExchangeIdsResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TranslateExchangeIdsPostRequestBody | undefined, requestConfiguration?: TranslateExchangeIdsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TranslateExchangeIdsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TranslateExchangeIdsResponse>(requestInfo, createTranslateExchangeIdsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Translate identifiers of Outlook-related resources between formats.
+     * Invoke action translateExchangeIds
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -53,7 +59,7 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTranslateExchangeIdsPostRequestBody);
         return requestInfo;
     };
 }

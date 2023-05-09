@@ -1,8 +1,15 @@
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {createGetPresencesByUserIdResponseFromDiscriminatorValue} from './createGetPresencesByUserIdResponseFromDiscriminatorValue';
+import {deserializeIntoGetPresencesByUserIdPostRequestBody} from './deserializeIntoGetPresencesByUserIdPostRequestBody';
+import {deserializeIntoGetPresencesByUserIdResponse} from './deserializeIntoGetPresencesByUserIdResponse';
+import {GetPresencesByUserIdPostRequestBody} from './getPresencesByUserIdPostRequestBody';
 import {GetPresencesByUserIdRequestBuilderPostRequestConfiguration} from './getPresencesByUserIdRequestBuilderPostRequestConfiguration';
-import {GetPresencesByUserIdPostRequestBody, GetPresencesByUserIdResponse} from './index';
+import {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
+import {serializeGetPresencesByUserIdPostRequestBody} from './serializeGetPresencesByUserIdPostRequestBody';
+import {serializeGetPresencesByUserIdResponse} from './serializeGetPresencesByUserIdResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,26 +25,25 @@ export class GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/getPresencesByUserId");
     };
     /**
-     * Get the presence information for multiple users.
+     * Invoke action getPresencesByUserId
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetPresencesByUserIdResponse
-     * @see {@link https://docs.microsoft.com/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetPresencesByUserIdPostRequestBody | undefined, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPresencesByUserIdResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<GetPresencesByUserIdResponse>(requestInfo, createGetPresencesByUserIdResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the presence information for multiple users.
+     * Invoke action getPresencesByUserId
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -53,7 +59,7 @@ export class GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetPresencesByUserIdPostRequestBody);
         return requestInfo;
     };
 }

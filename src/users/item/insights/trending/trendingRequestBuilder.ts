@@ -1,12 +1,18 @@
-import {Trending, TrendingCollectionResponse} from '../../../../models/';
+import {TrendingCollectionResponse} from '../../../../models/';
 import {createTrendingCollectionResponseFromDiscriminatorValue} from '../../../../models/createTrendingCollectionResponseFromDiscriminatorValue';
 import {createTrendingFromDiscriminatorValue} from '../../../../models/createTrendingFromDiscriminatorValue';
+import {deserializeIntoTrending} from '../../../../models/deserializeIntoTrending';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeTrending} from '../../../../models/serializeTrending';
+import {Trending} from '../../../../models/trending';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TrendingItemRequestBuilder} from './item/trendingItemRequestBuilder';
 import {TrendingRequestBuilderGetRequestConfiguration} from './trendingRequestBuilderGetRequestConfiguration';
 import {TrendingRequestBuilderPostRequestConfiguration} from './trendingRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
@@ -16,6 +22,17 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
+     * @param trendingId Unique identifier of the item
+     * @returns a TrendingItemRequestBuilder
+     */
+    public byTrendingId(trendingId: string) : TrendingItemRequestBuilder {
+        if(!trendingId) throw new Error("trendingId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["trending%2Did"] = trendingId
+        return new TrendingItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TrendingRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TrendingCollectionResponse>(requestInfo, createTrendingCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Trending>(requestInfo, createTrendingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTrending);
         return requestInfo;
     };
 }

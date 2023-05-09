@@ -1,7 +1,8 @@
+import {deserializeIntoPriceDiscPostRequestBody} from './deserializeIntoPriceDiscPostRequestBody';
 import {PriceDiscPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPriceDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : PriceDiscPostRequestBody {
+export function createPriceDiscPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PriceDiscPostRequestBody();
+    return deserializeIntoPriceDiscPostRequestBody;
 }

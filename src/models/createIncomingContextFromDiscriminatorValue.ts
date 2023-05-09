@@ -1,7 +1,8 @@
+import {deserializeIntoIncomingContext} from './deserializeIntoIncomingContext';
 import {IncomingContext} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIncomingContextFromDiscriminatorValue(parseNode: ParseNode | undefined) : IncomingContext {
+export function createIncomingContextFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IncomingContext();
+    return deserializeIntoIncomingContext;
 }

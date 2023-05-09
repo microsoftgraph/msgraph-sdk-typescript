@@ -1,1 +1,5 @@
+export * from './createImaginaryPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImaginaryPostRequestBody'
 export * from './imaginaryPostRequestBody'
+export * from './imaginaryRequestBuilderPostRequestConfiguration'
+export * from './serializeImaginaryPostRequestBody'

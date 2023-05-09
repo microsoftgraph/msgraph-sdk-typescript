@@ -1,7 +1,11 @@
-import {DeviceConfigurationState} from '../../../../../models/';
 import {createDeviceConfigurationStateFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationStateFromDiscriminatorValue';
+import {deserializeIntoDeviceConfigurationState} from '../../../../../models/deserializeIntoDeviceConfigurationState';
+import {DeviceConfigurationState} from '../../../../../models/deviceConfigurationState';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeDeviceConfigurationState} from '../../../../../models/serializeDeviceConfigurationState';
 import {DeviceConfigurationStateItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class DeviceConfigurationStateItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class DeviceConfigurationStateItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceConfigurationState>(requestInfo, createDeviceConfigurationStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class DeviceConfigurationStateItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceConfigurationState>(requestInfo, createDeviceConfigurationStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class DeviceConfigurationStateItemRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceConfigurationState);
         return requestInfo;
     };
 }

@@ -1,7 +1,11 @@
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {deserializeIntoGetSettingNonComplianceReportPostRequestBody} from './deserializeIntoGetSettingNonComplianceReportPostRequestBody';
+import {GetSettingNonComplianceReportPostRequestBody} from './getSettingNonComplianceReportPostRequestBody';
 import {GetSettingNonComplianceReportRequestBuilderPostRequestConfiguration} from './getSettingNonComplianceReportRequestBuilderPostRequestConfiguration';
-import {GetSettingNonComplianceReportPostRequestBody} from './index';
+import {serializeGetSettingNonComplianceReportPostRequestBody} from './serializeGetSettingNonComplianceReportPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -28,10 +32,10 @@ export class GetSettingNonComplianceReportRequestBuilder extends BaseRequestBuil
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,7 +54,7 @@ export class GetSettingNonComplianceReportRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetSettingNonComplianceReportPostRequestBody);
         return requestInfo;
     };
 }

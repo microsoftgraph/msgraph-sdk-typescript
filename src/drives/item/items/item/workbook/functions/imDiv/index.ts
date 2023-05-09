@@ -1,1 +1,5 @@
+export * from './createImDivPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImDivPostRequestBody'
 export * from './imDivPostRequestBody'
+export * from './imDivRequestBuilderPostRequestConfiguration'
+export * from './serializeImDivPostRequestBody'

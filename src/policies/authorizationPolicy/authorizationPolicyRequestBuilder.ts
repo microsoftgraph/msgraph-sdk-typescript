@@ -1,7 +1,11 @@
-import {AuthorizationPolicy} from '../../models/';
+import {AuthorizationPolicy} from '../../models/authorizationPolicy';
 import {createAuthorizationPolicyFromDiscriminatorValue} from '../../models/createAuthorizationPolicyFromDiscriminatorValue';
+import {deserializeIntoAuthorizationPolicy} from '../../models/deserializeIntoAuthorizationPolicy';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeAuthorizationPolicy} from '../../models/serializeAuthorizationPolicy';
 import {AuthorizationPolicyRequestBuilderDeleteRequestConfiguration} from './authorizationPolicyRequestBuilderDeleteRequestConfiguration';
 import {AuthorizationPolicyRequestBuilderGetRequestConfiguration} from './authorizationPolicyRequestBuilderGetRequestConfiguration';
 import {AuthorizationPolicyRequestBuilderPatchRequestConfiguration} from './authorizationPolicyRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,29 +48,28 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of an authorizationPolicy object.
+     * Update the navigation property authorizationPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthorizationPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthorizationPolicy | undefined, requestConfiguration?: AuthorizationPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthorizationPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -104,7 +107,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an authorizationPolicy object.
+     * Update the navigation property authorizationPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -120,7 +123,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthorizationPolicy);
         return requestInfo;
     };
 }

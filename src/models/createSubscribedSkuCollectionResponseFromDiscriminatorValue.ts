@@ -1,7 +1,8 @@
+import {deserializeIntoSubscribedSkuCollectionResponse} from './deserializeIntoSubscribedSkuCollectionResponse';
 import {SubscribedSkuCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSubscribedSkuCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : SubscribedSkuCollectionResponse {
+export function createSubscribedSkuCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SubscribedSkuCollectionResponse();
+    return deserializeIntoSubscribedSkuCollectionResponse;
 }

@@ -1,10 +1,15 @@
-import {SharedDriveItem} from '../../models/';
 import {createSharedDriveItemFromDiscriminatorValue} from '../../models/createSharedDriveItemFromDiscriminatorValue';
+import {deserializeIntoSharedDriveItem} from '../../models/deserializeIntoSharedDriveItem';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeSharedDriveItem} from '../../models/serializeSharedDriveItem';
+import {SharedDriveItem} from '../../models/sharedDriveItem';
+import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
 import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
-import {DriveItemItemRequestBuilder} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
+import {LastModifiedByUserRequestBuilder} from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
 import {PermissionRequestBuilder} from './permission/permissionRequestBuilder';
@@ -13,12 +18,16 @@ import {SharedDriveItemItemRequestBuilderDeleteRequestConfiguration} from './sha
 import {SharedDriveItemItemRequestBuilderGetRequestConfiguration} from './sharedDriveItemItemRequestBuilderGetRequestConfiguration';
 import {SharedDriveItemItemRequestBuilderPatchRequestConfiguration} from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration';
 import {SiteRequestBuilder} from './site/siteRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.
  */
 export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    public get createdByUser(): CreatedByUserRequestBuilder {
+        return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity. */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -26,6 +35,10 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity. */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
+        return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity. */
     public get list(): ListRequestBuilder {
@@ -64,10 +77,10 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -81,22 +94,11 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
-     * @param id Unique identifier of the item
-     * @returns a DriveItemItemRequestBuilder
-     */
-    public itemsById(id: string) : DriveItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem%2Did"] = id
-        return new DriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in shares
@@ -110,10 +112,10 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -167,7 +169,7 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSharedDriveItem);
         return requestInfo;
     };
 }

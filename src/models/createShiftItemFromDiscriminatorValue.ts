@@ -1,7 +1,9 @@
+import {deserializeIntoOpenShiftItem} from './deserializeIntoOpenShiftItem';
+import {deserializeIntoShiftItem} from './deserializeIntoShiftItem';
 import {OpenShiftItem, ShiftItem} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createShiftItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : ShiftItem {
+export function createShiftItemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createShiftItemFromDiscriminatorValue(parseNode: ParseNode | und
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.openShiftItem":
-                    return new OpenShiftItem();
+                    return deserializeIntoOpenShiftItem;
             }
         }
     }
-    return new ShiftItem();
+    return deserializeIntoShiftItem;
 }

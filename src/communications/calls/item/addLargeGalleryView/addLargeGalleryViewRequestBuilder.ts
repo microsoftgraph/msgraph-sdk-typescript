@@ -1,9 +1,15 @@
-import {AddLargeGalleryViewOperation} from '../../../../models/';
+import {AddLargeGalleryViewOperation} from '../../../../models/addLargeGalleryViewOperation';
 import {createAddLargeGalleryViewOperationFromDiscriminatorValue} from '../../../../models/createAddLargeGalleryViewOperationFromDiscriminatorValue';
+import {deserializeIntoAddLargeGalleryViewOperation} from '../../../../models/deserializeIntoAddLargeGalleryViewOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeAddLargeGalleryViewOperation} from '../../../../models/serializeAddLargeGalleryViewOperation';
+import {AddLargeGalleryViewPostRequestBody} from './addLargeGalleryViewPostRequestBody';
 import {AddLargeGalleryViewRequestBuilderPostRequestConfiguration} from './addLargeGalleryViewRequestBuilderPostRequestConfiguration';
-import {AddLargeGalleryViewPostRequestBody} from './index';
+import {deserializeIntoAddLargeGalleryViewPostRequestBody} from './deserializeIntoAddLargeGalleryViewPostRequestBody';
+import {serializeAddLargeGalleryViewPostRequestBody} from './serializeAddLargeGalleryViewPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -19,26 +25,25 @@ export class AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/addLargeGalleryView");
     };
     /**
-     * Add the large gallery view to a call.  For details about how to identify a large gallery view participant in a roster so that you can retrieve the relevant data to subscribe to the video feed, see Identify large gallery view participants in a roster.
+     * Invoke action addLargeGalleryView
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AddLargeGalleryViewOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-addlargegalleryview?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddLargeGalleryViewPostRequestBody | undefined, requestConfiguration?: AddLargeGalleryViewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddLargeGalleryViewOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AddLargeGalleryViewOperation>(requestInfo, createAddLargeGalleryViewOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Add the large gallery view to a call.  For details about how to identify a large gallery view participant in a roster so that you can retrieve the relevant data to subscribe to the video feed, see Identify large gallery view participants in a roster.
+     * Invoke action addLargeGalleryView
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -54,7 +59,7 @@ export class AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddLargeGalleryViewPostRequestBody);
         return requestInfo;
     };
 }

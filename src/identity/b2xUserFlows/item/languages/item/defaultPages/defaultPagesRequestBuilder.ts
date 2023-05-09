@@ -1,12 +1,18 @@
-import {UserFlowLanguagePage, UserFlowLanguagePageCollectionResponse} from '../../../../../../models/';
+import {UserFlowLanguagePageCollectionResponse} from '../../../../../../models/';
 import {createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue';
 import {createUserFlowLanguagePageFromDiscriminatorValue} from '../../../../../../models/createUserFlowLanguagePageFromDiscriminatorValue';
+import {deserializeIntoUserFlowLanguagePage} from '../../../../../../models/deserializeIntoUserFlowLanguagePage';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeUserFlowLanguagePage} from '../../../../../../models/serializeUserFlowLanguagePage';
+import {UserFlowLanguagePage} from '../../../../../../models/userFlowLanguagePage';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefaultPagesRequestBuilderGetRequestConfiguration} from './defaultPagesRequestBuilderGetRequestConfiguration';
 import {DefaultPagesRequestBuilderPostRequestConfiguration} from './defaultPagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {UserFlowLanguagePageItemRequestBuilder} from './item/userFlowLanguagePageItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
@@ -16,6 +22,17 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
+     * @param userFlowLanguagePageId Unique identifier of the item
+     * @returns a UserFlowLanguagePageItemRequestBuilder
+     */
+    public byUserFlowLanguagePageId(userFlowLanguagePageId: string) : UserFlowLanguagePageItemRequestBuilder {
+        if(!userFlowLanguagePageId) throw new Error("userFlowLanguagePageId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userFlowLanguagePage%2Did"] = userFlowLanguagePageId
+        return new UserFlowLanguagePageItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DefaultPagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserFlowLanguagePageCollectionResponse>(requestInfo, createUserFlowLanguagePageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserFlowLanguagePage>(requestInfo, createUserFlowLanguagePageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserFlowLanguagePage);
         return requestInfo;
     };
 }

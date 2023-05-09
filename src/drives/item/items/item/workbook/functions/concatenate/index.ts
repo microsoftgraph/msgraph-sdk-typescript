@@ -1,1 +1,5 @@
 export * from './concatenatePostRequestBody'
+export * from './concatenateRequestBuilderPostRequestConfiguration'
+export * from './createConcatenatePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoConcatenatePostRequestBody'
+export * from './serializeConcatenatePostRequestBody'

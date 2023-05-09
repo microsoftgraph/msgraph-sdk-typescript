@@ -1,1 +1,5 @@
+export * from './createExpPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoExpPostRequestBody'
 export * from './expPostRequestBody'
+export * from './expRequestBuilderPostRequestConfiguration'
+export * from './serializeExpPostRequestBody'

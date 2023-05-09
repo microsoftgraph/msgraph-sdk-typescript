@@ -1,7 +1,8 @@
+import {deserializeIntoFactPostRequestBody} from './deserializeIntoFactPostRequestBody';
 import {FactPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : FactPostRequestBody {
+export function createFactPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FactPostRequestBody();
+    return deserializeIntoFactPostRequestBody;
 }

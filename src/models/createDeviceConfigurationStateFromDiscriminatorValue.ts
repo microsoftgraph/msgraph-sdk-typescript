@@ -1,7 +1,8 @@
+import {deserializeIntoDeviceConfigurationState} from './deserializeIntoDeviceConfigurationState';
 import {DeviceConfigurationState} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceConfigurationStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceConfigurationState {
+export function createDeviceConfigurationStateFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceConfigurationState();
+    return deserializeIntoDeviceConfigurationState;
 }

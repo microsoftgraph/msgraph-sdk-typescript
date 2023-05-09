@@ -1,1 +1,5 @@
+export * from './createCreateUploadSessionPostRequestBodyFromDiscriminatorValue'
 export * from './createUploadSessionPostRequestBody'
+export * from './createUploadSessionRequestBuilderPostRequestConfiguration'
+export * from './deserializeIntoCreateUploadSessionPostRequestBody'
+export * from './serializeCreateUploadSessionPostRequestBody'

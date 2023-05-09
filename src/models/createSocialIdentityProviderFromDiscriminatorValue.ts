@@ -1,7 +1,8 @@
+import {deserializeIntoSocialIdentityProvider} from './deserializeIntoSocialIdentityProvider';
 import {SocialIdentityProvider} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSocialIdentityProviderFromDiscriminatorValue(parseNode: ParseNode | undefined) : SocialIdentityProvider {
+export function createSocialIdentityProviderFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SocialIdentityProvider();
+    return deserializeIntoSocialIdentityProvider;
 }

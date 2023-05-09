@@ -1,1 +1,6 @@
+export * from './createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetAttackSimulationRepeatOffendersResponse'
+export * from './getAttackSimulationRepeatOffendersRequestBuilderGetQueryParameters'
+export * from './getAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration'
 export * from './getAttackSimulationRepeatOffendersResponse'
+export * from './serializeGetAttackSimulationRepeatOffendersResponse'

@@ -1,14 +1,17 @@
-import {ConversationThread} from '../../../../../../models/';
+import {ConversationThread} from '../../../../../../models/conversationThread';
 import {createConversationThreadFromDiscriminatorValue} from '../../../../../../models/createConversationThreadFromDiscriminatorValue';
+import {deserializeIntoConversationThread} from '../../../../../../models/deserializeIntoConversationThread';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeConversationThread} from '../../../../../../models/serializeConversationThread';
 import {ConversationThreadItemRequestBuilderDeleteRequestConfiguration} from './conversationThreadItemRequestBuilderDeleteRequestConfiguration';
 import {ConversationThreadItemRequestBuilderGetRequestConfiguration} from './conversationThreadItemRequestBuilderGetRequestConfiguration';
 import {ConversationThreadItemRequestBuilderPatchRequestConfiguration} from './conversationThreadItemRequestBuilderPatchRequestConfiguration';
-import {PostItemRequestBuilder} from './posts/item/postItemRequestBuilder';
 import {PostsRequestBuilder} from './posts/postsRequestBuilder';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.conversation entity.
@@ -39,10 +42,10 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -55,10 +58,10 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -73,22 +76,11 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ConversationThread>(requestInfo, createConversationThreadFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
-     * @param id Unique identifier of the item
-     * @returns a PostItemRequestBuilder
-     */
-    public postsById(id: string) : PostItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["post%2Did"] = id
-        return new PostItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property threads for groups
@@ -141,7 +133,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeConversationThread);
         return requestInfo;
     };
 }

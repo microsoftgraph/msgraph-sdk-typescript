@@ -1,7 +1,8 @@
+import {deserializeIntoLookupPostRequestBody} from './deserializeIntoLookupPostRequestBody';
 import {LookupPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : LookupPostRequestBody {
+export function createLookupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LookupPostRequestBody();
+    return deserializeIntoLookupPostRequestBody;
 }

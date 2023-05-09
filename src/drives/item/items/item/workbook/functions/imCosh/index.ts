@@ -1,1 +1,5 @@
+export * from './createImCoshPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImCoshPostRequestBody'
 export * from './imCoshPostRequestBody'
+export * from './imCoshRequestBuilderPostRequestConfiguration'
+export * from './serializeImCoshPostRequestBody'

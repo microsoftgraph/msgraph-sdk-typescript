@@ -1,7 +1,10 @@
+import {deserializeIntoEdiscoveryReviewSetQuery} from './deserializeIntoEdiscoveryReviewSetQuery';
+import {deserializeIntoEdiscoverySearch} from './deserializeIntoEdiscoverySearch';
+import {deserializeIntoSearch} from './deserializeIntoSearch';
 import {EdiscoveryReviewSetQuery, EdiscoverySearch, Search} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSearchFromDiscriminatorValue(parseNode: ParseNode | undefined) : Search {
+export function createSearchFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createSearchFromDiscriminatorValue(parseNode: ParseNode | undefi
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.security.ediscoveryReviewSetQuery":
-                    return new EdiscoveryReviewSetQuery();
+                    return deserializeIntoEdiscoveryReviewSetQuery;
                 case "#microsoft.graph.security.ediscoverySearch":
-                    return new EdiscoverySearch();
+                    return deserializeIntoEdiscoverySearch;
             }
         }
     }
-    return new Search();
+    return deserializeIntoSearch;
 }

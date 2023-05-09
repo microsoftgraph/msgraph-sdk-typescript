@@ -1,1 +1,5 @@
 export * from './applyBottomPercentFilterPostRequestBody'
+export * from './applyBottomPercentFilterRequestBuilderPostRequestConfiguration'
+export * from './createApplyBottomPercentFilterPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoApplyBottomPercentFilterPostRequestBody'
+export * from './serializeApplyBottomPercentFilterPostRequestBody'

@@ -1,1 +1,5 @@
+export * from './createLogPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoLogPostRequestBody'
 export * from './logPostRequestBody'
+export * from './logRequestBuilderPostRequestConfiguration'
+export * from './serializeLogPostRequestBody'

@@ -1,9 +1,15 @@
-import {Group} from '../../../models/';
 import {createGroupFromDiscriminatorValue} from '../../../models/createGroupFromDiscriminatorValue';
+import {deserializeIntoGroup} from '../../../models/deserializeIntoGroup';
+import {Group} from '../../../models/group';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeGroup} from '../../../models/serializeGroup';
+import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AssignLicenseRequestBuilderPostRequestConfiguration} from './assignLicenseRequestBuilderPostRequestConfiguration';
-import {AssignLicensePostRequestBody} from './index';
+import {deserializeIntoAssignLicensePostRequestBody} from './deserializeIntoAssignLicensePostRequestBody';
+import {serializeAssignLicensePostRequestBody} from './serializeAssignLicensePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -19,26 +25,25 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/assignLicense");
     };
     /**
-     * Add or remove licenses on the group. Licenses assigned to the group will be assigned to all users in the group. To learn more about group-based licensing, see What is group-based licensing in Azure Active Directory. To get the subscriptions available in the directory, perform a GET subscribedSkus request.
+     * Invoke action assignLicense
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
-     * @see {@link https://docs.microsoft.com/graph/api/group-assignlicense?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AssignLicensePostRequestBody | undefined, requestConfiguration?: AssignLicenseRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Add or remove licenses on the group. Licenses assigned to the group will be assigned to all users in the group. To learn more about group-based licensing, see What is group-based licensing in Azure Active Directory. To get the subscriptions available in the directory, perform a GET subscribedSkus request.
+     * Invoke action assignLicense
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -54,7 +59,7 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAssignLicensePostRequestBody);
         return requestInfo;
     };
 }

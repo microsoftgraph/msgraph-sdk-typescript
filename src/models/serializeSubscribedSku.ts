@@ -1,0 +1,18 @@
+import {LicenseUnitsDetail} from './licenseUnitsDetail';
+import {serializeEntity} from './serializeEntity';
+import {serializeLicenseUnitsDetail} from './serializeLicenseUnitsDetail';
+import {serializeServicePlanInfo} from './serializeServicePlanInfo';
+import {ServicePlanInfo} from './servicePlanInfo';
+import {SubscribedSku} from './subscribedSku';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeSubscribedSku(writer: SerializationWriter, subscribedSku: SubscribedSku | undefined = {} as SubscribedSku) : void {
+        serializeEntity(writer, subscribedSku)
+        writer.writeStringValue("appliesTo", subscribedSku.appliesTo);
+        writer.writeStringValue("capabilityStatus", subscribedSku.capabilityStatus);
+        writer.writeNumberValue("consumedUnits", subscribedSku.consumedUnits);
+        writer.writeObjectValue<LicenseUnitsDetail>("prepaidUnits", subscribedSku.prepaidUnits, serializeLicenseUnitsDetail);
+        writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", subscribedSku.servicePlans, serializeServicePlanInfo);
+        writer.writeStringValue("skuId", subscribedSku.skuId);
+        writer.writeStringValue("skuPartNumber", subscribedSku.skuPartNumber);
+}

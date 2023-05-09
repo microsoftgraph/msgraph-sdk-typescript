@@ -1,7 +1,10 @@
+import {deserializeIntoWindowsDeviceAccount} from './deserializeIntoWindowsDeviceAccount';
+import {deserializeIntoWindowsDeviceADAccount} from './deserializeIntoWindowsDeviceADAccount';
+import {deserializeIntoWindowsDeviceAzureADAccount} from './deserializeIntoWindowsDeviceAzureADAccount';
 import {WindowsDeviceAccount, WindowsDeviceADAccount, WindowsDeviceAzureADAccount} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsDeviceAccountFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsDeviceAccount {
+export function createWindowsDeviceAccountFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createWindowsDeviceAccountFromDiscriminatorValue(parseNode: Pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.windowsDeviceADAccount":
-                    return new WindowsDeviceADAccount();
+                    return deserializeIntoWindowsDeviceADAccount;
                 case "#microsoft.graph.windowsDeviceAzureADAccount":
-                    return new WindowsDeviceAzureADAccount();
+                    return deserializeIntoWindowsDeviceAzureADAccount;
             }
         }
     }
-    return new WindowsDeviceAccount();
+    return deserializeIntoWindowsDeviceAccount;
 }

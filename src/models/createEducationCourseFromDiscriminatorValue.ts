@@ -1,7 +1,8 @@
+import {deserializeIntoEducationCourse} from './deserializeIntoEducationCourse';
 import {EducationCourse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationCourseFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationCourse {
+export function createEducationCourseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationCourse();
+    return deserializeIntoEducationCourse;
 }

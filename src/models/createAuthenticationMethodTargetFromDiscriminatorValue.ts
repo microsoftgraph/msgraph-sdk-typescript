@@ -1,7 +1,10 @@
+import {deserializeIntoAuthenticationMethodTarget} from './deserializeIntoAuthenticationMethodTarget';
+import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget';
+import {deserializeIntoSmsAuthenticationMethodTarget} from './deserializeIntoSmsAuthenticationMethodTarget';
 import {AuthenticationMethodTarget, MicrosoftAuthenticatorAuthenticationMethodTarget, SmsAuthenticationMethodTarget} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthenticationMethodTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodTarget {
+export function createAuthenticationMethodTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createAuthenticationMethodTargetFromDiscriminatorValue(parseNode
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget":
-                    return new MicrosoftAuthenticatorAuthenticationMethodTarget();
+                    return deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget;
                 case "#microsoft.graph.smsAuthenticationMethodTarget":
-                    return new SmsAuthenticationMethodTarget();
+                    return deserializeIntoSmsAuthenticationMethodTarget;
             }
         }
     }
-    return new AuthenticationMethodTarget();
+    return deserializeIntoAuthenticationMethodTarget;
 }

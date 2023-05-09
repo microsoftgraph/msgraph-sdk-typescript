@@ -1,12 +1,18 @@
-import {PlannerPlan, PlannerPlanCollectionResponse} from '../../../../models/';
+import {PlannerPlanCollectionResponse} from '../../../../models/';
 import {createPlannerPlanCollectionResponseFromDiscriminatorValue} from '../../../../models/createPlannerPlanCollectionResponseFromDiscriminatorValue';
 import {createPlannerPlanFromDiscriminatorValue} from '../../../../models/createPlannerPlanFromDiscriminatorValue';
+import {deserializeIntoPlannerPlan} from '../../../../models/deserializeIntoPlannerPlan';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {PlannerPlan} from '../../../../models/plannerPlan';
+import {serializePlannerPlan} from '../../../../models/serializePlannerPlan';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {PlannerPlanItemRequestBuilder} from './item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilderGetRequestConfiguration} from './plansRequestBuilderGetRequestConfiguration';
 import {PlansRequestBuilderPostRequestConfiguration} from './plansRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
@@ -17,6 +23,17 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
+     * @param plannerPlanId Unique identifier of the item
+     * @returns a PlannerPlanItemRequestBuilder
+     */
+    public byPlannerPlanId(plannerPlanId: string) : PlannerPlanItemRequestBuilder {
+        if(!plannerPlanId) throw new Error("plannerPlanId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["plannerPlan%2Did"] = plannerPlanId
+        return new PlannerPlanItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new PlansRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,20 +42,19 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/planner/plans{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of **plannerPlan** objects owned by a group object.
+     * Read-only. Nullable. Returns the plannerPlans owned by the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerPlanCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/plannergroup-list-plans?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlansRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerPlanCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerPlanCollectionResponse>(requestInfo, createPlannerPlanCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,14 +69,14 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of **plannerPlan** objects owned by a group object.
+     * Read-only. Nullable. Returns the plannerPlans owned by the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +110,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlannerPlan);
         return requestInfo;
     };
 }

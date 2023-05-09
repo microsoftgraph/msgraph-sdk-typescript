@@ -1,274 +1,38 @@
-import {createEducationOutcomeFromDiscriminatorValue} from './createEducationOutcomeFromDiscriminatorValue';
-import {createEducationSubmissionRecipientFromDiscriminatorValue} from './createEducationSubmissionRecipientFromDiscriminatorValue';
-import {createEducationSubmissionResourceFromDiscriminatorValue} from './createEducationSubmissionResourceFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
+import {EducationOutcome} from './educationOutcome';
+import {EducationSubmissionRecipient} from './educationSubmissionRecipient';
+import {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationSubmissionStatus} from './educationSubmissionStatus';
-import {EducationOutcome, EducationSubmissionRecipient, EducationSubmissionResource, Entity, IdentitySet} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Entity} from './entity';
+import {IdentitySet} from './identitySet';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class EducationSubmission extends Entity implements Parsable {
+export interface EducationSubmission extends Entity, Parsable {
     /** The outcomes property */
-    private _outcomes?: EducationOutcome[] | undefined;
+    outcomes?: EducationOutcome[] | undefined;
     /** User who moved the status of this submission to reassigned. */
-    private _reassignedBy?: IdentitySet | undefined;
+    reassignedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _reassignedDateTime?: Date | undefined;
+    reassignedDateTime?: Date | undefined;
     /** Who this submission is assigned to. */
-    private _recipient?: EducationSubmissionRecipient | undefined;
+    recipient?: EducationSubmissionRecipient | undefined;
     /** The resources property */
-    private _resources?: EducationSubmissionResource[] | undefined;
+    resources?: EducationSubmissionResource[] | undefined;
     /** Folder where all file resources for this submission need to be stored. */
-    private _resourcesFolderUrl?: string | undefined;
+    resourcesFolderUrl?: string | undefined;
     /** User who moved the status of this submission to returned. */
-    private _returnedBy?: IdentitySet | undefined;
+    returnedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _returnedDateTime?: Date | undefined;
+    returnedDateTime?: Date | undefined;
     /** Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned. */
-    private _status?: EducationSubmissionStatus | undefined;
+    status?: EducationSubmissionStatus | undefined;
     /** User who moved the resource into the submitted state. */
-    private _submittedBy?: IdentitySet | undefined;
+    submittedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _submittedDateTime?: Date | undefined;
+    submittedDateTime?: Date | undefined;
     /** The submittedResources property */
-    private _submittedResources?: EducationSubmissionResource[] | undefined;
+    submittedResources?: EducationSubmissionResource[] | undefined;
     /** User who moved the resource from submitted into the working state. */
-    private _unsubmittedBy?: IdentitySet | undefined;
+    unsubmittedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
-    private _unsubmittedDateTime?: Date | undefined;
-    /**
-     * Instantiates a new educationSubmission and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "outcomes": n => { this.outcomes = n.getCollectionOfObjectValues<EducationOutcome>(createEducationOutcomeFromDiscriminatorValue); },
-            "reassignedBy": n => { this.reassignedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "reassignedDateTime": n => { this.reassignedDateTime = n.getDateValue(); },
-            "recipient": n => { this.recipient = n.getObjectValue<EducationSubmissionRecipient>(createEducationSubmissionRecipientFromDiscriminatorValue); },
-            "resources": n => { this.resources = n.getCollectionOfObjectValues<EducationSubmissionResource>(createEducationSubmissionResourceFromDiscriminatorValue); },
-            "resourcesFolderUrl": n => { this.resourcesFolderUrl = n.getStringValue(); },
-            "returnedBy": n => { this.returnedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "returnedDateTime": n => { this.returnedDateTime = n.getDateValue(); },
-            "status": n => { this.status = n.getEnumValue<EducationSubmissionStatus>(EducationSubmissionStatus); },
-            "submittedBy": n => { this.submittedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "submittedDateTime": n => { this.submittedDateTime = n.getDateValue(); },
-            "submittedResources": n => { this.submittedResources = n.getCollectionOfObjectValues<EducationSubmissionResource>(createEducationSubmissionResourceFromDiscriminatorValue); },
-            "unsubmittedBy": n => { this.unsubmittedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
-            "unsubmittedDateTime": n => { this.unsubmittedDateTime = n.getDateValue(); },
-        };
-    };
-    /**
-     * Gets the outcomes property value. The outcomes property
-     * @returns a educationOutcome
-     */
-    public get outcomes() {
-        return this._outcomes;
-    };
-    /**
-     * Sets the outcomes property value. The outcomes property
-     * @param value Value to set for the outcomes property.
-     */
-    public set outcomes(value: EducationOutcome[] | undefined) {
-        this._outcomes = value;
-    };
-    /**
-     * Gets the reassignedBy property value. User who moved the status of this submission to reassigned.
-     * @returns a identitySet
-     */
-    public get reassignedBy() {
-        return this._reassignedBy;
-    };
-    /**
-     * Sets the reassignedBy property value. User who moved the status of this submission to reassigned.
-     * @param value Value to set for the reassignedBy property.
-     */
-    public set reassignedBy(value: IdentitySet | undefined) {
-        this._reassignedBy = value;
-    };
-    /**
-     * Gets the reassignedDateTime property value. Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @returns a Date
-     */
-    public get reassignedDateTime() {
-        return this._reassignedDateTime;
-    };
-    /**
-     * Sets the reassignedDateTime property value. Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the reassignedDateTime property.
-     */
-    public set reassignedDateTime(value: Date | undefined) {
-        this._reassignedDateTime = value;
-    };
-    /**
-     * Gets the recipient property value. Who this submission is assigned to.
-     * @returns a educationSubmissionRecipient
-     */
-    public get recipient() {
-        return this._recipient;
-    };
-    /**
-     * Sets the recipient property value. Who this submission is assigned to.
-     * @param value Value to set for the recipient property.
-     */
-    public set recipient(value: EducationSubmissionRecipient | undefined) {
-        this._recipient = value;
-    };
-    /**
-     * Gets the resources property value. The resources property
-     * @returns a educationSubmissionResource
-     */
-    public get resources() {
-        return this._resources;
-    };
-    /**
-     * Sets the resources property value. The resources property
-     * @param value Value to set for the resources property.
-     */
-    public set resources(value: EducationSubmissionResource[] | undefined) {
-        this._resources = value;
-    };
-    /**
-     * Gets the resourcesFolderUrl property value. Folder where all file resources for this submission need to be stored.
-     * @returns a string
-     */
-    public get resourcesFolderUrl() {
-        return this._resourcesFolderUrl;
-    };
-    /**
-     * Sets the resourcesFolderUrl property value. Folder where all file resources for this submission need to be stored.
-     * @param value Value to set for the resourcesFolderUrl property.
-     */
-    public set resourcesFolderUrl(value: string | undefined) {
-        this._resourcesFolderUrl = value;
-    };
-    /**
-     * Gets the returnedBy property value. User who moved the status of this submission to returned.
-     * @returns a identitySet
-     */
-    public get returnedBy() {
-        return this._returnedBy;
-    };
-    /**
-     * Sets the returnedBy property value. User who moved the status of this submission to returned.
-     * @param value Value to set for the returnedBy property.
-     */
-    public set returnedBy(value: IdentitySet | undefined) {
-        this._returnedBy = value;
-    };
-    /**
-     * Gets the returnedDateTime property value. Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @returns a Date
-     */
-    public get returnedDateTime() {
-        return this._returnedDateTime;
-    };
-    /**
-     * Sets the returnedDateTime property value. Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the returnedDateTime property.
-     */
-    public set returnedDateTime(value: Date | undefined) {
-        this._returnedDateTime = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<EducationOutcome>("outcomes", this.outcomes);
-        writer.writeObjectValue<EducationSubmissionRecipient>("recipient", this.recipient);
-        writer.writeCollectionOfObjectValues<EducationSubmissionResource>("resources", this.resources);
-        writer.writeCollectionOfObjectValues<EducationSubmissionResource>("submittedResources", this.submittedResources);
-    };
-    /**
-     * Gets the status property value. Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
-     * @returns a educationSubmissionStatus
-     */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * Sets the status property value. Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
-     * @param value Value to set for the status property.
-     */
-    public set status(value: EducationSubmissionStatus | undefined) {
-        this._status = value;
-    };
-    /**
-     * Gets the submittedBy property value. User who moved the resource into the submitted state.
-     * @returns a identitySet
-     */
-    public get submittedBy() {
-        return this._submittedBy;
-    };
-    /**
-     * Sets the submittedBy property value. User who moved the resource into the submitted state.
-     * @param value Value to set for the submittedBy property.
-     */
-    public set submittedBy(value: IdentitySet | undefined) {
-        this._submittedBy = value;
-    };
-    /**
-     * Gets the submittedDateTime property value. Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @returns a Date
-     */
-    public get submittedDateTime() {
-        return this._submittedDateTime;
-    };
-    /**
-     * Sets the submittedDateTime property value. Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the submittedDateTime property.
-     */
-    public set submittedDateTime(value: Date | undefined) {
-        this._submittedDateTime = value;
-    };
-    /**
-     * Gets the submittedResources property value. The submittedResources property
-     * @returns a educationSubmissionResource
-     */
-    public get submittedResources() {
-        return this._submittedResources;
-    };
-    /**
-     * Sets the submittedResources property value. The submittedResources property
-     * @param value Value to set for the submittedResources property.
-     */
-    public set submittedResources(value: EducationSubmissionResource[] | undefined) {
-        this._submittedResources = value;
-    };
-    /**
-     * Gets the unsubmittedBy property value. User who moved the resource from submitted into the working state.
-     * @returns a identitySet
-     */
-    public get unsubmittedBy() {
-        return this._unsubmittedBy;
-    };
-    /**
-     * Sets the unsubmittedBy property value. User who moved the resource from submitted into the working state.
-     * @param value Value to set for the unsubmittedBy property.
-     */
-    public set unsubmittedBy(value: IdentitySet | undefined) {
-        this._unsubmittedBy = value;
-    };
-    /**
-     * Gets the unsubmittedDateTime property value. Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @returns a Date
-     */
-    public get unsubmittedDateTime() {
-        return this._unsubmittedDateTime;
-    };
-    /**
-     * Sets the unsubmittedDateTime property value. Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the unsubmittedDateTime property.
-     */
-    public set unsubmittedDateTime(value: Date | undefined) {
-        this._unsubmittedDateTime = value;
-    };
+    unsubmittedDateTime?: Date | undefined;
 }

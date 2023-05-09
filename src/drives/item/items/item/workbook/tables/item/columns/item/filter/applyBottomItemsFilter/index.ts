@@ -1,1 +1,5 @@
 export * from './applyBottomItemsFilterPostRequestBody'
+export * from './applyBottomItemsFilterRequestBuilderPostRequestConfiguration'
+export * from './createApplyBottomItemsFilterPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoApplyBottomItemsFilterPostRequestBody'
+export * from './serializeApplyBottomItemsFilterPostRequestBody'

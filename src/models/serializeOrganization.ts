@@ -1,0 +1,50 @@
+import {AssignedPlan} from './assignedPlan';
+import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
+import {Extension} from './extension';
+import {MdmAuthority} from './mdmAuthority';
+import {Organization} from './organization';
+import {OrganizationalBranding} from './organizationalBranding';
+import {PartnerTenantType} from './partnerTenantType';
+import {PrivacyProfile} from './privacyProfile';
+import {ProvisionedPlan} from './provisionedPlan';
+import {serializeAssignedPlan} from './serializeAssignedPlan';
+import {serializeCertificateBasedAuthConfiguration} from './serializeCertificateBasedAuthConfiguration';
+import {serializeDirectoryObject} from './serializeDirectoryObject';
+import {serializeExtension} from './serializeExtension';
+import {serializeOrganizationalBranding} from './serializeOrganizationalBranding';
+import {serializePrivacyProfile} from './serializePrivacyProfile';
+import {serializeProvisionedPlan} from './serializeProvisionedPlan';
+import {serializeVerifiedDomain} from './serializeVerifiedDomain';
+import {VerifiedDomain} from './verifiedDomain';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeOrganization(writer: SerializationWriter, organization: Organization | undefined = {} as Organization) : void {
+        serializeDirectoryObject(writer, organization)
+        writer.writeCollectionOfObjectValues<AssignedPlan>("assignedPlans", organization.assignedPlans, serializeAssignedPlan);
+        writer.writeObjectValue<OrganizationalBranding>("branding", organization.branding, serializeOrganizationalBranding);
+        writer.writeCollectionOfPrimitiveValues<string>("businessPhones", organization.businessPhones);
+        writer.writeCollectionOfObjectValues<CertificateBasedAuthConfiguration>("certificateBasedAuthConfiguration", organization.certificateBasedAuthConfiguration, serializeCertificateBasedAuthConfiguration);
+        writer.writeStringValue("city", organization.city);
+        writer.writeStringValue("country", organization.country);
+        writer.writeStringValue("countryLetterCode", organization.countryLetterCode);
+        writer.writeDateValue("createdDateTime", organization.createdDateTime);
+        writer.writeStringValue("defaultUsageLocation", organization.defaultUsageLocation);
+        writer.writeStringValue("displayName", organization.displayName);
+        writer.writeCollectionOfObjectValues<Extension>("extensions", organization.extensions, serializeExtension);
+        writer.writeCollectionOfPrimitiveValues<string>("marketingNotificationEmails", organization.marketingNotificationEmails);
+        writer.writeEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", organization.mobileDeviceManagementAuthority);
+        writer.writeDateValue("onPremisesLastSyncDateTime", organization.onPremisesLastSyncDateTime);
+        writer.writeBooleanValue("onPremisesSyncEnabled", organization.onPremisesSyncEnabled);
+        writer.writeEnumValue<PartnerTenantType>("partnerTenantType", organization.partnerTenantType);
+        writer.writeStringValue("postalCode", organization.postalCode);
+        writer.writeStringValue("preferredLanguage", organization.preferredLanguage);
+        writer.writeObjectValue<PrivacyProfile>("privacyProfile", organization.privacyProfile, serializePrivacyProfile);
+        writer.writeCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", organization.provisionedPlans, serializeProvisionedPlan);
+        writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationMails", organization.securityComplianceNotificationMails);
+        writer.writeCollectionOfPrimitiveValues<string>("securityComplianceNotificationPhones", organization.securityComplianceNotificationPhones);
+        writer.writeStringValue("state", organization.state);
+        writer.writeStringValue("street", organization.street);
+        writer.writeCollectionOfPrimitiveValues<string>("technicalNotificationMails", organization.technicalNotificationMails);
+        writer.writeStringValue("tenantType", organization.tenantType);
+        writer.writeCollectionOfObjectValues<VerifiedDomain>("verifiedDomains", organization.verifiedDomains, serializeVerifiedDomain);
+}

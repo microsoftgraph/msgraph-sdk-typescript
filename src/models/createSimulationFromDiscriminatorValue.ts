@@ -1,7 +1,8 @@
+import {deserializeIntoSimulation} from './deserializeIntoSimulation';
 import {Simulation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSimulationFromDiscriminatorValue(parseNode: ParseNode | undefined) : Simulation {
+export function createSimulationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Simulation();
+    return deserializeIntoSimulation;
 }

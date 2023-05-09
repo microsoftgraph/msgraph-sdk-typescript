@@ -1,7 +1,8 @@
+import {deserializeIntoRemoveGroupPostRequestBody} from './deserializeIntoRemoveGroupPostRequestBody';
 import {RemoveGroupPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : RemoveGroupPostRequestBody {
+export function createRemoveGroupPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RemoveGroupPostRequestBody();
+    return deserializeIntoRemoveGroupPostRequestBody;
 }

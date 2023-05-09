@@ -1,7 +1,8 @@
+import {deserializeIntoAuthenticationFlowsPolicy} from './deserializeIntoAuthenticationFlowsPolicy';
 import {AuthenticationFlowsPolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthenticationFlowsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationFlowsPolicy {
+export function createAuthenticationFlowsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AuthenticationFlowsPolicy();
+    return deserializeIntoAuthenticationFlowsPolicy;
 }

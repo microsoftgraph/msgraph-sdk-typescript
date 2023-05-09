@@ -1,1 +1,5 @@
+export * from './createIsLogicalPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoIsLogicalPostRequestBody'
 export * from './isLogicalPostRequestBody'
+export * from './isLogicalRequestBuilderPostRequestConfiguration'
+export * from './serializeIsLogicalPostRequestBody'

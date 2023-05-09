@@ -1,7 +1,11 @@
-import {ApplePushNotificationCertificate} from '../../models/';
+import {ApplePushNotificationCertificate} from '../../models/applePushNotificationCertificate';
 import {createApplePushNotificationCertificateFromDiscriminatorValue} from '../../models/createApplePushNotificationCertificateFromDiscriminatorValue';
+import {deserializeIntoApplePushNotificationCertificate} from '../../models/deserializeIntoApplePushNotificationCertificate';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeApplePushNotificationCertificate} from '../../models/serializeApplePushNotificationCertificate';
 import {ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration} from './applePushNotificationCertificateRequestBuilderDeleteRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration} from './applePushNotificationCertificateRequestBuilderGetRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration} from './applePushNotificationCertificateRequestBuilderPatchRequestConfiguration';
@@ -33,10 +37,10 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,10 +53,10 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +71,10 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -124,7 +128,7 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplePushNotificationCertificate);
         return requestInfo;
     };
 }

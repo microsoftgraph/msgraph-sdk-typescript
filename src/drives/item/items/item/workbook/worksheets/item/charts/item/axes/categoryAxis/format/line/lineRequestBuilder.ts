@@ -1,7 +1,11 @@
-import {WorkbookChartLineFormat} from '../../../../../../../../../../../../../models/';
 import {createWorkbookChartLineFormatFromDiscriminatorValue} from '../../../../../../../../../../../../../models/createWorkbookChartLineFormatFromDiscriminatorValue';
+import {deserializeIntoWorkbookChartLineFormat} from '../../../../../../../../../../../../../models/deserializeIntoWorkbookChartLineFormat';
 import {ODataError} from '../../../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookChartLineFormat} from '../../../../../../../../../../../../../models/serializeWorkbookChartLineFormat';
+import {WorkbookChartLineFormat} from '../../../../../../../../../../../../../models/workbookChartLineFormat';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {LineRequestBuilderDeleteRequestConfiguration} from './lineRequestBuilderDeleteRequestConfiguration';
 import {LineRequestBuilderGetRequestConfiguration} from './lineRequestBuilderGetRequestConfiguration';
@@ -33,46 +37,44 @@ export class LineRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of chartlineformat object.
+     * Represents chart line formatting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartLineFormat
-     * @see {@link https://docs.microsoft.com/graph/api/chartlineformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LineRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartLineFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartLineFormat>(requestInfo, createWorkbookChartLineFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of chartlineformat object.
+     * Update the navigation property line in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartLineFormat
-     * @see {@link https://docs.microsoft.com/graph/api/chartlineformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartLineFormat | undefined, requestConfiguration?: LineRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartLineFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartLineFormat>(requestInfo, createWorkbookChartLineFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -92,7 +94,7 @@ export class LineRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartlineformat object.
+     * Represents chart line formatting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +112,7 @@ export class LineRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartlineformat object.
+     * Update the navigation property line in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -126,7 +128,7 @@ export class LineRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartLineFormat);
         return requestInfo;
     };
 }

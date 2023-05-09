@@ -1,8 +1,15 @@
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createMarkReadResponseFromDiscriminatorValue} from './createMarkReadResponseFromDiscriminatorValue';
-import {MarkReadPostRequestBody, MarkReadResponse} from './index';
+import {deserializeIntoMarkReadPostRequestBody} from './deserializeIntoMarkReadPostRequestBody';
+import {deserializeIntoMarkReadResponse} from './deserializeIntoMarkReadResponse';
+import {MarkReadPostRequestBody} from './markReadPostRequestBody';
 import {MarkReadRequestBuilderPostRequestConfiguration} from './markReadRequestBuilderPostRequestConfiguration';
+import {MarkReadResponse} from './markReadResponse';
+import {serializeMarkReadPostRequestBody} from './serializeMarkReadPostRequestBody';
+import {serializeMarkReadResponse} from './serializeMarkReadResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,26 +25,25 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/markRead");
     };
     /**
-     * Mark a list of serviceUpdateMessages as **read** for the signed in user.
+     * Invoke action markRead
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MarkReadResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MarkReadResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<MarkReadResponse>(requestInfo, createMarkReadResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Mark a list of serviceUpdateMessages as **read** for the signed in user.
+     * Invoke action markRead
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -53,7 +59,7 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMarkReadPostRequestBody);
         return requestInfo;
     };
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoB2xIdentityUserFlowCollectionResponse} from './deserializeIntoB2xIdentityUserFlowCollectionResponse';
 import {B2xIdentityUserFlowCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : B2xIdentityUserFlowCollectionResponse {
+export function createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new B2xIdentityUserFlowCollectionResponse();
+    return deserializeIntoB2xIdentityUserFlowCollectionResponse;
 }

@@ -1,1 +1,5 @@
+export * from './createDec2HexPostRequestBodyFromDiscriminatorValue'
 export * from './dec2HexPostRequestBody'
+export * from './dec2HexRequestBuilderPostRequestConfiguration'
+export * from './deserializeIntoDec2HexPostRequestBody'
+export * from './serializeDec2HexPostRequestBody'

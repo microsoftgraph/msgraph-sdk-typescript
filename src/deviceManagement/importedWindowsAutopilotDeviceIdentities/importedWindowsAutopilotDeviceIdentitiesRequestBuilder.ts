@@ -1,13 +1,19 @@
-import {ImportedWindowsAutopilotDeviceIdentity, ImportedWindowsAutopilotDeviceIdentityCollectionResponse} from '../../models/';
+import {ImportedWindowsAutopilotDeviceIdentityCollectionResponse} from '../../models/';
 import {createImportedWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue} from '../../models/createImportedWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue';
 import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../models/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import {deserializeIntoImportedWindowsAutopilotDeviceIdentity} from '../../models/deserializeIntoImportedWindowsAutopilotDeviceIdentity';
+import {ImportedWindowsAutopilotDeviceIdentity} from '../../models/importedWindowsAutopilotDeviceIdentity';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeImportedWindowsAutopilotDeviceIdentity} from '../../models/serializeImportedWindowsAutopilotDeviceIdentity';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
 import {ImportRequestBuilder} from './importEscaped/importRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/importedWindowsAutopilotDeviceIdentityItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
@@ -21,6 +27,17 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder extends Base
     public get importEscaped(): ImportRequestBuilder {
         return new ImportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
+     * @param importedWindowsAutopilotDeviceIdentityId Unique identifier of the item
+     * @returns a ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder
+     */
+    public byImportedWindowsAutopilotDeviceIdentityId(importedWindowsAutopilotDeviceIdentityId: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {
+        if(!importedWindowsAutopilotDeviceIdentityId) throw new Error("importedWindowsAutopilotDeviceIdentityId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["importedWindowsAutopilotDeviceIdentity%2Did"] = importedWindowsAutopilotDeviceIdentityId
+        return new ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -39,10 +56,10 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder extends Base
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ImportedWindowsAutopilotDeviceIdentityCollectionResponse>(requestInfo, createImportedWindowsAutopilotDeviceIdentityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -57,10 +74,10 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder extends Base
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ImportedWindowsAutopilotDeviceIdentity>(requestInfo, createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -98,7 +115,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder extends Base
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeImportedWindowsAutopilotDeviceIdentity);
         return requestInfo;
     };
 }

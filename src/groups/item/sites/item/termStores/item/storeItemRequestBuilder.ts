@@ -1,15 +1,17 @@
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Store} from '../../../../../../models/termStore/';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createStoreFromDiscriminatorValue} from '../../../../../../models/termStore/createStoreFromDiscriminatorValue';
+import {deserializeIntoStore} from '../../../../../../models/termStore/deserializeIntoStore';
+import {serializeStore} from '../../../../../../models/termStore/serializeStore';
+import {Store} from '../../../../../../models/termStore/store';
 import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
-import {GroupItemRequestBuilder} from './groups/item/groupItemRequestBuilder';
-import {SetItemRequestBuilder} from './sets/item/setItemRequestBuilder';
 import {SetsRequestBuilder} from './sets/setsRequestBuilder';
 import {StoreItemRequestBuilderDeleteRequestConfiguration} from './storeItemRequestBuilderDeleteRequestConfiguration';
 import {StoreItemRequestBuilderGetRequestConfiguration} from './storeItemRequestBuilderGetRequestConfiguration';
 import {StoreItemRequestBuilderPatchRequestConfiguration} from './storeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termStores property of the microsoft.graph.site entity.
@@ -40,10 +42,10 @@ export class StoreItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -56,22 +58,11 @@ export class StoreItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
-     * @param id Unique identifier of the item
-     * @returns a GroupItemRequestBuilder
-     */
-    public groupsById(id: string) : GroupItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["group%2Did1"] = id
-        return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property termStores in groups
@@ -85,22 +76,11 @@ export class StoreItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
-     * @param id Unique identifier of the item
-     * @returns a SetItemRequestBuilder
-     */
-    public setsById(id: string) : SetItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["set%2Did"] = id
-        return new SetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property termStores for groups
@@ -153,7 +133,7 @@ export class StoreItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeStore);
         return requestInfo;
     };
 }

@@ -1,0 +1,51 @@
+import {AutomaticUpdateMode} from './automaticUpdateMode';
+import {AutoRestartNotificationDismissalMethod} from './autoRestartNotificationDismissalMethod';
+import {Enablement} from './enablement';
+import {PrereleaseFeatures} from './prereleaseFeatures';
+import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
+import {serializeWindowsUpdateInstallScheduleType} from './serializeWindowsUpdateInstallScheduleType';
+import {WindowsDeliveryOptimizationMode} from './windowsDeliveryOptimizationMode';
+import {WindowsUpdateForBusinessConfiguration} from './windowsUpdateForBusinessConfiguration';
+import {WindowsUpdateForBusinessUpdateWeeks} from './windowsUpdateForBusinessUpdateWeeks';
+import {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
+import {WindowsUpdateNotificationDisplayOption} from './windowsUpdateNotificationDisplayOption';
+import {WindowsUpdateType} from './windowsUpdateType';
+import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeWindowsUpdateForBusinessConfiguration(writer: SerializationWriter, windowsUpdateForBusinessConfiguration: WindowsUpdateForBusinessConfiguration | undefined = {} as WindowsUpdateForBusinessConfiguration) : void {
+        serializeDeviceConfiguration(writer, windowsUpdateForBusinessConfiguration)
+        writer.writeBooleanValue("allowWindows11Upgrade", windowsUpdateForBusinessConfiguration.allowWindows11Upgrade);
+        writer.writeEnumValue<AutomaticUpdateMode>("automaticUpdateMode", windowsUpdateForBusinessConfiguration.automaticUpdateMode);
+        writer.writeEnumValue<AutoRestartNotificationDismissalMethod>("autoRestartNotificationDismissal", windowsUpdateForBusinessConfiguration.autoRestartNotificationDismissal);
+        writer.writeEnumValue<WindowsUpdateType>("businessReadyUpdatesOnly", windowsUpdateForBusinessConfiguration.businessReadyUpdatesOnly);
+        writer.writeNumberValue("deadlineForFeatureUpdatesInDays", windowsUpdateForBusinessConfiguration.deadlineForFeatureUpdatesInDays);
+        writer.writeNumberValue("deadlineForQualityUpdatesInDays", windowsUpdateForBusinessConfiguration.deadlineForQualityUpdatesInDays);
+        writer.writeNumberValue("deadlineGracePeriodInDays", windowsUpdateForBusinessConfiguration.deadlineGracePeriodInDays);
+        writer.writeEnumValue<WindowsDeliveryOptimizationMode>("deliveryOptimizationMode", windowsUpdateForBusinessConfiguration.deliveryOptimizationMode);
+        writer.writeBooleanValue("driversExcluded", windowsUpdateForBusinessConfiguration.driversExcluded);
+        writer.writeNumberValue("engagedRestartDeadlineInDays", windowsUpdateForBusinessConfiguration.engagedRestartDeadlineInDays);
+        writer.writeNumberValue("engagedRestartSnoozeScheduleInDays", windowsUpdateForBusinessConfiguration.engagedRestartSnoozeScheduleInDays);
+        writer.writeNumberValue("engagedRestartTransitionScheduleInDays", windowsUpdateForBusinessConfiguration.engagedRestartTransitionScheduleInDays);
+        writer.writeNumberValue("featureUpdatesDeferralPeriodInDays", windowsUpdateForBusinessConfiguration.featureUpdatesDeferralPeriodInDays);
+        writer.writeBooleanValue("featureUpdatesPaused", windowsUpdateForBusinessConfiguration.featureUpdatesPaused);
+        writer.writeDateValue("featureUpdatesPauseExpiryDateTime", windowsUpdateForBusinessConfiguration.featureUpdatesPauseExpiryDateTime);
+        writer.writeDateValue("featureUpdatesRollbackStartDateTime", windowsUpdateForBusinessConfiguration.featureUpdatesRollbackStartDateTime);
+        writer.writeNumberValue("featureUpdatesRollbackWindowInDays", windowsUpdateForBusinessConfiguration.featureUpdatesRollbackWindowInDays);
+        writer.writeBooleanValue("featureUpdatesWillBeRolledBack", windowsUpdateForBusinessConfiguration.featureUpdatesWillBeRolledBack);
+        writer.writeObjectValue<WindowsUpdateInstallScheduleType>("installationSchedule", windowsUpdateForBusinessConfiguration.installationSchedule, serializeWindowsUpdateInstallScheduleType);
+        writer.writeBooleanValue("microsoftUpdateServiceAllowed", windowsUpdateForBusinessConfiguration.microsoftUpdateServiceAllowed);
+        writer.writeBooleanValue("postponeRebootUntilAfterDeadline", windowsUpdateForBusinessConfiguration.postponeRebootUntilAfterDeadline);
+        writer.writeEnumValue<PrereleaseFeatures>("prereleaseFeatures", windowsUpdateForBusinessConfiguration.prereleaseFeatures);
+        writer.writeNumberValue("qualityUpdatesDeferralPeriodInDays", windowsUpdateForBusinessConfiguration.qualityUpdatesDeferralPeriodInDays);
+        writer.writeBooleanValue("qualityUpdatesPaused", windowsUpdateForBusinessConfiguration.qualityUpdatesPaused);
+        writer.writeDateValue("qualityUpdatesPauseExpiryDateTime", windowsUpdateForBusinessConfiguration.qualityUpdatesPauseExpiryDateTime);
+        writer.writeDateValue("qualityUpdatesRollbackStartDateTime", windowsUpdateForBusinessConfiguration.qualityUpdatesRollbackStartDateTime);
+        writer.writeBooleanValue("qualityUpdatesWillBeRolledBack", windowsUpdateForBusinessConfiguration.qualityUpdatesWillBeRolledBack);
+        writer.writeNumberValue("scheduleImminentRestartWarningInMinutes", windowsUpdateForBusinessConfiguration.scheduleImminentRestartWarningInMinutes);
+        writer.writeNumberValue("scheduleRestartWarningInHours", windowsUpdateForBusinessConfiguration.scheduleRestartWarningInHours);
+        writer.writeBooleanValue("skipChecksBeforeRestart", windowsUpdateForBusinessConfiguration.skipChecksBeforeRestart);
+        writer.writeEnumValue<WindowsUpdateNotificationDisplayOption>("updateNotificationLevel", windowsUpdateForBusinessConfiguration.updateNotificationLevel);
+        writer.writeEnumValue<WindowsUpdateForBusinessUpdateWeeks>("updateWeeks", windowsUpdateForBusinessConfiguration.updateWeeks);
+        writer.writeEnumValue<Enablement>("userPauseAccess", windowsUpdateForBusinessConfiguration.userPauseAccess);
+        writer.writeEnumValue<Enablement>("userWindowsUpdateScanAccess", windowsUpdateForBusinessConfiguration.userWindowsUpdateScanAccess);
+}

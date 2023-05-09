@@ -1,13 +1,16 @@
-import {InformationProtection} from '../models/';
 import {createInformationProtectionFromDiscriminatorValue} from '../models/createInformationProtectionFromDiscriminatorValue';
+import {deserializeIntoInformationProtection} from '../models/deserializeIntoInformationProtection';
+import {InformationProtection} from '../models/informationProtection';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeInformationProtection} from '../models/serializeInformationProtection';
 import {BitlockerRequestBuilder} from './bitlocker/bitlockerRequestBuilder';
 import {InformationProtectionRequestBuilderGetRequestConfiguration} from './informationProtectionRequestBuilderGetRequestConfiguration';
 import {InformationProtectionRequestBuilderPatchRequestConfiguration} from './informationProtectionRequestBuilderPatchRequestConfiguration';
-import {ThreatAssessmentRequestItemRequestBuilder} from './threatAssessmentRequests/item/threatAssessmentRequestItemRequestBuilder';
 import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the informationProtection singleton.
@@ -39,10 +42,10 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -57,22 +60,11 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
-     * @param id Unique identifier of the item
-     * @returns a ThreatAssessmentRequestItemRequestBuilder
-     */
-    public threatAssessmentRequestsById(id: string) : ThreatAssessmentRequestItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["threatAssessmentRequest%2Did"] = id
-        return new ThreatAssessmentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get informationProtection
@@ -109,7 +101,7 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeInformationProtection);
         return requestInfo;
     };
 }

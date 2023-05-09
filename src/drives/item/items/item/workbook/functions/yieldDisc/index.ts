@@ -1,1 +1,5 @@
+export * from './createYieldDiscPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoYieldDiscPostRequestBody'
+export * from './serializeYieldDiscPostRequestBody'
 export * from './yieldDiscPostRequestBody'
+export * from './yieldDiscRequestBuilderPostRequestConfiguration'

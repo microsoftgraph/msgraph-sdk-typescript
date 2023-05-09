@@ -1,47 +1,8 @@
-import {BaseCollectionPaginationCountResponse} from '../';
-import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from './createEdiscoveryReviewSetQueryFromDiscriminatorValue';
-import {EdiscoveryReviewSetQuery} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class EdiscoveryReviewSetQueryCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+export interface EdiscoveryReviewSetQueryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /** The value property */
-    private _value?: EdiscoveryReviewSetQuery[] | undefined;
-    /**
-     * Instantiates a new EdiscoveryReviewSetQueryCollectionResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<EdiscoveryReviewSetQuery>(createEdiscoveryReviewSetQueryFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<EdiscoveryReviewSetQuery>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a ediscoveryReviewSetQuery
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: EdiscoveryReviewSetQuery[] | undefined) {
-        this._value = value;
-    };
+    value?: EdiscoveryReviewSetQuery[] | undefined;
 }

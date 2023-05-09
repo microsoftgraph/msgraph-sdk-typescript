@@ -1,7 +1,13 @@
+import {deserializeIntoManagedAndroidLobApp} from './deserializeIntoManagedAndroidLobApp';
+import {deserializeIntoManagedAndroidStoreApp} from './deserializeIntoManagedAndroidStoreApp';
+import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
+import {deserializeIntoManagedIOSLobApp} from './deserializeIntoManagedIOSLobApp';
+import {deserializeIntoManagedIOSStoreApp} from './deserializeIntoManagedIOSStoreApp';
+import {deserializeIntoManagedMobileLobApp} from './deserializeIntoManagedMobileLobApp';
 import {ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedApp {
+export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,17 +15,17 @@ export function createManagedAppFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.managedAndroidLobApp":
-                    return new ManagedAndroidLobApp();
+                    return deserializeIntoManagedAndroidLobApp;
                 case "#microsoft.graph.managedAndroidStoreApp":
-                    return new ManagedAndroidStoreApp();
+                    return deserializeIntoManagedAndroidStoreApp;
                 case "#microsoft.graph.managedIOSLobApp":
-                    return new ManagedIOSLobApp();
+                    return deserializeIntoManagedIOSLobApp;
                 case "#microsoft.graph.managedIOSStoreApp":
-                    return new ManagedIOSStoreApp();
+                    return deserializeIntoManagedIOSStoreApp;
                 case "#microsoft.graph.managedMobileLobApp":
-                    return new ManagedMobileLobApp();
+                    return deserializeIntoManagedMobileLobApp;
             }
         }
     }
-    return new ManagedApp();
+    return deserializeIntoManagedApp;
 }

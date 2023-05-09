@@ -1,12 +1,18 @@
-import {ConditionalAccessPolicy, ConditionalAccessPolicyCollectionResponse} from '../../models/';
+import {ConditionalAccessPolicyCollectionResponse} from '../../models/';
+import {ConditionalAccessPolicy} from '../../models/conditionalAccessPolicy';
 import {createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyFromDiscriminatorValue';
+import {deserializeIntoConditionalAccessPolicy} from '../../models/deserializeIntoConditionalAccessPolicy';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeConditionalAccessPolicy} from '../../models/serializeConditionalAccessPolicy';
 import {ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderGetRequestConfiguration';
 import {ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
@@ -16,6 +22,17 @@ export class ConditionalAccessPoliciesRequestBuilder extends BaseRequestBuilder 
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
+     * @param conditionalAccessPolicyId Unique identifier of the item
+     * @returns a ConditionalAccessPolicyItemRequestBuilder
+     */
+    public byConditionalAccessPolicyId(conditionalAccessPolicyId: string) : ConditionalAccessPolicyItemRequestBuilder {
+        if(!conditionalAccessPolicyId) throw new Error("conditionalAccessPolicyId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["conditionalAccessPolicy%2Did"] = conditionalAccessPolicyId
+        return new ConditionalAccessPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ConditionalAccessPoliciesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ConditionalAccessPoliciesRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ConditionalAccessPolicyCollectionResponse>(requestInfo, createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ConditionalAccessPoliciesRequestBuilder extends BaseRequestBuilder 
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ConditionalAccessPolicy>(requestInfo, createConditionalAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ConditionalAccessPoliciesRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeConditionalAccessPolicy);
         return requestInfo;
     };
 }

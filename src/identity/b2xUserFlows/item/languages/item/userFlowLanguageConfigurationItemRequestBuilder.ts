@@ -1,15 +1,17 @@
-import {UserFlowLanguageConfiguration} from '../../../../../models/';
 import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from '../../../../../models/createUserFlowLanguageConfigurationFromDiscriminatorValue';
+import {deserializeIntoUserFlowLanguageConfiguration} from '../../../../../models/deserializeIntoUserFlowLanguageConfiguration';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeUserFlowLanguageConfiguration} from '../../../../../models/serializeUserFlowLanguageConfiguration';
+import {UserFlowLanguageConfiguration} from '../../../../../models/userFlowLanguageConfiguration';
 import {DefaultPagesRequestBuilder} from './defaultPages/defaultPagesRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3} from './defaultPages/item/userFlowLanguagePageItemRequestBuilder';
-import {UserFlowLanguagePageItemRequestBuilder as Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339} from './overridesPages/item/userFlowLanguagePageItemRequestBuilder';
 import {OverridesPagesRequestBuilder} from './overridesPages/overridesPagesRequestBuilder';
 import {UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration';
 import {UserFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -32,17 +34,6 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages/{userFlowLanguageConfiguration%2Did}{?%24select,%24expand}");
     };
     /**
-     * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a UserFlowLanguagePageItemRequestBuilder
-     */
-    public defaultPagesById(id: string) : I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new I3ab4d590052fd74eee324a8325a2f14715700a273414960dc723c4305963bba3(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Delete navigation property languages for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -51,10 +42,10 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,22 +58,11 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserFlowLanguageConfiguration>(requestInfo, createUserFlowLanguageConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
-     * @param id Unique identifier of the item
-     * @returns a UserFlowLanguagePageItemRequestBuilder
-     */
-    public overridesPagesById(id: string) : Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["userFlowLanguagePage%2Did"] = id
-        return new Idef24b8bfc0dc333f97f637fc58518fe3e107b5e98cdba63af20ee968a2c4339(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property languages in identity
@@ -96,10 +76,10 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserFlowLanguageConfiguration>(requestInfo, createUserFlowLanguageConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -153,7 +133,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserFlowLanguageConfiguration);
         return requestInfo;
     };
 }

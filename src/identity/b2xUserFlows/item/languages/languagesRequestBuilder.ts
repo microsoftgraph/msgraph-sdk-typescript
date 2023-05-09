@@ -1,12 +1,18 @@
-import {UserFlowLanguageConfiguration, UserFlowLanguageConfigurationCollectionResponse} from '../../../../models/';
+import {UserFlowLanguageConfigurationCollectionResponse} from '../../../../models/';
 import {createUserFlowLanguageConfigurationCollectionResponseFromDiscriminatorValue} from '../../../../models/createUserFlowLanguageConfigurationCollectionResponseFromDiscriminatorValue';
 import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from '../../../../models/createUserFlowLanguageConfigurationFromDiscriminatorValue';
+import {deserializeIntoUserFlowLanguageConfiguration} from '../../../../models/deserializeIntoUserFlowLanguageConfiguration';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeUserFlowLanguageConfiguration} from '../../../../models/serializeUserFlowLanguageConfiguration';
+import {UserFlowLanguageConfiguration} from '../../../../models/userFlowLanguageConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {UserFlowLanguageConfigurationItemRequestBuilder} from './item/userFlowLanguageConfigurationItemRequestBuilder';
 import {LanguagesRequestBuilderGetRequestConfiguration} from './languagesRequestBuilderGetRequestConfiguration';
 import {LanguagesRequestBuilderPostRequestConfiguration} from './languagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -17,6 +23,17 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
+     * @param userFlowLanguageConfigurationId Unique identifier of the item
+     * @returns a UserFlowLanguageConfigurationItemRequestBuilder
+     */
+    public byUserFlowLanguageConfigurationId(userFlowLanguageConfigurationId: string) : UserFlowLanguageConfigurationItemRequestBuilder {
+        if(!userFlowLanguageConfigurationId) throw new Error("userFlowLanguageConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["userFlowLanguageConfiguration%2Did"] = userFlowLanguageConfigurationId
+        return new UserFlowLanguageConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new LanguagesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,20 +42,19 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/languages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow.
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You cannot create custom languages in self-service sign-up user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserFlowLanguageConfigurationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-list-languages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LanguagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserFlowLanguageConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserFlowLanguageConfigurationCollectionResponse>(requestInfo, createUserFlowLanguageConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,14 +69,14 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserFlowLanguageConfiguration>(requestInfo, createUserFlowLanguageConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of languages supported for customization in a B2X user flow.
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You cannot create custom languages in self-service sign-up user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +110,7 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserFlowLanguageConfiguration);
         return requestInfo;
     };
 }

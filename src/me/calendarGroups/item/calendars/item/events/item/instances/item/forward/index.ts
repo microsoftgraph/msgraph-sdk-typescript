@@ -1,1 +1,5 @@
+export * from './createForwardPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoForwardPostRequestBody'
 export * from './forwardPostRequestBody'
+export * from './forwardRequestBuilderPostRequestConfiguration'
+export * from './serializeForwardPostRequestBody'

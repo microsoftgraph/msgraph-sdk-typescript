@@ -1,7 +1,11 @@
-import {Schema} from '../../../models/externalConnectors/';
 import {createSchemaFromDiscriminatorValue} from '../../../models/externalConnectors/createSchemaFromDiscriminatorValue';
+import {deserializeIntoSchema} from '../../../models/externalConnectors/deserializeIntoSchema';
+import {Schema} from '../../../models/externalConnectors/schema';
+import {serializeSchema} from '../../../models/externalConnectors/serializeSchema';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {SchemaRequestBuilderDeleteRequestConfiguration} from './schemaRequestBuilderDeleteRequestConfiguration';
 import {SchemaRequestBuilderGetRequestConfiguration} from './schemaRequestBuilderGetRequestConfiguration';
 import {SchemaRequestBuilderPatchRequestConfiguration} from './schemaRequestBuilderPatchRequestConfiguration';
@@ -28,27 +32,26 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the properties and relationships of a schema object.
+     * Get schema from connections
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Schema
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchemaRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schema | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Schema>(requestInfo, createSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -63,10 +66,10 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Schema>(requestInfo, createSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -86,7 +89,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a schema object.
+     * Get schema from connections
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -120,7 +123,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSchema);
         return requestInfo;
     };
 }

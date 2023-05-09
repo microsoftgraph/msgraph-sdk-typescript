@@ -1,1 +1,5 @@
+export * from './createWipePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoWipePostRequestBody'
+export * from './serializeWipePostRequestBody'
 export * from './wipePostRequestBody'
+export * from './wipeRequestBuilderPostRequestConfiguration'

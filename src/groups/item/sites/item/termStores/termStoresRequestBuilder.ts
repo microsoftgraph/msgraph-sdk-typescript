@@ -1,12 +1,18 @@
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Store, StoreCollectionResponse} from '../../../../../models/termStore/';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {StoreCollectionResponse} from '../../../../../models/termStore/';
 import {createStoreCollectionResponseFromDiscriminatorValue} from '../../../../../models/termStore/createStoreCollectionResponseFromDiscriminatorValue';
 import {createStoreFromDiscriminatorValue} from '../../../../../models/termStore/createStoreFromDiscriminatorValue';
+import {deserializeIntoStore} from '../../../../../models/termStore/deserializeIntoStore';
+import {serializeStore} from '../../../../../models/termStore/serializeStore';
+import {Store} from '../../../../../models/termStore/store';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {StoreItemRequestBuilder} from './item/storeItemRequestBuilder';
 import {TermStoresRequestBuilderGetRequestConfiguration} from './termStoresRequestBuilderGetRequestConfiguration';
 import {TermStoresRequestBuilderPostRequestConfiguration} from './termStoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termStores property of the microsoft.graph.site entity.
@@ -16,6 +22,17 @@ export class TermStoresRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the termStores property of the microsoft.graph.site entity.
+     * @param storeId Unique identifier of the item
+     * @returns a StoreItemRequestBuilder
+     */
+    public byStoreId(storeId: string) : StoreItemRequestBuilder {
+        if(!storeId) throw new Error("storeId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["store%2Did"] = storeId
+        return new StoreItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TermStoresRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class TermStoresRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<StoreCollectionResponse>(requestInfo, createStoreCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class TermStoresRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class TermStoresRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeStore);
         return requestInfo;
     };
 }

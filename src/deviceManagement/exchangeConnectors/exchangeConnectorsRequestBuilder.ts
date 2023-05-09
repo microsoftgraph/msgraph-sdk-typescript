@@ -1,12 +1,18 @@
-import {DeviceManagementExchangeConnector, DeviceManagementExchangeConnectorCollectionResponse} from '../../models/';
+import {DeviceManagementExchangeConnectorCollectionResponse} from '../../models/';
 import {createDeviceManagementExchangeConnectorCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceManagementExchangeConnectorCollectionResponseFromDiscriminatorValue';
 import {createDeviceManagementExchangeConnectorFromDiscriminatorValue} from '../../models/createDeviceManagementExchangeConnectorFromDiscriminatorValue';
+import {deserializeIntoDeviceManagementExchangeConnector} from '../../models/deserializeIntoDeviceManagementExchangeConnector';
+import {DeviceManagementExchangeConnector} from '../../models/deviceManagementExchangeConnector';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDeviceManagementExchangeConnector} from '../../models/serializeDeviceManagementExchangeConnector';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExchangeConnectorsRequestBuilderGetRequestConfiguration} from './exchangeConnectorsRequestBuilderGetRequestConfiguration';
 import {ExchangeConnectorsRequestBuilderPostRequestConfiguration} from './exchangeConnectorsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceManagementExchangeConnectorItemRequestBuilder} from './item/deviceManagementExchangeConnectorItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+     * @param deviceManagementExchangeConnectorId Unique identifier of the item
+     * @returns a DeviceManagementExchangeConnectorItemRequestBuilder
+     */
+    public byDeviceManagementExchangeConnectorId(deviceManagementExchangeConnectorId: string) : DeviceManagementExchangeConnectorItemRequestBuilder {
+        if(!deviceManagementExchangeConnectorId) throw new Error("deviceManagementExchangeConnectorId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceManagementExchangeConnector%2Did"] = deviceManagementExchangeConnectorId
+        return new DeviceManagementExchangeConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ExchangeConnectorsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceManagementExchangeConnectorCollectionResponse>(requestInfo, createDeviceManagementExchangeConnectorCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceManagementExchangeConnector>(requestInfo, createDeviceManagementExchangeConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementExchangeConnector);
         return requestInfo;
     };
 }

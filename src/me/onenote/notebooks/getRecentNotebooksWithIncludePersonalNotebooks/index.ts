@@ -1,1 +1,6 @@
+export * from './createGetRecentNotebooksWithIncludePersonalNotebooksResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetRecentNotebooksWithIncludePersonalNotebooksResponse'
+export * from './getRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetQueryParameters'
+export * from './getRecentNotebooksWithIncludePersonalNotebooksRequestBuilderGetRequestConfiguration'
 export * from './getRecentNotebooksWithIncludePersonalNotebooksResponse'
+export * from './serializeGetRecentNotebooksWithIncludePersonalNotebooksResponse'

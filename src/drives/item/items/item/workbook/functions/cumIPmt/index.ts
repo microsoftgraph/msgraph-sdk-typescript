@@ -1,1 +1,5 @@
+export * from './createCumIPmtPostRequestBodyFromDiscriminatorValue'
 export * from './cumIPmtPostRequestBody'
+export * from './cumIPmtRequestBuilderPostRequestConfiguration'
+export * from './deserializeIntoCumIPmtPostRequestBody'
+export * from './serializeCumIPmtPostRequestBody'

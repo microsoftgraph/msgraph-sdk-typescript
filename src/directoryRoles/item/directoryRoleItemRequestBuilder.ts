@@ -1,7 +1,11 @@
-import {DirectoryRole} from '../../models/';
 import {createDirectoryRoleFromDiscriminatorValue} from '../../models/createDirectoryRoleFromDiscriminatorValue';
+import {deserializeIntoDirectoryRole} from '../../models/deserializeIntoDirectoryRole';
+import {DirectoryRole} from '../../models/directoryRole';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDirectoryRole} from '../../models/serializeDirectoryRole';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectoryRoleItemRequestBuilderDeleteRequestConfiguration} from './directoryRoleItemRequestBuilderDeleteRequestConfiguration';
@@ -9,12 +13,10 @@ import {DirectoryRoleItemRequestBuilderGetRequestConfiguration} from './director
 import {DirectoryRoleItemRequestBuilderPatchRequestConfiguration} from './directoryRoleItemRequestBuilderPatchRequestConfiguration';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './members/item/directoryObjectItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {ScopedRoleMembershipItemRequestBuilder} from './scopedMembers/item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedMembersRequestBuilder} from './scopedMembers/scopedMembersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -65,10 +67,10 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -82,22 +84,11 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryRole>(requestInfo, createDirectoryRoleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directoryRoles.item.members.item collection
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public membersById(id: string) : DirectoryObjectItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in directoryRoles
@@ -111,22 +102,11 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryRole>(requestInfo, createDirectoryRoleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
-     * @param id Unique identifier of the item
-     * @returns a ScopedRoleMembershipItemRequestBuilder
-     */
-    public scopedMembersById(id: string) : ScopedRoleMembershipItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["scopedRoleMembership%2Did"] = id
-        return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete entity from directoryRoles
@@ -179,7 +159,7 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryRole);
         return requestInfo;
     };
 }

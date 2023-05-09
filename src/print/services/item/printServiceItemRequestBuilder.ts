@@ -1,13 +1,16 @@
-import {PrintService} from '../../../models/';
 import {createPrintServiceFromDiscriminatorValue} from '../../../models/createPrintServiceFromDiscriminatorValue';
+import {deserializeIntoPrintService} from '../../../models/deserializeIntoPrintService';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {PrintService} from '../../../models/printService';
+import {serializePrintService} from '../../../models/serializePrintService';
 import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
-import {PrintServiceEndpointItemRequestBuilder} from './endpoints/item/printServiceEndpointItemRequestBuilder';
 import {PrintServiceItemRequestBuilderDeleteRequestConfiguration} from './printServiceItemRequestBuilderDeleteRequestConfiguration';
 import {PrintServiceItemRequestBuilderGetRequestConfiguration} from './printServiceItemRequestBuilderGetRequestConfiguration';
 import {PrintServiceItemRequestBuilderPatchRequestConfiguration} from './printServiceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.print entity.
@@ -34,22 +37,11 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintServiceEndpointItemRequestBuilder
-     */
-    public endpointsById(id: string) : PrintServiceEndpointItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printServiceEndpoint%2Did"] = id
-        return new PrintServiceEndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The list of available Universal Print service endpoints.
@@ -61,10 +53,10 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PrintService>(requestInfo, createPrintServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -79,10 +71,10 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PrintService>(requestInfo, createPrintServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintService);
         return requestInfo;
     };
 }

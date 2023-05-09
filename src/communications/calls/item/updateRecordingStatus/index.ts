@@ -1,1 +1,5 @@
+export * from './createUpdateRecordingStatusPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoUpdateRecordingStatusPostRequestBody'
+export * from './serializeUpdateRecordingStatusPostRequestBody'
 export * from './updateRecordingStatusPostRequestBody'
+export * from './updateRecordingStatusRequestBuilderPostRequestConfiguration'

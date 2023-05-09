@@ -1,7 +1,8 @@
+import {deserializeIntoBin2OctPostRequestBody} from './deserializeIntoBin2OctPostRequestBody';
 import {Bin2OctPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBin2OctPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : Bin2OctPostRequestBody {
+export function createBin2OctPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Bin2OctPostRequestBody();
+    return deserializeIntoBin2OctPostRequestBody;
 }

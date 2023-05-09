@@ -1,1 +1,5 @@
+export * from './createImSinhPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImSinhPostRequestBody'
 export * from './imSinhPostRequestBody'
+export * from './imSinhRequestBuilderPostRequestConfiguration'
+export * from './serializeImSinhPostRequestBody'

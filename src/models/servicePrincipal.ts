@@ -1,930 +1,122 @@
-import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
-import {createAppManagementPolicyFromDiscriminatorValue} from './createAppManagementPolicyFromDiscriminatorValue';
-import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssignmentFromDiscriminatorValue';
-import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
-import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
-import {createDelegatedPermissionClassificationFromDiscriminatorValue} from './createDelegatedPermissionClassificationFromDiscriminatorValue';
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
-import {createFederatedIdentityCredentialFromDiscriminatorValue} from './createFederatedIdentityCredentialFromDiscriminatorValue';
-import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from './createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
-import {createInformationalUrlFromDiscriminatorValue} from './createInformationalUrlFromDiscriminatorValue';
-import {createKeyCredentialFromDiscriminatorValue} from './createKeyCredentialFromDiscriminatorValue';
-import {createOAuth2PermissionGrantFromDiscriminatorValue} from './createOAuth2PermissionGrantFromDiscriminatorValue';
-import {createPasswordCredentialFromDiscriminatorValue} from './createPasswordCredentialFromDiscriminatorValue';
-import {createPermissionScopeFromDiscriminatorValue} from './createPermissionScopeFromDiscriminatorValue';
-import {createResourceSpecificPermissionFromDiscriminatorValue} from './createResourceSpecificPermissionFromDiscriminatorValue';
-import {createSamlSingleSignOnSettingsFromDiscriminatorValue} from './createSamlSingleSignOnSettingsFromDiscriminatorValue';
-import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
-import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
-import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
-import {AddIn, AppManagementPolicy, AppRole, AppRoleAssignment, ClaimsMappingPolicy, DelegatedPermissionClassification, DirectoryObject, Endpoint, FederatedIdentityCredential, HomeRealmDiscoveryPolicy, InformationalUrl, KeyCredential, OAuth2PermissionGrant, PasswordCredential, PermissionScope, ResourceSpecificPermission, SamlSingleSignOnSettings, TokenIssuancePolicy, TokenLifetimePolicy, VerifiedPublisher} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AddIn} from './addIn';
+import {AppManagementPolicy} from './appManagementPolicy';
+import {AppRole} from './appRole';
+import {AppRoleAssignment} from './appRoleAssignment';
+import {ClaimsMappingPolicy} from './claimsMappingPolicy';
+import {DelegatedPermissionClassification} from './delegatedPermissionClassification';
+import {DirectoryObject} from './directoryObject';
+import {Endpoint} from './endpoint';
+import {FederatedIdentityCredential} from './federatedIdentityCredential';
+import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
+import {InformationalUrl} from './informationalUrl';
+import {KeyCredential} from './keyCredential';
+import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import {PasswordCredential} from './passwordCredential';
+import {PermissionScope} from './permissionScope';
+import {ResourceSpecificPermission} from './resourceSpecificPermission';
+import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
+import {TokenIssuancePolicy} from './tokenIssuancePolicy';
+import {TokenLifetimePolicy} from './tokenLifetimePolicy';
+import {VerifiedPublisher} from './verifiedPublisher';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class ServicePrincipal extends DirectoryObject implements Parsable {
+export interface ServicePrincipal extends DirectoryObject, Parsable {
     /** true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in). */
-    private _accountEnabled?: boolean | undefined;
+    accountEnabled?: boolean | undefined;
     /** Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on. */
-    private _addIns?: AddIn[] | undefined;
+    addIns?: AddIn[] | undefined;
     /** Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith). */
-    private _alternativeNames?: string[] | undefined;
+    alternativeNames?: string[] | undefined;
     /** The description exposed by the associated application. */
-    private _appDescription?: string | undefined;
+    appDescription?: string | undefined;
     /** The display name exposed by the associated application. */
-    private _appDisplayName?: string | undefined;
+    appDisplayName?: string | undefined;
     /** The unique identifier for the associated application (its appId property). Supports $filter (eq, ne, not, in, startsWith). */
-    private _appId?: string | undefined;
+    appId?: string | undefined;
     /** Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith). */
-    private _applicationTemplateId?: string | undefined;
+    applicationTemplateId?: string | undefined;
     /** The appManagementPolicy applied to this application. */
-    private _appManagementPolicies?: AppManagementPolicy[] | undefined;
+    appManagementPolicies?: AppManagementPolicy[] | undefined;
     /** Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le). */
-    private _appOwnerOrganizationId?: string | undefined;
+    appOwnerOrganizationId?: string | undefined;
     /** App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand. */
-    private _appRoleAssignedTo?: AppRoleAssignment[] | undefined;
+    appRoleAssignedTo?: AppRoleAssignment[] | undefined;
     /** Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable. Supports $filter (eq, ne, NOT). */
-    private _appRoleAssignmentRequired?: boolean | undefined;
+    appRoleAssignmentRequired?: boolean | undefined;
     /** App role assignment for another app or service, granted to this service principal. Supports $expand. */
-    private _appRoleAssignments?: AppRoleAssignment[] | undefined;
+    appRoleAssignments?: AppRoleAssignment[] | undefined;
     /** The roles exposed by the application which this service principal represents. For more information see the appRoles property definition on the application entity. Not nullable. */
-    private _appRoles?: AppRole[] | undefined;
+    appRoles?: AppRole[] | undefined;
     /** The claimsMappingPolicies assigned to this service principal. Supports $expand. */
-    private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
+    claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
     /** Directory objects created by this service principal. Read-only. Nullable. */
-    private _createdObjects?: DirectoryObject[] | undefined;
+    createdObjects?: DirectoryObject[] | undefined;
     /** The delegatedPermissionClassifications property */
-    private _delegatedPermissionClassifications?: DelegatedPermissionClassification[] | undefined;
+    delegatedPermissionClassifications?: DelegatedPermissionClassification[] | undefined;
     /** Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search. */
-    private _description?: string | undefined;
+    description?: string | undefined;
     /** Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not). */
-    private _disabledByMicrosoftStatus?: string | undefined;
+    disabledByMicrosoftStatus?: string | undefined;
     /** The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
-    private _displayName?: string | undefined;
+    displayName?: string | undefined;
     /** The endpoints property */
-    private _endpoints?: Endpoint[] | undefined;
+    endpoints?: Endpoint[] | undefined;
     /** Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0). */
-    private _federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
+    federatedIdentityCredentials?: FederatedIdentityCredential[] | undefined;
     /** Home page or landing page of the application. */
-    private _homepage?: string | undefined;
+    homepage?: string | undefined;
     /** The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand. */
-    private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
+    homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
     /** Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values). */
-    private _info?: InformationalUrl | undefined;
+    info?: InformationalUrl | undefined;
     /** The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le). */
-    private _keyCredentials?: KeyCredential[] | undefined;
+    keyCredentials?: KeyCredential[] | undefined;
     /** Specifies the URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Azure AD My Apps, or the Azure AD SSO URL. */
-    private _loginUrl?: string | undefined;
+    loginUrl?: string | undefined;
     /** Specifies the URL that will be used by Microsoft's authorization service to logout an user using OpenId Connect front-channel, back-channel or SAML logout protocols. */
-    private _logoutUrl?: string | undefined;
+    logoutUrl?: string | undefined;
     /** Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand. */
-    private _memberOf?: DirectoryObject[] | undefined;
+    memberOf?: DirectoryObject[] | undefined;
     /** Free text field to capture information about the service principal, typically used for operational purposes. Maximum allowed size is 1024 characters. */
-    private _notes?: string | undefined;
+    notes?: string | undefined;
     /** Specifies the list of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications. */
-    private _notificationEmailAddresses?: string[] | undefined;
+    notificationEmailAddresses?: string[] | undefined;
     /** Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable. */
-    private _oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
+    oauth2PermissionGrants?: OAuth2PermissionGrant[] | undefined;
     /** The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity's api property. Not nullable. */
-    private _oauth2PermissionScopes?: PermissionScope[] | undefined;
+    oauth2PermissionScopes?: PermissionScope[] | undefined;
     /** Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
-    private _ownedObjects?: DirectoryObject[] | undefined;
+    ownedObjects?: DirectoryObject[] | undefined;
     /** Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). */
-    private _owners?: DirectoryObject[] | undefined;
+    owners?: DirectoryObject[] | undefined;
     /** The collection of password credentials associated with the application. Not nullable. */
-    private _passwordCredentials?: PasswordCredential[] | undefined;
+    passwordCredentials?: PasswordCredential[] | undefined;
     /** Specifies the single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, notSupported, and oidc. */
-    private _preferredSingleSignOnMode?: string | undefined;
-    /** Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions. */
-    private _preferredTokenSigningKeyThumbprint?: string | undefined;
+    preferredSingleSignOnMode?: string | undefined;
+    /** This property can be used on SAML applications (apps that have preferredSingleSignOnMode set to saml) to control which certificate is used to sign the SAML responses. For applications that are not SAML, do not write or otherwise rely on this property. */
+    preferredTokenSigningKeyThumbprint?: string | undefined;
     /** The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable. */
-    private _replyUrls?: string[] | undefined;
+    replyUrls?: string[] | undefined;
     /** The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only. */
-    private _resourceSpecificApplicationPermissions?: ResourceSpecificPermission[] | undefined;
+    resourceSpecificApplicationPermissions?: ResourceSpecificPermission[] | undefined;
     /** The collection for settings related to saml single sign-on. */
-    private _samlSingleSignOnSettings?: SamlSingleSignOnSettings | undefined;
+    samlSingleSignOnSettings?: SamlSingleSignOnSettings | undefined;
     /** Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith). */
-    private _servicePrincipalNames?: string[] | undefined;
+    servicePrincipalNames?: string[] | undefined;
     /** Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use. */
-    private _servicePrincipalType?: string | undefined;
-    /** Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only. */
-    private _signInAudience?: string | undefined;
+    servicePrincipalType?: string | undefined;
+    /** Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization's Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization's Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only. */
+    signInAudience?: string | undefined;
     /** Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity's tags property.Supports $filter (eq, not, ge, le, startsWith). */
-    private _tags?: string[] | undefined;
+    tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */
-    private _tokenEncryptionKeyId?: string | undefined;
+    tokenEncryptionKeyId?: string | undefined;
     /** The tokenIssuancePolicies assigned to this service principal. */
-    private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
+    tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     /** The tokenLifetimePolicies assigned to this service principal. */
-    private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
+    tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /** The transitiveMemberOf property */
-    private _transitiveMemberOf?: DirectoryObject[] | undefined;
+    transitiveMemberOf?: DirectoryObject[] | undefined;
     /** Specifies the verified publisher of the application which this service principal represents. */
-    private _verifiedPublisher?: VerifiedPublisher | undefined;
-    /**
-     * Gets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
-     * @returns a boolean
-     */
-    public get accountEnabled() {
-        return this._accountEnabled;
-    };
-    /**
-     * Sets the accountEnabled property value. true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
-     * @param value Value to set for the accountEnabled property.
-     */
-    public set accountEnabled(value: boolean | undefined) {
-        this._accountEnabled = value;
-    };
-    /**
-     * Gets the addIns property value. Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.
-     * @returns a addIn
-     */
-    public get addIns() {
-        return this._addIns;
-    };
-    /**
-     * Sets the addIns property value. Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.
-     * @param value Value to set for the addIns property.
-     */
-    public set addIns(value: AddIn[] | undefined) {
-        this._addIns = value;
-    };
-    /**
-     * Gets the alternativeNames property value. Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith).
-     * @returns a string
-     */
-    public get alternativeNames() {
-        return this._alternativeNames;
-    };
-    /**
-     * Sets the alternativeNames property value. Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith).
-     * @param value Value to set for the alternativeNames property.
-     */
-    public set alternativeNames(value: string[] | undefined) {
-        this._alternativeNames = value;
-    };
-    /**
-     * Gets the appDescription property value. The description exposed by the associated application.
-     * @returns a string
-     */
-    public get appDescription() {
-        return this._appDescription;
-    };
-    /**
-     * Sets the appDescription property value. The description exposed by the associated application.
-     * @param value Value to set for the appDescription property.
-     */
-    public set appDescription(value: string | undefined) {
-        this._appDescription = value;
-    };
-    /**
-     * Gets the appDisplayName property value. The display name exposed by the associated application.
-     * @returns a string
-     */
-    public get appDisplayName() {
-        return this._appDisplayName;
-    };
-    /**
-     * Sets the appDisplayName property value. The display name exposed by the associated application.
-     * @param value Value to set for the appDisplayName property.
-     */
-    public set appDisplayName(value: string | undefined) {
-        this._appDisplayName = value;
-    };
-    /**
-     * Gets the appId property value. The unique identifier for the associated application (its appId property). Supports $filter (eq, ne, not, in, startsWith).
-     * @returns a string
-     */
-    public get appId() {
-        return this._appId;
-    };
-    /**
-     * Sets the appId property value. The unique identifier for the associated application (its appId property). Supports $filter (eq, ne, not, in, startsWith).
-     * @param value Value to set for the appId property.
-     */
-    public set appId(value: string | undefined) {
-        this._appId = value;
-    };
-    /**
-     * Gets the applicationTemplateId property value. Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith).
-     * @returns a string
-     */
-    public get applicationTemplateId() {
-        return this._applicationTemplateId;
-    };
-    /**
-     * Sets the applicationTemplateId property value. Unique identifier of the applicationTemplate that the servicePrincipal was created from. Read-only. Supports $filter (eq, ne, NOT, startsWith).
-     * @param value Value to set for the applicationTemplateId property.
-     */
-    public set applicationTemplateId(value: string | undefined) {
-        this._applicationTemplateId = value;
-    };
-    /**
-     * Gets the appManagementPolicies property value. The appManagementPolicy applied to this application.
-     * @returns a appManagementPolicy
-     */
-    public get appManagementPolicies() {
-        return this._appManagementPolicies;
-    };
-    /**
-     * Sets the appManagementPolicies property value. The appManagementPolicy applied to this application.
-     * @param value Value to set for the appManagementPolicies property.
-     */
-    public set appManagementPolicies(value: AppManagementPolicy[] | undefined) {
-        this._appManagementPolicies = value;
-    };
-    /**
-     * Gets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
-     * @returns a Guid
-     */
-    public get appOwnerOrganizationId() {
-        return this._appOwnerOrganizationId;
-    };
-    /**
-     * Sets the appOwnerOrganizationId property value. Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
-     * @param value Value to set for the appOwnerOrganizationId property.
-     */
-    public set appOwnerOrganizationId(value: string | undefined) {
-        this._appOwnerOrganizationId = value;
-    };
-    /**
-     * Gets the appRoleAssignedTo property value. App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
-     * @returns a appRoleAssignment
-     */
-    public get appRoleAssignedTo() {
-        return this._appRoleAssignedTo;
-    };
-    /**
-     * Sets the appRoleAssignedTo property value. App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
-     * @param value Value to set for the appRoleAssignedTo property.
-     */
-    public set appRoleAssignedTo(value: AppRoleAssignment[] | undefined) {
-        this._appRoleAssignedTo = value;
-    };
-    /**
-     * Gets the appRoleAssignmentRequired property value. Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable. Supports $filter (eq, ne, NOT).
-     * @returns a boolean
-     */
-    public get appRoleAssignmentRequired() {
-        return this._appRoleAssignmentRequired;
-    };
-    /**
-     * Sets the appRoleAssignmentRequired property value. Specifies whether users or other service principals need to be granted an app role assignment for this service principal before users can sign in or apps can get tokens. The default value is false. Not nullable. Supports $filter (eq, ne, NOT).
-     * @param value Value to set for the appRoleAssignmentRequired property.
-     */
-    public set appRoleAssignmentRequired(value: boolean | undefined) {
-        this._appRoleAssignmentRequired = value;
-    };
-    /**
-     * Gets the appRoleAssignments property value. App role assignment for another app or service, granted to this service principal. Supports $expand.
-     * @returns a appRoleAssignment
-     */
-    public get appRoleAssignments() {
-        return this._appRoleAssignments;
-    };
-    /**
-     * Sets the appRoleAssignments property value. App role assignment for another app or service, granted to this service principal. Supports $expand.
-     * @param value Value to set for the appRoleAssignments property.
-     */
-    public set appRoleAssignments(value: AppRoleAssignment[] | undefined) {
-        this._appRoleAssignments = value;
-    };
-    /**
-     * Gets the appRoles property value. The roles exposed by the application which this service principal represents. For more information see the appRoles property definition on the application entity. Not nullable.
-     * @returns a appRole
-     */
-    public get appRoles() {
-        return this._appRoles;
-    };
-    /**
-     * Sets the appRoles property value. The roles exposed by the application which this service principal represents. For more information see the appRoles property definition on the application entity. Not nullable.
-     * @param value Value to set for the appRoles property.
-     */
-    public set appRoles(value: AppRole[] | undefined) {
-        this._appRoles = value;
-    };
-    /**
-     * Gets the claimsMappingPolicies property value. The claimsMappingPolicies assigned to this service principal. Supports $expand.
-     * @returns a claimsMappingPolicy
-     */
-    public get claimsMappingPolicies() {
-        return this._claimsMappingPolicies;
-    };
-    /**
-     * Sets the claimsMappingPolicies property value. The claimsMappingPolicies assigned to this service principal. Supports $expand.
-     * @param value Value to set for the claimsMappingPolicies property.
-     */
-    public set claimsMappingPolicies(value: ClaimsMappingPolicy[] | undefined) {
-        this._claimsMappingPolicies = value;
-    };
-    /**
-     * Instantiates a new ServicePrincipal and sets the default values.
-     */
-    public constructor() {
-        super();
-        this.odataType = "#microsoft.graph.servicePrincipal";
-    };
-    /**
-     * Gets the createdObjects property value. Directory objects created by this service principal. Read-only. Nullable.
-     * @returns a directoryObject
-     */
-    public get createdObjects() {
-        return this._createdObjects;
-    };
-    /**
-     * Sets the createdObjects property value. Directory objects created by this service principal. Read-only. Nullable.
-     * @param value Value to set for the createdObjects property.
-     */
-    public set createdObjects(value: DirectoryObject[] | undefined) {
-        this._createdObjects = value;
-    };
-    /**
-     * Gets the delegatedPermissionClassifications property value. The delegatedPermissionClassifications property
-     * @returns a delegatedPermissionClassification
-     */
-    public get delegatedPermissionClassifications() {
-        return this._delegatedPermissionClassifications;
-    };
-    /**
-     * Sets the delegatedPermissionClassifications property value. The delegatedPermissionClassifications property
-     * @param value Value to set for the delegatedPermissionClassifications property.
-     */
-    public set delegatedPermissionClassifications(value: DelegatedPermissionClassification[] | undefined) {
-        this._delegatedPermissionClassifications = value;
-    };
-    /**
-     * Gets the description property value. Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
-     * @returns a string
-     */
-    public get description() {
-        return this._description;
-    };
-    /**
-     * Sets the description property value. Free text field to provide an internal end-user facing description of the service principal. End-user portals such MyApps will display the application description in this field. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Gets the disabledByMicrosoftStatus property value. Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not).
-     * @returns a string
-     */
-    public get disabledByMicrosoftStatus() {
-        return this._disabledByMicrosoftStatus;
-    };
-    /**
-     * Sets the disabledByMicrosoftStatus property value. Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not).
-     * @param value Value to set for the disabledByMicrosoftStatus property.
-     */
-    public set disabledByMicrosoftStatus(value: string | undefined) {
-        this._disabledByMicrosoftStatus = value;
-    };
-    /**
-     * Gets the displayName property value. The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
-     * @returns a string
-     */
-    public get displayName() {
-        return this._displayName;
-    };
-    /**
-     * Sets the displayName property value. The display name for the service principal. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Gets the endpoints property value. The endpoints property
-     * @returns a endpoint
-     */
-    public get endpoints() {
-        return this._endpoints;
-    };
-    /**
-     * Sets the endpoints property value. The endpoints property
-     * @param value Value to set for the endpoints property.
-     */
-    public set endpoints(value: Endpoint[] | undefined) {
-        this._endpoints = value;
-    };
-    /**
-     * Gets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
-     * @returns a federatedIdentityCredential
-     */
-    public get federatedIdentityCredentials() {
-        return this._federatedIdentityCredentials;
-    };
-    /**
-     * Sets the federatedIdentityCredentials property value. Federated identities for a specific type of service principal - managed identity. Supports $expand and $filter (/$count eq 0, /$count ne 0).
-     * @param value Value to set for the federatedIdentityCredentials property.
-     */
-    public set federatedIdentityCredentials(value: FederatedIdentityCredential[] | undefined) {
-        this._federatedIdentityCredentials = value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "accountEnabled": n => { this.accountEnabled = n.getBooleanValue(); },
-            "addIns": n => { this.addIns = n.getCollectionOfObjectValues<AddIn>(createAddInFromDiscriminatorValue); },
-            "alternativeNames": n => { this.alternativeNames = n.getCollectionOfPrimitiveValues<string>(); },
-            "appDescription": n => { this.appDescription = n.getStringValue(); },
-            "appDisplayName": n => { this.appDisplayName = n.getStringValue(); },
-            "appId": n => { this.appId = n.getStringValue(); },
-            "applicationTemplateId": n => { this.applicationTemplateId = n.getStringValue(); },
-            "appManagementPolicies": n => { this.appManagementPolicies = n.getCollectionOfObjectValues<AppManagementPolicy>(createAppManagementPolicyFromDiscriminatorValue); },
-            "appOwnerOrganizationId": n => { this.appOwnerOrganizationId = n.getStringValue(); },
-            "appRoleAssignedTo": n => { this.appRoleAssignedTo = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
-            "appRoleAssignmentRequired": n => { this.appRoleAssignmentRequired = n.getBooleanValue(); },
-            "appRoleAssignments": n => { this.appRoleAssignments = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
-            "appRoles": n => { this.appRoles = n.getCollectionOfObjectValues<AppRole>(createAppRoleFromDiscriminatorValue); },
-            "claimsMappingPolicies": n => { this.claimsMappingPolicies = n.getCollectionOfObjectValues<ClaimsMappingPolicy>(createClaimsMappingPolicyFromDiscriminatorValue); },
-            "createdObjects": n => { this.createdObjects = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
-            "delegatedPermissionClassifications": n => { this.delegatedPermissionClassifications = n.getCollectionOfObjectValues<DelegatedPermissionClassification>(createDelegatedPermissionClassificationFromDiscriminatorValue); },
-            "description": n => { this.description = n.getStringValue(); },
-            "disabledByMicrosoftStatus": n => { this.disabledByMicrosoftStatus = n.getStringValue(); },
-            "displayName": n => { this.displayName = n.getStringValue(); },
-            "endpoints": n => { this.endpoints = n.getCollectionOfObjectValues<Endpoint>(createEndpointFromDiscriminatorValue); },
-            "federatedIdentityCredentials": n => { this.federatedIdentityCredentials = n.getCollectionOfObjectValues<FederatedIdentityCredential>(createFederatedIdentityCredentialFromDiscriminatorValue); },
-            "homepage": n => { this.homepage = n.getStringValue(); },
-            "homeRealmDiscoveryPolicies": n => { this.homeRealmDiscoveryPolicies = n.getCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(createHomeRealmDiscoveryPolicyFromDiscriminatorValue); },
-            "info": n => { this.info = n.getObjectValue<InformationalUrl>(createInformationalUrlFromDiscriminatorValue); },
-            "keyCredentials": n => { this.keyCredentials = n.getCollectionOfObjectValues<KeyCredential>(createKeyCredentialFromDiscriminatorValue); },
-            "loginUrl": n => { this.loginUrl = n.getStringValue(); },
-            "logoutUrl": n => { this.logoutUrl = n.getStringValue(); },
-            "memberOf": n => { this.memberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
-            "notes": n => { this.notes = n.getStringValue(); },
-            "notificationEmailAddresses": n => { this.notificationEmailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
-            "oauth2PermissionGrants": n => { this.oauth2PermissionGrants = n.getCollectionOfObjectValues<OAuth2PermissionGrant>(createOAuth2PermissionGrantFromDiscriminatorValue); },
-            "oauth2PermissionScopes": n => { this.oauth2PermissionScopes = n.getCollectionOfObjectValues<PermissionScope>(createPermissionScopeFromDiscriminatorValue); },
-            "ownedObjects": n => { this.ownedObjects = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
-            "owners": n => { this.owners = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
-            "passwordCredentials": n => { this.passwordCredentials = n.getCollectionOfObjectValues<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
-            "preferredSingleSignOnMode": n => { this.preferredSingleSignOnMode = n.getStringValue(); },
-            "preferredTokenSigningKeyThumbprint": n => { this.preferredTokenSigningKeyThumbprint = n.getStringValue(); },
-            "replyUrls": n => { this.replyUrls = n.getCollectionOfPrimitiveValues<string>(); },
-            "resourceSpecificApplicationPermissions": n => { this.resourceSpecificApplicationPermissions = n.getCollectionOfObjectValues<ResourceSpecificPermission>(createResourceSpecificPermissionFromDiscriminatorValue); },
-            "samlSingleSignOnSettings": n => { this.samlSingleSignOnSettings = n.getObjectValue<SamlSingleSignOnSettings>(createSamlSingleSignOnSettingsFromDiscriminatorValue); },
-            "servicePrincipalNames": n => { this.servicePrincipalNames = n.getCollectionOfPrimitiveValues<string>(); },
-            "servicePrincipalType": n => { this.servicePrincipalType = n.getStringValue(); },
-            "signInAudience": n => { this.signInAudience = n.getStringValue(); },
-            "tags": n => { this.tags = n.getCollectionOfPrimitiveValues<string>(); },
-            "tokenEncryptionKeyId": n => { this.tokenEncryptionKeyId = n.getStringValue(); },
-            "tokenIssuancePolicies": n => { this.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },
-            "tokenLifetimePolicies": n => { this.tokenLifetimePolicies = n.getCollectionOfObjectValues<TokenLifetimePolicy>(createTokenLifetimePolicyFromDiscriminatorValue); },
-            "transitiveMemberOf": n => { this.transitiveMemberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
-            "verifiedPublisher": n => { this.verifiedPublisher = n.getObjectValue<VerifiedPublisher>(createVerifiedPublisherFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Gets the homepage property value. Home page or landing page of the application.
-     * @returns a string
-     */
-    public get homepage() {
-        return this._homepage;
-    };
-    /**
-     * Sets the homepage property value. Home page or landing page of the application.
-     * @param value Value to set for the homepage property.
-     */
-    public set homepage(value: string | undefined) {
-        this._homepage = value;
-    };
-    /**
-     * Gets the homeRealmDiscoveryPolicies property value. The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
-     * @returns a homeRealmDiscoveryPolicy
-     */
-    public get homeRealmDiscoveryPolicies() {
-        return this._homeRealmDiscoveryPolicies;
-    };
-    /**
-     * Sets the homeRealmDiscoveryPolicies property value. The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
-     * @param value Value to set for the homeRealmDiscoveryPolicies property.
-     */
-    public set homeRealmDiscoveryPolicies(value: HomeRealmDiscoveryPolicy[] | undefined) {
-        this._homeRealmDiscoveryPolicies = value;
-    };
-    /**
-     * Gets the info property value. Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
-     * @returns a informationalUrl
-     */
-    public get info() {
-        return this._info;
-    };
-    /**
-     * Sets the info property value. Basic profile information of the acquired application such as app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
-     * @param value Value to set for the info property.
-     */
-    public set info(value: InformationalUrl | undefined) {
-        this._info = value;
-    };
-    /**
-     * Gets the keyCredentials property value. The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le).
-     * @returns a keyCredential
-     */
-    public get keyCredentials() {
-        return this._keyCredentials;
-    };
-    /**
-     * Sets the keyCredentials property value. The collection of key credentials associated with the service principal. Not nullable. Supports $filter (eq, not, ge, le).
-     * @param value Value to set for the keyCredentials property.
-     */
-    public set keyCredentials(value: KeyCredential[] | undefined) {
-        this._keyCredentials = value;
-    };
-    /**
-     * Gets the loginUrl property value. Specifies the URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Azure AD My Apps, or the Azure AD SSO URL.
-     * @returns a string
-     */
-    public get loginUrl() {
-        return this._loginUrl;
-    };
-    /**
-     * Sets the loginUrl property value. Specifies the URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. The user launches the application from Microsoft 365, the Azure AD My Apps, or the Azure AD SSO URL.
-     * @param value Value to set for the loginUrl property.
-     */
-    public set loginUrl(value: string | undefined) {
-        this._loginUrl = value;
-    };
-    /**
-     * Gets the logoutUrl property value. Specifies the URL that will be used by Microsoft's authorization service to logout an user using OpenId Connect front-channel, back-channel or SAML logout protocols.
-     * @returns a string
-     */
-    public get logoutUrl() {
-        return this._logoutUrl;
-    };
-    /**
-     * Sets the logoutUrl property value. Specifies the URL that will be used by Microsoft's authorization service to logout an user using OpenId Connect front-channel, back-channel or SAML logout protocols.
-     * @param value Value to set for the logoutUrl property.
-     */
-    public set logoutUrl(value: string | undefined) {
-        this._logoutUrl = value;
-    };
-    /**
-     * Gets the memberOf property value. Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.
-     * @returns a directoryObject
-     */
-    public get memberOf() {
-        return this._memberOf;
-    };
-    /**
-     * Sets the memberOf property value. Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.
-     * @param value Value to set for the memberOf property.
-     */
-    public set memberOf(value: DirectoryObject[] | undefined) {
-        this._memberOf = value;
-    };
-    /**
-     * Gets the notes property value. Free text field to capture information about the service principal, typically used for operational purposes. Maximum allowed size is 1024 characters.
-     * @returns a string
-     */
-    public get notes() {
-        return this._notes;
-    };
-    /**
-     * Sets the notes property value. Free text field to capture information about the service principal, typically used for operational purposes. Maximum allowed size is 1024 characters.
-     * @param value Value to set for the notes property.
-     */
-    public set notes(value: string | undefined) {
-        this._notes = value;
-    };
-    /**
-     * Gets the notificationEmailAddresses property value. Specifies the list of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications.
-     * @returns a string
-     */
-    public get notificationEmailAddresses() {
-        return this._notificationEmailAddresses;
-    };
-    /**
-     * Sets the notificationEmailAddresses property value. Specifies the list of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications.
-     * @param value Value to set for the notificationEmailAddresses property.
-     */
-    public set notificationEmailAddresses(value: string[] | undefined) {
-        this._notificationEmailAddresses = value;
-    };
-    /**
-     * Gets the oauth2PermissionGrants property value. Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
-     * @returns a oAuth2PermissionGrant
-     */
-    public get oauth2PermissionGrants() {
-        return this._oauth2PermissionGrants;
-    };
-    /**
-     * Sets the oauth2PermissionGrants property value. Delegated permission grants authorizing this service principal to access an API on behalf of a signed-in user. Read-only. Nullable.
-     * @param value Value to set for the oauth2PermissionGrants property.
-     */
-    public set oauth2PermissionGrants(value: OAuth2PermissionGrant[] | undefined) {
-        this._oauth2PermissionGrants = value;
-    };
-    /**
-     * Gets the oauth2PermissionScopes property value. The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity's api property. Not nullable.
-     * @returns a permissionScope
-     */
-    public get oauth2PermissionScopes() {
-        return this._oauth2PermissionScopes;
-    };
-    /**
-     * Sets the oauth2PermissionScopes property value. The delegated permissions exposed by the application. For more information see the oauth2PermissionScopes property on the application entity's api property. Not nullable.
-     * @param value Value to set for the oauth2PermissionScopes property.
-     */
-    public set oauth2PermissionScopes(value: PermissionScope[] | undefined) {
-        this._oauth2PermissionScopes = value;
-    };
-    /**
-     * Gets the ownedObjects property value. Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
-     * @returns a directoryObject
-     */
-    public get ownedObjects() {
-        return this._ownedObjects;
-    };
-    /**
-     * Sets the ownedObjects property value. Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
-     * @param value Value to set for the ownedObjects property.
-     */
-    public set ownedObjects(value: DirectoryObject[] | undefined) {
-        this._ownedObjects = value;
-    };
-    /**
-     * Gets the owners property value. Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
-     * @returns a directoryObject
-     */
-    public get owners() {
-        return this._owners;
-    };
-    /**
-     * Sets the owners property value. Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
-     * @param value Value to set for the owners property.
-     */
-    public set owners(value: DirectoryObject[] | undefined) {
-        this._owners = value;
-    };
-    /**
-     * Gets the passwordCredentials property value. The collection of password credentials associated with the application. Not nullable.
-     * @returns a passwordCredential
-     */
-    public get passwordCredentials() {
-        return this._passwordCredentials;
-    };
-    /**
-     * Sets the passwordCredentials property value. The collection of password credentials associated with the application. Not nullable.
-     * @param value Value to set for the passwordCredentials property.
-     */
-    public set passwordCredentials(value: PasswordCredential[] | undefined) {
-        this._passwordCredentials = value;
-    };
-    /**
-     * Gets the preferredSingleSignOnMode property value. Specifies the single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, notSupported, and oidc.
-     * @returns a string
-     */
-    public get preferredSingleSignOnMode() {
-        return this._preferredSingleSignOnMode;
-    };
-    /**
-     * Sets the preferredSingleSignOnMode property value. Specifies the single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps. The supported values are password, saml, notSupported, and oidc.
-     * @param value Value to set for the preferredSingleSignOnMode property.
-     */
-    public set preferredSingleSignOnMode(value: string | undefined) {
-        this._preferredSingleSignOnMode = value;
-    };
-    /**
-     * Gets the preferredTokenSigningKeyThumbprint property value. Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.
-     * @returns a string
-     */
-    public get preferredTokenSigningKeyThumbprint() {
-        return this._preferredTokenSigningKeyThumbprint;
-    };
-    /**
-     * Sets the preferredTokenSigningKeyThumbprint property value. Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.
-     * @param value Value to set for the preferredTokenSigningKeyThumbprint property.
-     */
-    public set preferredTokenSigningKeyThumbprint(value: string | undefined) {
-        this._preferredTokenSigningKeyThumbprint = value;
-    };
-    /**
-     * Gets the replyUrls property value. The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.
-     * @returns a string
-     */
-    public get replyUrls() {
-        return this._replyUrls;
-    };
-    /**
-     * Sets the replyUrls property value. The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.
-     * @param value Value to set for the replyUrls property.
-     */
-    public set replyUrls(value: string[] | undefined) {
-        this._replyUrls = value;
-    };
-    /**
-     * Gets the resourceSpecificApplicationPermissions property value. The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only.
-     * @returns a resourceSpecificPermission
-     */
-    public get resourceSpecificApplicationPermissions() {
-        return this._resourceSpecificApplicationPermissions;
-    };
-    /**
-     * Sets the resourceSpecificApplicationPermissions property value. The resource-specific application permissions exposed by this application. Currently, resource-specific permissions are only supported for Teams apps accessing to specific chats and teams using Microsoft Graph. Read-only.
-     * @param value Value to set for the resourceSpecificApplicationPermissions property.
-     */
-    public set resourceSpecificApplicationPermissions(value: ResourceSpecificPermission[] | undefined) {
-        this._resourceSpecificApplicationPermissions = value;
-    };
-    /**
-     * Gets the samlSingleSignOnSettings property value. The collection for settings related to saml single sign-on.
-     * @returns a samlSingleSignOnSettings
-     */
-    public get samlSingleSignOnSettings() {
-        return this._samlSingleSignOnSettings;
-    };
-    /**
-     * Sets the samlSingleSignOnSettings property value. The collection for settings related to saml single sign-on.
-     * @param value Value to set for the samlSingleSignOnSettings property.
-     */
-    public set samlSingleSignOnSettings(value: SamlSingleSignOnSettings | undefined) {
-        this._samlSingleSignOnSettings = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeBooleanValue("accountEnabled", this.accountEnabled);
-        writer.writeCollectionOfObjectValues<AddIn>("addIns", this.addIns);
-        writer.writeCollectionOfPrimitiveValues<string>("alternativeNames", this.alternativeNames);
-        writer.writeStringValue("appDescription", this.appDescription);
-        writer.writeStringValue("appDisplayName", this.appDisplayName);
-        writer.writeStringValue("appId", this.appId);
-        writer.writeStringValue("applicationTemplateId", this.applicationTemplateId);
-        writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", this.appManagementPolicies);
-        writer.writeStringValue("appOwnerOrganizationId", this.appOwnerOrganizationId);
-        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", this.appRoleAssignedTo);
-        writer.writeBooleanValue("appRoleAssignmentRequired", this.appRoleAssignmentRequired);
-        writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", this.appRoleAssignments);
-        writer.writeCollectionOfObjectValues<AppRole>("appRoles", this.appRoles);
-        writer.writeCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", this.claimsMappingPolicies);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("createdObjects", this.createdObjects);
-        writer.writeCollectionOfObjectValues<DelegatedPermissionClassification>("delegatedPermissionClassifications", this.delegatedPermissionClassifications);
-        writer.writeStringValue("description", this.description);
-        writer.writeStringValue("disabledByMicrosoftStatus", this.disabledByMicrosoftStatus);
-        writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfObjectValues<Endpoint>("endpoints", this.endpoints);
-        writer.writeCollectionOfObjectValues<FederatedIdentityCredential>("federatedIdentityCredentials", this.federatedIdentityCredentials);
-        writer.writeStringValue("homepage", this.homepage);
-        writer.writeCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", this.homeRealmDiscoveryPolicies);
-        writer.writeObjectValue<InformationalUrl>("info", this.info);
-        writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", this.keyCredentials);
-        writer.writeStringValue("loginUrl", this.loginUrl);
-        writer.writeStringValue("logoutUrl", this.logoutUrl);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", this.memberOf);
-        writer.writeStringValue("notes", this.notes);
-        writer.writeCollectionOfPrimitiveValues<string>("notificationEmailAddresses", this.notificationEmailAddresses);
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("oauth2PermissionGrants", this.oauth2PermissionGrants);
-        writer.writeCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", this.oauth2PermissionScopes);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("ownedObjects", this.ownedObjects);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("owners", this.owners);
-        writer.writeCollectionOfObjectValues<PasswordCredential>("passwordCredentials", this.passwordCredentials);
-        writer.writeStringValue("preferredSingleSignOnMode", this.preferredSingleSignOnMode);
-        writer.writeStringValue("preferredTokenSigningKeyThumbprint", this.preferredTokenSigningKeyThumbprint);
-        writer.writeCollectionOfPrimitiveValues<string>("replyUrls", this.replyUrls);
-        writer.writeCollectionOfObjectValues<ResourceSpecificPermission>("resourceSpecificApplicationPermissions", this.resourceSpecificApplicationPermissions);
-        writer.writeObjectValue<SamlSingleSignOnSettings>("samlSingleSignOnSettings", this.samlSingleSignOnSettings);
-        writer.writeCollectionOfPrimitiveValues<string>("servicePrincipalNames", this.servicePrincipalNames);
-        writer.writeStringValue("servicePrincipalType", this.servicePrincipalType);
-        writer.writeStringValue("signInAudience", this.signInAudience);
-        writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
-        writer.writeStringValue("tokenEncryptionKeyId", this.tokenEncryptionKeyId);
-        writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", this.tokenIssuancePolicies);
-        writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", this.tokenLifetimePolicies);
-        writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", this.transitiveMemberOf);
-        writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", this.verifiedPublisher);
-    };
-    /**
-     * Gets the servicePrincipalNames property value. Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).
-     * @returns a string
-     */
-    public get servicePrincipalNames() {
-        return this._servicePrincipalNames;
-    };
-    /**
-     * Sets the servicePrincipalNames property value. Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).
-     * @param value Value to set for the servicePrincipalNames property.
-     */
-    public set servicePrincipalNames(value: string[] | undefined) {
-        this._servicePrincipalNames = value;
-    };
-    /**
-     * Gets the servicePrincipalType property value. Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.
-     * @returns a string
-     */
-    public get servicePrincipalType() {
-        return this._servicePrincipalType;
-    };
-    /**
-     * Sets the servicePrincipalType property value. Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.
-     * @param value Value to set for the servicePrincipalType property.
-     */
-    public set servicePrincipalType(value: string | undefined) {
-        this._servicePrincipalType = value;
-    };
-    /**
-     * Gets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.
-     * @returns a string
-     */
-    public get signInAudience() {
-        return this._signInAudience;
-    };
-    /**
-     * Sets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.
-     * @param value Value to set for the signInAudience property.
-     */
-    public set signInAudience(value: string | undefined) {
-        this._signInAudience = value;
-    };
-    /**
-     * Gets the tags property value. Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity's tags property.Supports $filter (eq, not, ge, le, startsWith).
-     * @returns a string
-     */
-    public get tags() {
-        return this._tags;
-    };
-    /**
-     * Sets the tags property value. Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity's tags property.Supports $filter (eq, not, ge, le, startsWith).
-     * @param value Value to set for the tags property.
-     */
-    public set tags(value: string[] | undefined) {
-        this._tags = value;
-    };
-    /**
-     * Gets the tokenEncryptionKeyId property value. Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
-     * @returns a Guid
-     */
-    public get tokenEncryptionKeyId() {
-        return this._tokenEncryptionKeyId;
-    };
-    /**
-     * Sets the tokenEncryptionKeyId property value. Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
-     * @param value Value to set for the tokenEncryptionKeyId property.
-     */
-    public set tokenEncryptionKeyId(value: string | undefined) {
-        this._tokenEncryptionKeyId = value;
-    };
-    /**
-     * Gets the tokenIssuancePolicies property value. The tokenIssuancePolicies assigned to this service principal.
-     * @returns a tokenIssuancePolicy
-     */
-    public get tokenIssuancePolicies() {
-        return this._tokenIssuancePolicies;
-    };
-    /**
-     * Sets the tokenIssuancePolicies property value. The tokenIssuancePolicies assigned to this service principal.
-     * @param value Value to set for the tokenIssuancePolicies property.
-     */
-    public set tokenIssuancePolicies(value: TokenIssuancePolicy[] | undefined) {
-        this._tokenIssuancePolicies = value;
-    };
-    /**
-     * Gets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this service principal.
-     * @returns a tokenLifetimePolicy
-     */
-    public get tokenLifetimePolicies() {
-        return this._tokenLifetimePolicies;
-    };
-    /**
-     * Sets the tokenLifetimePolicies property value. The tokenLifetimePolicies assigned to this service principal.
-     * @param value Value to set for the tokenLifetimePolicies property.
-     */
-    public set tokenLifetimePolicies(value: TokenLifetimePolicy[] | undefined) {
-        this._tokenLifetimePolicies = value;
-    };
-    /**
-     * Gets the transitiveMemberOf property value. The transitiveMemberOf property
-     * @returns a directoryObject
-     */
-    public get transitiveMemberOf() {
-        return this._transitiveMemberOf;
-    };
-    /**
-     * Sets the transitiveMemberOf property value. The transitiveMemberOf property
-     * @param value Value to set for the transitiveMemberOf property.
-     */
-    public set transitiveMemberOf(value: DirectoryObject[] | undefined) {
-        this._transitiveMemberOf = value;
-    };
-    /**
-     * Gets the verifiedPublisher property value. Specifies the verified publisher of the application which this service principal represents.
-     * @returns a verifiedPublisher
-     */
-    public get verifiedPublisher() {
-        return this._verifiedPublisher;
-    };
-    /**
-     * Sets the verifiedPublisher property value. Specifies the verified publisher of the application which this service principal represents.
-     * @param value Value to set for the verifiedPublisher property.
-     */
-    public set verifiedPublisher(value: VerifiedPublisher | undefined) {
-        this._verifiedPublisher = value;
-    };
+    verifiedPublisher?: VerifiedPublisher | undefined;
 }

@@ -1,1 +1,5 @@
+export * from './createTanhPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoTanhPostRequestBody'
+export * from './serializeTanhPostRequestBody'
 export * from './tanhPostRequestBody'
+export * from './tanhRequestBuilderPostRequestConfiguration'

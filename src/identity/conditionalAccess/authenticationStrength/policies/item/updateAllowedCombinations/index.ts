@@ -1,0 +1,5 @@
+export * from './createUpdateAllowedCombinationsPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoUpdateAllowedCombinationsPostRequestBody'
+export * from './serializeUpdateAllowedCombinationsPostRequestBody'
+export * from './updateAllowedCombinationsPostRequestBody'
+export * from './updateAllowedCombinationsRequestBuilderPostRequestConfiguration'

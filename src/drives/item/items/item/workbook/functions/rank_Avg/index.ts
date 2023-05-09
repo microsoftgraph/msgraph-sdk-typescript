@@ -1,1 +1,5 @@
+export * from './createRank_AvgPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoRank_AvgPostRequestBody'
 export * from './rank_AvgPostRequestBody'
+export * from './rank_AvgRequestBuilderPostRequestConfiguration'
+export * from './serializeRank_AvgPostRequestBody'

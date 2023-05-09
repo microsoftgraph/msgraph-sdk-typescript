@@ -1,0 +1,4 @@
+export * from './onPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration'
+export * from './onPremisesDirectorySynchronizationItemRequestBuilderGetQueryParameters'
+export * from './onPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration'
+export * from './onPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration'

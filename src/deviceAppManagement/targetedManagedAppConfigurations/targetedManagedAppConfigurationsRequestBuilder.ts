@@ -1,12 +1,18 @@
-import {TargetedManagedAppConfiguration, TargetedManagedAppConfigurationCollectionResponse} from '../../models/';
+import {TargetedManagedAppConfigurationCollectionResponse} from '../../models/';
 import {createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue';
 import {createTargetedManagedAppConfigurationFromDiscriminatorValue} from '../../models/createTargetedManagedAppConfigurationFromDiscriminatorValue';
+import {deserializeIntoTargetedManagedAppConfiguration} from '../../models/deserializeIntoTargetedManagedAppConfiguration';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeTargetedManagedAppConfiguration} from '../../models/serializeTargetedManagedAppConfiguration';
+import {TargetedManagedAppConfiguration} from '../../models/targetedManagedAppConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {TargetedManagedAppConfigurationItemRequestBuilder} from './item/targetedManagedAppConfigurationItemRequestBuilder';
 import {TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +22,17 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
+     * @param targetedManagedAppConfigurationId Unique identifier of the item
+     * @returns a TargetedManagedAppConfigurationItemRequestBuilder
+     */
+    public byTargetedManagedAppConfigurationId(targetedManagedAppConfigurationId: string) : TargetedManagedAppConfigurationItemRequestBuilder {
+        if(!targetedManagedAppConfigurationId) throw new Error("targetedManagedAppConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["targetedManagedAppConfiguration%2Did"] = targetedManagedAppConfigurationId
+        return new TargetedManagedAppConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new TargetedManagedAppConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TargetedManagedAppConfigurationCollectionResponse>(requestInfo, createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TargetedManagedAppConfiguration>(requestInfo, createTargetedManagedAppConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTargetedManagedAppConfiguration);
         return requestInfo;
     };
 }

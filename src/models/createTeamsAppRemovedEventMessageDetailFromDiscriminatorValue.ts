@@ -1,7 +1,8 @@
+import {deserializeIntoTeamsAppRemovedEventMessageDetail} from './deserializeIntoTeamsAppRemovedEventMessageDetail';
 import {TeamsAppRemovedEventMessageDetail} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamsAppRemovedEventMessageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamsAppRemovedEventMessageDetail {
+export function createTeamsAppRemovedEventMessageDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TeamsAppRemovedEventMessageDetail();
+    return deserializeIntoTeamsAppRemovedEventMessageDetail;
 }

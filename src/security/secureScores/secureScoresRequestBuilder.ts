@@ -1,12 +1,18 @@
-import {SecureScore, SecureScoreCollectionResponse} from '../../models/';
+import {SecureScoreCollectionResponse} from '../../models/';
 import {createSecureScoreCollectionResponseFromDiscriminatorValue} from '../../models/createSecureScoreCollectionResponseFromDiscriminatorValue';
 import {createSecureScoreFromDiscriminatorValue} from '../../models/createSecureScoreFromDiscriminatorValue';
+import {deserializeIntoSecureScore} from '../../models/deserializeIntoSecureScore';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {SecureScore} from '../../models/secureScore';
+import {serializeSecureScore} from '../../models/serializeSecureScore';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SecureScoreItemRequestBuilder} from './item/secureScoreItemRequestBuilder';
 import {SecureScoresRequestBuilderGetRequestConfiguration} from './secureScoresRequestBuilderGetRequestConfiguration';
 import {SecureScoresRequestBuilderPostRequestConfiguration} from './secureScoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
@@ -17,6 +23,17 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+     * @param secureScoreId Unique identifier of the item
+     * @returns a SecureScoreItemRequestBuilder
+     */
+    public bySecureScoreId(secureScoreId: string) : SecureScoreItemRequestBuilder {
+        if(!secureScoreId) throw new Error("secureScoreId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["secureScore%2Did"] = secureScoreId
+        return new SecureScoreItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new SecureScoresRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,20 +42,19 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/secureScores{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of secureScore objects.
+     * Get secureScores from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SecureScoreCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-list-securescores?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SecureScoresRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SecureScoreCollectionResponse>(requestInfo, createSecureScoreCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,14 +69,14 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SecureScore>(requestInfo, createSecureScoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of secureScore objects.
+     * Get secureScores from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +110,7 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSecureScore);
         return requestInfo;
     };
 }

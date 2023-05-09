@@ -1,7 +1,20 @@
+import {deserializeIntoEmailIdentity} from './deserializeIntoEmailIdentity';
+import {deserializeIntoIdentity} from './deserializeIntoIdentity';
+import {deserializeIntoInitiator} from './deserializeIntoInitiator';
+import {deserializeIntoProvisionedIdentity} from './deserializeIntoProvisionedIdentity';
+import {deserializeIntoProvisioningServicePrincipal} from './deserializeIntoProvisioningServicePrincipal';
+import {deserializeIntoProvisioningSystem} from './deserializeIntoProvisioningSystem';
+import {deserializeIntoServicePrincipalIdentity} from './deserializeIntoServicePrincipalIdentity';
+import {deserializeIntoSharePointIdentity} from './deserializeIntoSharePointIdentity';
+import {deserializeIntoTeamworkApplicationIdentity} from './deserializeIntoTeamworkApplicationIdentity';
+import {deserializeIntoTeamworkConversationIdentity} from './deserializeIntoTeamworkConversationIdentity';
+import {deserializeIntoTeamworkTagIdentity} from './deserializeIntoTeamworkTagIdentity';
+import {deserializeIntoTeamworkUserIdentity} from './deserializeIntoTeamworkUserIdentity';
+import {deserializeIntoUserIdentity} from './deserializeIntoUserIdentity';
 import {EmailIdentity, Identity, Initiator, ProvisionedIdentity, ProvisioningServicePrincipal, ProvisioningSystem, ServicePrincipalIdentity, SharePointIdentity, TeamworkApplicationIdentity, TeamworkConversationIdentity, TeamworkTagIdentity, TeamworkUserIdentity, UserIdentity} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : Identity {
+export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,31 +22,31 @@ export function createIdentityFromDiscriminatorValue(parseNode: ParseNode | unde
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.emailIdentity":
-                    return new EmailIdentity();
+                    return deserializeIntoEmailIdentity;
                 case "#microsoft.graph.initiator":
-                    return new Initiator();
+                    return deserializeIntoInitiator;
                 case "#microsoft.graph.provisionedIdentity":
-                    return new ProvisionedIdentity();
+                    return deserializeIntoProvisionedIdentity;
                 case "#microsoft.graph.provisioningServicePrincipal":
-                    return new ProvisioningServicePrincipal();
+                    return deserializeIntoProvisioningServicePrincipal;
                 case "#microsoft.graph.provisioningSystem":
-                    return new ProvisioningSystem();
+                    return deserializeIntoProvisioningSystem;
                 case "#microsoft.graph.servicePrincipalIdentity":
-                    return new ServicePrincipalIdentity();
+                    return deserializeIntoServicePrincipalIdentity;
                 case "#microsoft.graph.sharePointIdentity":
-                    return new SharePointIdentity();
+                    return deserializeIntoSharePointIdentity;
                 case "#microsoft.graph.teamworkApplicationIdentity":
-                    return new TeamworkApplicationIdentity();
+                    return deserializeIntoTeamworkApplicationIdentity;
                 case "#microsoft.graph.teamworkConversationIdentity":
-                    return new TeamworkConversationIdentity();
+                    return deserializeIntoTeamworkConversationIdentity;
                 case "#microsoft.graph.teamworkTagIdentity":
-                    return new TeamworkTagIdentity();
+                    return deserializeIntoTeamworkTagIdentity;
                 case "#microsoft.graph.teamworkUserIdentity":
-                    return new TeamworkUserIdentity();
+                    return deserializeIntoTeamworkUserIdentity;
                 case "#microsoft.graph.userIdentity":
-                    return new UserIdentity();
+                    return deserializeIntoUserIdentity;
             }
         }
     }
-    return new Identity();
+    return deserializeIntoIdentity;
 }

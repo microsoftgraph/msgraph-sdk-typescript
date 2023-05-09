@@ -1,7 +1,8 @@
+import {deserializeIntoErfCPostRequestBody} from './deserializeIntoErfCPostRequestBody';
 import {ErfCPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createErfCPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ErfCPostRequestBody {
+export function createErfCPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ErfCPostRequestBody();
+    return deserializeIntoErfCPostRequestBody;
 }

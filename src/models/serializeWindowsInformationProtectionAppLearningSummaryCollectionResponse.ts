@@ -1,0 +1,10 @@
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeWindowsInformationProtectionAppLearningSummary} from './serializeWindowsInformationProtectionAppLearningSummary';
+import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
+import {WindowsInformationProtectionAppLearningSummaryCollectionResponse} from './windowsInformationProtectionAppLearningSummaryCollectionResponse';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeWindowsInformationProtectionAppLearningSummaryCollectionResponse(writer: SerializationWriter, windowsInformationProtectionAppLearningSummaryCollectionResponse: WindowsInformationProtectionAppLearningSummaryCollectionResponse | undefined = {} as WindowsInformationProtectionAppLearningSummaryCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, windowsInformationProtectionAppLearningSummaryCollectionResponse)
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLearningSummary>("value", windowsInformationProtectionAppLearningSummaryCollectionResponse.value, serializeWindowsInformationProtectionAppLearningSummary);
+}

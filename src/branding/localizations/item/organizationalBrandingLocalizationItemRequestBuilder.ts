@@ -1,7 +1,11 @@
-import {OrganizationalBrandingLocalization} from '../../../models/';
 import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from '../../../models/createOrganizationalBrandingLocalizationFromDiscriminatorValue';
+import {deserializeIntoOrganizationalBrandingLocalization} from '../../../models/deserializeIntoOrganizationalBrandingLocalization';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {OrganizationalBrandingLocalization} from '../../../models/organizationalBrandingLocalization';
+import {serializeOrganizationalBrandingLocalization} from '../../../models/serializeOrganizationalBrandingLocalization';
 import {BackgroundImageRequestBuilder} from './backgroundImage/backgroundImageRequestBuilder';
 import {BannerLogoRequestBuilder} from './bannerLogo/bannerLogoRequestBuilder';
 import {OrganizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration} from './organizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration';
@@ -43,10 +47,10 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -59,10 +63,10 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -77,10 +81,10 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -134,7 +138,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOrganizationalBrandingLocalization);
         return requestInfo;
     };
 }

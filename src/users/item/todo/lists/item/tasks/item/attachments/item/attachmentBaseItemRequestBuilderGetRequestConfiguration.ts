@@ -1,14 +1,11 @@
 import {AttachmentBaseItemRequestBuilderGetQueryParameters} from './attachmentBaseItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class AttachmentBaseItemRequestBuilderGetRequestConfiguration {
+export interface AttachmentBaseItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: AttachmentBaseItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: AttachmentBaseItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,1 +1,5 @@
+export * from './createImConjugatePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImConjugatePostRequestBody'
 export * from './imConjugatePostRequestBody'
+export * from './imConjugateRequestBuilderPostRequestConfiguration'
+export * from './serializeImConjugatePostRequestBody'

@@ -1,8 +1,15 @@
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {ArchivePostRequestBody} from './archivePostRequestBody';
 import {ArchiveRequestBuilderPostRequestConfiguration} from './archiveRequestBuilderPostRequestConfiguration';
+import {ArchiveResponse} from './archiveResponse';
 import {createArchiveResponseFromDiscriminatorValue} from './createArchiveResponseFromDiscriminatorValue';
-import {ArchivePostRequestBody, ArchiveResponse} from './index';
+import {deserializeIntoArchivePostRequestBody} from './deserializeIntoArchivePostRequestBody';
+import {deserializeIntoArchiveResponse} from './deserializeIntoArchiveResponse';
+import {serializeArchivePostRequestBody} from './serializeArchivePostRequestBody';
+import {serializeArchiveResponse} from './serializeArchiveResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,26 +25,25 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/archive");
     };
     /**
-     * Archive a list of serviceUpdateMessages for the signed in user.
+     * Invoke action archive
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArchiveResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ArchivePostRequestBody | undefined, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArchiveResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ArchiveResponse>(requestInfo, createArchiveResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Archive a list of serviceUpdateMessages for the signed in user.
+     * Invoke action archive
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -53,7 +59,7 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeArchivePostRequestBody);
         return requestInfo;
     };
 }

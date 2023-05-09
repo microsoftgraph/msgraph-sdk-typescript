@@ -1,1 +1,5 @@
+export * from './createSetUserPreferredPresencePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSetUserPreferredPresencePostRequestBody'
+export * from './serializeSetUserPreferredPresencePostRequestBody'
 export * from './setUserPreferredPresencePostRequestBody'
+export * from './setUserPreferredPresenceRequestBuilderPostRequestConfiguration'

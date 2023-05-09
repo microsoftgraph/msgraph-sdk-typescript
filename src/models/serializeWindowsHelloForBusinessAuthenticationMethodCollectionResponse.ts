@@ -1,0 +1,10 @@
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeWindowsHelloForBusinessAuthenticationMethod} from './serializeWindowsHelloForBusinessAuthenticationMethod';
+import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
+import {WindowsHelloForBusinessAuthenticationMethodCollectionResponse} from './windowsHelloForBusinessAuthenticationMethodCollectionResponse';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeWindowsHelloForBusinessAuthenticationMethodCollectionResponse(writer: SerializationWriter, windowsHelloForBusinessAuthenticationMethodCollectionResponse: WindowsHelloForBusinessAuthenticationMethodCollectionResponse | undefined = {} as WindowsHelloForBusinessAuthenticationMethodCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, windowsHelloForBusinessAuthenticationMethodCollectionResponse)
+        writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("value", windowsHelloForBusinessAuthenticationMethodCollectionResponse.value, serializeWindowsHelloForBusinessAuthenticationMethod);
+}

@@ -1,7 +1,11 @@
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {CancelPostRequestBody} from './cancelPostRequestBody';
 import {CancelRequestBuilderPostRequestConfiguration} from './cancelRequestBuilderPostRequestConfiguration';
-import {CancelPostRequestBody} from './index';
+import {deserializeIntoCancelPostRequestBody} from './deserializeIntoCancelPostRequestBody';
+import {serializeCancelPostRequestBody} from './serializeCancelPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -17,25 +21,24 @@ export class CancelRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments/{bookingAppointment%2Did}/cancel");
     };
     /**
-     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members.
+     * Cancels the giving booking appointment, sending a message to the involved parties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @see {@link https://docs.microsoft.com/graph/api/bookingappointment-cancel?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CancelPostRequestBody | undefined, requestConfiguration?: CancelRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Cancel the specified bookingAppointment in the specified bookingBusiness and send a message to the involved customer and staff members.
+     * Cancels the giving booking appointment, sending a message to the involved parties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -50,7 +53,7 @@ export class CancelRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCancelPostRequestBody);
         return requestInfo;
     };
 }

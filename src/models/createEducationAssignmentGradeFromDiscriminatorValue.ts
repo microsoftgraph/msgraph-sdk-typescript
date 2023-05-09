@@ -1,7 +1,9 @@
+import {deserializeIntoEducationAssignmentGrade} from './deserializeIntoEducationAssignmentGrade';
+import {deserializeIntoEducationAssignmentPointsGrade} from './deserializeIntoEducationAssignmentPointsGrade';
 import {EducationAssignmentGrade, EducationAssignmentPointsGrade} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationAssignmentGradeFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationAssignmentGrade {
+export function createEducationAssignmentGradeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createEducationAssignmentGradeFromDiscriminatorValue(parseNode: 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.educationAssignmentPointsGrade":
-                    return new EducationAssignmentPointsGrade();
+                    return deserializeIntoEducationAssignmentPointsGrade;
             }
         }
     }
-    return new EducationAssignmentGrade();
+    return deserializeIntoEducationAssignmentGrade;
 }

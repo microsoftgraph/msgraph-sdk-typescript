@@ -1,46 +1,7 @@
-import {EducationAssignmentRecipient} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {EducationAssignmentRecipient} from './educationAssignmentRecipient';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipient implements Parsable {
+export interface EducationAssignmentIndividualRecipient extends EducationAssignmentRecipient, Parsable {
     /** A collection of IDs of the recipients. */
-    private _recipients?: string[] | undefined;
-    /**
-     * Instantiates a new EducationAssignmentIndividualRecipient and sets the default values.
-     */
-    public constructor() {
-        super();
-        this.odataType = "#microsoft.graph.educationAssignmentIndividualRecipient";
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "recipients": n => { this.recipients = n.getCollectionOfPrimitiveValues<string>(); },
-        };
-    };
-    /**
-     * Gets the recipients property value. A collection of IDs of the recipients.
-     * @returns a string
-     */
-    public get recipients() {
-        return this._recipients;
-    };
-    /**
-     * Sets the recipients property value. A collection of IDs of the recipients.
-     * @param value Value to set for the recipients property.
-     */
-    public set recipients(value: string[] | undefined) {
-        this._recipients = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<string>("recipients", this.recipients);
-    };
+    recipients?: string[] | undefined;
 }

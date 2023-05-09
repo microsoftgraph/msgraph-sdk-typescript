@@ -1,1 +1,5 @@
 export * from './countBlankPostRequestBody'
+export * from './countBlankRequestBuilderPostRequestConfiguration'
+export * from './createCountBlankPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCountBlankPostRequestBody'
+export * from './serializeCountBlankPostRequestBody'

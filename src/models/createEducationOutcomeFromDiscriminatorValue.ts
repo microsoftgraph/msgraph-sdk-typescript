@@ -1,7 +1,12 @@
+import {deserializeIntoEducationFeedbackOutcome} from './deserializeIntoEducationFeedbackOutcome';
+import {deserializeIntoEducationFeedbackResourceOutcome} from './deserializeIntoEducationFeedbackResourceOutcome';
+import {deserializeIntoEducationOutcome} from './deserializeIntoEducationOutcome';
+import {deserializeIntoEducationPointsOutcome} from './deserializeIntoEducationPointsOutcome';
+import {deserializeIntoEducationRubricOutcome} from './deserializeIntoEducationRubricOutcome';
 import {EducationFeedbackOutcome, EducationFeedbackResourceOutcome, EducationOutcome, EducationPointsOutcome, EducationRubricOutcome} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationOutcomeFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationOutcome {
+export function createEducationOutcomeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createEducationOutcomeFromDiscriminatorValue(parseNode: ParseNod
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.educationFeedbackOutcome":
-                    return new EducationFeedbackOutcome();
+                    return deserializeIntoEducationFeedbackOutcome;
                 case "#microsoft.graph.educationFeedbackResourceOutcome":
-                    return new EducationFeedbackResourceOutcome();
+                    return deserializeIntoEducationFeedbackResourceOutcome;
                 case "#microsoft.graph.educationPointsOutcome":
-                    return new EducationPointsOutcome();
+                    return deserializeIntoEducationPointsOutcome;
                 case "#microsoft.graph.educationRubricOutcome":
-                    return new EducationRubricOutcome();
+                    return deserializeIntoEducationRubricOutcome;
             }
         }
     }
-    return new EducationOutcome();
+    return deserializeIntoEducationOutcome;
 }

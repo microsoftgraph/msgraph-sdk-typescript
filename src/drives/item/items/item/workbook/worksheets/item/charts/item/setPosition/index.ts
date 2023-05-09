@@ -1,1 +1,5 @@
+export * from './createSetPositionPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSetPositionPostRequestBody'
+export * from './serializeSetPositionPostRequestBody'
 export * from './setPositionPostRequestBody'
+export * from './setPositionRequestBuilderPostRequestConfiguration'

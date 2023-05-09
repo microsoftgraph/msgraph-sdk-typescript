@@ -1,8 +1,14 @@
-import {UpdateRecordingStatusOperation} from '../../../../models/';
 import {createUpdateRecordingStatusOperationFromDiscriminatorValue} from '../../../../models/createUpdateRecordingStatusOperationFromDiscriminatorValue';
+import {deserializeIntoUpdateRecordingStatusOperation} from '../../../../models/deserializeIntoUpdateRecordingStatusOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {UpdateRecordingStatusPostRequestBody} from './index';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeUpdateRecordingStatusOperation} from '../../../../models/serializeUpdateRecordingStatusOperation';
+import {UpdateRecordingStatusOperation} from '../../../../models/updateRecordingStatusOperation';
+import {deserializeIntoUpdateRecordingStatusPostRequestBody} from './deserializeIntoUpdateRecordingStatusPostRequestBody';
+import {serializeUpdateRecordingStatusPostRequestBody} from './serializeUpdateRecordingStatusPostRequestBody';
+import {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
 import {UpdateRecordingStatusRequestBuilderPostRequestConfiguration} from './updateRecordingStatusRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -19,26 +25,25 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/updateRecordingStatus");
     };
     /**
-     * Update the application's recording status associated with a call. This requires the use of the Teams policy-based recording solution.
+     * Invoke action updateRecordingStatus
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UpdateRecordingStatusOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UpdateRecordingStatusOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperation>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the application's recording status associated with a call. This requires the use of the Teams policy-based recording solution.
+     * Invoke action updateRecordingStatus
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -54,7 +59,7 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUpdateRecordingStatusPostRequestBody);
         return requestInfo;
     };
 }

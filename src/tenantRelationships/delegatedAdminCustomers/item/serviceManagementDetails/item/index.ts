@@ -1,0 +1,4 @@
+export * from './delegatedAdminServiceManagementDetailItemRequestBuilderDeleteRequestConfiguration'
+export * from './delegatedAdminServiceManagementDetailItemRequestBuilderGetQueryParameters'
+export * from './delegatedAdminServiceManagementDetailItemRequestBuilderGetRequestConfiguration'
+export * from './delegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration'

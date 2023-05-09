@@ -1,7 +1,14 @@
+import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
+import {deserializeIntoDrive} from './deserializeIntoDrive';
+import {deserializeIntoDriveItem} from './deserializeIntoDriveItem';
+import {deserializeIntoList} from './deserializeIntoList';
+import {deserializeIntoListItem} from './deserializeIntoListItem';
+import {deserializeIntoSharedDriveItem} from './deserializeIntoSharedDriveItem';
+import {deserializeIntoSite} from './deserializeIntoSite';
 import {BaseItem, Drive, DriveItem, List, ListItem, SharedDriveItem, Site} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : BaseItem {
+export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,19 +16,19 @@ export function createBaseItemFromDiscriminatorValue(parseNode: ParseNode | unde
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.drive":
-                    return new Drive();
+                    return deserializeIntoDrive;
                 case "#microsoft.graph.driveItem":
-                    return new DriveItem();
+                    return deserializeIntoDriveItem;
                 case "#microsoft.graph.list":
-                    return new List();
+                    return deserializeIntoList;
                 case "#microsoft.graph.listItem":
-                    return new ListItem();
+                    return deserializeIntoListItem;
                 case "#microsoft.graph.sharedDriveItem":
-                    return new SharedDriveItem();
+                    return deserializeIntoSharedDriveItem;
                 case "#microsoft.graph.site":
-                    return new Site();
+                    return deserializeIntoSite;
             }
         }
     }
-    return new BaseItem();
+    return deserializeIntoBaseItem;
 }

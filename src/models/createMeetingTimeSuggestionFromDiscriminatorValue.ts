@@ -1,7 +1,8 @@
+import {deserializeIntoMeetingTimeSuggestion} from './deserializeIntoMeetingTimeSuggestion';
 import {MeetingTimeSuggestion} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMeetingTimeSuggestionFromDiscriminatorValue(parseNode: ParseNode | undefined) : MeetingTimeSuggestion {
+export function createMeetingTimeSuggestionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MeetingTimeSuggestion();
+    return deserializeIntoMeetingTimeSuggestion;
 }

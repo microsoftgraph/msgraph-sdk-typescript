@@ -1,7 +1,9 @@
+import {deserializeIntoDaylightTimeZoneOffset} from './deserializeIntoDaylightTimeZoneOffset';
+import {deserializeIntoStandardTimeZoneOffset} from './deserializeIntoStandardTimeZoneOffset';
 import {DaylightTimeZoneOffset, StandardTimeZoneOffset} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createStandardTimeZoneOffsetFromDiscriminatorValue(parseNode: ParseNode | undefined) : StandardTimeZoneOffset {
+export function createStandardTimeZoneOffsetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createStandardTimeZoneOffsetFromDiscriminatorValue(parseNode: Pa
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.daylightTimeZoneOffset":
-                    return new DaylightTimeZoneOffset();
+                    return deserializeIntoDaylightTimeZoneOffset;
             }
         }
     }
-    return new StandardTimeZoneOffset();
+    return deserializeIntoStandardTimeZoneOffset;
 }

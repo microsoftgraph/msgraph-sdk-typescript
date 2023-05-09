@@ -1,46 +1,8 @@
-import {createOAuth2PermissionGrantFromDiscriminatorValue} from './createOAuth2PermissionGrantFromDiscriminatorValue';
-import {BaseCollectionPaginationCountResponse, OAuth2PermissionGrant} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class OAuth2PermissionGrantCollectionResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+export interface OAuth2PermissionGrantCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /** The value property */
-    private _value?: OAuth2PermissionGrant[] | undefined;
-    /**
-     * Instantiates a new OAuth2PermissionGrantCollectionResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<OAuth2PermissionGrant>(createOAuth2PermissionGrantFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<OAuth2PermissionGrant>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a oAuth2PermissionGrant
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: OAuth2PermissionGrant[] | undefined) {
-        this._value = value;
-    };
+    value?: OAuth2PermissionGrant[] | undefined;
 }

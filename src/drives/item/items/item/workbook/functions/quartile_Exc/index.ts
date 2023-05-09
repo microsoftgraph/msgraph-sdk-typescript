@@ -1,1 +1,5 @@
+export * from './createQuartile_ExcPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoQuartile_ExcPostRequestBody'
 export * from './quartile_ExcPostRequestBody'
+export * from './quartile_ExcRequestBuilderPostRequestConfiguration'
+export * from './serializeQuartile_ExcPostRequestBody'

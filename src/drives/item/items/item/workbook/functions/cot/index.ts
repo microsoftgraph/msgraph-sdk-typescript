@@ -1,1 +1,5 @@
 export * from './cotPostRequestBody'
+export * from './cotRequestBuilderPostRequestConfiguration'
+export * from './createCotPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCotPostRequestBody'
+export * from './serializeCotPostRequestBody'

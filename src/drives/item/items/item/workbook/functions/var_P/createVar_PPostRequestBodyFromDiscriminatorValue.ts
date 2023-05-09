@@ -1,7 +1,8 @@
+import {deserializeIntoVar_PPostRequestBody} from './deserializeIntoVar_PPostRequestBody';
 import {Var_PPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createVar_PPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : Var_PPostRequestBody {
+export function createVar_PPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Var_PPostRequestBody();
+    return deserializeIntoVar_PPostRequestBody;
 }

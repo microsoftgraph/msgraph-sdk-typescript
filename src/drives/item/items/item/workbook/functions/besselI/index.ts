@@ -1,1 +1,5 @@
 export * from './besselIPostRequestBody'
+export * from './besselIRequestBuilderPostRequestConfiguration'
+export * from './createBesselIPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBesselIPostRequestBody'
+export * from './serializeBesselIPostRequestBody'

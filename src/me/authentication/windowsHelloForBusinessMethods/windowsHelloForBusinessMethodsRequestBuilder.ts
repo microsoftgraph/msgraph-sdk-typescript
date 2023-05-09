@@ -2,9 +2,12 @@ import {WindowsHelloForBusinessAuthenticationMethodCollectionResponse} from '../
 import {createWindowsHelloForBusinessAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../models/createWindowsHelloForBusinessAuthenticationMethodCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './item/windowsHelloForBusinessAuthenticationMethodItemRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration} from './windowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
@@ -15,6 +18,17 @@ export class WindowsHelloForBusinessMethodsRequestBuilder extends BaseRequestBui
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
+     * @param windowsHelloForBusinessAuthenticationMethodId Unique identifier of the item
+     * @returns a WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
+     */
+    public byWindowsHelloForBusinessAuthenticationMethodId(windowsHelloForBusinessAuthenticationMethodId: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
+        if(!windowsHelloForBusinessAuthenticationMethodId) throw new Error("windowsHelloForBusinessAuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsHelloForBusinessAuthenticationMethod%2Did"] = windowsHelloForBusinessAuthenticationMethodId
+        return new WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new WindowsHelloForBusinessMethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -23,24 +37,23 @@ export class WindowsHelloForBusinessMethodsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/windowsHelloForBusinessMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsHelloForBusinessAuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsHelloForBusinessAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsHelloForBusinessAuthenticationMethodCollectionResponse>(requestInfo, createWindowsHelloForBusinessAuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the windowsHelloForBusinessAuthenticationMethod objects and their properties.
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

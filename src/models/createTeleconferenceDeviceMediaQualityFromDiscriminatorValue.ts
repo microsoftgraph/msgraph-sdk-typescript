@@ -1,7 +1,11 @@
+import {deserializeIntoTeleconferenceDeviceAudioQuality} from './deserializeIntoTeleconferenceDeviceAudioQuality';
+import {deserializeIntoTeleconferenceDeviceMediaQuality} from './deserializeIntoTeleconferenceDeviceMediaQuality';
+import {deserializeIntoTeleconferenceDeviceScreenSharingQuality} from './deserializeIntoTeleconferenceDeviceScreenSharingQuality';
+import {deserializeIntoTeleconferenceDeviceVideoQuality} from './deserializeIntoTeleconferenceDeviceVideoQuality';
 import {TeleconferenceDeviceAudioQuality, TeleconferenceDeviceMediaQuality, TeleconferenceDeviceScreenSharingQuality, TeleconferenceDeviceVideoQuality} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeleconferenceDeviceMediaQualityFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeleconferenceDeviceMediaQuality {
+export function createTeleconferenceDeviceMediaQualityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createTeleconferenceDeviceMediaQualityFromDiscriminatorValue(par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.teleconferenceDeviceAudioQuality":
-                    return new TeleconferenceDeviceAudioQuality();
+                    return deserializeIntoTeleconferenceDeviceAudioQuality;
                 case "#microsoft.graph.teleconferenceDeviceScreenSharingQuality":
-                    return new TeleconferenceDeviceScreenSharingQuality();
+                    return deserializeIntoTeleconferenceDeviceScreenSharingQuality;
                 case "#microsoft.graph.teleconferenceDeviceVideoQuality":
-                    return new TeleconferenceDeviceVideoQuality();
+                    return deserializeIntoTeleconferenceDeviceVideoQuality;
             }
         }
     }
-    return new TeleconferenceDeviceMediaQuality();
+    return deserializeIntoTeleconferenceDeviceMediaQuality;
 }

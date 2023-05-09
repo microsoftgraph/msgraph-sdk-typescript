@@ -1,12 +1,18 @@
-import {DeviceComplianceScheduledActionForRule, DeviceComplianceScheduledActionForRuleCollectionResponse} from '../../../../models/';
+import {DeviceComplianceScheduledActionForRuleCollectionResponse} from '../../../../models/';
 import {createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue';
 import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
+import {deserializeIntoDeviceComplianceScheduledActionForRule} from '../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
+import {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeDeviceComplianceScheduledActionForRule} from '../../../../models/serializeDeviceComplianceScheduledActionForRule';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceComplianceScheduledActionForRuleItemRequestBuilder} from './item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilderGetRequestConfiguration} from './scheduledActionsForRuleRequestBuilderGetRequestConfiguration';
 import {ScheduledActionsForRuleRequestBuilderPostRequestConfiguration} from './scheduledActionsForRuleRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -16,6 +22,17 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
+     * @param deviceComplianceScheduledActionForRuleId Unique identifier of the item
+     * @returns a DeviceComplianceScheduledActionForRuleItemRequestBuilder
+     */
+    public byDeviceComplianceScheduledActionForRuleId(deviceComplianceScheduledActionForRuleId: string) : DeviceComplianceScheduledActionForRuleItemRequestBuilder {
+        if(!deviceComplianceScheduledActionForRuleId) throw new Error("deviceComplianceScheduledActionForRuleId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceComplianceScheduledActionForRule%2Did"] = deviceComplianceScheduledActionForRuleId
+        return new DeviceComplianceScheduledActionForRuleItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ScheduledActionsForRuleRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRuleCollectionResponse>(requestInfo, createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceComplianceScheduledActionForRule);
         return requestInfo;
     };
 }

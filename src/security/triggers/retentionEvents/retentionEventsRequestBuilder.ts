@@ -1,12 +1,18 @@
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {RetentionEvent, RetentionEventCollectionResponse} from '../../../models/security/';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {RetentionEventCollectionResponse} from '../../../models/security/';
 import {createRetentionEventCollectionResponseFromDiscriminatorValue} from '../../../models/security/createRetentionEventCollectionResponseFromDiscriminatorValue';
 import {createRetentionEventFromDiscriminatorValue} from '../../../models/security/createRetentionEventFromDiscriminatorValue';
+import {deserializeIntoRetentionEvent} from '../../../models/security/deserializeIntoRetentionEvent';
+import {RetentionEvent} from '../../../models/security/retentionEvent';
+import {serializeRetentionEvent} from '../../../models/security/serializeRetentionEvent';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RetentionEventItemRequestBuilder} from './item/retentionEventItemRequestBuilder';
 import {RetentionEventsRequestBuilderGetRequestConfiguration} from './retentionEventsRequestBuilderGetRequestConfiguration';
 import {RetentionEventsRequestBuilderPostRequestConfiguration} from './retentionEventsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
@@ -16,6 +22,17 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
+     * @param retentionEventId Unique identifier of the item
+     * @returns a RetentionEventItemRequestBuilder
+     */
+    public byRetentionEventId(retentionEventId: string) : RetentionEventItemRequestBuilder {
+        if(!retentionEventId) throw new Error("retentionEventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["retentionEvent%2Did"] = retentionEventId
+        return new RetentionEventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RetentionEventsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RetentionEventCollectionResponse>(requestInfo, createRetentionEventCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RetentionEvent>(requestInfo, createRetentionEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRetentionEvent);
         return requestInfo;
     };
 }

@@ -1,16 +1,17 @@
-import {AuditLogRoot} from '../models/';
+import {AuditLogRoot} from '../models/auditLogRoot';
 import {createAuditLogRootFromDiscriminatorValue} from '../models/createAuditLogRootFromDiscriminatorValue';
+import {deserializeIntoAuditLogRoot} from '../models/deserializeIntoAuditLogRoot';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeAuditLogRoot} from '../models/serializeAuditLogRoot';
 import {AuditLogsRequestBuilderGetRequestConfiguration} from './auditLogsRequestBuilderGetRequestConfiguration';
 import {AuditLogsRequestBuilderPatchRequestConfiguration} from './auditLogsRequestBuilderPatchRequestConfiguration';
 import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
-import {DirectoryAuditItemRequestBuilder} from './directoryAudits/item/directoryAuditItemRequestBuilder';
-import {ProvisioningObjectSummaryItemRequestBuilder} from './provisioning/item/provisioningObjectSummaryItemRequestBuilder';
 import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
-import {SignInItemRequestBuilder} from './signIns/item/signInItemRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditLogRoot singleton.
@@ -37,17 +38,6 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/auditLogs{?%24select,%24expand}");
     };
     /**
-     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a DirectoryAuditItemRequestBuilder
-     */
-    public directoryAuditsById(id: string) : DirectoryAuditItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryAudit%2Did"] = id
-        return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -57,10 +47,10 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -75,33 +65,11 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a ProvisioningObjectSummaryItemRequestBuilder
-     */
-    public provisioningById(id: string) : ProvisioningObjectSummaryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["provisioningObjectSummary%2Did"] = id
-        return new ProvisioningObjectSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
-     * @param id Unique identifier of the item
-     * @returns a SignInItemRequestBuilder
-     */
-    public signInsById(id: string) : SignInItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["signIn%2Did"] = id
-        return new SignInItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get auditLogs
@@ -138,7 +106,7 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuditLogRoot);
         return requestInfo;
     };
 }

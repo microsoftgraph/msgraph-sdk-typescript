@@ -1,7 +1,11 @@
-import {ChatMessageHostedContent} from '../../../../../../../../../../../models/';
+import {ChatMessageHostedContent} from '../../../../../../../../../../../models/chatMessageHostedContent';
 import {createChatMessageHostedContentFromDiscriminatorValue} from '../../../../../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
+import {deserializeIntoChatMessageHostedContent} from '../../../../../../../../../../../models/deserializeIntoChatMessageHostedContent';
 import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeChatMessageHostedContent} from '../../../../../../../../../../../models/serializeChatMessageHostedContent';
 import {ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderGetRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderPatchRequestConfiguration';
@@ -33,10 +37,10 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,10 +53,10 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ChatMessageHostedContent>(requestInfo, createChatMessageHostedContentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +71,10 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ChatMessageHostedContent>(requestInfo, createChatMessageHostedContentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -124,7 +128,7 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChatMessageHostedContent);
         return requestInfo;
     };
 }

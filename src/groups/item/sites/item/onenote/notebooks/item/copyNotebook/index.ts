@@ -1,1 +1,5 @@
 export * from './copyNotebookPostRequestBody'
+export * from './copyNotebookRequestBuilderPostRequestConfiguration'
+export * from './createCopyNotebookPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCopyNotebookPostRequestBody'
+export * from './serializeCopyNotebookPostRequestBody'

@@ -1,1 +1,5 @@
+export * from './createXorPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoXorPostRequestBody'
+export * from './serializeXorPostRequestBody'
 export * from './xorPostRequestBody'
+export * from './xorRequestBuilderPostRequestConfiguration'

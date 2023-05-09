@@ -1,7 +1,9 @@
+import {deserializeIntoRiskyServicePrincipal} from './deserializeIntoRiskyServicePrincipal';
+import {deserializeIntoRiskyServicePrincipalHistoryItem} from './deserializeIntoRiskyServicePrincipalHistoryItem';
 import {RiskyServicePrincipal, RiskyServicePrincipalHistoryItem} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRiskyServicePrincipalFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskyServicePrincipal {
+export function createRiskyServicePrincipalFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createRiskyServicePrincipalFromDiscriminatorValue(parseNode: Par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.riskyServicePrincipalHistoryItem":
-                    return new RiskyServicePrincipalHistoryItem();
+                    return deserializeIntoRiskyServicePrincipalHistoryItem;
             }
         }
     }
-    return new RiskyServicePrincipal();
+    return deserializeIntoRiskyServicePrincipal;
 }

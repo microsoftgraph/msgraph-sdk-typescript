@@ -1,7 +1,11 @@
-import {BrowserSharedCookie} from '../../../../../../../models/';
+import {BrowserSharedCookie} from '../../../../../../../models/browserSharedCookie';
 import {createBrowserSharedCookieFromDiscriminatorValue} from '../../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
+import {deserializeIntoBrowserSharedCookie} from '../../../../../../../models/deserializeIntoBrowserSharedCookie';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeBrowserSharedCookie} from '../../../../../../../models/serializeBrowserSharedCookie';
 import {BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration} from './browserSharedCookieItemRequestBuilderDeleteRequestConfiguration';
 import {BrowserSharedCookieItemRequestBuilderGetRequestConfiguration} from './browserSharedCookieItemRequestBuilderGetRequestConfiguration';
 import {BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration} from './browserSharedCookieItemRequestBuilderPatchRequestConfiguration';
@@ -28,14 +32,14 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get sharedCookies from admin
+     * A collection of shared cookies defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSharedCookie
@@ -44,10 +48,10 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BrowserSharedCookie>(requestInfo, createBrowserSharedCookieFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BrowserSharedCookie>(requestInfo, createBrowserSharedCookieFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -85,7 +89,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get sharedCookies from admin
+     * A collection of shared cookies defined for the site list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +123,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBrowserSharedCookie);
         return requestInfo;
     };
 }

@@ -1,1 +1,5 @@
 export * from './bin2DecPostRequestBody'
+export * from './bin2DecRequestBuilderPostRequestConfiguration'
+export * from './createBin2DecPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBin2DecPostRequestBody'
+export * from './serializeBin2DecPostRequestBody'

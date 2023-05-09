@@ -1,13 +1,16 @@
-import {InternetExplorerMode} from '../../../models/';
 import {createInternetExplorerModeFromDiscriminatorValue} from '../../../models/createInternetExplorerModeFromDiscriminatorValue';
+import {deserializeIntoInternetExplorerMode} from '../../../models/deserializeIntoInternetExplorerMode';
+import {InternetExplorerMode} from '../../../models/internetExplorerMode';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeInternetExplorerMode} from '../../../models/serializeInternetExplorerMode';
 import {InternetExplorerModeRequestBuilderDeleteRequestConfiguration} from './internetExplorerModeRequestBuilderDeleteRequestConfiguration';
 import {InternetExplorerModeRequestBuilderGetRequestConfiguration} from './internetExplorerModeRequestBuilderGetRequestConfiguration';
 import {InternetExplorerModeRequestBuilderPatchRequestConfiguration} from './internetExplorerModeRequestBuilderPatchRequestConfiguration';
-import {BrowserSiteListItemRequestBuilder} from './siteLists/item/browserSiteListItemRequestBuilder';
 import {SiteListsRequestBuilder} from './siteLists/siteListsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.
@@ -34,14 +37,14 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get internetExplorerMode from admin
+     * A container for Internet Explorer mode resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternetExplorerMode
@@ -50,10 +53,10 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<InternetExplorerMode>(requestInfo, createInternetExplorerModeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -68,22 +71,11 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<InternetExplorerMode>(requestInfo, createInternetExplorerModeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
-     * @param id Unique identifier of the item
-     * @returns a BrowserSiteListItemRequestBuilder
-     */
-    public siteListsById(id: string) : BrowserSiteListItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["browserSiteList%2Did"] = id
-        return new BrowserSiteListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property internetExplorerMode for admin
@@ -102,7 +94,7 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get internetExplorerMode from admin
+     * A container for Internet Explorer mode resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -136,7 +128,7 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeInternetExplorerMode);
         return requestInfo;
     };
 }
