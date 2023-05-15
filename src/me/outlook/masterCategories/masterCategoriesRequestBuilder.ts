@@ -1,12 +1,18 @@
-import {OutlookCategory, OutlookCategoryCollectionResponse} from '../../../models/';
+import {OutlookCategoryCollectionResponse} from '../../../models/';
 import {createOutlookCategoryCollectionResponseFromDiscriminatorValue} from '../../../models/createOutlookCategoryCollectionResponseFromDiscriminatorValue';
 import {createOutlookCategoryFromDiscriminatorValue} from '../../../models/createOutlookCategoryFromDiscriminatorValue';
+import {deserializeIntoOutlookCategory} from '../../../models/deserializeIntoOutlookCategory';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {OutlookCategory} from '../../../models/outlookCategory';
+import {serializeOutlookCategory} from '../../../models/serializeOutlookCategory';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {OutlookCategoryItemRequestBuilder} from './item/outlookCategoryItemRequestBuilder';
 import {MasterCategoriesRequestBuilderGetRequestConfiguration} from './masterCategoriesRequestBuilderGetRequestConfiguration';
 import {MasterCategoriesRequestBuilderPostRequestConfiguration} from './masterCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
@@ -17,6 +23,17 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
+     * @param outlookCategoryId Unique identifier of the item
+     * @returns a OutlookCategoryItemRequestBuilder
+     */
+    public byOutlookCategoryId(outlookCategoryId: string) : OutlookCategoryItemRequestBuilder {
+        if(!outlookCategoryId) throw new Error("outlookCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["outlookCategory%2Did"] = outlookCategoryId
+        return new OutlookCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new MasterCategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,43 +42,41 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/outlook/masterCategories{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get all the categories that have been defined for the user.
+     * A list of categories defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OutlookCategoryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/outlookuser-list-mastercategories?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MasterCategoriesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OutlookCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OutlookCategoryCollectionResponse>(requestInfo, createOutlookCategoryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create an outlookCategory object in the user's master list of categories.
+     * Create new navigation property to masterCategories for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OutlookCategory
-     * @see {@link https://docs.microsoft.com/graph/api/outlookuser-post-mastercategories?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OutlookCategory | undefined, requestConfiguration?: MasterCategoriesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OutlookCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OutlookCategory>(requestInfo, createOutlookCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get all the categories that have been defined for the user.
+     * A list of categories defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +94,7 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an outlookCategory object in the user's master list of categories.
+     * Create new navigation property to masterCategories for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -95,7 +110,7 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOutlookCategory);
         return requestInfo;
     };
 }

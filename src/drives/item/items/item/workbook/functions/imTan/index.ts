@@ -1,1 +1,5 @@
+export * from './createImTanPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImTanPostRequestBody'
 export * from './imTanPostRequestBody'
+export * from './imTanRequestBuilderPostRequestConfiguration'
+export * from './serializeImTanPostRequestBody'

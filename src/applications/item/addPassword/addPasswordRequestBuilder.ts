@@ -1,9 +1,15 @@
-import {PasswordCredential} from '../../../models/';
 import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/createPasswordCredentialFromDiscriminatorValue';
+import {deserializeIntoPasswordCredential} from '../../../models/deserializeIntoPasswordCredential';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {PasswordCredential} from '../../../models/passwordCredential';
+import {serializePasswordCredential} from '../../../models/serializePasswordCredential';
+import {AddPasswordPostRequestBody} from './addPasswordPostRequestBody';
 import {AddPasswordRequestBuilderPostRequestConfiguration} from './addPasswordRequestBuilderPostRequestConfiguration';
-import {AddPasswordPostRequestBody} from './index';
+import {deserializeIntoAddPasswordPostRequestBody} from './deserializeIntoAddPasswordPostRequestBody';
+import {serializeAddPasswordPostRequestBody} from './serializeAddPasswordPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -19,26 +25,25 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/addPassword");
     };
     /**
-     * Adds a strong password or secret to an application.
+     * Invoke action addPassword
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PasswordCredential
-     * @see {@link https://docs.microsoft.com/graph/api/application-addpassword?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPasswordPostRequestBody | undefined, requestConfiguration?: AddPasswordRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PasswordCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PasswordCredential>(requestInfo, createPasswordCredentialFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Adds a strong password or secret to an application.
+     * Invoke action addPassword
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -54,7 +59,7 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddPasswordPostRequestBody);
         return requestInfo;
     };
 }

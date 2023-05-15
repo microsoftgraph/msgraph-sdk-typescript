@@ -1,12 +1,18 @@
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Relation, RelationCollectionResponse} from '../../../../../../../../../../models/termStore/';
+import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {RelationCollectionResponse} from '../../../../../../../../../../models/termStore/';
 import {createRelationCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../../models/termStore/createRelationCollectionResponseFromDiscriminatorValue';
 import {createRelationFromDiscriminatorValue} from '../../../../../../../../../../models/termStore/createRelationFromDiscriminatorValue';
+import {deserializeIntoRelation} from '../../../../../../../../../../models/termStore/deserializeIntoRelation';
+import {Relation} from '../../../../../../../../../../models/termStore/relation';
+import {serializeRelation} from '../../../../../../../../../../models/termStore/serializeRelation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RelationItemRequestBuilder} from './item/relationItemRequestBuilder';
 import {RelationsRequestBuilderGetRequestConfiguration} from './relationsRequestBuilderGetRequestConfiguration';
 import {RelationsRequestBuilderPostRequestConfiguration} from './relationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
@@ -16,6 +22,17 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
+     * @param relationId Unique identifier of the item
+     * @returns a RelationItemRequestBuilder
+     */
+    public byRelationId(relationId: string) : RelationItemRequestBuilder {
+        if(!relationId) throw new Error("relationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["relation%2Did"] = relationId
+        return new RelationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RelationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RelationCollectionResponse>(requestInfo, createRelationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Relation>(requestInfo, createRelationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRelation);
         return requestInfo;
     };
 }

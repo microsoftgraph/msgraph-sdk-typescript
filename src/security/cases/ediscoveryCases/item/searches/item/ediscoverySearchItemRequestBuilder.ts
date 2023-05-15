@@ -1,21 +1,22 @@
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {EdiscoverySearch} from '../../../../../../models/security/';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
+import {deserializeIntoEdiscoverySearch} from '../../../../../../models/security/deserializeIntoEdiscoverySearch';
+import {EdiscoverySearch} from '../../../../../../models/security/ediscoverySearch';
+import {serializeEdiscoverySearch} from '../../../../../../models/security/serializeEdiscoverySearch';
 import {AdditionalSourcesRequestBuilder} from './additionalSources/additionalSourcesRequestBuilder';
-import {DataSourceItemRequestBuilder as I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06} from './additionalSources/item/dataSourceItemRequestBuilder';
 import {AddToReviewSetOperationRequestBuilder} from './addToReviewSetOperation/addToReviewSetOperationRequestBuilder';
 import {CustodianSourcesRequestBuilder} from './custodianSources/custodianSourcesRequestBuilder';
-import {DataSourceItemRequestBuilder as I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e} from './custodianSources/item/dataSourceItemRequestBuilder';
 import {EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration} from './ediscoverySearchItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderGetRequestConfiguration} from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderPatchRequestConfiguration} from './ediscoverySearchItemRequestBuilderPatchRequestConfiguration';
 import {LastEstimateStatisticsOperationRequestBuilder} from './lastEstimateStatisticsOperation/lastEstimateStatisticsOperationRequestBuilder';
-import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './noncustodialSources/item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
+import {MicrosoftGraphSecurityEstimateStatisticsRequestBuilder} from './microsoftGraphSecurityEstimateStatistics/microsoftGraphSecurityEstimateStatisticsRequestBuilder';
+import {MicrosoftGraphSecurityPurgeDataRequestBuilder} from './microsoftGraphSecurityPurgeData/microsoftGraphSecurityPurgeDataRequestBuilder';
 import {NoncustodialSourcesRequestBuilder} from './noncustodialSources/noncustodialSourcesRequestBuilder';
-import {SecurityEstimateStatisticsRequestBuilder} from './securityEstimateStatistics/securityEstimateStatisticsRequestBuilder';
-import {SecurityPurgeDataRequestBuilder} from './securityPurgeData/securityPurgeDataRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
@@ -37,29 +38,18 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
     public get lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
         return new LastEstimateStatisticsOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to call the estimateStatistics method. */
+    public get microsoftGraphSecurityEstimateStatistics(): MicrosoftGraphSecurityEstimateStatisticsRequestBuilder {
+        return new MicrosoftGraphSecurityEstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the purgeData method. */
+    public get microsoftGraphSecurityPurgeData(): MicrosoftGraphSecurityPurgeDataRequestBuilder {
+        return new MicrosoftGraphSecurityPurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity. */
     public get noncustodialSources(): NoncustodialSourcesRequestBuilder {
         return new NoncustodialSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the estimateStatistics method. */
-    public get securityEstimateStatistics(): SecurityEstimateStatisticsRequestBuilder {
-        return new SecurityEstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the purgeData method. */
-    public get securityPurgeData(): SecurityPurgeDataRequestBuilder {
-        return new SecurityPurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
-     * @param id Unique identifier of the item
-     * @returns a DataSourceItemRequestBuilder
-     */
-    public additionalSourcesById(id: string) : I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["dataSource%2Did"] = id
-        return new I860231e803b45916356ab4415de9e4f00c75d6b57892bd05665f99af41076c06(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new EdiscoverySearchItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -67,17 +57,6 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
-     * @param id Unique identifier of the item
-     * @returns a DataSourceItemRequestBuilder
-     */
-    public custodianSourcesById(id: string) : I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["dataSource%2Did"] = id
-        return new I816d4625b66c6d2c4612002c52b267d5854146b45897bff33e764e473e80311e(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property searches for security
@@ -88,10 +67,10 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -104,22 +83,11 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
-     */
-    public noncustodialSourcesById(id: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryNoncustodialDataSource%2Did"] = id
-        return new EdiscoveryNoncustodialDataSourceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property searches in security
@@ -133,10 +101,10 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -190,7 +158,7 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoverySearch);
         return requestInfo;
     };
 }

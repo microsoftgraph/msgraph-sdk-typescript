@@ -1,1 +1,5 @@
+export * from './createGetHistoricalReportPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoGetHistoricalReportPostRequestBody'
 export * from './getHistoricalReportPostRequestBody'
+export * from './getHistoricalReportRequestBuilderPostRequestConfiguration'
+export * from './serializeGetHistoricalReportPostRequestBody'

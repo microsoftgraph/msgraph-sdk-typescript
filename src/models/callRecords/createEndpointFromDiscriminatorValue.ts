@@ -1,7 +1,10 @@
+import {deserializeIntoEndpoint} from './deserializeIntoEndpoint';
+import {deserializeIntoParticipantEndpoint} from './deserializeIntoParticipantEndpoint';
+import {deserializeIntoServiceEndpoint} from './deserializeIntoServiceEndpoint';
 import {Endpoint, ParticipantEndpoint, ServiceEndpoint} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) : Endpoint {
+export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createEndpointFromDiscriminatorValue(parseNode: ParseNode | unde
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.callRecords.participantEndpoint":
-                    return new ParticipantEndpoint();
+                    return deserializeIntoParticipantEndpoint;
                 case "#microsoft.graph.callRecords.serviceEndpoint":
-                    return new ServiceEndpoint();
+                    return deserializeIntoServiceEndpoint;
             }
         }
     }
-    return new Endpoint();
+    return deserializeIntoEndpoint;
 }

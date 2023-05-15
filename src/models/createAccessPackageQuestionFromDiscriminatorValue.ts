@@ -1,7 +1,10 @@
+import {deserializeIntoAccessPackageMultipleChoiceQuestion} from './deserializeIntoAccessPackageMultipleChoiceQuestion';
+import {deserializeIntoAccessPackageQuestion} from './deserializeIntoAccessPackageQuestion';
+import {deserializeIntoAccessPackageTextInputQuestion} from './deserializeIntoAccessPackageTextInputQuestion';
 import {AccessPackageMultipleChoiceQuestion, AccessPackageQuestion, AccessPackageTextInputQuestion} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessPackageQuestionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageQuestion {
+export function createAccessPackageQuestionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createAccessPackageQuestionFromDiscriminatorValue(parseNode: Par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.accessPackageMultipleChoiceQuestion":
-                    return new AccessPackageMultipleChoiceQuestion();
+                    return deserializeIntoAccessPackageMultipleChoiceQuestion;
                 case "#microsoft.graph.accessPackageTextInputQuestion":
-                    return new AccessPackageTextInputQuestion();
+                    return deserializeIntoAccessPackageTextInputQuestion;
             }
         }
     }
-    return new AccessPackageQuestion();
+    return deserializeIntoAccessPackageQuestion;
 }

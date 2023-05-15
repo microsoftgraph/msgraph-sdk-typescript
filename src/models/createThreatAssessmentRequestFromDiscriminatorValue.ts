@@ -1,7 +1,12 @@
+import {deserializeIntoEmailFileAssessmentRequest} from './deserializeIntoEmailFileAssessmentRequest';
+import {deserializeIntoFileAssessmentRequest} from './deserializeIntoFileAssessmentRequest';
+import {deserializeIntoMailAssessmentRequest} from './deserializeIntoMailAssessmentRequest';
+import {deserializeIntoThreatAssessmentRequest} from './deserializeIntoThreatAssessmentRequest';
+import {deserializeIntoUrlAssessmentRequest} from './deserializeIntoUrlAssessmentRequest';
 import {EmailFileAssessmentRequest, FileAssessmentRequest, MailAssessmentRequest, ThreatAssessmentRequest, UrlAssessmentRequest} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ThreatAssessmentRequest {
+export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createThreatAssessmentRequestFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.emailFileAssessmentRequest":
-                    return new EmailFileAssessmentRequest();
+                    return deserializeIntoEmailFileAssessmentRequest;
                 case "#microsoft.graph.fileAssessmentRequest":
-                    return new FileAssessmentRequest();
+                    return deserializeIntoFileAssessmentRequest;
                 case "#microsoft.graph.mailAssessmentRequest":
-                    return new MailAssessmentRequest();
+                    return deserializeIntoMailAssessmentRequest;
                 case "#microsoft.graph.urlAssessmentRequest":
-                    return new UrlAssessmentRequest();
+                    return deserializeIntoUrlAssessmentRequest;
             }
         }
     }
-    return new ThreatAssessmentRequest();
+    return deserializeIntoThreatAssessmentRequest;
 }

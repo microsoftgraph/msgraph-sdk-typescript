@@ -1,7 +1,8 @@
+import {deserializeIntoBookingCurrency} from './deserializeIntoBookingCurrency';
 import {BookingCurrency} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingCurrencyFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCurrency {
+export function createBookingCurrencyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BookingCurrency();
+    return deserializeIntoBookingCurrency;
 }

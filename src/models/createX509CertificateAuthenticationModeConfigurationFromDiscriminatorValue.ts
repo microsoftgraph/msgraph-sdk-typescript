@@ -1,7 +1,8 @@
+import {deserializeIntoX509CertificateAuthenticationModeConfiguration} from './deserializeIntoX509CertificateAuthenticationModeConfiguration';
 import {X509CertificateAuthenticationModeConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createX509CertificateAuthenticationModeConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : X509CertificateAuthenticationModeConfiguration {
+export function createX509CertificateAuthenticationModeConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new X509CertificateAuthenticationModeConfiguration();
+    return deserializeIntoX509CertificateAuthenticationModeConfiguration;
 }

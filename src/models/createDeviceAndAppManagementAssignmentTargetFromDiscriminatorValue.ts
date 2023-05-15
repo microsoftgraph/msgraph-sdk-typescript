@@ -1,7 +1,13 @@
+import {deserializeIntoAllDevicesAssignmentTarget} from './deserializeIntoAllDevicesAssignmentTarget';
+import {deserializeIntoAllLicensedUsersAssignmentTarget} from './deserializeIntoAllLicensedUsersAssignmentTarget';
+import {deserializeIntoConfigurationManagerCollectionAssignmentTarget} from './deserializeIntoConfigurationManagerCollectionAssignmentTarget';
+import {deserializeIntoDeviceAndAppManagementAssignmentTarget} from './deserializeIntoDeviceAndAppManagementAssignmentTarget';
+import {deserializeIntoExclusionGroupAssignmentTarget} from './deserializeIntoExclusionGroupAssignmentTarget';
+import {deserializeIntoGroupAssignmentTarget} from './deserializeIntoGroupAssignmentTarget';
 import {AllDevicesAssignmentTarget, AllLicensedUsersAssignmentTarget, ConfigurationManagerCollectionAssignmentTarget, DeviceAndAppManagementAssignmentTarget, ExclusionGroupAssignmentTarget, GroupAssignmentTarget} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceAndAppManagementAssignmentTarget {
+export function createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,17 +15,17 @@ export function createDeviceAndAppManagementAssignmentTargetFromDiscriminatorVal
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.allDevicesAssignmentTarget":
-                    return new AllDevicesAssignmentTarget();
+                    return deserializeIntoAllDevicesAssignmentTarget;
                 case "#microsoft.graph.allLicensedUsersAssignmentTarget":
-                    return new AllLicensedUsersAssignmentTarget();
+                    return deserializeIntoAllLicensedUsersAssignmentTarget;
                 case "#microsoft.graph.configurationManagerCollectionAssignmentTarget":
-                    return new ConfigurationManagerCollectionAssignmentTarget();
+                    return deserializeIntoConfigurationManagerCollectionAssignmentTarget;
                 case "#microsoft.graph.exclusionGroupAssignmentTarget":
-                    return new ExclusionGroupAssignmentTarget();
+                    return deserializeIntoExclusionGroupAssignmentTarget;
                 case "#microsoft.graph.groupAssignmentTarget":
-                    return new GroupAssignmentTarget();
+                    return deserializeIntoGroupAssignmentTarget;
             }
         }
     }
-    return new DeviceAndAppManagementAssignmentTarget();
+    return deserializeIntoDeviceAndAppManagementAssignmentTarget;
 }

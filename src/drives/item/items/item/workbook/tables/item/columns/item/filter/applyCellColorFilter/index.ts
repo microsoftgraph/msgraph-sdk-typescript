@@ -1,1 +1,5 @@
 export * from './applyCellColorFilterPostRequestBody'
+export * from './applyCellColorFilterRequestBuilderPostRequestConfiguration'
+export * from './createApplyCellColorFilterPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoApplyCellColorFilterPostRequestBody'
+export * from './serializeApplyCellColorFilterPostRequestBody'

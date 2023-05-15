@@ -1,7 +1,11 @@
+import {deserializeIntoAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource} from './deserializeIntoAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource';
+import {deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource} from './deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource';
+import {deserializeIntoAccessReviewInstanceDecisionItemResource} from './deserializeIntoAccessReviewInstanceDecisionItemResource';
+import {deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalResource} from './deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalResource';
 import {AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource, AccessReviewInstanceDecisionItemAzureRoleResource, AccessReviewInstanceDecisionItemResource, AccessReviewInstanceDecisionItemServicePrincipalResource} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewInstanceDecisionItemResource {
+export function createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createAccessReviewInstanceDecisionItemResourceFromDiscriminatorV
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource":
-                    return new AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource();
+                    return deserializeIntoAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource;
                 case "#microsoft.graph.accessReviewInstanceDecisionItemAzureRoleResource":
-                    return new AccessReviewInstanceDecisionItemAzureRoleResource();
+                    return deserializeIntoAccessReviewInstanceDecisionItemAzureRoleResource;
                 case "#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalResource":
-                    return new AccessReviewInstanceDecisionItemServicePrincipalResource();
+                    return deserializeIntoAccessReviewInstanceDecisionItemServicePrincipalResource;
             }
         }
     }
-    return new AccessReviewInstanceDecisionItemResource();
+    return deserializeIntoAccessReviewInstanceDecisionItemResource;
 }

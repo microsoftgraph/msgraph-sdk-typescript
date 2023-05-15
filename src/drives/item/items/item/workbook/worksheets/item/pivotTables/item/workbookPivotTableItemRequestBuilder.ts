@@ -1,7 +1,11 @@
-import {WorkbookPivotTable} from '../../../../../../../../../models/';
 import {createWorkbookPivotTableFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
+import {deserializeIntoWorkbookPivotTable} from '../../../../../../../../../models/deserializeIntoWorkbookPivotTable';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookPivotTable} from '../../../../../../../../../models/serializeWorkbookPivotTable';
+import {WorkbookPivotTable} from '../../../../../../../../../models/workbookPivotTable';
 import {RefreshRequestBuilder} from './refresh/refreshRequestBuilder';
 import {WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration} from './workbookPivotTableItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookPivotTableItemRequestBuilderGetRequestConfiguration} from './workbookPivotTableItemRequestBuilderGetRequestConfiguration';
@@ -38,10 +42,10 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -54,10 +58,10 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -72,10 +76,10 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -129,7 +133,7 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookPivotTable);
         return requestInfo;
     };
 }

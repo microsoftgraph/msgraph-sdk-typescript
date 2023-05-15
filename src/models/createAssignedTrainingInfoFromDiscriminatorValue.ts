@@ -1,7 +1,8 @@
+import {deserializeIntoAssignedTrainingInfo} from './deserializeIntoAssignedTrainingInfo';
 import {AssignedTrainingInfo} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAssignedTrainingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : AssignedTrainingInfo {
+export function createAssignedTrainingInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AssignedTrainingInfo();
+    return deserializeIntoAssignedTrainingInfo;
 }

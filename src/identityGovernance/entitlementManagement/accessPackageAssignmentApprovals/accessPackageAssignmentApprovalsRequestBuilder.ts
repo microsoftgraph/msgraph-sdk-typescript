@@ -1,13 +1,19 @@
-import {Approval, ApprovalCollectionResponse} from '../../../models/';
+import {ApprovalCollectionResponse} from '../../../models/';
+import {Approval} from '../../../models/approval';
 import {createApprovalCollectionResponseFromDiscriminatorValue} from '../../../models/createApprovalCollectionResponseFromDiscriminatorValue';
 import {createApprovalFromDiscriminatorValue} from '../../../models/createApprovalFromDiscriminatorValue';
+import {deserializeIntoApproval} from '../../../models/deserializeIntoApproval';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeApproval} from '../../../models/serializeApproval';
 import {AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration';
 import {AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration} from './accessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ApprovalItemRequestBuilder} from './item/approvalItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
@@ -17,6 +23,17 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
+     * @param approvalId Unique identifier of the item
+     * @returns a ApprovalItemRequestBuilder
+     */
+    public byApprovalId(approvalId: string) : ApprovalItemRequestBuilder {
+        if(!approvalId) throw new Error("approvalId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["approval%2Did"] = approvalId
+        return new ApprovalItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AccessPackageAssignmentApprovalsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -44,10 +61,10 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ApprovalCollectionResponse>(requestInfo, createApprovalCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +79,10 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -103,7 +120,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApproval);
         return requestInfo;
     };
 }

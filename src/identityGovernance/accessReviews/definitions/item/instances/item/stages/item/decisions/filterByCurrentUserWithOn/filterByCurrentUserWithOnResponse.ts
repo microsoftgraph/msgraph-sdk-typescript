@@ -1,46 +1,8 @@
-import {AccessReviewInstanceDecisionItem, BaseCollectionPaginationCountResponse} from '../../../../../../../../../../models/';
-import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AccessReviewInstanceDecisionItem} from '../../../../../../../../../../models/accessReviewInstanceDecisionItem';
+import {BaseCollectionPaginationCountResponse} from '../../../../../../../../../../models/baseCollectionPaginationCountResponse';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class FilterByCurrentUserWithOnResponse extends BaseCollectionPaginationCountResponse implements Parsable {
+export interface FilterByCurrentUserWithOnResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /** The value property */
-    private _value?: AccessReviewInstanceDecisionItem[] | undefined;
-    /**
-     * Instantiates a new filterByCurrentUserWithOnResponse and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "value": n => { this.value = n.getCollectionOfObjectValues<AccessReviewInstanceDecisionItem>(createAccessReviewInstanceDecisionItemFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("value", this.value);
-    };
-    /**
-     * Gets the value property value. The value property
-     * @returns a accessReviewInstanceDecisionItem
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Sets the value property value. The value property
-     * @param value Value to set for the value property.
-     */
-    public set value(value: AccessReviewInstanceDecisionItem[] | undefined) {
-        this._value = value;
-    };
+    value?: AccessReviewInstanceDecisionItem[] | undefined;
 }

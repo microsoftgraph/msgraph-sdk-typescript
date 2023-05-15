@@ -1,13 +1,19 @@
-import {IdentityProviderBase, IdentityProviderBaseCollectionResponse} from '../../models/';
+import {IdentityProviderBaseCollectionResponse} from '../../models/';
 import {createIdentityProviderBaseCollectionResponseFromDiscriminatorValue} from '../../models/createIdentityProviderBaseCollectionResponseFromDiscriminatorValue';
 import {createIdentityProviderBaseFromDiscriminatorValue} from '../../models/createIdentityProviderBaseFromDiscriminatorValue';
+import {deserializeIntoIdentityProviderBase} from '../../models/deserializeIntoIdentityProviderBase';
+import {IdentityProviderBase} from '../../models/identityProviderBase';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeIdentityProviderBase} from '../../models/serializeIdentityProviderBase';
 import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederationConfigurationsRequestBuilderGetRequestConfiguration} from './federationConfigurationsRequestBuilderGetRequestConfiguration';
 import {FederationConfigurationsRequestBuilderPostRequestConfiguration} from './federationConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {IdentityProviderBaseItemRequestBuilder} from './item/identityProviderBaseItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
@@ -21,6 +27,17 @@ export class FederationConfigurationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
+     * @param identityProviderBaseId Unique identifier of the item
+     * @returns a IdentityProviderBaseItemRequestBuilder
+     */
+    public byIdentityProviderBaseId(identityProviderBaseId: string) : IdentityProviderBaseItemRequestBuilder {
+        if(!identityProviderBaseId) throw new Error("identityProviderBaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["identityProviderBase%2Did"] = identityProviderBaseId
+        return new IdentityProviderBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new FederationConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -39,10 +56,10 @@ export class FederationConfigurationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IdentityProviderBaseCollectionResponse>(requestInfo, createIdentityProviderBaseCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -57,10 +74,10 @@ export class FederationConfigurationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IdentityProviderBase>(requestInfo, createIdentityProviderBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -98,7 +115,7 @@ export class FederationConfigurationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityProviderBase);
         return requestInfo;
     };
 }

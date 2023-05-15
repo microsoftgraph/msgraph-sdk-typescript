@@ -1,7 +1,8 @@
+import {deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse} from './deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse';
 import {DownloadApplePushNotificationCertificateSigningRequestResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DownloadApplePushNotificationCertificateSigningRequestResponse {
+export function createDownloadApplePushNotificationCertificateSigningRequestResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DownloadApplePushNotificationCertificateSigningRequestResponse();
+    return deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse;
 }

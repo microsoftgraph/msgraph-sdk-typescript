@@ -1,1 +1,5 @@
+export * from './createTrimPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoTrimPostRequestBody'
+export * from './serializeTrimPostRequestBody'
 export * from './trimPostRequestBody'
+export * from './trimRequestBuilderPostRequestConfiguration'

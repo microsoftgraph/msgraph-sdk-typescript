@@ -1,21 +1,22 @@
-import {EducationAssignment} from '../../../../../models/';
 import {createEducationAssignmentFromDiscriminatorValue} from '../../../../../models/createEducationAssignmentFromDiscriminatorValue';
+import {deserializeIntoEducationAssignment} from '../../../../../models/deserializeIntoEducationAssignment';
+import {EducationAssignment} from '../../../../../models/educationAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeEducationAssignment} from '../../../../../models/serializeEducationAssignment';
 import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
-import {EducationCategoryItemRequestBuilder} from './categories/item/educationCategoryItemRequestBuilder';
 import {EducationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './educationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {EducationAssignmentItemRequestBuilderGetRequestConfiguration} from './educationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {EducationAssignmentItemRequestBuilderPatchRequestConfiguration} from './educationAssignmentItemRequestBuilderPatchRequestConfiguration';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {EducationAssignmentResourceItemRequestBuilder} from './resources/item/educationAssignmentResourceItemRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {RubricRequestBuilder} from './rubric/rubricRequestBuilder';
 import {SetUpFeedbackResourcesFolderRequestBuilder} from './setUpFeedbackResourcesFolder/setUpFeedbackResourcesFolderRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
-import {EducationSubmissionItemRequestBuilder} from './submissions/item/educationSubmissionItemRequestBuilder';
 import {SubmissionsRequestBuilder} from './submissions/submissionsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
@@ -50,17 +51,6 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return new SubmissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.assignments.item.categories.item collection
-     * @param id Unique identifier of the item
-     * @returns a EducationCategoryItemRequestBuilder
-     */
-    public categoriesById(id: string) : EducationCategoryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationCategory%2Did"] = id
-        return new EducationCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new EducationAssignmentItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -77,10 +67,10 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,10 +83,10 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationAssignment>(requestInfo, createEducationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -111,33 +101,11 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationAssignment>(requestInfo, createEducationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationAssignmentResourceItemRequestBuilder
-     */
-    public resourcesById(id: string) : EducationAssignmentResourceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationAssignmentResource%2Did"] = id
-        return new EducationAssignmentResourceItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationSubmissionItemRequestBuilder
-     */
-    public submissionsById(id: string) : EducationSubmissionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationSubmission%2Did"] = id
-        return new EducationSubmissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property assignments for education
@@ -190,7 +158,7 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationAssignment);
         return requestInfo;
     };
 }

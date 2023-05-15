@@ -2,9 +2,12 @@ import {ProfilePhotoCollectionResponse} from '../../../models/';
 import {createProfilePhotoCollectionResponseFromDiscriminatorValue} from '../../../models/createProfilePhotoCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ProfilePhotoItemRequestBuilder} from './item/profilePhotoItemRequestBuilder';
 import {PhotosRequestBuilderGetRequestConfiguration} from './photosRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photos property of the microsoft.graph.group entity.
@@ -15,6 +18,17 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the photos property of the microsoft.graph.group entity.
+     * @param profilePhotoId Unique identifier of the item
+     * @returns a ProfilePhotoItemRequestBuilder
+     */
+    public byProfilePhotoId(profilePhotoId: string) : ProfilePhotoItemRequestBuilder {
+        if(!profilePhotoId) throw new Error("profilePhotoId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["profilePhoto%2Did"] = profilePhotoId
+        return new ProfilePhotoItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new PhotosRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -23,24 +37,23 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/photos{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Retrieve a list of profilePhoto objects.
+     * The profile photos owned by the group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProfilePhotoCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-photos?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PhotosRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhotoCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ProfilePhotoCollectionResponse>(requestInfo, createProfilePhotoCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a list of profilePhoto objects.
+     * The profile photos owned by the group. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

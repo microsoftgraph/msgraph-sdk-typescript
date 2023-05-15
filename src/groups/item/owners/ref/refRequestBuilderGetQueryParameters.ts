@@ -1,35 +1,15 @@
 
-/**
- * The owners of the group. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner.  Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
- */
-export class RefRequestBuilderGetQueryParameters {
+export interface RefRequestBuilderGetQueryParameters {
     /** Include count of items */
-    public count?: boolean | undefined;
+    count?: boolean | undefined;
     /** Filter items by property values */
-    public filter?: string | undefined;
+    filter?: string | undefined;
     /** Order items by property values */
-    public orderby?: string[] | undefined;
+    orderby?: string[] | undefined;
     /** Search items by search phrases */
-    public search?: string | undefined;
+    search?: string | undefined;
     /** Skip the first n items */
-    public skip?: number | undefined;
+    skip?: number | undefined;
     /** Show only the first n items */
-    public top?: number | undefined;
-    /**
-     * Maps the query parameters names to their encoded names for the URI template parsing.
-     * @param originalName The original query parameter name in the class.
-     * @returns a string
-     */
-    public getQueryParameter(originalName: string | undefined) : string {
-        if(!originalName) throw new Error("originalName cannot be undefined");
-        switch(originalName) {
-            case "count": return "%24count";
-            case "filter": return "%24filter";
-            case "orderby": return "%24orderby";
-            case "search": return "%24search";
-            case "skip": return "%24skip";
-            case "top": return "%24top";
-            default: return originalName;
-        }
-    };
+    top?: number | undefined;
 }

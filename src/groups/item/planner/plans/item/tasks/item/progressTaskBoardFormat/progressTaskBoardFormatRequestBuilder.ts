@@ -1,7 +1,11 @@
-import {PlannerProgressTaskBoardTaskFormat} from '../../../../../../../../models/';
 import {createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue} from '../../../../../../../../models/createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue';
+import {deserializeIntoPlannerProgressTaskBoardTaskFormat} from '../../../../../../../../models/deserializeIntoPlannerProgressTaskBoardTaskFormat';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
+import {PlannerProgressTaskBoardTaskFormat} from '../../../../../../../../models/plannerProgressTaskBoardTaskFormat';
+import {serializePlannerProgressTaskBoardTaskFormat} from '../../../../../../../../models/serializePlannerProgressTaskBoardTaskFormat';
 import {ProgressTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './progressTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration} from './progressTaskBoardFormatRequestBuilderGetRequestConfiguration';
 import {ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './progressTaskBoardFormatRequestBuilderPatchRequestConfiguration';
@@ -28,27 +32,26 @@ export class ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerProgressTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerProgressTaskBoardTaskFormat>(requestInfo, createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -57,17 +60,16 @@ export class ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerProgressTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerprogresstaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerProgressTaskBoardTaskFormat | undefined, requestConfiguration?: ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerProgressTaskBoardTaskFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerProgressTaskBoardTaskFormat>(requestInfo, createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -87,7 +89,7 @@ export class ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of **plannerProgressTaskBoardTaskFormat** object.
+     * Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -121,7 +123,7 @@ export class ProgressTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlannerProgressTaskBoardTaskFormat);
         return requestInfo;
     };
 }

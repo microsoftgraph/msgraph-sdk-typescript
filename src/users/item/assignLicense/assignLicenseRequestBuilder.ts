@@ -1,9 +1,15 @@
-import {User} from '../../../models/';
 import {createUserFromDiscriminatorValue} from '../../../models/createUserFromDiscriminatorValue';
+import {deserializeIntoUser} from '../../../models/deserializeIntoUser';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeUser} from '../../../models/serializeUser';
+import {User} from '../../../models/user';
+import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AssignLicenseRequestBuilderPostRequestConfiguration} from './assignLicenseRequestBuilderPostRequestConfiguration';
-import {AssignLicensePostRequestBody} from './index';
+import {deserializeIntoAssignLicensePostRequestBody} from './deserializeIntoAssignLicensePostRequestBody';
+import {serializeAssignLicensePostRequestBody} from './serializeAssignLicensePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -24,17 +30,16 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
-     * @see {@link https://docs.microsoft.com/graph/api/user-assignlicense?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AssignLicensePostRequestBody | undefined, requestConfiguration?: AssignLicenseRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -54,7 +59,7 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAssignLicensePostRequestBody);
         return requestInfo;
     };
 }

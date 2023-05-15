@@ -1,1 +1,5 @@
 export * from './confirmCompromisedPostRequestBody'
+export * from './confirmCompromisedRequestBuilderPostRequestConfiguration'
+export * from './createConfirmCompromisedPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoConfirmCompromisedPostRequestBody'
+export * from './serializeConfirmCompromisedPostRequestBody'

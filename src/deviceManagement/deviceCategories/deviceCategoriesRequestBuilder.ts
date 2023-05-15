@@ -1,12 +1,18 @@
-import {DeviceCategory, DeviceCategoryCollectionResponse} from '../../models/';
+import {DeviceCategoryCollectionResponse} from '../../models/';
 import {createDeviceCategoryCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceCategoryCollectionResponseFromDiscriminatorValue';
 import {createDeviceCategoryFromDiscriminatorValue} from '../../models/createDeviceCategoryFromDiscriminatorValue';
+import {deserializeIntoDeviceCategory} from '../../models/deserializeIntoDeviceCategory';
+import {DeviceCategory} from '../../models/deviceCategory';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDeviceCategory} from '../../models/serializeDeviceCategory';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCategoriesRequestBuilderGetRequestConfiguration} from './deviceCategoriesRequestBuilderGetRequestConfiguration';
 import {DeviceCategoriesRequestBuilderPostRequestConfiguration} from './deviceCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceCategoryItemRequestBuilder} from './item/deviceCategoryItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
+     * @param deviceCategoryId Unique identifier of the item
+     * @returns a DeviceCategoryItemRequestBuilder
+     */
+    public byDeviceCategoryId(deviceCategoryId: string) : DeviceCategoryItemRequestBuilder {
+        if(!deviceCategoryId) throw new Error("deviceCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceCategory%2Did"] = deviceCategoryId
+        return new DeviceCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceCategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceCategoryCollectionResponse>(requestInfo, createDeviceCategoryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceCategory>(requestInfo, createDeviceCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceCategory);
         return requestInfo;
     };
 }

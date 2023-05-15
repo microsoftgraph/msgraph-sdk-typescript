@@ -1,7 +1,13 @@
+import {deserializeIntoDomainDnsCnameRecord} from './deserializeIntoDomainDnsCnameRecord';
+import {deserializeIntoDomainDnsMxRecord} from './deserializeIntoDomainDnsMxRecord';
+import {deserializeIntoDomainDnsRecord} from './deserializeIntoDomainDnsRecord';
+import {deserializeIntoDomainDnsSrvRecord} from './deserializeIntoDomainDnsSrvRecord';
+import {deserializeIntoDomainDnsTxtRecord} from './deserializeIntoDomainDnsTxtRecord';
+import {deserializeIntoDomainDnsUnavailableRecord} from './deserializeIntoDomainDnsUnavailableRecord';
 import {DomainDnsCnameRecord, DomainDnsMxRecord, DomainDnsRecord, DomainDnsSrvRecord, DomainDnsTxtRecord, DomainDnsUnavailableRecord} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) : DomainDnsRecord {
+export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,17 +15,17 @@ export function createDomainDnsRecordFromDiscriminatorValue(parseNode: ParseNode
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.domainDnsCnameRecord":
-                    return new DomainDnsCnameRecord();
+                    return deserializeIntoDomainDnsCnameRecord;
                 case "#microsoft.graph.domainDnsMxRecord":
-                    return new DomainDnsMxRecord();
+                    return deserializeIntoDomainDnsMxRecord;
                 case "#microsoft.graph.domainDnsSrvRecord":
-                    return new DomainDnsSrvRecord();
+                    return deserializeIntoDomainDnsSrvRecord;
                 case "#microsoft.graph.domainDnsTxtRecord":
-                    return new DomainDnsTxtRecord();
+                    return deserializeIntoDomainDnsTxtRecord;
                 case "#microsoft.graph.domainDnsUnavailableRecord":
-                    return new DomainDnsUnavailableRecord();
+                    return deserializeIntoDomainDnsUnavailableRecord;
             }
         }
     }
-    return new DomainDnsRecord();
+    return deserializeIntoDomainDnsRecord;
 }

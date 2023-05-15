@@ -1,8 +1,12 @@
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {EdiscoveryCaseSettings} from '../../../../../models/security/';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoveryCaseSettingsFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCaseSettingsFromDiscriminatorValue';
-import {SecurityResetToDefaultRequestBuilder} from './securityResetToDefault/securityResetToDefaultRequestBuilder';
+import {deserializeIntoEdiscoveryCaseSettings} from '../../../../../models/security/deserializeIntoEdiscoveryCaseSettings';
+import {EdiscoveryCaseSettings} from '../../../../../models/security/ediscoveryCaseSettings';
+import {serializeEdiscoveryCaseSettings} from '../../../../../models/security/serializeEdiscoveryCaseSettings';
+import {MicrosoftGraphSecurityResetToDefaultRequestBuilder} from './microsoftGraphSecurityResetToDefault/microsoftGraphSecurityResetToDefaultRequestBuilder';
 import {SettingsRequestBuilderDeleteRequestConfiguration} from './settingsRequestBuilderDeleteRequestConfiguration';
 import {SettingsRequestBuilderGetRequestConfiguration} from './settingsRequestBuilderGetRequestConfiguration';
 import {SettingsRequestBuilderPatchRequestConfiguration} from './settingsRequestBuilderPatchRequestConfiguration';
@@ -13,8 +17,8 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  */
 export class SettingsRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the resetToDefault method. */
-    public get securityResetToDefault(): SecurityResetToDefaultRequestBuilder {
-        return new SecurityResetToDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityResetToDefault(): MicrosoftGraphSecurityResetToDefaultRequestBuilder {
+        return new MicrosoftGraphSecurityResetToDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new SettingsRequestBuilder and sets the default values.
@@ -33,46 +37,44 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read the properties and relationships of an ediscoveryCaseSettings object.
+     * Returns a list of eDIscoverySettings objects in the case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCaseSettings
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycasesettings-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SettingsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCaseSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryCaseSettings>(requestInfo, createEdiscoveryCaseSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of an ediscoveryCaseSettings object.
+     * Update the navigation property settings in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCaseSettings
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycasesettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EdiscoveryCaseSettings | undefined, requestConfiguration?: SettingsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCaseSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryCaseSettings>(requestInfo, createEdiscoveryCaseSettingsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -92,7 +94,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an ediscoveryCaseSettings object.
+     * Returns a list of eDIscoverySettings objects in the case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +112,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an ediscoveryCaseSettings object.
+     * Update the navigation property settings in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -126,7 +128,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryCaseSettings);
         return requestInfo;
     };
 }

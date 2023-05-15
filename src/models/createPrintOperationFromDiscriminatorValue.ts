@@ -1,7 +1,9 @@
+import {deserializeIntoPrinterCreateOperation} from './deserializeIntoPrinterCreateOperation';
+import {deserializeIntoPrintOperation} from './deserializeIntoPrintOperation';
 import {PrinterCreateOperation, PrintOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPrintOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintOperation {
+export function createPrintOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createPrintOperationFromDiscriminatorValue(parseNode: ParseNode 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.printerCreateOperation":
-                    return new PrinterCreateOperation();
+                    return deserializeIntoPrinterCreateOperation;
             }
         }
     }
-    return new PrintOperation();
+    return deserializeIntoPrintOperation;
 }

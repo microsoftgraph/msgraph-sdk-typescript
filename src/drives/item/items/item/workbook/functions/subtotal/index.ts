@@ -1,1 +1,5 @@
+export * from './createSubtotalPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSubtotalPostRequestBody'
+export * from './serializeSubtotalPostRequestBody'
 export * from './subtotalPostRequestBody'
+export * from './subtotalRequestBuilderPostRequestConfiguration'

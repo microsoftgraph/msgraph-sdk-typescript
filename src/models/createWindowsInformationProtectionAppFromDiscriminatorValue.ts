@@ -1,7 +1,10 @@
+import {deserializeIntoWindowsInformationProtectionApp} from './deserializeIntoWindowsInformationProtectionApp';
+import {deserializeIntoWindowsInformationProtectionDesktopApp} from './deserializeIntoWindowsInformationProtectionDesktopApp';
+import {deserializeIntoWindowsInformationProtectionStoreApp} from './deserializeIntoWindowsInformationProtectionStoreApp';
 import {WindowsInformationProtectionApp, WindowsInformationProtectionDesktopApp, WindowsInformationProtectionStoreApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsInformationProtectionAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionApp {
+export function createWindowsInformationProtectionAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createWindowsInformationProtectionAppFromDiscriminatorValue(pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.windowsInformationProtectionDesktopApp":
-                    return new WindowsInformationProtectionDesktopApp();
+                    return deserializeIntoWindowsInformationProtectionDesktopApp;
                 case "#microsoft.graph.windowsInformationProtectionStoreApp":
-                    return new WindowsInformationProtectionStoreApp();
+                    return deserializeIntoWindowsInformationProtectionStoreApp;
             }
         }
     }
-    return new WindowsInformationProtectionApp();
+    return deserializeIntoWindowsInformationProtectionApp;
 }

@@ -1,1 +1,5 @@
+export * from './createPoisson_DistPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoPoisson_DistPostRequestBody'
 export * from './poisson_DistPostRequestBody'
+export * from './poisson_DistRequestBuilderPostRequestConfiguration'
+export * from './serializePoisson_DistPostRequestBody'

@@ -1,9 +1,15 @@
-import {WorkbookFunctionResult} from '../../../../../../../models/';
 import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import {AscPostRequestBody} from './ascPostRequestBody';
 import {AscRequestBuilderPostRequestConfiguration} from './ascRequestBuilderPostRequestConfiguration';
-import {AscPostRequestBody} from './index';
+import {deserializeIntoAscPostRequestBody} from './deserializeIntoAscPostRequestBody';
+import {serializeAscPostRequestBody} from './serializeAscPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -30,10 +36,10 @@ export class AscRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,7 +59,7 @@ export class AscRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAscPostRequestBody);
         return requestInfo;
     };
 }

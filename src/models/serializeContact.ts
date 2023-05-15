@@ -1,0 +1,56 @@
+import {Contact} from './contact';
+import {EmailAddress} from './emailAddress';
+import {Extension} from './extension';
+import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import {PhysicalAddress} from './physicalAddress';
+import {ProfilePhoto} from './profilePhoto';
+import {serializeEmailAddress} from './serializeEmailAddress';
+import {serializeExtension} from './serializeExtension';
+import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
+import {serializeOutlookItem} from './serializeOutlookItem';
+import {serializePhysicalAddress} from './serializePhysicalAddress';
+import {serializeProfilePhoto} from './serializeProfilePhoto';
+import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
+import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeContact(writer: SerializationWriter, contact: Contact | undefined = {} as Contact) : void {
+        serializeOutlookItem(writer, contact)
+        writer.writeStringValue("assistantName", contact.assistantName);
+        writer.writeDateValue("birthday", contact.birthday);
+        writer.writeObjectValue<PhysicalAddress>("businessAddress", contact.businessAddress, serializePhysicalAddress);
+        writer.writeStringValue("businessHomePage", contact.businessHomePage);
+        writer.writeCollectionOfPrimitiveValues<string>("businessPhones", contact.businessPhones);
+        writer.writeCollectionOfPrimitiveValues<string>("children", contact.children);
+        writer.writeStringValue("companyName", contact.companyName);
+        writer.writeStringValue("department", contact.department);
+        writer.writeStringValue("displayName", contact.displayName);
+        writer.writeCollectionOfObjectValues<EmailAddress>("emailAddresses", contact.emailAddresses, serializeEmailAddress);
+        writer.writeCollectionOfObjectValues<Extension>("extensions", contact.extensions, serializeExtension);
+        writer.writeStringValue("fileAs", contact.fileAs);
+        writer.writeStringValue("generation", contact.generation);
+        writer.writeStringValue("givenName", contact.givenName);
+        writer.writeObjectValue<PhysicalAddress>("homeAddress", contact.homeAddress, serializePhysicalAddress);
+        writer.writeCollectionOfPrimitiveValues<string>("homePhones", contact.homePhones);
+        writer.writeCollectionOfPrimitiveValues<string>("imAddresses", contact.imAddresses);
+        writer.writeStringValue("initials", contact.initials);
+        writer.writeStringValue("jobTitle", contact.jobTitle);
+        writer.writeStringValue("manager", contact.manager);
+        writer.writeStringValue("middleName", contact.middleName);
+        writer.writeStringValue("mobilePhone", contact.mobilePhone);
+        writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", contact.multiValueExtendedProperties, serializeMultiValueLegacyExtendedProperty);
+        writer.writeStringValue("nickName", contact.nickName);
+        writer.writeStringValue("officeLocation", contact.officeLocation);
+        writer.writeObjectValue<PhysicalAddress>("otherAddress", contact.otherAddress, serializePhysicalAddress);
+        writer.writeStringValue("parentFolderId", contact.parentFolderId);
+        writer.writeStringValue("personalNotes", contact.personalNotes);
+        writer.writeObjectValue<ProfilePhoto>("photo", contact.photo, serializeProfilePhoto);
+        writer.writeStringValue("profession", contact.profession);
+        writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", contact.singleValueExtendedProperties, serializeSingleValueLegacyExtendedProperty);
+        writer.writeStringValue("spouseName", contact.spouseName);
+        writer.writeStringValue("surname", contact.surname);
+        writer.writeStringValue("title", contact.title);
+        writer.writeStringValue("yomiCompanyName", contact.yomiCompanyName);
+        writer.writeStringValue("yomiGivenName", contact.yomiGivenName);
+        writer.writeStringValue("yomiSurname", contact.yomiSurname);
+}

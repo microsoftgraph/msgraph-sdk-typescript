@@ -1,7 +1,11 @@
-import {WorkbookChartDataLabels} from '../../../../../../../../../../models/';
 import {createWorkbookChartDataLabelsFromDiscriminatorValue} from '../../../../../../../../../../models/createWorkbookChartDataLabelsFromDiscriminatorValue';
+import {deserializeIntoWorkbookChartDataLabels} from '../../../../../../../../../../models/deserializeIntoWorkbookChartDataLabels';
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookChartDataLabels} from '../../../../../../../../../../models/serializeWorkbookChartDataLabels';
+import {WorkbookChartDataLabels} from '../../../../../../../../../../models/workbookChartDataLabels';
 import {DataLabelsRequestBuilderDeleteRequestConfiguration} from './dataLabelsRequestBuilderDeleteRequestConfiguration';
 import {DataLabelsRequestBuilderGetRequestConfiguration} from './dataLabelsRequestBuilderGetRequestConfiguration';
 import {DataLabelsRequestBuilderPatchRequestConfiguration} from './dataLabelsRequestBuilderPatchRequestConfiguration';
@@ -33,46 +37,44 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties and relationships of chartdatalabels object.
+     * Represents the datalabels on the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartDataLabels
-     * @see {@link https://docs.microsoft.com/graph/api/chartdatalabels-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DataLabelsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartDataLabels | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartDataLabels>(requestInfo, createWorkbookChartDataLabelsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of chartdatalabels object.
+     * Update the navigation property dataLabels in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartDataLabels
-     * @see {@link https://docs.microsoft.com/graph/api/chartdatalabels-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartDataLabels | undefined, requestConfiguration?: DataLabelsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartDataLabels | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookChartDataLabels>(requestInfo, createWorkbookChartDataLabelsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -92,7 +94,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of chartdatalabels object.
+     * Represents the datalabels on the chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +112,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of chartdatalabels object.
+     * Update the navigation property dataLabels in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -126,7 +128,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartDataLabels);
         return requestInfo;
     };
 }

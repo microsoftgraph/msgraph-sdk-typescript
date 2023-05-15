@@ -1,7 +1,8 @@
+import {deserializeIntoAddFormulaLocalPostRequestBody} from './deserializeIntoAddFormulaLocalPostRequestBody';
 import {AddFormulaLocalPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AddFormulaLocalPostRequestBody {
+export function createAddFormulaLocalPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AddFormulaLocalPostRequestBody();
+    return deserializeIntoAddFormulaLocalPostRequestBody;
 }

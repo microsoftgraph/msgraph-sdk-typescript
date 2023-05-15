@@ -1,7 +1,11 @@
+import {deserializeIntoOpenShiftItem} from './deserializeIntoOpenShiftItem';
+import {deserializeIntoScheduleEntity} from './deserializeIntoScheduleEntity';
+import {deserializeIntoShiftItem} from './deserializeIntoShiftItem';
+import {deserializeIntoTimeOffItem} from './deserializeIntoTimeOffItem';
 import {OpenShiftItem, ScheduleEntity, ShiftItem, TimeOffItem} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createScheduleEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleEntity {
+export function createScheduleEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createScheduleEntityFromDiscriminatorValue(parseNode: ParseNode 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.openShiftItem":
-                    return new OpenShiftItem();
+                    return deserializeIntoOpenShiftItem;
                 case "#microsoft.graph.shiftItem":
-                    return new ShiftItem();
+                    return deserializeIntoShiftItem;
                 case "#microsoft.graph.timeOffItem":
-                    return new TimeOffItem();
+                    return deserializeIntoTimeOffItem;
             }
         }
     }
-    return new ScheduleEntity();
+    return deserializeIntoScheduleEntity;
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoContentTypeCollectionResponse} from './deserializeIntoContentTypeCollectionResponse';
 import {ContentTypeCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createContentTypeCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ContentTypeCollectionResponse {
+export function createContentTypeCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ContentTypeCollectionResponse();
+    return deserializeIntoContentTypeCollectionResponse;
 }

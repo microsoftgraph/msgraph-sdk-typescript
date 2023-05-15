@@ -1,1 +1,5 @@
 export * from './areasPostRequestBody'
+export * from './areasRequestBuilderPostRequestConfiguration'
+export * from './createAreasPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAreasPostRequestBody'
+export * from './serializeAreasPostRequestBody'

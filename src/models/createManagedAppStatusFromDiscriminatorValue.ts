@@ -1,7 +1,9 @@
+import {deserializeIntoManagedAppStatus} from './deserializeIntoManagedAppStatus';
+import {deserializeIntoManagedAppStatusRaw} from './deserializeIntoManagedAppStatusRaw';
 import {ManagedAppStatus, ManagedAppStatusRaw} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppStatus {
+export function createManagedAppStatusFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createManagedAppStatusFromDiscriminatorValue(parseNode: ParseNod
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.managedAppStatusRaw":
-                    return new ManagedAppStatusRaw();
+                    return deserializeIntoManagedAppStatusRaw;
             }
         }
     }
-    return new ManagedAppStatus();
+    return deserializeIntoManagedAppStatus;
 }

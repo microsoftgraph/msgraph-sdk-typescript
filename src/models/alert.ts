@@ -1,749 +1,103 @@
+import {AlertDetection} from './alertDetection';
 import {AlertFeedback} from './alertFeedback';
+import {AlertHistoryState} from './alertHistoryState';
 import {AlertSeverity} from './alertSeverity';
 import {AlertStatus} from './alertStatus';
-import {createAlertDetectionFromDiscriminatorValue} from './createAlertDetectionFromDiscriminatorValue';
-import {createAlertHistoryStateFromDiscriminatorValue} from './createAlertHistoryStateFromDiscriminatorValue';
-import {createAlertTriggerFromDiscriminatorValue} from './createAlertTriggerFromDiscriminatorValue';
-import {createCloudAppSecurityStateFromDiscriminatorValue} from './createCloudAppSecurityStateFromDiscriminatorValue';
-import {createFileSecurityStateFromDiscriminatorValue} from './createFileSecurityStateFromDiscriminatorValue';
-import {createHostSecurityStateFromDiscriminatorValue} from './createHostSecurityStateFromDiscriminatorValue';
-import {createInvestigationSecurityStateFromDiscriminatorValue} from './createInvestigationSecurityStateFromDiscriminatorValue';
-import {createMalwareStateFromDiscriminatorValue} from './createMalwareStateFromDiscriminatorValue';
-import {createMessageSecurityStateFromDiscriminatorValue} from './createMessageSecurityStateFromDiscriminatorValue';
-import {createNetworkConnectionFromDiscriminatorValue} from './createNetworkConnectionFromDiscriminatorValue';
-import {createProcessFromDiscriminatorValue} from './createProcessFromDiscriminatorValue';
-import {createRegistryKeyStateFromDiscriminatorValue} from './createRegistryKeyStateFromDiscriminatorValue';
-import {createSecurityResourceFromDiscriminatorValue} from './createSecurityResourceFromDiscriminatorValue';
-import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
-import {createUriClickSecurityStateFromDiscriminatorValue} from './createUriClickSecurityStateFromDiscriminatorValue';
-import {createUserSecurityStateFromDiscriminatorValue} from './createUserSecurityStateFromDiscriminatorValue';
-import {createVulnerabilityStateFromDiscriminatorValue} from './createVulnerabilityStateFromDiscriminatorValue';
-import {AlertDetection, AlertHistoryState, AlertTrigger, CloudAppSecurityState, Entity, FileSecurityState, HostSecurityState, InvestigationSecurityState, MalwareState, MessageSecurityState, NetworkConnection, Process, RegistryKeyState, SecurityResource, SecurityVendorInformation, UriClickSecurityState, UserSecurityState, VulnerabilityState} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AlertTrigger} from './alertTrigger';
+import {CloudAppSecurityState} from './cloudAppSecurityState';
+import {Entity} from './entity';
+import {FileSecurityState} from './fileSecurityState';
+import {HostSecurityState} from './hostSecurityState';
+import {InvestigationSecurityState} from './investigationSecurityState';
+import {MalwareState} from './malwareState';
+import {MessageSecurityState} from './messageSecurityState';
+import {NetworkConnection} from './networkConnection';
+import {Process} from './process';
+import {RegistryKeyState} from './registryKeyState';
+import {SecurityResource} from './securityResource';
+import {SecurityVendorInformation} from './securityVendorInformation';
+import {UriClickSecurityState} from './uriClickSecurityState';
+import {UserSecurityState} from './userSecurityState';
+import {VulnerabilityState} from './vulnerabilityState';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class Alert extends Entity implements Parsable {
+export interface Alert extends Entity, Parsable {
     /** Name or alias of the activity group (attacker) this alert is attributed to. */
-    private _activityGroupName?: string | undefined;
+    activityGroupName?: string | undefined;
     /** The alertDetections property */
-    private _alertDetections?: AlertDetection[] | undefined;
+    alertDetections?: AlertDetection[] | undefined;
     /** Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update). */
-    private _assignedTo?: string | undefined;
+    assignedTo?: string | undefined;
     /** Azure subscription ID, present if this alert is related to an Azure resource. */
-    private _azureSubscriptionId?: string | undefined;
+    azureSubscriptionId?: string | undefined;
     /** Azure Active Directory tenant ID. Required. */
-    private _azureTenantId?: string | undefined;
+    azureTenantId?: string | undefined;
     /** Category of the alert (for example, credentialTheft, ransomware, etc.). */
-    private _category?: string | undefined;
+    category?: string | undefined;
     /** Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z (supports update). */
-    private _closedDateTime?: Date | undefined;
+    closedDateTime?: Date | undefined;
     /** Security-related stateful information generated by the provider about the cloud application/s related to this alert. */
-    private _cloudAppStates?: CloudAppSecurityState[] | undefined;
+    cloudAppStates?: CloudAppSecurityState[] | undefined;
     /** Customer-provided comments on alert (for customer alert management) (supports update). */
-    private _comments?: string[] | undefined;
+    comments?: string[] | undefined;
     /** Confidence of the detection logic (percentage between 1-100). */
-    private _confidence?: number | undefined;
+    confidence?: number | undefined;
     /** Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
-    private _createdDateTime?: Date | undefined;
+    createdDateTime?: Date | undefined;
     /** Alert description. */
-    private _description?: string | undefined;
+    description?: string | undefined;
     /** Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record). */
-    private _detectionIds?: string[] | undefined;
+    detectionIds?: string[] | undefined;
     /** Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
-    private _eventDateTime?: Date | undefined;
+    eventDateTime?: Date | undefined;
     /** Analyst feedback on the alert. Possible values are: unknown, truePositive, falsePositive, benignPositive. (supports update) */
-    private _feedback?: AlertFeedback | undefined;
+    feedback?: AlertFeedback | undefined;
     /** Security-related stateful information generated by the provider about the file(s) related to this alert. */
-    private _fileStates?: FileSecurityState[] | undefined;
+    fileStates?: FileSecurityState[] | undefined;
     /** The historyStates property */
-    private _historyStates?: AlertHistoryState[] | undefined;
+    historyStates?: AlertHistoryState[] | undefined;
     /** Security-related stateful information generated by the provider about the host(s) related to this alert. */
-    private _hostStates?: HostSecurityState[] | undefined;
+    hostStates?: HostSecurityState[] | undefined;
     /** IDs of incidents related to current alert. */
-    private _incidentIds?: string[] | undefined;
+    incidentIds?: string[] | undefined;
     /** The investigationSecurityStates property */
-    private _investigationSecurityStates?: InvestigationSecurityState[] | undefined;
+    investigationSecurityStates?: InvestigationSecurityState[] | undefined;
     /** The lastEventDateTime property */
-    private _lastEventDateTime?: Date | undefined;
+    lastEventDateTime?: Date | undefined;
     /** Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
-    private _lastModifiedDateTime?: Date | undefined;
+    lastModifiedDateTime?: Date | undefined;
     /** Threat Intelligence pertaining to malware related to this alert. */
-    private _malwareStates?: MalwareState[] | undefined;
+    malwareStates?: MalwareState[] | undefined;
     /** The messageSecurityStates property */
-    private _messageSecurityStates?: MessageSecurityState[] | undefined;
+    messageSecurityStates?: MessageSecurityState[] | undefined;
     /** Security-related stateful information generated by the provider about the network connection(s) related to this alert. */
-    private _networkConnections?: NetworkConnection[] | undefined;
+    networkConnections?: NetworkConnection[] | undefined;
     /** Security-related stateful information generated by the provider about the process or processes related to this alert. */
-    private _processes?: Process[] | undefined;
+    processes?: Process[] | undefined;
     /** Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host). */
-    private _recommendedActions?: string[] | undefined;
+    recommendedActions?: string[] | undefined;
     /** Security-related stateful information generated by the provider about the registry keys related to this alert. */
-    private _registryKeyStates?: RegistryKeyState[] | undefined;
+    registryKeyStates?: RegistryKeyState[] | undefined;
     /** Resources related to current alert. For example, for some alerts this can have the Azure Resource value. */
-    private _securityResources?: SecurityResource[] | undefined;
+    securityResources?: SecurityResource[] | undefined;
     /** The severity property */
-    private _severity?: AlertSeverity | undefined;
+    severity?: AlertSeverity | undefined;
     /** Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc. */
-    private _sourceMaterials?: string[] | undefined;
+    sourceMaterials?: string[] | undefined;
     /** The status property */
-    private _status?: AlertStatus | undefined;
+    status?: AlertStatus | undefined;
     /** User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update). */
-    private _tags?: string[] | undefined;
+    tags?: string[] | undefined;
     /** Alert title. Required. */
-    private _title?: string | undefined;
+    title?: string | undefined;
     /** Security-related information about the specific properties that triggered the alert (properties appearing in the alert). Alerts might contain information about multiple users, hosts, files, ip addresses. This field indicates which properties triggered the alert generation. */
-    private _triggers?: AlertTrigger[] | undefined;
+    triggers?: AlertTrigger[] | undefined;
     /** The uriClickSecurityStates property */
-    private _uriClickSecurityStates?: UriClickSecurityState[] | undefined;
+    uriClickSecurityStates?: UriClickSecurityState[] | undefined;
     /** Security-related stateful information generated by the provider about the user accounts related to this alert. */
-    private _userStates?: UserSecurityState[] | undefined;
+    userStates?: UserSecurityState[] | undefined;
     /** Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=Windows Defender ATP; subProvider=AppLocker). Required. */
-    private _vendorInformation?: SecurityVendorInformation | undefined;
+    vendorInformation?: SecurityVendorInformation | undefined;
     /** Threat intelligence pertaining to one or more vulnerabilities related to this alert. */
-    private _vulnerabilityStates?: VulnerabilityState[] | undefined;
-    /**
-     * Gets the activityGroupName property value. Name or alias of the activity group (attacker) this alert is attributed to.
-     * @returns a string
-     */
-    public get activityGroupName() {
-        return this._activityGroupName;
-    };
-    /**
-     * Sets the activityGroupName property value. Name or alias of the activity group (attacker) this alert is attributed to.
-     * @param value Value to set for the activityGroupName property.
-     */
-    public set activityGroupName(value: string | undefined) {
-        this._activityGroupName = value;
-    };
-    /**
-     * Gets the alertDetections property value. The alertDetections property
-     * @returns a alertDetection
-     */
-    public get alertDetections() {
-        return this._alertDetections;
-    };
-    /**
-     * Sets the alertDetections property value. The alertDetections property
-     * @param value Value to set for the alertDetections property.
-     */
-    public set alertDetections(value: AlertDetection[] | undefined) {
-        this._alertDetections = value;
-    };
-    /**
-     * Gets the assignedTo property value. Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update).
-     * @returns a string
-     */
-    public get assignedTo() {
-        return this._assignedTo;
-    };
-    /**
-     * Sets the assignedTo property value. Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update).
-     * @param value Value to set for the assignedTo property.
-     */
-    public set assignedTo(value: string | undefined) {
-        this._assignedTo = value;
-    };
-    /**
-     * Gets the azureSubscriptionId property value. Azure subscription ID, present if this alert is related to an Azure resource.
-     * @returns a string
-     */
-    public get azureSubscriptionId() {
-        return this._azureSubscriptionId;
-    };
-    /**
-     * Sets the azureSubscriptionId property value. Azure subscription ID, present if this alert is related to an Azure resource.
-     * @param value Value to set for the azureSubscriptionId property.
-     */
-    public set azureSubscriptionId(value: string | undefined) {
-        this._azureSubscriptionId = value;
-    };
-    /**
-     * Gets the azureTenantId property value. Azure Active Directory tenant ID. Required.
-     * @returns a string
-     */
-    public get azureTenantId() {
-        return this._azureTenantId;
-    };
-    /**
-     * Sets the azureTenantId property value. Azure Active Directory tenant ID. Required.
-     * @param value Value to set for the azureTenantId property.
-     */
-    public set azureTenantId(value: string | undefined) {
-        this._azureTenantId = value;
-    };
-    /**
-     * Gets the category property value. Category of the alert (for example, credentialTheft, ransomware, etc.).
-     * @returns a string
-     */
-    public get category() {
-        return this._category;
-    };
-    /**
-     * Sets the category property value. Category of the alert (for example, credentialTheft, ransomware, etc.).
-     * @param value Value to set for the category property.
-     */
-    public set category(value: string | undefined) {
-        this._category = value;
-    };
-    /**
-     * Gets the closedDateTime property value. Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z (supports update).
-     * @returns a Date
-     */
-    public get closedDateTime() {
-        return this._closedDateTime;
-    };
-    /**
-     * Sets the closedDateTime property value. Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z (supports update).
-     * @param value Value to set for the closedDateTime property.
-     */
-    public set closedDateTime(value: Date | undefined) {
-        this._closedDateTime = value;
-    };
-    /**
-     * Gets the cloudAppStates property value. Security-related stateful information generated by the provider about the cloud application/s related to this alert.
-     * @returns a cloudAppSecurityState
-     */
-    public get cloudAppStates() {
-        return this._cloudAppStates;
-    };
-    /**
-     * Sets the cloudAppStates property value. Security-related stateful information generated by the provider about the cloud application/s related to this alert.
-     * @param value Value to set for the cloudAppStates property.
-     */
-    public set cloudAppStates(value: CloudAppSecurityState[] | undefined) {
-        this._cloudAppStates = value;
-    };
-    /**
-     * Gets the comments property value. Customer-provided comments on alert (for customer alert management) (supports update).
-     * @returns a string
-     */
-    public get comments() {
-        return this._comments;
-    };
-    /**
-     * Sets the comments property value. Customer-provided comments on alert (for customer alert management) (supports update).
-     * @param value Value to set for the comments property.
-     */
-    public set comments(value: string[] | undefined) {
-        this._comments = value;
-    };
-    /**
-     * Gets the confidence property value. Confidence of the detection logic (percentage between 1-100).
-     * @returns a integer
-     */
-    public get confidence() {
-        return this._confidence;
-    };
-    /**
-     * Sets the confidence property value. Confidence of the detection logic (percentage between 1-100).
-     * @param value Value to set for the confidence property.
-     */
-    public set confidence(value: number | undefined) {
-        this._confidence = value;
-    };
-    /**
-     * Instantiates a new alert and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * Gets the createdDateTime property value. Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
-     * @returns a Date
-     */
-    public get createdDateTime() {
-        return this._createdDateTime;
-    };
-    /**
-     * Sets the createdDateTime property value. Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
-     * @param value Value to set for the createdDateTime property.
-     */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
-    };
-    /**
-     * Gets the description property value. Alert description.
-     * @returns a string
-     */
-    public get description() {
-        return this._description;
-    };
-    /**
-     * Sets the description property value. Alert description.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Gets the detectionIds property value. Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record).
-     * @returns a string
-     */
-    public get detectionIds() {
-        return this._detectionIds;
-    };
-    /**
-     * Sets the detectionIds property value. Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record).
-     * @param value Value to set for the detectionIds property.
-     */
-    public set detectionIds(value: string[] | undefined) {
-        this._detectionIds = value;
-    };
-    /**
-     * Gets the eventDateTime property value. Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
-     * @returns a Date
-     */
-    public get eventDateTime() {
-        return this._eventDateTime;
-    };
-    /**
-     * Sets the eventDateTime property value. Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
-     * @param value Value to set for the eventDateTime property.
-     */
-    public set eventDateTime(value: Date | undefined) {
-        this._eventDateTime = value;
-    };
-    /**
-     * Gets the feedback property value. Analyst feedback on the alert. Possible values are: unknown, truePositive, falsePositive, benignPositive. (supports update)
-     * @returns a alertFeedback
-     */
-    public get feedback() {
-        return this._feedback;
-    };
-    /**
-     * Sets the feedback property value. Analyst feedback on the alert. Possible values are: unknown, truePositive, falsePositive, benignPositive. (supports update)
-     * @param value Value to set for the feedback property.
-     */
-    public set feedback(value: AlertFeedback | undefined) {
-        this._feedback = value;
-    };
-    /**
-     * Gets the fileStates property value. Security-related stateful information generated by the provider about the file(s) related to this alert.
-     * @returns a fileSecurityState
-     */
-    public get fileStates() {
-        return this._fileStates;
-    };
-    /**
-     * Sets the fileStates property value. Security-related stateful information generated by the provider about the file(s) related to this alert.
-     * @param value Value to set for the fileStates property.
-     */
-    public set fileStates(value: FileSecurityState[] | undefined) {
-        this._fileStates = value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "activityGroupName": n => { this.activityGroupName = n.getStringValue(); },
-            "alertDetections": n => { this.alertDetections = n.getCollectionOfObjectValues<AlertDetection>(createAlertDetectionFromDiscriminatorValue); },
-            "assignedTo": n => { this.assignedTo = n.getStringValue(); },
-            "azureSubscriptionId": n => { this.azureSubscriptionId = n.getStringValue(); },
-            "azureTenantId": n => { this.azureTenantId = n.getStringValue(); },
-            "category": n => { this.category = n.getStringValue(); },
-            "closedDateTime": n => { this.closedDateTime = n.getDateValue(); },
-            "cloudAppStates": n => { this.cloudAppStates = n.getCollectionOfObjectValues<CloudAppSecurityState>(createCloudAppSecurityStateFromDiscriminatorValue); },
-            "comments": n => { this.comments = n.getCollectionOfPrimitiveValues<string>(); },
-            "confidence": n => { this.confidence = n.getNumberValue(); },
-            "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
-            "description": n => { this.description = n.getStringValue(); },
-            "detectionIds": n => { this.detectionIds = n.getCollectionOfPrimitiveValues<string>(); },
-            "eventDateTime": n => { this.eventDateTime = n.getDateValue(); },
-            "feedback": n => { this.feedback = n.getEnumValue<AlertFeedback>(AlertFeedback); },
-            "fileStates": n => { this.fileStates = n.getCollectionOfObjectValues<FileSecurityState>(createFileSecurityStateFromDiscriminatorValue); },
-            "historyStates": n => { this.historyStates = n.getCollectionOfObjectValues<AlertHistoryState>(createAlertHistoryStateFromDiscriminatorValue); },
-            "hostStates": n => { this.hostStates = n.getCollectionOfObjectValues<HostSecurityState>(createHostSecurityStateFromDiscriminatorValue); },
-            "incidentIds": n => { this.incidentIds = n.getCollectionOfPrimitiveValues<string>(); },
-            "investigationSecurityStates": n => { this.investigationSecurityStates = n.getCollectionOfObjectValues<InvestigationSecurityState>(createInvestigationSecurityStateFromDiscriminatorValue); },
-            "lastEventDateTime": n => { this.lastEventDateTime = n.getDateValue(); },
-            "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
-            "malwareStates": n => { this.malwareStates = n.getCollectionOfObjectValues<MalwareState>(createMalwareStateFromDiscriminatorValue); },
-            "messageSecurityStates": n => { this.messageSecurityStates = n.getCollectionOfObjectValues<MessageSecurityState>(createMessageSecurityStateFromDiscriminatorValue); },
-            "networkConnections": n => { this.networkConnections = n.getCollectionOfObjectValues<NetworkConnection>(createNetworkConnectionFromDiscriminatorValue); },
-            "processes": n => { this.processes = n.getCollectionOfObjectValues<Process>(createProcessFromDiscriminatorValue); },
-            "recommendedActions": n => { this.recommendedActions = n.getCollectionOfPrimitiveValues<string>(); },
-            "registryKeyStates": n => { this.registryKeyStates = n.getCollectionOfObjectValues<RegistryKeyState>(createRegistryKeyStateFromDiscriminatorValue); },
-            "securityResources": n => { this.securityResources = n.getCollectionOfObjectValues<SecurityResource>(createSecurityResourceFromDiscriminatorValue); },
-            "severity": n => { this.severity = n.getEnumValue<AlertSeverity>(AlertSeverity); },
-            "sourceMaterials": n => { this.sourceMaterials = n.getCollectionOfPrimitiveValues<string>(); },
-            "status": n => { this.status = n.getEnumValue<AlertStatus>(AlertStatus); },
-            "tags": n => { this.tags = n.getCollectionOfPrimitiveValues<string>(); },
-            "title": n => { this.title = n.getStringValue(); },
-            "triggers": n => { this.triggers = n.getCollectionOfObjectValues<AlertTrigger>(createAlertTriggerFromDiscriminatorValue); },
-            "uriClickSecurityStates": n => { this.uriClickSecurityStates = n.getCollectionOfObjectValues<UriClickSecurityState>(createUriClickSecurityStateFromDiscriminatorValue); },
-            "userStates": n => { this.userStates = n.getCollectionOfObjectValues<UserSecurityState>(createUserSecurityStateFromDiscriminatorValue); },
-            "vendorInformation": n => { this.vendorInformation = n.getObjectValue<SecurityVendorInformation>(createSecurityVendorInformationFromDiscriminatorValue); },
-            "vulnerabilityStates": n => { this.vulnerabilityStates = n.getCollectionOfObjectValues<VulnerabilityState>(createVulnerabilityStateFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Gets the historyStates property value. The historyStates property
-     * @returns a alertHistoryState
-     */
-    public get historyStates() {
-        return this._historyStates;
-    };
-    /**
-     * Sets the historyStates property value. The historyStates property
-     * @param value Value to set for the historyStates property.
-     */
-    public set historyStates(value: AlertHistoryState[] | undefined) {
-        this._historyStates = value;
-    };
-    /**
-     * Gets the hostStates property value. Security-related stateful information generated by the provider about the host(s) related to this alert.
-     * @returns a hostSecurityState
-     */
-    public get hostStates() {
-        return this._hostStates;
-    };
-    /**
-     * Sets the hostStates property value. Security-related stateful information generated by the provider about the host(s) related to this alert.
-     * @param value Value to set for the hostStates property.
-     */
-    public set hostStates(value: HostSecurityState[] | undefined) {
-        this._hostStates = value;
-    };
-    /**
-     * Gets the incidentIds property value. IDs of incidents related to current alert.
-     * @returns a string
-     */
-    public get incidentIds() {
-        return this._incidentIds;
-    };
-    /**
-     * Sets the incidentIds property value. IDs of incidents related to current alert.
-     * @param value Value to set for the incidentIds property.
-     */
-    public set incidentIds(value: string[] | undefined) {
-        this._incidentIds = value;
-    };
-    /**
-     * Gets the investigationSecurityStates property value. The investigationSecurityStates property
-     * @returns a investigationSecurityState
-     */
-    public get investigationSecurityStates() {
-        return this._investigationSecurityStates;
-    };
-    /**
-     * Sets the investigationSecurityStates property value. The investigationSecurityStates property
-     * @param value Value to set for the investigationSecurityStates property.
-     */
-    public set investigationSecurityStates(value: InvestigationSecurityState[] | undefined) {
-        this._investigationSecurityStates = value;
-    };
-    /**
-     * Gets the lastEventDateTime property value. The lastEventDateTime property
-     * @returns a Date
-     */
-    public get lastEventDateTime() {
-        return this._lastEventDateTime;
-    };
-    /**
-     * Sets the lastEventDateTime property value. The lastEventDateTime property
-     * @param value Value to set for the lastEventDateTime property.
-     */
-    public set lastEventDateTime(value: Date | undefined) {
-        this._lastEventDateTime = value;
-    };
-    /**
-     * Gets the lastModifiedDateTime property value. Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     * @returns a Date
-     */
-    public get lastModifiedDateTime() {
-        return this._lastModifiedDateTime;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
-    };
-    /**
-     * Gets the malwareStates property value. Threat Intelligence pertaining to malware related to this alert.
-     * @returns a malwareState
-     */
-    public get malwareStates() {
-        return this._malwareStates;
-    };
-    /**
-     * Sets the malwareStates property value. Threat Intelligence pertaining to malware related to this alert.
-     * @param value Value to set for the malwareStates property.
-     */
-    public set malwareStates(value: MalwareState[] | undefined) {
-        this._malwareStates = value;
-    };
-    /**
-     * Gets the messageSecurityStates property value. The messageSecurityStates property
-     * @returns a messageSecurityState
-     */
-    public get messageSecurityStates() {
-        return this._messageSecurityStates;
-    };
-    /**
-     * Sets the messageSecurityStates property value. The messageSecurityStates property
-     * @param value Value to set for the messageSecurityStates property.
-     */
-    public set messageSecurityStates(value: MessageSecurityState[] | undefined) {
-        this._messageSecurityStates = value;
-    };
-    /**
-     * Gets the networkConnections property value. Security-related stateful information generated by the provider about the network connection(s) related to this alert.
-     * @returns a networkConnection
-     */
-    public get networkConnections() {
-        return this._networkConnections;
-    };
-    /**
-     * Sets the networkConnections property value. Security-related stateful information generated by the provider about the network connection(s) related to this alert.
-     * @param value Value to set for the networkConnections property.
-     */
-    public set networkConnections(value: NetworkConnection[] | undefined) {
-        this._networkConnections = value;
-    };
-    /**
-     * Gets the processes property value. Security-related stateful information generated by the provider about the process or processes related to this alert.
-     * @returns a process
-     */
-    public get processes() {
-        return this._processes;
-    };
-    /**
-     * Sets the processes property value. Security-related stateful information generated by the provider about the process or processes related to this alert.
-     * @param value Value to set for the processes property.
-     */
-    public set processes(value: Process[] | undefined) {
-        this._processes = value;
-    };
-    /**
-     * Gets the recommendedActions property value. Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host).
-     * @returns a string
-     */
-    public get recommendedActions() {
-        return this._recommendedActions;
-    };
-    /**
-     * Sets the recommendedActions property value. Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host).
-     * @param value Value to set for the recommendedActions property.
-     */
-    public set recommendedActions(value: string[] | undefined) {
-        this._recommendedActions = value;
-    };
-    /**
-     * Gets the registryKeyStates property value. Security-related stateful information generated by the provider about the registry keys related to this alert.
-     * @returns a registryKeyState
-     */
-    public get registryKeyStates() {
-        return this._registryKeyStates;
-    };
-    /**
-     * Sets the registryKeyStates property value. Security-related stateful information generated by the provider about the registry keys related to this alert.
-     * @param value Value to set for the registryKeyStates property.
-     */
-    public set registryKeyStates(value: RegistryKeyState[] | undefined) {
-        this._registryKeyStates = value;
-    };
-    /**
-     * Gets the securityResources property value. Resources related to current alert. For example, for some alerts this can have the Azure Resource value.
-     * @returns a securityResource
-     */
-    public get securityResources() {
-        return this._securityResources;
-    };
-    /**
-     * Sets the securityResources property value. Resources related to current alert. For example, for some alerts this can have the Azure Resource value.
-     * @param value Value to set for the securityResources property.
-     */
-    public set securityResources(value: SecurityResource[] | undefined) {
-        this._securityResources = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeStringValue("activityGroupName", this.activityGroupName);
-        writer.writeCollectionOfObjectValues<AlertDetection>("alertDetections", this.alertDetections);
-        writer.writeStringValue("assignedTo", this.assignedTo);
-        writer.writeStringValue("azureSubscriptionId", this.azureSubscriptionId);
-        writer.writeStringValue("azureTenantId", this.azureTenantId);
-        writer.writeStringValue("category", this.category);
-        writer.writeDateValue("closedDateTime", this.closedDateTime);
-        writer.writeCollectionOfObjectValues<CloudAppSecurityState>("cloudAppStates", this.cloudAppStates);
-        writer.writeCollectionOfPrimitiveValues<string>("comments", this.comments);
-        writer.writeNumberValue("confidence", this.confidence);
-        writer.writeDateValue("createdDateTime", this.createdDateTime);
-        writer.writeStringValue("description", this.description);
-        writer.writeCollectionOfPrimitiveValues<string>("detectionIds", this.detectionIds);
-        writer.writeDateValue("eventDateTime", this.eventDateTime);
-        writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
-        writer.writeCollectionOfObjectValues<FileSecurityState>("fileStates", this.fileStates);
-        writer.writeCollectionOfObjectValues<AlertHistoryState>("historyStates", this.historyStates);
-        writer.writeCollectionOfObjectValues<HostSecurityState>("hostStates", this.hostStates);
-        writer.writeCollectionOfPrimitiveValues<string>("incidentIds", this.incidentIds);
-        writer.writeCollectionOfObjectValues<InvestigationSecurityState>("investigationSecurityStates", this.investigationSecurityStates);
-        writer.writeDateValue("lastEventDateTime", this.lastEventDateTime);
-        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<MalwareState>("malwareStates", this.malwareStates);
-        writer.writeCollectionOfObjectValues<MessageSecurityState>("messageSecurityStates", this.messageSecurityStates);
-        writer.writeCollectionOfObjectValues<NetworkConnection>("networkConnections", this.networkConnections);
-        writer.writeCollectionOfObjectValues<Process>("processes", this.processes);
-        writer.writeCollectionOfPrimitiveValues<string>("recommendedActions", this.recommendedActions);
-        writer.writeCollectionOfObjectValues<RegistryKeyState>("registryKeyStates", this.registryKeyStates);
-        writer.writeCollectionOfObjectValues<SecurityResource>("securityResources", this.securityResources);
-        writer.writeEnumValue<AlertSeverity>("severity", this.severity);
-        writer.writeCollectionOfPrimitiveValues<string>("sourceMaterials", this.sourceMaterials);
-        writer.writeEnumValue<AlertStatus>("status", this.status);
-        writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
-        writer.writeStringValue("title", this.title);
-        writer.writeCollectionOfObjectValues<AlertTrigger>("triggers", this.triggers);
-        writer.writeCollectionOfObjectValues<UriClickSecurityState>("uriClickSecurityStates", this.uriClickSecurityStates);
-        writer.writeCollectionOfObjectValues<UserSecurityState>("userStates", this.userStates);
-        writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", this.vendorInformation);
-        writer.writeCollectionOfObjectValues<VulnerabilityState>("vulnerabilityStates", this.vulnerabilityStates);
-    };
-    /**
-     * Gets the severity property value. The severity property
-     * @returns a alertSeverity
-     */
-    public get severity() {
-        return this._severity;
-    };
-    /**
-     * Sets the severity property value. The severity property
-     * @param value Value to set for the severity property.
-     */
-    public set severity(value: AlertSeverity | undefined) {
-        this._severity = value;
-    };
-    /**
-     * Gets the sourceMaterials property value. Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc.
-     * @returns a string
-     */
-    public get sourceMaterials() {
-        return this._sourceMaterials;
-    };
-    /**
-     * Sets the sourceMaterials property value. Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc.
-     * @param value Value to set for the sourceMaterials property.
-     */
-    public set sourceMaterials(value: string[] | undefined) {
-        this._sourceMaterials = value;
-    };
-    /**
-     * Gets the status property value. The status property
-     * @returns a alertStatus
-     */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * Sets the status property value. The status property
-     * @param value Value to set for the status property.
-     */
-    public set status(value: AlertStatus | undefined) {
-        this._status = value;
-    };
-    /**
-     * Gets the tags property value. User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).
-     * @returns a string
-     */
-    public get tags() {
-        return this._tags;
-    };
-    /**
-     * Sets the tags property value. User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).
-     * @param value Value to set for the tags property.
-     */
-    public set tags(value: string[] | undefined) {
-        this._tags = value;
-    };
-    /**
-     * Gets the title property value. Alert title. Required.
-     * @returns a string
-     */
-    public get title() {
-        return this._title;
-    };
-    /**
-     * Sets the title property value. Alert title. Required.
-     * @param value Value to set for the title property.
-     */
-    public set title(value: string | undefined) {
-        this._title = value;
-    };
-    /**
-     * Gets the triggers property value. Security-related information about the specific properties that triggered the alert (properties appearing in the alert). Alerts might contain information about multiple users, hosts, files, ip addresses. This field indicates which properties triggered the alert generation.
-     * @returns a alertTrigger
-     */
-    public get triggers() {
-        return this._triggers;
-    };
-    /**
-     * Sets the triggers property value. Security-related information about the specific properties that triggered the alert (properties appearing in the alert). Alerts might contain information about multiple users, hosts, files, ip addresses. This field indicates which properties triggered the alert generation.
-     * @param value Value to set for the triggers property.
-     */
-    public set triggers(value: AlertTrigger[] | undefined) {
-        this._triggers = value;
-    };
-    /**
-     * Gets the uriClickSecurityStates property value. The uriClickSecurityStates property
-     * @returns a uriClickSecurityState
-     */
-    public get uriClickSecurityStates() {
-        return this._uriClickSecurityStates;
-    };
-    /**
-     * Sets the uriClickSecurityStates property value. The uriClickSecurityStates property
-     * @param value Value to set for the uriClickSecurityStates property.
-     */
-    public set uriClickSecurityStates(value: UriClickSecurityState[] | undefined) {
-        this._uriClickSecurityStates = value;
-    };
-    /**
-     * Gets the userStates property value. Security-related stateful information generated by the provider about the user accounts related to this alert.
-     * @returns a userSecurityState
-     */
-    public get userStates() {
-        return this._userStates;
-    };
-    /**
-     * Sets the userStates property value. Security-related stateful information generated by the provider about the user accounts related to this alert.
-     * @param value Value to set for the userStates property.
-     */
-    public set userStates(value: UserSecurityState[] | undefined) {
-        this._userStates = value;
-    };
-    /**
-     * Gets the vendorInformation property value. Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=Windows Defender ATP; subProvider=AppLocker). Required.
-     * @returns a securityVendorInformation
-     */
-    public get vendorInformation() {
-        return this._vendorInformation;
-    };
-    /**
-     * Sets the vendorInformation property value. Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=Windows Defender ATP; subProvider=AppLocker). Required.
-     * @param value Value to set for the vendorInformation property.
-     */
-    public set vendorInformation(value: SecurityVendorInformation | undefined) {
-        this._vendorInformation = value;
-    };
-    /**
-     * Gets the vulnerabilityStates property value. Threat intelligence pertaining to one or more vulnerabilities related to this alert.
-     * @returns a vulnerabilityState
-     */
-    public get vulnerabilityStates() {
-        return this._vulnerabilityStates;
-    };
-    /**
-     * Sets the vulnerabilityStates property value. Threat intelligence pertaining to one or more vulnerabilities related to this alert.
-     * @param value Value to set for the vulnerabilityStates property.
-     */
-    public set vulnerabilityStates(value: VulnerabilityState[] | undefined) {
-        this._vulnerabilityStates = value;
-    };
+    vulnerabilityStates?: VulnerabilityState[] | undefined;
 }

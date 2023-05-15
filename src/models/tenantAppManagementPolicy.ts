@@ -1,83 +1,12 @@
-import {createAppManagementConfigurationFromDiscriminatorValue} from './createAppManagementConfigurationFromDiscriminatorValue';
-import {AppManagementConfiguration, PolicyBase} from './index';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AppManagementConfiguration} from './appManagementConfiguration';
+import {PolicyBase} from './policyBase';
+import {Parsable} from '@microsoft/kiota-abstractions';
 
-export class TenantAppManagementPolicy extends PolicyBase implements Parsable {
+export interface TenantAppManagementPolicy extends Parsable, PolicyBase {
     /** Restrictions that apply as default to all application objects in the tenant. */
-    private _applicationRestrictions?: AppManagementConfiguration | undefined;
+    applicationRestrictions?: AppManagementConfiguration | undefined;
     /** Denotes whether the policy is enabled. Default value is false. */
-    private _isEnabled?: boolean | undefined;
+    isEnabled?: boolean | undefined;
     /** Restrictions that apply as default to all service principal objects in the tenant. */
-    private _servicePrincipalRestrictions?: AppManagementConfiguration | undefined;
-    /**
-     * Gets the applicationRestrictions property value. Restrictions that apply as default to all application objects in the tenant.
-     * @returns a appManagementConfiguration
-     */
-    public get applicationRestrictions() {
-        return this._applicationRestrictions;
-    };
-    /**
-     * Sets the applicationRestrictions property value. Restrictions that apply as default to all application objects in the tenant.
-     * @param value Value to set for the applicationRestrictions property.
-     */
-    public set applicationRestrictions(value: AppManagementConfiguration | undefined) {
-        this._applicationRestrictions = value;
-    };
-    /**
-     * Instantiates a new TenantAppManagementPolicy and sets the default values.
-     */
-    public constructor() {
-        super();
-        this.odataType = "#microsoft.graph.tenantAppManagementPolicy";
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {...super.getFieldDeserializers(),
-            "applicationRestrictions": n => { this.applicationRestrictions = n.getObjectValue<AppManagementConfiguration>(createAppManagementConfigurationFromDiscriminatorValue); },
-            "isEnabled": n => { this.isEnabled = n.getBooleanValue(); },
-            "servicePrincipalRestrictions": n => { this.servicePrincipalRestrictions = n.getObjectValue<AppManagementConfiguration>(createAppManagementConfigurationFromDiscriminatorValue); },
-        };
-    };
-    /**
-     * Gets the isEnabled property value. Denotes whether the policy is enabled. Default value is false.
-     * @returns a boolean
-     */
-    public get isEnabled() {
-        return this._isEnabled;
-    };
-    /**
-     * Sets the isEnabled property value. Denotes whether the policy is enabled. Default value is false.
-     * @param value Value to set for the isEnabled property.
-     */
-    public set isEnabled(value: boolean | undefined) {
-        this._isEnabled = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeObjectValue<AppManagementConfiguration>("applicationRestrictions", this.applicationRestrictions);
-        writer.writeBooleanValue("isEnabled", this.isEnabled);
-        writer.writeObjectValue<AppManagementConfiguration>("servicePrincipalRestrictions", this.servicePrincipalRestrictions);
-    };
-    /**
-     * Gets the servicePrincipalRestrictions property value. Restrictions that apply as default to all service principal objects in the tenant.
-     * @returns a appManagementConfiguration
-     */
-    public get servicePrincipalRestrictions() {
-        return this._servicePrincipalRestrictions;
-    };
-    /**
-     * Sets the servicePrincipalRestrictions property value. Restrictions that apply as default to all service principal objects in the tenant.
-     * @param value Value to set for the servicePrincipalRestrictions property.
-     */
-    public set servicePrincipalRestrictions(value: AppManagementConfiguration | undefined) {
-        this._servicePrincipalRestrictions = value;
-    };
+    servicePrincipalRestrictions?: AppManagementConfiguration | undefined;
 }

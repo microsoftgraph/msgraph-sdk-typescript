@@ -1,7 +1,8 @@
+import {deserializeIntoTimeOffRequestCollectionResponse} from './deserializeIntoTimeOffRequestCollectionResponse';
 import {TimeOffRequestCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTimeOffRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TimeOffRequestCollectionResponse {
+export function createTimeOffRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TimeOffRequestCollectionResponse();
+    return deserializeIntoTimeOffRequestCollectionResponse;
 }

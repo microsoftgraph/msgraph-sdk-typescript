@@ -2,26 +2,21 @@ import {Event} from '../../../../../models/';
 import {createEventFromDiscriminatorValue} from '../../../../../models/createEventFromDiscriminatorValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {AcceptRequestBuilder} from './accept/acceptRequestBuilder';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
-import {AttachmentItemRequestBuilder} from './attachments/item/attachmentItemRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
 import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
 import {DeclineRequestBuilder} from './decline/declineRequestBuilder';
 import {DismissReminderRequestBuilder} from './dismissReminder/dismissReminderRequestBuilder';
 import {EventItemRequestBuilderGetRequestConfiguration} from './eventItemRequestBuilderGetRequestConfiguration';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {EventItemRequestBuilder as Ifc896efcc3f52b3f0103037a4e1ac65994eb325aaa91cd953e115b638cf60e64} from './instances/item/eventItemRequestBuilder';
-import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
-import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
-import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderRequestBuilder';
 import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
@@ -63,14 +58,6 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity. */
-    public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity. */
-    public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Provides operations to call the snoozeReminder method. */
     public get snoozeReminder(): SnoozeReminderRequestBuilder {
         return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -80,34 +67,12 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the attachments property of the microsoft.graph.event entity.
-     * @param id Unique identifier of the item
-     * @returns a AttachmentItemRequestBuilder
-     */
-    public attachmentsById(id: string) : AttachmentItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["attachment%2Did"] = id
-        return new AttachmentItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new EventItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/calendar/calendarView/{event%2Did}{?startDateTime*,endDateTime*,%24select}");
-    };
-    /**
-     * Provides operations to manage the extensions property of the microsoft.graph.event entity.
-     * @param id Unique identifier of the item
-     * @returns a ExtensionItemRequestBuilder
-     */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extension%2Did"] = id
-        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
@@ -119,44 +84,11 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the instances property of the microsoft.graph.event entity.
-     * @param id Unique identifier of the item
-     * @returns a EventItemRequestBuilder
-     */
-    public instancesById(id: string) : Ifc896efcc3f52b3f0103037a4e1ac65994eb325aaa91cd953e115b638cf60e64 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["event%2Did1"] = id
-        return new Ifc896efcc3f52b3f0103037a4e1ac65994eb325aaa91cd953e115b638cf60e64(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.event entity.
-     * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
-        return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.event entity.
-     * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id
-        return new SingleValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.

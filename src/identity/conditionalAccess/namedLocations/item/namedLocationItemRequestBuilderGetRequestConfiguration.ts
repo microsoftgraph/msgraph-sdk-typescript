@@ -1,14 +1,11 @@
 import {NamedLocationItemRequestBuilderGetQueryParameters} from './namedLocationItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class NamedLocationItemRequestBuilderGetRequestConfiguration {
+export interface NamedLocationItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: NamedLocationItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: NamedLocationItemRequestBuilderGetQueryParameters | undefined;
 }

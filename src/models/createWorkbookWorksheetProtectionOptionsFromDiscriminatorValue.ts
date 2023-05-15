@@ -1,7 +1,8 @@
+import {deserializeIntoWorkbookWorksheetProtectionOptions} from './deserializeIntoWorkbookWorksheetProtectionOptions';
 import {WorkbookWorksheetProtectionOptions} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookWorksheetProtectionOptions {
+export function createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookWorksheetProtectionOptions();
+    return deserializeIntoWorkbookWorksheetProtectionOptions;
 }

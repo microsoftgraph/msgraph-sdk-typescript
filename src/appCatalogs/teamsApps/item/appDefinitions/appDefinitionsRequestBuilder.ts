@@ -1,12 +1,18 @@
-import {TeamsAppDefinition, TeamsAppDefinitionCollectionResponse} from '../../../../models/';
+import {TeamsAppDefinitionCollectionResponse} from '../../../../models/';
 import {createTeamsAppDefinitionCollectionResponseFromDiscriminatorValue} from '../../../../models/createTeamsAppDefinitionCollectionResponseFromDiscriminatorValue';
 import {createTeamsAppDefinitionFromDiscriminatorValue} from '../../../../models/createTeamsAppDefinitionFromDiscriminatorValue';
+import {deserializeIntoTeamsAppDefinition} from '../../../../models/deserializeIntoTeamsAppDefinition';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeTeamsAppDefinition} from '../../../../models/serializeTeamsAppDefinition';
+import {TeamsAppDefinition} from '../../../../models/teamsAppDefinition';
 import {AppDefinitionsRequestBuilderGetRequestConfiguration} from './appDefinitionsRequestBuilderGetRequestConfiguration';
 import {AppDefinitionsRequestBuilderPostRequestConfiguration} from './appDefinitionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TeamsAppDefinitionItemRequestBuilder} from './item/teamsAppDefinitionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
@@ -16,6 +22,17 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
+     * @param teamsAppDefinitionId Unique identifier of the item
+     * @returns a TeamsAppDefinitionItemRequestBuilder
+     */
+    public byTeamsAppDefinitionId(teamsAppDefinitionId: string) : TeamsAppDefinitionItemRequestBuilder {
+        if(!teamsAppDefinitionId) throw new Error("teamsAppDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["teamsAppDefinition%2Did"] = teamsAppDefinitionId
+        return new TeamsAppDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AppDefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,29 +51,28 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TeamsAppDefinitionCollectionResponse>(requestInfo, createTeamsAppDefinitionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update an app previously published to the Microsoft Teams app catalog. To update an app, the **distributionMethod** property for the app must be set to `organization`. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).
+     * Create new navigation property to appDefinitions for appCatalogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsAppDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/teamsapp-update?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsAppDefinition | undefined, requestConfiguration?: AppDefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TeamsAppDefinition>(requestInfo, createTeamsAppDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -78,7 +94,7 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update an app previously published to the Microsoft Teams app catalog. To update an app, the **distributionMethod** property for the app must be set to `organization`. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).
+     * Create new navigation property to appDefinitions for appCatalogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -94,7 +110,7 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsAppDefinition);
         return requestInfo;
     };
 }

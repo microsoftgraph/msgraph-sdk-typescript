@@ -1,8 +1,16 @@
-import {UnifiedRoleAssignmentScheduleInstance} from '../../../../models/';
 import {createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue} from '../../../../models/createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue';
+import {deserializeIntoUnifiedRoleAssignmentScheduleInstance} from '../../../../models/deserializeIntoUnifiedRoleAssignmentScheduleInstance';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeUnifiedRoleAssignmentScheduleInstance} from '../../../../models/serializeUnifiedRoleAssignmentScheduleInstance';
+import {UnifiedRoleAssignmentScheduleInstance} from '../../../../models/unifiedRoleAssignmentScheduleInstance';
 import {ActivatedUsingRequestBuilder} from './activatedUsing/activatedUsingRequestBuilder';
+import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
+import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
+import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
+import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
 import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleAssignmentScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
@@ -15,6 +23,22 @@ export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends Bas
     /** Provides operations to manage the activatedUsing property of the microsoft.graph.unifiedRoleAssignmentScheduleInstance entity. */
     public get activatedUsing(): ActivatedUsingRequestBuilder {
         return new ActivatedUsingRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get appScope(): AppScopeRequestBuilder {
+        return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get directoryScope(): DirectoryScopeRequestBuilder {
+        return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the principal property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get principal(): PrincipalRequestBuilder {
+        return new PrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleScheduleInstanceBase entity. */
+    public get roleDefinition(): RoleDefinitionRequestBuilder {
+        return new RoleDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder and sets the default values.
@@ -33,10 +57,10 @@ export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends Bas
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,10 +73,10 @@ export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends Bas
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleInstance>(requestInfo, createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +91,10 @@ export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends Bas
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleInstance>(requestInfo, createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -124,7 +148,7 @@ export class UnifiedRoleAssignmentScheduleInstanceItemRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleAssignmentScheduleInstance);
         return requestInfo;
     };
 }

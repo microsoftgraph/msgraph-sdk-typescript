@@ -1,1 +1,5 @@
+export * from './createSetSolidColorPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSetSolidColorPostRequestBody'
+export * from './serializeSetSolidColorPostRequestBody'
 export * from './setSolidColorPostRequestBody'
+export * from './setSolidColorRequestBuilderPostRequestConfiguration'

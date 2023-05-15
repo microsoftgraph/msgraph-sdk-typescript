@@ -1,7 +1,8 @@
+import {deserializeIntoX509CertificateRule} from './deserializeIntoX509CertificateRule';
 import {X509CertificateRule} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createX509CertificateRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) : X509CertificateRule {
+export function createX509CertificateRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new X509CertificateRule();
+    return deserializeIntoX509CertificateRule;
 }

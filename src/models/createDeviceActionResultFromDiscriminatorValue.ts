@@ -1,7 +1,13 @@
+import {deserializeIntoDeleteUserFromSharedAppleDeviceActionResult} from './deserializeIntoDeleteUserFromSharedAppleDeviceActionResult';
+import {deserializeIntoDeviceActionResult} from './deserializeIntoDeviceActionResult';
+import {deserializeIntoLocateDeviceActionResult} from './deserializeIntoLocateDeviceActionResult';
+import {deserializeIntoRemoteLockActionResult} from './deserializeIntoRemoteLockActionResult';
+import {deserializeIntoResetPasscodeActionResult} from './deserializeIntoResetPasscodeActionResult';
+import {deserializeIntoWindowsDefenderScanActionResult} from './deserializeIntoWindowsDefenderScanActionResult';
 import {DeleteUserFromSharedAppleDeviceActionResult, DeviceActionResult, LocateDeviceActionResult, RemoteLockActionResult, ResetPasscodeActionResult, WindowsDefenderScanActionResult} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceActionResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceActionResult {
+export function createDeviceActionResultFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,17 +15,17 @@ export function createDeviceActionResultFromDiscriminatorValue(parseNode: ParseN
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.deleteUserFromSharedAppleDeviceActionResult":
-                    return new DeleteUserFromSharedAppleDeviceActionResult();
+                    return deserializeIntoDeleteUserFromSharedAppleDeviceActionResult;
                 case "#microsoft.graph.locateDeviceActionResult":
-                    return new LocateDeviceActionResult();
+                    return deserializeIntoLocateDeviceActionResult;
                 case "#microsoft.graph.remoteLockActionResult":
-                    return new RemoteLockActionResult();
+                    return deserializeIntoRemoteLockActionResult;
                 case "#microsoft.graph.resetPasscodeActionResult":
-                    return new ResetPasscodeActionResult();
+                    return deserializeIntoResetPasscodeActionResult;
                 case "#microsoft.graph.windowsDefenderScanActionResult":
-                    return new WindowsDefenderScanActionResult();
+                    return deserializeIntoWindowsDefenderScanActionResult;
             }
         }
     }
-    return new DeviceActionResult();
+    return deserializeIntoDeviceActionResult;
 }

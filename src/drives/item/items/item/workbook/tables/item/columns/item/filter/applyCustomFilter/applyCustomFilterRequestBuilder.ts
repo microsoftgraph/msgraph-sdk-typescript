@@ -1,7 +1,11 @@
 import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import {ApplyCustomFilterPostRequestBody} from './applyCustomFilterPostRequestBody';
 import {ApplyCustomFilterRequestBuilderPostRequestConfiguration} from './applyCustomFilterRequestBuilderPostRequestConfiguration';
-import {ApplyCustomFilterPostRequestBody} from './index';
+import {deserializeIntoApplyCustomFilterPostRequestBody} from './deserializeIntoApplyCustomFilterPostRequestBody';
+import {serializeApplyCustomFilterPostRequestBody} from './serializeApplyCustomFilterPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -27,10 +31,10 @@ export class ApplyCustomFilterRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,7 +53,7 @@ export class ApplyCustomFilterRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplyCustomFilterPostRequestBody);
         return requestInfo;
     };
 }

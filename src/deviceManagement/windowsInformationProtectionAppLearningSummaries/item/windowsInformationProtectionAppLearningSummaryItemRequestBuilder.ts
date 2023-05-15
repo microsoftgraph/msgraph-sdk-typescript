@@ -1,7 +1,11 @@
-import {WindowsInformationProtectionAppLearningSummary} from '../../../models/';
 import {createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue} from '../../../models/createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue';
+import {deserializeIntoWindowsInformationProtectionAppLearningSummary} from '../../../models/deserializeIntoWindowsInformationProtectionAppLearningSummary';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeWindowsInformationProtectionAppLearningSummary} from '../../../models/serializeWindowsInformationProtectionAppLearningSummary';
+import {WindowsInformationProtectionAppLearningSummary} from '../../../models/windowsInformationProtectionAppLearningSummary';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder ex
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder ex
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLearningSummary>(requestInfo, createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder ex
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLearningSummary>(requestInfo, createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder ex
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsInformationProtectionAppLearningSummary);
         return requestInfo;
     };
 }

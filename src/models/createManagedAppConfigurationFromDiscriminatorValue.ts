@@ -1,7 +1,9 @@
+import {deserializeIntoManagedAppConfiguration} from './deserializeIntoManagedAppConfiguration';
+import {deserializeIntoTargetedManagedAppConfiguration} from './deserializeIntoTargetedManagedAppConfiguration';
 import {ManagedAppConfiguration, TargetedManagedAppConfiguration} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppConfiguration {
+export function createManagedAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createManagedAppConfigurationFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.targetedManagedAppConfiguration":
-                    return new TargetedManagedAppConfiguration();
+                    return deserializeIntoTargetedManagedAppConfiguration;
             }
         }
     }
-    return new ManagedAppConfiguration();
+    return deserializeIntoManagedAppConfiguration;
 }

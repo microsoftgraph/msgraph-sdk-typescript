@@ -1,13 +1,19 @@
-import {UnifiedRoleAssignmentScheduleRequest, UnifiedRoleAssignmentScheduleRequestCollectionResponse} from '../../../models/';
+import {UnifiedRoleAssignmentScheduleRequestCollectionResponse} from '../../../models/';
 import {createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue';
 import {createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue';
+import {deserializeIntoUnifiedRoleAssignmentScheduleRequest} from '../../../models/deserializeIntoUnifiedRoleAssignmentScheduleRequest';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeUnifiedRoleAssignmentScheduleRequest} from '../../../models/serializeUnifiedRoleAssignmentScheduleRequest';
+import {UnifiedRoleAssignmentScheduleRequest} from '../../../models/unifiedRoleAssignmentScheduleRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {UnifiedRoleAssignmentScheduleRequestItemRequestBuilder} from './item/unifiedRoleAssignmentScheduleRequestItemRequestBuilder';
 import {RoleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration} from './roleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration} from './roleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
@@ -17,6 +23,17 @@ export class RoleAssignmentScheduleRequestsRequestBuilder extends BaseRequestBui
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
+     * @param unifiedRoleAssignmentScheduleRequestId Unique identifier of the item
+     * @returns a UnifiedRoleAssignmentScheduleRequestItemRequestBuilder
+     */
+    public byUnifiedRoleAssignmentScheduleRequestId(unifiedRoleAssignmentScheduleRequestId: string) : UnifiedRoleAssignmentScheduleRequestItemRequestBuilder {
+        if(!unifiedRoleAssignmentScheduleRequestId) throw new Error("unifiedRoleAssignmentScheduleRequestId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["unifiedRoleAssignmentScheduleRequest%2Did"] = unifiedRoleAssignmentScheduleRequestId
+        return new UnifiedRoleAssignmentScheduleRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleAssignmentScheduleRequestsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -35,43 +52,41 @@ export class RoleAssignmentScheduleRequestsRequestBuilder extends BaseRequestBui
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Retrieve the requests for active role assignments to principals. The active assignments include those made through assignments and activation requests, and directly through the role assignments API. The role assignments can be permanently active with or without an expiry date, or temporarily active after user activation of eligible assignments.
+     * Requests for active role assignments to principals through PIM.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentScheduleRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleassignmentschedulerequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleAssignmentScheduleRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleRequestCollectionResponse>(requestInfo, createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * In PIM, carry out the following operations through the unifiedRoleAssignmentScheduleRequest object:+ Request active and persistent role assignments for a principal, with or without expiry dates.+ Activate, deactivate, extend, or renew an eligible role assignment for a principal. To call this API to update, renew, and extend assignments for yourself, you must have multi-factor authentication (MFA) enforced, and running the query in a session in which they were challenged for MFA. See Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events.
+     * Create new navigation property to roleAssignmentScheduleRequests for roleManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentScheduleRequest
-     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-post-roleassignmentschedulerequests?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnifiedRoleAssignmentScheduleRequest | undefined, requestConfiguration?: RoleAssignmentScheduleRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleRequest>(requestInfo, createUnifiedRoleAssignmentScheduleRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the requests for active role assignments to principals. The active assignments include those made through assignments and activation requests, and directly through the role assignments API. The role assignments can be permanently active with or without an expiry date, or temporarily active after user activation of eligible assignments.
+     * Requests for active role assignments to principals through PIM.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +104,7 @@ export class RoleAssignmentScheduleRequestsRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * In PIM, carry out the following operations through the unifiedRoleAssignmentScheduleRequest object:+ Request active and persistent role assignments for a principal, with or without expiry dates.+ Activate, deactivate, extend, or renew an eligible role assignment for a principal. To call this API to update, renew, and extend assignments for yourself, you must have multi-factor authentication (MFA) enforced, and running the query in a session in which they were challenged for MFA. See Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events.
+     * Create new navigation property to roleAssignmentScheduleRequests for roleManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -105,7 +120,7 @@ export class RoleAssignmentScheduleRequestsRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleAssignmentScheduleRequest);
         return requestInfo;
     };
 }

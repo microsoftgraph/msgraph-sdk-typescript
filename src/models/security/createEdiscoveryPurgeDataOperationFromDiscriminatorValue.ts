@@ -1,7 +1,8 @@
+import {deserializeIntoEdiscoveryPurgeDataOperation} from './deserializeIntoEdiscoveryPurgeDataOperation';
 import {EdiscoveryPurgeDataOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEdiscoveryPurgeDataOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : EdiscoveryPurgeDataOperation {
+export function createEdiscoveryPurgeDataOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EdiscoveryPurgeDataOperation();
+    return deserializeIntoEdiscoveryPurgeDataOperation;
 }

@@ -1,1 +1,5 @@
+export * from './createIsErrorPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoIsErrorPostRequestBody'
 export * from './isErrorPostRequestBody'
+export * from './isErrorRequestBuilderPostRequestConfiguration'
+export * from './serializeIsErrorPostRequestBody'

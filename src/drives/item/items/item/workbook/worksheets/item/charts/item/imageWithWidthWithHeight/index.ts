@@ -1,1 +1,5 @@
+export * from './createImageWithWidthWithHeightResponseFromDiscriminatorValue'
+export * from './deserializeIntoImageWithWidthWithHeightResponse'
+export * from './imageWithWidthWithHeightRequestBuilderGetRequestConfiguration'
 export * from './imageWithWidthWithHeightResponse'
+export * from './serializeImageWithWidthWithHeightResponse'

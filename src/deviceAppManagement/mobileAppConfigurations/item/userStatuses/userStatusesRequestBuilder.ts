@@ -1,12 +1,18 @@
-import {ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse} from '../../../../models/';
+import {ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse} from '../../../../models/';
 import {createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue';
 import {createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue';
+import {deserializeIntoManagedDeviceMobileAppConfigurationUserStatus} from '../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationUserStatus';
+import {ManagedDeviceMobileAppConfigurationUserStatus} from '../../../../models/managedDeviceMobileAppConfigurationUserStatus';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeManagedDeviceMobileAppConfigurationUserStatus} from '../../../../models/serializeManagedDeviceMobileAppConfigurationUserStatus';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder} from './item/managedDeviceMobileAppConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
 import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -16,6 +22,17 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
+     * @param managedDeviceMobileAppConfigurationUserStatusId Unique identifier of the item
+     * @returns a ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
+     */
+    public byManagedDeviceMobileAppConfigurationUserStatusId(managedDeviceMobileAppConfigurationUserStatusId: string) : ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {
+        if(!managedDeviceMobileAppConfigurationUserStatusId) throw new Error("managedDeviceMobileAppConfigurationUserStatusId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedDeviceMobileAppConfigurationUserStatus%2Did"] = managedDeviceMobileAppConfigurationUserStatusId
+        return new ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserStatusesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedDeviceMobileAppConfigurationUserStatus);
         return requestInfo;
     };
 }

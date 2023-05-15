@@ -2,9 +2,12 @@ import {EducationClassCollectionResponse} from '../../../models/';
 import {createEducationClassCollectionResponseFromDiscriminatorValue} from '../../../models/createEducationClassCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
 import {TaughtClassesRequestBuilderGetRequestConfiguration} from './taughtClassesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
@@ -15,6 +18,17 @@ export class TaughtClassesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+     * @param educationClassId Unique identifier of the item
+     * @returns a EducationClassItemRequestBuilder
+     */
+    public byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder {
+        if(!educationClassId) throw new Error("educationClassId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationClass%2Did"] = educationClassId
+        return new EducationClassItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new TaughtClassesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -23,24 +37,23 @@ export class TaughtClassesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/me/taughtClasses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the educationClass resources owned by an educationUser.
+     * Classes for which the user is a teacher.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationClassCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-list-taughtclasses?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TaughtClassesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationClassCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationClassCollectionResponse>(requestInfo, createEducationClassCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the educationClass resources owned by an educationUser.
+     * Classes for which the user is a teacher.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

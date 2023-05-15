@@ -1,1 +1,5 @@
+export * from './createIpmtPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoIpmtPostRequestBody'
 export * from './ipmtPostRequestBody'
+export * from './ipmtRequestBuilderPostRequestConfiguration'
+export * from './serializeIpmtPostRequestBody'

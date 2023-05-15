@@ -1,7 +1,9 @@
+import {deserializeIntoDeviceAndAppManagementRoleAssignment} from './deserializeIntoDeviceAndAppManagementRoleAssignment';
+import {deserializeIntoRoleAssignment} from './deserializeIntoRoleAssignment';
 import {DeviceAndAppManagementRoleAssignment, RoleAssignment} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : RoleAssignment {
+export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.deviceAndAppManagementRoleAssignment":
-                    return new DeviceAndAppManagementRoleAssignment();
+                    return deserializeIntoDeviceAndAppManagementRoleAssignment;
             }
         }
     }
-    return new RoleAssignment();
+    return deserializeIntoRoleAssignment;
 }

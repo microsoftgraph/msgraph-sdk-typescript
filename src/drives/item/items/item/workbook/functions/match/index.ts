@@ -1,1 +1,5 @@
+export * from './createMatchPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoMatchPostRequestBody'
 export * from './matchPostRequestBody'
+export * from './matchRequestBuilderPostRequestConfiguration'
+export * from './serializeMatchPostRequestBody'

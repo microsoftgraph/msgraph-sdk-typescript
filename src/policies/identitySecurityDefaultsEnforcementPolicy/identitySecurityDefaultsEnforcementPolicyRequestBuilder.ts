@@ -1,7 +1,11 @@
-import {IdentitySecurityDefaultsEnforcementPolicy} from '../../models/';
 import {createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue} from '../../models/createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue';
+import {deserializeIntoIdentitySecurityDefaultsEnforcementPolicy} from '../../models/deserializeIntoIdentitySecurityDefaultsEnforcementPolicy';
+import {IdentitySecurityDefaultsEnforcementPolicy} from '../../models/identitySecurityDefaultsEnforcementPolicy';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeIdentitySecurityDefaultsEnforcementPolicy} from '../../models/serializeIdentitySecurityDefaultsEnforcementPolicy';
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration} from './identitySecurityDefaultsEnforcementPolicyRequestBuilderDeleteRequestConfiguration';
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration} from './identitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration';
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration} from './identitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration';
@@ -28,46 +32,44 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * The policy that represents the security defaults that protect against common attacks.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentitySecurityDefaultsEnforcementPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/identitysecuritydefaultsenforcementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentitySecurityDefaultsEnforcementPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IdentitySecurityDefaultsEnforcementPolicy>(requestInfo, createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentitySecurityDefaultsEnforcementPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/identitysecuritydefaultsenforcementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IdentitySecurityDefaultsEnforcementPolicy | undefined, requestConfiguration?: IdentitySecurityDefaultsEnforcementPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentitySecurityDefaultsEnforcementPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IdentitySecurityDefaultsEnforcementPolicy>(requestInfo, createIdentitySecurityDefaultsEnforcementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -87,7 +89,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
         return requestInfo;
     };
     /**
-     * Retrieve the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * The policy that represents the security defaults that protect against common attacks.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -105,7 +107,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
         return requestInfo;
     };
     /**
-     * Update the properties of an identitySecurityDefaultsEnforcementPolicy object.
+     * Update the navigation property identitySecurityDefaultsEnforcementPolicy in policies
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -121,7 +123,7 @@ export class IdentitySecurityDefaultsEnforcementPolicyRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentitySecurityDefaultsEnforcementPolicy);
         return requestInfo;
     };
 }

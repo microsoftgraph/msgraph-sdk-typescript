@@ -1,12 +1,18 @@
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {EdiscoveryCase, EdiscoveryCaseCollectionResponse} from '../../../models/security/';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {EdiscoveryCaseCollectionResponse} from '../../../models/security/';
 import {createEdiscoveryCaseCollectionResponseFromDiscriminatorValue} from '../../../models/security/createEdiscoveryCaseCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryCaseFromDiscriminatorValue} from '../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
+import {deserializeIntoEdiscoveryCase} from '../../../models/security/deserializeIntoEdiscoveryCase';
+import {EdiscoveryCase} from '../../../models/security/ediscoveryCase';
+import {serializeEdiscoveryCase} from '../../../models/security/serializeEdiscoveryCase';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryCasesRequestBuilderGetRequestConfiguration} from './ediscoveryCasesRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCasesRequestBuilderPostRequestConfiguration} from './ediscoveryCasesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {EdiscoveryCaseItemRequestBuilder} from './item/ediscoveryCaseItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
@@ -17,6 +23,17 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
+     * @param ediscoveryCaseId Unique identifier of the item
+     * @returns a EdiscoveryCaseItemRequestBuilder
+     */
+    public byEdiscoveryCaseId(ediscoveryCaseId: string) : EdiscoveryCaseItemRequestBuilder {
+        if(!ediscoveryCaseId) throw new Error("ediscoveryCaseId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["ediscoveryCase%2Did"] = ediscoveryCaseId
+        return new EdiscoveryCaseItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new EdiscoveryCasesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,43 +42,41 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the ediscoveryCase objects and their properties.
+     * Get ediscoveryCases from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCaseCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-list-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoveryCasesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryCaseCollectionResponse>(requestInfo, createEdiscoveryCaseCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new ediscoveryCase object.
+     * Create new navigation property to ediscoveryCases for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCase
-     * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-post-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCasesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the ediscoveryCase objects and their properties.
+     * Get ediscoveryCases from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +94,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new ediscoveryCase object.
+     * Create new navigation property to ediscoveryCases for security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -95,7 +110,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryCase);
         return requestInfo;
     };
 }

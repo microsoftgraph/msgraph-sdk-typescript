@@ -1,7 +1,12 @@
-import {HomeRealmDiscoveryPolicy} from '../../../models/';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from '../../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
+import {deserializeIntoHomeRealmDiscoveryPolicy} from '../../../models/deserializeIntoHomeRealmDiscoveryPolicy';
+import {HomeRealmDiscoveryPolicy} from '../../../models/homeRealmDiscoveryPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeHomeRealmDiscoveryPolicy} from '../../../models/serializeHomeRealmDiscoveryPolicy';
+import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
 import {HomeRealmDiscoveryPolicyItemRequestBuilderDeleteRequestConfiguration} from './homeRealmDiscoveryPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {HomeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration} from './homeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration';
 import {HomeRealmDiscoveryPolicyItemRequestBuilderPatchRequestConfiguration} from './homeRealmDiscoveryPolicyItemRequestBuilderPatchRequestConfiguration';
@@ -11,6 +16,10 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
  */
 export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the appliesTo property of the microsoft.graph.stsPolicy entity. */
+    public get appliesTo(): AppliesToRequestBuilder {
+        return new AppliesToRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new HomeRealmDiscoveryPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -28,10 +37,10 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +53,10 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<HomeRealmDiscoveryPolicy>(requestInfo, createHomeRealmDiscoveryPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +71,10 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<HomeRealmDiscoveryPolicy>(requestInfo, createHomeRealmDiscoveryPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +128,7 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHomeRealmDiscoveryPolicy);
         return requestInfo;
     };
 }

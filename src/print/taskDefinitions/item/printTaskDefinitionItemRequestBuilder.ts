@@ -1,13 +1,16 @@
-import {PrintTaskDefinition} from '../../../models/';
 import {createPrintTaskDefinitionFromDiscriminatorValue} from '../../../models/createPrintTaskDefinitionFromDiscriminatorValue';
+import {deserializeIntoPrintTaskDefinition} from '../../../models/deserializeIntoPrintTaskDefinition';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {PrintTaskDefinition} from '../../../models/printTaskDefinition';
+import {serializePrintTaskDefinition} from '../../../models/serializePrintTaskDefinition';
 import {PrintTaskDefinitionItemRequestBuilderDeleteRequestConfiguration} from './printTaskDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {PrintTaskDefinitionItemRequestBuilderGetRequestConfiguration} from './printTaskDefinitionItemRequestBuilderGetRequestConfiguration';
 import {PrintTaskDefinitionItemRequestBuilderPatchRequestConfiguration} from './printTaskDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {PrintTaskItemRequestBuilder} from './tasks/item/printTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
@@ -34,10 +37,10 @@ export class PrintTaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,10 +53,10 @@ export class PrintTaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PrintTaskDefinition>(requestInfo, createPrintTaskDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -68,22 +71,11 @@ export class PrintTaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PrintTaskDefinition>(requestInfo, createPrintTaskDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintTaskItemRequestBuilder
-     */
-    public tasksById(id: string) : PrintTaskItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printTask%2Did"] = id
-        return new PrintTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property taskDefinitions for print
@@ -136,7 +128,7 @@ export class PrintTaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintTaskDefinition);
         return requestInfo;
     };
 }

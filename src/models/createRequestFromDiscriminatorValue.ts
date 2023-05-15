@@ -1,7 +1,11 @@
+import {deserializeIntoRequest} from './deserializeIntoRequest';
+import {deserializeIntoUnifiedRoleAssignmentScheduleRequest} from './deserializeIntoUnifiedRoleAssignmentScheduleRequest';
+import {deserializeIntoUnifiedRoleEligibilityScheduleRequest} from './deserializeIntoUnifiedRoleEligibilityScheduleRequest';
+import {deserializeIntoUserConsentRequest} from './deserializeIntoUserConsentRequest';
 import {Request, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleEligibilityScheduleRequest, UserConsentRequest} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : Request {
+export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undef
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.unifiedRoleAssignmentScheduleRequest":
-                    return new UnifiedRoleAssignmentScheduleRequest();
+                    return deserializeIntoUnifiedRoleAssignmentScheduleRequest;
                 case "#microsoft.graph.unifiedRoleEligibilityScheduleRequest":
-                    return new UnifiedRoleEligibilityScheduleRequest();
+                    return deserializeIntoUnifiedRoleEligibilityScheduleRequest;
                 case "#microsoft.graph.userConsentRequest":
-                    return new UserConsentRequest();
+                    return deserializeIntoUserConsentRequest;
             }
         }
     }
-    return new Request();
+    return deserializeIntoRequest;
 }

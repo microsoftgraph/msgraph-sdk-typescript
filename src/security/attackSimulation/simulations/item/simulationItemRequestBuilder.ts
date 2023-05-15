@@ -1,7 +1,11 @@
-import {Simulation} from '../../../../models/';
 import {createSimulationFromDiscriminatorValue} from '../../../../models/createSimulationFromDiscriminatorValue';
+import {deserializeIntoSimulation} from '../../../../models/deserializeIntoSimulation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeSimulation} from '../../../../models/serializeSimulation';
+import {Simulation} from '../../../../models/simulation';
 import {SimulationItemRequestBuilderDeleteRequestConfiguration} from './simulationItemRequestBuilderDeleteRequestConfiguration';
 import {SimulationItemRequestBuilderGetRequestConfiguration} from './simulationItemRequestBuilderGetRequestConfiguration';
 import {SimulationItemRequestBuilderPatchRequestConfiguration} from './simulationItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Simulation>(requestInfo, createSimulationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSimulation);
         return requestInfo;
     };
 }

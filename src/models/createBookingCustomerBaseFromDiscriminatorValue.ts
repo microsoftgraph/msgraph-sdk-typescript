@@ -1,7 +1,9 @@
+import {deserializeIntoBookingCustomer} from './deserializeIntoBookingCustomer';
+import {deserializeIntoBookingCustomerBase} from './deserializeIntoBookingCustomerBase';
 import {BookingCustomer, BookingCustomerBase} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCustomerBase {
+export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createBookingCustomerBaseFromDiscriminatorValue(parseNode: Parse
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.bookingCustomer":
-                    return new BookingCustomer();
+                    return deserializeIntoBookingCustomer;
             }
         }
     }
-    return new BookingCustomerBase();
+    return deserializeIntoBookingCustomerBase;
 }

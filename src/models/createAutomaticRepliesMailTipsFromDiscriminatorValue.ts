@@ -1,7 +1,8 @@
+import {deserializeIntoAutomaticRepliesMailTips} from './deserializeIntoAutomaticRepliesMailTips';
 import {AutomaticRepliesMailTips} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAutomaticRepliesMailTipsFromDiscriminatorValue(parseNode: ParseNode | undefined) : AutomaticRepliesMailTips {
+export function createAutomaticRepliesMailTipsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AutomaticRepliesMailTips();
+    return deserializeIntoAutomaticRepliesMailTips;
 }

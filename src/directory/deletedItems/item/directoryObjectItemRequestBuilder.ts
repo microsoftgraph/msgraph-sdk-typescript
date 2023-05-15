@@ -1,7 +1,11 @@
-import {DirectoryObject} from '../../../models/';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../../models/createDirectoryObjectFromDiscriminatorValue';
+import {deserializeIntoDirectoryObject} from '../../../models/deserializeIntoDirectoryObject';
+import {DirectoryObject} from '../../../models/directoryObject';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeDirectoryObject} from '../../../models/serializeDirectoryObject';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectoryObjectItemRequestBuilderDeleteRequestConfiguration} from './directoryObjectItemRequestBuilderDeleteRequestConfiguration';
@@ -9,8 +13,11 @@ import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './direct
 import {DirectoryObjectItemRequestBuilderPatchRequestConfiguration} from './directoryObjectItemRequestBuilderPatchRequestConfiguration';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
+import {GraphAdministrativeUnitRequestBuilder} from './graphAdministrativeUnit/graphAdministrativeUnitRequestBuilder';
 import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
+import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
+import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -35,13 +42,25 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to administrativeUnit. */
+    public get graphAdministrativeUnit(): GraphAdministrativeUnitRequestBuilder {
+        return new GraphAdministrativeUnitRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to application. */
     public get graphApplication(): GraphApplicationRequestBuilder {
         return new GraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Casts the previous resource to device. */
+    public get graphDevice(): GraphDeviceRequestBuilder {
+        return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Casts the previous resource to group. */
     public get graphGroup(): GraphGroupRequestBuilder {
         return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Casts the previous resource to servicePrincipal. */
+    public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
+        return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Casts the previous resource to user. */
     public get graphUser(): GraphUserRequestBuilder {
@@ -68,10 +87,10 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -84,10 +103,10 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -102,10 +121,10 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -159,7 +178,7 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryObject);
         return requestInfo;
     };
 }

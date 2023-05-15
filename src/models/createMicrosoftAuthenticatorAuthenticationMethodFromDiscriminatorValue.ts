@@ -1,7 +1,8 @@
+import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethod} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethod';
 import {MicrosoftAuthenticatorAuthenticationMethod} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue(parseNode: ParseNode | undefined) : MicrosoftAuthenticatorAuthenticationMethod {
+export function createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MicrosoftAuthenticatorAuthenticationMethod();
+    return deserializeIntoMicrosoftAuthenticatorAuthenticationMethod;
 }

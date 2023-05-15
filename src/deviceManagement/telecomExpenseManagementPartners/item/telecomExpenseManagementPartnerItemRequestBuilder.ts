@@ -1,7 +1,11 @@
-import {TelecomExpenseManagementPartner} from '../../../models/';
 import {createTelecomExpenseManagementPartnerFromDiscriminatorValue} from '../../../models/createTelecomExpenseManagementPartnerFromDiscriminatorValue';
+import {deserializeIntoTelecomExpenseManagementPartner} from '../../../models/deserializeIntoTelecomExpenseManagementPartner';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeTelecomExpenseManagementPartner} from '../../../models/serializeTelecomExpenseManagementPartner';
+import {TelecomExpenseManagementPartner} from '../../../models/telecomExpenseManagementPartner';
 import {TelecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration';
 import {TelecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder extends BaseReque
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder extends BaseReque
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartner>(requestInfo, createTelecomExpenseManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder extends BaseReque
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartner>(requestInfo, createTelecomExpenseManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder extends BaseReque
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTelecomExpenseManagementPartner);
         return requestInfo;
     };
 }

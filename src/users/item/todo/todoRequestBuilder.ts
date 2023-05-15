@@ -1,13 +1,16 @@
-import {Todo} from '../../../models/';
 import {createTodoFromDiscriminatorValue} from '../../../models/createTodoFromDiscriminatorValue';
+import {deserializeIntoTodo} from '../../../models/deserializeIntoTodo';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {TodoTaskListItemRequestBuilder} from './lists/item/todoTaskListItemRequestBuilder';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeTodo} from '../../../models/serializeTodo';
+import {Todo} from '../../../models/todo';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {TodoRequestBuilderDeleteRequestConfiguration} from './todoRequestBuilderDeleteRequestConfiguration';
 import {TodoRequestBuilderGetRequestConfiguration} from './todoRequestBuilderGetRequestConfiguration';
 import {TodoRequestBuilderPatchRequestConfiguration} from './todoRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the todo property of the microsoft.graph.user entity.
@@ -34,10 +37,10 @@ export class TodoRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,22 +53,11 @@ export class TodoRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Todo>(requestInfo, createTodoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the lists property of the microsoft.graph.todo entity.
-     * @param id Unique identifier of the item
-     * @returns a TodoTaskListItemRequestBuilder
-     */
-    public listsById(id: string) : TodoTaskListItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["todoTaskList%2Did"] = id
-        return new TodoTaskListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property todo in users
@@ -79,10 +71,10 @@ export class TodoRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Todo>(requestInfo, createTodoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class TodoRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTodo);
         return requestInfo;
     };
 }

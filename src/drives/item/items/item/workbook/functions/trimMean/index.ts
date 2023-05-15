@@ -1,1 +1,5 @@
+export * from './createTrimMeanPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoTrimMeanPostRequestBody'
+export * from './serializeTrimMeanPostRequestBody'
 export * from './trimMeanPostRequestBody'
+export * from './trimMeanRequestBuilderPostRequestConfiguration'

@@ -1,1 +1,5 @@
 export * from './applyFontColorFilterPostRequestBody'
+export * from './applyFontColorFilterRequestBuilderPostRequestConfiguration'
+export * from './createApplyFontColorFilterPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoApplyFontColorFilterPostRequestBody'
+export * from './serializeApplyFontColorFilterPostRequestBody'

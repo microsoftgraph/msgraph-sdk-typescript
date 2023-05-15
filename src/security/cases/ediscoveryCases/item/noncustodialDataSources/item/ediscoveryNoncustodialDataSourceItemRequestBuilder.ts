@@ -1,16 +1,20 @@
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {EdiscoveryNoncustodialDataSource} from '../../../../../../models/security/';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
+import {deserializeIntoEdiscoveryNoncustodialDataSource} from '../../../../../../models/security/deserializeIntoEdiscoveryNoncustodialDataSource';
+import {EdiscoveryNoncustodialDataSource} from '../../../../../../models/security/ediscoveryNoncustodialDataSource';
+import {serializeEdiscoveryNoncustodialDataSource} from '../../../../../../models/security/serializeEdiscoveryNoncustodialDataSource';
 import {DataSourceRequestBuilder} from './dataSource/dataSourceRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration';
 import {LastIndexOperationRequestBuilder} from './lastIndexOperation/lastIndexOperationRequestBuilder';
-import {SecurityApplyHoldRequestBuilder} from './securityApplyHold/securityApplyHoldRequestBuilder';
-import {SecurityReleaseRequestBuilder} from './securityRelease/securityReleaseRequestBuilder';
-import {SecurityRemoveHoldRequestBuilder} from './securityRemoveHold/securityRemoveHoldRequestBuilder';
-import {SecurityUpdateIndexRequestBuilder} from './securityUpdateIndex/securityUpdateIndexRequestBuilder';
+import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
+import {MicrosoftGraphSecurityReleaseRequestBuilder} from './microsoftGraphSecurityRelease/microsoftGraphSecurityReleaseRequestBuilder';
+import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
+import {MicrosoftGraphSecurityUpdateIndexRequestBuilder} from './microsoftGraphSecurityUpdateIndex/microsoftGraphSecurityUpdateIndexRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -26,20 +30,20 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the applyHold method. */
-    public get securityApplyHold(): SecurityApplyHoldRequestBuilder {
-        return new SecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityApplyHold(): MicrosoftGraphSecurityApplyHoldRequestBuilder {
+        return new MicrosoftGraphSecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the release method. */
-    public get securityRelease(): SecurityReleaseRequestBuilder {
-        return new SecurityReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityRelease(): MicrosoftGraphSecurityReleaseRequestBuilder {
+        return new MicrosoftGraphSecurityReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the removeHold method. */
-    public get securityRemoveHold(): SecurityRemoveHoldRequestBuilder {
-        return new SecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityRemoveHold(): MicrosoftGraphSecurityRemoveHoldRequestBuilder {
+        return new MicrosoftGraphSecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the updateIndex method. */
-    public get securityUpdateIndex(): SecurityUpdateIndexRequestBuilder {
-        return new SecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityUpdateIndex(): MicrosoftGraphSecurityUpdateIndexRequestBuilder {
+        return new MicrosoftGraphSecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new EdiscoveryNoncustodialDataSourceItemRequestBuilder and sets the default values.
@@ -58,10 +62,10 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -74,10 +78,10 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -92,10 +96,10 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -149,7 +153,7 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryNoncustodialDataSource);
         return requestInfo;
     };
 }

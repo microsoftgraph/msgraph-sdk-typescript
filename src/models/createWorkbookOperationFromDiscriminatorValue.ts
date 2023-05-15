@@ -1,7 +1,8 @@
+import {deserializeIntoWorkbookOperation} from './deserializeIntoWorkbookOperation';
 import {WorkbookOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookOperation {
+export function createWorkbookOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookOperation();
+    return deserializeIntoWorkbookOperation;
 }

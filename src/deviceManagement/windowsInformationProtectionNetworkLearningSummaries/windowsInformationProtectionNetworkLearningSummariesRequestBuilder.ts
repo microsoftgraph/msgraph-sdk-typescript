@@ -1,12 +1,18 @@
-import {WindowsInformationProtectionNetworkLearningSummary, WindowsInformationProtectionNetworkLearningSummaryCollectionResponse} from '../../models/';
+import {WindowsInformationProtectionNetworkLearningSummaryCollectionResponse} from '../../models/';
 import {createWindowsInformationProtectionNetworkLearningSummaryCollectionResponseFromDiscriminatorValue} from '../../models/createWindowsInformationProtectionNetworkLearningSummaryCollectionResponseFromDiscriminatorValue';
 import {createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue} from '../../models/createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue';
+import {deserializeIntoWindowsInformationProtectionNetworkLearningSummary} from '../../models/deserializeIntoWindowsInformationProtectionNetworkLearningSummary';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeWindowsInformationProtectionNetworkLearningSummary} from '../../models/serializeWindowsInformationProtectionNetworkLearningSummary';
+import {WindowsInformationProtectionNetworkLearningSummary} from '../../models/windowsInformationProtectionNetworkLearningSummary';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder} from './item/windowsInformationProtectionNetworkLearningSummaryItemRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummariesRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilderPostRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummariesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
+     * @param windowsInformationProtectionNetworkLearningSummaryId Unique identifier of the item
+     * @returns a WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
+     */
+    public byWindowsInformationProtectionNetworkLearningSummaryId(windowsInformationProtectionNetworkLearningSummaryId: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder {
+        if(!windowsInformationProtectionNetworkLearningSummaryId) throw new Error("windowsInformationProtectionNetworkLearningSummaryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["windowsInformationProtectionNetworkLearningSummary%2Did"] = windowsInformationProtectionNetworkLearningSummaryId
+        return new WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionNetworkLearningSummaryCollectionResponse>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsInformationProtectionNetworkLearningSummary);
         return requestInfo;
     };
 }

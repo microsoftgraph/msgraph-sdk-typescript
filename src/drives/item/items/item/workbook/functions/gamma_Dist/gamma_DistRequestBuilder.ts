@@ -1,9 +1,15 @@
-import {WorkbookFunctionResult} from '../../../../../../../models/';
 import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import {deserializeIntoGamma_DistPostRequestBody} from './deserializeIntoGamma_DistPostRequestBody';
+import {Gamma_DistPostRequestBody} from './gamma_DistPostRequestBody';
 import {Gamma_DistRequestBuilderPostRequestConfiguration} from './gamma_DistRequestBuilderPostRequestConfiguration';
-import {Gamma_DistPostRequestBody} from './index';
+import {serializeGamma_DistPostRequestBody} from './serializeGamma_DistPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -30,10 +36,10 @@ export class Gamma_DistRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,7 +59,7 @@ export class Gamma_DistRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGamma_DistPostRequestBody);
         return requestInfo;
     };
 }

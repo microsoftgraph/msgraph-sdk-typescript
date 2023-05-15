@@ -1,7 +1,8 @@
+import {deserializeIntoBahtTextPostRequestBody} from './deserializeIntoBahtTextPostRequestBody';
 import {BahtTextPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBahtTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : BahtTextPostRequestBody {
+export function createBahtTextPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BahtTextPostRequestBody();
+    return deserializeIntoBahtTextPostRequestBody;
 }

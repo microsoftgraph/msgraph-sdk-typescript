@@ -1,1 +1,5 @@
+export * from './createImSinPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoImSinPostRequestBody'
 export * from './imSinPostRequestBody'
+export * from './imSinRequestBuilderPostRequestConfiguration'
+export * from './serializeImSinPostRequestBody'

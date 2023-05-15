@@ -1,1 +1,5 @@
 export * from './coupNumPostRequestBody'
+export * from './coupNumRequestBuilderPostRequestConfiguration'
+export * from './createCoupNumPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCoupNumPostRequestBody'
+export * from './serializeCoupNumPostRequestBody'

@@ -1,7 +1,16 @@
+import {deserializeIntoIosLobAppAssignmentSettings} from './deserializeIntoIosLobAppAssignmentSettings';
+import {deserializeIntoIosStoreAppAssignmentSettings} from './deserializeIntoIosStoreAppAssignmentSettings';
+import {deserializeIntoIosVppAppAssignmentSettings} from './deserializeIntoIosVppAppAssignmentSettings';
+import {deserializeIntoMacOsLobAppAssignmentSettings} from './deserializeIntoMacOsLobAppAssignmentSettings';
+import {deserializeIntoMicrosoftStoreForBusinessAppAssignmentSettings} from './deserializeIntoMicrosoftStoreForBusinessAppAssignmentSettings';
+import {deserializeIntoMobileAppAssignmentSettings} from './deserializeIntoMobileAppAssignmentSettings';
+import {deserializeIntoWin32LobAppAssignmentSettings} from './deserializeIntoWin32LobAppAssignmentSettings';
+import {deserializeIntoWindowsAppXAppAssignmentSettings} from './deserializeIntoWindowsAppXAppAssignmentSettings';
+import {deserializeIntoWindowsUniversalAppXAppAssignmentSettings} from './deserializeIntoWindowsUniversalAppXAppAssignmentSettings';
 import {IosLobAppAssignmentSettings, IosStoreAppAssignmentSettings, IosVppAppAssignmentSettings, MacOsLobAppAssignmentSettings, MicrosoftStoreForBusinessAppAssignmentSettings, MobileAppAssignmentSettings, Win32LobAppAssignmentSettings, WindowsAppXAppAssignmentSettings, WindowsUniversalAppXAppAssignmentSettings} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMobileAppAssignmentSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileAppAssignmentSettings {
+export function createMobileAppAssignmentSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,23 +18,23 @@ export function createMobileAppAssignmentSettingsFromDiscriminatorValue(parseNod
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.iosLobAppAssignmentSettings":
-                    return new IosLobAppAssignmentSettings();
+                    return deserializeIntoIosLobAppAssignmentSettings;
                 case "#microsoft.graph.iosStoreAppAssignmentSettings":
-                    return new IosStoreAppAssignmentSettings();
+                    return deserializeIntoIosStoreAppAssignmentSettings;
                 case "#microsoft.graph.iosVppAppAssignmentSettings":
-                    return new IosVppAppAssignmentSettings();
+                    return deserializeIntoIosVppAppAssignmentSettings;
                 case "#microsoft.graph.macOsLobAppAssignmentSettings":
-                    return new MacOsLobAppAssignmentSettings();
+                    return deserializeIntoMacOsLobAppAssignmentSettings;
                 case "#microsoft.graph.microsoftStoreForBusinessAppAssignmentSettings":
-                    return new MicrosoftStoreForBusinessAppAssignmentSettings();
+                    return deserializeIntoMicrosoftStoreForBusinessAppAssignmentSettings;
                 case "#microsoft.graph.win32LobAppAssignmentSettings":
-                    return new Win32LobAppAssignmentSettings();
+                    return deserializeIntoWin32LobAppAssignmentSettings;
                 case "#microsoft.graph.windowsAppXAppAssignmentSettings":
-                    return new WindowsAppXAppAssignmentSettings();
+                    return deserializeIntoWindowsAppXAppAssignmentSettings;
                 case "#microsoft.graph.windowsUniversalAppXAppAssignmentSettings":
-                    return new WindowsUniversalAppXAppAssignmentSettings();
+                    return deserializeIntoWindowsUniversalAppXAppAssignmentSettings;
             }
         }
     }
-    return new MobileAppAssignmentSettings();
+    return deserializeIntoMobileAppAssignmentSettings;
 }

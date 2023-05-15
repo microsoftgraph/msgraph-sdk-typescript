@@ -1,12 +1,15 @@
-import {Privacy} from '../models/';
 import {createPrivacyFromDiscriminatorValue} from '../models/createPrivacyFromDiscriminatorValue';
+import {deserializeIntoPrivacy} from '../models/deserializeIntoPrivacy';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {Privacy} from '../models/privacy';
+import {serializePrivacy} from '../models/serializePrivacy';
 import {PrivacyRequestBuilderGetRequestConfiguration} from './privacyRequestBuilderGetRequestConfiguration';
 import {PrivacyRequestBuilderPatchRequestConfiguration} from './privacyRequestBuilderPatchRequestConfiguration';
-import {SubjectRightsRequestItemRequestBuilder} from './subjectRightsRequests/item/subjectRightsRequestItemRequestBuilder';
 import {SubjectRightsRequestsRequestBuilder} from './subjectRightsRequests/subjectRightsRequestsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the privacy singleton.
@@ -34,10 +37,10 @@ export class PrivacyRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,22 +55,11 @@ export class PrivacyRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
-     * @param id Unique identifier of the item
-     * @returns a SubjectRightsRequestItemRequestBuilder
-     */
-    public subjectRightsRequestsById(id: string) : SubjectRightsRequestItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["subjectRightsRequest%2Did"] = id
-        return new SubjectRightsRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get privacy
@@ -104,7 +96,7 @@ export class PrivacyRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrivacy);
         return requestInfo;
     };
 }

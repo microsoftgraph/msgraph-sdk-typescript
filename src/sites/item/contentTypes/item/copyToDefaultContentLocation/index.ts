@@ -1,1 +1,5 @@
 export * from './copyToDefaultContentLocationPostRequestBody'
+export * from './copyToDefaultContentLocationRequestBuilderPostRequestConfiguration'
+export * from './createCopyToDefaultContentLocationPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCopyToDefaultContentLocationPostRequestBody'
+export * from './serializeCopyToDefaultContentLocationPostRequestBody'

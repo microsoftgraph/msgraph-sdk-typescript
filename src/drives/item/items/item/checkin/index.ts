@@ -1,1 +1,5 @@
 export * from './checkinPostRequestBody'
+export * from './checkinRequestBuilderPostRequestConfiguration'
+export * from './createCheckinPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCheckinPostRequestBody'
+export * from './serializeCheckinPostRequestBody'

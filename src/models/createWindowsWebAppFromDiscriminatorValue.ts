@@ -1,7 +1,8 @@
+import {deserializeIntoWindowsWebApp} from './deserializeIntoWindowsWebApp';
 import {WindowsWebApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsWebAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsWebApp {
+export function createWindowsWebAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsWebApp();
+    return deserializeIntoWindowsWebApp;
 }

@@ -1,7 +1,16 @@
+import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
+import {deserializeIntoEmailAuthenticationMethod} from './deserializeIntoEmailAuthenticationMethod';
+import {deserializeIntoFido2AuthenticationMethod} from './deserializeIntoFido2AuthenticationMethod';
+import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethod} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethod';
+import {deserializeIntoPasswordAuthenticationMethod} from './deserializeIntoPasswordAuthenticationMethod';
+import {deserializeIntoPhoneAuthenticationMethod} from './deserializeIntoPhoneAuthenticationMethod';
+import {deserializeIntoSoftwareOathAuthenticationMethod} from './deserializeIntoSoftwareOathAuthenticationMethod';
+import {deserializeIntoTemporaryAccessPassAuthenticationMethod} from './deserializeIntoTemporaryAccessPassAuthenticationMethod';
+import {deserializeIntoWindowsHelloForBusinessAuthenticationMethod} from './deserializeIntoWindowsHelloForBusinessAuthenticationMethod';
 import {AuthenticationMethod, EmailAuthenticationMethod, Fido2AuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethod, PasswordAuthenticationMethod, PhoneAuthenticationMethod, SoftwareOathAuthenticationMethod, TemporaryAccessPassAuthenticationMethod, WindowsHelloForBusinessAuthenticationMethod} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthenticationMethodFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethod {
+export function createAuthenticationMethodFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,23 +18,23 @@ export function createAuthenticationMethodFromDiscriminatorValue(parseNode: Pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.emailAuthenticationMethod":
-                    return new EmailAuthenticationMethod();
+                    return deserializeIntoEmailAuthenticationMethod;
                 case "#microsoft.graph.fido2AuthenticationMethod":
-                    return new Fido2AuthenticationMethod();
+                    return deserializeIntoFido2AuthenticationMethod;
                 case "#microsoft.graph.microsoftAuthenticatorAuthenticationMethod":
-                    return new MicrosoftAuthenticatorAuthenticationMethod();
+                    return deserializeIntoMicrosoftAuthenticatorAuthenticationMethod;
                 case "#microsoft.graph.passwordAuthenticationMethod":
-                    return new PasswordAuthenticationMethod();
+                    return deserializeIntoPasswordAuthenticationMethod;
                 case "#microsoft.graph.phoneAuthenticationMethod":
-                    return new PhoneAuthenticationMethod();
+                    return deserializeIntoPhoneAuthenticationMethod;
                 case "#microsoft.graph.softwareOathAuthenticationMethod":
-                    return new SoftwareOathAuthenticationMethod();
+                    return deserializeIntoSoftwareOathAuthenticationMethod;
                 case "#microsoft.graph.temporaryAccessPassAuthenticationMethod":
-                    return new TemporaryAccessPassAuthenticationMethod();
+                    return deserializeIntoTemporaryAccessPassAuthenticationMethod;
                 case "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod":
-                    return new WindowsHelloForBusinessAuthenticationMethod();
+                    return deserializeIntoWindowsHelloForBusinessAuthenticationMethod;
             }
         }
     }
-    return new AuthenticationMethod();
+    return deserializeIntoAuthenticationMethod;
 }

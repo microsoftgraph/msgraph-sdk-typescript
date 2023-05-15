@@ -2,6 +2,8 @@ import {AttachmentBase} from '../../../../../../../../models/';
 import {createAttachmentBaseFromDiscriminatorValue} from '../../../../../../../../models/createAttachmentBaseFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {AttachmentBaseItemRequestBuilderDeleteRequestConfiguration} from './attachmentBaseItemRequestBuilderDeleteRequestConfiguration';
 import {AttachmentBaseItemRequestBuilderGetRequestConfiguration} from './attachmentBaseItemRequestBuilderGetRequestConfiguration';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
@@ -32,10 +34,10 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -48,10 +50,10 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AttachmentBase>(requestInfo, createAttachmentBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**

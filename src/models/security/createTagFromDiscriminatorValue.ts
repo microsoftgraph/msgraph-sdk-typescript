@@ -1,7 +1,9 @@
+import {deserializeIntoEdiscoveryReviewTag} from './deserializeIntoEdiscoveryReviewTag';
+import {deserializeIntoTag} from './deserializeIntoTag';
 import {EdiscoveryReviewTag, Tag} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTagFromDiscriminatorValue(parseNode: ParseNode | undefined) : Tag {
+export function createTagFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createTagFromDiscriminatorValue(parseNode: ParseNode | undefined
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.security.ediscoveryReviewTag":
-                    return new EdiscoveryReviewTag();
+                    return deserializeIntoEdiscoveryReviewTag;
             }
         }
     }
-    return new Tag();
+    return deserializeIntoTag;
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoQueryResponse} from './deserializeIntoQueryResponse';
 import {QueryResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createQueryResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : QueryResponse {
+export function createQueryResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new QueryResponse();
+    return deserializeIntoQueryResponse;
 }

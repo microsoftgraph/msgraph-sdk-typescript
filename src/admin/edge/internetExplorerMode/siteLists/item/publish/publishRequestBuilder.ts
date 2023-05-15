@@ -1,9 +1,15 @@
-import {BrowserSiteList} from '../../../../../../models/';
+import {BrowserSiteList} from '../../../../../../models/browserSiteList';
 import {createBrowserSiteListFromDiscriminatorValue} from '../../../../../../models/createBrowserSiteListFromDiscriminatorValue';
+import {deserializeIntoBrowserSiteList} from '../../../../../../models/deserializeIntoBrowserSiteList';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {PublishPostRequestBody} from './index';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeBrowserSiteList} from '../../../../../../models/serializeBrowserSiteList';
+import {deserializeIntoPublishPostRequestBody} from './deserializeIntoPublishPostRequestBody';
+import {PublishPostRequestBody} from './publishPostRequestBody';
 import {PublishRequestBuilderPostRequestConfiguration} from './publishRequestBuilderPostRequestConfiguration';
+import {serializePublishPostRequestBody} from './serializePublishPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -30,10 +36,10 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,7 +59,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePublishPostRequestBody);
         return requestInfo;
     };
 }

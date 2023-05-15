@@ -1,7 +1,12 @@
+import {deserializeIntoAadUserNotificationRecipient} from './deserializeIntoAadUserNotificationRecipient';
+import {deserializeIntoChannelMembersNotificationRecipient} from './deserializeIntoChannelMembersNotificationRecipient';
+import {deserializeIntoChatMembersNotificationRecipient} from './deserializeIntoChatMembersNotificationRecipient';
+import {deserializeIntoTeamMembersNotificationRecipient} from './deserializeIntoTeamMembersNotificationRecipient';
+import {deserializeIntoTeamworkNotificationRecipient} from './deserializeIntoTeamworkNotificationRecipient';
 import {AadUserNotificationRecipient, ChannelMembersNotificationRecipient, ChatMembersNotificationRecipient, TeamMembersNotificationRecipient, TeamworkNotificationRecipient} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamworkNotificationRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamworkNotificationRecipient {
+export function createTeamworkNotificationRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createTeamworkNotificationRecipientFromDiscriminatorValue(parseN
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.aadUserNotificationRecipient":
-                    return new AadUserNotificationRecipient();
+                    return deserializeIntoAadUserNotificationRecipient;
                 case "#microsoft.graph.channelMembersNotificationRecipient":
-                    return new ChannelMembersNotificationRecipient();
+                    return deserializeIntoChannelMembersNotificationRecipient;
                 case "#microsoft.graph.chatMembersNotificationRecipient":
-                    return new ChatMembersNotificationRecipient();
+                    return deserializeIntoChatMembersNotificationRecipient;
                 case "#microsoft.graph.teamMembersNotificationRecipient":
-                    return new TeamMembersNotificationRecipient();
+                    return deserializeIntoTeamMembersNotificationRecipient;
             }
         }
     }
-    return new TeamworkNotificationRecipient();
+    return deserializeIntoTeamworkNotificationRecipient;
 }

@@ -1,7 +1,11 @@
-import {InferenceClassificationOverride} from '../../../../models/';
 import {createInferenceClassificationOverrideFromDiscriminatorValue} from '../../../../models/createInferenceClassificationOverrideFromDiscriminatorValue';
+import {deserializeIntoInferenceClassificationOverride} from '../../../../models/deserializeIntoInferenceClassificationOverride';
+import {InferenceClassificationOverride} from '../../../../models/inferenceClassificationOverride';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeInferenceClassificationOverride} from '../../../../models/serializeInferenceClassificationOverride';
 import {InferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration} from './inferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration';
 import {InferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration} from './inferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration';
 import {InferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration} from './inferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class InferenceClassificationOverrideItemRequestBuilder extends BaseReque
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class InferenceClassificationOverrideItemRequestBuilder extends BaseReque
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<InferenceClassificationOverride>(requestInfo, createInferenceClassificationOverrideFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class InferenceClassificationOverrideItemRequestBuilder extends BaseReque
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<InferenceClassificationOverride>(requestInfo, createInferenceClassificationOverrideFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class InferenceClassificationOverrideItemRequestBuilder extends BaseReque
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeInferenceClassificationOverride);
         return requestInfo;
     };
 }

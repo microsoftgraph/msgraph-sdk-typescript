@@ -1,7 +1,10 @@
+import {deserializeIntoServiceAnnouncementBase} from './deserializeIntoServiceAnnouncementBase';
+import {deserializeIntoServiceHealthIssue} from './deserializeIntoServiceHealthIssue';
+import {deserializeIntoServiceUpdateMessage} from './deserializeIntoServiceUpdateMessage';
 import {ServiceAnnouncementBase, ServiceHealthIssue, ServiceUpdateMessage} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ServiceAnnouncementBase {
+export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createServiceAnnouncementBaseFromDiscriminatorValue(parseNode: P
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.serviceHealthIssue":
-                    return new ServiceHealthIssue();
+                    return deserializeIntoServiceHealthIssue;
                 case "#microsoft.graph.serviceUpdateMessage":
-                    return new ServiceUpdateMessage();
+                    return deserializeIntoServiceUpdateMessage;
             }
         }
     }
-    return new ServiceAnnouncementBase();
+    return deserializeIntoServiceAnnouncementBase;
 }

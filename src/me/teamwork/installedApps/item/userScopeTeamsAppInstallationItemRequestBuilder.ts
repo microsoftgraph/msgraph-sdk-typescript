@@ -1,8 +1,14 @@
-import {UserScopeTeamsAppInstallation} from '../../../../models/';
 import {createUserScopeTeamsAppInstallationFromDiscriminatorValue} from '../../../../models/createUserScopeTeamsAppInstallationFromDiscriminatorValue';
+import {deserializeIntoUserScopeTeamsAppInstallation} from '../../../../models/deserializeIntoUserScopeTeamsAppInstallation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeUserScopeTeamsAppInstallation} from '../../../../models/serializeUserScopeTeamsAppInstallation';
+import {UserScopeTeamsAppInstallation} from '../../../../models/userScopeTeamsAppInstallation';
 import {ChatRequestBuilder} from './chat/chatRequestBuilder';
+import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
+import {TeamsAppDefinitionRequestBuilder} from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
 import {UserScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration} from './userScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
 import {UserScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration} from './userScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration';
 import {UserScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from './userScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
@@ -15,6 +21,14 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
     /** Provides operations to manage the chat property of the microsoft.graph.userScopeTeamsAppInstallation entity. */
     public get chat(): ChatRequestBuilder {
         return new ChatRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the teamsApp property of the microsoft.graph.teamsAppInstallation entity. */
+    public get teamsApp(): TeamsAppRequestBuilder {
+        return new TeamsAppRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the teamsAppDefinition property of the microsoft.graph.teamsAppInstallation entity. */
+    public get teamsAppDefinition(): TeamsAppDefinitionRequestBuilder {
+        return new TeamsAppDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new UserScopeTeamsAppInstallationItemRequestBuilder and sets the default values.
@@ -33,10 +47,10 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,10 +63,10 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserScopeTeamsAppInstallation>(requestInfo, createUserScopeTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +81,10 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<UserScopeTeamsAppInstallation>(requestInfo, createUserScopeTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -124,7 +138,7 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserScopeTeamsAppInstallation);
         return requestInfo;
     };
 }

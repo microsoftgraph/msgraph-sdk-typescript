@@ -1,1 +1,5 @@
+export * from './createSharePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSharePostRequestBody'
+export * from './serializeSharePostRequestBody'
 export * from './sharePostRequestBody'
+export * from './shareRequestBuilderPostRequestConfiguration'

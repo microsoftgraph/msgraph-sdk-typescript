@@ -1,7 +1,11 @@
-import {RoleManagement} from '../models/';
 import {createRoleManagementFromDiscriminatorValue} from '../models/createRoleManagementFromDiscriminatorValue';
+import {deserializeIntoRoleManagement} from '../models/deserializeIntoRoleManagement';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {RoleManagement} from '../models/roleManagement';
+import {serializeRoleManagement} from '../models/serializeRoleManagement';
 import {DirectoryRequestBuilder} from './directory/directoryRequestBuilder';
 import {EntitlementManagementRequestBuilder} from './entitlementManagement/entitlementManagementRequestBuilder';
 import {RoleManagementRequestBuilderGetRequestConfiguration} from './roleManagementRequestBuilderGetRequestConfiguration';
@@ -38,10 +42,10 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -56,10 +60,10 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -97,7 +101,7 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRoleManagement);
         return requestInfo;
     };
 }

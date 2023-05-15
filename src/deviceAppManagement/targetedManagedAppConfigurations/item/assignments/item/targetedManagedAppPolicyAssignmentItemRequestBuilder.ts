@@ -1,7 +1,11 @@
-import {TargetedManagedAppPolicyAssignment} from '../../../../../models/';
 import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from '../../../../../models/createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
+import {deserializeIntoTargetedManagedAppPolicyAssignment} from '../../../../../models/deserializeIntoTargetedManagedAppPolicyAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeTargetedManagedAppPolicyAssignment} from '../../../../../models/serializeTargetedManagedAppPolicyAssignment';
+import {TargetedManagedAppPolicyAssignment} from '../../../../../models/targetedManagedAppPolicyAssignment';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TargetedManagedAppPolicyAssignment>(requestInfo, createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<TargetedManagedAppPolicyAssignment>(requestInfo, createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTargetedManagedAppPolicyAssignment);
         return requestInfo;
     };
 }

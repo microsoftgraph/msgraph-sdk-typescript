@@ -1,12 +1,18 @@
-import {MobileThreatDefenseConnector, MobileThreatDefenseConnectorCollectionResponse} from '../../models/';
+import {MobileThreatDefenseConnectorCollectionResponse} from '../../models/';
 import {createMobileThreatDefenseConnectorCollectionResponseFromDiscriminatorValue} from '../../models/createMobileThreatDefenseConnectorCollectionResponseFromDiscriminatorValue';
 import {createMobileThreatDefenseConnectorFromDiscriminatorValue} from '../../models/createMobileThreatDefenseConnectorFromDiscriminatorValue';
+import {deserializeIntoMobileThreatDefenseConnector} from '../../models/deserializeIntoMobileThreatDefenseConnector';
+import {MobileThreatDefenseConnector} from '../../models/mobileThreatDefenseConnector';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeMobileThreatDefenseConnector} from '../../models/serializeMobileThreatDefenseConnector';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MobileThreatDefenseConnectorItemRequestBuilder} from './item/mobileThreatDefenseConnectorItemRequestBuilder';
 import {MobileThreatDefenseConnectorsRequestBuilderGetRequestConfiguration} from './mobileThreatDefenseConnectorsRequestBuilderGetRequestConfiguration';
 import {MobileThreatDefenseConnectorsRequestBuilderPostRequestConfiguration} from './mobileThreatDefenseConnectorsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
+     * @param mobileThreatDefenseConnectorId Unique identifier of the item
+     * @returns a MobileThreatDefenseConnectorItemRequestBuilder
+     */
+    public byMobileThreatDefenseConnectorId(mobileThreatDefenseConnectorId: string) : MobileThreatDefenseConnectorItemRequestBuilder {
+        if(!mobileThreatDefenseConnectorId) throw new Error("mobileThreatDefenseConnectorId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["mobileThreatDefenseConnector%2Did"] = mobileThreatDefenseConnectorId
+        return new MobileThreatDefenseConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new MobileThreatDefenseConnectorsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<MobileThreatDefenseConnectorCollectionResponse>(requestInfo, createMobileThreatDefenseConnectorCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<MobileThreatDefenseConnector>(requestInfo, createMobileThreatDefenseConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMobileThreatDefenseConnector);
         return requestInfo;
     };
 }

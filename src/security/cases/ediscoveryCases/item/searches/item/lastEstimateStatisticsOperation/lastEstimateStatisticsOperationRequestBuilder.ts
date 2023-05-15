@@ -1,5 +1,7 @@
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {EdiscoveryEstimateOperation} from '../../../../../../../models/security/';
 import {createEdiscoveryEstimateOperationFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryEstimateOperationFromDiscriminatorValue';
 import {LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration} from './lastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration';
@@ -18,24 +20,23 @@ export class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/lastEstimateStatisticsOperation{?%24select,%24expand}");
     };
     /**
-     * Get the last  ediscoveryEstimateOperation objects and their properties.
+     * The last estimate operation associated with the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryEstimateOperation
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-list-lastestimatestatisticsoperation?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryEstimateOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryEstimateOperation>(requestInfo, createEdiscoveryEstimateOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get the last  ediscoveryEstimateOperation objects and their properties.
+     * The last estimate operation associated with the eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

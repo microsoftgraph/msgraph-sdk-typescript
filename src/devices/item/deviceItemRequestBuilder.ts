@@ -1,26 +1,25 @@
-import {Device} from '../../models/';
 import {createDeviceFromDiscriminatorValue} from '../../models/createDeviceFromDiscriminatorValue';
+import {deserializeIntoDevice} from '../../models/deserializeIntoDevice';
+import {Device} from '../../models/device';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDevice} from '../../models/serializeDevice';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DeviceItemRequestBuilderDeleteRequestConfiguration} from './deviceItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceItemRequestBuilderGetRequestConfiguration} from './deviceItemRequestBuilderGetRequestConfiguration';
 import {DeviceItemRequestBuilderPatchRequestConfiguration} from './deviceItemRequestBuilderPatchRequestConfiguration';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as Ie0b75f67c7ef290f007692aec0cf26b880638734e5f1eb28b2aac305744cb32e} from './memberOf/item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as I80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1} from './registeredOwners/item/directoryObjectItemRequestBuilder';
 import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as I24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f} from './registeredUsers/item/directoryObjectItemRequestBuilder';
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {DirectoryObjectItemRequestBuilder as I7028dd8c6ec7cb9805791e704300ef26f15d2571cd3d80c75b13b2b8cddf5425} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.
@@ -84,22 +83,11 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the extensions property of the microsoft.graph.device entity.
-     * @param id Unique identifier of the item
-     * @returns a ExtensionItemRequestBuilder
-     */
-    public extensionsById(id: string) : ExtensionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extension%2Did"] = id
-        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get the properties and relationships of a device object.
@@ -112,22 +100,11 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public memberOfById(id: string) : Ie0b75f67c7ef290f007692aec0cf26b880638734e5f1eb28b2aac305744cb32e {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new Ie0b75f67c7ef290f007692aec0cf26b880638734e5f1eb28b2aac305744cb32e(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
@@ -142,33 +119,11 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredOwners.item collection
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public registeredOwnersById(id: string) : I80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new I80dfe08d1a2ce539e240e623e425436ce5284e327c094913d616a0fe77e913a1(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.devices.item.registeredUsers.item collection
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public registeredUsersById(id: string) : I24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new I24805e1657cebb359b83b032b97bef5f336c4e3bd1f53deaf63c8bb9254ca92f(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete a registered device.
@@ -221,18 +176,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDevice);
         return requestInfo;
-    };
-    /**
-     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public transitiveMemberOfById(id: string) : I7028dd8c6ec7cb9805791e704300ef26f15d2571cd3d80c75b13b2b8cddf5425 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new I7028dd8c6ec7cb9805791e704300ef26f15d2571cd3d80c75b13b2b8cddf5425(urlTplParams, this.requestAdapter);
     };
 }

@@ -1,0 +1,4 @@
+export * from './delegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration'
+export * from './delegatedAdminAccessAssignmentItemRequestBuilderGetQueryParameters'
+export * from './delegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration'
+export * from './delegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration'

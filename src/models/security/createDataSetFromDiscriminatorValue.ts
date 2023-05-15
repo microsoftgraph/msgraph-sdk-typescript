@@ -1,7 +1,9 @@
+import {deserializeIntoDataSet} from './deserializeIntoDataSet';
+import {deserializeIntoEdiscoveryReviewSet} from './deserializeIntoEdiscoveryReviewSet';
 import {DataSet, EdiscoveryReviewSet} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDataSetFromDiscriminatorValue(parseNode: ParseNode | undefined) : DataSet {
+export function createDataSetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createDataSetFromDiscriminatorValue(parseNode: ParseNode | undef
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.security.ediscoveryReviewSet":
-                    return new EdiscoveryReviewSet();
+                    return deserializeIntoEdiscoveryReviewSet;
             }
         }
     }
-    return new DataSet();
+    return deserializeIntoDataSet;
 }

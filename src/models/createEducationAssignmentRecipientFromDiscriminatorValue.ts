@@ -1,7 +1,11 @@
+import {deserializeIntoEducationAssignmentClassRecipient} from './deserializeIntoEducationAssignmentClassRecipient';
+import {deserializeIntoEducationAssignmentGroupRecipient} from './deserializeIntoEducationAssignmentGroupRecipient';
+import {deserializeIntoEducationAssignmentIndividualRecipient} from './deserializeIntoEducationAssignmentIndividualRecipient';
+import {deserializeIntoEducationAssignmentRecipient} from './deserializeIntoEducationAssignmentRecipient';
 import {EducationAssignmentClassRecipient, EducationAssignmentGroupRecipient, EducationAssignmentIndividualRecipient, EducationAssignmentRecipient} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationAssignmentRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationAssignmentRecipient {
+export function createEducationAssignmentRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createEducationAssignmentRecipientFromDiscriminatorValue(parseNo
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.educationAssignmentClassRecipient":
-                    return new EducationAssignmentClassRecipient();
+                    return deserializeIntoEducationAssignmentClassRecipient;
                 case "#microsoft.graph.educationAssignmentGroupRecipient":
-                    return new EducationAssignmentGroupRecipient();
+                    return deserializeIntoEducationAssignmentGroupRecipient;
                 case "#microsoft.graph.educationAssignmentIndividualRecipient":
-                    return new EducationAssignmentIndividualRecipient();
+                    return deserializeIntoEducationAssignmentIndividualRecipient;
             }
         }
     }
-    return new EducationAssignmentRecipient();
+    return deserializeIntoEducationAssignmentRecipient;
 }

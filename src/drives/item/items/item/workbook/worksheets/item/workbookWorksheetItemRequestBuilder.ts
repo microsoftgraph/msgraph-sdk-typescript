@@ -1,25 +1,25 @@
-import {WorkbookWorksheet} from '../../../../../../../models/';
 import {createWorkbookWorksheetFromDiscriminatorValue} from '../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
+import {deserializeIntoWorkbookWorksheet} from '../../../../../../../models/deserializeIntoWorkbookWorksheet';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookWorksheet} from '../../../../../../../models/serializeWorkbookWorksheet';
+import {WorkbookWorksheet} from '../../../../../../../models/workbookWorksheet';
 import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
 import {ChartsRequestBuilder} from './charts/chartsRequestBuilder';
-import {WorkbookChartItemRequestBuilder} from './charts/item/workbookChartItemRequestBuilder';
-import {WorkbookNamedItemItemRequestBuilder} from './names/item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
-import {WorkbookPivotTableItemRequestBuilder} from './pivotTables/item/workbookPivotTableItemRequestBuilder';
 import {PivotTablesRequestBuilder} from './pivotTables/pivotTablesRequestBuilder';
 import {ProtectionRequestBuilder} from './protection/protectionRequestBuilder';
 import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {RangeWithAddressRequestBuilder} from './rangeWithAddress/rangeWithAddressRequestBuilder';
-import {WorkbookTableItemRequestBuilder} from './tables/item/workbookTableItemRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
 import {UsedRangeRequestBuilder} from './usedRange/usedRangeRequestBuilder';
 import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration} from './workbookWorksheetItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookWorksheetItemRequestBuilderGetRequestConfiguration} from './workbookWorksheetItemRequestBuilderGetRequestConfiguration';
 import {WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration} from './workbookWorksheetItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
@@ -65,17 +65,6 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         return new CellWithRowWithColumnRequestBuilder(this.pathParameters, this.requestAdapter, column, row);
     };
     /**
-     * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookChartItemRequestBuilder
-     */
-    public chartsById(id: string) : WorkbookChartItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookChart%2Did"] = id
-        return new WorkbookChartItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new WorkbookWorksheetItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -92,10 +81,10 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -108,22 +97,11 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookWorksheet>(requestInfo, createWorkbookWorksheetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookNamedItemItemRequestBuilder
-     */
-    public namesById(id: string) : WorkbookNamedItemItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookNamedItem%2Did"] = id
-        return new WorkbookNamedItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property worksheets in drives
@@ -137,22 +115,11 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookWorksheet>(requestInfo, createWorkbookWorksheetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookPivotTableItemRequestBuilder
-     */
-    public pivotTablesById(id: string) : WorkbookPivotTableItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookPivotTable%2Did"] = id
-        return new WorkbookPivotTableItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Provides operations to call the range method.
@@ -162,17 +129,6 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
     public rangeWithAddress(address: string | undefined) : RangeWithAddressRequestBuilder {
         if(!address) throw new Error("address cannot be undefined");
         return new RangeWithAddressRequestBuilder(this.pathParameters, this.requestAdapter, address);
-    };
-    /**
-     * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
-     * @param id Unique identifier of the item
-     * @returns a WorkbookTableItemRequestBuilder
-     */
-    public tablesById(id: string) : WorkbookTableItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["workbookTable%2Did"] = id
-        return new WorkbookTableItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property worksheets for drives
@@ -225,7 +181,7 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookWorksheet);
         return requestInfo;
     };
     /**

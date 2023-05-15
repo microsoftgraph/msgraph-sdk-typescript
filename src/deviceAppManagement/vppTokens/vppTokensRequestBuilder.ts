@@ -1,12 +1,18 @@
-import {VppToken, VppTokenCollectionResponse} from '../../models/';
+import {VppTokenCollectionResponse} from '../../models/';
 import {createVppTokenCollectionResponseFromDiscriminatorValue} from '../../models/createVppTokenCollectionResponseFromDiscriminatorValue';
 import {createVppTokenFromDiscriminatorValue} from '../../models/createVppTokenFromDiscriminatorValue';
+import {deserializeIntoVppToken} from '../../models/deserializeIntoVppToken';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeVppToken} from '../../models/serializeVppToken';
+import {VppToken} from '../../models/vppToken';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {VppTokenItemRequestBuilder} from './item/vppTokenItemRequestBuilder';
 import {VppTokensRequestBuilderGetRequestConfiguration} from './vppTokensRequestBuilderGetRequestConfiguration';
 import {VppTokensRequestBuilderPostRequestConfiguration} from './vppTokensRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +22,17 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
+     * @param vppTokenId Unique identifier of the item
+     * @returns a VppTokenItemRequestBuilder
+     */
+    public byVppTokenId(vppTokenId: string) : VppTokenItemRequestBuilder {
+        if(!vppTokenId) throw new Error("vppTokenId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["vppToken%2Did"] = vppTokenId
+        return new VppTokenItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new VppTokensRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<VppTokenCollectionResponse>(requestInfo, createVppTokenCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<VppToken>(requestInfo, createVppTokenFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeVppToken);
         return requestInfo;
     };
 }

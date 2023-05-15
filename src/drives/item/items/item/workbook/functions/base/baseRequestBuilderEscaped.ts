@@ -1,9 +1,15 @@
-import {WorkbookFunctionResult} from '../../../../../../../models/';
 import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {BaseRequestBuilderPostRequestConfiguration} from './baseRequestBuilderPostRequestConfiguration';
-import {BasePostRequestBody} from './index';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import {BasePostRequestBody} from './basePostRequestBody';
+import {BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration} from './baseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration';
+import {deserializeIntoBasePostRequestBody} from './deserializeIntoBasePostRequestBody';
+import {serializeBasePostRequestBody} from './serializeBasePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -25,15 +31,15 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: BasePostRequestBody | undefined, requestConfiguration?: BaseRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
+    public post(body: BasePostRequestBody | undefined, requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -42,7 +48,7 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: BasePostRequestBody | undefined, requestConfiguration?: BaseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: BasePostRequestBody | undefined, requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +59,7 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBasePostRequestBody);
         return requestInfo;
     };
 }

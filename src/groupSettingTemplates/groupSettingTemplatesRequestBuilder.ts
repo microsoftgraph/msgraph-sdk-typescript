@@ -1,16 +1,22 @@
-import {GroupSettingTemplate, GroupSettingTemplateCollectionResponse} from '../models/';
+import {GroupSettingTemplateCollectionResponse} from '../models/';
 import {createGroupSettingTemplateCollectionResponseFromDiscriminatorValue} from '../models/createGroupSettingTemplateCollectionResponseFromDiscriminatorValue';
 import {createGroupSettingTemplateFromDiscriminatorValue} from '../models/createGroupSettingTemplateFromDiscriminatorValue';
+import {deserializeIntoGroupSettingTemplate} from '../models/deserializeIntoGroupSettingTemplate';
+import {GroupSettingTemplate} from '../models/groupSettingTemplate';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeGroupSettingTemplate} from '../models/serializeGroupSettingTemplate';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {GroupSettingTemplatesRequestBuilderGetRequestConfiguration} from './groupSettingTemplatesRequestBuilderGetRequestConfiguration';
 import {GroupSettingTemplatesRequestBuilderPostRequestConfiguration} from './groupSettingTemplatesRequestBuilderPostRequestConfiguration';
+import {GroupSettingTemplateItemRequestBuilder} from './item/groupSettingTemplateItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSettingTemplate entities.
@@ -37,6 +43,17 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the collection of groupSettingTemplate entities.
+     * @param groupSettingTemplateId Unique identifier of the item
+     * @returns a GroupSettingTemplateItemRequestBuilder
+     */
+    public byGroupSettingTemplateId(groupSettingTemplateId: string) : GroupSettingTemplateItemRequestBuilder {
+        if(!groupSettingTemplateId) throw new Error("groupSettingTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["groupSettingTemplate%2Did"] = groupSettingTemplateId
+        return new GroupSettingTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new GroupSettingTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -55,10 +72,10 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<GroupSettingTemplateCollectionResponse>(requestInfo, createGroupSettingTemplateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -73,10 +90,10 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<GroupSettingTemplate>(requestInfo, createGroupSettingTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -114,7 +131,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGroupSettingTemplate);
         return requestInfo;
     };
 }

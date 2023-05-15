@@ -1,14 +1,18 @@
-import {IosManagedAppProtection} from '../../../models/';
 import {createIosManagedAppProtectionFromDiscriminatorValue} from '../../../models/createIosManagedAppProtectionFromDiscriminatorValue';
+import {deserializeIntoIosManagedAppProtection} from '../../../models/deserializeIntoIosManagedAppProtection';
+import {IosManagedAppProtection} from '../../../models/iosManagedAppProtection';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeIosManagedAppProtection} from '../../../models/serializeIosManagedAppProtection';
 import {AppsRequestBuilder} from './apps/appsRequestBuilder';
-import {ManagedMobileAppItemRequestBuilder} from './apps/item/managedMobileAppItemRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
 import {IosManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration} from './iosManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration';
 import {IosManagedAppProtectionItemRequestBuilderGetRequestConfiguration} from './iosManagedAppProtectionItemRequestBuilderGetRequestConfiguration';
 import {IosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration} from './iosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -18,21 +22,14 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
     public get apps(): AppsRequestBuilder {
         return new AppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppProtection entity. */
+    public get assignments(): AssignmentsRequestBuilder {
+        return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the deploymentSummary property of the microsoft.graph.iosManagedAppProtection entity. */
     public get deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the apps property of the microsoft.graph.iosManagedAppProtection entity.
-     * @param id Unique identifier of the item
-     * @returns a ManagedMobileAppItemRequestBuilder
-     */
-    public appsById(id: string) : ManagedMobileAppItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedMobileApp%2Did"] = id
-        return new ManagedMobileAppItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new IosManagedAppProtectionItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -50,10 +47,10 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -66,10 +63,10 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IosManagedAppProtection>(requestInfo, createIosManagedAppProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -84,10 +81,10 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<IosManagedAppProtection>(requestInfo, createIosManagedAppProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -141,7 +138,7 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIosManagedAppProtection);
         return requestInfo;
     };
 }

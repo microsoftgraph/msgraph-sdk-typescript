@@ -1,0 +1,13 @@
+import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
+import {Json} from '../../../../../../../models/json';
+import {serializeJson} from '../../../../../../../models/serializeJson';
+import {TbillYieldPostRequestBody} from './tbillYieldPostRequestBody';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function deserializeIntoTbillYieldPostRequestBody(tbillYieldPostRequestBody: TbillYieldPostRequestBody | undefined = {} as TbillYieldPostRequestBody) : Record<string, (node: ParseNode) => void> {
+    return {
+        "maturity": n => { tbillYieldPostRequestBody.maturity = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
+        "pr": n => { tbillYieldPostRequestBody.pr = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
+        "settlement": n => { tbillYieldPostRequestBody.settlement = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); },
+    }
+}

@@ -1,7 +1,11 @@
-import {SwapShiftsChangeRequest} from '../../../../../models/';
 import {createSwapShiftsChangeRequestFromDiscriminatorValue} from '../../../../../models/createSwapShiftsChangeRequestFromDiscriminatorValue';
+import {deserializeIntoSwapShiftsChangeRequest} from '../../../../../models/deserializeIntoSwapShiftsChangeRequest';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeSwapShiftsChangeRequest} from '../../../../../models/serializeSwapShiftsChangeRequest';
+import {SwapShiftsChangeRequest} from '../../../../../models/swapShiftsChangeRequest';
 import {SwapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration';
 import {SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration';
 import {SwapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SwapShiftsChangeRequest>(requestInfo, createSwapShiftsChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBuilde
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SwapShiftsChangeRequest>(requestInfo, createSwapShiftsChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSwapShiftsChangeRequest);
         return requestInfo;
     };
 }

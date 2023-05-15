@@ -1,7 +1,8 @@
+import {deserializeIntoEducationAssignmentResourceCollectionResponse} from './deserializeIntoEducationAssignmentResourceCollectionResponse';
 import {EducationAssignmentResourceCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationAssignmentResourceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationAssignmentResourceCollectionResponse {
+export function createEducationAssignmentResourceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationAssignmentResourceCollectionResponse();
+    return deserializeIntoEducationAssignmentResourceCollectionResponse;
 }

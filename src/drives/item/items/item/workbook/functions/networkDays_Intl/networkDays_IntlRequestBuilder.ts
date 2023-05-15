@@ -1,9 +1,15 @@
-import {WorkbookFunctionResult} from '../../../../../../../models/';
 import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {NetworkDays_IntlPostRequestBody} from './index';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import {deserializeIntoNetworkDays_IntlPostRequestBody} from './deserializeIntoNetworkDays_IntlPostRequestBody';
+import {NetworkDays_IntlPostRequestBody} from './networkDays_IntlPostRequestBody';
 import {NetworkDays_IntlRequestBuilderPostRequestConfiguration} from './networkDays_IntlRequestBuilderPostRequestConfiguration';
+import {serializeNetworkDays_IntlPostRequestBody} from './serializeNetworkDays_IntlPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -30,10 +36,10 @@ export class NetworkDays_IntlRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -53,7 +59,7 @@ export class NetworkDays_IntlRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeNetworkDays_IntlPostRequestBody);
         return requestInfo;
     };
 }

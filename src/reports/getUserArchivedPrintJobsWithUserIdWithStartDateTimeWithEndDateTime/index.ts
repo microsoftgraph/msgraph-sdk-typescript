@@ -1,1 +1,6 @@
+export * from './createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue'
+export * from './deserializeIntoGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse'
+export * from './getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetQueryParameters'
+export * from './getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration'
 export * from './getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse'
+export * from './serializeGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse'

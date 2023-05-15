@@ -1,12 +1,18 @@
-import {DeviceEnrollmentConfiguration, DeviceEnrollmentConfigurationCollectionResponse} from '../../models/';
+import {DeviceEnrollmentConfigurationCollectionResponse} from '../../models/';
 import {createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue';
 import {createDeviceEnrollmentConfigurationFromDiscriminatorValue} from '../../models/createDeviceEnrollmentConfigurationFromDiscriminatorValue';
+import {deserializeIntoDeviceEnrollmentConfiguration} from '../../models/deserializeIntoDeviceEnrollmentConfiguration';
+import {DeviceEnrollmentConfiguration} from '../../models/deviceEnrollmentConfiguration';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDeviceEnrollmentConfiguration} from '../../models/serializeDeviceEnrollmentConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration} from './deviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration';
 import {DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration} from './deviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceEnrollmentConfigurationItemRequestBuilder} from './item/deviceEnrollmentConfigurationItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
+     * @param deviceEnrollmentConfigurationId Unique identifier of the item
+     * @returns a DeviceEnrollmentConfigurationItemRequestBuilder
+     */
+    public byDeviceEnrollmentConfigurationId(deviceEnrollmentConfigurationId: string) : DeviceEnrollmentConfigurationItemRequestBuilder {
+        if(!deviceEnrollmentConfigurationId) throw new Error("deviceEnrollmentConfigurationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceEnrollmentConfiguration%2Did"] = deviceEnrollmentConfigurationId
+        return new DeviceEnrollmentConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceEnrollmentConfigurationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceEnrollmentConfigurationCollectionResponse>(requestInfo, createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceEnrollmentConfiguration);
         return requestInfo;
     };
 }

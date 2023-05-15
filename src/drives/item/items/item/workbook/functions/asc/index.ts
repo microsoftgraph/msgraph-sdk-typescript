@@ -1,1 +1,5 @@
 export * from './ascPostRequestBody'
+export * from './ascRequestBuilderPostRequestConfiguration'
+export * from './createAscPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAscPostRequestBody'
+export * from './serializeAscPostRequestBody'

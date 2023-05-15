@@ -1,0 +1,4 @@
+export * from './delegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration'
+export * from './delegatedPermissionClassificationItemRequestBuilderGetQueryParameters'
+export * from './delegatedPermissionClassificationItemRequestBuilderGetRequestConfiguration'
+export * from './delegatedPermissionClassificationItemRequestBuilderPatchRequestConfiguration'

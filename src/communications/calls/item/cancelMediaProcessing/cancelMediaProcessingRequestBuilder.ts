@@ -1,9 +1,15 @@
-import {CancelMediaProcessingOperation} from '../../../../models/';
+import {CancelMediaProcessingOperation} from '../../../../models/cancelMediaProcessingOperation';
 import {createCancelMediaProcessingOperationFromDiscriminatorValue} from '../../../../models/createCancelMediaProcessingOperationFromDiscriminatorValue';
+import {deserializeIntoCancelMediaProcessingOperation} from '../../../../models/deserializeIntoCancelMediaProcessingOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeCancelMediaProcessingOperation} from '../../../../models/serializeCancelMediaProcessingOperation';
+import {CancelMediaProcessingPostRequestBody} from './cancelMediaProcessingPostRequestBody';
 import {CancelMediaProcessingRequestBuilderPostRequestConfiguration} from './cancelMediaProcessingRequestBuilderPostRequestConfiguration';
-import {CancelMediaProcessingPostRequestBody} from './index';
+import {deserializeIntoCancelMediaProcessingPostRequestBody} from './deserializeIntoCancelMediaProcessingPostRequestBody';
+import {serializeCancelMediaProcessingPostRequestBody} from './serializeCancelMediaProcessingPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -19,26 +25,25 @@ export class CancelMediaProcessingRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/cancelMediaProcessing");
     };
     /**
-     * Cancels processing for any in-progress media operations. Media operations refer to the IVR operations playPrompt and recordResponse, which are by default queued to process in order. The **cancelMediaProcessing** method cancels any operation that is in-process as well as operations that are queued. For example, this method can be used to clean up the IVR operation queue for a new media operation. However, it will not cancel a **subscribeToTone** operation because it operates independent of any operation queue.
+     * Invoke action cancelMediaProcessing
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CancelMediaProcessingOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-cancelmediaprocessing?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CancelMediaProcessingPostRequestBody | undefined, requestConfiguration?: CancelMediaProcessingRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CancelMediaProcessingOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<CancelMediaProcessingOperation>(requestInfo, createCancelMediaProcessingOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Cancels processing for any in-progress media operations. Media operations refer to the IVR operations playPrompt and recordResponse, which are by default queued to process in order. The **cancelMediaProcessing** method cancels any operation that is in-process as well as operations that are queued. For example, this method can be used to clean up the IVR operation queue for a new media operation. However, it will not cancel a **subscribeToTone** operation because it operates independent of any operation queue.
+     * Invoke action cancelMediaProcessing
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -54,7 +59,7 @@ export class CancelMediaProcessingRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCancelMediaProcessingPostRequestBody);
         return requestInfo;
     };
 }

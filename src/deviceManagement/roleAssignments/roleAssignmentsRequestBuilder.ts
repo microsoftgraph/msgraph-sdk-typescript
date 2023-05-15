@@ -1,12 +1,18 @@
-import {DeviceAndAppManagementRoleAssignment, DeviceAndAppManagementRoleAssignmentCollectionResponse} from '../../models/';
+import {DeviceAndAppManagementRoleAssignmentCollectionResponse} from '../../models/';
 import {createDeviceAndAppManagementRoleAssignmentCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceAndAppManagementRoleAssignmentCollectionResponseFromDiscriminatorValue';
 import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from '../../models/createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
+import {deserializeIntoDeviceAndAppManagementRoleAssignment} from '../../models/deserializeIntoDeviceAndAppManagementRoleAssignment';
+import {DeviceAndAppManagementRoleAssignment} from '../../models/deviceAndAppManagementRoleAssignment';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDeviceAndAppManagementRoleAssignment} from '../../models/serializeDeviceAndAppManagementRoleAssignment';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceAndAppManagementRoleAssignmentItemRequestBuilder} from './item/deviceAndAppManagementRoleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
+     * @param deviceAndAppManagementRoleAssignmentId Unique identifier of the item
+     * @returns a DeviceAndAppManagementRoleAssignmentItemRequestBuilder
+     */
+    public byDeviceAndAppManagementRoleAssignmentId(deviceAndAppManagementRoleAssignmentId: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
+        if(!deviceAndAppManagementRoleAssignmentId) throw new Error("deviceAndAppManagementRoleAssignmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceAndAppManagementRoleAssignment%2Did"] = deviceAndAppManagementRoleAssignmentId
+        return new DeviceAndAppManagementRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleAssignmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceAndAppManagementRoleAssignmentCollectionResponse>(requestInfo, createDeviceAndAppManagementRoleAssignmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceAndAppManagementRoleAssignment>(requestInfo, createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceAndAppManagementRoleAssignment);
         return requestInfo;
     };
 }

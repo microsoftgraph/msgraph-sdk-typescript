@@ -1,7 +1,8 @@
+import {deserializeIntoPresence} from './deserializeIntoPresence';
 import {Presence} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPresenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : Presence {
+export function createPresenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Presence();
+    return deserializeIntoPresence;
 }

@@ -1,8 +1,15 @@
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {AddGroupPostRequestBody} from './addGroupPostRequestBody';
 import {AddGroupRequestBuilderPostRequestConfiguration} from './addGroupRequestBuilderPostRequestConfiguration';
+import {AddGroupResponse} from './addGroupResponse';
 import {createAddGroupResponseFromDiscriminatorValue} from './createAddGroupResponseFromDiscriminatorValue';
-import {AddGroupPostRequestBody, AddGroupResponse} from './index';
+import {deserializeIntoAddGroupPostRequestBody} from './deserializeIntoAddGroupPostRequestBody';
+import {deserializeIntoAddGroupResponse} from './deserializeIntoAddGroupResponse';
+import {serializeAddGroupPostRequestBody} from './serializeAddGroupPostRequestBody';
+import {serializeAddGroupResponse} from './serializeAddGroupResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -29,10 +36,10 @@ export class AddGroupRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AddGroupResponse>(requestInfo, createAddGroupResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,7 +59,7 @@ export class AddGroupRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddGroupPostRequestBody);
         return requestInfo;
     };
 }

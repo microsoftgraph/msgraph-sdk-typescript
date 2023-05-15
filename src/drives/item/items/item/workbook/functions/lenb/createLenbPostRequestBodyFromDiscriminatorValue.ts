@@ -1,7 +1,8 @@
+import {deserializeIntoLenbPostRequestBody} from './deserializeIntoLenbPostRequestBody';
 import {LenbPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLenbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : LenbPostRequestBody {
+export function createLenbPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LenbPostRequestBody();
+    return deserializeIntoLenbPostRequestBody;
 }

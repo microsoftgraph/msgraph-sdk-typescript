@@ -1,26 +1,29 @@
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {EdiscoveryReviewSet} from '../../../../../../models/security/';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoveryReviewSetFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryReviewSetFromDiscriminatorValue';
+import {deserializeIntoEdiscoveryReviewSet} from '../../../../../../models/security/deserializeIntoEdiscoveryReviewSet';
+import {EdiscoveryReviewSet} from '../../../../../../models/security/ediscoveryReviewSet';
+import {serializeEdiscoveryReviewSet} from '../../../../../../models/security/serializeEdiscoveryReviewSet';
 import {EdiscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryReviewSetItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetItemRequestBuilderPatchRequestConfiguration';
-import {EdiscoveryReviewSetQueryItemRequestBuilder} from './queries/item/ediscoveryReviewSetQueryItemRequestBuilder';
+import {MicrosoftGraphSecurityAddToReviewSetRequestBuilder} from './microsoftGraphSecurityAddToReviewSet/microsoftGraphSecurityAddToReviewSetRequestBuilder';
 import {QueriesRequestBuilder} from './queries/queriesRequestBuilder';
-import {SecurityAddToReviewSetRequestBuilder} from './securityAddToReviewSet/securityAddToReviewSetRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to call the addToReviewSet method. */
+    public get microsoftGraphSecurityAddToReviewSet(): MicrosoftGraphSecurityAddToReviewSetRequestBuilder {
+        return new MicrosoftGraphSecurityAddToReviewSetRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity. */
     public get queries(): QueriesRequestBuilder {
         return new QueriesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to call the addToReviewSet method. */
-    public get securityAddToReviewSet(): SecurityAddToReviewSetRequestBuilder {
-        return new SecurityAddToReviewSetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new EdiscoveryReviewSetItemRequestBuilder and sets the default values.
@@ -39,10 +42,10 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -55,10 +58,10 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryReviewSet>(requestInfo, createEdiscoveryReviewSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -73,22 +76,11 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryReviewSet>(requestInfo, createEdiscoveryReviewSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
-     * @param id Unique identifier of the item
-     * @returns a EdiscoveryReviewSetQueryItemRequestBuilder
-     */
-    public queriesById(id: string) : EdiscoveryReviewSetQueryItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["ediscoveryReviewSetQuery%2Did"] = id
-        return new EdiscoveryReviewSetQueryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property reviewSets for security
@@ -141,7 +133,7 @@ export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryReviewSet);
         return requestInfo;
     };
 }

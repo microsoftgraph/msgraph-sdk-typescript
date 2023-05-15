@@ -1,13 +1,19 @@
-import {OAuth2PermissionGrant, OAuth2PermissionGrantCollectionResponse} from '../models/';
+import {OAuth2PermissionGrantCollectionResponse} from '../models/';
 import {createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue} from '../models/createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue';
 import {createOAuth2PermissionGrantFromDiscriminatorValue} from '../models/createOAuth2PermissionGrantFromDiscriminatorValue';
+import {deserializeIntoOAuth2PermissionGrant} from '../models/deserializeIntoOAuth2PermissionGrant';
+import {OAuth2PermissionGrant} from '../models/oAuth2PermissionGrant';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeOAuth2PermissionGrant} from '../models/serializeOAuth2PermissionGrant';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {OAuth2PermissionGrantItemRequestBuilder} from './item/oAuth2PermissionGrantItemRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderGetRequestConfiguration';
 import {Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.
@@ -21,6 +27,17 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of oAuth2PermissionGrant entities.
+     * @param oAuth2PermissionGrantId Unique identifier of the item
+     * @returns a OAuth2PermissionGrantItemRequestBuilder
+     */
+    public byOAuth2PermissionGrantId(oAuth2PermissionGrantId: string) : OAuth2PermissionGrantItemRequestBuilder {
+        if(!oAuth2PermissionGrantId) throw new Error("oAuth2PermissionGrantId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["oAuth2PermissionGrant%2Did"] = oAuth2PermissionGrantId
+        return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new Oauth2PermissionGrantsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -40,10 +57,10 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OAuth2PermissionGrantCollectionResponse>(requestInfo, createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -59,10 +76,10 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<OAuth2PermissionGrant>(requestInfo, createOAuth2PermissionGrantFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -100,7 +117,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOAuth2PermissionGrant);
         return requestInfo;
     };
 }

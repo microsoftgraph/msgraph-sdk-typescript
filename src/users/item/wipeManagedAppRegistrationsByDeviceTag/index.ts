@@ -1,1 +1,5 @@
+export * from './createWipeManagedAppRegistrationsByDeviceTagPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoWipeManagedAppRegistrationsByDeviceTagPostRequestBody'
+export * from './serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody'
 export * from './wipeManagedAppRegistrationsByDeviceTagPostRequestBody'
+export * from './wipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration'

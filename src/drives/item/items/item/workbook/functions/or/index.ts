@@ -1,1 +1,5 @@
+export * from './createOrPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoOrPostRequestBody'
 export * from './orPostRequestBody'
+export * from './orRequestBuilderPostRequestConfiguration'
+export * from './serializeOrPostRequestBody'

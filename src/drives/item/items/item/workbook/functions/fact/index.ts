@@ -1,1 +1,5 @@
+export * from './createFactPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoFactPostRequestBody'
 export * from './factPostRequestBody'
+export * from './factRequestBuilderPostRequestConfiguration'
+export * from './serializeFactPostRequestBody'

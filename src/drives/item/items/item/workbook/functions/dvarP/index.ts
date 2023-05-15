@@ -1,1 +1,5 @@
+export * from './createDvarPPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoDvarPPostRequestBody'
 export * from './dvarPPostRequestBody'
+export * from './dvarPRequestBuilderPostRequestConfiguration'
+export * from './serializeDvarPPostRequestBody'

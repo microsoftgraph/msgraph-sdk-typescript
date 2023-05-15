@@ -1,1 +1,5 @@
 export * from './charPostRequestBody'
+export * from './charRequestBuilderPostRequestConfiguration'
+export * from './createCharPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoCharPostRequestBody'
+export * from './serializeCharPostRequestBody'

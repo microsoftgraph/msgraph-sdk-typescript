@@ -1,7 +1,9 @@
+import {deserializeIntoAttendee} from './deserializeIntoAttendee';
+import {deserializeIntoAttendeeBase} from './deserializeIntoAttendeeBase';
 import {Attendee, AttendeeBase} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAttendeeBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttendeeBase {
+export function createAttendeeBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createAttendeeBaseFromDiscriminatorValue(parseNode: ParseNode | 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.attendee":
-                    return new Attendee();
+                    return deserializeIntoAttendee;
             }
         }
     }
-    return new AttendeeBase();
+    return deserializeIntoAttendeeBase;
 }

@@ -1,12 +1,18 @@
-import {ConnectionOperation, ConnectionOperationCollectionResponse} from '../../../models/externalConnectors/';
+import {ConnectionOperationCollectionResponse} from '../../../models/externalConnectors/';
+import {ConnectionOperation} from '../../../models/externalConnectors/connectionOperation';
 import {createConnectionOperationCollectionResponseFromDiscriminatorValue} from '../../../models/externalConnectors/createConnectionOperationCollectionResponseFromDiscriminatorValue';
 import {createConnectionOperationFromDiscriminatorValue} from '../../../models/externalConnectors/createConnectionOperationFromDiscriminatorValue';
+import {deserializeIntoConnectionOperation} from '../../../models/externalConnectors/deserializeIntoConnectionOperation';
+import {serializeConnectionOperation} from '../../../models/externalConnectors/serializeConnectionOperation';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ConnectionOperationItemRequestBuilder} from './item/connectionOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -16,6 +22,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.
+     * @param connectionOperationId Unique identifier of the item
+     * @returns a ConnectionOperationItemRequestBuilder
+     */
+    public byConnectionOperationId(connectionOperationId: string) : ConnectionOperationItemRequestBuilder {
+        if(!connectionOperationId) throw new Error("connectionOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["connectionOperation%2Did"] = connectionOperationId
+        return new ConnectionOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ConnectionOperationCollectionResponse>(requestInfo, createConnectionOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ConnectionOperation>(requestInfo, createConnectionOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeConnectionOperation);
         return requestInfo;
     };
 }

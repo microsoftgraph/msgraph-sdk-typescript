@@ -1,7 +1,8 @@
+import {deserializeIntoRequestorManager} from './deserializeIntoRequestorManager';
 import {RequestorManager} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRequestorManagerFromDiscriminatorValue(parseNode: ParseNode | undefined) : RequestorManager {
+export function createRequestorManagerFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RequestorManager();
+    return deserializeIntoRequestorManager;
 }

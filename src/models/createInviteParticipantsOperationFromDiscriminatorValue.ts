@@ -1,7 +1,8 @@
+import {deserializeIntoInviteParticipantsOperation} from './deserializeIntoInviteParticipantsOperation';
 import {InviteParticipantsOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInviteParticipantsOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : InviteParticipantsOperation {
+export function createInviteParticipantsOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InviteParticipantsOperation();
+    return deserializeIntoInviteParticipantsOperation;
 }

@@ -1,98 +1,13 @@
-import {createAccessPackageQuestionFromDiscriminatorValue} from './createAccessPackageQuestionFromDiscriminatorValue';
-import {AccessPackageQuestion} from './index';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AccessPackageQuestion} from './accessPackageQuestion';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export class AccessPackageAnswer implements AdditionalDataHolder, Parsable {
+export interface AccessPackageAnswer extends AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
+    additionalData?: Record<string, unknown>;
     /** The answeredQuestion property */
-    private _answeredQuestion?: AccessPackageQuestion | undefined;
+    answeredQuestion?: AccessPackageQuestion | undefined;
     /** The localized display value shown to the requestor and approvers. */
-    private _displayValue?: string | undefined;
+    displayValue?: string | undefined;
     /** The OdataType property */
-    private _odataType?: string | undefined;
-    /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Record<string, unknown>
-     */
-    public get additionalData() {
-        return this._additionalData;
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Record<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Gets the answeredQuestion property value. The answeredQuestion property
-     * @returns a accessPackageQuestion
-     */
-    public get answeredQuestion() {
-        return this._answeredQuestion;
-    };
-    /**
-     * Sets the answeredQuestion property value. The answeredQuestion property
-     * @param value Value to set for the answeredQuestion property.
-     */
-    public set answeredQuestion(value: AccessPackageQuestion | undefined) {
-        this._answeredQuestion = value;
-    };
-    /**
-     * Instantiates a new accessPackageAnswer and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = {};
-    };
-    /**
-     * Gets the displayValue property value. The localized display value shown to the requestor and approvers.
-     * @returns a string
-     */
-    public get displayValue() {
-        return this._displayValue;
-    };
-    /**
-     * Sets the displayValue property value. The localized display value shown to the requestor and approvers.
-     * @param value Value to set for the displayValue property.
-     */
-    public set displayValue(value: string | undefined) {
-        this._displayValue = value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Record<string, (node: ParseNode) => void>
-     */
-    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
-        return {
-            "answeredQuestion": n => { this.answeredQuestion = n.getObjectValue<AccessPackageQuestion>(createAccessPackageQuestionFromDiscriminatorValue); },
-            "displayValue": n => { this.displayValue = n.getStringValue(); },
-            "@odata.type": n => { this.odataType = n.getStringValue(); },
-        };
-    };
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @returns a string
-     */
-    public get odataType() {
-        return this._odataType;
-    };
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param value Value to set for the OdataType property.
-     */
-    public set odataType(value: string | undefined) {
-        this._odataType = value;
-    };
-    /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
-     */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<AccessPackageQuestion>("answeredQuestion", this.answeredQuestion);
-        writer.writeStringValue("displayValue", this.displayValue);
-        writer.writeStringValue("@odata.type", this.odataType);
-        writer.writeAdditionalData(this.additionalData);
-    };
+    odataType?: string | undefined;
 }

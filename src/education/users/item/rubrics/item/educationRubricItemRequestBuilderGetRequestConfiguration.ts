@@ -1,14 +1,11 @@
 import {EducationRubricItemRequestBuilderGetQueryParameters} from './educationRubricItemRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class EducationRubricItemRequestBuilderGetRequestConfiguration {
+export interface EducationRubricItemRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: EducationRubricItemRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: EducationRubricItemRequestBuilderGetQueryParameters | undefined;
 }

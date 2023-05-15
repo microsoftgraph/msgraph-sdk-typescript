@@ -1,1 +1,5 @@
 export * from './bin2OctPostRequestBody'
+export * from './bin2OctRequestBuilderPostRequestConfiguration'
+export * from './createBin2OctPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBin2OctPostRequestBody'
+export * from './serializeBin2OctPostRequestBody'

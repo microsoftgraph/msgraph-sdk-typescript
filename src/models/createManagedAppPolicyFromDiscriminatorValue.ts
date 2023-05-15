@@ -1,7 +1,18 @@
+import {deserializeIntoAndroidManagedAppProtection} from './deserializeIntoAndroidManagedAppProtection';
+import {deserializeIntoDefaultManagedAppProtection} from './deserializeIntoDefaultManagedAppProtection';
+import {deserializeIntoIosManagedAppProtection} from './deserializeIntoIosManagedAppProtection';
+import {deserializeIntoManagedAppConfiguration} from './deserializeIntoManagedAppConfiguration';
+import {deserializeIntoManagedAppPolicy} from './deserializeIntoManagedAppPolicy';
+import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppProtection';
+import {deserializeIntoMdmWindowsInformationProtectionPolicy} from './deserializeIntoMdmWindowsInformationProtectionPolicy';
+import {deserializeIntoTargetedManagedAppConfiguration} from './deserializeIntoTargetedManagedAppConfiguration';
+import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
+import {deserializeIntoWindowsInformationProtection} from './deserializeIntoWindowsInformationProtection';
+import {deserializeIntoWindowsInformationProtectionPolicy} from './deserializeIntoWindowsInformationProtectionPolicy';
 import {AndroidManagedAppProtection, DefaultManagedAppProtection, IosManagedAppProtection, ManagedAppConfiguration, ManagedAppPolicy, ManagedAppProtection, MdmWindowsInformationProtectionPolicy, TargetedManagedAppConfiguration, TargetedManagedAppProtection, WindowsInformationProtection, WindowsInformationProtectionPolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppPolicy {
+export function createManagedAppPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,27 +20,27 @@ export function createManagedAppPolicyFromDiscriminatorValue(parseNode: ParseNod
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.androidManagedAppProtection":
-                    return new AndroidManagedAppProtection();
+                    return deserializeIntoAndroidManagedAppProtection;
                 case "#microsoft.graph.defaultManagedAppProtection":
-                    return new DefaultManagedAppProtection();
+                    return deserializeIntoDefaultManagedAppProtection;
                 case "#microsoft.graph.iosManagedAppProtection":
-                    return new IosManagedAppProtection();
+                    return deserializeIntoIosManagedAppProtection;
                 case "#microsoft.graph.managedAppConfiguration":
-                    return new ManagedAppConfiguration();
+                    return deserializeIntoManagedAppConfiguration;
                 case "#microsoft.graph.managedAppProtection":
-                    return new ManagedAppProtection();
+                    return deserializeIntoManagedAppProtection;
                 case "#microsoft.graph.mdmWindowsInformationProtectionPolicy":
-                    return new MdmWindowsInformationProtectionPolicy();
+                    return deserializeIntoMdmWindowsInformationProtectionPolicy;
                 case "#microsoft.graph.targetedManagedAppConfiguration":
-                    return new TargetedManagedAppConfiguration();
+                    return deserializeIntoTargetedManagedAppConfiguration;
                 case "#microsoft.graph.targetedManagedAppProtection":
-                    return new TargetedManagedAppProtection();
+                    return deserializeIntoTargetedManagedAppProtection;
                 case "#microsoft.graph.windowsInformationProtection":
-                    return new WindowsInformationProtection();
+                    return deserializeIntoWindowsInformationProtection;
                 case "#microsoft.graph.windowsInformationProtectionPolicy":
-                    return new WindowsInformationProtectionPolicy();
+                    return deserializeIntoWindowsInformationProtectionPolicy;
             }
         }
     }
-    return new ManagedAppPolicy();
+    return deserializeIntoManagedAppPolicy;
 }

@@ -1,1 +1,5 @@
+export * from './createPriceDiscPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoPriceDiscPostRequestBody'
 export * from './priceDiscPostRequestBody'
+export * from './priceDiscRequestBuilderPostRequestConfiguration'
+export * from './serializePriceDiscPostRequestBody'

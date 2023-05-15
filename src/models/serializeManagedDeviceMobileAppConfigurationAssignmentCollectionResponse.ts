@@ -1,0 +1,10 @@
+import {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobileAppConfigurationAssignment';
+import {ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse} from './managedDeviceMobileAppConfigurationAssignmentCollectionResponse';
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeManagedDeviceMobileAppConfigurationAssignment} from './serializeManagedDeviceMobileAppConfigurationAssignment';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeManagedDeviceMobileAppConfigurationAssignmentCollectionResponse(writer: SerializationWriter, managedDeviceMobileAppConfigurationAssignmentCollectionResponse: ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationAssignmentCollectionResponse)
+        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>("value", managedDeviceMobileAppConfigurationAssignmentCollectionResponse.value, serializeManagedDeviceMobileAppConfigurationAssignment);
+}

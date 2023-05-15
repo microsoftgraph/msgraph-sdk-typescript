@@ -1,1 +1,5 @@
 export * from './confidence_TPostRequestBody'
+export * from './confidence_TRequestBuilderPostRequestConfiguration'
+export * from './createConfidence_TPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoConfidence_TPostRequestBody'
+export * from './serializeConfidence_TPostRequestBody'

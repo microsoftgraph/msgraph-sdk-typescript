@@ -1,7 +1,8 @@
+import {deserializeIntoPromoteResponse} from './deserializeIntoPromoteResponse';
 import {PromoteResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPromoteResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PromoteResponse {
+export function createPromoteResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PromoteResponse();
+    return deserializeIntoPromoteResponse;
 }

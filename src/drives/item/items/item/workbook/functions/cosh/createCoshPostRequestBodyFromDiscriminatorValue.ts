@@ -1,7 +1,8 @@
+import {deserializeIntoCoshPostRequestBody} from './deserializeIntoCoshPostRequestBody';
 import {CoshPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CoshPostRequestBody {
+export function createCoshPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CoshPostRequestBody();
+    return deserializeIntoCoshPostRequestBody;
 }

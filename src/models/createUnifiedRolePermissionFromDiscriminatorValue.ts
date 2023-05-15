@@ -1,7 +1,8 @@
+import {deserializeIntoUnifiedRolePermission} from './deserializeIntoUnifiedRolePermission';
 import {UnifiedRolePermission} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnifiedRolePermissionFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRolePermission {
+export function createUnifiedRolePermissionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UnifiedRolePermission();
+    return deserializeIntoUnifiedRolePermission;
 }

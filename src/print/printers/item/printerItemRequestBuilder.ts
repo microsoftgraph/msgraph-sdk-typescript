@@ -1,18 +1,20 @@
-import {Printer} from '../../../models/';
 import {createPrinterFromDiscriminatorValue} from '../../../models/createPrinterFromDiscriminatorValue';
+import {deserializeIntoPrinter} from '../../../models/deserializeIntoPrinter';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {Printer} from '../../../models/printer';
+import {serializePrinter} from '../../../models/serializePrinter';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
-import {PrintConnectorItemRequestBuilder} from './connectors/item/printConnectorItemRequestBuilder';
+import {JobsRequestBuilder} from './jobs/jobsRequestBuilder';
 import {PrinterItemRequestBuilderDeleteRequestConfiguration} from './printerItemRequestBuilderDeleteRequestConfiguration';
 import {PrinterItemRequestBuilderGetRequestConfiguration} from './printerItemRequestBuilderGetRequestConfiguration';
 import {PrinterItemRequestBuilderPatchRequestConfiguration} from './printerItemRequestBuilderPatchRequestConfiguration';
 import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
-import {PrinterShareItemRequestBuilder} from './shares/item/printerShareItemRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {PrintTaskTriggerItemRequestBuilder} from './taskTriggers/item/printTaskTriggerItemRequestBuilder';
 import {TaskTriggersRequestBuilder} from './taskTriggers/taskTriggersRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
@@ -21,6 +23,10 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the connectors property of the microsoft.graph.printer entity. */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the jobs property of the microsoft.graph.printerBase entity. */
+    public get jobs(): JobsRequestBuilder {
+        return new JobsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the restoreFactoryDefaults method. */
     public get restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
@@ -34,17 +40,6 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
     public get taskTriggers(): TaskTriggersRequestBuilder {
         return new TaskTriggersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /**
-     * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintConnectorItemRequestBuilder
-     */
-    public connectorsById(id: string) : PrintConnectorItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printConnector%2Did"] = id
-        return new PrintConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
     /**
      * Instantiates a new PrinterItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -62,10 +57,10 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -78,10 +73,10 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -96,33 +91,11 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the shares property of the microsoft.graph.printer entity.
-     * @param id Unique identifier of the item
-     * @returns a PrinterShareItemRequestBuilder
-     */
-    public sharesById(id: string) : PrinterShareItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printerShare%2Did"] = id
-        return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
-     * @param id Unique identifier of the item
-     * @returns a PrintTaskTriggerItemRequestBuilder
-     */
-    public taskTriggersById(id: string) : PrintTaskTriggerItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printTaskTrigger%2Did"] = id
-        return new PrintTaskTriggerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property printers for print
@@ -175,7 +148,7 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrinter);
         return requestInfo;
     };
 }

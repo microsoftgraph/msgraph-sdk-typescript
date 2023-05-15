@@ -1,7 +1,11 @@
-import {ServiceAnnouncementAttachment} from '../../../../../../models/';
 import {createServiceAnnouncementAttachmentFromDiscriminatorValue} from '../../../../../../models/createServiceAnnouncementAttachmentFromDiscriminatorValue';
+import {deserializeIntoServiceAnnouncementAttachment} from '../../../../../../models/deserializeIntoServiceAnnouncementAttachment';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeServiceAnnouncementAttachment} from '../../../../../../models/serializeServiceAnnouncementAttachment';
+import {ServiceAnnouncementAttachment} from '../../../../../../models/serviceAnnouncementAttachment';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration';
@@ -33,10 +37,10 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,10 +53,10 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +71,10 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -124,7 +128,7 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServiceAnnouncementAttachment);
         return requestInfo;
     };
 }

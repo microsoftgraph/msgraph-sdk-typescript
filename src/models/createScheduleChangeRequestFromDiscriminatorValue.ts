@@ -1,7 +1,12 @@
+import {deserializeIntoOfferShiftRequest} from './deserializeIntoOfferShiftRequest';
+import {deserializeIntoOpenShiftChangeRequest} from './deserializeIntoOpenShiftChangeRequest';
+import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
+import {deserializeIntoSwapShiftsChangeRequest} from './deserializeIntoSwapShiftsChangeRequest';
+import {deserializeIntoTimeOffRequest} from './deserializeIntoTimeOffRequest';
 import {OfferShiftRequest, OpenShiftChangeRequest, ScheduleChangeRequest, SwapShiftsChangeRequest, TimeOffRequest} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createScheduleChangeRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleChangeRequest {
+export function createScheduleChangeRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createScheduleChangeRequestFromDiscriminatorValue(parseNode: Par
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.offerShiftRequest":
-                    return new OfferShiftRequest();
+                    return deserializeIntoOfferShiftRequest;
                 case "#microsoft.graph.openShiftChangeRequest":
-                    return new OpenShiftChangeRequest();
+                    return deserializeIntoOpenShiftChangeRequest;
                 case "#microsoft.graph.swapShiftsChangeRequest":
-                    return new SwapShiftsChangeRequest();
+                    return deserializeIntoSwapShiftsChangeRequest;
                 case "#microsoft.graph.timeOffRequest":
-                    return new TimeOffRequest();
+                    return deserializeIntoTimeOffRequest;
             }
         }
     }
-    return new ScheduleChangeRequest();
+    return deserializeIntoScheduleChangeRequest;
 }

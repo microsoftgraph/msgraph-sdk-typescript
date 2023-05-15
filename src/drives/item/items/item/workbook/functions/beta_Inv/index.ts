@@ -1,1 +1,5 @@
 export * from './beta_InvPostRequestBody'
+export * from './beta_InvRequestBuilderPostRequestConfiguration'
+export * from './createBeta_InvPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoBeta_InvPostRequestBody'
+export * from './serializeBeta_InvPostRequestBody'

@@ -1,8 +1,15 @@
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {AddPostRequestBody} from './addPostRequestBody';
 import {AddRequestBuilderPostRequestConfiguration} from './addRequestBuilderPostRequestConfiguration';
+import {AddResponse} from './addResponse';
 import {createAddResponseFromDiscriminatorValue} from './createAddResponseFromDiscriminatorValue';
-import {AddPostRequestBody, AddResponse} from './index';
+import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequestBody';
+import {deserializeIntoAddResponse} from './deserializeIntoAddResponse';
+import {serializeAddPostRequestBody} from './serializeAddPostRequestBody';
+import {serializeAddResponse} from './serializeAddResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -18,26 +25,25 @@ export class AddRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}/members/add");
     };
     /**
-     * Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.
+     * Invoke action add
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AddResponse
-     * @see {@link https://docs.microsoft.com/graph/api/conversationmembers-add?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPostRequestBody | undefined, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AddResponse>(requestInfo, createAddResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.
+     * Invoke action add
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -53,7 +59,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddPostRequestBody);
         return requestInfo;
     };
 }

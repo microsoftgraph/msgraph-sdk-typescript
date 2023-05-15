@@ -1,7 +1,8 @@
+import {deserializeIntoConfidence_TPostRequestBody} from './deserializeIntoConfidence_TPostRequestBody';
 import {Confidence_TPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createConfidence_TPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : Confidence_TPostRequestBody {
+export function createConfidence_TPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Confidence_TPostRequestBody();
+    return deserializeIntoConfidence_TPostRequestBody;
 }

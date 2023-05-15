@@ -1,12 +1,18 @@
-import {ChecklistItem, ChecklistItemCollectionResponse} from '../../../../../../../../models/';
+import {ChecklistItemCollectionResponse} from '../../../../../../../../models/';
+import {ChecklistItem} from '../../../../../../../../models/checklistItem';
 import {createChecklistItemCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createChecklistItemCollectionResponseFromDiscriminatorValue';
 import {createChecklistItemFromDiscriminatorValue} from '../../../../../../../../models/createChecklistItemFromDiscriminatorValue';
+import {deserializeIntoChecklistItem} from '../../../../../../../../models/deserializeIntoChecklistItem';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeChecklistItem} from '../../../../../../../../models/serializeChecklistItem';
 import {ChecklistItemsRequestBuilderGetRequestConfiguration} from './checklistItemsRequestBuilderGetRequestConfiguration';
 import {ChecklistItemsRequestBuilderPostRequestConfiguration} from './checklistItemsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ChecklistItemItemRequestBuilder} from './item/checklistItemItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
@@ -16,6 +22,17 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+     * @param checklistItemId Unique identifier of the item
+     * @returns a ChecklistItemItemRequestBuilder
+     */
+    public byChecklistItemId(checklistItemId: string) : ChecklistItemItemRequestBuilder {
+        if(!checklistItemId) throw new Error("checklistItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["checklistItem%2Did"] = checklistItemId
+        return new ChecklistItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ChecklistItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ChecklistItemCollectionResponse>(requestInfo, createChecklistItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ChecklistItem>(requestInfo, createChecklistItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChecklistItem);
         return requestInfo;
     };
 }

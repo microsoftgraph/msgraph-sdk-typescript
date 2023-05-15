@@ -1,14 +1,11 @@
 import {IdentityProtectionRequestBuilderGetQueryParameters} from './identityProtectionRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class IdentityProtectionRequestBuilderGetRequestConfiguration {
+export interface IdentityProtectionRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: IdentityProtectionRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: IdentityProtectionRequestBuilderGetQueryParameters | undefined;
 }

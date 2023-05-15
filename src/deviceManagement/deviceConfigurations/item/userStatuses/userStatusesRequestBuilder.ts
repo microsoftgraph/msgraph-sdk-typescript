@@ -1,12 +1,18 @@
-import {DeviceConfigurationUserStatus, DeviceConfigurationUserStatusCollectionResponse} from '../../../../models/';
+import {DeviceConfigurationUserStatusCollectionResponse} from '../../../../models/';
 import {createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue';
 import {createDeviceConfigurationUserStatusFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
+import {deserializeIntoDeviceConfigurationUserStatus} from '../../../../models/deserializeIntoDeviceConfigurationUserStatus';
+import {DeviceConfigurationUserStatus} from '../../../../models/deviceConfigurationUserStatus';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeDeviceConfigurationUserStatus} from '../../../../models/serializeDeviceConfigurationUserStatus';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {DeviceConfigurationUserStatusItemRequestBuilder} from './item/deviceConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
 import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
@@ -16,6 +22,17 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
+     * @param deviceConfigurationUserStatusId Unique identifier of the item
+     * @returns a DeviceConfigurationUserStatusItemRequestBuilder
+     */
+    public byDeviceConfigurationUserStatusId(deviceConfigurationUserStatusId: string) : DeviceConfigurationUserStatusItemRequestBuilder {
+        if(!deviceConfigurationUserStatusId) throw new Error("deviceConfigurationUserStatusId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceConfigurationUserStatus%2Did"] = deviceConfigurationUserStatusId
+        return new DeviceConfigurationUserStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new UserStatusesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatusCollectionResponse>(requestInfo, createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatus>(requestInfo, createDeviceConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceConfigurationUserStatus);
         return requestInfo;
     };
 }

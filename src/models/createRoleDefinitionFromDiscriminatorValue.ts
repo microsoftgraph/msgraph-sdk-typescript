@@ -1,7 +1,9 @@
+import {deserializeIntoDeviceAndAppManagementRoleDefinition} from './deserializeIntoDeviceAndAppManagementRoleDefinition';
+import {deserializeIntoRoleDefinition} from './deserializeIntoRoleDefinition';
 import {DeviceAndAppManagementRoleDefinition, RoleDefinition} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRoleDefinitionFromDiscriminatorValue(parseNode: ParseNode | undefined) : RoleDefinition {
+export function createRoleDefinitionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,9 +11,9 @@ export function createRoleDefinitionFromDiscriminatorValue(parseNode: ParseNode 
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.deviceAndAppManagementRoleDefinition":
-                    return new DeviceAndAppManagementRoleDefinition();
+                    return deserializeIntoDeviceAndAppManagementRoleDefinition;
             }
         }
     }
-    return new RoleDefinition();
+    return deserializeIntoRoleDefinition;
 }

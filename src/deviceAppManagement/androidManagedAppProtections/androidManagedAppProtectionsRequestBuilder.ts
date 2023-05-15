@@ -1,12 +1,18 @@
-import {AndroidManagedAppProtection, AndroidManagedAppProtectionCollectionResponse} from '../../models/';
+import {AndroidManagedAppProtectionCollectionResponse} from '../../models/';
+import {AndroidManagedAppProtection} from '../../models/androidManagedAppProtection';
 import {createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue} from '../../models/createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue';
 import {createAndroidManagedAppProtectionFromDiscriminatorValue} from '../../models/createAndroidManagedAppProtectionFromDiscriminatorValue';
+import {deserializeIntoAndroidManagedAppProtection} from '../../models/deserializeIntoAndroidManagedAppProtection';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeAndroidManagedAppProtection} from '../../models/serializeAndroidManagedAppProtection';
 import {AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './androidManagedAppProtectionsRequestBuilderGetRequestConfiguration';
 import {AndroidManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './androidManagedAppProtectionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AndroidManagedAppProtectionItemRequestBuilder} from './item/androidManagedAppProtectionItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -16,6 +22,17 @@ export class AndroidManagedAppProtectionsRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
+     * @param androidManagedAppProtectionId Unique identifier of the item
+     * @returns a AndroidManagedAppProtectionItemRequestBuilder
+     */
+    public byAndroidManagedAppProtectionId(androidManagedAppProtectionId: string) : AndroidManagedAppProtectionItemRequestBuilder {
+        if(!androidManagedAppProtectionId) throw new Error("androidManagedAppProtectionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["androidManagedAppProtection%2Did"] = androidManagedAppProtectionId
+        return new AndroidManagedAppProtectionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new AndroidManagedAppProtectionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class AndroidManagedAppProtectionsRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AndroidManagedAppProtectionCollectionResponse>(requestInfo, createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class AndroidManagedAppProtectionsRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AndroidManagedAppProtection>(requestInfo, createAndroidManagedAppProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class AndroidManagedAppProtectionsRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAndroidManagedAppProtection);
         return requestInfo;
     };
 }

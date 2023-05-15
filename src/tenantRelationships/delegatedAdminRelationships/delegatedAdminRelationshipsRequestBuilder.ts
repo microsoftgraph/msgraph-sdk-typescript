@@ -1,12 +1,18 @@
-import {DelegatedAdminRelationship, DelegatedAdminRelationshipCollectionResponse} from '../../models/';
+import {DelegatedAdminRelationshipCollectionResponse} from '../../models/';
 import {createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue} from '../../models/createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue';
 import {createDelegatedAdminRelationshipFromDiscriminatorValue} from '../../models/createDelegatedAdminRelationshipFromDiscriminatorValue';
+import {DelegatedAdminRelationship} from '../../models/delegatedAdminRelationship';
+import {deserializeIntoDelegatedAdminRelationship} from '../../models/deserializeIntoDelegatedAdminRelationship';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDelegatedAdminRelationship} from '../../models/serializeDelegatedAdminRelationship';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminRelationshipsRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipsRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipsRequestBuilderPostRequestConfiguration} from './delegatedAdminRelationshipsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DelegatedAdminRelationshipItemRequestBuilder} from './item/delegatedAdminRelationshipItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
@@ -17,6 +23,17 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
+     * @param delegatedAdminRelationshipId Unique identifier of the item
+     * @returns a DelegatedAdminRelationshipItemRequestBuilder
+     */
+    public byDelegatedAdminRelationshipId(delegatedAdminRelationshipId: string) : DelegatedAdminRelationshipItemRequestBuilder {
+        if(!delegatedAdminRelationshipId) throw new Error("delegatedAdminRelationshipId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["delegatedAdminRelationship%2Did"] = delegatedAdminRelationshipId
+        return new DelegatedAdminRelationshipItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new DelegatedAdminRelationshipsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -25,43 +42,41 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the delegatedAdminRelationship objects and their properties.
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tenantrelationship-list-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminRelationshipsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipCollectionResponse>(requestInfo, createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new delegatedAdminRelationship object.
+     * Create new navigation property to delegatedAdminRelationships for tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationship
-     * @see {@link https://docs.microsoft.com/graph/api/tenantrelationship-post-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DelegatedAdminRelationship | undefined, requestConfiguration?: DelegatedAdminRelationshipsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the delegatedAdminRelationship objects and their properties.
+     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -79,7 +94,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Create a new delegatedAdminRelationship object.
+     * Create new navigation property to delegatedAdminRelationships for tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -95,7 +110,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminRelationship);
         return requestInfo;
     };
 }

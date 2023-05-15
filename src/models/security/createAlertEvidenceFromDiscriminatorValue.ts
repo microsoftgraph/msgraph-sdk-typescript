@@ -1,7 +1,22 @@
+import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
+import {deserializeIntoAnalyzedMessageEvidence} from './deserializeIntoAnalyzedMessageEvidence';
+import {deserializeIntoCloudApplicationEvidence} from './deserializeIntoCloudApplicationEvidence';
+import {deserializeIntoDeviceEvidence} from './deserializeIntoDeviceEvidence';
+import {deserializeIntoFileEvidence} from './deserializeIntoFileEvidence';
+import {deserializeIntoIpEvidence} from './deserializeIntoIpEvidence';
+import {deserializeIntoMailboxEvidence} from './deserializeIntoMailboxEvidence';
+import {deserializeIntoMailClusterEvidence} from './deserializeIntoMailClusterEvidence';
+import {deserializeIntoOauthApplicationEvidence} from './deserializeIntoOauthApplicationEvidence';
+import {deserializeIntoProcessEvidence} from './deserializeIntoProcessEvidence';
+import {deserializeIntoRegistryKeyEvidence} from './deserializeIntoRegistryKeyEvidence';
+import {deserializeIntoRegistryValueEvidence} from './deserializeIntoRegistryValueEvidence';
+import {deserializeIntoSecurityGroupEvidence} from './deserializeIntoSecurityGroupEvidence';
+import {deserializeIntoUrlEvidence} from './deserializeIntoUrlEvidence';
+import {deserializeIntoUserEvidence} from './deserializeIntoUserEvidence';
 import {AlertEvidence, AnalyzedMessageEvidence, CloudApplicationEvidence, DeviceEvidence, FileEvidence, IpEvidence, MailboxEvidence, MailClusterEvidence, OauthApplicationEvidence, ProcessEvidence, RegistryKeyEvidence, RegistryValueEvidence, SecurityGroupEvidence, UrlEvidence, UserEvidence} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlertEvidence {
+export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,35 +24,35 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.security.analyzedMessageEvidence":
-                    return new AnalyzedMessageEvidence();
+                    return deserializeIntoAnalyzedMessageEvidence;
                 case "#microsoft.graph.security.cloudApplicationEvidence":
-                    return new CloudApplicationEvidence();
+                    return deserializeIntoCloudApplicationEvidence;
                 case "#microsoft.graph.security.deviceEvidence":
-                    return new DeviceEvidence();
+                    return deserializeIntoDeviceEvidence;
                 case "#microsoft.graph.security.fileEvidence":
-                    return new FileEvidence();
+                    return deserializeIntoFileEvidence;
                 case "#microsoft.graph.security.ipEvidence":
-                    return new IpEvidence();
+                    return deserializeIntoIpEvidence;
                 case "#microsoft.graph.security.mailboxEvidence":
-                    return new MailboxEvidence();
+                    return deserializeIntoMailboxEvidence;
                 case "#microsoft.graph.security.mailClusterEvidence":
-                    return new MailClusterEvidence();
+                    return deserializeIntoMailClusterEvidence;
                 case "#microsoft.graph.security.oauthApplicationEvidence":
-                    return new OauthApplicationEvidence();
+                    return deserializeIntoOauthApplicationEvidence;
                 case "#microsoft.graph.security.processEvidence":
-                    return new ProcessEvidence();
+                    return deserializeIntoProcessEvidence;
                 case "#microsoft.graph.security.registryKeyEvidence":
-                    return new RegistryKeyEvidence();
+                    return deserializeIntoRegistryKeyEvidence;
                 case "#microsoft.graph.security.registryValueEvidence":
-                    return new RegistryValueEvidence();
+                    return deserializeIntoRegistryValueEvidence;
                 case "#microsoft.graph.security.securityGroupEvidence":
-                    return new SecurityGroupEvidence();
+                    return deserializeIntoSecurityGroupEvidence;
                 case "#microsoft.graph.security.urlEvidence":
-                    return new UrlEvidence();
+                    return deserializeIntoUrlEvidence;
                 case "#microsoft.graph.security.userEvidence":
-                    return new UserEvidence();
+                    return deserializeIntoUserEvidence;
             }
         }
     }
-    return new AlertEvidence();
+    return deserializeIntoAlertEvidence;
 }

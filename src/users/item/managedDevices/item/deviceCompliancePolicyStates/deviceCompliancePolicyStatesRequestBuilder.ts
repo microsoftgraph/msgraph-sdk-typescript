@@ -1,12 +1,18 @@
-import {DeviceCompliancePolicyState, DeviceCompliancePolicyStateCollectionResponse} from '../../../../../models/';
+import {DeviceCompliancePolicyStateCollectionResponse} from '../../../../../models/';
 import {createDeviceCompliancePolicyStateCollectionResponseFromDiscriminatorValue} from '../../../../../models/createDeviceCompliancePolicyStateCollectionResponseFromDiscriminatorValue';
 import {createDeviceCompliancePolicyStateFromDiscriminatorValue} from '../../../../../models/createDeviceCompliancePolicyStateFromDiscriminatorValue';
+import {deserializeIntoDeviceCompliancePolicyState} from '../../../../../models/deserializeIntoDeviceCompliancePolicyState';
+import {DeviceCompliancePolicyState} from '../../../../../models/deviceCompliancePolicyState';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeDeviceCompliancePolicyState} from '../../../../../models/serializeDeviceCompliancePolicyState';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCompliancePolicyStatesRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyStatesRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyStatesRequestBuilderPostRequestConfiguration} from './deviceCompliancePolicyStatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceCompliancePolicyStateItemRequestBuilder} from './item/deviceCompliancePolicyStateItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
@@ -16,6 +22,17 @@ export class DeviceCompliancePolicyStatesRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
+     * @param deviceCompliancePolicyStateId Unique identifier of the item
+     * @returns a DeviceCompliancePolicyStateItemRequestBuilder
+     */
+    public byDeviceCompliancePolicyStateId(deviceCompliancePolicyStateId: string) : DeviceCompliancePolicyStateItemRequestBuilder {
+        if(!deviceCompliancePolicyStateId) throw new Error("deviceCompliancePolicyStateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceCompliancePolicyState%2Did"] = deviceCompliancePolicyStateId
+        return new DeviceCompliancePolicyStateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceCompliancePolicyStatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class DeviceCompliancePolicyStatesRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceCompliancePolicyStateCollectionResponse>(requestInfo, createDeviceCompliancePolicyStateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class DeviceCompliancePolicyStatesRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceCompliancePolicyState>(requestInfo, createDeviceCompliancePolicyStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class DeviceCompliancePolicyStatesRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceCompliancePolicyState);
         return requestInfo;
     };
 }

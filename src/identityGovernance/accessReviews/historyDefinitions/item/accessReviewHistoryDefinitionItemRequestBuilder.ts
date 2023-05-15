@@ -1,13 +1,16 @@
-import {AccessReviewHistoryDefinition} from '../../../../models/';
+import {AccessReviewHistoryDefinition} from '../../../../models/accessReviewHistoryDefinition';
 import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from '../../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
+import {deserializeIntoAccessReviewHistoryDefinition} from '../../../../models/deserializeIntoAccessReviewHistoryDefinition';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeAccessReviewHistoryDefinition} from '../../../../models/serializeAccessReviewHistoryDefinition';
 import {AccessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {AccessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration} from './accessReviewHistoryDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {AccessReviewHistoryInstanceItemRequestBuilder} from './instances/item/accessReviewHistoryInstanceItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
@@ -34,10 +37,10 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequest
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,22 +53,11 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequest
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
-     * @param id Unique identifier of the item
-     * @returns a AccessReviewHistoryInstanceItemRequestBuilder
-     */
-    public instancesById(id: string) : AccessReviewHistoryInstanceItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["accessReviewHistoryInstance%2Did"] = id
-        return new AccessReviewHistoryInstanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property historyDefinitions in identityGovernance
@@ -79,10 +71,10 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequest
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessReviewHistoryDefinition);
         return requestInfo;
     };
 }

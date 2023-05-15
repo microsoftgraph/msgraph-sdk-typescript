@@ -1,7 +1,8 @@
+import {deserializeIntoWindowsPhone81CompliancePolicy} from './deserializeIntoWindowsPhone81CompliancePolicy';
 import {WindowsPhone81CompliancePolicy} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsPhone81CompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsPhone81CompliancePolicy {
+export function createWindowsPhone81CompliancePolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsPhone81CompliancePolicy();
+    return deserializeIntoWindowsPhone81CompliancePolicy;
 }

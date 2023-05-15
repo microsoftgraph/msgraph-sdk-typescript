@@ -1,12 +1,18 @@
-import {RoleDefinition, RoleDefinitionCollectionResponse} from '../../models/';
+import {RoleDefinitionCollectionResponse} from '../../models/';
 import {createRoleDefinitionCollectionResponseFromDiscriminatorValue} from '../../models/createRoleDefinitionCollectionResponseFromDiscriminatorValue';
 import {createRoleDefinitionFromDiscriminatorValue} from '../../models/createRoleDefinitionFromDiscriminatorValue';
+import {deserializeIntoRoleDefinition} from '../../models/deserializeIntoRoleDefinition';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {RoleDefinition} from '../../models/roleDefinition';
+import {serializeRoleDefinition} from '../../models/serializeRoleDefinition';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {RoleDefinitionItemRequestBuilder} from './item/roleDefinitionItemRequestBuilder';
 import {RoleDefinitionsRequestBuilderGetRequestConfiguration} from './roleDefinitionsRequestBuilderGetRequestConfiguration';
 import {RoleDefinitionsRequestBuilderPostRequestConfiguration} from './roleDefinitionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
+     * @param roleDefinitionId Unique identifier of the item
+     * @returns a RoleDefinitionItemRequestBuilder
+     */
+    public byRoleDefinitionId(roleDefinitionId: string) : RoleDefinitionItemRequestBuilder {
+        if(!roleDefinitionId) throw new Error("roleDefinitionId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["roleDefinition%2Did"] = roleDefinitionId
+        return new RoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new RoleDefinitionsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RoleDefinitionCollectionResponse>(requestInfo, createRoleDefinitionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<RoleDefinition>(requestInfo, createRoleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRoleDefinition);
         return requestInfo;
     };
 }

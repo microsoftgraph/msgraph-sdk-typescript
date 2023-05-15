@@ -1,12 +1,18 @@
-import {ItemActivity, ItemActivityCollectionResponse} from '../../../../../../../../models/';
+import {ItemActivityCollectionResponse} from '../../../../../../../../models/';
 import {createItemActivityCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createItemActivityCollectionResponseFromDiscriminatorValue';
 import {createItemActivityFromDiscriminatorValue} from '../../../../../../../../models/createItemActivityFromDiscriminatorValue';
+import {deserializeIntoItemActivity} from '../../../../../../../../models/deserializeIntoItemActivity';
+import {ItemActivity} from '../../../../../../../../models/itemActivity';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeItemActivity} from '../../../../../../../../models/serializeItemActivity';
 import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesRequestBuilderGetRequestConfiguration';
 import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ItemActivityItemRequestBuilder} from './item/itemActivityItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
@@ -16,6 +22,17 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
+     * @param itemActivityId Unique identifier of the item
+     * @returns a ItemActivityItemRequestBuilder
+     */
+    public byItemActivityId(itemActivityId: string) : ItemActivityItemRequestBuilder {
+        if(!itemActivityId) throw new Error("itemActivityId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["itemActivity%2Did"] = itemActivityId
+        return new ItemActivityItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ActivitiesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ItemActivityCollectionResponse>(requestInfo, createItemActivityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ItemActivity>(requestInfo, createItemActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeItemActivity);
         return requestInfo;
     };
 }

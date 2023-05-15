@@ -1,7 +1,12 @@
+import {deserializeIntoAndroidManagedAppProtection} from './deserializeIntoAndroidManagedAppProtection';
+import {deserializeIntoDefaultManagedAppProtection} from './deserializeIntoDefaultManagedAppProtection';
+import {deserializeIntoIosManagedAppProtection} from './deserializeIntoIosManagedAppProtection';
+import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppProtection';
+import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
 import {AndroidManagedAppProtection, DefaultManagedAppProtection, IosManagedAppProtection, ManagedAppProtection, TargetedManagedAppProtection} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppProtection {
+export function createManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,15 +14,15 @@ export function createManagedAppProtectionFromDiscriminatorValue(parseNode: Pars
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.androidManagedAppProtection":
-                    return new AndroidManagedAppProtection();
+                    return deserializeIntoAndroidManagedAppProtection;
                 case "#microsoft.graph.defaultManagedAppProtection":
-                    return new DefaultManagedAppProtection();
+                    return deserializeIntoDefaultManagedAppProtection;
                 case "#microsoft.graph.iosManagedAppProtection":
-                    return new IosManagedAppProtection();
+                    return deserializeIntoIosManagedAppProtection;
                 case "#microsoft.graph.targetedManagedAppProtection":
-                    return new TargetedManagedAppProtection();
+                    return deserializeIntoTargetedManagedAppProtection;
             }
         }
     }
-    return new ManagedAppProtection();
+    return deserializeIntoManagedAppProtection;
 }

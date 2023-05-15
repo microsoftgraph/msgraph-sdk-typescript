@@ -1,1 +1,5 @@
+export * from './createSetDataPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSetDataPostRequestBody'
+export * from './serializeSetDataPostRequestBody'
 export * from './setDataPostRequestBody'
+export * from './setDataRequestBuilderPostRequestConfiguration'

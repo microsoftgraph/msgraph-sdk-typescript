@@ -1,12 +1,18 @@
-import {ManagedAppOperation, ManagedAppOperationCollectionResponse} from '../../../../models/';
+import {ManagedAppOperationCollectionResponse} from '../../../../models/';
 import {createManagedAppOperationCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedAppOperationCollectionResponseFromDiscriminatorValue';
 import {createManagedAppOperationFromDiscriminatorValue} from '../../../../models/createManagedAppOperationFromDiscriminatorValue';
+import {deserializeIntoManagedAppOperation} from '../../../../models/deserializeIntoManagedAppOperation';
+import {ManagedAppOperation} from '../../../../models/managedAppOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeManagedAppOperation} from '../../../../models/serializeManagedAppOperation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ManagedAppOperationItemRequestBuilder} from './item/managedAppOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.
@@ -16,6 +22,17 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.
+     * @param managedAppOperationId Unique identifier of the item
+     * @returns a ManagedAppOperationItemRequestBuilder
+     */
+    public byManagedAppOperationId(managedAppOperationId: string) : ManagedAppOperationItemRequestBuilder {
+        if(!managedAppOperationId) throw new Error("managedAppOperationId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["managedAppOperation%2Did"] = managedAppOperationId
+        return new ManagedAppOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new OperationsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ManagedAppOperationCollectionResponse>(requestInfo, createManagedAppOperationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ManagedAppOperation>(requestInfo, createManagedAppOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedAppOperation);
         return requestInfo;
     };
 }

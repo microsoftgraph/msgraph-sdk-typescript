@@ -1,23 +1,20 @@
-import {Calendar} from '../../../../../models/';
+import {Calendar} from '../../../../../models/calendar';
 import {createCalendarFromDiscriminatorValue} from '../../../../../models/createCalendarFromDiscriminatorValue';
+import {deserializeIntoCalendar} from '../../../../../models/deserializeIntoCalendar';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeCalendar} from '../../../../../models/serializeCalendar';
 import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarItemRequestBuilderDeleteRequestConfiguration} from './calendarItemRequestBuilderDeleteRequestConfiguration';
 import {CalendarItemRequestBuilderGetRequestConfiguration} from './calendarItemRequestBuilderGetRequestConfiguration';
 import {CalendarItemRequestBuilderPatchRequestConfiguration} from './calendarItemRequestBuilderPatchRequestConfiguration';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
-import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventItemRequestBuilder as I159d499e2bca7a6fb8d98e39269bf28e22d02bdad0a346b0a25d336d3b78faea} from './calendarView/item/eventItemRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventItemRequestBuilder as I45b6cdd1f543555f5e80e718ccf5b92eda2904ddb75cb7287c9fbd05c34ff2c4} from './events/item/eventItemRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
-import {MultiValueLegacyExtendedPropertyItemRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyItemRequestBuilder';
-import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyItemRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyItemRequestBuilder';
-import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
@@ -39,14 +36,6 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
     public get getSchedule(): GetScheduleRequestBuilder {
         return new GetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity. */
-    public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity. */
-    public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Provides operations to call the allowedCalendarSharingRoles method.
      * @param User Usage: User='{User}'
@@ -55,28 +44,6 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
     public allowedCalendarSharingRolesWithUser(user: string | undefined) : AllowedCalendarSharingRolesWithUserRequestBuilder {
         if(!user) throw new Error("user cannot be undefined");
         return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.pathParameters, this.requestAdapter, user);
-    };
-    /**
-     * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a CalendarPermissionItemRequestBuilder
-     */
-    public calendarPermissionsById(id: string) : CalendarPermissionItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["calendarPermission%2Did"] = id
-        return new CalendarPermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a EventItemRequestBuilder
-     */
-    public calendarViewById(id: string) : I159d499e2bca7a6fb8d98e39269bf28e22d02bdad0a346b0a25d336d3b78faea {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["event%2Did"] = id
-        return new I159d499e2bca7a6fb8d98e39269bf28e22d02bdad0a346b0a25d336d3b78faea(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarItemRequestBuilder and sets the default values.
@@ -95,22 +62,11 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the events property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a EventItemRequestBuilder
-     */
-    public eventsById(id: string) : I45b6cdd1f543555f5e80e718ccf5b92eda2904ddb75cb7287c9fbd05c34ff2c4 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["event%2Did"] = id
-        return new I45b6cdd1f543555f5e80e718ccf5b92eda2904ddb75cb7287c9fbd05c34ff2c4(urlTplParams, this.requestAdapter);
     };
     /**
      * The calendars in the calendar group. Navigation property. Read-only. Nullable.
@@ -122,22 +78,11 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the multiValueExtendedProperties property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["multiValueLegacyExtendedProperty%2Did"] = id
-        return new MultiValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property calendars in me
@@ -151,22 +96,11 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the singleValueExtendedProperties property of the microsoft.graph.calendar entity.
-     * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyItemRequestBuilder
-     */
-    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["singleValueLegacyExtendedProperty%2Did"] = id
-        return new SingleValueLegacyExtendedPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property calendars for me
@@ -219,7 +153,7 @@ export class CalendarItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCalendar);
         return requestInfo;
     };
 }

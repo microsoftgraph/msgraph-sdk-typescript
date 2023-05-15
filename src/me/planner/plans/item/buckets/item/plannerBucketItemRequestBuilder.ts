@@ -1,13 +1,16 @@
-import {PlannerBucket} from '../../../../../../models/';
 import {createPlannerBucketFromDiscriminatorValue} from '../../../../../../models/createPlannerBucketFromDiscriminatorValue';
+import {deserializeIntoPlannerBucket} from '../../../../../../models/deserializeIntoPlannerBucket';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {PlannerBucket} from '../../../../../../models/plannerBucket';
+import {serializePlannerBucket} from '../../../../../../models/serializePlannerBucket';
 import {PlannerBucketItemRequestBuilderDeleteRequestConfiguration} from './plannerBucketItemRequestBuilderDeleteRequestConfiguration';
 import {PlannerBucketItemRequestBuilderGetRequestConfiguration} from './plannerBucketItemRequestBuilderGetRequestConfiguration';
 import {PlannerBucketItemRequestBuilderPatchRequestConfiguration} from './plannerBucketItemRequestBuilderPatchRequestConfiguration';
-import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
@@ -34,10 +37,10 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,10 +53,10 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -68,22 +71,11 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity.
-     * @param id Unique identifier of the item
-     * @returns a PlannerTaskItemRequestBuilder
-     */
-    public tasksById(id: string) : PlannerTaskItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["plannerTask%2Did"] = id
-        return new PlannerTaskItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property buckets for me
@@ -136,7 +128,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlannerBucket);
         return requestInfo;
     };
 }

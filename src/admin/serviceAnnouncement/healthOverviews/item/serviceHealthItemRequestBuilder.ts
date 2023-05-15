@@ -1,13 +1,16 @@
-import {ServiceHealth} from '../../../../models/';
 import {createServiceHealthFromDiscriminatorValue} from '../../../../models/createServiceHealthFromDiscriminatorValue';
+import {deserializeIntoServiceHealth} from '../../../../models/deserializeIntoServiceHealth';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeServiceHealth} from '../../../../models/serializeServiceHealth';
+import {ServiceHealth} from '../../../../models/serviceHealth';
 import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
-import {ServiceHealthIssueItemRequestBuilder} from './issues/item/serviceHealthIssueItemRequestBuilder';
 import {ServiceHealthItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceHealthItemRequestBuilderGetRequestConfiguration} from './serviceHealthItemRequestBuilderGetRequestConfiguration';
 import {ServiceHealthItemRequestBuilderPatchRequestConfiguration} from './serviceHealthItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
@@ -34,10 +37,10 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -50,22 +53,11 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
-     * @param id Unique identifier of the item
-     * @returns a ServiceHealthIssueItemRequestBuilder
-     */
-    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["serviceHealthIssue%2Did"] = id
-        return new ServiceHealthIssueItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property healthOverviews in admin
@@ -79,10 +71,10 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -136,7 +128,7 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServiceHealth);
         return requestInfo;
     };
 }

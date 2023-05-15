@@ -1,1 +1,5 @@
+export * from './createSyncPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSyncPostRequestBody'
+export * from './serializeSyncPostRequestBody'
 export * from './syncPostRequestBody'
+export * from './syncRequestBuilderPostRequestConfiguration'

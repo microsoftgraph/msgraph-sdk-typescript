@@ -1,7 +1,14 @@
+import {deserializeIntoCaseOperation} from './deserializeIntoCaseOperation';
+import {deserializeIntoEdiscoveryAddToReviewSetOperation} from './deserializeIntoEdiscoveryAddToReviewSetOperation';
+import {deserializeIntoEdiscoveryEstimateOperation} from './deserializeIntoEdiscoveryEstimateOperation';
+import {deserializeIntoEdiscoveryHoldOperation} from './deserializeIntoEdiscoveryHoldOperation';
+import {deserializeIntoEdiscoveryIndexOperation} from './deserializeIntoEdiscoveryIndexOperation';
+import {deserializeIntoEdiscoveryPurgeDataOperation} from './deserializeIntoEdiscoveryPurgeDataOperation';
+import {deserializeIntoEdiscoveryTagOperation} from './deserializeIntoEdiscoveryTagOperation';
 import {CaseOperation, EdiscoveryAddToReviewSetOperation, EdiscoveryEstimateOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryPurgeDataOperation, EdiscoveryTagOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : CaseOperation {
+export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,19 +16,19 @@ export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode |
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.security.ediscoveryAddToReviewSetOperation":
-                    return new EdiscoveryAddToReviewSetOperation();
+                    return deserializeIntoEdiscoveryAddToReviewSetOperation;
                 case "#microsoft.graph.security.ediscoveryEstimateOperation":
-                    return new EdiscoveryEstimateOperation();
+                    return deserializeIntoEdiscoveryEstimateOperation;
                 case "#microsoft.graph.security.ediscoveryHoldOperation":
-                    return new EdiscoveryHoldOperation();
+                    return deserializeIntoEdiscoveryHoldOperation;
                 case "#microsoft.graph.security.ediscoveryIndexOperation":
-                    return new EdiscoveryIndexOperation();
+                    return deserializeIntoEdiscoveryIndexOperation;
                 case "#microsoft.graph.security.ediscoveryPurgeDataOperation":
-                    return new EdiscoveryPurgeDataOperation();
+                    return deserializeIntoEdiscoveryPurgeDataOperation;
                 case "#microsoft.graph.security.ediscoveryTagOperation":
-                    return new EdiscoveryTagOperation();
+                    return deserializeIntoEdiscoveryTagOperation;
             }
         }
     }
-    return new CaseOperation();
+    return deserializeIntoCaseOperation;
 }

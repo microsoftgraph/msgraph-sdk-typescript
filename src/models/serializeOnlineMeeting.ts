@@ -1,0 +1,52 @@
+import {AudioConferencing} from './audioConferencing';
+import {BroadcastMeetingSettings} from './broadcastMeetingSettings';
+import {ChatInfo} from './chatInfo';
+import {ItemBody} from './itemBody';
+import {JoinMeetingIdSettings} from './joinMeetingIdSettings';
+import {LobbyBypassSettings} from './lobbyBypassSettings';
+import {MeetingAttendanceReport} from './meetingAttendanceReport';
+import {MeetingChatMode} from './meetingChatMode';
+import {MeetingParticipants} from './meetingParticipants';
+import {OnlineMeeting} from './onlineMeeting';
+import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
+import {serializeAudioConferencing} from './serializeAudioConferencing';
+import {serializeBroadcastMeetingSettings} from './serializeBroadcastMeetingSettings';
+import {serializeChatInfo} from './serializeChatInfo';
+import {serializeEntity} from './serializeEntity';
+import {serializeItemBody} from './serializeItemBody';
+import {serializeJoinMeetingIdSettings} from './serializeJoinMeetingIdSettings';
+import {serializeLobbyBypassSettings} from './serializeLobbyBypassSettings';
+import {serializeMeetingAttendanceReport} from './serializeMeetingAttendanceReport';
+import {serializeMeetingParticipants} from './serializeMeetingParticipants';
+import {serializeWatermarkProtectionValues} from './serializeWatermarkProtectionValues';
+import {WatermarkProtectionValues} from './watermarkProtectionValues';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeOnlineMeeting(writer: SerializationWriter, onlineMeeting: OnlineMeeting | undefined = {} as OnlineMeeting) : void {
+        serializeEntity(writer, onlineMeeting)
+        writer.writeBooleanValue("allowAttendeeToEnableCamera", onlineMeeting.allowAttendeeToEnableCamera);
+        writer.writeBooleanValue("allowAttendeeToEnableMic", onlineMeeting.allowAttendeeToEnableMic);
+        writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", onlineMeeting.allowedPresenters);
+        writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", onlineMeeting.allowMeetingChat);
+        writer.writeBooleanValue("allowTeamworkReactions", onlineMeeting.allowTeamworkReactions);
+        writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", onlineMeeting.attendanceReports, serializeMeetingAttendanceReport);
+        writer.writeStringValue("attendeeReport", onlineMeeting.attendeeReport);
+        writer.writeObjectValue<AudioConferencing>("audioConferencing", onlineMeeting.audioConferencing, serializeAudioConferencing);
+        writer.writeObjectValue<BroadcastMeetingSettings>("broadcastSettings", onlineMeeting.broadcastSettings, serializeBroadcastMeetingSettings);
+        writer.writeObjectValue<ChatInfo>("chatInfo", onlineMeeting.chatInfo, serializeChatInfo);
+        writer.writeDateValue("creationDateTime", onlineMeeting.creationDateTime);
+        writer.writeDateValue("endDateTime", onlineMeeting.endDateTime);
+        writer.writeStringValue("externalId", onlineMeeting.externalId);
+        writer.writeBooleanValue("isBroadcast", onlineMeeting.isBroadcast);
+        writer.writeBooleanValue("isEntryExitAnnounced", onlineMeeting.isEntryExitAnnounced);
+        writer.writeObjectValue<ItemBody>("joinInformation", onlineMeeting.joinInformation, serializeItemBody);
+        writer.writeObjectValue<JoinMeetingIdSettings>("joinMeetingIdSettings", onlineMeeting.joinMeetingIdSettings, serializeJoinMeetingIdSettings);
+        writer.writeStringValue("joinWebUrl", onlineMeeting.joinWebUrl);
+        writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", onlineMeeting.lobbyBypassSettings, serializeLobbyBypassSettings);
+        writer.writeObjectValue<MeetingParticipants>("participants", onlineMeeting.participants, serializeMeetingParticipants);
+        writer.writeBooleanValue("recordAutomatically", onlineMeeting.recordAutomatically);
+        writer.writeDateValue("startDateTime", onlineMeeting.startDateTime);
+        writer.writeStringValue("subject", onlineMeeting.subject);
+        writer.writeStringValue("videoTeleconferenceId", onlineMeeting.videoTeleconferenceId);
+        writer.writeObjectValue<WatermarkProtectionValues>("watermarkProtection", onlineMeeting.watermarkProtection, serializeWatermarkProtectionValues);
+}

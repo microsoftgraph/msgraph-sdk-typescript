@@ -1,12 +1,18 @@
-import {ScopedRoleMembership, ScopedRoleMembershipCollectionResponse} from '../../../models/';
+import {ScopedRoleMembershipCollectionResponse} from '../../../models/';
 import {createScopedRoleMembershipCollectionResponseFromDiscriminatorValue} from '../../../models/createScopedRoleMembershipCollectionResponseFromDiscriminatorValue';
 import {createScopedRoleMembershipFromDiscriminatorValue} from '../../../models/createScopedRoleMembershipFromDiscriminatorValue';
+import {deserializeIntoScopedRoleMembership} from '../../../models/deserializeIntoScopedRoleMembership';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {ScopedRoleMembership} from '../../../models/scopedRoleMembership';
+import {serializeScopedRoleMembership} from '../../../models/serializeScopedRoleMembership';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ScopedRoleMembershipItemRequestBuilder} from './item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedRoleMemberOfRequestBuilderGetRequestConfiguration} from './scopedRoleMemberOfRequestBuilderGetRequestConfiguration';
 import {ScopedRoleMemberOfRequestBuilderPostRequestConfiguration} from './scopedRoleMemberOfRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
@@ -16,6 +22,17 @@ export class ScopedRoleMemberOfRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the scopedRoleMemberOf property of the microsoft.graph.user entity.
+     * @param scopedRoleMembershipId Unique identifier of the item
+     * @returns a ScopedRoleMembershipItemRequestBuilder
+     */
+    public byScopedRoleMembershipId(scopedRoleMembershipId: string) : ScopedRoleMembershipItemRequestBuilder {
+        if(!scopedRoleMembershipId) throw new Error("scopedRoleMembershipId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["scopedRoleMembership%2Did"] = scopedRoleMembershipId
+        return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ScopedRoleMemberOfRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ScopedRoleMemberOfRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ScopedRoleMembershipCollectionResponse>(requestInfo, createScopedRoleMembershipCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ScopedRoleMemberOfRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ScopedRoleMembership>(requestInfo, createScopedRoleMembershipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ScopedRoleMemberOfRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeScopedRoleMembership);
         return requestInfo;
     };
 }

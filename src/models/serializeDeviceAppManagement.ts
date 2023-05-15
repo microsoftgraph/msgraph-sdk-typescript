@@ -1,0 +1,53 @@
+import {AndroidManagedAppProtection} from './androidManagedAppProtection';
+import {DefaultManagedAppProtection} from './defaultManagedAppProtection';
+import {DeviceAppManagement} from './deviceAppManagement';
+import {IosManagedAppProtection} from './iosManagedAppProtection';
+import {ManagedAppPolicy} from './managedAppPolicy';
+import {ManagedAppRegistration} from './managedAppRegistration';
+import {ManagedAppStatus} from './managedAppStatus';
+import {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
+import {ManagedEBook} from './managedEBook';
+import {MdmWindowsInformationProtectionPolicy} from './mdmWindowsInformationProtectionPolicy';
+import {MobileApp} from './mobileApp';
+import {MobileAppCategory} from './mobileAppCategory';
+import {serializeAndroidManagedAppProtection} from './serializeAndroidManagedAppProtection';
+import {serializeDefaultManagedAppProtection} from './serializeDefaultManagedAppProtection';
+import {serializeEntity} from './serializeEntity';
+import {serializeIosManagedAppProtection} from './serializeIosManagedAppProtection';
+import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
+import {serializeManagedAppRegistration} from './serializeManagedAppRegistration';
+import {serializeManagedAppStatus} from './serializeManagedAppStatus';
+import {serializeManagedDeviceMobileAppConfiguration} from './serializeManagedDeviceMobileAppConfiguration';
+import {serializeManagedEBook} from './serializeManagedEBook';
+import {serializeMdmWindowsInformationProtectionPolicy} from './serializeMdmWindowsInformationProtectionPolicy';
+import {serializeMobileApp} from './serializeMobileApp';
+import {serializeMobileAppCategory} from './serializeMobileAppCategory';
+import {serializeTargetedManagedAppConfiguration} from './serializeTargetedManagedAppConfiguration';
+import {serializeVppToken} from './serializeVppToken';
+import {serializeWindowsInformationProtectionPolicy} from './serializeWindowsInformationProtectionPolicy';
+import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
+import {VppToken} from './vppToken';
+import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeDeviceAppManagement(writer: SerializationWriter, deviceAppManagement: DeviceAppManagement | undefined = {} as DeviceAppManagement) : void {
+        serializeEntity(writer, deviceAppManagement)
+        writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("androidManagedAppProtections", deviceAppManagement.androidManagedAppProtections, serializeAndroidManagedAppProtection);
+        writer.writeCollectionOfObjectValues<DefaultManagedAppProtection>("defaultManagedAppProtections", deviceAppManagement.defaultManagedAppProtections, serializeDefaultManagedAppProtection);
+        writer.writeCollectionOfObjectValues<IosManagedAppProtection>("iosManagedAppProtections", deviceAppManagement.iosManagedAppProtections, serializeIosManagedAppProtection);
+        writer.writeBooleanValue("isEnabledForMicrosoftStoreForBusiness", deviceAppManagement.isEnabledForMicrosoftStoreForBusiness);
+        writer.writeCollectionOfObjectValues<ManagedAppPolicy>("managedAppPolicies", deviceAppManagement.managedAppPolicies, serializeManagedAppPolicy);
+        writer.writeCollectionOfObjectValues<ManagedAppRegistration>("managedAppRegistrations", deviceAppManagement.managedAppRegistrations, serializeManagedAppRegistration);
+        writer.writeCollectionOfObjectValues<ManagedAppStatus>("managedAppStatuses", deviceAppManagement.managedAppStatuses, serializeManagedAppStatus);
+        writer.writeCollectionOfObjectValues<ManagedEBook>("managedEBooks", deviceAppManagement.managedEBooks, serializeManagedEBook);
+        writer.writeCollectionOfObjectValues<MdmWindowsInformationProtectionPolicy>("mdmWindowsInformationProtectionPolicies", deviceAppManagement.mdmWindowsInformationProtectionPolicies, serializeMdmWindowsInformationProtectionPolicy);
+        writer.writeStringValue("microsoftStoreForBusinessLanguage", deviceAppManagement.microsoftStoreForBusinessLanguage);
+        writer.writeDateValue("microsoftStoreForBusinessLastCompletedApplicationSyncTime", deviceAppManagement.microsoftStoreForBusinessLastCompletedApplicationSyncTime);
+        writer.writeDateValue("microsoftStoreForBusinessLastSuccessfulSyncDateTime", deviceAppManagement.microsoftStoreForBusinessLastSuccessfulSyncDateTime);
+        writer.writeCollectionOfObjectValues<MobileAppCategory>("mobileAppCategories", deviceAppManagement.mobileAppCategories, serializeMobileAppCategory);
+        writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfiguration>("mobileAppConfigurations", deviceAppManagement.mobileAppConfigurations, serializeManagedDeviceMobileAppConfiguration);
+        writer.writeCollectionOfObjectValues<MobileApp>("mobileApps", deviceAppManagement.mobileApps, serializeMobileApp);
+        writer.writeCollectionOfObjectValues<TargetedManagedAppConfiguration>("targetedManagedAppConfigurations", deviceAppManagement.targetedManagedAppConfigurations, serializeTargetedManagedAppConfiguration);
+        writer.writeCollectionOfObjectValues<VppToken>("vppTokens", deviceAppManagement.vppTokens, serializeVppToken);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionPolicy>("windowsInformationProtectionPolicies", deviceAppManagement.windowsInformationProtectionPolicies, serializeWindowsInformationProtectionPolicy);
+}

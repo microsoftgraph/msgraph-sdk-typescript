@@ -1,7 +1,11 @@
-import {BookingCurrency} from '../../../models/';
+import {BookingCurrency} from '../../../models/bookingCurrency';
 import {createBookingCurrencyFromDiscriminatorValue} from '../../../models/createBookingCurrencyFromDiscriminatorValue';
+import {deserializeIntoBookingCurrency} from '../../../models/deserializeIntoBookingCurrency';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeBookingCurrency} from '../../../models/serializeBookingCurrency';
 import {BookingCurrencyItemRequestBuilderDeleteRequestConfiguration} from './bookingCurrencyItemRequestBuilderDeleteRequestConfiguration';
 import {BookingCurrencyItemRequestBuilderGetRequestConfiguration} from './bookingCurrencyItemRequestBuilderGetRequestConfiguration';
 import {BookingCurrencyItemRequestBuilderPatchRequestConfiguration} from './bookingCurrencyItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingCurrency);
         return requestInfo;
     };
 }

@@ -1,12 +1,18 @@
-import {Segment, SegmentCollectionResponse} from '../../../../../../models/callRecords/';
+import {SegmentCollectionResponse} from '../../../../../../models/callRecords/';
 import {createSegmentCollectionResponseFromDiscriminatorValue} from '../../../../../../models/callRecords/createSegmentCollectionResponseFromDiscriminatorValue';
 import {createSegmentFromDiscriminatorValue} from '../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
+import {deserializeIntoSegment} from '../../../../../../models/callRecords/deserializeIntoSegment';
+import {Segment} from '../../../../../../models/callRecords/segment';
+import {serializeSegment} from '../../../../../../models/callRecords/serializeSegment';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SegmentItemRequestBuilder} from './item/segmentItemRequestBuilder';
 import {SegmentsRequestBuilderGetRequestConfiguration} from './segmentsRequestBuilderGetRequestConfiguration';
 import {SegmentsRequestBuilderPostRequestConfiguration} from './segmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
@@ -16,6 +22,17 @@ export class SegmentsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+     * @param segmentId Unique identifier of the item
+     * @returns a SegmentItemRequestBuilder
+     */
+    public bySegmentId(segmentId: string) : SegmentItemRequestBuilder {
+        if(!segmentId) throw new Error("segmentId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["segment%2Did"] = segmentId
+        return new SegmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new SegmentsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class SegmentsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<SegmentCollectionResponse>(requestInfo, createSegmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class SegmentsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Segment>(requestInfo, createSegmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class SegmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSegment);
         return requestInfo;
     };
 }

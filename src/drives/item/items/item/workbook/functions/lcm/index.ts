@@ -1,1 +1,5 @@
+export * from './createLcmPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoLcmPostRequestBody'
 export * from './lcmPostRequestBody'
+export * from './lcmRequestBuilderPostRequestConfiguration'
+export * from './serializeLcmPostRequestBody'

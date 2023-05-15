@@ -1,7 +1,10 @@
+import {deserializeIntoPrintUsage} from './deserializeIntoPrintUsage';
+import {deserializeIntoPrintUsageByPrinter} from './deserializeIntoPrintUsageByPrinter';
+import {deserializeIntoPrintUsageByUser} from './deserializeIntoPrintUsageByUser';
 import {PrintUsage, PrintUsageByPrinter, PrintUsageByUser} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPrintUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintUsage {
+export function createPrintUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,11 +12,11 @@ export function createPrintUsageFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.printUsageByPrinter":
-                    return new PrintUsageByPrinter();
+                    return deserializeIntoPrintUsageByPrinter;
                 case "#microsoft.graph.printUsageByUser":
-                    return new PrintUsageByUser();
+                    return deserializeIntoPrintUsageByUser;
             }
         }
     }
-    return new PrintUsage();
+    return deserializeIntoPrintUsage;
 }

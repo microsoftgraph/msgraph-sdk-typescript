@@ -1,11 +1,15 @@
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {EdiscoveryReviewSetQuery} from '../../../../../../../../models/security/';
+import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from '../../../../../../../../models/security/createEdiscoveryReviewSetQueryFromDiscriminatorValue';
+import {deserializeIntoEdiscoveryReviewSetQuery} from '../../../../../../../../models/security/deserializeIntoEdiscoveryReviewSetQuery';
+import {EdiscoveryReviewSetQuery} from '../../../../../../../../models/security/ediscoveryReviewSetQuery';
+import {serializeEdiscoveryReviewSetQuery} from '../../../../../../../../models/security/serializeEdiscoveryReviewSetQuery';
 import {EdiscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewSetQueryItemRequestBuilderPatchRequestConfiguration';
-import {SecurityApplyTagsRequestBuilder} from './securityApplyTags/securityApplyTagsRequestBuilder';
+import {MicrosoftGraphSecurityApplyTagsRequestBuilder} from './microsoftGraphSecurityApplyTags/microsoftGraphSecurityApplyTagsRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -13,8 +17,8 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  */
 export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the applyTags method. */
-    public get securityApplyTags(): SecurityApplyTagsRequestBuilder {
-        return new SecurityApplyTagsRequestBuilder(this.pathParameters, this.requestAdapter);
+    public get microsoftGraphSecurityApplyTags(): MicrosoftGraphSecurityApplyTagsRequestBuilder {
+        return new MicrosoftGraphSecurityApplyTagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new EdiscoveryReviewSetQueryItemRequestBuilder and sets the default values.
@@ -33,10 +37,10 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -49,10 +53,10 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryReviewSetQuery>(requestInfo, createEdiscoveryReviewSetQueryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -67,10 +71,10 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryReviewSetQuery>(requestInfo, createEdiscoveryReviewSetQueryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -124,7 +128,7 @@ export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryReviewSetQuery);
         return requestInfo;
     };
 }

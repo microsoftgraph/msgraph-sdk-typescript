@@ -1,7 +1,11 @@
-import {DelegatedAdminAccessAssignment} from '../../../../../models/';
 import {createDelegatedAdminAccessAssignmentFromDiscriminatorValue} from '../../../../../models/createDelegatedAdminAccessAssignmentFromDiscriminatorValue';
+import {DelegatedAdminAccessAssignment} from '../../../../../models/delegatedAdminAccessAssignment';
+import {deserializeIntoDelegatedAdminAccessAssignment} from '../../../../../models/deserializeIntoDelegatedAdminAccessAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeDelegatedAdminAccessAssignment} from '../../../../../models/serializeDelegatedAdminAccessAssignment';
 import {DelegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminAccessAssignment>(requestInfo, createDelegatedAdminAccessAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DelegatedAdminAccessAssignment>(requestInfo, createDelegatedAdminAccessAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminAccessAssignment);
         return requestInfo;
     };
 }

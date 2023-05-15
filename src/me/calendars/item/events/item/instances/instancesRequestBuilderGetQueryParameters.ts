@@ -1,39 +1,19 @@
 
-/**
- * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
- */
-export class InstancesRequestBuilderGetQueryParameters {
+export interface InstancesRequestBuilderGetQueryParameters {
     /** Include count of items */
-    public count?: boolean | undefined;
+    count?: boolean | undefined;
     /** The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00 */
-    public endDateTime?: string | undefined;
+    endDateTime?: string | undefined;
     /** Filter items by property values */
-    public filter?: string | undefined;
+    filter?: string | undefined;
     /** Order items by property values */
-    public orderby?: string[] | undefined;
+    orderby?: string[] | undefined;
     /** Select properties to be returned */
-    public select?: string[] | undefined;
+    select?: string[] | undefined;
     /** Skip the first n items */
-    public skip?: number | undefined;
+    skip?: number | undefined;
     /** The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00 */
-    public startDateTime?: string | undefined;
+    startDateTime?: string | undefined;
     /** Show only the first n items */
-    public top?: number | undefined;
-    /**
-     * Maps the query parameters names to their encoded names for the URI template parsing.
-     * @param originalName The original query parameter name in the class.
-     * @returns a string
-     */
-    public getQueryParameter(originalName: string | undefined) : string {
-        if(!originalName) throw new Error("originalName cannot be undefined");
-        switch(originalName) {
-            case "count": return "%24count";
-            case "filter": return "%24filter";
-            case "orderby": return "%24orderby";
-            case "select": return "%24select";
-            case "skip": return "%24skip";
-            case "top": return "%24top";
-            default: return originalName;
-        }
-    };
+    top?: number | undefined;
 }

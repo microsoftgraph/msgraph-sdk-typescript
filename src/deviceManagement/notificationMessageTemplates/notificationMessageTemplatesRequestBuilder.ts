@@ -1,12 +1,18 @@
-import {NotificationMessageTemplate, NotificationMessageTemplateCollectionResponse} from '../../models/';
+import {NotificationMessageTemplateCollectionResponse} from '../../models/';
 import {createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue} from '../../models/createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue';
 import {createNotificationMessageTemplateFromDiscriminatorValue} from '../../models/createNotificationMessageTemplateFromDiscriminatorValue';
+import {deserializeIntoNotificationMessageTemplate} from '../../models/deserializeIntoNotificationMessageTemplate';
+import {NotificationMessageTemplate} from '../../models/notificationMessageTemplate';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeNotificationMessageTemplate} from '../../models/serializeNotificationMessageTemplate';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {NotificationMessageTemplateItemRequestBuilder} from './item/notificationMessageTemplateItemRequestBuilder';
 import {NotificationMessageTemplatesRequestBuilderGetRequestConfiguration} from './notificationMessageTemplatesRequestBuilderGetRequestConfiguration';
 import {NotificationMessageTemplatesRequestBuilderPostRequestConfiguration} from './notificationMessageTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
+     * @param notificationMessageTemplateId Unique identifier of the item
+     * @returns a NotificationMessageTemplateItemRequestBuilder
+     */
+    public byNotificationMessageTemplateId(notificationMessageTemplateId: string) : NotificationMessageTemplateItemRequestBuilder {
+        if(!notificationMessageTemplateId) throw new Error("notificationMessageTemplateId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["notificationMessageTemplate%2Did"] = notificationMessageTemplateId
+        return new NotificationMessageTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new NotificationMessageTemplatesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<NotificationMessageTemplateCollectionResponse>(requestInfo, createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<NotificationMessageTemplate>(requestInfo, createNotificationMessageTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeNotificationMessageTemplate);
         return requestInfo;
     };
 }

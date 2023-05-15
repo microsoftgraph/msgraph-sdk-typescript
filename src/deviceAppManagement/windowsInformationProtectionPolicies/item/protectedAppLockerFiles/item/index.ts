@@ -1,0 +1,4 @@
+export * from './windowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration'
+export * from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetQueryParameters'
+export * from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration'
+export * from './windowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration'

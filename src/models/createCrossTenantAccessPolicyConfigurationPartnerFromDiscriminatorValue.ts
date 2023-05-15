@@ -1,7 +1,8 @@
+import {deserializeIntoCrossTenantAccessPolicyConfigurationPartner} from './deserializeIntoCrossTenantAccessPolicyConfigurationPartner';
 import {CrossTenantAccessPolicyConfigurationPartner} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue(parseNode: ParseNode | undefined) : CrossTenantAccessPolicyConfigurationPartner {
+export function createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CrossTenantAccessPolicyConfigurationPartner();
+    return deserializeIntoCrossTenantAccessPolicyConfigurationPartner;
 }

@@ -1,14 +1,20 @@
-import {EducationCategory, EducationCategoryCollectionResponse} from '../../../../../../models/';
+import {EducationCategoryCollectionResponse} from '../../../../../../models/';
 import {createEducationCategoryCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createEducationCategoryCollectionResponseFromDiscriminatorValue';
 import {createEducationCategoryFromDiscriminatorValue} from '../../../../../../models/createEducationCategoryFromDiscriminatorValue';
+import {deserializeIntoEducationCategory} from '../../../../../../models/deserializeIntoEducationCategory';
+import {EducationCategory} from '../../../../../../models/educationCategory';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
+import {serializeEducationCategory} from '../../../../../../models/serializeEducationCategory';
 import {CategoriesRequestBuilderGetRequestConfiguration} from './categoriesRequestBuilderGetRequestConfiguration';
 import {CategoriesRequestBuilderPostRequestConfiguration} from './categoriesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
+import {EducationCategoryItemRequestBuilder} from './item/educationCategoryItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
@@ -27,6 +33,17 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item.assignments.item.categories.item collection
+     * @param educationCategoryId Unique identifier of the item
+     * @returns a EducationCategoryItemRequestBuilder
+     */
+    public byEducationCategoryId(educationCategoryId: string) : EducationCategoryItemRequestBuilder {
+        if(!educationCategoryId) throw new Error("educationCategoryId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationCategory%2Did"] = educationCategoryId
+        return new EducationCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new CategoriesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -35,20 +52,19 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignments/{educationAssignment%2Did}/categories{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationCategoryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CategoriesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationCategoryCollectionResponse>(requestInfo, createEducationCategoryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -63,14 +79,14 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationCategory>(requestInfo, createEducationCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
+     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +120,7 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationCategory);
         return requestInfo;
     };
 }

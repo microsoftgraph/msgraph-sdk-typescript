@@ -1,7 +1,14 @@
-import {WindowsInformationProtectionPolicy} from '../../../models/';
 import {createWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../../models/createWindowsInformationProtectionPolicyFromDiscriminatorValue';
+import {deserializeIntoWindowsInformationProtectionPolicy} from '../../../models/deserializeIntoWindowsInformationProtectionPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
+import {serializeWindowsInformationProtectionPolicy} from '../../../models/serializeWindowsInformationProtectionPolicy';
+import {WindowsInformationProtectionPolicy} from '../../../models/windowsInformationProtectionPolicy';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {ExemptAppLockerFilesRequestBuilder} from './exemptAppLockerFiles/exemptAppLockerFilesRequestBuilder';
+import {ProtectedAppLockerFilesRequestBuilder} from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
 import {WindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
@@ -11,6 +18,18 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
  */
 export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the assignments property of the microsoft.graph.windowsInformationProtection entity. */
+    public get assignments(): AssignmentsRequestBuilder {
+        return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the exemptAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity. */
+    public get exemptAppLockerFiles(): ExemptAppLockerFilesRequestBuilder {
+        return new ExemptAppLockerFilesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity. */
+    public get protectedAppLockerFiles(): ProtectedAppLockerFilesRequestBuilder {
+        return new ProtectedAppLockerFilesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new WindowsInformationProtectionPolicyItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -28,10 +47,10 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +63,10 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionPolicy>(requestInfo, createWindowsInformationProtectionPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +81,10 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<WindowsInformationProtectionPolicy>(requestInfo, createWindowsInformationProtectionPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +138,7 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsInformationProtectionPolicy);
         return requestInfo;
     };
 }

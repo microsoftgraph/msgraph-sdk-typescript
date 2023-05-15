@@ -1,7 +1,11 @@
-import {BookingCustomerBase} from '../../../../../models/';
+import {BookingCustomerBase} from '../../../../../models/bookingCustomerBase';
 import {createBookingCustomerBaseFromDiscriminatorValue} from '../../../../../models/createBookingCustomerBaseFromDiscriminatorValue';
+import {deserializeIntoBookingCustomerBase} from '../../../../../models/deserializeIntoBookingCustomerBase';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {serializeBookingCustomerBase} from '../../../../../models/serializeBookingCustomerBase';
 import {BookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration';
 import {BookingCustomerBaseItemRequestBuilderGetRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderGetRequestConfiguration';
 import {BookingCustomerBaseItemRequestBuilderPatchRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderPatchRequestConfiguration';
@@ -28,10 +32,10 @@ export class BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -44,10 +48,10 @@ export class BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BookingCustomerBase>(requestInfo, createBookingCustomerBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -62,10 +66,10 @@ export class BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<BookingCustomerBase>(requestInfo, createBookingCustomerBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -119,7 +123,7 @@ export class BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingCustomerBase);
         return requestInfo;
     };
 }

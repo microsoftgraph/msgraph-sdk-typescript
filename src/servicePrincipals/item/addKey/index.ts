@@ -1,1 +1,5 @@
 export * from './addKeyPostRequestBody'
+export * from './addKeyRequestBuilderPostRequestConfiguration'
+export * from './createAddKeyPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoAddKeyPostRequestBody'
+export * from './serializeAddKeyPostRequestBody'

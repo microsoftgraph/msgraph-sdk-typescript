@@ -1,1 +1,5 @@
+export * from './checkGrantedPermissionsForAppRequestBuilderPostRequestConfiguration'
 export * from './checkGrantedPermissionsForAppResponse'
+export * from './createCheckGrantedPermissionsForAppResponseFromDiscriminatorValue'
+export * from './deserializeIntoCheckGrantedPermissionsForAppResponse'
+export * from './serializeCheckGrantedPermissionsForAppResponse'

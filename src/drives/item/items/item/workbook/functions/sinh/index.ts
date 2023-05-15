@@ -1,1 +1,5 @@
+export * from './createSinhPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoSinhPostRequestBody'
+export * from './serializeSinhPostRequestBody'
 export * from './sinhPostRequestBody'
+export * from './sinhRequestBuilderPostRequestConfiguration'

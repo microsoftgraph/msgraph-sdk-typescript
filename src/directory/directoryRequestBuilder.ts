@@ -1,18 +1,20 @@
-import {Directory} from '../models/';
 import {createDirectoryFromDiscriminatorValue} from '../models/createDirectoryFromDiscriminatorValue';
+import {deserializeIntoDirectory} from '../models/deserializeIntoDirectory';
+import {Directory} from '../models/directory';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeDirectory} from '../models/serializeDirectory';
 import {AdministrativeUnitsRequestBuilder} from './administrativeUnits/administrativeUnitsRequestBuilder';
-import {AdministrativeUnitItemRequestBuilder} from './administrativeUnits/item/administrativeUnitItemRequestBuilder';
+import {AttributeSetsRequestBuilder} from './attributeSets/attributeSetsRequestBuilder';
+import {CustomSecurityAttributeDefinitionsRequestBuilder} from './customSecurityAttributeDefinitions/customSecurityAttributeDefinitionsRequestBuilder';
 import {DeletedItemsRequestBuilder} from './deletedItems/deletedItemsRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './deletedItems/item/directoryObjectItemRequestBuilder';
 import {DirectoryRequestBuilderGetRequestConfiguration} from './directoryRequestBuilderGetRequestConfiguration';
 import {DirectoryRequestBuilderPatchRequestConfiguration} from './directoryRequestBuilderPatchRequestConfiguration';
 import {FederationConfigurationsRequestBuilder} from './federationConfigurations/federationConfigurationsRequestBuilder';
-import {IdentityProviderBaseItemRequestBuilder} from './federationConfigurations/item/identityProviderBaseItemRequestBuilder';
-import {OnPremisesDirectorySynchronizationItemRequestBuilder} from './onPremisesSynchronization/item/onPremisesDirectorySynchronizationItemRequestBuilder';
 import {OnPremisesSynchronizationRequestBuilder} from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directory singleton.
@@ -21,6 +23,14 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity. */
     public get administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the attributeSets property of the microsoft.graph.directory entity. */
+    public get attributeSets(): AttributeSetsRequestBuilder {
+        return new AttributeSetsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity. */
+    public get customSecurityAttributeDefinitions(): CustomSecurityAttributeDefinitionsRequestBuilder {
+        return new CustomSecurityAttributeDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the deletedItems property of the microsoft.graph.directory entity. */
     public get deletedItems(): DeletedItemsRequestBuilder {
@@ -35,45 +45,12 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
         return new OnPremisesSynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
-     * @param id Unique identifier of the item
-     * @returns a AdministrativeUnitItemRequestBuilder
-     */
-    public administrativeUnitsById(id: string) : AdministrativeUnitItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["administrativeUnit%2Did"] = id
-        return new AdministrativeUnitItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
      * Instantiates a new DirectoryRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/directory{?%24select,%24expand}");
-    };
-    /**
-     * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
-     * @param id Unique identifier of the item
-     * @returns a DirectoryObjectItemRequestBuilder
-     */
-    public deletedItemsById(id: string) : DirectoryObjectItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject%2Did"] = id
-        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
-     * @param id Unique identifier of the item
-     * @returns a IdentityProviderBaseItemRequestBuilder
-     */
-    public federationConfigurationsById(id: string) : IdentityProviderBaseItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["identityProviderBase%2Did"] = id
-        return new IdentityProviderBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get directory
@@ -85,22 +62,11 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
-     * @param id Unique identifier of the item
-     * @returns a OnPremisesDirectorySynchronizationItemRequestBuilder
-     */
-    public onPremisesSynchronizationById(id: string) : OnPremisesDirectorySynchronizationItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["onPremisesDirectorySynchronization%2Did"] = id
-        return new OnPremisesDirectorySynchronizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update directory
@@ -114,10 +80,10 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -155,7 +121,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectory);
         return requestInfo;
     };
 }

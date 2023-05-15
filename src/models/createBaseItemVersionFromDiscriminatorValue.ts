@@ -1,7 +1,11 @@
+import {deserializeIntoBaseItemVersion} from './deserializeIntoBaseItemVersion';
+import {deserializeIntoDocumentSetVersion} from './deserializeIntoDocumentSetVersion';
+import {deserializeIntoDriveItemVersion} from './deserializeIntoDriveItemVersion';
+import {deserializeIntoListItemVersion} from './deserializeIntoListItemVersion';
 import {BaseItemVersion, DocumentSetVersion, DriveItemVersion, ListItemVersion} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBaseItemVersionFromDiscriminatorValue(parseNode: ParseNode | undefined) : BaseItemVersion {
+export function createBaseItemVersionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,13 +13,13 @@ export function createBaseItemVersionFromDiscriminatorValue(parseNode: ParseNode
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.documentSetVersion":
-                    return new DocumentSetVersion();
+                    return deserializeIntoDocumentSetVersion;
                 case "#microsoft.graph.driveItemVersion":
-                    return new DriveItemVersion();
+                    return deserializeIntoDriveItemVersion;
                 case "#microsoft.graph.listItemVersion":
-                    return new ListItemVersion();
+                    return deserializeIntoListItemVersion;
             }
         }
     }
-    return new BaseItemVersion();
+    return deserializeIntoBaseItemVersion;
 }

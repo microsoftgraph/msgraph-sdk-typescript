@@ -1,7 +1,8 @@
+import {deserializeIntoGetStaffAvailabilityResponse} from './deserializeIntoGetStaffAvailabilityResponse';
 import {GetStaffAvailabilityResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetStaffAvailabilityResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetStaffAvailabilityResponse {
+export function createGetStaffAvailabilityResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetStaffAvailabilityResponse();
+    return deserializeIntoGetStaffAvailabilityResponse;
 }

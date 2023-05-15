@@ -1,7 +1,8 @@
+import {deserializeIntoAgreementFileVersionCollectionResponse} from './deserializeIntoAgreementFileVersionCollectionResponse';
 import {AgreementFileVersionCollectionResponse} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAgreementFileVersionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AgreementFileVersionCollectionResponse {
+export function createAgreementFileVersionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AgreementFileVersionCollectionResponse();
+    return deserializeIntoAgreementFileVersionCollectionResponse;
 }

@@ -2,9 +2,12 @@ import {Fido2AuthenticationMethodCollectionResponse} from '../../../models/';
 import {createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../models/createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {Fido2MethodsRequestBuilderGetRequestConfiguration} from './fido2MethodsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {Fido2AuthenticationMethodItemRequestBuilder} from './item/fido2AuthenticationMethodItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
@@ -14,6 +17,17 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+     * @param fido2AuthenticationMethodId Unique identifier of the item
+     * @returns a Fido2AuthenticationMethodItemRequestBuilder
+     */
+    public byFido2AuthenticationMethodId(fido2AuthenticationMethodId: string) : Fido2AuthenticationMethodItemRequestBuilder {
+        if(!fido2AuthenticationMethodId) throw new Error("fido2AuthenticationMethodId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["fido2AuthenticationMethod%2Did"] = fido2AuthenticationMethodId
+        return new Fido2AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new Fido2MethodsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -32,10 +46,10 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<Fido2AuthenticationMethodCollectionResponse>(requestInfo, createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**

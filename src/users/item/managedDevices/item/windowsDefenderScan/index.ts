@@ -1,1 +1,5 @@
+export * from './createWindowsDefenderScanPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoWindowsDefenderScanPostRequestBody'
+export * from './serializeWindowsDefenderScanPostRequestBody'
 export * from './windowsDefenderScanPostRequestBody'
+export * from './windowsDefenderScanRequestBuilderPostRequestConfiguration'

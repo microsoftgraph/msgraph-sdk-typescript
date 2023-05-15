@@ -1,0 +1,53 @@
+import {ChannelIdentity} from './channelIdentity';
+import {ChatMessage} from './chatMessage';
+import {ChatMessageAttachment} from './chatMessageAttachment';
+import {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
+import {ChatMessageHistoryItem} from './chatMessageHistoryItem';
+import {ChatMessageHostedContent} from './chatMessageHostedContent';
+import {ChatMessageImportance} from './chatMessageImportance';
+import {ChatMessageMention} from './chatMessageMention';
+import {ChatMessagePolicyViolation} from './chatMessagePolicyViolation';
+import {ChatMessageReaction} from './chatMessageReaction';
+import {ChatMessageType} from './chatMessageType';
+import {EventMessageDetail} from './eventMessageDetail';
+import {ItemBody} from './itemBody';
+import {serializeChannelIdentity} from './serializeChannelIdentity';
+import {serializeChatMessageAttachment} from './serializeChatMessageAttachment';
+import {serializeChatMessageFromIdentitySet} from './serializeChatMessageFromIdentitySet';
+import {serializeChatMessageHistoryItem} from './serializeChatMessageHistoryItem';
+import {serializeChatMessageHostedContent} from './serializeChatMessageHostedContent';
+import {serializeChatMessageMention} from './serializeChatMessageMention';
+import {serializeChatMessagePolicyViolation} from './serializeChatMessagePolicyViolation';
+import {serializeChatMessageReaction} from './serializeChatMessageReaction';
+import {serializeEntity} from './serializeEntity';
+import {serializeEventMessageDetail} from './serializeEventMessageDetail';
+import {serializeItemBody} from './serializeItemBody';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeChatMessage(writer: SerializationWriter, chatMessage: ChatMessage | undefined = {} as ChatMessage) : void {
+        serializeEntity(writer, chatMessage)
+        writer.writeCollectionOfObjectValues<ChatMessageAttachment>("attachments", chatMessage.attachments, serializeChatMessageAttachment);
+        writer.writeObjectValue<ItemBody>("body", chatMessage.body, serializeItemBody);
+        writer.writeObjectValue<ChannelIdentity>("channelIdentity", chatMessage.channelIdentity, serializeChannelIdentity);
+        writer.writeStringValue("chatId", chatMessage.chatId);
+        writer.writeDateValue("createdDateTime", chatMessage.createdDateTime);
+        writer.writeDateValue("deletedDateTime", chatMessage.deletedDateTime);
+        writer.writeStringValue("etag", chatMessage.etag);
+        writer.writeObjectValue<EventMessageDetail>("eventDetail", chatMessage.eventDetail, serializeEventMessageDetail);
+        writer.writeObjectValue<ChatMessageFromIdentitySet>("from", chatMessage.from, serializeChatMessageFromIdentitySet);
+        writer.writeCollectionOfObjectValues<ChatMessageHostedContent>("hostedContents", chatMessage.hostedContents, serializeChatMessageHostedContent);
+        writer.writeEnumValue<ChatMessageImportance>("importance", chatMessage.importance);
+        writer.writeDateValue("lastEditedDateTime", chatMessage.lastEditedDateTime);
+        writer.writeDateValue("lastModifiedDateTime", chatMessage.lastModifiedDateTime);
+        writer.writeStringValue("locale", chatMessage.locale);
+        writer.writeCollectionOfObjectValues<ChatMessageMention>("mentions", chatMessage.mentions, serializeChatMessageMention);
+        writer.writeCollectionOfObjectValues<ChatMessageHistoryItem>("messageHistory", chatMessage.messageHistory, serializeChatMessageHistoryItem);
+        writer.writeEnumValue<ChatMessageType>("messageType", chatMessage.messageType);
+        writer.writeObjectValue<ChatMessagePolicyViolation>("policyViolation", chatMessage.policyViolation, serializeChatMessagePolicyViolation);
+        writer.writeCollectionOfObjectValues<ChatMessageReaction>("reactions", chatMessage.reactions, serializeChatMessageReaction);
+        writer.writeCollectionOfObjectValues<ChatMessage>("replies", chatMessage.replies, serializeChatMessage);
+        writer.writeStringValue("replyToId", chatMessage.replyToId);
+        writer.writeStringValue("subject", chatMessage.subject);
+        writer.writeStringValue("summary", chatMessage.summary);
+        writer.writeStringValue("webUrl", chatMessage.webUrl);
+}

@@ -1,14 +1,11 @@
 import {AllowedUsersRequestBuilderGetQueryParameters} from './allowedUsersRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class AllowedUsersRequestBuilderGetRequestConfiguration {
+export interface AllowedUsersRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: AllowedUsersRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: AllowedUsersRequestBuilderGetQueryParameters | undefined;
 }

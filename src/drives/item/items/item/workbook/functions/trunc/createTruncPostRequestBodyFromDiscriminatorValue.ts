@@ -1,7 +1,8 @@
+import {deserializeIntoTruncPostRequestBody} from './deserializeIntoTruncPostRequestBody';
 import {TruncPostRequestBody} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTruncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : TruncPostRequestBody {
+export function createTruncPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TruncPostRequestBody();
+    return deserializeIntoTruncPostRequestBody;
 }

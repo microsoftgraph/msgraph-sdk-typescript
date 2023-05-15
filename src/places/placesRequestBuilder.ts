@@ -1,6 +1,7 @@
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
-import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions';
+import {PlaceItemRequestBuilder} from './item/placeItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /places
@@ -14,6 +15,17 @@ export class PlacesRequestBuilder extends BaseRequestBuilder {
     public get graphRoom(): GraphRoomRequestBuilder {
         return new GraphRoomRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the collection of place entities.
+     * @param placeId Unique identifier of the item
+     * @returns a PlaceItemRequestBuilder
+     */
+    public byPlaceId(placeId: string) : PlaceItemRequestBuilder {
+        if(!placeId) throw new Error("placeId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["place%2Did"] = placeId
+        return new PlaceItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new PlacesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.

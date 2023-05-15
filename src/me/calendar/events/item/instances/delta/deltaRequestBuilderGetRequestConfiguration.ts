@@ -1,14 +1,11 @@
 import {DeltaRequestBuilderGetQueryParameters} from './deltaRequestBuilderGetQueryParameters';
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
-/**
- * Configuration for the request such as headers, query parameters, and middleware options.
- */
-export class DeltaRequestBuilderGetRequestConfiguration {
+export interface DeltaRequestBuilderGetRequestConfiguration {
     /** Request headers */
-    public headers?: Record<string, string[]> | undefined;
+    headers?: Record<string, string[]> | undefined;
     /** Request options */
-    public options?: RequestOption[] | undefined;
+    options?: RequestOption[] | undefined;
     /** Request query parameters */
-    public queryParameters?: DeltaRequestBuilderGetQueryParameters | undefined;
+    queryParameters?: DeltaRequestBuilderGetQueryParameters | undefined;
 }

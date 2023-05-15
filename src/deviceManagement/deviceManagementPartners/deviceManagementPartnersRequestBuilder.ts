@@ -1,12 +1,18 @@
-import {DeviceManagementPartner, DeviceManagementPartnerCollectionResponse} from '../../models/';
+import {DeviceManagementPartnerCollectionResponse} from '../../models/';
 import {createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue';
 import {createDeviceManagementPartnerFromDiscriminatorValue} from '../../models/createDeviceManagementPartnerFromDiscriminatorValue';
+import {deserializeIntoDeviceManagementPartner} from '../../models/deserializeIntoDeviceManagementPartner';
+import {DeviceManagementPartner} from '../../models/deviceManagementPartner';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeDeviceManagementPartner} from '../../models/serializeDeviceManagementPartner';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceManagementPartnersRequestBuilderGetRequestConfiguration} from './deviceManagementPartnersRequestBuilderGetRequestConfiguration';
 import {DeviceManagementPartnersRequestBuilderPostRequestConfiguration} from './deviceManagementPartnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceManagementPartnerItemRequestBuilder} from './item/deviceManagementPartnerItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -16,6 +22,17 @@ export class DeviceManagementPartnersRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
+     * @param deviceManagementPartnerId Unique identifier of the item
+     * @returns a DeviceManagementPartnerItemRequestBuilder
+     */
+    public byDeviceManagementPartnerId(deviceManagementPartnerId: string) : DeviceManagementPartnerItemRequestBuilder {
+        if(!deviceManagementPartnerId) throw new Error("deviceManagementPartnerId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["deviceManagementPartner%2Did"] = deviceManagementPartnerId
+        return new DeviceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DeviceManagementPartnersRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class DeviceManagementPartnersRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceManagementPartnerCollectionResponse>(requestInfo, createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class DeviceManagementPartnersRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DeviceManagementPartner>(requestInfo, createDeviceManagementPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class DeviceManagementPartnersRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementPartner);
         return requestInfo;
     };
 }

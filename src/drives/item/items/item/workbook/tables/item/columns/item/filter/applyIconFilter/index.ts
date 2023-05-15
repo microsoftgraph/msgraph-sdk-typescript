@@ -1,1 +1,5 @@
 export * from './applyIconFilterPostRequestBody'
+export * from './applyIconFilterRequestBuilderPostRequestConfiguration'
+export * from './createApplyIconFilterPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoApplyIconFilterPostRequestBody'
+export * from './serializeApplyIconFilterPostRequestBody'

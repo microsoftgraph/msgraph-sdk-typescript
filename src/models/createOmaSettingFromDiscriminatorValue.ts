@@ -1,7 +1,15 @@
+import {deserializeIntoOmaSetting} from './deserializeIntoOmaSetting';
+import {deserializeIntoOmaSettingBase64} from './deserializeIntoOmaSettingBase64';
+import {deserializeIntoOmaSettingBoolean} from './deserializeIntoOmaSettingBoolean';
+import {deserializeIntoOmaSettingDateTime} from './deserializeIntoOmaSettingDateTime';
+import {deserializeIntoOmaSettingFloatingPoint} from './deserializeIntoOmaSettingFloatingPoint';
+import {deserializeIntoOmaSettingInteger} from './deserializeIntoOmaSettingInteger';
+import {deserializeIntoOmaSettingString} from './deserializeIntoOmaSettingString';
+import {deserializeIntoOmaSettingStringXml} from './deserializeIntoOmaSettingStringXml';
 import {OmaSetting, OmaSettingBase64, OmaSettingBoolean, OmaSettingDateTime, OmaSettingFloatingPoint, OmaSettingInteger, OmaSettingString, OmaSettingStringXml} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOmaSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) : OmaSetting {
+export function createOmaSettingFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
     const mappingValueNode = parseNode.getChildNode("@odata.type");
     if (mappingValueNode) {
@@ -9,21 +17,21 @@ export function createOmaSettingFromDiscriminatorValue(parseNode: ParseNode | un
         if (mappingValue) {
             switch (mappingValue) {
                 case "#microsoft.graph.omaSettingBase64":
-                    return new OmaSettingBase64();
+                    return deserializeIntoOmaSettingBase64;
                 case "#microsoft.graph.omaSettingBoolean":
-                    return new OmaSettingBoolean();
+                    return deserializeIntoOmaSettingBoolean;
                 case "#microsoft.graph.omaSettingDateTime":
-                    return new OmaSettingDateTime();
+                    return deserializeIntoOmaSettingDateTime;
                 case "#microsoft.graph.omaSettingFloatingPoint":
-                    return new OmaSettingFloatingPoint();
+                    return deserializeIntoOmaSettingFloatingPoint;
                 case "#microsoft.graph.omaSettingInteger":
-                    return new OmaSettingInteger();
+                    return deserializeIntoOmaSettingInteger;
                 case "#microsoft.graph.omaSettingString":
-                    return new OmaSettingString();
+                    return deserializeIntoOmaSettingString;
                 case "#microsoft.graph.omaSettingStringXml":
-                    return new OmaSettingStringXml();
+                    return deserializeIntoOmaSettingStringXml;
             }
         }
     }
-    return new OmaSetting();
+    return deserializeIntoOmaSetting;
 }

@@ -1,22 +1,23 @@
-import {EducationSubmission} from '../../../../../../../models/';
 import {createEducationSubmissionFromDiscriminatorValue} from '../../../../../../../models/createEducationSubmissionFromDiscriminatorValue';
+import {deserializeIntoEducationSubmission} from '../../../../../../../models/deserializeIntoEducationSubmission';
+import {EducationSubmission} from '../../../../../../../models/educationSubmission';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
+import {serializeEducationSubmission} from '../../../../../../../models/serializeEducationSubmission';
 import {EducationSubmissionItemRequestBuilderDeleteRequestConfiguration} from './educationSubmissionItemRequestBuilderDeleteRequestConfiguration';
 import {EducationSubmissionItemRequestBuilderGetRequestConfiguration} from './educationSubmissionItemRequestBuilderGetRequestConfiguration';
 import {EducationSubmissionItemRequestBuilderPatchRequestConfiguration} from './educationSubmissionItemRequestBuilderPatchRequestConfiguration';
-import {EducationOutcomeItemRequestBuilder} from './outcomes/item/educationOutcomeItemRequestBuilder';
 import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
 import {ReassignRequestBuilder} from './reassign/reassignRequestBuilder';
-import {EducationSubmissionResourceItemRequestBuilder as If48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a} from './resources/item/educationSubmissionResourceItemRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {ReturnRequestBuilder} from './returnEscaped/returnRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
-import {EducationSubmissionResourceItemRequestBuilder as I707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699} from './submittedResources/item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
 import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
@@ -71,10 +72,10 @@ export class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -87,22 +88,11 @@ export class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationSubmission>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationOutcomeItemRequestBuilder
-     */
-    public outcomesById(id: string) : EducationOutcomeItemRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationOutcome%2Did"] = id
-        return new EducationOutcomeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property submissions in education
@@ -116,33 +106,11 @@ export class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EducationSubmission>(requestInfo, createEducationSubmissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
-    };
-    /**
-     * Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationSubmissionResourceItemRequestBuilder
-     */
-    public resourcesById(id: string) : If48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationSubmissionResource%2Did"] = id
-        return new If48000cf4b8076c7a6ccdaead69d89d50bfdee15d5ab73cf8a8e0ff5b0b8c35a(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
-     * @param id Unique identifier of the item
-     * @returns a EducationSubmissionResourceItemRequestBuilder
-     */
-    public submittedResourcesById(id: string) : I707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699 {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["educationSubmissionResource%2Did"] = id
-        return new I707258d0aeebe0dcc6217fa436bab84058c4f9dae600b8b3a2cc86341e6a5699(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property submissions for education
@@ -195,7 +163,7 @@ export class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationSubmission);
         return requestInfo;
     };
 }

@@ -1,1 +1,5 @@
+export * from './createVlookupPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoVlookupPostRequestBody'
+export * from './serializeVlookupPostRequestBody'
 export * from './vlookupPostRequestBody'
+export * from './vlookupRequestBuilderPostRequestConfiguration'

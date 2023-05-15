@@ -1,12 +1,18 @@
-import {ExternalGroup, ExternalGroupCollectionResponse} from '../../../models/externalConnectors/';
+import {ExternalGroupCollectionResponse} from '../../../models/externalConnectors/';
 import {createExternalGroupCollectionResponseFromDiscriminatorValue} from '../../../models/externalConnectors/createExternalGroupCollectionResponseFromDiscriminatorValue';
 import {createExternalGroupFromDiscriminatorValue} from '../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
+import {deserializeIntoExternalGroup} from '../../../models/externalConnectors/deserializeIntoExternalGroup';
+import {ExternalGroup} from '../../../models/externalConnectors/externalGroup';
+import {serializeExternalGroup} from '../../../models/externalConnectors/serializeExternalGroup';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
 import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ExternalGroupItemRequestBuilder} from './item/externalGroupItemRequestBuilder';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -16,6 +22,17 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
+     * @param externalGroupId Unique identifier of the item
+     * @returns a ExternalGroupItemRequestBuilder
+     */
+    public byExternalGroupId(externalGroupId: string) : ExternalGroupItemRequestBuilder {
+        if(!externalGroupId) throw new Error("externalGroupId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["externalGroup%2Did"] = externalGroupId
+        return new ExternalGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new GroupsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,29 +51,28 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ExternalGroupCollectionResponse>(requestInfo, createExternalGroupCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create a new externalGroup object.
+     * Create new navigation property to groups for connections
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalGroup
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-post-groups?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExternalGroup | undefined, requestConfiguration?: GroupsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ExternalGroup>(requestInfo, createExternalGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -78,7 +94,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new externalGroup object.
+     * Create new navigation property to groups for connections
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -94,7 +110,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeExternalGroup);
         return requestInfo;
     };
 }

@@ -1,7 +1,8 @@
+import {deserializeIntoEdiscoveryReviewSetQuery} from './deserializeIntoEdiscoveryReviewSetQuery';
 import {EdiscoveryReviewSetQuery} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEdiscoveryReviewSetQueryFromDiscriminatorValue(parseNode: ParseNode | undefined) : EdiscoveryReviewSetQuery {
+export function createEdiscoveryReviewSetQueryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EdiscoveryReviewSetQuery();
+    return deserializeIntoEdiscoveryReviewSetQuery;
 }

@@ -1,5 +1,7 @@
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {EdiscoveryIndexOperation} from '../../../../../../../models/security/';
 import {createEdiscoveryIndexOperationFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryIndexOperationFromDiscriminatorValue';
 import {LastIndexOperationRequestBuilderGetRequestConfiguration} from './lastIndexOperationRequestBuilderGetRequestConfiguration';
@@ -18,24 +20,23 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/lastIndexOperation{?%24select,%24expand}");
     };
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Operation entity that represents the latest indexing for the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryIndexOperation
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-list-lastindexoperation?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LastIndexOperationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryIndexOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryIndexOperation>(requestInfo, createEdiscoveryIndexOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get a list of the ediscoveryIndexOperations associated with an ediscoveryCustodian.
+     * Operation entity that represents the latest indexing for the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

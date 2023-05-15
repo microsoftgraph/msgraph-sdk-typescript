@@ -1,16 +1,22 @@
-import {DirectoryRole, DirectoryRoleCollectionResponse} from '../models/';
+import {DirectoryRoleCollectionResponse} from '../models/';
 import {createDirectoryRoleCollectionResponseFromDiscriminatorValue} from '../models/createDirectoryRoleCollectionResponseFromDiscriminatorValue';
 import {createDirectoryRoleFromDiscriminatorValue} from '../models/createDirectoryRoleFromDiscriminatorValue';
+import {deserializeIntoDirectoryRole} from '../models/deserializeIntoDirectoryRole';
+import {DirectoryRole} from '../models/directoryRole';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../models/oDataErrors/serializeODataError';
+import {serializeDirectoryRole} from '../models/serializeDirectoryRole';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {DirectoryRolesRequestBuilderGetRequestConfiguration} from './directoryRolesRequestBuilderGetRequestConfiguration';
 import {DirectoryRolesRequestBuilderPostRequestConfiguration} from './directoryRolesRequestBuilderPostRequestConfiguration';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {DirectoryRoleItemRequestBuilder} from './item/directoryRoleItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -37,6 +43,17 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the collection of directoryRole entities.
+     * @param directoryRoleId Unique identifier of the item
+     * @returns a DirectoryRoleItemRequestBuilder
+     */
+    public byDirectoryRoleId(directoryRoleId: string) : DirectoryRoleItemRequestBuilder {
+        if(!directoryRoleId) throw new Error("directoryRoleId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryRole%2Did"] = directoryRoleId
+        return new DirectoryRoleItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
      * Instantiates a new DirectoryRolesRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
@@ -55,10 +72,10 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryRoleCollectionResponse>(requestInfo, createDirectoryRoleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -74,10 +91,10 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<DirectoryRole>(requestInfo, createDirectoryRoleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -115,7 +132,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryRole);
         return requestInfo;
     };
 }

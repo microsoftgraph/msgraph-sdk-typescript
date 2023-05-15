@@ -1,12 +1,18 @@
-import {ExternalItem, ExternalItemCollectionResponse} from '../../../../models/externalConnectors/';
+import {ExternalItemCollectionResponse} from '../../../../models/externalConnectors/';
 import {createExternalItemCollectionResponseFromDiscriminatorValue} from '../../../../models/externalConnectors/createExternalItemCollectionResponseFromDiscriminatorValue';
 import {createExternalItemFromDiscriminatorValue} from '../../../../models/externalConnectors/createExternalItemFromDiscriminatorValue';
+import {deserializeIntoExternalItem} from '../../../../models/externalConnectors/deserializeIntoExternalItem';
+import {ExternalItem} from '../../../../models/externalConnectors/externalItem';
+import {serializeExternalItem} from '../../../../models/externalConnectors/serializeExternalItem';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ExternalItemItemRequestBuilder} from './item/externalItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
 import {ItemsRequestBuilderPostRequestConfiguration} from './itemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -16,6 +22,17 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
+     * @param externalItemId Unique identifier of the item
+     * @returns a ExternalItemItemRequestBuilder
+     */
+    public byExternalItemId(externalItemId: string) : ExternalItemItemRequestBuilder {
+        if(!externalItemId) throw new Error("externalItemId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["externalItem%2Did"] = externalItemId
+        return new ExternalItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new ItemsRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -34,10 +51,10 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ExternalItemCollectionResponse>(requestInfo, createExternalItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -52,10 +69,10 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+        const errorMapping = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
-        };
+        } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<ExternalItem>(requestInfo, createExternalItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
@@ -93,7 +110,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeExternalItem);
         return requestInfo;
     };
 }
