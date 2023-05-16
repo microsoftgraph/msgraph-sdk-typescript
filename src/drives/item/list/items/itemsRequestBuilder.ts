@@ -39,13 +39,14 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/list/items{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
+        super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/list/items{?%24top,%24skip,%24search,%24filter,%24orderby,%24select,%24expand}");
     };
     /**
-     * All items contained in the list.
+     * Get the collection of [items][item] in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItemCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ItemsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ListItemCollectionResponse>(requestInfo, createListItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to items for drives
+     * Create a new [listItem][] in a [list][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItem
+     * @see {@link https://docs.microsoft.com/graph/api/listitem-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ListItem | undefined, requestConfiguration?: ItemsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All items contained in the list.
+     * Get the collection of [items][item] in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to items for drives
+     * Create a new [listItem][] in a [list][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

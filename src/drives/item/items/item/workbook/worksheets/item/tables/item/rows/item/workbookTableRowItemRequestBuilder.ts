@@ -29,9 +29,10 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/{workbookTable%2Did}/rows/{workbookTableRow%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property rows for drives
+     * Deletes the row from the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/tablerow-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents a collection of all the rows in the table. Read-only.
+     * Retrieve the properties and relationships of tablerow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableRow
+     * @see {@link https://docs.microsoft.com/graph/api/tablerow-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookTableRowItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableRow | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookTableRow>(requestInfo, createWorkbookTableRowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property rows in drives
+     * Update the properties of tablerow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableRow
+     * @see {@link https://docs.microsoft.com/graph/api/tablerow-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookTableRow | undefined, requestConfiguration?: WorkbookTableRowItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableRow | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookTableRow>(requestInfo, createWorkbookTableRowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property rows for drives
+     * Deletes the row from the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents a collection of all the rows in the table. Read-only.
+     * Retrieve the properties and relationships of tablerow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property rows in drives
+     * Update the properties of tablerow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

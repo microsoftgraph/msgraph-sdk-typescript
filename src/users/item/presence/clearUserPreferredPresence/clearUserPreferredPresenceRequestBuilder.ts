@@ -18,9 +18,10 @@ export class ClearUserPreferredPresenceRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/presence/clearUserPreferredPresence");
     };
     /**
-     * Invoke action clearUserPreferredPresence
+     * Clear the preferred availability and activity status for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/presence-clearuserpreferredpresence?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ClearUserPreferredPresenceRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +34,7 @@ export class ClearUserPreferredPresenceRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action clearUserPreferredPresence
+     * Clear the preferred availability and activity status for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

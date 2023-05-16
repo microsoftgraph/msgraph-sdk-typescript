@@ -24,9 +24,10 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/services/{bookingService%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property services for solutions
+     * Delete a bookingService object in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/bookingservice-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingServiceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All the services offered by this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingService
+     * @see {@link https://docs.microsoft.com/graph/api/bookingservice-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingServiceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingService | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingService>(requestInfo, createBookingServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property services in solutions
+     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingService
+     * @see {@link https://docs.microsoft.com/graph/api/bookingservice-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingService | undefined, requestConfiguration?: BookingServiceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingService | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingService>(requestInfo, createBookingServiceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property services for solutions
+     * Delete a bookingService object in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * All the services offered by this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property services in solutions
+     * Update the properties of a bookingService object in the specified bookingBusiness. The following are some examples you can customize for a service:- Price- Typical length of an appointment- Reminders- Any time buffer to set up before or finish up after the service- Scheduling policy parameters, such as minimum notice to book or cancel, and whether customers can select specific staff members for an appointment.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

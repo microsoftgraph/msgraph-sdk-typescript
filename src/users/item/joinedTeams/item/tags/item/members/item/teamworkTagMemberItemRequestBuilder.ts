@@ -24,9 +24,10 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/tags/{teamworkTag%2Did}/members/{teamworkTagMember%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property members for users
+     * Delete a member from a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Users assigned to the tag.
+     * Get the properties and relationships of a member of a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkTagMember
+     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeamworkTagMemberItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkTagMember | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +75,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamworkTagMember>(requestInfo, createTeamworkTagMemberFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property members for users
+     * Delete a member from a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +91,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Users assigned to the tag.
+     * Get the properties and relationships of a member of a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

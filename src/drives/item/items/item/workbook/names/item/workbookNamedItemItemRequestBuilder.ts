@@ -49,10 +49,11 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
+     * Retrieve the properties and relationships of nameditem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookNamedItem
+     * @see {@link https://docs.microsoft.com/graph/api/nameditem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookNamedItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookNamedItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +66,12 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookNamedItem>(requestInfo, createWorkbookNamedItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property names in drives
+     * Update the properties of nameditem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookNamedItem
+     * @see {@link https://docs.microsoft.com/graph/api/nameditem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookNamedItem | undefined, requestConfiguration?: WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookNamedItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -99,7 +101,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
+     * Retrieve the properties and relationships of nameditem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +119,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property names in drives
+     * Update the properties of nameditem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

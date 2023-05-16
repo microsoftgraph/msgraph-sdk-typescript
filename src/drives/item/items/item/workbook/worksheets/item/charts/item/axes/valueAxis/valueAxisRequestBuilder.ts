@@ -59,10 +59,11 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents the value axis in an axis. Read-only.
+     * Retrieve the properties and relationships of chartaxis object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartAxis
+     * @see {@link https://docs.microsoft.com/graph/api/chartaxis-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ValueAxisRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartAxis | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -75,11 +76,12 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property valueAxis in drives
+     * Update the properties of chartaxis object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartAxis
+     * @see {@link https://docs.microsoft.com/graph/api/chartaxis-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartAxis | undefined, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartAxis | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -109,7 +111,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents the value axis in an axis. Read-only.
+     * Retrieve the properties and relationships of chartaxis object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,7 +129,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property valueAxis in drives
+     * Update the properties of chartaxis object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

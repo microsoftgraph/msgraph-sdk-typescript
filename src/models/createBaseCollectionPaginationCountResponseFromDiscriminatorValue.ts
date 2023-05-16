@@ -356,6 +356,7 @@ import {deserializeIntoWorkbookTableRowCollectionResponse} from './deserializeIn
 import {deserializeIntoWorkbookWorksheetCollectionResponse} from './deserializeIntoWorkbookWorksheetCollectionResponse';
 import {deserializeIntoWorkforceIntegrationCollectionResponse} from './deserializeIntoWorkforceIntegrationCollectionResponse';
 import {deserializeIntoConnectionOperationCollectionResponse} from './externalConnectors/deserializeIntoConnectionOperationCollectionResponse';
+import {deserializeIntoExternalActivityCollectionResponse} from './externalConnectors/deserializeIntoExternalActivityCollectionResponse';
 import {deserializeIntoExternalConnectionCollectionResponse} from './externalConnectors/deserializeIntoExternalConnectionCollectionResponse';
 import {deserializeIntoExternalGroupCollectionResponse} from './externalConnectors/deserializeIntoExternalGroupCollectionResponse';
 import {deserializeIntoExternalItemCollectionResponse} from './externalConnectors/deserializeIntoExternalItemCollectionResponse';

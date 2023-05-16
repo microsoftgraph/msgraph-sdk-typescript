@@ -42,10 +42,11 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/servicePrincipalRiskDetections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Represents information about detected at-risk service principals in an Azure AD tenant.
+     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipalRiskDetectionCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipalRiskDetectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
         return this.requestAdapter?.sendAsync<ServicePrincipalRiskDetection>(requestInfo, createServicePrincipalRiskDetectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents information about detected at-risk service principals in an Azure AD tenant.
+     * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

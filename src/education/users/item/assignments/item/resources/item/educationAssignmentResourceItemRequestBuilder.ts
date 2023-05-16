@@ -24,9 +24,10 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/resources/{educationAssignmentResource%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property resources for education
+     * Delete a specific educationAssignmentResource attached to an assignment. In general, only teachers in the class can remove a resource. However, teachers cannot remove resources marked as 'distributeToStudents', after the assignment has been published to students.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentresource-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
+     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentResource
+     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentresource-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentResource | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +75,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendAsync<EducationAssignmentResource>(requestInfo, createEducationAssignmentResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property resources for education
+     * Delete a specific educationAssignmentResource attached to an assignment. In general, only teachers in the class can remove a resource. However, teachers cannot remove resources marked as 'distributeToStudents', after the assignment has been published to students.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +91,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
+     * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -18,9 +18,10 @@ export class ClearRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/{workbookTable%2Did}/sort/clear");
     };
     /**
-     * Invoke action clear
+     * Clears the sorting that is currently on the table. While this doesn't modify the table's ordering, it clears the state of the header buttons.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/tablesort-clear?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ClearRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +34,7 @@ export class ClearRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action clear
+     * Clears the sorting that is currently on the table. While this doesn't modify the table's ordering, it clears the state of the header buttons.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -42,10 +42,11 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/chats/{chat%2Did}/tabs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * A collection of all the tabs in the chat. Nullable.
+     * Retrieve the list of tabs in the specified chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTabCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/chat-list-tabs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TabsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTabCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamsTabCollectionResponse>(requestInfo, createTeamsTabCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to tabs for chats
+     * Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTab
+     * @see {@link https://docs.microsoft.com/graph/api/chat-post-tabs?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsTab | undefined, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTab | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamsTab>(requestInfo, createTeamsTabFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of all the tabs in the chat. Nullable.
+     * Retrieve the list of tabs in the specified chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to tabs for chats
+     * Add (pin) a tab to the specified chat. The corresponding app must already be installed in the chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

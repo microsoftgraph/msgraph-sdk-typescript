@@ -79,9 +79,10 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/events/{event%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property events for users
+     * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/event-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EventItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -94,10 +95,11 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+     * Get the properties and relationships of the specified event object. Currently, this operation returns event bodies in only HTML format. There are two scenarios where an app can get an event in another user's calendar: Since the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
+     * @see {@link https://docs.microsoft.com/graph/api/event-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -110,11 +112,12 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property events in users
+     * Update the properties of the event object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
+     * @see {@link https://docs.microsoft.com/graph/api/event-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Event | undefined, requestConfiguration?: EventItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -128,7 +131,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property events for users
+     * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -144,7 +147,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The user's events. Default is to show Events under the Default Calendar. Read-only. Nullable.
+     * Get the properties and relationships of the specified event object. Currently, this operation returns event bodies in only HTML format. There are two scenarios where an app can get an event in another user's calendar: Since the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -162,7 +165,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property events in users
+     * Update the properties of the event object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

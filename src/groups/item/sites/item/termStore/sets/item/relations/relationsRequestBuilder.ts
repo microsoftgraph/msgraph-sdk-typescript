@@ -42,10 +42,11 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/termStore/sets/{set%2Did}/relations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Indicates which terms have been pinned or reused directly under the set.
+     * Get the different relation of a [term] or [set] from the relations navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RelationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-list-relations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RelationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RelationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Relation>(requestInfo, createRelationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Indicates which terms have been pinned or reused directly under the set.
+     * Get the different relation of a [term] or [set] from the relations navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

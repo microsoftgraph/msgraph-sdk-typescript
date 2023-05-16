@@ -24,9 +24,10 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/openShifts/{openShift%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property openShifts for me
+     * Delete an openShift object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/openshift-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OpenShiftItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The set of open shifts in a scheduling group in the schedule.
+     * Retrieve the properties and relationships of an openshift object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShift
+     * @see {@link https://docs.microsoft.com/graph/api/openshift-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OpenShiftItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShift | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OpenShift>(requestInfo, createOpenShiftFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property openShifts in me
+     * Update the properties of an openShift object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShift
+     * @see {@link https://docs.microsoft.com/graph/api/openshift-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OpenShift | undefined, requestConfiguration?: OpenShiftItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShift | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OpenShift>(requestInfo, createOpenShiftFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property openShifts for me
+     * Delete an openShift object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The set of open shifts in a scheduling group in the schedule.
+     * Retrieve the properties and relationships of an openshift object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property openShifts in me
+     * Update the properties of an openShift object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

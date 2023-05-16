@@ -18,9 +18,10 @@ export class CancelRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}/jobs/{printJob%2Did}/cancel");
     };
     /**
-     * Invoke action cancel
+     * Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/printjob-cancel?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: CancelRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +34,7 @@ export class CancelRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action cancel
+     * Cancel a print job. Print jobs can be canceled only on behalf of a user, using delegated permissions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

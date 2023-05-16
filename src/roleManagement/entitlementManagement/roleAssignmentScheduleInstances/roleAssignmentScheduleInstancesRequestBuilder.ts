@@ -52,10 +52,11 @@ export class RoleAssignmentScheduleInstancesRequestBuilder extends BaseRequestBu
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Instances for active role assignments.
+     * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentScheduleInstanceCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleassignmentscheduleinstances?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleAssignmentScheduleInstancesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleInstanceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +87,7 @@ export class RoleAssignmentScheduleInstancesRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleInstance>(requestInfo, createUnifiedRoleAssignmentScheduleInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Instances for active role assignments.
+     * Get the instances of active role assignments in your tenant. The active assignments include those made through assignments and activation requests, and directly through the role assignments API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

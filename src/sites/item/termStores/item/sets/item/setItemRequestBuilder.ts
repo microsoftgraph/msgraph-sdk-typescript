@@ -44,9 +44,10 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}/termStores/{store%2Did}/sets/{set%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property sets for sites
+     * Delete a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-set-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SetItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -59,10 +60,11 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
+     * Read the properties and relationships of a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Set
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-set-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SetItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Set | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -75,11 +77,12 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property sets in sites
+     * Update the properties of a set object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Set
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-set-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Set | undefined, requestConfiguration?: SetItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Set | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -93,7 +96,7 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Set>(requestInfo, createSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property sets for sites
+     * Delete a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +112,7 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
+     * Read the properties and relationships of a set object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,7 +130,7 @@ export class SetItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property sets in sites
+     * Update the properties of a set object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

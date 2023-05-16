@@ -24,9 +24,10 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/checklistItems/{checklistItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property checklistItems for me
+     * Delete a checklistItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/checklistitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ChecklistItemItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of checklistItems linked to a task.
+     * Read the properties and relationships of a checklistItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChecklistItem
+     * @see {@link https://docs.microsoft.com/graph/api/checklistitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChecklistItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChecklistItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ChecklistItem>(requestInfo, createChecklistItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property checklistItems in me
+     * Update the properties of a checklistItem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChecklistItem
+     * @see {@link https://docs.microsoft.com/graph/api/checklistitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ChecklistItem | undefined, requestConfiguration?: ChecklistItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChecklistItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ChecklistItem>(requestInfo, createChecklistItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property checklistItems for me
+     * Delete a checklistItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of checklistItems linked to a task.
+     * Read the properties and relationships of a checklistItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property checklistItems in me
+     * Update the properties of a checklistItem object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

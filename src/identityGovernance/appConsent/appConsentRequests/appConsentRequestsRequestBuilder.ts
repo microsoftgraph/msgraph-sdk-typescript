@@ -52,10 +52,11 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * A collection of userConsentRequest objects for a specific application.
+     * Retrieve appConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppConsentRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/appconsentapprovalroute-list-appconsentrequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppConsentRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppConsentRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +87,7 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AppConsentRequest>(requestInfo, createAppConsentRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of userConsentRequest objects for a specific application.
+     * Retrieve appConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

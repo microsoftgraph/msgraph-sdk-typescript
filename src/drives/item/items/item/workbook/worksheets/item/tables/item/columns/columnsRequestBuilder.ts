@@ -48,10 +48,11 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/tables/{workbookTable%2Did}/columns{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Represents a collection of all the columns in the table. Read-only.
+     * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumnCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,11 +74,12 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
         return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
-     * Create new navigation property to columns for drives
+     * Use this API to create a new TableColumn.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumn
+     * @see {@link https://docs.microsoft.com/graph/api/table-post-columns?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkbookTableColumn | undefined, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumn | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -91,7 +93,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookTableColumn>(requestInfo, createWorkbookTableColumnFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents a collection of all the columns in the table. Read-only.
+     * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +111,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to columns for drives
+     * Use this API to create a new TableColumn.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

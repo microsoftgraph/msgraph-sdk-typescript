@@ -29,9 +29,10 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/apiConnectors/{identityApiConnector%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property apiConnectors for identity
+     * Delete an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents entry point for API connectors.
+     * Read the properties of an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityApiConnector
+     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentityApiConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnector | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityApiConnector>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property apiConnectors in identity
+     * Update the properties of an identityApiConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityApiConnector
+     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IdentityApiConnector | undefined, requestConfiguration?: IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityApiConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityApiConnector>(requestInfo, createIdentityApiConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property apiConnectors for identity
+     * Delete an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents entry point for API connectors.
+     * Read the properties of an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property apiConnectors in identity
+     * Update the properties of an identityApiConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

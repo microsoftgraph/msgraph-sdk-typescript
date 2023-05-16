@@ -24,9 +24,10 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}/members/{identity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property members for connections
+     * Delete an identity resource to remove the corresponding member from an externalGroup.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-identity-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IdentityItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -73,7 +74,7 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Identity>(requestInfo, createIdentityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property members for connections
+     * Delete an identity resource to remove the corresponding member from an externalGroup.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

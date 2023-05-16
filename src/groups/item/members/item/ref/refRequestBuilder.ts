@@ -18,9 +18,10 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/members/{directoryObject%2Did}/$ref{?%40id*}");
     };
     /**
-     * Delete ref of navigation property members for groups
+     * Remove a member from a group via the **members** navigation property. You can't remove a member from groups with dynamic memberships.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/group-delete-members?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RefRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -33,7 +34,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete ref of navigation property members for groups
+     * Remove a member from a group via the **members** navigation property. You can't remove a member from groups with dynamic memberships.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

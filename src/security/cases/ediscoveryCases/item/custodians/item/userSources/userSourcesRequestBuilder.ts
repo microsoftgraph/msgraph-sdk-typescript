@@ -42,10 +42,11 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/custodians/{ediscoveryCustodian%2Did}/userSources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserSourceCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-list-usersources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserSourcesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UserSourceCollectionResponse>(requestInfo, createUserSourceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to userSources for security
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserSource
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-post-usersources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UserSource | undefined, requestConfiguration?: UserSourcesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UserSource>(requestInfo, createUserSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+     * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to userSources for security
+     * Create a new userSource object associated with an eDiscovery custodian.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -25,11 +25,12 @@ export class FavoriteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/favorite");
     };
     /**
-     * Invoke action favorite
+     * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FavoriteResponse
+     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-favorite?view=graph-rest-1.0|Find more info here}
      */
     public post(body: FavoritePostRequestBody | undefined, requestConfiguration?: FavoriteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FavoriteResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class FavoriteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<FavoriteResponse>(requestInfo, createFavoriteResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action favorite
+     * Change the status of a list of serviceUpdateMessages to favorite for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

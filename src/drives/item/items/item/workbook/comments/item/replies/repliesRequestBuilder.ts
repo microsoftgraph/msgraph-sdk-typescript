@@ -42,7 +42,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/comments/{workbookComment%2Did}/replies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get replies from drives
+     * Retrieve the properties and relationships of workbookCommentReply object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookCommentReplyCollectionResponse
@@ -76,7 +76,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookCommentReply>(requestInfo, createWorkbookCommentReplyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get replies from drives
+     * Retrieve the properties and relationships of workbookCommentReply object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

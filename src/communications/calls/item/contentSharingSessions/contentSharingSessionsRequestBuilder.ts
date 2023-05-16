@@ -42,10 +42,11 @@ export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/contentSharingSessions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get contentSharingSessions from communications
+     * Retrieve a list of contentSharingSession objects in a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentSharingSessionCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentSharingSessionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentSharingSessionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ContentSharingSession>(requestInfo, createContentSharingSessionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get contentSharingSessions from communications
+     * Retrieve a list of contentSharingSession objects in a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

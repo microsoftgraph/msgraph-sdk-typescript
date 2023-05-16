@@ -42,10 +42,11 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/homeRealmDiscoveryPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
+     * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of HomeRealmDiscoveryPolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-list-homerealmdiscoverypolicies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<HomeRealmDiscoveryPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +59,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<HomeRealmDiscoveryPolicyCollectionResponse>(requestInfo, createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The homeRealmDiscoveryPolicies assigned to this service principal. Supports $expand.
+     * List the homeRealmDiscoveryPolicy objects that are assigned to a servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

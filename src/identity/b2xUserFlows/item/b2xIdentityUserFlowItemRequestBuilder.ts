@@ -44,9 +44,10 @@ export class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property b2xUserFlows for identity
+     * Delete a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -59,10 +60,11 @@ export class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents entry point for B2X/self-service sign-up identity userflows.
+     * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of B2xIdentityUserFlow
+     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<B2xIdentityUserFlow | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -93,7 +95,7 @@ export class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<B2xIdentityUserFlow>(requestInfo, createB2xIdentityUserFlowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property b2xUserFlows for identity
+     * Delete a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +111,7 @@ export class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents entry point for B2X/self-service sign-up identity userflows.
+     * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

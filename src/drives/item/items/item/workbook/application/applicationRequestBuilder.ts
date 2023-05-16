@@ -44,10 +44,11 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get application from drives
+     * Retrieve the properties and relationships of a workbookApplication object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookApplication
+     * @see {@link https://docs.microsoft.com/graph/api/workbookapplication-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplicationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookApplication | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get application from drives
+     * Retrieve the properties and relationships of a workbookApplication object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

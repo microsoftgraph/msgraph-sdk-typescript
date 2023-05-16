@@ -26,9 +26,10 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property windowsHelloForBusinessMethods for users
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -41,10 +42,11 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsHelloForBusinessAuthenticationMethod
+     * @see {@link https://docs.microsoft.com/graph/api/windowshelloforbusinessauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsHelloForBusinessAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +59,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         return this.requestAdapter?.sendAsync<WindowsHelloForBusinessAuthenticationMethod>(requestInfo, createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property windowsHelloForBusinessMethods for users
+     * Deletes a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -73,7 +75,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder exten
         return requestInfo;
     };
     /**
-     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
+     * Read the properties and relationships of a windowsHelloForBusinessAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

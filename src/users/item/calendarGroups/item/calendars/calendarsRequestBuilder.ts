@@ -42,10 +42,11 @@ export class CalendarsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/calendarGroups/{calendarGroup%2Did}/calendars{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * The calendars in the calendar group. Navigation property. Read-only. Nullable.
+     * Retrieve a list of calendars belonging to a calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-list-calendars?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class CalendarsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CalendarCollectionResponse>(requestInfo, createCalendarCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to calendars for users
+     * Use this API to create a new calendar in a calendar group for a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Calendar
+     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-post-calendars?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Calendar | undefined, requestConfiguration?: CalendarsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class CalendarsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The calendars in the calendar group. Navigation property. Read-only. Nullable.
+     * Retrieve a list of calendars belonging to a calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class CalendarsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to calendars for users
+     * Use this API to create a new calendar in a calendar group for a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -52,10 +52,11 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/categories{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationCategoryCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CategoriesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -68,11 +69,12 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationCategoryCollectionResponse>(requestInfo, createEducationCategoryCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to categories for education
+     * Add one or more existing educationCategory objects to the specified  educationAssignment. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationCategory
+     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-post-categories?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationCategory | undefined, requestConfiguration?: CategoriesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -86,7 +88,7 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationCategory>(requestInfo, createEducationCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
+     * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to categories for education
+     * Add one or more existing educationCategory objects to the specified  educationAssignment. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

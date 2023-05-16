@@ -8,7 +8,6 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeDrive} from '../models/serializeDrive';
-import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DrivesRequestBuilderGetRequestConfiguration} from './drivesRequestBuilderGetRequestConfiguration';
 import {DrivesRequestBuilderPostRequestConfiguration} from './drivesRequestBuilderPostRequestConfiguration';
 import {DriveItemRequestBuilder} from './item/driveItemRequestBuilder';
@@ -18,10 +17,6 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the collection of drive entities.
  */
 export class DrivesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
-    public get count(): CountRequestBuilder {
-        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /**
      * Provides operations to manage the collection of drive entities.
      * @param driveId Unique identifier of the item
@@ -39,7 +34,7 @@ export class DrivesRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/drives{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
+        super(pathParameters, requestAdapter, "{+baseurl}/drives{?%24top,%24skip,%24search,%24filter,%24orderby,%24select,%24expand}");
     };
     /**
      * Get entities from drives

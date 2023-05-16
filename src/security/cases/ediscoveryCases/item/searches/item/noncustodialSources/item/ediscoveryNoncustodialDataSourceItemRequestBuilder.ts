@@ -4,6 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../../../models/oDataErr
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {EdiscoveryNoncustodialDataSource} from '../../../../../../../../models/security/';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
+import {EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -20,6 +21,22 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/noncustodialSources/{ediscoveryNoncustodialDataSource%2Did}{?%24select,%24expand}");
     };
     /**
+     * Remove an ediscoveryNoncustodialDataSource object.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-delete-noncustodialsources?view=graph-rest-1.0|Find more info here}
+     */
+    public delete(requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        const requestInfo = this.toDeleteRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
      * noncustodialDataSource sources that are included in the eDiscovery search
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -34,6 +51,22 @@ export class EdiscoveryNoncustodialDataSourceItemRequestBuilder extends BaseRequ
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSource>(requestInfo, createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Remove an ediscoveryNoncustodialDataSource object.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toDeleteRequestInformation(requestConfiguration?: EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
     };
     /**
      * noncustodialDataSource sources that are included in the eDiscovery search

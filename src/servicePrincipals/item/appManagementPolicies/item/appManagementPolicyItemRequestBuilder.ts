@@ -4,6 +4,7 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './appManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
 import {AppManagementPolicyItemRequestBuilderGetRequestConfiguration} from './appManagementPolicyItemRequestBuilderGetRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -20,6 +21,22 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appManagementPolicies/{appManagementPolicy%2Did}{?%24select,%24expand}");
     };
     /**
+     * Remove an appManagementPolicy policy object from an application or service principal object. When you remove the appManagementPolicy, the application or service principal adopts the tenant-wide tenantAppManagementPolicy setting. 
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/appmanagementpolicy-delete-appliesto?view=graph-rest-1.0|Find more info here}
+     */
+    public delete(requestConfiguration?: AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        const requestInfo = this.toDeleteRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
      * The appManagementPolicy applied to this application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -34,6 +51,22 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
         return this.requestAdapter?.sendAsync<AppManagementPolicy>(requestInfo, createAppManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Remove an appManagementPolicy policy object from an application or service principal object. When you remove the appManagementPolicy, the application or service principal adopts the tenant-wide tenantAppManagementPolicy setting. 
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toDeleteRequestInformation(requestConfiguration?: AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
     };
     /**
      * The appManagementPolicy applied to this application.

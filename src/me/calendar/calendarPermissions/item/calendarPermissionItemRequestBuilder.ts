@@ -24,9 +24,10 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/calendar/calendarPermissions/{calendarPermission%2Did}{?%24select}");
     };
     /**
-     * Delete navigation property calendarPermissions for me
+     * Delete calendarPermission.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CalendarPermissionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The permissions of the users with whom the calendar is shared.
+     * Get the specified permissions object of a user or group calendar that has been shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarPermission
+     * @see {@link https://docs.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarPermissionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarPermission | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CalendarPermission>(requestInfo, createCalendarPermissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property calendarPermissions in me
+     * Update the permissions assigned to an existing sharee or delegate, through the corresponding <b>calendarPermission</b> object for a calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarPermission
+     * @see {@link https://docs.microsoft.com/graph/api/calendarpermission-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CalendarPermission | undefined, requestConfiguration?: CalendarPermissionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarPermission | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CalendarPermission>(requestInfo, createCalendarPermissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property calendarPermissions for me
+     * Delete calendarPermission.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The permissions of the users with whom the calendar is shared.
+     * Get the specified permissions object of a user or group calendar that has been shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property calendarPermissions in me
+     * Update the permissions assigned to an existing sharee or delegate, through the corresponding <b>calendarPermission</b> object for a calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

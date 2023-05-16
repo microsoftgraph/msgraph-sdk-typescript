@@ -21,9 +21,10 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/softwareOathMethods/{softwareOathAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property softwareOathMethods for me
+     * Delete a user's Software OATH token authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/softwareoathauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -36,10 +37,11 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The software OATH TOTP applications registered to a user for authentication.
+     * Retrieve a user's single Software OATH token authentication method object and its properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SoftwareOathAuthenticationMethod
+     * @see {@link https://docs.microsoft.com/graph/api/softwareoathauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SoftwareOathAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -52,7 +54,7 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
         return this.requestAdapter?.sendAsync<SoftwareOathAuthenticationMethod>(requestInfo, createSoftwareOathAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property softwareOathMethods for me
+     * Delete a user's Software OATH token authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,7 +70,7 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
         return requestInfo;
     };
     /**
-     * The software OATH TOTP applications registered to a user for authentication.
+     * Retrieve a user's single Software OATH token authentication method object and its properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

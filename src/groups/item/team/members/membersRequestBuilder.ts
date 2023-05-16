@@ -47,10 +47,11 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/members{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Members and owners of the team.
+     * Get the conversationMember collection of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationMemberCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/team-list-members?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationMemberCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -63,11 +64,12 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ConversationMemberCollectionResponse>(requestInfo, createConversationMemberCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to members for groups
+     * Add a new conversationMember to a team.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConversationMember
+     * @see {@link https://docs.microsoft.com/graph/api/team-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConversationMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -81,7 +83,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Members and owners of the team.
+     * Get the conversationMember collection of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +101,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to members for groups
+     * Add a new conversationMember to a team.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

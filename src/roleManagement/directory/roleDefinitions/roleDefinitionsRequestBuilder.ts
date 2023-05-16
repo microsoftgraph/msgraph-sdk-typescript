@@ -42,10 +42,11 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/roleManagement/directory/roleDefinitions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleDefinitionCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleDefinitionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UnifiedRoleDefinitionCollectionResponse>(requestInfo, createUnifiedRoleDefinitionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to roleDefinitions for roleManagement
+     * Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-post-roledefinitions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnifiedRoleDefinition | undefined, requestConfiguration?: RoleDefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UnifiedRoleDefinition>(requestInfo, createUnifiedRoleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * Get a list of unifiedRoleDefinition objects for the provider. The following RBAC providers are currently supported:- directory (Azure AD)- entitlement management (Azure AD)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to roleDefinitions for roleManagement
+     * Create a new custom unifiedRoleDefinition object. This feature requires an Azure AD Premium P1 or P2 license.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

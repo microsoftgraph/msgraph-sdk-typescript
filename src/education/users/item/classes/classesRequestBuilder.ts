@@ -37,10 +37,11 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/classes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Classes to which the user belongs. Nullable.
+     * Get the educationClass resources an educationUser is a member of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationClassCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/educationuser-list-classes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ClassesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationClassCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +54,7 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationClassCollectionResponse>(requestInfo, createEducationClassCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Classes to which the user belongs. Nullable.
+     * Get the educationClass resources an educationUser is a member of.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

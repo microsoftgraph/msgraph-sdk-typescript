@@ -55,11 +55,12 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property authorizationPolicy in policies
+     * Update the properties of an authorizationPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthorizationPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthorizationPolicy | undefined, requestConfiguration?: AuthorizationPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthorizationPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -107,7 +108,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property authorizationPolicy in policies
+     * Update the properties of an authorizationPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

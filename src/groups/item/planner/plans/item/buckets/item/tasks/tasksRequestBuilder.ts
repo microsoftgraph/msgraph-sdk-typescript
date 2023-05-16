@@ -42,10 +42,11 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/planner/plans/{plannerPlan%2Did}/buckets/{plannerBucket%2Did}/tasks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read-only. Nullable. The collection of tasks in the bucket.
+     * Retrieve a list of plannerTask objects associated to a plannerBucket object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerTaskCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/plannerbucket-list-tasks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TasksRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerTaskCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PlannerTask>(requestInfo, createPlannerTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read-only. Nullable. The collection of tasks in the bucket.
+     * Retrieve a list of plannerTask objects associated to a plannerBucket object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

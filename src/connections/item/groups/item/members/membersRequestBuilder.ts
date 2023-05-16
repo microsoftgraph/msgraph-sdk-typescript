@@ -58,11 +58,12 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityCollectionResponse>(requestInfo, createIdentityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to members for connections
+     * Create an identity resource for a new member in an externalGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Identity
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Identity | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Identity | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -94,7 +95,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to members for connections
+     * Create an identity resource for a new member in an externalGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

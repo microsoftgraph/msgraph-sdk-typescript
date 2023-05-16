@@ -39,10 +39,11 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Simulation
+     * @see {@link https://docs.microsoft.com/graph/api/simulation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SimulationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Simulation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class SimulationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents an attack simulation training campaign in a tenant.
+     * Get an attack simulation campaign for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

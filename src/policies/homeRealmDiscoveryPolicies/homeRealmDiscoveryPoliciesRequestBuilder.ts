@@ -42,10 +42,11 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/policies/homeRealmDiscoveryPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The policy to control Azure AD authentication behavior for federated users.
+     * Get a list of homeRealmDiscoveryPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of HomeRealmDiscoveryPolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/homerealmdiscoverypolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<HomeRealmDiscoveryPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<HomeRealmDiscoveryPolicyCollectionResponse>(requestInfo, createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to homeRealmDiscoveryPolicies for policies
+     * Create a new homeRealmDiscoveryPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of HomeRealmDiscoveryPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/homerealmdiscoverypolicy-post-homerealmdiscoverypolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: HomeRealmDiscoveryPolicy | undefined, requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<HomeRealmDiscoveryPolicy>(requestInfo, createHomeRealmDiscoveryPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The policy to control Azure AD authentication behavior for federated users.
+     * Get a list of homeRealmDiscoveryPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Create new navigation property to homeRealmDiscoveryPolicies for policies
+     * Create a new homeRealmDiscoveryPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -52,10 +52,11 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Schedules for active role assignment operations.
+     * Get the schedules for active role assignment operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentScheduleCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleassignmentschedules?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +87,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Schedules for active role assignment operations.
+     * Get the schedules for active role assignment operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

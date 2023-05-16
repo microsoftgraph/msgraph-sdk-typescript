@@ -42,10 +42,11 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/featureRolloutPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The feature rollout policy associated with a directory object.
+     * Retrieve a list of featureRolloutPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FeatureRolloutPolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/featurerolloutpolicies-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FeatureRolloutPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FeatureRolloutPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<FeatureRolloutPolicyCollectionResponse>(requestInfo, createFeatureRolloutPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to featureRolloutPolicies for policies
+     * Create a new featureRolloutPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FeatureRolloutPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/featurerolloutpolicies-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: FeatureRolloutPolicy | undefined, requestConfiguration?: FeatureRolloutPoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FeatureRolloutPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<FeatureRolloutPolicy>(requestInfo, createFeatureRolloutPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The feature rollout policy associated with a directory object.
+     * Retrieve a list of featureRolloutPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to featureRolloutPolicies for policies
+     * Create a new featureRolloutPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -37,10 +37,11 @@ export class PostsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/threads/{conversationThread%2Did}/posts{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get posts from groups
+     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PostCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/conversationthread-list-posts?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PostsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PostCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +54,7 @@ export class PostsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PostCollectionResponse>(requestInfo, createPostCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get posts from groups
+     * Get the posts of the specified thread. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

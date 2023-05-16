@@ -42,10 +42,11 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/swapShiftsChangeRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get swapShiftsChangeRequests from groups
+     * Retrieve a list of swapShiftsChangeRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SwapShiftsChangeRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SwapShiftsChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SwapShiftsChangeRequestCollectionResponse>(requestInfo, createSwapShiftsChangeRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to swapShiftsChangeRequests for groups
+     * Create an instance of a swapShiftsChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SwapShiftsChangeRequest
+     * @see {@link https://docs.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SwapShiftsChangeRequest | undefined, requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SwapShiftsChangeRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SwapShiftsChangeRequest>(requestInfo, createSwapShiftsChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get swapShiftsChangeRequests from groups
+     * Retrieve a list of swapShiftsChangeRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to swapShiftsChangeRequests for groups
+     * Create an instance of a swapShiftsChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

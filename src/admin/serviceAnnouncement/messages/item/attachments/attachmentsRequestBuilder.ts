@@ -42,10 +42,11 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/{serviceUpdateMessage%2Did}/attachments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Get the list of attachments associated with a service message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceAnnouncementAttachmentCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncementAttachmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Get the list of attachments associated with a service message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

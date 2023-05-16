@@ -65,9 +65,10 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/list/items/{listItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property items for drives
+     * Removes an item from a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ListItemItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -80,10 +81,11 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All items contained in the list.
+     * Returns the metadata for an [item][] in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItem
+     * @see {@link https://docs.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -127,7 +129,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property items for drives
+     * Removes an item from a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -143,7 +145,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * All items contained in the list.
+     * Returns the metadata for an [item][] in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

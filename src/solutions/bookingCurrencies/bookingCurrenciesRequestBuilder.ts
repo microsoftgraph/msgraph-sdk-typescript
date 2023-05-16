@@ -42,10 +42,11 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingCurrencies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get bookingCurrencies from solutions
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCurrencyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingCurrenciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingCurrencyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get bookingCurrencies from solutions
+     * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

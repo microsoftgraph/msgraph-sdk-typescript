@@ -42,10 +42,11 @@ export class TimesOffRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/schedule/timesOff{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * The instances of times off in the schedule.
+     * Get the list of timeOff instances in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/schedule-list-timesoff?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimesOffRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class TimesOffRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TimeOffCollectionResponse>(requestInfo, createTimeOffCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to timesOff for groups
+     * Create a new timeOff instance in a schedule.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOff
+     * @see {@link https://docs.microsoft.com/graph/api/schedule-post-timesoff?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TimeOff | undefined, requestConfiguration?: TimesOffRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOff | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class TimesOffRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TimeOff>(requestInfo, createTimeOffFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The instances of times off in the schedule.
+     * Get the list of timeOff instances in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class TimesOffRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to timesOff for groups
+     * Create a new timeOff instance in a schedule.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

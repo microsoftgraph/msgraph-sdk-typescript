@@ -39,9 +39,10 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/teamwork/installedApps/{userScopeTeamsAppInstallation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property installedApps for users
+     * Uninstall an app from the personal scope of the specified user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/userteamwork-delete-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -54,10 +55,11 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The apps installed in the personal scope of this user.
+     * Retrieve the app installed in the personal scope of the specified user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserScopeTeamsAppInstallation
+     * @see {@link https://docs.microsoft.com/graph/api/userteamwork-get-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserScopeTeamsAppInstallation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,7 +90,7 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
         return this.requestAdapter?.sendAsync<UserScopeTeamsAppInstallation>(requestInfo, createUserScopeTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property installedApps for users
+     * Uninstall an app from the personal scope of the specified user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * The apps installed in the personal scope of this user.
+     * Retrieve the app installed in the personal scope of the specified user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

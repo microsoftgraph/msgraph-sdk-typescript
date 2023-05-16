@@ -47,10 +47,11 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}/tasks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The tasks in this task list. Read-only. Nullable.
+     * Get the **todoTask** resources from the **tasks** navigation property of a specified todoTaskList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTaskCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-list-tasks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TasksRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTaskCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -63,11 +64,12 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TodoTaskCollectionResponse>(requestInfo, createTodoTaskCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to tasks for me
+     * Create a new task object in a specified todoTaskList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTask
+     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-post-tasks?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TodoTask | undefined, requestConfiguration?: TasksRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTask | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -81,7 +83,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The tasks in this task list. Read-only. Nullable.
+     * Get the **todoTask** resources from the **tasks** navigation property of a specified todoTaskList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +101,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to tasks for me
+     * Create a new task object in a specified todoTaskList.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

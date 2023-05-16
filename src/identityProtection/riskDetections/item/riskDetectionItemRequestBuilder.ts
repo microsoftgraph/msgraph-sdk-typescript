@@ -39,10 +39,11 @@ export class RiskDetectionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Risk detection in Azure AD Identity Protection and the associated information about the detection.
+     * Read the properties and relationships of a riskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskDetection
+     * @see {@link https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskDetectionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskDetection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class RiskDetectionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Risk detection in Azure AD Identity Protection and the associated information about the detection.
+     * Read the properties and relationships of a riskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

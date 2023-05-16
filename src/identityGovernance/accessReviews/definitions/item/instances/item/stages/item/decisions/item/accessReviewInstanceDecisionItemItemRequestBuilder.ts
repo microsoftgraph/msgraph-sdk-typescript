@@ -55,11 +55,12 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequ
         return this.requestAdapter?.sendAsync<AccessReviewInstanceDecisionItem>(requestInfo, createAccessReviewInstanceDecisionItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property decisions in identityGovernance
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewInstanceDecisionItem
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstancedecisionitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AccessReviewInstanceDecisionItem | undefined, requestConfiguration?: AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -107,7 +108,7 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequ
         return requestInfo;
     };
     /**
-     * Update the navigation property decisions in identityGovernance
+     * Update access decisions, known as accessReviewInstanceDecisionItems, for which the user is the reviewer.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

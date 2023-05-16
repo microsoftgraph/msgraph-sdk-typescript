@@ -24,9 +24,10 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/assignmentCategories/{educationCategory%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property assignmentCategories for education
+     * Delete an existing category. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/educationcategory-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationCategoryItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All categories associated with this class. Nullable.
+     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationCategory
+     * @see {@link https://docs.microsoft.com/graph/api/educationcategory-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +75,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationCategory>(requestInfo, createEducationCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property assignmentCategories for education
+     * Delete an existing category. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +91,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * All categories associated with this class. Nullable.
+     * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

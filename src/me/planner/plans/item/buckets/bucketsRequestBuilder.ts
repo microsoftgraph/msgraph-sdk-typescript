@@ -42,10 +42,11 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/planner/plans/{plannerPlan%2Did}/buckets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read-only. Nullable. Collection of buckets in the plan.
+     * Retrieve a list of plannerBucket objects contained by a plannerPlan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerBucketCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/plannerplan-list-buckets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BucketsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerBucketCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read-only. Nullable. Collection of buckets in the plan.
+     * Retrieve a list of plannerBucket objects contained by a plannerPlan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

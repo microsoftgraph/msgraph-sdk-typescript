@@ -20,10 +20,11 @@ export class ManagerRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/contacts/{orgContact%2Did}/manager{?%24select,%24expand}");
     };
     /**
-     * Get manager from contacts
+     * Get this organizational contact's manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObject
+     * @see {@link https://docs.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagerRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObject | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +37,7 @@ export class ManagerRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get manager from contacts
+     * Get this organizational contact's manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -68,11 +68,12 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryNoncustodialDataSourceCollectionResponse>(requestInfo, createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to noncustodialDataSources for security
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryNoncustodialDataSource
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-noncustodialdatasources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryNoncustodialDataSource | undefined, requestConfiguration?: NoncustodialDataSourcesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryNoncustodialDataSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -104,7 +105,7 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to noncustodialDataSources for security
+     * Create a new ediscoveryNoncustodialDataSource object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

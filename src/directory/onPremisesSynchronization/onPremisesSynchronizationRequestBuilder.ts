@@ -42,7 +42,7 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/directory/onPremisesSynchronization{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * A container for on-premises directory synchronization functionalities that are available for the organization.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnPremisesDirectorySynchronizationCollectionResponse
@@ -76,7 +76,7 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<OnPremisesDirectorySynchronization>(requestInfo, createOnPremisesDirectorySynchronizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A container for on-premises directory synchronization functionalities that are available for the organization.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

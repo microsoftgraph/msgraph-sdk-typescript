@@ -52,10 +52,11 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Requests for role eligibilities for principals through PIM.
+     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilityScheduleRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -68,11 +69,12 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleRequestCollectionResponse>(requestInfo, createUnifiedRoleEligibilityScheduleRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to roleEligibilityScheduleRequests for roleManagement
+     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
+     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-post-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnifiedRoleEligibilityScheduleRequest | undefined, requestConfiguration?: RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -86,7 +88,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleRequest>(requestInfo, createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Requests for role eligibilities for principals through PIM.
+     * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Create new navigation property to roleEligibilityScheduleRequests for roleManagement
+     * In PIM, request for a role eligibility for a principal through the unifiedRoleEligibilityScheduleRequest object. This operation allows both admins and eligible users to add, revoke, or extend eligible assignments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

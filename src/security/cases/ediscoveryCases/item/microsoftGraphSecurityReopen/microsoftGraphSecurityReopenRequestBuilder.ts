@@ -18,9 +18,10 @@ export class MicrosoftGraphSecurityReopenRequestBuilder extends BaseRequestBuild
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/microsoft.graph.security.reopen");
     };
     /**
-     * Invoke action reopen
+     * Reopen an eDiscovery case that was closed. For details, see Reopen a closed case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-reopen?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: MicrosoftGraphSecurityReopenRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +34,7 @@ export class MicrosoftGraphSecurityReopenRequestBuilder extends BaseRequestBuild
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action reopen
+     * Reopen an eDiscovery case that was closed. For details, see Reopen a closed case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

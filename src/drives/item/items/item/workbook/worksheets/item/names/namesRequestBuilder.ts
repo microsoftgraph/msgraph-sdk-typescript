@@ -52,10 +52,11 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/names{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Returns collection of names that are associated with the worksheet. Read-only.
+     * Retrieve a list of named item associated with the worksheet. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookNamedItemCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/worksheet-list-names?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +87,7 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookNamedItem>(requestInfo, createWorkbookNamedItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Returns collection of names that are associated with the worksheet. Read-only.
+     * Retrieve a list of named item associated with the worksheet. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -37,10 +37,11 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/classes/{educationClass%2Did}/schools{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * All schools that this class is associated with. Nullable.
+     * Retrieve a list of schools in which the class is taught.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSchoolCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/educationclass-list-schools?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchoolCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +54,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationSchoolCollectionResponse>(requestInfo, createEducationSchoolCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All schools that this class is associated with. Nullable.
+     * Retrieve a list of schools in which the class is taught.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

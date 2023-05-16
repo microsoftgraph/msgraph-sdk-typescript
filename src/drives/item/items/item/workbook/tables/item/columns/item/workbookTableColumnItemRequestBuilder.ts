@@ -49,9 +49,10 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/columns/{workbookTableColumn%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property columns for drives
+     * Deletes the column from the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/tablecolumn-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -64,10 +65,11 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents a collection of all the columns in the table. Read-only.
+     * Retrieve the properties and relationships of tablecolumn object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumn
+     * @see {@link https://docs.microsoft.com/graph/api/tablecolumn-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookTableColumnItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumn | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,11 +82,12 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookTableColumn>(requestInfo, createWorkbookTableColumnFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property columns in drives
+     * Update the properties of tablecolumn object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumn
+     * @see {@link https://docs.microsoft.com/graph/api/tablecolumn-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookTableColumn | undefined, requestConfiguration?: WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumn | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -98,7 +101,7 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookTableColumn>(requestInfo, createWorkbookTableColumnFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property columns for drives
+     * Deletes the column from the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -114,7 +117,7 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents a collection of all the columns in the table. Read-only.
+     * Retrieve the properties and relationships of tablecolumn object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -132,7 +135,7 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property columns in drives
+     * Update the properties of tablecolumn object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

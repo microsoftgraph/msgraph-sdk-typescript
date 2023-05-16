@@ -42,10 +42,11 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/auditLogs/provisioning{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get provisioning from auditLogs
+     * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisioningObjectSummaryCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProvisioningRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ProvisioningObjectSummary>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get provisioning from auditLogs
+     * Get all provisioning events that occurred in your tenant, such as the deletion of a group in a target application or the creation of a user when provisioning user accounts from your HR system. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

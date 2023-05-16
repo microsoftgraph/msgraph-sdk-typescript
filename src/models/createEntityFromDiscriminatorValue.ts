@@ -645,8 +645,10 @@ import {deserializeIntoWorkbookWorksheet} from './deserializeIntoWorkbookWorkshe
 import {deserializeIntoWorkbookWorksheetProtection} from './deserializeIntoWorkbookWorksheetProtection';
 import {deserializeIntoWorkforceIntegration} from './deserializeIntoWorkforceIntegration';
 import {deserializeIntoX509CertificateAuthenticationMethodConfiguration} from './deserializeIntoX509CertificateAuthenticationMethodConfiguration';
-import {ConnectionOperation, ExternalConnection, ExternalGroup, ExternalItem, Identity, Schema} from './externalConnectors/';
+import {ConnectionOperation, ExternalActivity, ExternalActivityResult, ExternalConnection, ExternalGroup, ExternalItem, Identity, Schema} from './externalConnectors/';
 import {deserializeIntoConnectionOperation} from './externalConnectors/deserializeIntoConnectionOperation';
+import {deserializeIntoExternalActivity} from './externalConnectors/deserializeIntoExternalActivity';
+import {deserializeIntoExternalActivityResult} from './externalConnectors/deserializeIntoExternalActivityResult';
 import {deserializeIntoExternalConnection} from './externalConnectors/deserializeIntoExternalConnection';
 import {deserializeIntoExternalGroup} from './externalConnectors/deserializeIntoExternalGroup';
 import {deserializeIntoExternalItem} from './externalConnectors/deserializeIntoExternalItem';
@@ -1170,6 +1172,10 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoExtensionProperty;
                 case "#microsoft.graph.externalConnectors.connectionOperation":
                     return deserializeIntoConnectionOperation;
+                case "#microsoft.graph.externalConnectors.externalActivity":
+                    return deserializeIntoExternalActivity;
+                case "#microsoft.graph.externalConnectors.externalActivityResult":
+                    return deserializeIntoExternalActivityResult;
                 case "#microsoft.graph.externalConnectors.externalConnection":
                     return deserializeIntoExternalConnection;
                 case "#microsoft.graph.externalConnectors.externalGroup":
