@@ -42,10 +42,11 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/employeeExperience/learningProviders{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * A collection of learning providers.
+     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LearningProviderCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/employeeexperience-list-learningproviders?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningProvidersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LearningProviderCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<LearningProviderCollectionResponse>(requestInfo, createLearningProviderCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to learningProviders for employeeExperience
+     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LearningProvider
+     * @see {@link https://docs.microsoft.com/graph/api/employeeexperience-post-learningproviders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: LearningProvider | undefined, requestConfiguration?: LearningProvidersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LearningProvider | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of learning providers.
+     * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to learningProviders for employeeExperience
+     * Create a new learningProvider object and register it with Viva Learning using the specified display name and logos for different themes.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

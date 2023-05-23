@@ -44,10 +44,11 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Read the properties and relationships of a serviceAnnouncementAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceAnnouncementAttachment
+     * @see {@link https://docs.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Read the properties and relationships of a serviceAnnouncementAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

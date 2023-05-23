@@ -29,9 +29,10 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseR
         super(pathParameters, requestAdapter, "{+baseurl}/identity/b2xUserFlows/{b2xIdentityUserFlow%2Did}/userAttributeAssignments/{identityUserFlowAttributeAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property userAttributeAssignments for identity
+     * Delete an identityUserFlowAttributeAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattributeassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseR
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The user attribute assignments included in the user flow.
+     * Read the properties and relationships of an identityUserFlowAttributeAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattributeassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseR
         return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignment>(requestInfo, createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property userAttributeAssignments in identity
+     * Update the properties of a identityUserFlowAttributeAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttributeAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattributeassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IdentityUserFlowAttributeAssignment | undefined, requestConfiguration?: IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseR
         return this.requestAdapter?.sendAsync<IdentityUserFlowAttributeAssignment>(requestInfo, createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property userAttributeAssignments for identity
+     * Delete an identityUserFlowAttributeAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * The user attribute assignments included in the user flow.
+     * Read the properties and relationships of an identityUserFlowAttributeAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Update the navigation property userAttributeAssignments in identity
+     * Update the properties of a identityUserFlowAttributeAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

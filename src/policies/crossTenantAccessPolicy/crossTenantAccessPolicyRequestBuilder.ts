@@ -49,10 +49,11 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * Read the properties and relationships of a crossTenantAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +66,12 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property crossTenantAccessPolicy in policies
+     * Update the properties of a cross-tenant access policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CrossTenantAccessPolicy | undefined, requestConfiguration?: CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -99,7 +101,7 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The custom rules that define an access scenario when interacting with external Azure AD tenants.
+     * Read the properties and relationships of a crossTenantAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +119,7 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property crossTenantAccessPolicy in policies
+     * Update the properties of a cross-tenant access policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

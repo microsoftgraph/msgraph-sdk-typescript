@@ -79,10 +79,11 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The collection of lists under this site.
+     * Get a list of rich long-running operations associated with a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of List
+     * @see {@link https://docs.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<List | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -129,7 +130,7 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The collection of lists under this site.
+     * Get a list of rich long-running operations associated with a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -26,6 +26,7 @@ import {RemoveKeyRequestBuilder} from './removeKey/removeKeyRequestBuilder';
 import {RemovePasswordRequestBuilder} from './removePassword/removePasswordRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {SetVerifiedPublisherRequestBuilder} from './setVerifiedPublisher/setVerifiedPublisherRequestBuilder';
+import {SynchronizationRequestBuilder} from './synchronization/synchronizationRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {UnsetVerifiedPublisherRequestBuilder} from './unsetVerifiedPublisher/unsetVerifiedPublisherRequestBuilder';
@@ -102,6 +103,10 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the setVerifiedPublisher method. */
     public get setVerifiedPublisher(): SetVerifiedPublisherRequestBuilder {
         return new SetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the synchronization property of the microsoft.graph.application entity. */
+    public get synchronization(): SynchronizationRequestBuilder {
+        return new SynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity. */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {

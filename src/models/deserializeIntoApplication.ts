@@ -22,6 +22,7 @@ import {createPublicClientApplicationFromDiscriminatorValue} from './createPubli
 import {createRequestSignatureVerificationFromDiscriminatorValue} from './createRequestSignatureVerificationFromDiscriminatorValue';
 import {createRequiredResourceAccessFromDiscriminatorValue} from './createRequiredResourceAccessFromDiscriminatorValue';
 import {createSpaApplicationFromDiscriminatorValue} from './createSpaApplicationFromDiscriminatorValue';
+import {createSynchronizationFromDiscriminatorValue} from './createSynchronizationFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
@@ -57,11 +58,13 @@ import {serializePublicClientApplication} from './serializePublicClientApplicati
 import {serializeRequestSignatureVerification} from './serializeRequestSignatureVerification';
 import {serializeRequiredResourceAccess} from './serializeRequiredResourceAccess';
 import {serializeSpaApplication} from './serializeSpaApplication';
+import {serializeSynchronization} from './serializeSynchronization';
 import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
 import {serializeTokenLifetimePolicy} from './serializeTokenLifetimePolicy';
 import {serializeVerifiedPublisher} from './serializeVerifiedPublisher';
 import {serializeWebApplication} from './serializeWebApplication';
 import {SpaApplication} from './spaApplication';
+import {Synchronization} from './synchronization';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
@@ -108,6 +111,7 @@ export function deserializeIntoApplication(application: Application | undefined 
         "serviceManagementReference": n => { application.serviceManagementReference = n.getStringValue(); },
         "signInAudience": n => { application.signInAudience = n.getStringValue(); },
         "spa": n => { application.spa = n.getObjectValue<SpaApplication>(createSpaApplicationFromDiscriminatorValue); },
+        "synchronization": n => { application.synchronization = n.getObjectValue<Synchronization>(createSynchronizationFromDiscriminatorValue); },
         "tags": n => { application.tags = n.getCollectionOfPrimitiveValues<string>(); },
         "tokenEncryptionKeyId": n => { application.tokenEncryptionKeyId = n.getStringValue(); },
         "tokenIssuancePolicies": n => { application.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },

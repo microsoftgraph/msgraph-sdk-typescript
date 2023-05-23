@@ -5,8 +5,10 @@ export interface DefaultUserRolePermissions extends AdditionalDataHolder, Parsab
     additionalData?: Record<string, unknown>;
     /** Indicates whether the default user role can create applications. */
     allowedToCreateApps?: boolean | undefined;
-    /** Indicates whether the default user role can create security groups. */
+    /** Indicates whether the default user role can create security groups. This setting corresponds to the The Users can create security groups in Azure portals, API or PowerShell setting in the group settings menu in the Azure portal. */
     allowedToCreateSecurityGroups?: boolean | undefined;
+    /** Indicates whether the default user role can create tenants. */
+    allowedToCreateTenants?: boolean | undefined;
     /** Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role. */
     allowedToReadBitlockerKeysForOwnedDevice?: boolean | undefined;
     /** Indicates whether the default user role can read other users. */

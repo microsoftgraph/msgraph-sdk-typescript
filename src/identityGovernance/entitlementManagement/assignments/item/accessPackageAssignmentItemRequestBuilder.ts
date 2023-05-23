@@ -59,10 +59,11 @@ export class AccessPackageAssignmentItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The assignment of an access package to a subject for a period of time.
+     * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -109,7 +110,7 @@ export class AccessPackageAssignmentItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * The assignment of an access package to a subject for a period of time.
+     * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

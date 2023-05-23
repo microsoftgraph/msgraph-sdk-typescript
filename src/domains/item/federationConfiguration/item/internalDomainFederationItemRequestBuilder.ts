@@ -24,9 +24,10 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/federationConfiguration/{internalDomainFederation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property federationConfiguration for domains
+     * Delete an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Domain settings configured by a customer when federated with Azure AD. Supports $expand.
+     * Read the properties and relationships of an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternalDomainFederation
+     * @see {@link https://docs.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InternalDomainFederationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternalDomainFederation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter?.sendAsync<InternalDomainFederation>(requestInfo, createInternalDomainFederationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property federationConfiguration in domains
+     * Update the properties of an internalDomainFederation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternalDomainFederation
+     * @see {@link https://docs.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: InternalDomainFederation | undefined, requestConfiguration?: InternalDomainFederationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternalDomainFederation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter?.sendAsync<InternalDomainFederation>(requestInfo, createInternalDomainFederationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property federationConfiguration for domains
+     * Delete an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
         return requestInfo;
     };
     /**
-     * Domain settings configured by a customer when federated with Azure AD. Supports $expand.
+     * Read the properties and relationships of an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
         return requestInfo;
     };
     /**
-     * Update the navigation property federationConfiguration in domains
+     * Update the properties of an internalDomainFederation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -44,7 +44,7 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get callRecords from communications
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CallRecordCollectionResponse
@@ -100,7 +100,7 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CallRecord>(requestInfo, createCallRecordFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get callRecords from communications
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

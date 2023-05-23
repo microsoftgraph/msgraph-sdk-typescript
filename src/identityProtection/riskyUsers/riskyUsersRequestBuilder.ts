@@ -52,10 +52,11 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityProtection/riskyUsers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Users that are flagged as at-risk by Azure AD Identity Protection.
+     * Get a list of the riskyUser objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUserCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskyUsersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +87,7 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<RiskyUser>(requestInfo, createRiskyUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Users that are flagged as at-risk by Azure AD Identity Protection.
+     * Get a list of the riskyUser objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

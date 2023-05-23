@@ -24,9 +24,10 @@ export class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/appRoleAssignedTo/{appRoleAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property appRoleAssignedTo for servicePrincipals
+     * Deletes an appRoleAssignment that a user, group, or client service principal has been granted for a resource service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-delete-approleassignedto?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -73,7 +74,7 @@ export class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AppRoleAssignment>(requestInfo, createAppRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property appRoleAssignedTo for servicePrincipals
+     * Deletes an appRoleAssignment that a user, group, or client service principal has been granted for a resource service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

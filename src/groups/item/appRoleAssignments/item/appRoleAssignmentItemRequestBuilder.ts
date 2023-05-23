@@ -24,9 +24,10 @@ export class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/appRoleAssignments/{appRoleAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property appRoleAssignments for groups
+     * Deletes an appRoleAssignment that a group has been granted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/group-delete-approleassignments?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -73,7 +74,7 @@ export class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AppRoleAssignment>(requestInfo, createAppRoleAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property appRoleAssignments for groups
+     * Deletes an appRoleAssignment that a group has been granted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

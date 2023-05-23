@@ -79,9 +79,10 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/events/{event%2Did}{?%24select}");
     };
     /**
-     * Delete navigation property events for groups
+     * Delete an event object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/group-delete-event?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EventItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -94,10 +95,11 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The group's calendar events.
+     * Get an event object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
+     * @see {@link https://docs.microsoft.com/graph/api/group-get-event?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -128,7 +130,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property events for groups
+     * Delete an event object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -144,7 +146,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The group's calendar events.
+     * Get an event object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

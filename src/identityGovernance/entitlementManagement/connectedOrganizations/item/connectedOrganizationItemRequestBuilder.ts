@@ -34,9 +34,10 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property connectedOrganizations for identityGovernance
+     * Delete a connectedOrganization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,10 +50,11 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * References to a directory or domain of another organization whose users can request access.
+     * Retrieve the properties and relationships of a connectedOrganization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectedOrganization
+     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectedOrganizationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganization | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +67,12 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<ConnectedOrganization>(requestInfo, createConnectedOrganizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property connectedOrganizations in identityGovernance
+     * Update a connectedOrganization object to change one or more of its properties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectedOrganization
+     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -83,7 +86,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<ConnectedOrganization>(requestInfo, createConnectedOrganizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property connectedOrganizations for identityGovernance
+     * Delete a connectedOrganization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +102,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * References to a directory or domain of another organization whose users can request access.
+     * Retrieve the properties and relationships of a connectedOrganization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +120,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the navigation property connectedOrganizations in identityGovernance
+     * Update a connectedOrganization object to change one or more of its properties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -26,9 +26,10 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments/{attachmentBase%2Did}{?%24select}");
     };
     /**
-     * Delete navigation property attachments for users
+     * Delete a taskFileAttachment object from a todoTask resource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/taskfileattachment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AttachmentBaseItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -41,10 +42,11 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of file attachments for the task.
+     * Read the properties and relationships of a taskFileAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentBase
+     * @see {@link https://docs.microsoft.com/graph/api/taskfileattachment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentBaseItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentBase | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +59,7 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AttachmentBase>(requestInfo, createAttachmentBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property attachments for users
+     * Delete a taskFileAttachment object from a todoTask resource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -73,7 +75,7 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of file attachments for the task.
+     * Read the properties and relationships of a taskFileAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

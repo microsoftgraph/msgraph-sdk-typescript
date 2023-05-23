@@ -42,10 +42,11 @@ export class ScopedMembersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directoryRoles/{directoryRole%2Did}/scopedMembers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+     * Retrieve a list of scopedRoleMembership objects for a directory role.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ScopedRoleMembershipCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/directoryrole-list-scopedmembers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ScopedMembersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScopedRoleMembershipCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class ScopedMembersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ScopedRoleMembership>(requestInfo, createScopedRoleMembershipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Members of this directory role that are scoped to administrative units. Read-only. Nullable.
+     * Retrieve a list of scopedRoleMembership objects for a directory role.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

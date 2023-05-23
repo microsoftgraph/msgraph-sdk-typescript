@@ -44,10 +44,11 @@ export class RiskyUserItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Users that are flagged as at-risk by Azure AD Identity Protection.
+     * Read the properties and relationships of a riskyUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUser
+     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskyUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUser | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class RiskyUserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Users that are flagged as at-risk by Azure AD Identity Protection.
+     * Read the properties and relationships of a riskyUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

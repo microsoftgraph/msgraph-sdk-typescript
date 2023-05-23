@@ -8,6 +8,7 @@ import {OnlineMeeting} from '../../../models/onlineMeeting';
 import {serializeOnlineMeeting} from '../../../models/serializeOnlineMeeting';
 import {AttendanceReportsRequestBuilder} from './attendanceReports/attendanceReportsRequestBuilder';
 import {AttendeeReportRequestBuilder} from './attendeeReport/attendeeReportRequestBuilder';
+import {GetVirtualAppointmentJoinWebUrlRequestBuilder} from './getVirtualAppointmentJoinWebUrl/getVirtualAppointmentJoinWebUrlRequestBuilder';
 import {OnlineMeetingItemRequestBuilderDeleteRequestConfiguration} from './onlineMeetingItemRequestBuilderDeleteRequestConfiguration';
 import {OnlineMeetingItemRequestBuilderGetRequestConfiguration} from './onlineMeetingItemRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingItemRequestBuilderPatchRequestConfiguration} from './onlineMeetingItemRequestBuilderPatchRequestConfiguration';
@@ -24,6 +25,10 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to manage the media for the cloudCommunications entity. */
     public get attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getVirtualAppointmentJoinWebUrl method. */
+    public get getVirtualAppointmentJoinWebUrl(): GetVirtualAppointmentJoinWebUrlRequestBuilder {
+        return new GetVirtualAppointmentJoinWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new OnlineMeetingItemRequestBuilder and sets the default values.

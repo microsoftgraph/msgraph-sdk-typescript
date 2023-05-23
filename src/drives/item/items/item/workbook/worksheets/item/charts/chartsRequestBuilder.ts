@@ -49,10 +49,11 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * Retrieve a list of chart objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/worksheet-list-charts?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -83,11 +84,12 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
         return new ItemWithNameRequestBuilder(this.pathParameters, this.requestAdapter, name);
     };
     /**
-     * Create new navigation property to charts for drives
+     * Use this API to create a new Chart.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChart
+     * @see {@link https://docs.microsoft.com/graph/api/worksheet-post-charts?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkbookChart | undefined, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChart | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -101,7 +103,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * Retrieve a list of chart objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +121,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to charts for drives
+     * Use this API to create a new Chart.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

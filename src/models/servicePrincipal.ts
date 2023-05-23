@@ -15,6 +15,7 @@ import {PasswordCredential} from './passwordCredential';
 import {PermissionScope} from './permissionScope';
 import {ResourceSpecificPermission} from './resourceSpecificPermission';
 import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
+import {Synchronization} from './synchronization';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
@@ -107,6 +108,8 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
     servicePrincipalType?: string | undefined;
     /** Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization's Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization's Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only. */
     signInAudience?: string | undefined;
+    /** The synchronization property */
+    synchronization?: Synchronization | undefined;
     /** Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity's tags property.Supports $filter (eq, not, ge, le, startsWith). */
     tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */

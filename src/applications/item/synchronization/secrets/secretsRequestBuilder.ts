@@ -1,0 +1,67 @@
+import {createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue} from '../../../../models/createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue';
+import {deserializeIntoSynchronizationSecretKeyStringValuePair} from '../../../../models/deserializeIntoSynchronizationSecretKeyStringValuePair';
+import {ODataError} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
+import {serializeSynchronizationSecretKeyStringValuePair} from '../../../../models/serializeSynchronizationSecretKeyStringValuePair';
+import {SynchronizationSecretKeyStringValuePair} from '../../../../models/synchronizationSecretKeyStringValuePair';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {SecretsRequestBuilderPutRequestConfiguration} from './secretsRequestBuilderPutRequestConfiguration';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+
+/**
+ * Builds and executes requests for operations under /applications/{application-id}/synchronization/secrets
+ */
+export class SecretsRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to count the resources in the collection. */
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Instantiates a new SecretsRequestBuilder and sets the default values.
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/synchronization/secrets");
+    };
+    /**
+     * Update property secrets value.
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of SynchronizationSecretKeyStringValuePair
+     */
+    public put(body: SynchronizationSecretKeyStringValuePair[] | undefined, requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SynchronizationSecretKeyStringValuePair[] | undefined> {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = this.toPutRequestInformation(
+            body, requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter?.sendCollectionAsync<SynchronizationSecretKeyStringValuePair>(requestInfo, createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+    };
+    /**
+     * Update property secrets value.
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toPutRequestInformation(body: SynchronizationSecretKeyStringValuePair[] | undefined, requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.PUT;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronizationSecretKeyStringValuePair);
+        return requestInfo;
+    };
+}

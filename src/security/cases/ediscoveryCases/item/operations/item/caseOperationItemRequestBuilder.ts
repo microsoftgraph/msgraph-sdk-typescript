@@ -39,10 +39,11 @@ export class CaseOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Returns a list of case caseOperation objects for this case.
+     * Read the properties and relationships of a caseOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CaseOperation
+     * @see {@link https://docs.microsoft.com/graph/api/security-caseoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CaseOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CaseOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class CaseOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Returns a list of case caseOperation objects for this case.
+     * Read the properties and relationships of a caseOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

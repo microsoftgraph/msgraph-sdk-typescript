@@ -1,7 +1,5 @@
 
 export interface ItemsRequestBuilderGetQueryParameters {
-    /** Include count of items */
-    count?: boolean | undefined;
     /** Expand related entities */
     expand?: string[] | undefined;
     /** Filter items by property values */

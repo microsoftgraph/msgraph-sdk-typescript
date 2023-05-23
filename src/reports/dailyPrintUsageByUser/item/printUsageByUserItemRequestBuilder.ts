@@ -39,10 +39,11 @@ export class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get dailyPrintUsageByUser from reports
+     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByUser
+     * @see {@link https://docs.microsoft.com/graph/api/printusagebyuser-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintUsageByUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByUser | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get dailyPrintUsageByUser from reports
+     * Retrieve a user's usage summary for a particular time period. For descriptions of each endpoint, see printUsageByUser.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

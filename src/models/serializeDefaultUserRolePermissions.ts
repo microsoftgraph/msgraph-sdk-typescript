@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export function serializeDefaultUserRolePermissions(writer: SerializationWriter, defaultUserRolePermissions: DefaultUserRolePermissions | undefined = {} as DefaultUserRolePermissions) : void {
         writer.writeBooleanValue("allowedToCreateApps", defaultUserRolePermissions.allowedToCreateApps);
         writer.writeBooleanValue("allowedToCreateSecurityGroups", defaultUserRolePermissions.allowedToCreateSecurityGroups);
+        writer.writeBooleanValue("allowedToCreateTenants", defaultUserRolePermissions.allowedToCreateTenants);
         writer.writeBooleanValue("allowedToReadBitlockerKeysForOwnedDevice", defaultUserRolePermissions.allowedToReadBitlockerKeysForOwnedDevice);
         writer.writeBooleanValue("allowedToReadOtherUsers", defaultUserRolePermissions.allowedToReadOtherUsers);
         writer.writeStringValue("@odata.type", defaultUserRolePermissions.odataType);
