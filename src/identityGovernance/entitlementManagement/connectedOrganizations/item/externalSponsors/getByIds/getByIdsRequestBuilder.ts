@@ -25,11 +25,12 @@ export class GetByIdsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization%2Did}/externalSponsors/getByIds");
     };
     /**
-     * Invoke action getByIds
+     * Return the directory objects specified in a list of IDs. Some common uses for this function are to:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetByIdsResponse
+     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetByIdsPostRequestBody | undefined, requestConfiguration?: GetByIdsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetByIdsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class GetByIdsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<GetByIdsResponse>(requestInfo, createGetByIdsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action getByIds
+     * Return the directory objects specified in a list of IDs. Some common uses for this function are to:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

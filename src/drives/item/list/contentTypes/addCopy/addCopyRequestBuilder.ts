@@ -25,11 +25,12 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/list/contentTypes/addCopy");
     };
     /**
-     * Invoke action addCopy
+     * Add a copy of a [content type][contentType] from a [site][site] to a [list][list].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
+     * @see {@link https://docs.microsoft.com/graph/api/contenttype-addcopy?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddCopyPostRequestBody | undefined, requestConfiguration?: AddCopyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action addCopy
+     * Add a copy of a [content type][contentType] from a [site][site] to a [list][list].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

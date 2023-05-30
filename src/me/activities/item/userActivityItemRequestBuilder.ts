@@ -29,9 +29,10 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/activities/{userActivity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property activities for me
+     * Delete an existing user activity for your app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/projectrome-delete-activity?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserActivityItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -78,7 +79,7 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UserActivity>(requestInfo, createUserActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property activities for me
+     * Delete an existing user activity for your app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

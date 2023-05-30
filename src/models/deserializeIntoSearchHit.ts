@@ -8,6 +8,7 @@ export function deserializeIntoSearchHit(searchHit: SearchHit | undefined = {} a
     return {
         "contentSource": n => { searchHit.contentSource = n.getStringValue(); },
         "hitId": n => { searchHit.hitId = n.getStringValue(); },
+        "isCollapsed": n => { searchHit.isCollapsed = n.getBooleanValue(); },
         "@odata.type": n => { searchHit.odataType = n.getStringValue(); },
         "rank": n => { searchHit.rank = n.getNumberValue(); },
         "resource": n => { searchHit.resource = n.getObjectValue<Entity>(createEntityFromDiscriminatorValue); },

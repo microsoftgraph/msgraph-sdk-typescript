@@ -49,10 +49,11 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Specifies the various policies associated with scopes and roles.
+     * Retrieve the details of a role management policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/unifiedrolemanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -99,7 +100,7 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Specifies the various policies associated with scopes and roles.
+     * Retrieve the details of a role management policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

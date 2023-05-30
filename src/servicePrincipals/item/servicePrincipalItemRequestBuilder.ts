@@ -32,6 +32,7 @@ import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {ServicePrincipalItemRequestBuilderDeleteRequestConfiguration} from './servicePrincipalItemRequestBuilderDeleteRequestConfiguration';
 import {ServicePrincipalItemRequestBuilderGetRequestConfiguration} from './servicePrincipalItemRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalItemRequestBuilderPatchRequestConfiguration} from './servicePrincipalItemRequestBuilderPatchRequestConfiguration';
+import {SynchronizationRequestBuilder} from './synchronization/synchronizationRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
@@ -132,6 +133,10 @@ export class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to call the restore method. */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the synchronization property of the microsoft.graph.servicePrincipal entity. */
+    public get synchronization(): SynchronizationRequestBuilder {
+        return new SynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.servicePrincipal entity. */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {

@@ -55,7 +55,7 @@ export interface Group extends DirectoryObject, Parsable {
     drives?: Drive[] | undefined;
     /** The group's calendar events. */
     events?: Event[] | undefined;
-    /** Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only. */
+    /** Timestamp of when the group is set to expire. Is null for security groups but for Microsoft 365 groups, it represents when the group is set to expire as defined in the groupLifecyclePolicy. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only. */
     expirationDateTime?: Date | undefined;
     /** The collection of open extensions defined for the group. Read-only. Nullable. */
     extensions?: Extension[] | undefined;

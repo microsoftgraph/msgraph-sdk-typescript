@@ -18,9 +18,10 @@ export class EnableSmsSignInRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/phoneMethods/{phoneAuthenticationMethod%2Did}/enableSmsSignIn");
     };
     /**
-     * Invoke action enableSmsSignIn
+     * Enable SMS sign-in for an existing `mobile` phone number registered to a user. To be successfully enabled:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/phoneauthenticationmethod-enablesmssignin?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: EnableSmsSignInRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +34,7 @@ export class EnableSmsSignInRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action enableSmsSignIn
+     * Enable SMS sign-in for an existing `mobile` phone number registered to a user. To be successfully enabled:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

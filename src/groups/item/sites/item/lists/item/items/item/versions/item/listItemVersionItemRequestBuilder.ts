@@ -49,10 +49,11 @@ export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The list of previous versions of the list item.
+     * Retrieve the metadata for a specific version of a ListItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItemVersion
+     * @see {@link https://docs.microsoft.com/graph/api/listitemversion-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemVersionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItemVersion | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -99,7 +100,7 @@ export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The list of previous versions of the list item.
+     * Retrieve the metadata for a specific version of a ListItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

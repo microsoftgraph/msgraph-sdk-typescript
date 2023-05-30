@@ -6,6 +6,7 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {GetAllSitesRequestBuilder} from './getAllSites/getAllSitesRequestBuilder';
 import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
 import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
@@ -22,6 +23,10 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     /** Provides operations to count the resources in the collection. */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the getAllSites method. */
+    public get getAllSites(): GetAllSitesRequestBuilder {
+        return new GetAllSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to call the remove method. */
     public get remove(): RemoveRequestBuilder {

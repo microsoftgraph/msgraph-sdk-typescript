@@ -44,10 +44,11 @@ export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The customer who has a delegated admin relationship with a Microsoft partner.
+     * Read the properties of a delegatedAdminCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminCustomer
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadmincustomer-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminCustomer | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * The customer who has a delegated admin relationship with a Microsoft partner.
+     * Read the properties of a delegatedAdminCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

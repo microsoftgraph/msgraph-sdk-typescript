@@ -8,6 +8,8 @@ export interface SearchHit extends AdditionalDataHolder, Parsable {
     contentSource?: string | undefined;
     /** The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format. */
     hitId?: string | undefined;
+    /** The isCollapsed property */
+    isCollapsed?: boolean | undefined;
     /** The OdataType property */
     odataType?: string | undefined;
     /** The rank or the order of the result. */

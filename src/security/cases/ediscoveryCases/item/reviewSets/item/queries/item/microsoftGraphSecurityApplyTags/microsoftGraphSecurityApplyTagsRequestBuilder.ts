@@ -21,10 +21,11 @@ export class MicrosoftGraphSecurityApplyTagsRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/queries/{ediscoveryReviewSetQuery%2Did}/microsoft.graph.security.applyTags");
     };
     /**
-     * Invoke action applyTags
+     * Apply tags to files in an eDiscovery review set. For details, see Tag documents in a review set in eDiscovery.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewsetquery-applytags?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ApplyTagsPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +39,7 @@ export class MicrosoftGraphSecurityApplyTagsRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action applyTags
+     * Apply tags to files in an eDiscovery review set. For details, see Tag documents in a review set in eDiscovery.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

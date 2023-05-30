@@ -44,10 +44,11 @@ export class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A list of pending user consent requests. Supports $filter (eq).
+     * Read the properties and relationships of a userConsentRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserConsentRequest
+     * @see {@link https://docs.microsoft.com/graph/api/userconsentrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserConsentRequestItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserConsentRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A list of pending user consent requests. Supports $filter (eq).
+     * Read the properties and relationships of a userConsentRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

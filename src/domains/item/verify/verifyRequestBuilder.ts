@@ -20,10 +20,11 @@ export class VerifyRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/verify");
     };
     /**
-     * Invoke action verify
+     * Validates the ownership of the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
+     * @see {@link https://docs.microsoft.com/graph/api/domain-verify?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: VerifyRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -36,7 +37,7 @@ export class VerifyRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action verify
+     * Validates the ownership of the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

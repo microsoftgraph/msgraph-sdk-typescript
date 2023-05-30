@@ -36,6 +36,7 @@ import {deserializeIntoAttachmentBaseCollectionResponse} from './deserializeInto
 import {deserializeIntoAttachmentCollectionResponse} from './deserializeIntoAttachmentCollectionResponse';
 import {deserializeIntoAttachmentSessionCollectionResponse} from './deserializeIntoAttachmentSessionCollectionResponse';
 import {deserializeIntoAttendanceRecordCollectionResponse} from './deserializeIntoAttendanceRecordCollectionResponse';
+import {deserializeIntoAttributeMappingFunctionSchemaCollectionResponse} from './deserializeIntoAttributeMappingFunctionSchemaCollectionResponse';
 import {deserializeIntoAttributeSetCollectionResponse} from './deserializeIntoAttributeSetCollectionResponse';
 import {deserializeIntoAudioRoutingGroupCollectionResponse} from './deserializeIntoAudioRoutingGroupCollectionResponse';
 import {deserializeIntoAuditEventCollectionResponse} from './deserializeIntoAuditEventCollectionResponse';
@@ -123,6 +124,7 @@ import {deserializeIntoDeviceManagementExportJobCollectionResponse} from './dese
 import {deserializeIntoDeviceManagementPartnerCollectionResponse} from './deserializeIntoDeviceManagementPartnerCollectionResponse';
 import {deserializeIntoDeviceManagementTroubleshootingEventCollectionResponse} from './deserializeIntoDeviceManagementTroubleshootingEventCollectionResponse';
 import {deserializeIntoDirectoryAuditCollectionResponse} from './deserializeIntoDirectoryAuditCollectionResponse';
+import {deserializeIntoDirectoryDefinitionCollectionResponse} from './deserializeIntoDirectoryDefinitionCollectionResponse';
 import {deserializeIntoDirectoryObjectCollectionResponse} from './deserializeIntoDirectoryObjectCollectionResponse';
 import {deserializeIntoDirectoryRoleCollectionResponse} from './deserializeIntoDirectoryRoleCollectionResponse';
 import {deserializeIntoDirectoryRoleTemplateCollectionResponse} from './deserializeIntoDirectoryRoleTemplateCollectionResponse';
@@ -151,6 +153,7 @@ import {deserializeIntoExtensionPropertyCollectionResponse} from './deserializeI
 import {deserializeIntoFeatureRolloutPolicyCollectionResponse} from './deserializeIntoFeatureRolloutPolicyCollectionResponse';
 import {deserializeIntoFederatedIdentityCredentialCollectionResponse} from './deserializeIntoFederatedIdentityCredentialCollectionResponse';
 import {deserializeIntoFido2AuthenticationMethodCollectionResponse} from './deserializeIntoFido2AuthenticationMethodCollectionResponse';
+import {deserializeIntoFilterOperatorSchemaCollectionResponse} from './deserializeIntoFilterOperatorSchemaCollectionResponse';
 import {deserializeIntoGroupCollectionResponse as Ia771c2f2afe71888041d2c0200fe31c183748ff5a137c155f8ba304d790fb238} from './deserializeIntoGroupCollectionResponse';
 import {deserializeIntoGroupLifecyclePolicyCollectionResponse} from './deserializeIntoGroupLifecyclePolicyCollectionResponse';
 import {deserializeIntoGroupSettingCollectionResponse} from './deserializeIntoGroupSettingCollectionResponse';
@@ -287,6 +290,8 @@ import {deserializeIntoSubjectRightsRequestCollectionResponse} from './deseriali
 import {deserializeIntoSubscribedSkuCollectionResponse} from './deserializeIntoSubscribedSkuCollectionResponse';
 import {deserializeIntoSubscriptionCollectionResponse} from './deserializeIntoSubscriptionCollectionResponse';
 import {deserializeIntoSwapShiftsChangeRequestCollectionResponse} from './deserializeIntoSwapShiftsChangeRequestCollectionResponse';
+import {deserializeIntoSynchronizationJobCollectionResponse} from './deserializeIntoSynchronizationJobCollectionResponse';
+import {deserializeIntoSynchronizationTemplateCollectionResponse} from './deserializeIntoSynchronizationTemplateCollectionResponse';
 import {deserializeIntoTargetedManagedAppConfigurationCollectionResponse} from './deserializeIntoTargetedManagedAppConfigurationCollectionResponse';
 import {deserializeIntoTargetedManagedAppPolicyAssignmentCollectionResponse} from './deserializeIntoTargetedManagedAppPolicyAssignmentCollectionResponse';
 import {deserializeIntoTeamCollectionResponse} from './deserializeIntoTeamCollectionResponse';
@@ -356,6 +361,7 @@ import {deserializeIntoWorkbookTableRowCollectionResponse} from './deserializeIn
 import {deserializeIntoWorkbookWorksheetCollectionResponse} from './deserializeIntoWorkbookWorksheetCollectionResponse';
 import {deserializeIntoWorkforceIntegrationCollectionResponse} from './deserializeIntoWorkforceIntegrationCollectionResponse';
 import {deserializeIntoConnectionOperationCollectionResponse} from './externalConnectors/deserializeIntoConnectionOperationCollectionResponse';
+import {deserializeIntoExternalActivityCollectionResponse} from './externalConnectors/deserializeIntoExternalActivityCollectionResponse';
 import {deserializeIntoExternalConnectionCollectionResponse} from './externalConnectors/deserializeIntoExternalConnectionCollectionResponse';
 import {deserializeIntoExternalGroupCollectionResponse} from './externalConnectors/deserializeIntoExternalGroupCollectionResponse';
 import {deserializeIntoExternalItemCollectionResponse} from './externalConnectors/deserializeIntoExternalItemCollectionResponse';

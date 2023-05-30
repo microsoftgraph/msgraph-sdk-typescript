@@ -34,11 +34,13 @@ import {serializePublicClientApplication} from './serializePublicClientApplicati
 import {serializeRequestSignatureVerification} from './serializeRequestSignatureVerification';
 import {serializeRequiredResourceAccess} from './serializeRequiredResourceAccess';
 import {serializeSpaApplication} from './serializeSpaApplication';
+import {serializeSynchronization} from './serializeSynchronization';
 import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
 import {serializeTokenLifetimePolicy} from './serializeTokenLifetimePolicy';
 import {serializeVerifiedPublisher} from './serializeVerifiedPublisher';
 import {serializeWebApplication} from './serializeWebApplication';
 import {SpaApplication} from './spaApplication';
+import {Synchronization} from './synchronization';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
@@ -84,6 +86,7 @@ export function serializeApplication(writer: SerializationWriter, application: A
         writer.writeStringValue("serviceManagementReference", application.serviceManagementReference);
         writer.writeStringValue("signInAudience", application.signInAudience);
         writer.writeObjectValue<SpaApplication>("spa", application.spa, serializeSpaApplication);
+        writer.writeObjectValue<Synchronization>("synchronization", application.synchronization, serializeSynchronization);
         writer.writeCollectionOfPrimitiveValues<string>("tags", application.tags);
         writer.writeStringValue("tokenEncryptionKeyId", application.tokenEncryptionKeyId);
         writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", application.tokenIssuancePolicies, serializeTokenIssuancePolicy);

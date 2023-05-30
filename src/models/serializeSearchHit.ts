@@ -6,6 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export function serializeSearchHit(writer: SerializationWriter, searchHit: SearchHit | undefined = {} as SearchHit) : void {
         writer.writeStringValue("contentSource", searchHit.contentSource);
         writer.writeStringValue("hitId", searchHit.hitId);
+        writer.writeBooleanValue("isCollapsed", searchHit.isCollapsed);
         writer.writeStringValue("@odata.type", searchHit.odataType);
         writer.writeNumberValue("rank", searchHit.rank);
         writer.writeObjectValue<Entity>("resource", searchHit.resource, serializeEntity);
