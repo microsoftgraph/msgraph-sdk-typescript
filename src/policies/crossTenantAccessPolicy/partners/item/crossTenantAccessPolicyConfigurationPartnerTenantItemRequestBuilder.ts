@@ -29,9 +29,10 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/policies/crossTenantAccessPolicy/partners/{crossTenantAccessPolicyConfigurationPartner%2DtenantId}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property partners for policies
+     * Delete a partner-specific configuration in a cross-tenant access policy. If a configuration includes a user synchronization policy, you must first delete the user synchronization policy before you can delete the partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Defines partner-specific configurations for external Azure Active Directory organizations.
+     * Read the properties and relationships of a partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartner
+     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         return this.requestAdapter?.sendAsync<CrossTenantAccessPolicyConfigurationPartner>(requestInfo, createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property partners in policies
+     * Update the properties of a partner-specific configuration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartner
+     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CrossTenantAccessPolicyConfigurationPartner | undefined, requestConfiguration?: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         return this.requestAdapter?.sendAsync<CrossTenantAccessPolicyConfigurationPartner>(requestInfo, createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property partners for policies
+     * Delete a partner-specific configuration in a cross-tenant access policy. If a configuration includes a user synchronization policy, you must first delete the user synchronization policy before you can delete the partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         return requestInfo;
     };
     /**
-     * Defines partner-specific configurations for external Azure Active Directory organizations.
+     * Read the properties and relationships of a partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
         return requestInfo;
     };
     /**
-     * Update the navigation property partners in policies
+     * Update the properties of a partner-specific configuration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

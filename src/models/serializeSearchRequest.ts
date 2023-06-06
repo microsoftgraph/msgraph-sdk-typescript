@@ -1,10 +1,12 @@
 import {AggregationOption} from './aggregationOption';
+import {CollapseProperty} from './collapseProperty';
 import {EntityType} from './entityType';
 import {ResultTemplateOption} from './resultTemplateOption';
 import {SearchAlterationOptions} from './searchAlterationOptions';
 import {SearchQuery} from './searchQuery';
 import {SearchRequest} from './searchRequest';
 import {serializeAggregationOption} from './serializeAggregationOption';
+import {serializeCollapseProperty} from './serializeCollapseProperty';
 import {serializeResultTemplateOption} from './serializeResultTemplateOption';
 import {serializeSearchAlterationOptions} from './serializeSearchAlterationOptions';
 import {serializeSearchQuery} from './serializeSearchQuery';
@@ -17,6 +19,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export function serializeSearchRequest(writer: SerializationWriter, searchRequest: SearchRequest | undefined = {} as SearchRequest) : void {
         writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", searchRequest.aggregationFilters);
         writer.writeCollectionOfObjectValues<AggregationOption>("aggregations", searchRequest.aggregations, serializeAggregationOption);
+        writer.writeCollectionOfObjectValues<CollapseProperty>("collapseProperties", searchRequest.collapseProperties, serializeCollapseProperty);
         writer.writeCollectionOfPrimitiveValues<string>("contentSources", searchRequest.contentSources);
         writer.writeBooleanValue("enableTopResults", searchRequest.enableTopResults);
         if(searchRequest.entityTypes)

@@ -60,11 +60,12 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ActivityHistoryItem>(requestInfo, createActivityHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property historyItems in users
+     * Delete an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ActivityHistoryItem
+     * @see {@link https://docs.microsoft.com/graph/api/projectrome-delete-historyitem?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ActivityHistoryItem | undefined, requestConfiguration?: ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -112,7 +113,7 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property historyItems in users
+     * Delete an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

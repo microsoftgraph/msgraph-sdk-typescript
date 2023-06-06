@@ -2,6 +2,8 @@ import {AlertEvidence} from './alertEvidence';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RegistryValueEvidence extends AlertEvidence, Parsable {
+    /** The mdeDeviceId property */
+    mdeDeviceId?: string | undefined;
     /** Registry hive of the key that the recorded action was applied to. */
     registryHive?: string | undefined;
     /** Registry key that the recorded action was applied to. */

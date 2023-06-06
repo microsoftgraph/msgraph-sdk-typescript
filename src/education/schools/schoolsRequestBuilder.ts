@@ -47,10 +47,11 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/schools{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get schools from education
+     * Get a list of the educationSchool objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSchoolCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/educationschool-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchoolCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -63,11 +64,12 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationSchoolCollectionResponse>(requestInfo, createEducationSchoolCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to schools for education
+     * Create a new educationSchool object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSchool
+     * @see {@link https://docs.microsoft.com/graph/api/educationschool-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationSchool | undefined, requestConfiguration?: SchoolsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchool | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -81,7 +83,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationSchool>(requestInfo, createEducationSchoolFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get schools from education
+     * Get a list of the educationSchool objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +101,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to schools for education
+     * Create a new educationSchool object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -25,10 +25,11 @@ export class UserRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/user{?%24select,%24expand}");
     };
     /**
-     * The directory user that corresponds to this user.
+     * Retrieve the simple directory **user** that corresponds to this **educationUser**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
+     * @see {@link https://docs.microsoft.com/graph/api/educationuser-get-user?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -41,7 +42,7 @@ export class UserRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The directory user that corresponds to this user.
+     * Retrieve the simple directory **user** that corresponds to this **educationUser**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -25,11 +25,12 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/translateExchangeIds");
     };
     /**
-     * Invoke action translateExchangeIds
+     * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TranslateExchangeIdsResponse
+     * @see {@link https://docs.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TranslateExchangeIdsPostRequestBody | undefined, requestConfiguration?: TranslateExchangeIdsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TranslateExchangeIdsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TranslateExchangeIdsResponse>(requestInfo, createTranslateExchangeIdsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action translateExchangeIds
+     * Translate identifiers of Outlook-related resources between formats.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

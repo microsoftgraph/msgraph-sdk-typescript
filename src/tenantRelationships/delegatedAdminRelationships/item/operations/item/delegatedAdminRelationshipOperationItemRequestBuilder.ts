@@ -39,10 +39,11 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The long running operations associated with the delegated admin relationship.
+     * Read the properties of a delegatedAdminRelationshipOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipOperation
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * The long running operations associated with the delegated admin relationship.
+     * Read the properties of a delegatedAdminRelationshipOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

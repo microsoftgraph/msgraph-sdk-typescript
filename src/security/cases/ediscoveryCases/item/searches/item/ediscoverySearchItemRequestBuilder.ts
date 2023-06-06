@@ -59,9 +59,10 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property searches for security
+     * Delete an ediscoverySearch object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-delete-searches?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -74,10 +75,11 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Returns a list of eDiscoverySearch objects associated with this case.
+     * Read the properties and relationships of an ediscoverySearch object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoverySearch
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoverySearchItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoverySearch | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -90,11 +92,12 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property searches in security
+     * Update the properties of an ediscoverySearch object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoverySearch
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EdiscoverySearch | undefined, requestConfiguration?: EdiscoverySearchItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoverySearch | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -108,7 +111,7 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property searches for security
+     * Delete an ediscoverySearch object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -124,7 +127,7 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Returns a list of eDiscoverySearch objects associated with this case.
+     * Read the properties and relationships of an ediscoverySearch object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -142,7 +145,7 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property searches in security
+     * Update the properties of an ediscoverySearch object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

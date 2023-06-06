@@ -42,10 +42,11 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/openShiftChangeRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The open shift requests in the schedule.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShiftChangeRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/openshiftchangerequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShiftChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OpenShiftChangeRequestCollectionResponse>(requestInfo, createOpenShiftChangeRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to openShiftChangeRequests for me
+     * Create instance of an openShiftChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OpenShiftChangeRequest
+     * @see {@link https://docs.microsoft.com/graph/api/openshiftchangerequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OpenShiftChangeRequest | undefined, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OpenShiftChangeRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OpenShiftChangeRequest>(requestInfo, createOpenShiftChangeRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The open shift requests in the schedule.
+     * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to openShiftChangeRequests for me
+     * Create instance of an openShiftChangeRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

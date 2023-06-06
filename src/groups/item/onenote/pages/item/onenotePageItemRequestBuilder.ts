@@ -54,9 +54,10 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/onenote/pages/{onenotePage%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property pages for groups
+     * Delete a OneNote page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/page-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OnenotePageItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -103,7 +104,7 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OnenotePage>(requestInfo, createOnenotePageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property pages for groups
+     * Delete a OneNote page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

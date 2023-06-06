@@ -54,9 +54,10 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property users for education
+     * Delete a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/educationuser-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationUserItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -69,10 +70,11 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get users from education
+     * Read the properties and relationships of an educationUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationUser
+     * @see {@link https://docs.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -85,11 +87,12 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property users in education
+     * Update the properties of an educationUser object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationUser
+     * @see {@link https://docs.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationUser | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -103,7 +106,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property users for education
+     * Delete a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -119,7 +122,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get users from education
+     * Read the properties and relationships of an educationUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -137,7 +140,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property users in education
+     * Update the properties of an educationUser object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

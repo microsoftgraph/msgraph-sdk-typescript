@@ -34,9 +34,10 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property permissionGrantPolicies for policies
+     * Delete a permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,10 +50,11 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The policy that specifies the conditions under which consent can be granted.
+     * Retrieve a single permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PermissionGrantPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +67,12 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<PermissionGrantPolicy>(requestInfo, createPermissionGrantPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property permissionGrantPolicies in policies
+     * Update properties of a  permissionGrantPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PermissionGrantPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PermissionGrantPolicy | undefined, requestConfiguration?: PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -83,7 +86,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<PermissionGrantPolicy>(requestInfo, createPermissionGrantPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property permissionGrantPolicies for policies
+     * Delete a permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +102,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * The policy that specifies the conditions under which consent can be granted.
+     * Retrieve a single permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +120,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the navigation property permissionGrantPolicies in policies
+     * Update properties of a  permissionGrantPolicy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

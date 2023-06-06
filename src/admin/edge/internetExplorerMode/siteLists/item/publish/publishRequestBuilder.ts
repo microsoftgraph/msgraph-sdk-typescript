@@ -25,11 +25,12 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/publish");
     };
     /**
-     * Invoke action publish
+     * Publish the specified browserSiteList for devices to download.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteList
+     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-publish?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PublishPostRequestBody | undefined, requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSiteList | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action publish
+     * Publish the specified browserSiteList for devices to download.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

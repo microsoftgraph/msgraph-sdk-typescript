@@ -5,6 +5,7 @@ export function deserializeIntoDefaultUserRolePermissions(defaultUserRolePermiss
     return {
         "allowedToCreateApps": n => { defaultUserRolePermissions.allowedToCreateApps = n.getBooleanValue(); },
         "allowedToCreateSecurityGroups": n => { defaultUserRolePermissions.allowedToCreateSecurityGroups = n.getBooleanValue(); },
+        "allowedToCreateTenants": n => { defaultUserRolePermissions.allowedToCreateTenants = n.getBooleanValue(); },
         "allowedToReadBitlockerKeysForOwnedDevice": n => { defaultUserRolePermissions.allowedToReadBitlockerKeysForOwnedDevice = n.getBooleanValue(); },
         "allowedToReadOtherUsers": n => { defaultUserRolePermissions.allowedToReadOtherUsers = n.getBooleanValue(); },
         "@odata.type": n => { defaultUserRolePermissions.odataType = n.getStringValue(); },

@@ -42,10 +42,11 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/joinedTeams/{team%2Did}/schedule/timeOffRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get timeOffRequests from me
+     * Retrieve a list of timeOffRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimeOffRequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TimeOffRequest>(requestInfo, createTimeOffRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get timeOffRequests from me
+     * Retrieve a list of timeOffRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

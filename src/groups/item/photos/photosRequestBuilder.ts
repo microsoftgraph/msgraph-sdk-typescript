@@ -37,10 +37,11 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/photos{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * The profile photos owned by the group. Read-only. Nullable.
+     * Retrieve a list of profilePhoto objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProfilePhotoCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/group-list-photos?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PhotosRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProfilePhotoCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +54,7 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ProfilePhotoCollectionResponse>(requestInfo, createProfilePhotoCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The profile photos owned by the group. Read-only. Nullable.
+     * Retrieve a list of profilePhoto objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -44,10 +44,11 @@ export class ThreatAssessmentRequestItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get threatAssessmentRequests from informationProtection
+     * Retrieve the properties and relationships of a specified threatAssessmentRequest object. A threat assessment request can be one of the following types:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThreatAssessmentRequest
+     * @see {@link https://docs.microsoft.com/graph/api/threatassessmentrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ThreatAssessmentRequestItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThreatAssessmentRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class ThreatAssessmentRequestItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Get threatAssessmentRequests from informationProtection
+     * Retrieve the properties and relationships of a specified threatAssessmentRequest object. A threat assessment request can be one of the following types:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

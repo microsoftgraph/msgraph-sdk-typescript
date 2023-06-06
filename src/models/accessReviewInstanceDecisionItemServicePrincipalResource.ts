@@ -2,6 +2,6 @@ import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDe
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessReviewInstanceDecisionItemResource, Parsable {
-    /** The appId property */
+    /** The globally unique identifier of the application to which access has been granted. */
     appId?: string | undefined;
 }

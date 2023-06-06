@@ -24,9 +24,10 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/schedulingGroups/{schedulingGroup%2Did}{?%24select}");
     };
     /**
-     * Delete navigation property schedulingGroups for teams
+     * Mark a schedulingGroup as inactive by setting its **isActive** property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/schedulinggroup-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SchedulingGroupItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The logical grouping of users in the schedule (usually by role).
+     * Retrieve the properties and relationships of a schedulingGroup by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SchedulingGroup
+     * @see {@link https://docs.microsoft.com/graph/api/schedulinggroup-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchedulingGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SchedulingGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SchedulingGroup>(requestInfo, createSchedulingGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property schedulingGroups in teams
+     * Replace an existing schedulingGroup. If the specified schedulingGroup doesn't exist, this method returns `404 Not found`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SchedulingGroup
+     * @see {@link https://docs.microsoft.com/graph/api/schedulinggroup-put?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SchedulingGroup | undefined, requestConfiguration?: SchedulingGroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SchedulingGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SchedulingGroup>(requestInfo, createSchedulingGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property schedulingGroups for teams
+     * Mark a schedulingGroup as inactive by setting its **isActive** property.This method does not remove the schedulingGroup from the schedule. Existing shift instances assigned to the scheduling group remain part of the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The logical grouping of users in the schedule (usually by role).
+     * Retrieve the properties and relationships of a schedulingGroup by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property schedulingGroups in teams
+     * Replace an existing schedulingGroup. If the specified schedulingGroup doesn't exist, this method returns `404 Not found`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

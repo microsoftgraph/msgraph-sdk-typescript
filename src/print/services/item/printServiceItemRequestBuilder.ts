@@ -44,10 +44,11 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The list of available Universal Print service endpoints.
+     * Retrieve the properties and relationships of a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintService
+     * @see {@link https://docs.microsoft.com/graph/api/printservice-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintServiceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintService | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The list of available Universal Print service endpoints.
+     * Retrieve the properties and relationships of a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -64,10 +64,11 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequest
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Schedules for active role assignment operations.
+     * Retrieve the schedule for an active role assignment operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentSchedule
+     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleassignmentschedule-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -114,7 +115,7 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Schedules for active role assignment operations.
+     * Retrieve the schedule for an active role assignment operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

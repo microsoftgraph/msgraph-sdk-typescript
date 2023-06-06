@@ -23,10 +23,11 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/alerts/{alert%2Did}{?%24select,%24expand}");
     };
     /**
-     * Get alerts from security
+     * Retrieve the properties and relationships of an alert object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Alert
+     * @see {@link https://docs.microsoft.com/graph/api/alert-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AlertItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Alert | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -39,11 +40,12 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Alert>(requestInfo, createAlertFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property alerts in security
+     * Update an editable **alert** property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Alert
+     * @see {@link https://docs.microsoft.com/graph/api/alert-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Alert | undefined, requestConfiguration?: AlertItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Alert | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -57,7 +59,7 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Alert>(requestInfo, createAlertFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get alerts from security
+     * Retrieve the properties and relationships of an alert object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -75,7 +77,7 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property alerts in security
+     * Update an editable **alert** property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -39,10 +39,11 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get secureScoreControlProfiles from security
+     * Retrieve the properties and relationships of an securescorecontrolprofile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SecureScoreControlProfile
+     * @see {@link https://docs.microsoft.com/graph/api/securescorecontrolprofile-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreControlProfile | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter?.sendAsync<SecureScoreControlProfile>(requestInfo, createSecureScoreControlProfileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property secureScoreControlProfiles in security
+     * Update an editable **secureScoreControlProfile** object within any integrated solution to change various properties, such as **assignedTo** or **tenantNote**.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SecureScoreControlProfile
+     * @see {@link https://docs.microsoft.com/graph/api/securescorecontrolprofile-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SecureScoreControlProfile | undefined, requestConfiguration?: SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SecureScoreControlProfile | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Get secureScoreControlProfiles from security
+     * Retrieve the properties and relationships of an securescorecontrolprofile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Update the navigation property secureScoreControlProfiles in security
+     * Update an editable **secureScoreControlProfile** object within any integrated solution to change various properties, such as **assignedTo** or **tenantNote**.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

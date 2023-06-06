@@ -11,6 +11,8 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoSubscribedSku(subscribedSku: SubscribedSku | undefined = {} as SubscribedSku) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(subscribedSku),
+        "accountId": n => { subscribedSku.accountId = n.getStringValue(); },
+        "accountName": n => { subscribedSku.accountName = n.getStringValue(); },
         "appliesTo": n => { subscribedSku.appliesTo = n.getStringValue(); },
         "capabilityStatus": n => { subscribedSku.capabilityStatus = n.getStringValue(); },
         "consumedUnits": n => { subscribedSku.consumedUnits = n.getNumberValue(); },
@@ -18,5 +20,6 @@ export function deserializeIntoSubscribedSku(subscribedSku: SubscribedSku | unde
         "servicePlans": n => { subscribedSku.servicePlans = n.getCollectionOfObjectValues<ServicePlanInfo>(createServicePlanInfoFromDiscriminatorValue); },
         "skuId": n => { subscribedSku.skuId = n.getStringValue(); },
         "skuPartNumber": n => { subscribedSku.skuPartNumber = n.getStringValue(); },
+        "subscriptionIds": n => { subscribedSku.subscriptionIds = n.getCollectionOfPrimitiveValues<string>(); },
     }
 }

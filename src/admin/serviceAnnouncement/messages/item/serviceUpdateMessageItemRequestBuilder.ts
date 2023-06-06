@@ -49,10 +49,11 @@ export class ServiceUpdateMessageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceUpdateMessage
+     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceUpdateMessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceUpdateMessage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -99,7 +100,7 @@ export class ServiceUpdateMessageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

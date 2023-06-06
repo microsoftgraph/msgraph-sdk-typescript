@@ -39,9 +39,10 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property participants for communications
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/participant-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ParticipantItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -54,10 +55,11 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get participants from communications
+     * Retrieve the properties and relationships of a **participant** object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Participant
+     * @see {@link https://docs.microsoft.com/graph/api/participant-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ParticipantItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Participant | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,7 +90,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Participant>(requestInfo, createParticipantFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property participants for communications
+     * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get participants from communications
+     * Retrieve the properties and relationships of a **participant** object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

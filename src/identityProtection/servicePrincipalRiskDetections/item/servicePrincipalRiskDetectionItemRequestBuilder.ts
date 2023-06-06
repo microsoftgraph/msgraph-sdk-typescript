@@ -39,10 +39,11 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents information about detected at-risk service principals in an Azure AD tenant.
+     * Read the properties and relationships of a servicePrincipalRiskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipalRiskDetection
+     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Represents information about detected at-risk service principals in an Azure AD tenant.
+     * Read the properties and relationships of a servicePrincipalRiskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

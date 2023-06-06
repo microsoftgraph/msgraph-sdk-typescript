@@ -39,10 +39,11 @@ export class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuild
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The collection of long-running operations on the site.
+     * Get the status of a rich long-running operation on a site or a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RichLongRunningOperation
+     * @see {@link https://docs.microsoft.com/graph/api/richlongrunningoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RichLongRunningOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RichLongRunningOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuild
         return requestInfo;
     };
     /**
-     * The collection of long-running operations on the site.
+     * Get the status of a rich long-running operation on a site or a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

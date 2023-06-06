@@ -20,10 +20,11 @@ export class StartRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}/jobs/{printJob%2Did}/start");
     };
     /**
-     * Invoke action start
+     * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending **jobs** are completed, aborted, or canceled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintJobStatus
+     * @see {@link https://docs.microsoft.com/graph/api/printjob-start?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: StartRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintJobStatus | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -36,7 +37,7 @@ export class StartRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PrintJobStatus>(requestInfo, createPrintJobStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action start
+     * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending **jobs** are completed, aborted, or canceled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -17,4 +17,5 @@ export enum DetectionSource {
     AppGovernancePolicy = "appGovernancePolicy",
     AppGovernanceDetection = "appGovernanceDetection",
     UnknownFutureValue = "unknownFutureValue",
+    MicrosoftDefenderForCloud = "microsoftDefenderForCloud",
 }

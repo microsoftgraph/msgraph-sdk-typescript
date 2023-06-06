@@ -37,10 +37,11 @@ export class DrivesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/drives{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * A collection of drives available for this user. Read-only.
+     * Retrieve the list of Drive resources available for a target User, Group, or Site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/drive-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DrivesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +54,7 @@ export class DrivesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DriveCollectionResponse>(requestInfo, createDriveCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of drives available for this user. Read-only.
+     * Retrieve the list of Drive resources available for a target User, Group, or Site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

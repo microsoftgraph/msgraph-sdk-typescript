@@ -42,7 +42,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The list of print long running operations.
+     * Retrieve the properties and relationships of a printOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintOperationCollectionResponse
@@ -76,7 +76,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PrintOperation>(requestInfo, createPrintOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The list of print long running operations.
+     * Retrieve the properties and relationships of a printOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

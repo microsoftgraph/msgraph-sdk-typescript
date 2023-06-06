@@ -44,10 +44,11 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get customSecurityAttributeDefinitions from directory
+     * Read the properties and relationships of a customSecurityAttributeDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CustomSecurityAttributeDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +61,12 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
         return this.requestAdapter?.sendAsync<CustomSecurityAttributeDefinition>(requestInfo, createCustomSecurityAttributeDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property customSecurityAttributeDefinitions in directory
+     * Update the properties of a customSecurityAttributeDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CustomSecurityAttributeDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -94,7 +96,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * Get customSecurityAttributeDefinitions from directory
+     * Read the properties and relationships of a customSecurityAttributeDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +114,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * Update the navigation property customSecurityAttributeDefinitions in directory
+     * Update the properties of a customSecurityAttributeDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

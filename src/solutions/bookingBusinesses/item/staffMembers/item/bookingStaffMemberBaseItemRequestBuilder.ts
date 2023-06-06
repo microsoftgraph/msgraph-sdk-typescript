@@ -24,9 +24,10 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/staffMembers/{bookingStaffMemberBase%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property staffMembers for solutions
+     * Delete a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All the staff members that provide services in this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingStaffMemberBase
+     * @see {@link https://docs.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBase | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<BookingStaffMemberBase>(requestInfo, createBookingStaffMemberBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property staffMembers in solutions
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingStaffMemberBase
+     * @see {@link https://docs.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingStaffMemberBase | undefined, requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingStaffMemberBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<BookingStaffMemberBase>(requestInfo, createBookingStaffMemberBaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property staffMembers for solutions
+     * Delete a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * All the staff members that provide services in this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Update the navigation property staffMembers in solutions
+     * Update the properties of a bookingStaffMember in the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

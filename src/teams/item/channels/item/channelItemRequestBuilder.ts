@@ -69,9 +69,10 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/channels/{channel%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property channels for teams
+     * Delete the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ChannelItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -84,10 +85,11 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The collection of channels and messages associated with the team.
+     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
+     * @see {@link https://docs.microsoft.com/graph/api/channel-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChannelItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -100,11 +102,12 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property channels in teams
+     * Update the properties of the specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
+     * @see {@link https://docs.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Channel | undefined, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -118,7 +121,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property channels for teams
+     * Delete the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -134,7 +137,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The collection of channels and messages associated with the team.
+     * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -152,7 +155,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property channels in teams
+     * Update the properties of the specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

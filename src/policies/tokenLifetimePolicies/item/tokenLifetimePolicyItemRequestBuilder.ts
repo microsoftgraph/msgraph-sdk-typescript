@@ -29,9 +29,10 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/tokenLifetimePolicies/{tokenLifetimePolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property tokenLifetimePolicies for policies
+     * Delete a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
+     * Retrieve the properties and relationships of a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TokenLifetimePolicy
+     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenLifetimePolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TokenLifetimePolicy>(requestInfo, createTokenLifetimePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property tokenLifetimePolicies in policies
+     * Update the properties of a tokenLifetimePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TokenLifetimePolicy
+     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TokenLifetimePolicy | undefined, requestConfiguration?: TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TokenLifetimePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TokenLifetimePolicy>(requestInfo, createTokenLifetimePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property tokenLifetimePolicies for policies
+     * Delete a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
+     * Retrieve the properties and relationships of a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property tokenLifetimePolicies in policies
+     * Update the properties of a tokenLifetimePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

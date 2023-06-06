@@ -8,6 +8,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookOperation} from '../../../../../../models/serializeWorkbookOperation';
 import {WorkbookOperation} from '../../../../../../models/workbookOperation';
+import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookOperationItemRequestBuilder} from './item/workbookOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
@@ -17,6 +18,10 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
  */
 export class OperationsRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to count the resources in the collection. */
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
      * @param workbookOperationId Unique identifier of the item
@@ -37,7 +42,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/operations{?%24search,%24orderby,%24select,%24expand}");
     };
     /**
-     * The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
+     * Meaningless if this url is called independently. This request is part of all async requests for excel. This is used to retrieve the status of a workbookOperation object. Currently not all requests support async. Take Create session request as an example. Issue an async Create session request, follow the documentation and you may get status code `202 Accepted`, async operation starts from here and you can find the url this document required from the response header, from the **location** part.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookOperationCollectionResponse
@@ -71,7 +76,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookOperation>(requestInfo, createWorkbookOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
+     * Meaningless if this url is called independently. This request is part of all async requests for excel. This is used to retrieve the status of a workbookOperation object. Currently not all requests support async. Take Create session request as an example. Issue an async Create session request, follow the documentation and you may get status code `202 Accepted`, async operation starts from here and you can find the url this document required from the response header, from the **location** part.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

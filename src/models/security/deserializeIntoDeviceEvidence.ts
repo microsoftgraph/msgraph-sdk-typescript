@@ -20,6 +20,7 @@ export function deserializeIntoDeviceEvidence(deviceEvidence: DeviceEvidence | u
         "deviceDnsName": n => { deviceEvidence.deviceDnsName = n.getStringValue(); },
         "firstSeenDateTime": n => { deviceEvidence.firstSeenDateTime = n.getDateValue(); },
         "healthStatus": n => { deviceEvidence.healthStatus = n.getEnumValue<DeviceHealthStatus>(DeviceHealthStatus); },
+        "ipInterfaces": n => { deviceEvidence.ipInterfaces = n.getCollectionOfPrimitiveValues<string>(); },
         "loggedOnUsers": n => { deviceEvidence.loggedOnUsers = n.getCollectionOfObjectValues<LoggedOnUser>(createLoggedOnUserFromDiscriminatorValue); },
         "mdeDeviceId": n => { deviceEvidence.mdeDeviceId = n.getStringValue(); },
         "onboardingStatus": n => { deviceEvidence.onboardingStatus = n.getEnumValue<OnboardingStatus>(OnboardingStatus); },

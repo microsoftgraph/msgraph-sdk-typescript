@@ -39,10 +39,11 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get attributeSets from directory
+     * Read the properties and relationships of an attributeSet object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeSet
+     * @see {@link https://docs.microsoft.com/graph/api/attributeset-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttributeSetItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeSet | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AttributeSet>(requestInfo, createAttributeSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property attributeSets in directory
+     * Update the properties of an attributeSet object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeSet
+     * @see {@link https://docs.microsoft.com/graph/api/attributeset-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AttributeSet | undefined, requestConfiguration?: AttributeSetItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get attributeSets from directory
+     * Read the properties and relationships of an attributeSet object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property attributeSets in directory
+     * Update the properties of an attributeSet object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

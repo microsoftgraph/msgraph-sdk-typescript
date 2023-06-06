@@ -59,10 +59,11 @@ export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends Ba
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Instances for role eligibility requests.
+     * Get the instance of a role eligibility.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleInstance
+     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleeligibilityscheduleinstance-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilityScheduleInstance | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -109,7 +110,7 @@ export class UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder extends Ba
         return requestInfo;
     };
     /**
-     * Instances for role eligibility requests.
+     * Get the instance of a role eligibility.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

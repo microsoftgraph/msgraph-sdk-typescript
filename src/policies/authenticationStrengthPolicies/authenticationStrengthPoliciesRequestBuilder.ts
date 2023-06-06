@@ -42,10 +42,11 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/policies/authenticationStrengthPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
+     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationStrengthPolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-list-policies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationStrengthPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
         return this.requestAdapter?.sendAsync<AuthenticationStrengthPolicyCollectionResponse>(requestInfo, createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to authenticationStrengthPolicies for policies
+     * Create a new custom authenticationStrengthPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationStrengthPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-post-policies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AuthenticationStrengthPolicy | undefined, requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
         return this.requestAdapter?.sendAsync<AuthenticationStrengthPolicy>(requestInfo, createAuthenticationStrengthPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
+     * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Create new navigation property to authenticationStrengthPolicies for policies
+     * Create a new custom authenticationStrengthPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

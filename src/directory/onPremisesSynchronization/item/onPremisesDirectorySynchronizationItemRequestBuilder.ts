@@ -39,10 +39,11 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A container for on-premises directory synchronization functionalities that are available for the organization.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnPremisesDirectorySynchronization
+     * @see {@link https://docs.microsoft.com/graph/api/onpremisesdirectorysynchronization-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return this.requestAdapter?.sendAsync<OnPremisesDirectorySynchronization>(requestInfo, createOnPremisesDirectorySynchronizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property onPremisesSynchronization in directory
+     * Update the properties of an onPremisesDirectorySynchronization object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnPremisesDirectorySynchronization
+     * @see {@link https://docs.microsoft.com/graph/api/onpremisesdirectorysynchronization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OnPremisesDirectorySynchronization | undefined, requestConfiguration?: OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * A container for on-premises directory synchronization functionalities that are available for the organization.
+     * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * Update the navigation property onPremisesSynchronization in directory
+     * Update the properties of an onPremisesDirectorySynchronization object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

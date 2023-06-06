@@ -42,10 +42,11 @@ export class SimulationAutomationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/attackSimulation/simulationAutomations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Represents simulation automation created to run on a tenant.
+     * Get a list of attack simulation automations for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SimulationAutomationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/attacksimulationroot-list-simulationautomations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SimulationAutomationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SimulationAutomationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class SimulationAutomationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SimulationAutomation>(requestInfo, createSimulationAutomationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents simulation automation created to run on a tenant.
+     * Get a list of attack simulation automations for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

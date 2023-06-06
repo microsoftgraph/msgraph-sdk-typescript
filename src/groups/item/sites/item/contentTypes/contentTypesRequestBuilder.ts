@@ -57,10 +57,11 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The collection of content types defined for this site.
+     * Get the collection of [contentType][contentType] resources in a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentTypeCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentTypeCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,11 +74,12 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ContentTypeCollectionResponse>(requestInfo, createContentTypeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to contentTypes for groups
+     * Create a new [contentType][] in a [site][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
+     * @see {@link https://docs.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ContentType | undefined, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -91,7 +93,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The collection of content types defined for this site.
+     * Get the collection of [contentType][contentType] resources in a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +111,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to contentTypes for groups
+     * Create a new [contentType][] in a [site][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

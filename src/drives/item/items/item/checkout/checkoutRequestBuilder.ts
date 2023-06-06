@@ -18,9 +18,10 @@ export class CheckoutRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/checkout");
     };
     /**
-     * Invoke action checkout
+     * Check out a **driveItem** resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/driveitem-checkout?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: CheckoutRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +34,7 @@ export class CheckoutRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action checkout
+     * Check out a **driveItem** resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
