@@ -44,10 +44,11 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceHealth
+     * @see {@link https://docs.microsoft.com/graph/api/servicehealth-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceHealthItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceHealth | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

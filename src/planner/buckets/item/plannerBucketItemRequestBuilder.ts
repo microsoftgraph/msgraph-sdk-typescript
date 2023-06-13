@@ -29,9 +29,10 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/planner/buckets/{plannerBucket%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property buckets for planner
+     * Delete **plannerBucket**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/plannerbucket-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PlannerBucketItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified buckets
+     * Retrieve the properties and relationships of a plannerBucket object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerBucket
+     * @see {@link https://docs.microsoft.com/graph/api/plannerbucket-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlannerBucketItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerBucket | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,6 +67,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerBucket
+     * @see {@link https://docs.microsoft.com/graph/api/plannerbucket-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerBucket | undefined, requestConfiguration?: PlannerBucketItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerBucket | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property buckets for planner
+     * Delete **plannerBucket**.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified buckets
+     * Retrieve the properties and relationships of a plannerBucket object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

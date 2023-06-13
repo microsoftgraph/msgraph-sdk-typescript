@@ -94,10 +94,11 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get chats from users
+     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
+     * @see {@link https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -144,7 +145,7 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get chats from users
+     * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

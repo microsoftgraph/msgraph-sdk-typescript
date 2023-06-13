@@ -58,11 +58,12 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamsAppDefinitionCollectionResponse>(requestInfo, createTeamsAppDefinitionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to appDefinitions for appCatalogs
+     * Update an app previously published to the Microsoft Teams app catalog. To update an app, the **distributionMethod** property for the app must be set to `organization`. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsAppDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/teamsapp-update?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsAppDefinition | undefined, requestConfiguration?: AppDefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -94,7 +95,7 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to appDefinitions for appCatalogs
+     * Update an app previously published to the Microsoft Teams app catalog. To update an app, the **distributionMethod** property for the app must be set to `organization`. This API specifically updates an app published to your organization's app catalog (the tenant app catalog).
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

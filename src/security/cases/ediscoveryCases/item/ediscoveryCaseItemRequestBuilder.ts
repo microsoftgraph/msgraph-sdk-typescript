@@ -69,9 +69,10 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property ediscoveryCases for security
+     * Delete an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-delete-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -84,10 +85,11 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get ediscoveryCases from security
+     * Read the properties and relationships of an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCase
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoveryCaseItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCase | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -100,11 +102,12 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property ediscoveryCases in security
+     * Update the properties of an ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCase
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -118,7 +121,7 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property ediscoveryCases for security
+     * Delete an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -134,7 +137,7 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get ediscoveryCases from security
+     * Read the properties and relationships of an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -152,7 +155,7 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property ediscoveryCases in security
+     * Update the properties of an ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

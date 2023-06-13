@@ -42,7 +42,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections/{externalConnection%2Did}/items{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get items from external
+     * Read the properties and relationships of an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalItemCollectionResponse
@@ -76,7 +76,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExternalItem>(requestInfo, createExternalItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get items from external
+     * Read the properties and relationships of an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

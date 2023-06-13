@@ -10,9 +10,9 @@ import {Parsable} from '@microsoft/kiota-abstractions';
 export interface Directory extends Entity, Parsable {
     /** Conceptual container for user and group directory objects. */
     administrativeUnits?: AdministrativeUnit[] | undefined;
-    /** The attributeSets property */
+    /** Group of related custom security attribute definitions. */
     attributeSets?: AttributeSet[] | undefined;
-    /** The customSecurityAttributeDefinitions property */
+    /** Schema of a custom security attributes (key-value pairs). */
     customSecurityAttributeDefinitions?: CustomSecurityAttributeDefinition[] | undefined;
     /** Recently deleted items. Read-only. Nullable. */
     deletedItems?: DirectoryObject[] | undefined;

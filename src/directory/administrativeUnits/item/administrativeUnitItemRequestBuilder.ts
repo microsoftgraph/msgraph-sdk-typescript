@@ -39,9 +39,10 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directory/administrativeUnits/{administrativeUnit%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property administrativeUnits for directory
+     * Delete an administrativeUnit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -54,10 +55,11 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Conceptual container for user and group directory objects.
+     * Retrieve the properties and relationships of an administrativeUnit object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdministrativeUnit
+     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdministrativeUnitItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,11 +72,12 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property administrativeUnits in directory
+     * Update the properties of an administrativeUnit object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdministrativeUnit
+     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -88,7 +91,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property administrativeUnits for directory
+     * Delete an administrativeUnit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Conceptual container for user and group directory objects.
+     * Retrieve the properties and relationships of an administrativeUnit object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +125,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property administrativeUnits in directory
+     * Update the properties of an administrativeUnit object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

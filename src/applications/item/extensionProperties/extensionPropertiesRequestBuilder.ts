@@ -42,10 +42,11 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/extensionProperties{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionPropertyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/application-list-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExtensionPropertiesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionPropertyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExtensionPropertyCollectionResponse>(requestInfo, createExtensionPropertyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to extensionProperties for applications
+     * Create a new directory extension definition, represented by an extensionProperty object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionProperty
+     * @see {@link https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExtensionProperty | undefined, requestConfiguration?: ExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionProperty | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
+     * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to extensionProperties for applications
+     * Create a new directory extension definition, represented by an extensionProperty object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

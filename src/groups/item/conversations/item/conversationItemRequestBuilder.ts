@@ -26,9 +26,10 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/conversations/{conversation%2Did}{?%24select}");
     };
     /**
-     * Delete navigation property conversations for groups
+     * Delete conversation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/conversation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -41,10 +42,11 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The group's conversations.
+     * Retrieve the properties and relationships of conversation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Conversation
+     * @see {@link https://docs.microsoft.com/graph/api/conversation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Conversation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +59,7 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Conversation>(requestInfo, createConversationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property conversations for groups
+     * Delete conversation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -73,7 +75,7 @@ export class ConversationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The group's conversations.
+     * Retrieve the properties and relationships of conversation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

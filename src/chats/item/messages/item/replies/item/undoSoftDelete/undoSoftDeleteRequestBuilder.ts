@@ -18,9 +18,10 @@ export class UndoSoftDeleteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/chats/{chat%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/undoSoftDelete");
     };
     /**
-     * Invoke action undoSoftDelete
+     * Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-undosoftdelete?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: UndoSoftDeleteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +34,7 @@ export class UndoSoftDeleteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action undoSoftDelete
+     * Undo soft deletion of a single chatMessage or a chat message reply in a channel or a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

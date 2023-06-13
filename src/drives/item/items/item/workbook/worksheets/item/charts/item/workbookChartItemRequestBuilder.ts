@@ -77,9 +77,10 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property charts for drives
+     * Deletes the chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/chart-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkbookChartItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -92,10 +93,11 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * Retrieve the properties and relationships of chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChart
+     * @see {@link https://docs.microsoft.com/graph/api/chart-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookChartItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChart | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -141,11 +143,12 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         return new ImageWithWidthWithHeightWithFittingModeRequestBuilder(this.pathParameters, this.requestAdapter, fittingMode, height, width);
     };
     /**
-     * Update the navigation property charts in drives
+     * Update the properties of chart object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChart
+     * @see {@link https://docs.microsoft.com/graph/api/chart-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChart | undefined, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChart | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -159,7 +162,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property charts for drives
+     * Deletes the chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -175,7 +178,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Returns collection of charts that are part of the worksheet. Read-only.
+     * Retrieve the properties and relationships of chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -193,7 +196,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property charts in drives
+     * Update the properties of chart object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

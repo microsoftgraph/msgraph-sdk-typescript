@@ -39,10 +39,11 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The collection of rules like approval rules and expiration rules. Supports $expand.
+     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicyRule
+     * @see {@link https://docs.microsoft.com/graph/api/unifiedrolemanagementpolicyrule-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyRule>(requestInfo, createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property rules in policies
+     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Azure AD roles and examples of updating rules, see the following articles:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicyRule
+     * @see {@link https://docs.microsoft.com/graph/api/unifiedrolemanagementpolicyrule-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: UnifiedRoleManagementPolicyRule | undefined, requestConfiguration?: UnifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicyRule | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * The collection of rules like approval rules and expiration rules. Supports $expand.
+     * Retrieve a rule or settings defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object:+ unifiedRoleManagementPolicyApprovalRule+ unifiedRoleManagementPolicyAuthenticationContextRule+ unifiedRoleManagementPolicyEnablementRule+ unifiedRoleManagementPolicyExpirationRule+ unifiedRoleManagementPolicyNotificationRule
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class UnifiedRoleManagementPolicyRuleItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Update the navigation property rules in policies
+     * Update a rule defined for a role management policy. The rule can be one of the following types that are derived from the unifiedRoleManagementPolicyRule object: For more information about rules for Azure AD roles and examples of updating rules, see the following articles:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

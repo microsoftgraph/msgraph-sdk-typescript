@@ -9,4 +9,5 @@ export enum ServiceSource {
     MicrosoftAppGovernance = "microsoftAppGovernance",
     DataLossPrevention = "dataLossPrevention",
     UnknownFutureValue = "unknownFutureValue",
+    MicrosoftDefenderForCloud = "microsoftDefenderForCloud",
 }

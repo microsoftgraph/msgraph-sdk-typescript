@@ -9,6 +9,7 @@ export function deserializeIntoLearningProvider(learningProvider: LearningProvid
     return {
         ...deserializeIntoEntity(learningProvider),
         "displayName": n => { learningProvider.displayName = n.getStringValue(); },
+        "isCourseActivitySyncEnabled": n => { learningProvider.isCourseActivitySyncEnabled = n.getBooleanValue(); },
         "learningContents": n => { learningProvider.learningContents = n.getCollectionOfObjectValues<LearningContent>(createLearningContentFromDiscriminatorValue); },
         "loginWebUrl": n => { learningProvider.loginWebUrl = n.getStringValue(); },
         "longLogoWebUrlForDarkTheme": n => { learningProvider.longLogoWebUrlForDarkTheme = n.getStringValue(); },

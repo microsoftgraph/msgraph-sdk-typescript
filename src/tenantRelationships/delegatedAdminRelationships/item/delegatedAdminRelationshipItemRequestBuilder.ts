@@ -39,9 +39,10 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property delegatedAdminRelationships for tenantRelationships
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -54,10 +55,11 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+     * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationship
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,11 +72,12 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property delegatedAdminRelationships in tenantRelationships
+     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the `created` **status**.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationship
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DelegatedAdminRelationship | undefined, requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -88,7 +91,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property delegatedAdminRelationships for tenantRelationships
+     * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.
+     * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +125,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Update the navigation property delegatedAdminRelationships in tenantRelationships
+     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the `created` **status**.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -24,9 +24,10 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/authenticationContextClassReferences/{authenticationContextClassReference%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property authenticationContextClassReferences for identity
+     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * Retrieve the properties and relationships of a authenticationContextClassReference object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationContextClassReference
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationContextClassReference | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return this.requestAdapter?.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property authenticationContextClassReferences in identity
+     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationContextClassReference
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthenticationContextClassReference | undefined, requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationContextClassReference | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return this.requestAdapter?.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property authenticationContextClassReferences for identity
+     * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * Retrieve the properties and relationships of a authenticationContextClassReference object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Update the navigation property authenticationContextClassReferences in identity
+     * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

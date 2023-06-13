@@ -42,10 +42,11 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/chats/{chat%2Did}/installedApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * A collection of all the apps in the chat. Nullable.
+     * List all app installations within a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsAppInstallationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/chat-list-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InstalledAppsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppInstallationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamsAppInstallationCollectionResponse>(requestInfo, createTeamsAppInstallationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to installedApps for users
+     * Install a teamsApp to the specified chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsAppInstallation
+     * @see {@link https://docs.microsoft.com/graph/api/chat-post-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsAppInstallation | undefined, requestConfiguration?: InstalledAppsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppInstallation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamsAppInstallation>(requestInfo, createTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of all the apps in the chat. Nullable.
+     * List all app installations within a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to installedApps for users
+     * Install a teamsApp to the specified chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -25,11 +25,12 @@ export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/getStaffAvailability");
     };
     /**
-     * Invoke action getStaffAvailability
+     * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetStaffAvailabilityResponse
+     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetStaffAvailabilityPostRequestBody | undefined, requestConfiguration?: GetStaffAvailabilityRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetStaffAvailabilityResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<GetStaffAvailabilityResponse>(requestInfo, createGetStaffAvailabilityResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action getStaffAvailability
+     * Get the availability information of staff members of a Microsoft Bookings calendar.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

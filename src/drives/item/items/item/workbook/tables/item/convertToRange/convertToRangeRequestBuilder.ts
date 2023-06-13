@@ -20,10 +20,11 @@ export class ConvertToRangeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/convertToRange");
     };
     /**
-     * Invoke action convertToRange
+     * Converts the table into a normal range of cells. All data is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookRange
+     * @see {@link https://docs.microsoft.com/graph/api/table-converttorange?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ConvertToRangeRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -36,7 +37,7 @@ export class ConvertToRangeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action convertToRange
+     * Converts the table into a normal range of cells. All data is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

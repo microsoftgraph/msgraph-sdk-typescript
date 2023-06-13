@@ -34,9 +34,10 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/todo/lists/{todoTaskList%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property lists for me
+     * Deletes a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TodoTaskListItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,10 +50,11 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The task lists in the users mailbox.
+     * Read the properties and relationships of a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTaskList
+     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TodoTaskListItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTaskList | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +67,12 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TodoTaskList>(requestInfo, createTodoTaskListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property lists in me
+     * Update the properties of a todoTaskList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTaskList
+     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TodoTaskList | undefined, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTaskList | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -83,7 +86,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TodoTaskList>(requestInfo, createTodoTaskListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property lists for me
+     * Deletes a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +102,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The task lists in the users mailbox.
+     * Read the properties and relationships of a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +120,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property lists in me
+     * Update the properties of a todoTaskList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

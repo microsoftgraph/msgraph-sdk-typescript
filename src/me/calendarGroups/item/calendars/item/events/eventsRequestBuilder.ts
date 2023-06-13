@@ -47,10 +47,11 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}/calendars/{calendar%2Did}/events{?%24top,%24skip,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The events in the calendar. Navigation property. Read-only.
+     * Retrieve a list of events in a calendar. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. The list of events contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, or get the instances of an event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EventCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/calendar-list-events?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EventsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -63,11 +64,12 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EventCollectionResponse>(requestInfo, createEventCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to events for me
+     * Use this API to create a new event in a calendar. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
+     * @see {@link https://docs.microsoft.com/graph/api/calendar-post-events?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Event | undefined, requestConfiguration?: EventsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -81,7 +83,7 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The events in the calendar. Navigation property. Read-only.
+     * Retrieve a list of events in a calendar. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. The list of events contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, or get the instances of an event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +101,7 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to events for me
+     * Use this API to create a new event in a calendar. The calendar can be one for a user, or the default calendar of a Microsoft 365 group. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

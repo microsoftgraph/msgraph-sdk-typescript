@@ -34,9 +34,10 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property definitions for identityGovernance
+     * Deletes an accessReviewScheduleDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,10 +50,11 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents the template and scheduling for an access review.
+     * Read the properties and relationships of an accessReviewScheduleDefinition object. To retrieve the instances of the access review series, use the list accessReviewInstance API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewScheduleDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +67,12 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property definitions in identityGovernance
+     * Update an existing accessReviewScheduleDefinition object to change one or more of its properties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewScheduleDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AccessReviewScheduleDefinition | undefined, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -83,7 +86,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendAsync<AccessReviewScheduleDefinition>(requestInfo, createAccessReviewScheduleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property definitions for identityGovernance
+     * Deletes an accessReviewScheduleDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +102,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         return requestInfo;
     };
     /**
-     * Represents the template and scheduling for an access review.
+     * Read the properties and relationships of an accessReviewScheduleDefinition object. To retrieve the instances of the access review series, use the list accessReviewInstance API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +120,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         return requestInfo;
     };
     /**
-     * Update the navigation property definitions in identityGovernance
+     * Update an existing accessReviewScheduleDefinition object to change one or more of its properties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

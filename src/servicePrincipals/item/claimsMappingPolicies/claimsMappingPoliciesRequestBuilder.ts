@@ -42,10 +42,11 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/claimsMappingPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The claimsMappingPolicies assigned to this service principal. Supports $expand.
+     * List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ClaimsMappingPolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-list-claimsmappingpolicies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +59,7 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ClaimsMappingPolicyCollectionResponse>(requestInfo, createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The claimsMappingPolicies assigned to this service principal. Supports $expand.
+     * List the claimsMappingPolicy objects that are assigned to a servicePrincipal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

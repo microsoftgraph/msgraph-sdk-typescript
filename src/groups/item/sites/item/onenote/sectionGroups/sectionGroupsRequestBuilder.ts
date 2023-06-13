@@ -42,10 +42,11 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/onenote/sectionGroups{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Retrieve a list of sectionGroup objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SectionGroupCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/onenote-list-sectiongroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SectionGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SectionGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SectionGroup>(requestInfo, createSectionGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Retrieve a list of sectionGroup objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

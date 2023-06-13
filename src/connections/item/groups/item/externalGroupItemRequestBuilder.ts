@@ -29,9 +29,10 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/connections/{externalConnection%2Did}/groups/{externalGroup%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property groups for connections
+     * Delete an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ExternalGroupItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get groups from connections
+     * Get an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalGroup
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExternalGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExternalGroup>(requestInfo, createExternalGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property groups in connections
+     * Update the properties of an externalGroup object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalGroup
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ExternalGroup | undefined, requestConfiguration?: ExternalGroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExternalGroup>(requestInfo, createExternalGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property groups for connections
+     * Delete an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get groups from connections
+     * Get an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property groups in connections
+     * Update the properties of an externalGroup object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

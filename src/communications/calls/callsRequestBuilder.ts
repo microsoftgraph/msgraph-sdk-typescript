@@ -47,7 +47,7 @@ export class CallsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get calls from communications
+     * Retrieve the properties and relationships of a call object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CallCollectionResponse
@@ -63,11 +63,12 @@ export class CallsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CallCollectionResponse>(requestInfo, createCallCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to calls for communications
+     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed as mentioned below.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Call
+     * @see {@link https://docs.microsoft.com/graph/api/application-post-calls?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Call | undefined, requestConfiguration?: CallsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Call | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -81,7 +82,7 @@ export class CallsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get calls from communications
+     * Retrieve the properties and relationships of a call object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +100,7 @@ export class CallsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to calls for communications
+     * Create call enables your bot to create a new outgoing peer-to-peer or group call, or join an existing meeting. You will need to register the calling bot and go through the list of permissions needed as mentioned below.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

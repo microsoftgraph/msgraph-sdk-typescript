@@ -42,10 +42,11 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * All the appointments of this business. Read-only. Nullable.
+     * Get a list of bookingAppointment objects for the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingAppointmentCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-appointments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppointmentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingAppointmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingAppointmentCollectionResponse>(requestInfo, createBookingAppointmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to appointments for solutions
+     * Create a new bookingAppointment for the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingAppointment
+     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-post-appointments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BookingAppointment | undefined, requestConfiguration?: AppointmentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingAppointment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingAppointment>(requestInfo, createBookingAppointmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All the appointments of this business. Read-only. Nullable.
+     * Get a list of bookingAppointment objects for the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to appointments for solutions
+     * Create a new bookingAppointment for the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

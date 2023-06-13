@@ -7,6 +7,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function serializeLearningProvider(writer: SerializationWriter, learningProvider: LearningProvider | undefined = {} as LearningProvider) : void {
         serializeEntity(writer, learningProvider)
         writer.writeStringValue("displayName", learningProvider.displayName);
+        writer.writeBooleanValue("isCourseActivitySyncEnabled", learningProvider.isCourseActivitySyncEnabled);
         writer.writeCollectionOfObjectValues<LearningContent>("learningContents", learningProvider.learningContents, serializeLearningContent);
         writer.writeStringValue("loginWebUrl", learningProvider.loginWebUrl);
         writer.writeStringValue("longLogoWebUrlForDarkTheme", learningProvider.longLogoWebUrlForDarkTheme);

@@ -7,7 +7,6 @@ import {ApplicationTemplatesRequestBuilder} from './applicationTemplates/applica
 import {AuditLogsRequestBuilder} from './auditLogs/auditLogsRequestBuilder';
 import {AuthenticationMethodConfigurationsRequestBuilder} from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
 import {AuthenticationMethodsPolicyRequestBuilder} from './authenticationMethodsPolicy/authenticationMethodsPolicyRequestBuilder';
-import {BrandingRequestBuilder} from './branding/brandingRequestBuilder';
 import {CertificateBasedAuthConfigurationRequestBuilder} from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
 import {CommunicationsRequestBuilder} from './communications/communicationsRequestBuilder';
@@ -29,6 +28,8 @@ import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {EducationRequestBuilder} from './education/educationRequestBuilder';
 import {EmployeeExperienceRequestBuilder} from './employeeExperience/employeeExperienceRequestBuilder';
 import {ExternalRequestBuilder} from './external/externalRequestBuilder';
+import {FilterOperatorsRequestBuilder} from './filterOperators/filterOperatorsRequestBuilder';
+import {FunctionsRequestBuilder} from './functions/functionsRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
 import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
 import {GroupSettingsRequestBuilder} from './groupSettings/groupSettingsRequestBuilder';
@@ -110,10 +111,6 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
     /** Provides operations to manage the authenticationMethodsPolicy singleton. */
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /** Provides operations to manage the organizationalBranding singleton. */
-    public get branding(): BrandingRequestBuilder {
-        return new BrandingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the collection of certificateBasedAuthConfiguration entities. */
     public get certificateBasedAuthConfiguration(): CertificateBasedAuthConfigurationRequestBuilder {
@@ -198,6 +195,14 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
     /** Provides operations to manage the external singleton. */
     public get external(): ExternalRequestBuilder {
         return new ExternalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the collection of filterOperatorSchema entities. */
+    public get filterOperators(): FilterOperatorsRequestBuilder {
+        return new FilterOperatorsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the collection of attributeMappingFunctionSchema entities. */
+    public get functions(): FunctionsRequestBuilder {
+        return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the collection of groupLifecyclePolicy entities. */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {

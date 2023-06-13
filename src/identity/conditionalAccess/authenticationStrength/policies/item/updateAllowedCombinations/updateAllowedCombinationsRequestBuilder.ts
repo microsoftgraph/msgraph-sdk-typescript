@@ -25,11 +25,12 @@ export class UpdateAllowedCombinationsRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/authenticationStrength/policies/{authenticationStrengthPolicy%2Did}/updateAllowedCombinations");
     };
     /**
-     * Invoke action updateAllowedCombinations
+     * Update the allowedCombinations property of an authenticationStrengthPolicy object. To update other properties of an authenticationStrengthPolicy object, use the Update authenticationStrengthPolicy method.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UpdateAllowedCombinationsResult
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-updateallowedcombinations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UpdateAllowedCombinationsPostRequestBody | undefined, requestConfiguration?: UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UpdateAllowedCombinationsResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class UpdateAllowedCombinationsRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<UpdateAllowedCombinationsResult>(requestInfo, createUpdateAllowedCombinationsResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action updateAllowedCombinations
+     * Update the allowedCombinations property of an authenticationStrengthPolicy object. To update other properties of an authenticationStrengthPolicy object, use the Update authenticationStrengthPolicy method.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

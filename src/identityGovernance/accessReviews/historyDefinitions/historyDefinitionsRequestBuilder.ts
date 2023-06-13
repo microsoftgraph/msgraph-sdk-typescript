@@ -42,10 +42,11 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/historyDefinitions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Represents a collection of access review history data and the scopes used to collect that data.
+     * Retrieve the accessReviewHistoryDefinition objects created in the last 30 days, including all nested properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryDefinitionCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-list-historydefinitions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryDefinitionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinitionCollectionResponse>(requestInfo, createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to historyDefinitions for identityGovernance
+     * Create a new accessReviewHistoryDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewHistoryDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-post-historydefinitions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessReviewHistoryDefinition | undefined, requestConfiguration?: HistoryDefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewHistoryDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AccessReviewHistoryDefinition>(requestInfo, createAccessReviewHistoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents a collection of access review history data and the scopes used to collect that data.
+     * Retrieve the accessReviewHistoryDefinition objects created in the last 30 days, including all nested properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to historyDefinitions for identityGovernance
+     * Create a new accessReviewHistoryDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

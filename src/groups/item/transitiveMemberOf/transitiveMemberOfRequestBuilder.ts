@@ -51,6 +51,7 @@ export class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/group-list-transitivememberof?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TransitiveMemberOfRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

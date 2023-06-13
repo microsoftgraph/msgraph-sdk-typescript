@@ -4,4 +4,5 @@ export enum IncidentStatus {
     InProgress = "inProgress",
     Redirected = "redirected",
     UnknownFutureValue = "unknownFutureValue",
+    AwaitingAction = "awaitingAction",
 }

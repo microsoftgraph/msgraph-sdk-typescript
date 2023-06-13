@@ -26,9 +26,10 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property microsoftAuthenticatorMethods for users
+     * Deletes a microsoftAuthenticatorAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -41,10 +42,11 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The details of the Microsoft Authenticator app registered to a user for authentication.
+     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethod
+     * @see {@link https://docs.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +59,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethod>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property microsoftAuthenticatorMethods for users
+     * Deletes a microsoftAuthenticatorAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -73,7 +75,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
         return requestInfo;
     };
     /**
-     * The details of the Microsoft Authenticator app registered to a user for authentication.
+     * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

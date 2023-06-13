@@ -147,9 +147,10 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property items for drives
+     * Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/driveitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DriveItemItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -200,11 +201,12 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
     };
     /**
-     * Update the navigation property items in drives
+     * To move a DriveItem to a new parent item, your app requests to update the **parentReference** of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
+     * @see {@link https://docs.microsoft.com/graph/api/driveitem-move?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DriveItem | undefined, requestConfiguration?: DriveItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -227,7 +229,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
     };
     /**
-     * Delete navigation property items for drives
+     * Delete a DriveItem by using its ID or path.Note that deleting items using this method will move the items to the recycle bin instead of permanently deleting the item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -261,7 +263,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property items in drives
+     * To move a DriveItem to a new parent item, your app requests to update the **parentReference** of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

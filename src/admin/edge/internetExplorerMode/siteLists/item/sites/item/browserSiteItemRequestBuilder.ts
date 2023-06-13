@@ -24,9 +24,10 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}/sites/{browserSite%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property sites for admin
+     * Delete a browserSite from a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BrowserSiteItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of sites defined for the site list.
+     * Get a browserSite that resides on a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSite
+     * @see {@link https://docs.microsoft.com/graph/api/browsersite-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BrowserSiteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSite | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSite>(requestInfo, createBrowserSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property sites in admin
+     * Update the properties of a browserSite object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSite
+     * @see {@link https://docs.microsoft.com/graph/api/browsersite-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BrowserSite | undefined, requestConfiguration?: BrowserSiteItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSite | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSite>(requestInfo, createBrowserSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property sites for admin
+     * Delete a browserSite from a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of sites defined for the site list.
+     * Get a browserSite that resides on a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property sites in admin
+     * Update the properties of a browserSite object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

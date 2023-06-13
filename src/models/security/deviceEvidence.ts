@@ -18,6 +18,8 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
     firstSeenDateTime?: Date | undefined;
     /** The health state of the device.The possible values are: active, inactive, impairedCommunication, noSensorData, noSensorDataImpairedCommunication, unknown, unknownFutureValue. */
     healthStatus?: DeviceHealthStatus | undefined;
+    /** The ipInterfaces property */
+    ipInterfaces?: string[] | undefined;
     /** Users that were logged on the machine during the time of the alert. */
     loggedOnUsers?: LoggedOnUser[] | undefined;
     /** A unique identifier assigned to a device by Microsoft Defender for Endpoint. */

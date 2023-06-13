@@ -39,10 +39,11 @@ export class FontRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
+     * Retrieve the properties and relationships of chartfont object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartFont
+     * @see {@link https://docs.microsoft.com/graph/api/chartfont-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FontRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartFont | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class FontRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChartFont>(requestInfo, createWorkbookChartFontFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property font in drives
+     * Update the properties of chartfont object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartFont
+     * @see {@link https://docs.microsoft.com/graph/api/chartfont-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartFont | undefined, requestConfiguration?: FontRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartFont | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class FontRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
+     * Retrieve the properties and relationships of chartfont object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class FontRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property font in drives
+     * Update the properties of chartfont object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

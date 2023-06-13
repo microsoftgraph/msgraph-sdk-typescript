@@ -44,10 +44,11 @@ export class LineRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents chart line formatting. Read-only.
+     * Retrieve the properties and relationships of chartlineformat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartLineFormat
+     * @see {@link https://docs.microsoft.com/graph/api/chartlineformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LineRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartLineFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +61,12 @@ export class LineRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookChartLineFormat>(requestInfo, createWorkbookChartLineFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property line in drives
+     * Update the properties of chartlineformat object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartLineFormat
+     * @see {@link https://docs.microsoft.com/graph/api/chartlineformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartLineFormat | undefined, requestConfiguration?: LineRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartLineFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -94,7 +96,7 @@ export class LineRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Represents chart line formatting. Read-only.
+     * Retrieve the properties and relationships of chartlineformat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +114,7 @@ export class LineRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property line in drives
+     * Update the properties of chartlineformat object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

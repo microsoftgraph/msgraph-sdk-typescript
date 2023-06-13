@@ -8,6 +8,8 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export function serializeSubscribedSku(writer: SerializationWriter, subscribedSku: SubscribedSku | undefined = {} as SubscribedSku) : void {
         serializeEntity(writer, subscribedSku)
+        writer.writeStringValue("accountId", subscribedSku.accountId);
+        writer.writeStringValue("accountName", subscribedSku.accountName);
         writer.writeStringValue("appliesTo", subscribedSku.appliesTo);
         writer.writeStringValue("capabilityStatus", subscribedSku.capabilityStatus);
         writer.writeNumberValue("consumedUnits", subscribedSku.consumedUnits);
@@ -15,4 +17,5 @@ export function serializeSubscribedSku(writer: SerializationWriter, subscribedSk
         writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", subscribedSku.servicePlans, serializeServicePlanInfo);
         writer.writeStringValue("skuId", subscribedSku.skuId);
         writer.writeStringValue("skuPartNumber", subscribedSku.skuPartNumber);
+        writer.writeCollectionOfPrimitiveValues<string>("subscriptionIds", subscribedSku.subscriptionIds);
 }

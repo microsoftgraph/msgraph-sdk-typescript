@@ -42,10 +42,11 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/triggerTypes/retentionEventTypes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get retentionEventTypes from security
+     * Get a list of the retentionEventType objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RetentionEventTypeCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RetentionEventTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RetentionEventTypeCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<RetentionEventTypeCollectionResponse>(requestInfo, createRetentionEventTypeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to retentionEventTypes for security
+     * Create a new retentionEventType object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RetentionEventType
+     * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RetentionEventType | undefined, requestConfiguration?: RetentionEventTypesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RetentionEventType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get retentionEventTypes from security
+     * Get a list of the retentionEventType objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to retentionEventTypes for security
+     * Create a new retentionEventType object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

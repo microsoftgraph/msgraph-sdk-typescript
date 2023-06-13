@@ -42,10 +42,11 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get ediscoveryCases from security
+     * Get a list of the ediscoveryCase objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCaseCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-list-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoveryCasesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryCaseCollectionResponse>(requestInfo, createEdiscoveryCaseCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to ediscoveryCases for security
+     * Create a new ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCase
+     * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-post-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCasesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get ediscoveryCases from security
+     * Get a list of the ediscoveryCase objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to ediscoveryCases for security
+     * Create a new ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

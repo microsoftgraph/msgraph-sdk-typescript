@@ -24,9 +24,10 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/education/users/{educationUser%2Did}/assignments/{educationAssignment%2Did}/submissions/{educationSubmission%2Did}/resources/{educationSubmissionResource%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property resources for education
+     * Delete an educationSubmissionResource from the submission. Only teachers and students can perform this operation. If the resource was copied from the assignment, a new copy of the resource will be created after the current copy is deleted. This allows you to 'reset' the resource to its original state. If the resource was not copied from the assignment but was added from the student, the resource is simply deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/educationsubmissionresource-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get resources from education
+     * Retrieve the properties of a specific resource associated with a submission. Only teachers, students, and applications with application permissions can perform this operation. This resource is in the 'working' resource list and should be considered work in process by a student. This resource is wrapped with a possible pointer back to the assignment resource if it was copied from the assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmissionResource
+     * @see {@link https://docs.microsoft.com/graph/api/educationsubmissionresource-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmissionResource | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +75,7 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendAsync<EducationSubmissionResource>(requestInfo, createEducationSubmissionResourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property resources for education
+     * Delete an educationSubmissionResource from the submission. Only teachers and students can perform this operation. If the resource was copied from the assignment, a new copy of the resource will be created after the current copy is deleted. This allows you to 'reset' the resource to its original state. If the resource was not copied from the assignment but was added from the student, the resource is simply deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +91,7 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Get resources from education
+     * Retrieve the properties of a specific resource associated with a submission. Only teachers, students, and applications with application permissions can perform this operation. This resource is in the 'working' resource list and should be considered work in process by a student. This resource is wrapped with a possible pointer back to the assignment resource if it was copied from the assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,5 +1,6 @@
 import {Entity} from './entity';
 import {MediaStream} from './mediaStream';
+import {OnlineMeetingRestricted} from './onlineMeetingRestricted';
 import {ParticipantInfo} from './participantInfo';
 import {RecordingInfo} from './recordingInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
@@ -17,4 +18,6 @@ export interface Participant extends Entity, Parsable {
     metadata?: string | undefined;
     /** Information about whether the participant has recording capability. */
     recordingInfo?: RecordingInfo | undefined;
+    /** Indicates the reason or reasons media content from this participant is restricted. */
+    restrictedExperience?: OnlineMeetingRestricted | undefined;
 }

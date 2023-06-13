@@ -49,10 +49,11 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
+     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintTask
+     * @see {@link https://docs.microsoft.com/graph/api/printtask-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintTaskItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintTask | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +66,12 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PrintTask>(requestInfo, createPrintTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property tasks in print
+     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintTask
+     * @see {@link https://docs.microsoft.com/graph/api/printtaskdefinition-update-task?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PrintTask | undefined, requestConfiguration?: PrintTaskItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintTask | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -99,7 +101,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
+     * Get details about a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +119,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property tasks in print
+     * Update a print task. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

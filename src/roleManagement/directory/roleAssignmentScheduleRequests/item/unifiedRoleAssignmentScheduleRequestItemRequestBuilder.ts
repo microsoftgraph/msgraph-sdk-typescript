@@ -74,10 +74,11 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Requests for active role assignments to principals through PIM.
+     * In PIM, read the details of a request for an active and persistent role assignment made through the unifiedRoleAssignmentScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentScheduleRequest
+     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleassignmentschedulerequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -124,7 +125,7 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
         return requestInfo;
     };
     /**
-     * Requests for active role assignments to principals through PIM.
+     * In PIM, read the details of a request for an active and persistent role assignment made through the unifiedRoleAssignmentScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

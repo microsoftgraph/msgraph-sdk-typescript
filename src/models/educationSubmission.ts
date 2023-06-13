@@ -23,7 +23,7 @@ export interface EducationSubmission extends Entity, Parsable {
     returnedBy?: IdentitySet | undefined;
     /** Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     returnedDateTime?: Date | undefined;
-    /** Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned. */
+    /** Read-only. Possible values are: working, submitted, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned. */
     status?: EducationSubmissionStatus | undefined;
     /** User who moved the resource into the submitted state. */
     submittedBy?: IdentitySet | undefined;

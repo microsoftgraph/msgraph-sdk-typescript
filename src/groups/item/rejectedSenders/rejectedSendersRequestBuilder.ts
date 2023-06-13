@@ -42,10 +42,11 @@ export class RejectedSendersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/rejectedSenders{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
+     * Users in the rejected senders list cannot post to conversations of the group (identified in the GET request URL). Make sure you do not specify the same user or group in the rejected senders and accepted senders lists, otherwise you will get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/group-list-rejectedsenders?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RejectedSendersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +59,7 @@ export class RejectedSendersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DirectoryObjectCollectionResponse>(requestInfo, createDirectoryObjectCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable
+     * Users in the rejected senders list cannot post to conversations of the group (identified in the GET request URL). Make sure you do not specify the same user or group in the rejected senders and accepted senders lists, otherwise you will get an error.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

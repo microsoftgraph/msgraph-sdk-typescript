@@ -47,10 +47,11 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/pivotTables{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Collection of PivotTables that are part of the worksheet.
+     * Retrieve a list of workbookpivottable objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookPivotTableCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/workbookworksheet-list-pivottables?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PivotTablesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookPivotTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -81,7 +82,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Collection of PivotTables that are part of the worksheet.
+     * Retrieve a list of workbookpivottable objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

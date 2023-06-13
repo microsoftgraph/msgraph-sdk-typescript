@@ -20,10 +20,11 @@ export class HeaderRowRangeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/tables/{workbookTable%2Did}/headerRowRange()");
     };
     /**
-     * Invoke function headerRowRange
+     * Gets the range object associated with header row of the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookRange
+     * @see {@link https://docs.microsoft.com/graph/api/table-headerrowrange?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HeaderRowRangeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +37,7 @@ export class HeaderRowRangeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<WorkbookRange>(requestInfo, createWorkbookRangeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke function headerRowRange
+     * Gets the range object associated with header row of the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

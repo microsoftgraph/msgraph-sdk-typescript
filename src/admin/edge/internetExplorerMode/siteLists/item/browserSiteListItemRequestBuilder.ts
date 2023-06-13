@@ -39,9 +39,10 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/edge/internetExplorerMode/siteLists/{browserSiteList%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property siteLists for admin
+     * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BrowserSiteListItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -54,10 +55,11 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of site lists to support Internet Explorer mode.
+     * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteList
+     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BrowserSiteListItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,11 +72,12 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property siteLists in admin
+     * Update the properties of a browserSiteList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteList
+     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BrowserSiteList | undefined, requestConfiguration?: BrowserSiteListItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSiteList | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -88,7 +91,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property siteLists for admin
+     * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of site lists to support Internet Explorer mode.
+     * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -122,7 +125,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property siteLists in admin
+     * Update the properties of a browserSiteList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

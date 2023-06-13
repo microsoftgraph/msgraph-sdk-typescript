@@ -25,11 +25,12 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/onlineMeetings/createOrGet");
     };
     /**
-     * Invoke action createOrGet
+     * Create an onlineMeeting object with a custom specified external ID. If the external ID already exists, this API will return the onlineMeeting object with that external ID. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnlineMeeting
+     * @see {@link https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CreateOrGetPostRequestBody | undefined, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeeting | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action createOrGet
+     * Create an onlineMeeting object with a custom specified external ID. If the external ID already exists, this API will return the onlineMeeting object with that external ID. 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

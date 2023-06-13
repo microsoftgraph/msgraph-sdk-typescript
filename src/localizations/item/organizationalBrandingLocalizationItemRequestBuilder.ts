@@ -8,10 +8,14 @@ import {OrganizationalBrandingLocalization} from '../../models/organizationalBra
 import {serializeOrganizationalBrandingLocalization} from '../../models/serializeOrganizationalBrandingLocalization';
 import {BackgroundImageRequestBuilder} from './backgroundImage/backgroundImageRequestBuilder';
 import {BannerLogoRequestBuilder} from './bannerLogo/bannerLogoRequestBuilder';
+import {CustomCSSRequestBuilder} from './customCSS/customCSSRequestBuilder';
+import {FaviconRequestBuilder} from './favicon/faviconRequestBuilder';
+import {HeaderLogoRequestBuilder} from './headerLogo/headerLogoRequestBuilder';
 import {OrganizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration} from './organizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration';
 import {OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration} from './organizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration';
 import {OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration} from './organizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
+import {SquareLogoDarkRequestBuilder} from './squareLogoDark/squareLogoDarkRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
@@ -27,8 +31,24 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
         return new BannerLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    public get customCSS(): CustomCSSRequestBuilder {
+        return new CustomCSSRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    public get favicon(): FaviconRequestBuilder {
+        return new FaviconRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    public get headerLogo(): HeaderLogoRequestBuilder {
+        return new HeaderLogoRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
     public get squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    public get squareLogoDark(): SquareLogoDarkRequestBuilder {
+        return new SquareLogoDarkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new OrganizationalBrandingLocalizationItemRequestBuilder and sets the default values.

@@ -29,9 +29,10 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/appointments/{bookingAppointment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property appointments for solutions
+     * Delete a bookingAppointment in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/bookingappointment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingAppointmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All the appointments of this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The **startDateTime** and **endDateTime** properties are always returned in UTC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingAppointment
+     * @see {@link https://docs.microsoft.com/graph/api/bookingappointment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingAppointmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingAppointment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingAppointment>(requestInfo, createBookingAppointmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property appointments in solutions
+     * Update the properties of a bookingAppointment object in the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingAppointment
+     * @see {@link https://docs.microsoft.com/graph/api/bookingappointment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingAppointment | undefined, requestConfiguration?: BookingAppointmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingAppointment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<BookingAppointment>(requestInfo, createBookingAppointmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property appointments for solutions
+     * Delete a bookingAppointment in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * All the appointments of this business. Read-only. Nullable.
+     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The **startDateTime** and **endDateTime** properties are always returned in UTC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property appointments in solutions
+     * Update the properties of a bookingAppointment object in the specified bookingBusiness.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

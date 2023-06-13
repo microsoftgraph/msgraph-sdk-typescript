@@ -25,11 +25,12 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/invite");
     };
     /**
-     * Invoke action invite
+     * Sends a sharing invitation for a **driveItem**.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InviteResponse
+     * @see {@link https://docs.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InvitePostRequestBody | undefined, requestConfiguration?: InviteRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InviteResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<InviteResponse>(requestInfo, createInviteResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action invite
+     * Sends a sharing invitation for a **driveItem**.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

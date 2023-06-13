@@ -42,10 +42,11 @@ export class IncompatibleAccessPackagesRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/incompatibleAccessPackages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The access packages whose assigned users are ineligible to be assigned this access package.
+     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-list-incompatibleaccesspackages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IncompatibleAccessPackagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +59,7 @@ export class IncompatibleAccessPackagesRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter?.sendAsync<AccessPackageCollectionResponse>(requestInfo, createAccessPackageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The access packages whose assigned users are ineligible to be assigned this access package.
+     * Retrieve a list of the accessPackage objects that have been marked as incompatible on an accessPackage.  
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -48,10 +48,11 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/onenote/notebooks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
+     * Retrieve a list of notebook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of NotebookCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/onenote-list-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotebooksRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<NotebookCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,11 +74,12 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(this.pathParameters, this.requestAdapter, includePersonalNotebooks);
     };
     /**
-     * Create new navigation property to notebooks for users
+     * Create a new OneNote notebook.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Notebook
+     * @see {@link https://docs.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Notebook | undefined, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Notebook | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -91,7 +93,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Notebook>(requestInfo, createNotebookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
+     * Retrieve a list of notebook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -109,7 +111,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to notebooks for users
+     * Create a new OneNote notebook.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -24,9 +24,10 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/triggerTypes/retentionEventTypes/{retentionEventType%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property retentionEventTypes for security
+     * Delete a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RetentionEventTypeItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get retentionEventTypes from security
+     * Read the properties and relationships of a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RetentionEventType
+     * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RetentionEventTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RetentionEventType | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +75,7 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property retentionEventTypes for security
+     * Delete a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +91,7 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get retentionEventTypes from security
+     * Read the properties and relationships of a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

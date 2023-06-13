@@ -44,7 +44,7 @@ export interface ChatMessage extends Entity, Parsable {
     locale?: string | undefined;
     /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel. */
     mentions?: ChatMessageMention[] | undefined;
-    /** The messageHistory property */
+    /** List of activity history of a message item, including modification time and actions, such as reactionAdded, reactionRemoved, or reaction changes, on the message. */
     messageHistory?: ChatMessageHistoryItem[] | undefined;
     /** The messageType property */
     messageType?: ChatMessageType | undefined;

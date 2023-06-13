@@ -20,10 +20,11 @@ export class SupportedLanguagesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/outlook/supportedLanguages(){?%24top,%24skip,%24search,%24filter,%24count}");
     };
     /**
-     * Invoke function supportedLanguages
+     * Get the list of locales and languages that are supported for the user, as configured on the user's mailbox server. When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language by getting the user's mailbox settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SupportedLanguagesResponse
+     * @see {@link https://docs.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedLanguagesResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +37,7 @@ export class SupportedLanguagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<SupportedLanguagesResponse>(requestInfo, createSupportedLanguagesResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke function supportedLanguages
+     * Get the list of locales and languages that are supported for the user, as configured on the user's mailbox server. When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language by getting the user's mailbox settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

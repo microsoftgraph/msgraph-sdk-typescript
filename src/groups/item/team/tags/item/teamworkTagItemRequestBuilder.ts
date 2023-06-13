@@ -29,9 +29,10 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/tags/{teamworkTag%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property tags for groups
+     * Delete a tag object permanently.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/teamworktag-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TeamworkTagItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The tags associated with the team.
+     * Read the properties and relationships of a tag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkTag
+     * @see {@link https://docs.microsoft.com/graph/api/teamworktag-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeamworkTagItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkTag | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamworkTag>(requestInfo, createTeamworkTagFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property tags in groups
+     * Update the properties of a tag object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkTag
+     * @see {@link https://docs.microsoft.com/graph/api/teamworktag-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TeamworkTag | undefined, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkTag | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamworkTag>(requestInfo, createTeamworkTagFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property tags for groups
+     * Delete a tag object permanently.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The tags associated with the team.
+     * Read the properties and relationships of a tag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property tags in groups
+     * Update the properties of a tag object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

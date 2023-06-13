@@ -42,7 +42,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/federationConfiguration{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Domain settings configured by a customer when federated with Azure AD. Supports $expand.
+     * Read the properties and relationships of an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternalDomainFederationCollectionResponse
@@ -58,11 +58,12 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<InternalDomainFederationCollectionResponse>(requestInfo, createInternalDomainFederationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to federationConfiguration for domains
+     * Create a new internalDomainFederation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternalDomainFederation
+     * @see {@link https://docs.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InternalDomainFederation | undefined, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternalDomainFederation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +77,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<InternalDomainFederation>(requestInfo, createInternalDomainFederationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Domain settings configured by a customer when federated with Azure AD. Supports $expand.
+     * Read the properties and relationships of an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +95,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to federationConfiguration for domains
+     * Create a new internalDomainFederation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

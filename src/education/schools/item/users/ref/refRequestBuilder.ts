@@ -24,10 +24,11 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}/users/$ref{?%24top,%24skip,%24search,%24filter,%24count,%24orderby}");
     };
     /**
-     * Users in the school. Nullable.
+     * Get the educationUser resources associated with an educationSchool.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StringCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RefRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StringCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -40,10 +41,11 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<StringCollectionResponse>(requestInfo, createStringCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property ref to users for education
+     * Add a user to a school.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/educationschool-post-users?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ReferenceCreate | undefined, requestConfiguration?: RefRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -57,7 +59,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Users in the school. Nullable.
+     * Get the educationUser resources associated with an educationSchool.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -75,7 +77,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property ref to users for education
+     * Add a user to a school.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

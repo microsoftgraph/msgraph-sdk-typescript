@@ -29,9 +29,10 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions/{permission%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property permissions for drives
+     * Remove access to a DriveItem. Only sharing permissions that are **not** inherited can be deleted.The **inheritedFrom** property must be `null`.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/permission-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PermissionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The set of permissions for the item. Read-only. Nullable.
+     * Return the effective sharing permission for a particular permission resource. Effective permissions of an item can come from two sources: permissions set directly on the item itself or permissions that are inherited from the item's ancestors. Callers can differentiate if the permission is inherited or not by checking the `inheritedFrom` property.This property is an ItemReference resource referencing the ancestor that the permission is inherited from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Permission
+     * @see {@link https://docs.microsoft.com/graph/api/permission-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Permission | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property permissions in drives
+     * Update the properties of a sharing permission by patching the permission resource. Only the **roles** property can be modified this way.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Permission
+     * @see {@link https://docs.microsoft.com/graph/api/permission-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Permission | undefined, requestConfiguration?: PermissionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Permission | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property permissions for drives
+     * Remove access to a DriveItem. Only sharing permissions that are **not** inherited can be deleted.The **inheritedFrom** property must be `null`.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The set of permissions for the item. Read-only. Nullable.
+     * Return the effective sharing permission for a particular permission resource. Effective permissions of an item can come from two sources: permissions set directly on the item itself or permissions that are inherited from the item's ancestors. Callers can differentiate if the permission is inherited or not by checking the `inheritedFrom` property.This property is an ItemReference resource referencing the ancestor that the permission is inherited from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property permissions in drives
+     * Update the properties of a sharing permission by patching the permission resource. Only the **roles** property can be modified this way.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

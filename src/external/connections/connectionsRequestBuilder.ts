@@ -42,10 +42,11 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get connections from external
+     * Get a list of the externalConnection objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnectionCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalConnectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExternalConnectionCollectionResponse>(requestInfo, createExternalConnectionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to connections for external
+     * Create a new externalConnection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalConnection
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExternalConnection | undefined, requestConfiguration?: ConnectionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalConnection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExternalConnection>(requestInfo, createExternalConnectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get connections from external
+     * Get a list of the externalConnection objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to connections for external
+     * Create a new externalConnection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

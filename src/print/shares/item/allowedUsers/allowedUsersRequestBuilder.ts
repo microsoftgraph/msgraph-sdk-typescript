@@ -42,10 +42,11 @@ export class AllowedUsersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/shares/{printerShare%2Did}/allowedUsers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The users who have access to print using the printer.
+     * Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/printershare-list-allowedusers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllowedUsersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +59,7 @@ export class AllowedUsersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<UserCollectionResponse>(requestInfo, createUserCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The users who have access to print using the printer.
+     * Retrieve a list of users who have been granted access to submit print jobs to the associated printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -37,10 +37,11 @@ export class AllChannelsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/joinedTeams/{team%2Did}/allChannels{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List of channels either hosted in or shared with the team (incoming channels).
+     * Get the list of channels either in this team or shared with this team (incoming channels).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChannelCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/team-list-allchannels?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllChannelsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChannelCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +54,7 @@ export class AllChannelsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ChannelCollectionResponse>(requestInfo, createChannelCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * List of channels either hosted in or shared with the team (incoming channels).
+     * Get the list of channels either in this team or shared with this team (incoming channels).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

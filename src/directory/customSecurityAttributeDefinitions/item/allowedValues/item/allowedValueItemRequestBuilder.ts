@@ -39,10 +39,11 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get allowedValues from directory
+     * Read the properties and relationships of an allowedValue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AllowedValue
+     * @see {@link https://docs.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllowedValueItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AllowedValue | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AllowedValue>(requestInfo, createAllowedValueFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property allowedValues in directory
+     * Update the properties of an allowedValue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AllowedValue
+     * @see {@link https://docs.microsoft.com/graph/api/allowedvalue-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AllowedValue | undefined, requestConfiguration?: AllowedValueItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AllowedValue | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get allowedValues from directory
+     * Read the properties and relationships of an allowedValue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property allowedValues in directory
+     * Update the properties of an allowedValue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

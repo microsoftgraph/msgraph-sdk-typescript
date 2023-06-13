@@ -29,9 +29,10 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/appManagementPolicies/{appManagementPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property appManagementPolicies for policies
+     * Delete an appManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/appManagementPolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+     * Read the properties of an appManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppManagementPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/appmanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppManagementPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppManagementPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AppManagementPolicy>(requestInfo, createAppManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property appManagementPolicies in policies
+     * Update an appManagementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppManagementPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/appManagementPolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AppManagementPolicy | undefined, requestConfiguration?: AppManagementPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppManagementPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AppManagementPolicy>(requestInfo, createAppManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property appManagementPolicies for policies
+     * Delete an appManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+     * Read the properties of an appManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property appManagementPolicies in policies
+     * Update an appManagementPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

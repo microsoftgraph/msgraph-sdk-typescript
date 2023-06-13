@@ -39,10 +39,11 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A collection of stages in the approval decision.
+     * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalStage
+     * @see {@link https://docs.microsoft.com/graph/api/approvalstage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApprovalStageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ApprovalStage>(requestInfo, createApprovalStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property stages in identityGovernance
+     * In Azure AD entitlement management, approve or deny an approvalStage object in an approval.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalStage
+     * @see {@link https://docs.microsoft.com/graph/api/approvalstage-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ApprovalStage | undefined, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A collection of stages in the approval decision.
+     * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property stages in identityGovernance
+     * In Azure AD entitlement management, approve or deny an approvalStage object in an approval.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

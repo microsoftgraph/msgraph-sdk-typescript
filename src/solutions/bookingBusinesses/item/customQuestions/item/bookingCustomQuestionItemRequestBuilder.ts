@@ -24,9 +24,10 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness%2Did}/customQuestions/{bookingCustomQuestion%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property customQuestions for solutions
+     * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * All the custom questions of this business. Read-only. Nullable.
+     * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCustomQuestion
+     * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingCustomQuestionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingCustomQuestion | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property customQuestions in solutions
+     * Update the properties of a bookingCustomQuestion object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCustomQuestion
+     * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingCustomQuestion | undefined, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingCustomQuestion | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter?.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property customQuestions for solutions
+     * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * All the custom questions of this business. Read-only. Nullable.
+     * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the navigation property customQuestions in solutions
+     * Update the properties of a bookingCustomQuestion object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -20,6 +20,7 @@ import {createPasswordCredentialFromDiscriminatorValue} from './createPasswordCr
 import {createPermissionScopeFromDiscriminatorValue} from './createPermissionScopeFromDiscriminatorValue';
 import {createResourceSpecificPermissionFromDiscriminatorValue} from './createResourceSpecificPermissionFromDiscriminatorValue';
 import {createSamlSingleSignOnSettingsFromDiscriminatorValue} from './createSamlSingleSignOnSettingsFromDiscriminatorValue';
+import {createSynchronizationFromDiscriminatorValue} from './createSynchronizationFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
@@ -53,10 +54,12 @@ import {serializePasswordCredential} from './serializePasswordCredential';
 import {serializePermissionScope} from './serializePermissionScope';
 import {serializeResourceSpecificPermission} from './serializeResourceSpecificPermission';
 import {serializeSamlSingleSignOnSettings} from './serializeSamlSingleSignOnSettings';
+import {serializeSynchronization} from './serializeSynchronization';
 import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
 import {serializeTokenLifetimePolicy} from './serializeTokenLifetimePolicy';
 import {serializeVerifiedPublisher} from './serializeVerifiedPublisher';
 import {ServicePrincipal} from './servicePrincipal';
+import {Synchronization} from './synchronization';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
@@ -108,6 +111,7 @@ export function deserializeIntoServicePrincipal(servicePrincipal: ServicePrincip
         "servicePrincipalNames": n => { servicePrincipal.servicePrincipalNames = n.getCollectionOfPrimitiveValues<string>(); },
         "servicePrincipalType": n => { servicePrincipal.servicePrincipalType = n.getStringValue(); },
         "signInAudience": n => { servicePrincipal.signInAudience = n.getStringValue(); },
+        "synchronization": n => { servicePrincipal.synchronization = n.getObjectValue<Synchronization>(createSynchronizationFromDiscriminatorValue); },
         "tags": n => { servicePrincipal.tags = n.getCollectionOfPrimitiveValues<string>(); },
         "tokenEncryptionKeyId": n => { servicePrincipal.tokenEncryptionKeyId = n.getStringValue(); },
         "tokenIssuancePolicies": n => { servicePrincipal.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },

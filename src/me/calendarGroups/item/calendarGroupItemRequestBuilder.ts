@@ -29,9 +29,10 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/calendarGroups/{calendarGroup%2Did}{?%24select}");
     };
     /**
-     * Delete navigation property calendarGroups for me
+     * Delete a calendar group other than the default calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CalendarGroupItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The user's calendar groups. Read-only. Nullable.
+     * Retrieve the properties and relationships of a calendar group object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarGroup
+     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarGroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +62,12 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property calendarGroups in me
+     * Update the properties of calendargroup object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CalendarGroup
+     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CalendarGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +81,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<CalendarGroup>(requestInfo, createCalendarGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property calendarGroups for me
+     * Delete a calendar group other than the default calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +97,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The user's calendar groups. Read-only. Nullable.
+     * Retrieve the properties and relationships of a calendar group object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +115,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property calendarGroups in me
+     * Update the properties of calendargroup object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
