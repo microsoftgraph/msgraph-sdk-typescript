@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x, 18.x]
         # Single version should work for compilation testing
 
     steps:
@@ -28,7 +28,18 @@ jobs:
       uses: actions/setup-node@v3
     - run: npm ci
     - run: npm run build
+    - name: Check for Secret availability
+      id: my-key-check
+      # perform secret check & put boolean result as an output
+      shell: bash
+      run: |
+        if [ "${{ secrets.client_secret }}" != '' ]; then
+          echo "defined=true" >> $GITHUB_OUTPUT;
+        else
+          echo "defined=false" >> $GITHUB_OUTPUT;
+        fi
     - run: npm run test
+      if: steps.my-key-check.outputs.defined == 'true'
       env:
         TENANT_ID:  ${{secrets.tenant_id}}
         CLIENT_ID: ${{secrets.client_id}}
