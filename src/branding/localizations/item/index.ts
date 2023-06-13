@@ -1,4 +1,0 @@
-export * from './organizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration'
-export * from './organizationalBrandingLocalizationItemRequestBuilderGetQueryParameters'
-export * from './organizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration'
-export * from './organizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration'

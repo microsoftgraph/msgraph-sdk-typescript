@@ -1,4 +1,5 @@
 import {AggregationOption} from './aggregationOption';
+import {CollapseProperty} from './collapseProperty';
 import {EntityType} from './entityType';
 import {ResultTemplateOption} from './resultTemplateOption';
 import {SearchAlterationOptions} from './searchAlterationOptions';
@@ -14,6 +15,8 @@ export interface SearchRequest extends AdditionalDataHolder, Parsable {
     aggregationFilters?: string[] | undefined;
     /** The aggregations property */
     aggregations?: AggregationOption[] | undefined;
+    /** The collapseProperties property */
+    collapseProperties?: CollapseProperty[] | undefined;
     /** The contentSources property */
     contentSources?: string[] | undefined;
     /** The enableTopResults property */

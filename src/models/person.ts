@@ -19,7 +19,7 @@ export interface Person extends Entity, Parsable {
     givenName?: string | undefined;
     /** The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only. */
     imAddress?: string | undefined;
-    /** true if the user has flagged this person as a favorite. */
+    /** True if the user has flagged this person as a favorite. */
     isFavorite?: boolean | undefined;
     /** The person's job title. */
     jobTitle?: string | undefined;

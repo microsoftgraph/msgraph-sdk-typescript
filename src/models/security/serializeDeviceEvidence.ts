@@ -17,6 +17,7 @@ export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvide
         writer.writeStringValue("deviceDnsName", deviceEvidence.deviceDnsName);
         writer.writeDateValue("firstSeenDateTime", deviceEvidence.firstSeenDateTime);
         writer.writeEnumValue<DeviceHealthStatus>("healthStatus", deviceEvidence.healthStatus);
+        writer.writeCollectionOfPrimitiveValues<string>("ipInterfaces", deviceEvidence.ipInterfaces);
         writer.writeCollectionOfObjectValues<LoggedOnUser>("loggedOnUsers", deviceEvidence.loggedOnUsers, serializeLoggedOnUser);
         writer.writeStringValue("mdeDeviceId", deviceEvidence.mdeDeviceId);
         writer.writeEnumValue<OnboardingStatus>("onboardingStatus", deviceEvidence.onboardingStatus);

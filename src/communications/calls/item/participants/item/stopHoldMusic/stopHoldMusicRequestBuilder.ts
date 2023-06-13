@@ -25,11 +25,12 @@ export class StopHoldMusicRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/participants/{participant%2Did}/stopHoldMusic");
     };
     /**
-     * Invoke action stopHoldMusic
+     * Reincorporate a participant previously put on hold to the call.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StopHoldMusicOperation
+     * @see {@link https://docs.microsoft.com/graph/api/participant-stopholdmusic?view=graph-rest-1.0|Find more info here}
      */
     public post(body: StopHoldMusicPostRequestBody | undefined, requestConfiguration?: StopHoldMusicRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StopHoldMusicOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class StopHoldMusicRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<StopHoldMusicOperation>(requestInfo, createStopHoldMusicOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action stopHoldMusic
+     * Reincorporate a participant previously put on hold to the call.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

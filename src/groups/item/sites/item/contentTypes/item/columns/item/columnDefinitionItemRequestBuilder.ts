@@ -29,9 +29,10 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/contentTypes/{contentType%2Did}/columns/{columnDefinition%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property columns for groups
+     * Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The collection of column definitions for this contentType.
+     * Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ColumnDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ColumnDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -78,7 +80,7 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ColumnDefinition>(requestInfo, createColumnDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property columns for groups
+     * Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The collection of column definitions for this contentType.
+     * Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

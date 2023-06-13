@@ -25,11 +25,12 @@ export class GetMemberObjectsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/directoryObjects/{directoryObject%2Did}/getMemberObjects");
     };
     /**
-     * Invoke action getMemberObjects
+     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. **Note:** Only users and role-enabled groups can be members of directory roles.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetMemberObjectsResponse
+     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-getmemberobjects?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetMemberObjectsPostRequestBody | undefined, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMemberObjectsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +44,7 @@ export class GetMemberObjectsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<GetMemberObjectsResponse>(requestInfo, createGetMemberObjectsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action getMemberObjects
+     * Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. **Note:** Only users and role-enabled groups can be members of directory roles.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

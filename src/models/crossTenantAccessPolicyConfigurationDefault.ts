@@ -5,7 +5,7 @@ import {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfigu
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantAccessPolicyConfigurationDefault extends Entity, Parsable {
-    /** The automaticUserConsentSettings property */
+    /** Determines the default configuration for automatic user consent settings. The inboundAllowed and outboundAllowed properties are always false and cannot be updated in the default configuration. Read-only. */
     automaticUserConsentSettings?: InboundOutboundPolicyConfiguration | undefined;
     /** Defines your default configuration for users from other organizations accessing your resources via Azure AD B2B collaboration. */
     b2bCollaborationInbound?: CrossTenantAccessPolicyB2BSetting | undefined;

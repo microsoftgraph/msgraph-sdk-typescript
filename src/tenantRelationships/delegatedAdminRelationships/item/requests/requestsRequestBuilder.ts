@@ -42,10 +42,11 @@ export class RequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/requests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The requests associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminRelationshipRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-list-requests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RequestsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,11 +59,12 @@ export class RequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipRequestCollectionResponse>(requestInfo, createDelegatedAdminRelationshipRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to requests for tenantRelationships
+     * Create a new delegatedAdminRelationshipRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipRequest
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-post-requests?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DelegatedAdminRelationshipRequest | undefined, requestConfiguration?: RequestsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class RequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipRequest>(requestInfo, createDelegatedAdminRelationshipRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The requests associated with the delegated admin relationship.
+     * Get a list of the delegatedAdminRelationshipRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class RequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to requests for tenantRelationships
+     * Create a new delegatedAdminRelationshipRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

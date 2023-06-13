@@ -26,7 +26,7 @@ export interface Alert extends Entity, Parsable {
     createdDateTime?: Date | undefined;
     /** String value describing each alert. */
     description?: string | undefined;
-    /** Detection technology or sensor that identified the notable component or activity. */
+    /** Detection technology or sensor that identified the notable component or activity. Possible values are: unknown, microsoftDefenderForEndpoint, antivirus, smartScreen, customTi, microsoftDefenderForOffice365, automatedInvestigation, microsoftThreatExperts, customDetection, microsoftDefenderForIdentity, cloudAppSecurity, microsoft365Defender, azureAdIdentityProtection, manual, microsoftDataLossPrevention, appGovernancePolicy, appGovernanceDetection, unknownFutureValue, microsoftDefenderForCloud. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: microsoftDefenderForCloud. */
     detectionSource?: DetectionSource | undefined;
     /** The ID of the detector that triggered the alert. */
     detectorId?: string | undefined;

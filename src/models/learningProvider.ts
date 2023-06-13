@@ -5,6 +5,8 @@ import {Parsable} from '@microsoft/kiota-abstractions';
 export interface LearningProvider extends Entity, Parsable {
     /** The display name that appears in Viva Learning. Required. */
     displayName?: string | undefined;
+    /** Indicates whether a provider can ingest learning course activity records. The default value is false. Set to true to make learningCourseActivities available for this provider. */
+    isCourseActivitySyncEnabled?: boolean | undefined;
     /** Learning catalog items for the provider. */
     learningContents?: LearningContent[] | undefined;
     /** Authentication URL to access the courses for the provider. Optional. */

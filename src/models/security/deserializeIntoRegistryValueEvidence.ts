@@ -5,6 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoRegistryValueEvidence(registryValueEvidence: RegistryValueEvidence | undefined = {} as RegistryValueEvidence) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoAlertEvidence(registryValueEvidence),
+        "mdeDeviceId": n => { registryValueEvidence.mdeDeviceId = n.getStringValue(); },
         "registryHive": n => { registryValueEvidence.registryHive = n.getStringValue(); },
         "registryKey": n => { registryValueEvidence.registryKey = n.getStringValue(); },
         "registryValue": n => { registryValueEvidence.registryValue = n.getStringValue(); },

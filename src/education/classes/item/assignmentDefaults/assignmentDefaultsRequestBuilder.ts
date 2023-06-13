@@ -39,10 +39,11 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Specifies class-level defaults respected by new assignments created in the class.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentDefaults
+     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentdefaults-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentDefaultsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentDefaults | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<EducationAssignmentDefaults>(requestInfo, createEducationAssignmentDefaultsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property assignmentDefaults in education
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationAssignmentDefaults
+     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentdefaults-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationAssignmentDefaults | undefined, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationAssignmentDefaults | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Specifies class-level defaults respected by new assignments created in the class.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property assignmentDefaults in education
+     * Update the properties of an educationAssignmentDefaults object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

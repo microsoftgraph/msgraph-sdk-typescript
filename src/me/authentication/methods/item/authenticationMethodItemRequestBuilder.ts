@@ -28,10 +28,11 @@ export class AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/methods/{authenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Represents all authentication methods registered to a user.
+     * Retrieve the properties and relationships of an authenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethod
+     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -62,7 +63,7 @@ export class AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<AuthenticationMethod>(requestInfo, createAuthenticationMethodFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Represents all authentication methods registered to a user.
+     * Retrieve the properties and relationships of an authenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

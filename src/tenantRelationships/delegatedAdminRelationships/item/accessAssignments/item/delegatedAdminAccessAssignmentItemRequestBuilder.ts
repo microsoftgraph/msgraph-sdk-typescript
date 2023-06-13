@@ -24,9 +24,10 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships/delegatedAdminRelationships/{delegatedAdminRelationship%2Did}/accessAssignments/{delegatedAdminAccessAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property accessAssignments for tenantRelationships
+     * Delete a delegatedAdminAccessAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminaccessassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DelegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The access assignments associated with the delegated admin relationship.
+     * Read the properties of a delegatedAdminAccessAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminAccessAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminaccessassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminAccessAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendAsync<DelegatedAdminAccessAssignment>(requestInfo, createDelegatedAdminAccessAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property accessAssignments in tenantRelationships
+     * Update the properties of a delegatedAdminAccessAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminAccessAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminaccessassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DelegatedAdminAccessAssignment | undefined, requestConfiguration?: DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminAccessAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendAsync<DelegatedAdminAccessAssignment>(requestInfo, createDelegatedAdminAccessAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property accessAssignments for tenantRelationships
+     * Delete a delegatedAdminAccessAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         return requestInfo;
     };
     /**
-     * The access assignments associated with the delegated admin relationship.
+     * Read the properties of a delegatedAdminAccessAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
         return requestInfo;
     };
     /**
-     * Update the navigation property accessAssignments in tenantRelationships
+     * Update the properties of a delegatedAdminAccessAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

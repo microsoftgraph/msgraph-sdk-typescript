@@ -54,10 +54,11 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Replies for a specified message. Supports $expand for channel messages.
+     * Retrieve a single message or a message reply in a channel or a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
+     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatMessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -104,7 +105,7 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Replies for a specified message. Supports $expand for channel messages.
+     * Retrieve a single message or a message reply in a channel or a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

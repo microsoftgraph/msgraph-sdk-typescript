@@ -5,6 +5,8 @@ export interface LicenseUnitsDetail extends AdditionalDataHolder, Parsable {
     additionalData?: Record<string, unknown>;
     /** The number of units that are enabled for the active subscription of the service SKU. */
     enabled?: number | undefined;
+    /** The lockedOut property */
+    lockedOut?: number | undefined;
     /** The OdataType property */
     odataType?: string | undefined;
     /** The number of units that are suspended because the subscription of the service SKU has been cancelled. The units cannot be assigned but can still be reactivated before they are deleted. */

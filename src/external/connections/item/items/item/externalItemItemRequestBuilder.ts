@@ -6,15 +6,25 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
+import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {ExternalItemItemRequestBuilderDeleteRequestConfiguration} from './externalItemItemRequestBuilderDeleteRequestConfiguration';
 import {ExternalItemItemRequestBuilderGetRequestConfiguration} from './externalItemItemRequestBuilderGetRequestConfiguration';
 import {ExternalItemItemRequestBuilderPutRequestConfiguration} from './externalItemItemRequestBuilderPutRequestConfiguration';
+import {MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder} from './microsoftGraphExternalConnectorsAddActivities/microsoftGraphExternalConnectorsAddActivitiesRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
  */
 export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
+    /** Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity. */
+    public get activities(): ActivitiesRequestBuilder {
+        return new ActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Provides operations to call the addActivities method. */
+    public get microsoftGraphExternalConnectorsAddActivities(): MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder {
+        return new MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new ExternalItemItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -24,9 +34,10 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/external/connections/{externalConnection%2Did}/items/{externalItem%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property items for external
+     * Delete an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ExternalItemItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +50,11 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get items from external
+     * Read the properties and relationships of an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalItem
+     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExternalItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +85,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ExternalItem>(requestInfo, createExternalItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property items for external
+     * Delete an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +101,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get items from external
+     * Read the properties and relationships of an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

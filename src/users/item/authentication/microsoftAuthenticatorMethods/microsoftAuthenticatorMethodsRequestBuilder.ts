@@ -37,10 +37,11 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/microsoftAuthenticatorMethods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The details of the Microsoft Authenticator app registered to a user for authentication.
+     * Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethodCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +54,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder extends BaseRequestBuil
         return this.requestAdapter?.sendAsync<MicrosoftAuthenticatorAuthenticationMethodCollectionResponse>(requestInfo, createMicrosoftAuthenticatorAuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The details of the Microsoft Authenticator app registered to a user for authentication.
+     * Get a list of the microsoftAuthenticatorAuthenticationMethod objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

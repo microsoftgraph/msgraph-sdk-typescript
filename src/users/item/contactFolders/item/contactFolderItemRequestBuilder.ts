@@ -34,9 +34,10 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/contactFolders/{contactFolder%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property contactFolders for users
+     * Delete contactFolder other than the default contactFolder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ContactFolderItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,10 +50,11 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The user's contacts folders. Read-only. Nullable.
+     * Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContactFolder
+     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContactFolderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactFolder | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +67,12 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property contactFolders in users
+     * Update the properties of contactfolder object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContactFolder
+     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ContactFolder | undefined, requestConfiguration?: ContactFolderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContactFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -83,7 +86,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ContactFolder>(requestInfo, createContactFolderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property contactFolders for users
+     * Delete contactFolder other than the default contactFolder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +102,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The user's contacts folders. Read-only. Nullable.
+     * Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +120,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property contactFolders in users
+     * Update the properties of contactfolder object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

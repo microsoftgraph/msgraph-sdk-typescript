@@ -20,10 +20,11 @@ export class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/searches/{ediscoverySearch%2Did}/lastEstimateStatisticsOperation{?%24select,%24expand}");
     };
     /**
-     * The last estimate operation associated with the eDiscovery search.
+     * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryEstimateOperation
+     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-list-lastestimatestatisticsoperation?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryEstimateOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +37,7 @@ export class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBu
         return this.requestAdapter?.sendAsync<EdiscoveryEstimateOperation>(requestInfo, createEdiscoveryEstimateOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The last estimate operation associated with the eDiscovery search.
+     * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -16,6 +16,7 @@ import {PublicClientApplication} from './publicClientApplication';
 import {RequestSignatureVerification} from './requestSignatureVerification';
 import {RequiredResourceAccess} from './requiredResourceAccess';
 import {SpaApplication} from './spaApplication';
+import {Synchronization} from './synchronization';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
@@ -97,6 +98,8 @@ export interface Application extends DirectoryObject, Parsable {
     signInAudience?: string | undefined;
     /** Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens. */
     spa?: SpaApplication | undefined;
+    /** The synchronization property */
+    synchronization?: Synchronization | undefined;
     /** Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search. */
     tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user. */

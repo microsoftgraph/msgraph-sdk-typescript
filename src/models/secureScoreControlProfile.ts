@@ -33,7 +33,7 @@ export interface SecureScoreControlProfile extends Entity, Parsable {
     remediationImpact?: string | undefined;
     /** Service that owns the control (Exchange, Sharepoint, Azure AD). */
     service?: string | undefined;
-    /** List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage, */
+    /** List of threats the control mitigates (accountBreach, dataDeletion, dataExfiltration, dataSpillage, */
     threats?: string[] | undefined;
     /** The tier property */
     tier?: string | undefined;

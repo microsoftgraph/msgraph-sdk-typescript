@@ -6,6 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export function serializeAlertEvidence(writer: SerializationWriter, alertEvidence: AlertEvidence | undefined = {} as AlertEvidence) : void {
         writer.writeDateValue("createdDateTime", alertEvidence.createdDateTime);
+        writer.writeCollectionOfPrimitiveValues<string>("detailedRoles", alertEvidence.detailedRoles);
         writer.writeStringValue("@odata.type", alertEvidence.odataType);
         writer.writeEnumValue<EvidenceRemediationStatus>("remediationStatus", alertEvidence.remediationStatus);
         writer.writeStringValue("remediationStatusDetails", alertEvidence.remediationStatusDetails);

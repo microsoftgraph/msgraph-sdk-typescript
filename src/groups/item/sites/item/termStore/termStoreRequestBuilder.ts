@@ -49,10 +49,11 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The default termStore under this site.
+     * Read the properties and relationships of a store object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Store
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-store-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermStoreRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Store | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +66,12 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property termStore in groups
+     * Update the properties of a store object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Store
+     * @see {@link https://docs.microsoft.com/graph/api/termstore-store-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Store | undefined, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Store | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -99,7 +101,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The default termStore under this site.
+     * Read the properties and relationships of a store object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +119,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property termStore in groups
+     * Update the properties of a store object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

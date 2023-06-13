@@ -24,9 +24,10 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/outlook/masterCategories/{outlookCategory%2Did}{?%24select}");
     };
     /**
-     * Delete navigation property masterCategories for me
+     * Delete the specified outlookCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/outlookcategory-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OutlookCategoryItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +40,11 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A list of categories defined for the user.
+     * Get the properties and relationships of the specified outlookCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OutlookCategory
+     * @see {@link https://docs.microsoft.com/graph/api/outlookcategory-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OutlookCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OutlookCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +57,12 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OutlookCategory>(requestInfo, createOutlookCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property masterCategories in me
+     * Update the writable property, **color**, of the specified outlookCategory object. You cannot modify the **displayName** property once you have created the category.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OutlookCategory
+     * @see {@link https://docs.microsoft.com/graph/api/outlookcategory-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OutlookCategory | undefined, requestConfiguration?: OutlookCategoryItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OutlookCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +76,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<OutlookCategory>(requestInfo, createOutlookCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property masterCategories for me
+     * Delete the specified outlookCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +92,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A list of categories defined for the user.
+     * Get the properties and relationships of the specified outlookCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property masterCategories in me
+     * Update the writable property, **color**, of the specified outlookCategory object. You cannot modify the **displayName** property once you have created the category.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

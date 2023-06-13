@@ -20,10 +20,11 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/templates/{conditionalAccessTemplate%2Did}{?%24select,%24expand}");
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+     * Read the properties and relationships of a conditionalAccessTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConditionalAccessTemplate
+     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccesstemplate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +37,7 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter?.sendAsync<ConditionalAccessTemplate>(requestInfo, createConditionalAccessTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+     * Read the properties and relationships of a conditionalAccessTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

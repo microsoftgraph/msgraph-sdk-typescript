@@ -44,10 +44,11 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Approval stages for decisions associated with access package assignment requests.
+     * In Azure AD entitlement management, retrieve the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval
+     * @see {@link https://docs.microsoft.com/graph/api/approval-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApprovalItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Approval | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +95,7 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Approval stages for decisions associated with access package assignment requests.
+     * In Azure AD entitlement management, retrieve the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,5 +1,7 @@
 import {AggregationOption} from './aggregationOption';
+import {CollapseProperty} from './collapseProperty';
 import {createAggregationOptionFromDiscriminatorValue} from './createAggregationOptionFromDiscriminatorValue';
+import {createCollapsePropertyFromDiscriminatorValue} from './createCollapsePropertyFromDiscriminatorValue';
 import {createResultTemplateOptionFromDiscriminatorValue} from './createResultTemplateOptionFromDiscriminatorValue';
 import {createSearchAlterationOptionsFromDiscriminatorValue} from './createSearchAlterationOptionsFromDiscriminatorValue';
 import {createSearchQueryFromDiscriminatorValue} from './createSearchQueryFromDiscriminatorValue';
@@ -11,6 +13,7 @@ import {SearchAlterationOptions} from './searchAlterationOptions';
 import {SearchQuery} from './searchQuery';
 import {SearchRequest} from './searchRequest';
 import {serializeAggregationOption} from './serializeAggregationOption';
+import {serializeCollapseProperty} from './serializeCollapseProperty';
 import {serializeResultTemplateOption} from './serializeResultTemplateOption';
 import {serializeSearchAlterationOptions} from './serializeSearchAlterationOptions';
 import {serializeSearchQuery} from './serializeSearchQuery';
@@ -24,6 +27,7 @@ export function deserializeIntoSearchRequest(searchRequest: SearchRequest | unde
     return {
         "aggregationFilters": n => { searchRequest.aggregationFilters = n.getCollectionOfPrimitiveValues<string>(); },
         "aggregations": n => { searchRequest.aggregations = n.getCollectionOfObjectValues<AggregationOption>(createAggregationOptionFromDiscriminatorValue); },
+        "collapseProperties": n => { searchRequest.collapseProperties = n.getCollectionOfObjectValues<CollapseProperty>(createCollapsePropertyFromDiscriminatorValue); },
         "contentSources": n => { searchRequest.contentSources = n.getCollectionOfPrimitiveValues<string>(); },
         "enableTopResults": n => { searchRequest.enableTopResults = n.getBooleanValue(); },
         "entityTypes": n => { searchRequest.entityTypes = n.getEnumValues<EntityType>(EntityType); },

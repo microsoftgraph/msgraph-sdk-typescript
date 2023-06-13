@@ -7,6 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export function deserializeIntoAlertEvidence(alertEvidence: AlertEvidence | undefined = {} as AlertEvidence) : Record<string, (node: ParseNode) => void> {
     return {
         "createdDateTime": n => { alertEvidence.createdDateTime = n.getDateValue(); },
+        "detailedRoles": n => { alertEvidence.detailedRoles = n.getCollectionOfPrimitiveValues<string>(); },
         "@odata.type": n => { alertEvidence.odataType = n.getStringValue(); },
         "remediationStatus": n => { alertEvidence.remediationStatus = n.getEnumValue<EvidenceRemediationStatus>(EvidenceRemediationStatus); },
         "remediationStatusDetails": n => { alertEvidence.remediationStatusDetails = n.getStringValue(); },

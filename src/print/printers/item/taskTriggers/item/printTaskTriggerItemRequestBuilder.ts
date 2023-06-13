@@ -29,9 +29,10 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/printers/{printer%2Did}/taskTriggers/{printTaskTrigger%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property taskTriggers for print
+     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/printer-delete-tasktrigger?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +45,11 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * A list of task triggers that are associated with the printer.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintTaskTrigger
+     * @see {@link https://docs.microsoft.com/graph/api/printtasktrigger-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintTaskTriggerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintTaskTrigger | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -78,7 +80,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<PrintTaskTrigger>(requestInfo, createPrintTaskTriggerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property taskTriggers for print
+     * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * A list of task triggers that are associated with the printer.
+     * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
