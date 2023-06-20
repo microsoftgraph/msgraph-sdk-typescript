@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {LcmPostRequestBody} from './lcmPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLcmPostRequestBody(writer: SerializationWriter, lcmPostRequestBody: LcmPostRequestBody | undefined = {} as LcmPostRequestBody) : void {
+export function serializeLcmPostRequestBody(lcmPostRequestBody: LcmPostRequestBody | undefined = {} as LcmPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("values", lcmPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(lcmPostRequestBody.additionalData);
 }

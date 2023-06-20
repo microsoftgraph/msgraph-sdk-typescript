@@ -6,7 +6,7 @@ import {serializeDeviceOperatingSystemSummary} from './serializeDeviceOperatingS
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeManagedDeviceOverview(writer: SerializationWriter, managedDeviceOverview: ManagedDeviceOverview | undefined = {} as ManagedDeviceOverview) : void {
+export function serializeManagedDeviceOverview(managedDeviceOverview: ManagedDeviceOverview | undefined = {} as ManagedDeviceOverview, writer: SerializationWriter) : void {
         serializeEntity(writer, managedDeviceOverview)
         writer.writeObjectValue<DeviceExchangeAccessStateSummary>("deviceExchangeAccessStateSummary", managedDeviceOverview.deviceExchangeAccessStateSummary, serializeDeviceExchangeAccessStateSummary);
         writer.writeObjectValue<DeviceOperatingSystemSummary>("deviceOperatingSystemSummary", managedDeviceOverview.deviceOperatingSystemSummary, serializeDeviceOperatingSystemSummary);

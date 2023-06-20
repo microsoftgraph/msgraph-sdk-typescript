@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {IsOddPostRequestBody} from './isOddPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIsOddPostRequestBody(writer: SerializationWriter, isOddPostRequestBody: IsOddPostRequestBody | undefined = {} as IsOddPostRequestBody) : void {
+export function serializeIsOddPostRequestBody(isOddPostRequestBody: IsOddPostRequestBody | undefined = {} as IsOddPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("number", isOddPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(isOddPostRequestBody.additionalData);
 }

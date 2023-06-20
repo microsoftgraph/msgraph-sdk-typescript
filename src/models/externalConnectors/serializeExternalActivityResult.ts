@@ -4,7 +4,7 @@ import {ExternalActivityResult} from './externalActivityResult';
 import {serializeExternalActivity} from './serializeExternalActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeExternalActivityResult(writer: SerializationWriter, externalActivityResult: ExternalActivityResult | undefined = {} as ExternalActivityResult) : void {
+export function serializeExternalActivityResult(externalActivityResult: ExternalActivityResult | undefined = {} as ExternalActivityResult, writer: SerializationWriter) : void {
         serializeExternalActivity(writer, externalActivityResult)
         writer.writeObjectValue<PublicError>("error", externalActivityResult.errorEscaped, serializePublicError);
 }

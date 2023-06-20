@@ -2,7 +2,7 @@ import {CrossCloudAzureActiveDirectoryTenant} from './crossCloudAzureActiveDirec
 import {serializeIdentitySource} from './serializeIdentitySource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCrossCloudAzureActiveDirectoryTenant(writer: SerializationWriter, crossCloudAzureActiveDirectoryTenant: CrossCloudAzureActiveDirectoryTenant | undefined = {} as CrossCloudAzureActiveDirectoryTenant) : void {
+export function serializeCrossCloudAzureActiveDirectoryTenant(crossCloudAzureActiveDirectoryTenant: CrossCloudAzureActiveDirectoryTenant | undefined = {} as CrossCloudAzureActiveDirectoryTenant, writer: SerializationWriter) : void {
         serializeIdentitySource(writer, crossCloudAzureActiveDirectoryTenant)
         writer.writeStringValue("cloudInstance", crossCloudAzureActiveDirectoryTenant.cloudInstance);
         writer.writeStringValue("displayName", crossCloudAzureActiveDirectoryTenant.displayName);

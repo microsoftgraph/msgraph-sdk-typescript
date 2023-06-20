@@ -47,7 +47,7 @@ import {VerifiedPublisher} from './verifiedPublisher';
 import {WebApplication} from './webApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeApplication(writer: SerializationWriter, application: Application | undefined = {} as Application) : void {
+export function serializeApplication(application: Application | undefined = {} as Application, writer: SerializationWriter) : void {
         serializeDirectoryObject(writer, application)
         writer.writeCollectionOfObjectValues<AddIn>("addIns", application.addIns, serializeAddIn);
         writer.writeObjectValue<ApiApplication>("api", application.api, serializeApiApplication);

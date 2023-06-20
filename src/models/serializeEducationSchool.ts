@@ -12,7 +12,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationSchool(writer: SerializationWriter, educationSchool: EducationSchool | undefined = {} as EducationSchool) : void {
+export function serializeEducationSchool(educationSchool: EducationSchool | undefined = {} as EducationSchool, writer: SerializationWriter) : void {
         serializeEducationOrganization(writer, educationSchool)
         writer.writeObjectValue<PhysicalAddress>("address", educationSchool.address, serializePhysicalAddress);
         writer.writeObjectValue<AdministrativeUnit>("administrativeUnit", educationSchool.administrativeUnit, serializeAdministrativeUnit);

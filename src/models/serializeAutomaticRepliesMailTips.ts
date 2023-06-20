@@ -5,7 +5,7 @@ import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeLocaleInfo} from './serializeLocaleInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAutomaticRepliesMailTips(writer: SerializationWriter, automaticRepliesMailTips: AutomaticRepliesMailTips | undefined = {} as AutomaticRepliesMailTips) : void {
+export function serializeAutomaticRepliesMailTips(automaticRepliesMailTips: AutomaticRepliesMailTips | undefined = {} as AutomaticRepliesMailTips, writer: SerializationWriter) : void {
         writer.writeStringValue("message", automaticRepliesMailTips.message);
         writer.writeObjectValue<LocaleInfo>("messageLanguage", automaticRepliesMailTips.messageLanguage, serializeLocaleInfo);
         writer.writeStringValue("@odata.type", automaticRepliesMailTips.odataType);

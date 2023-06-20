@@ -5,7 +5,7 @@ import {AttributeMappingSource} from './attributeMappingSource';
 import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAttributeMapping(writer: SerializationWriter, attributeMapping: AttributeMapping | undefined = {} as AttributeMapping) : void {
+export function serializeAttributeMapping(attributeMapping: AttributeMapping | undefined = {} as AttributeMapping, writer: SerializationWriter) : void {
         writer.writeStringValue("defaultValue", attributeMapping.defaultValue);
         writer.writeBooleanValue("exportMissingReferences", attributeMapping.exportMissingReferences);
         writer.writeEnumValue<AttributeFlowBehavior>("flowBehavior", attributeMapping.flowBehavior);

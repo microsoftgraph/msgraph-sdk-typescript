@@ -3,7 +3,7 @@ import {serializeDateTimeTimeZone} from '../../../models/serializeDateTimeTimeZo
 import {GetSchedulePostRequestBody} from './getSchedulePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: GetSchedulePostRequestBody | undefined = {} as GetSchedulePostRequestBody) : void {
+export function serializeGetSchedulePostRequestBody(getSchedulePostRequestBody: GetSchedulePostRequestBody | undefined = {} as GetSchedulePostRequestBody, writer: SerializationWriter) : void {
         writer.writeNumberValue("availabilityViewInterval", getSchedulePostRequestBody.availabilityViewInterval);
         writer.writeObjectValue<DateTimeTimeZone>("endTime", getSchedulePostRequestBody.endTime, serializeDateTimeTimeZone);
         writer.writeCollectionOfPrimitiveValues<string>("schedules", getSchedulePostRequestBody.schedules);

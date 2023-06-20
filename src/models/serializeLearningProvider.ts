@@ -4,7 +4,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeLearningContent} from './serializeLearningContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLearningProvider(writer: SerializationWriter, learningProvider: LearningProvider | undefined = {} as LearningProvider) : void {
+export function serializeLearningProvider(learningProvider: LearningProvider | undefined = {} as LearningProvider, writer: SerializationWriter) : void {
         serializeEntity(writer, learningProvider)
         writer.writeStringValue("displayName", learningProvider.displayName);
         writer.writeBooleanValue("isCourseActivitySyncEnabled", learningProvider.isCourseActivitySyncEnabled);

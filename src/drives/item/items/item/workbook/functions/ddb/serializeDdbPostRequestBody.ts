@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {DdbPostRequestBody} from './ddbPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDdbPostRequestBody(writer: SerializationWriter, ddbPostRequestBody: DdbPostRequestBody | undefined = {} as DdbPostRequestBody) : void {
+export function serializeDdbPostRequestBody(ddbPostRequestBody: DdbPostRequestBody | undefined = {} as DdbPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("cost", ddbPostRequestBody.cost, serializeJson);
         writer.writeObjectValue<Json>("factor", ddbPostRequestBody.factor, serializeJson);
         writer.writeObjectValue<Json>("life", ddbPostRequestBody.life, serializeJson);

@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {ComplexPostRequestBody} from './complexPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeComplexPostRequestBody(writer: SerializationWriter, complexPostRequestBody: ComplexPostRequestBody | undefined = {} as ComplexPostRequestBody) : void {
+export function serializeComplexPostRequestBody(complexPostRequestBody: ComplexPostRequestBody | undefined = {} as ComplexPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("iNum", complexPostRequestBody.iNum, serializeJson);
         writer.writeObjectValue<Json>("realNum", complexPostRequestBody.realNum, serializeJson);
         writer.writeObjectValue<Json>("suffix", complexPostRequestBody.suffix, serializeJson);

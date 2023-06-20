@@ -8,7 +8,7 @@ import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValue
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeContactFolder(writer: SerializationWriter, contactFolder: ContactFolder | undefined = {} as ContactFolder) : void {
+export function serializeContactFolder(contactFolder: ContactFolder | undefined = {} as ContactFolder, writer: SerializationWriter) : void {
         serializeEntity(writer, contactFolder)
         writer.writeCollectionOfObjectValues<ContactFolder>("childFolders", contactFolder.childFolders, serializeContactFolder);
         writer.writeCollectionOfObjectValues<Contact>("contacts", contactFolder.contacts, serializeContact);

@@ -9,7 +9,7 @@ import {serializeConditionalAccessSessionControls} from './serializeConditionalA
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessPolicy(writer: SerializationWriter, conditionalAccessPolicy: ConditionalAccessPolicy | undefined = {} as ConditionalAccessPolicy) : void {
+export function serializeConditionalAccessPolicy(conditionalAccessPolicy: ConditionalAccessPolicy | undefined = {} as ConditionalAccessPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, conditionalAccessPolicy)
         writer.writeObjectValue<ConditionalAccessConditionSet>("conditions", conditionalAccessPolicy.conditions, serializeConditionalAccessConditionSet);
         writer.writeDateValue("createdDateTime", conditionalAccessPolicy.createdDateTime);

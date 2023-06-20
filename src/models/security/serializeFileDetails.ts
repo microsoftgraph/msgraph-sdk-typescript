@@ -1,7 +1,7 @@
 import {FileDetails} from './fileDetails';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFileDetails(writer: SerializationWriter, fileDetails: FileDetails | undefined = {} as FileDetails) : void {
+export function serializeFileDetails(fileDetails: FileDetails | undefined = {} as FileDetails, writer: SerializationWriter) : void {
         writer.writeStringValue("fileName", fileDetails.fileName);
         writer.writeStringValue("filePath", fileDetails.filePath);
         writer.writeStringValue("filePublisher", fileDetails.filePublisher);

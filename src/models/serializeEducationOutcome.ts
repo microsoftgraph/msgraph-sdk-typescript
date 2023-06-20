@@ -4,7 +4,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationOutcome(writer: SerializationWriter, educationOutcome: EducationOutcome | undefined = {} as EducationOutcome) : void {
+export function serializeEducationOutcome(educationOutcome: EducationOutcome | undefined = {} as EducationOutcome, writer: SerializationWriter) : void {
         serializeEntity(writer, educationOutcome)
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", educationOutcome.lastModifiedBy, serializeIdentitySet);
         writer.writeDateValue("lastModifiedDateTime", educationOutcome.lastModifiedDateTime);

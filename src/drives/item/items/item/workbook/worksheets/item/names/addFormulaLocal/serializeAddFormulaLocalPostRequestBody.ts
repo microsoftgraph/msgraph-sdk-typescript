@@ -1,7 +1,7 @@
 import {AddFormulaLocalPostRequestBody} from './addFormulaLocalPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAddFormulaLocalPostRequestBody(writer: SerializationWriter, addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : void {
+export function serializeAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody, writer: SerializationWriter) : void {
         writer.writeStringValue("comment", addFormulaLocalPostRequestBody.comment);
         writer.writeStringValue("formula", addFormulaLocalPostRequestBody.formula);
         writer.writeStringValue("name", addFormulaLocalPostRequestBody.name);

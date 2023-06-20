@@ -4,7 +4,7 @@ import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticat
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthenticationMethodConfigurationCollectionResponse(writer: SerializationWriter, authenticationMethodConfigurationCollectionResponse: AuthenticationMethodConfigurationCollectionResponse | undefined = {} as AuthenticationMethodConfigurationCollectionResponse) : void {
+export function serializeAuthenticationMethodConfigurationCollectionResponse(authenticationMethodConfigurationCollectionResponse: AuthenticationMethodConfigurationCollectionResponse | undefined = {} as AuthenticationMethodConfigurationCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, authenticationMethodConfigurationCollectionResponse)
         writer.writeCollectionOfObjectValues<AuthenticationMethodConfiguration>("value", authenticationMethodConfigurationCollectionResponse.value, serializeAuthenticationMethodConfiguration);
 }

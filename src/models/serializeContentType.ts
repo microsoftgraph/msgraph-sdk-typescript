@@ -14,7 +14,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeItemReference} from './serializeItemReference';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeContentType(writer: SerializationWriter, contentType: ContentType | undefined = {} as ContentType) : void {
+export function serializeContentType(contentType: ContentType | undefined = {} as ContentType, writer: SerializationWriter) : void {
         serializeEntity(writer, contentType)
         writer.writeCollectionOfPrimitiveValues<string>("associatedHubsUrls", contentType.associatedHubsUrls);
         writer.writeObjectValue<ContentType>("base", contentType.base, serializeContentType);

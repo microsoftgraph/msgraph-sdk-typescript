@@ -4,7 +4,7 @@ import {SearchAlterationType} from './searchAlterationType';
 import {serializeSearchAlteration} from './serializeSearchAlteration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAlterationResponse(writer: SerializationWriter, alterationResponse: AlterationResponse | undefined = {} as AlterationResponse) : void {
+export function serializeAlterationResponse(alterationResponse: AlterationResponse | undefined = {} as AlterationResponse, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", alterationResponse.odataType);
         writer.writeStringValue("originalQueryString", alterationResponse.originalQueryString);
         writer.writeObjectValue<SearchAlteration>("queryAlteration", alterationResponse.queryAlteration, serializeSearchAlteration);

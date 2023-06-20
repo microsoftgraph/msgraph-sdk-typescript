@@ -6,7 +6,7 @@ import {ChatMessagePolicyViolationVerdictDetailsTypes} from './chatMessagePolicy
 import {serializeChatMessagePolicyViolationPolicyTip} from './serializeChatMessagePolicyViolationPolicyTip';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatMessagePolicyViolation(writer: SerializationWriter, chatMessagePolicyViolation: ChatMessagePolicyViolation | undefined = {} as ChatMessagePolicyViolation) : void {
+export function serializeChatMessagePolicyViolation(chatMessagePolicyViolation: ChatMessagePolicyViolation | undefined = {} as ChatMessagePolicyViolation, writer: SerializationWriter) : void {
         writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", chatMessagePolicyViolation.dlpAction);
         writer.writeStringValue("justificationText", chatMessagePolicyViolation.justificationText);
         writer.writeStringValue("@odata.type", chatMessagePolicyViolation.odataType);

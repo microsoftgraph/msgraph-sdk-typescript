@@ -4,7 +4,7 @@ import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMessagePinnedEventMessageDetail(writer: SerializationWriter, messagePinnedEventMessageDetail: MessagePinnedEventMessageDetail | undefined = {} as MessagePinnedEventMessageDetail) : void {
+export function serializeMessagePinnedEventMessageDetail(messagePinnedEventMessageDetail: MessagePinnedEventMessageDetail | undefined = {} as MessagePinnedEventMessageDetail, writer: SerializationWriter) : void {
         serializeEventMessageDetail(writer, messagePinnedEventMessageDetail)
         writer.writeDateValue("eventDateTime", messagePinnedEventMessageDetail.eventDateTime);
         writer.writeObjectValue<IdentitySet>("initiator", messagePinnedEventMessageDetail.initiator, serializeIdentitySet);

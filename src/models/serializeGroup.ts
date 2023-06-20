@@ -41,7 +41,7 @@ import {Site} from './site';
 import {Team} from './team';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
+export function serializeGroup(group: Group | undefined = {} as Group, writer: SerializationWriter) : void {
         serializeDirectoryObject(writer, group)
         writer.writeCollectionOfObjectValues<DirectoryObject>("acceptedSenders", group.acceptedSenders, serializeDirectoryObject);
         writer.writeBooleanValue("allowExternalSenders", group.allowExternalSenders);

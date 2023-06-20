@@ -6,7 +6,7 @@ import {serializeManagedMobileApp} from './serializeManagedMobileApp';
 import {serializeTargetedManagedAppProtection} from './serializeTargetedManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAndroidManagedAppProtection(writer: SerializationWriter, androidManagedAppProtection: AndroidManagedAppProtection | undefined = {} as AndroidManagedAppProtection) : void {
+export function serializeAndroidManagedAppProtection(androidManagedAppProtection: AndroidManagedAppProtection | undefined = {} as AndroidManagedAppProtection, writer: SerializationWriter) : void {
         serializeTargetedManagedAppProtection(writer, androidManagedAppProtection)
         writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", androidManagedAppProtection.apps, serializeManagedMobileApp);
         writer.writeStringValue("customBrowserDisplayName", androidManagedAppProtection.customBrowserDisplayName);

@@ -3,7 +3,7 @@ import {serializeAttachmentItem} from '../../../../../../../../../../models/seri
 import {CreateUploadSessionPostRequestBody} from './createUploadSessionPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCreateUploadSessionPostRequestBody(writer: SerializationWriter, createUploadSessionPostRequestBody: CreateUploadSessionPostRequestBody | undefined = {} as CreateUploadSessionPostRequestBody) : void {
+export function serializeCreateUploadSessionPostRequestBody(createUploadSessionPostRequestBody: CreateUploadSessionPostRequestBody | undefined = {} as CreateUploadSessionPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<AttachmentItem>("attachmentItem", createUploadSessionPostRequestBody.attachmentItem, serializeAttachmentItem);
         writer.writeAdditionalData(createUploadSessionPostRequestBody.additionalData);
 }

@@ -5,7 +5,7 @@ import {serializeEntity} from './serializeEntity';
 import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFeatureRolloutPolicy(writer: SerializationWriter, featureRolloutPolicy: FeatureRolloutPolicy | undefined = {} as FeatureRolloutPolicy) : void {
+export function serializeFeatureRolloutPolicy(featureRolloutPolicy: FeatureRolloutPolicy | undefined = {} as FeatureRolloutPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, featureRolloutPolicy)
         writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", featureRolloutPolicy.appliesTo, serializeDirectoryObject);
         writer.writeStringValue("description", featureRolloutPolicy.description);

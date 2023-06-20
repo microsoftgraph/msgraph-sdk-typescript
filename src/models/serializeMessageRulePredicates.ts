@@ -8,7 +8,7 @@ import {serializeSizeRange} from './serializeSizeRange';
 import {SizeRange} from './sizeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMessageRulePredicates(writer: SerializationWriter, messageRulePredicates: MessageRulePredicates | undefined = {} as MessageRulePredicates) : void {
+export function serializeMessageRulePredicates(messageRulePredicates: MessageRulePredicates | undefined = {} as MessageRulePredicates, writer: SerializationWriter) : void {
         writer.writeCollectionOfPrimitiveValues<string>("bodyContains", messageRulePredicates.bodyContains);
         writer.writeCollectionOfPrimitiveValues<string>("bodyOrSubjectContains", messageRulePredicates.bodyOrSubjectContains);
         writer.writeCollectionOfPrimitiveValues<string>("categories", messageRulePredicates.categories);

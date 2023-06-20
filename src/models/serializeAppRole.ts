@@ -1,7 +1,7 @@
 import {AppRole} from './appRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAppRole(writer: SerializationWriter, appRole: AppRole | undefined = {} as AppRole) : void {
+export function serializeAppRole(appRole: AppRole | undefined = {} as AppRole, writer: SerializationWriter) : void {
         writer.writeCollectionOfPrimitiveValues<string>("allowedMemberTypes", appRole.allowedMemberTypes);
         writer.writeStringValue("description", appRole.description);
         writer.writeStringValue("displayName", appRole.displayName);

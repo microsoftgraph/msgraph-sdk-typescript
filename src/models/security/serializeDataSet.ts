@@ -4,7 +4,7 @@ import {serializeIdentitySet} from '../serializeIdentitySet';
 import {DataSet} from './dataSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDataSet(writer: SerializationWriter, dataSet: DataSet | undefined = {} as DataSet) : void {
+export function serializeDataSet(dataSet: DataSet | undefined = {} as DataSet, writer: SerializationWriter) : void {
         serializeEntity(writer, dataSet)
         writer.writeObjectValue<IdentitySet>("createdBy", dataSet.createdBy, serializeIdentitySet);
         writer.writeDateValue("createdDateTime", dataSet.createdDateTime);

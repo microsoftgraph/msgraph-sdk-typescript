@@ -4,7 +4,7 @@ import {serializeServicePlanInfo} from './serializeServicePlanInfo';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLicenseDetails(writer: SerializationWriter, licenseDetails: LicenseDetails | undefined = {} as LicenseDetails) : void {
+export function serializeLicenseDetails(licenseDetails: LicenseDetails | undefined = {} as LicenseDetails, writer: SerializationWriter) : void {
         serializeEntity(writer, licenseDetails)
         writer.writeCollectionOfObjectValues<ServicePlanInfo>("servicePlans", licenseDetails.servicePlans, serializeServicePlanInfo);
         writer.writeStringValue("skuId", licenseDetails.skuId);

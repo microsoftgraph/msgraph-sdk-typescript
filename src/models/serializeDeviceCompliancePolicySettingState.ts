@@ -4,7 +4,7 @@ import {serializeSettingSource} from './serializeSettingSource';
 import {SettingSource} from './settingSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceCompliancePolicySettingState(writer: SerializationWriter, deviceCompliancePolicySettingState: DeviceCompliancePolicySettingState | undefined = {} as DeviceCompliancePolicySettingState) : void {
+export function serializeDeviceCompliancePolicySettingState(deviceCompliancePolicySettingState: DeviceCompliancePolicySettingState | undefined = {} as DeviceCompliancePolicySettingState, writer: SerializationWriter) : void {
         writer.writeStringValue("currentValue", deviceCompliancePolicySettingState.currentValue);
         writer.writeNumberValue("errorCode", deviceCompliancePolicySettingState.errorCode);
         writer.writeStringValue("errorDescription", deviceCompliancePolicySettingState.errorDescription);

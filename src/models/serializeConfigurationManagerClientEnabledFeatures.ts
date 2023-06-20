@@ -1,7 +1,7 @@
 import {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConfigurationManagerClientEnabledFeatures(writer: SerializationWriter, configurationManagerClientEnabledFeatures: ConfigurationManagerClientEnabledFeatures | undefined = {} as ConfigurationManagerClientEnabledFeatures) : void {
+export function serializeConfigurationManagerClientEnabledFeatures(configurationManagerClientEnabledFeatures: ConfigurationManagerClientEnabledFeatures | undefined = {} as ConfigurationManagerClientEnabledFeatures, writer: SerializationWriter) : void {
         writer.writeBooleanValue("compliancePolicy", configurationManagerClientEnabledFeatures.compliancePolicy);
         writer.writeBooleanValue("deviceConfiguration", configurationManagerClientEnabledFeatures.deviceConfiguration);
         writer.writeBooleanValue("inventory", configurationManagerClientEnabledFeatures.inventory);

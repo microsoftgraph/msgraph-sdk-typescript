@@ -4,7 +4,7 @@ import {EdiscoveryCaseCollectionResponse} from './ediscoveryCaseCollectionRespon
 import {serializeEdiscoveryCase} from './serializeEdiscoveryCase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEdiscoveryCaseCollectionResponse(writer: SerializationWriter, ediscoveryCaseCollectionResponse: EdiscoveryCaseCollectionResponse | undefined = {} as EdiscoveryCaseCollectionResponse) : void {
+export function serializeEdiscoveryCaseCollectionResponse(ediscoveryCaseCollectionResponse: EdiscoveryCaseCollectionResponse | undefined = {} as EdiscoveryCaseCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, ediscoveryCaseCollectionResponse)
         writer.writeCollectionOfObjectValues<EdiscoveryCase>("value", ediscoveryCaseCollectionResponse.value, serializeEdiscoveryCase);
 }

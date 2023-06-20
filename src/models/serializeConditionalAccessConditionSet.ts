@@ -15,7 +15,7 @@ import {serializeConditionalAccessPlatforms} from './serializeConditionalAccessP
 import {serializeConditionalAccessUsers} from './serializeConditionalAccessUsers';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessConditionSet(writer: SerializationWriter, conditionalAccessConditionSet: ConditionalAccessConditionSet | undefined = {} as ConditionalAccessConditionSet) : void {
+export function serializeConditionalAccessConditionSet(conditionalAccessConditionSet: ConditionalAccessConditionSet | undefined = {} as ConditionalAccessConditionSet, writer: SerializationWriter) : void {
         writer.writeObjectValue<ConditionalAccessApplications>("applications", conditionalAccessConditionSet.applications, serializeConditionalAccessApplications);
         writer.writeObjectValue<ConditionalAccessClientApplications>("clientApplications", conditionalAccessConditionSet.clientApplications, serializeConditionalAccessClientApplications);
         if(conditionalAccessConditionSet.clientAppTypes)

@@ -6,7 +6,7 @@ import {serializeTimeZoneBase} from './serializeTimeZoneBase';
 import {StandardTimeZoneOffset} from './standardTimeZoneOffset';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCustomTimeZone(writer: SerializationWriter, customTimeZone: CustomTimeZone | undefined = {} as CustomTimeZone) : void {
+export function serializeCustomTimeZone(customTimeZone: CustomTimeZone | undefined = {} as CustomTimeZone, writer: SerializationWriter) : void {
         serializeTimeZoneBase(writer, customTimeZone)
         writer.writeNumberValue("bias", customTimeZone.bias);
         writer.writeObjectValue<DaylightTimeZoneOffset>("daylightOffset", customTimeZone.daylightOffset, serializeDaylightTimeZoneOffset);

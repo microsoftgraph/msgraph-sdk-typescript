@@ -1,7 +1,7 @@
 import {FolderView} from './folderView';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFolderView(writer: SerializationWriter, folderView: FolderView | undefined = {} as FolderView) : void {
+export function serializeFolderView(folderView: FolderView | undefined = {} as FolderView, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", folderView.odataType);
         writer.writeStringValue("sortBy", folderView.sortBy);
         writer.writeStringValue("sortOrder", folderView.sortOrder);

@@ -4,7 +4,7 @@ import {serializeContentType} from '../../../../../../models/serializeContentTyp
 import {GetCompatibleHubContentTypesResponse} from './getCompatibleHubContentTypesResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetCompatibleHubContentTypesResponse(writer: SerializationWriter, getCompatibleHubContentTypesResponse: GetCompatibleHubContentTypesResponse | undefined = {} as GetCompatibleHubContentTypesResponse) : void {
+export function serializeGetCompatibleHubContentTypesResponse(getCompatibleHubContentTypesResponse: GetCompatibleHubContentTypesResponse | undefined = {} as GetCompatibleHubContentTypesResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getCompatibleHubContentTypesResponse)
         writer.writeCollectionOfObjectValues<ContentType>("value", getCompatibleHubContentTypesResponse.value, serializeContentType);
 }

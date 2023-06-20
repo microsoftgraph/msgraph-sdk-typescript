@@ -5,7 +5,7 @@ import {serializeConnectedOrganization} from './serializeConnectedOrganization';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageSubject(writer: SerializationWriter, accessPackageSubject: AccessPackageSubject | undefined = {} as AccessPackageSubject) : void {
+export function serializeAccessPackageSubject(accessPackageSubject: AccessPackageSubject | undefined = {} as AccessPackageSubject, writer: SerializationWriter) : void {
         serializeEntity(writer, accessPackageSubject)
         writer.writeObjectValue<ConnectedOrganization>("connectedOrganization", accessPackageSubject.connectedOrganization, serializeConnectedOrganization);
         writer.writeStringValue("displayName", accessPackageSubject.displayName);

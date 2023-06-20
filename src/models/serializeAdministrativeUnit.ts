@@ -7,7 +7,7 @@ import {serializeExtension} from './serializeExtension';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAdministrativeUnit(writer: SerializationWriter, administrativeUnit: AdministrativeUnit | undefined = {} as AdministrativeUnit) : void {
+export function serializeAdministrativeUnit(administrativeUnit: AdministrativeUnit | undefined = {} as AdministrativeUnit, writer: SerializationWriter) : void {
         serializeDirectoryObject(writer, administrativeUnit)
         writer.writeStringValue("description", administrativeUnit.description);
         writer.writeStringValue("displayName", administrativeUnit.displayName);

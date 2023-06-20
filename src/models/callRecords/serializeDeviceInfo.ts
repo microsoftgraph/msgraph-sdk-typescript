@@ -1,7 +1,7 @@
 import {DeviceInfo} from './deviceInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceInfo(writer: SerializationWriter, deviceInfo: DeviceInfo | undefined = {} as DeviceInfo) : void {
+export function serializeDeviceInfo(deviceInfo: DeviceInfo | undefined = {} as DeviceInfo, writer: SerializationWriter) : void {
         writer.writeStringValue("captureDeviceDriver", deviceInfo.captureDeviceDriver);
         writer.writeStringValue("captureDeviceName", deviceInfo.captureDeviceName);
         writer.writeNumberValue("captureNotFunctioningEventRatio", deviceInfo.captureNotFunctioningEventRatio);

@@ -3,7 +3,7 @@ import {PatternedRecurrence} from './patternedRecurrence';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewHistoryScheduleSettings(writer: SerializationWriter, accessReviewHistoryScheduleSettings: AccessReviewHistoryScheduleSettings | undefined = {} as AccessReviewHistoryScheduleSettings) : void {
+export function serializeAccessReviewHistoryScheduleSettings(accessReviewHistoryScheduleSettings: AccessReviewHistoryScheduleSettings | undefined = {} as AccessReviewHistoryScheduleSettings, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", accessReviewHistoryScheduleSettings.odataType);
         writer.writeObjectValue<PatternedRecurrence>("recurrence", accessReviewHistoryScheduleSettings.recurrence, serializePatternedRecurrence);
         writer.writeStringValue("reportRange", accessReviewHistoryScheduleSettings.reportRange);

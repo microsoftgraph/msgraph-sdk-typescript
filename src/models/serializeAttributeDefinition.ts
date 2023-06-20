@@ -9,7 +9,7 @@ import {serializeStringKeyStringValuePair} from './serializeStringKeyStringValue
 import {StringKeyStringValuePair} from './stringKeyStringValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAttributeDefinition(writer: SerializationWriter, attributeDefinition: AttributeDefinition | undefined = {} as AttributeDefinition) : void {
+export function serializeAttributeDefinition(attributeDefinition: AttributeDefinition | undefined = {} as AttributeDefinition, writer: SerializationWriter) : void {
         writer.writeBooleanValue("anchor", attributeDefinition.anchor);
         writer.writeCollectionOfObjectValues<StringKeyStringValuePair>("apiExpressions", attributeDefinition.apiExpressions, serializeStringKeyStringValuePair);
         writer.writeBooleanValue("caseExact", attributeDefinition.caseExact);

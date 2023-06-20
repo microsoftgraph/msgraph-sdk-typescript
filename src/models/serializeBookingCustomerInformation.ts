@@ -6,7 +6,7 @@ import {serializeBookingQuestionAnswer} from './serializeBookingQuestionAnswer';
 import {serializeLocation} from './serializeLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingCustomerInformation(writer: SerializationWriter, bookingCustomerInformation: BookingCustomerInformation | undefined = {} as BookingCustomerInformation) : void {
+export function serializeBookingCustomerInformation(bookingCustomerInformation: BookingCustomerInformation | undefined = {} as BookingCustomerInformation, writer: SerializationWriter) : void {
         serializeBookingCustomerInformationBase(writer, bookingCustomerInformation)
         writer.writeStringValue("customerId", bookingCustomerInformation.customerId);
         writer.writeCollectionOfObjectValues<BookingQuestionAnswer>("customQuestionAnswers", bookingCustomerInformation.customQuestionAnswers, serializeBookingQuestionAnswer);

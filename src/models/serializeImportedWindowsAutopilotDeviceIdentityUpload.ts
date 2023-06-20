@@ -5,7 +5,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeImportedWindowsAutopilotDeviceIdentity} from './serializeImportedWindowsAutopilotDeviceIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeImportedWindowsAutopilotDeviceIdentityUpload(writer: SerializationWriter, importedWindowsAutopilotDeviceIdentityUpload: ImportedWindowsAutopilotDeviceIdentityUpload | undefined = {} as ImportedWindowsAutopilotDeviceIdentityUpload) : void {
+export function serializeImportedWindowsAutopilotDeviceIdentityUpload(importedWindowsAutopilotDeviceIdentityUpload: ImportedWindowsAutopilotDeviceIdentityUpload | undefined = {} as ImportedWindowsAutopilotDeviceIdentityUpload, writer: SerializationWriter) : void {
         serializeEntity(writer, importedWindowsAutopilotDeviceIdentityUpload)
         writer.writeDateValue("createdDateTimeUtc", importedWindowsAutopilotDeviceIdentityUpload.createdDateTimeUtc);
         writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("deviceIdentities", importedWindowsAutopilotDeviceIdentityUpload.deviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);

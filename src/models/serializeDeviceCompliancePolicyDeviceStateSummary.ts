@@ -2,7 +2,7 @@ import {DeviceCompliancePolicyDeviceStateSummary} from './deviceCompliancePolicy
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceCompliancePolicyDeviceStateSummary(writer: SerializationWriter, deviceCompliancePolicyDeviceStateSummary: DeviceCompliancePolicyDeviceStateSummary | undefined = {} as DeviceCompliancePolicyDeviceStateSummary) : void {
+export function serializeDeviceCompliancePolicyDeviceStateSummary(deviceCompliancePolicyDeviceStateSummary: DeviceCompliancePolicyDeviceStateSummary | undefined = {} as DeviceCompliancePolicyDeviceStateSummary, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceCompliancePolicyDeviceStateSummary)
         writer.writeNumberValue("compliantDeviceCount", deviceCompliancePolicyDeviceStateSummary.compliantDeviceCount);
         writer.writeNumberValue("configManagerCount", deviceCompliancePolicyDeviceStateSummary.configManagerCount);

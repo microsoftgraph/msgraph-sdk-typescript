@@ -1,7 +1,7 @@
 import {AudioConferencing} from './audioConferencing';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAudioConferencing(writer: SerializationWriter, audioConferencing: AudioConferencing | undefined = {} as AudioConferencing) : void {
+export function serializeAudioConferencing(audioConferencing: AudioConferencing | undefined = {} as AudioConferencing, writer: SerializationWriter) : void {
         writer.writeStringValue("conferenceId", audioConferencing.conferenceId);
         writer.writeStringValue("dialinUrl", audioConferencing.dialinUrl);
         writer.writeStringValue("@odata.type", audioConferencing.odataType);

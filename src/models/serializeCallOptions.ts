@@ -1,7 +1,7 @@
 import {CallOptions} from './callOptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCallOptions(writer: SerializationWriter, callOptions: CallOptions | undefined = {} as CallOptions) : void {
+export function serializeCallOptions(callOptions: CallOptions | undefined = {} as CallOptions, writer: SerializationWriter) : void {
         writer.writeBooleanValue("hideBotAfterEscalation", callOptions.hideBotAfterEscalation);
         writer.writeBooleanValue("isContentSharingNotificationEnabled", callOptions.isContentSharingNotificationEnabled);
         writer.writeStringValue("@odata.type", callOptions.odataType);

@@ -2,7 +2,7 @@ import {EventPropagationResult} from './eventPropagationResult';
 import {EventPropagationStatus} from './eventPropagationStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEventPropagationResult(writer: SerializationWriter, eventPropagationResult: EventPropagationResult | undefined = {} as EventPropagationResult) : void {
+export function serializeEventPropagationResult(eventPropagationResult: EventPropagationResult | undefined = {} as EventPropagationResult, writer: SerializationWriter) : void {
         writer.writeStringValue("location", eventPropagationResult.location);
         writer.writeStringValue("@odata.type", eventPropagationResult.odataType);
         writer.writeStringValue("serviceName", eventPropagationResult.serviceName);

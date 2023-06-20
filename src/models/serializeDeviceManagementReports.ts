@@ -4,7 +4,7 @@ import {serializeDeviceManagementExportJob} from './serializeDeviceManagementExp
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceManagementReports(writer: SerializationWriter, deviceManagementReports: DeviceManagementReports | undefined = {} as DeviceManagementReports) : void {
+export function serializeDeviceManagementReports(deviceManagementReports: DeviceManagementReports | undefined = {} as DeviceManagementReports, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceManagementReports)
         writer.writeCollectionOfObjectValues<DeviceManagementExportJob>("exportJobs", deviceManagementReports.exportJobs, serializeDeviceManagementExportJob);
 }

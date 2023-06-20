@@ -4,7 +4,7 @@ import {serializeIosHomeScreenFolderPage} from './serializeIosHomeScreenFolderPa
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosHomeScreenFolder(writer: SerializationWriter, iosHomeScreenFolder: IosHomeScreenFolder | undefined = {} as IosHomeScreenFolder) : void {
+export function serializeIosHomeScreenFolder(iosHomeScreenFolder: IosHomeScreenFolder | undefined = {} as IosHomeScreenFolder, writer: SerializationWriter) : void {
         serializeIosHomeScreenItem(writer, iosHomeScreenFolder)
         writer.writeCollectionOfObjectValues<IosHomeScreenFolderPage>("pages", iosHomeScreenFolder.pages, serializeIosHomeScreenFolderPage);
 }

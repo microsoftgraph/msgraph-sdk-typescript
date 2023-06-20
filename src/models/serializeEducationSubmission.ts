@@ -11,7 +11,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationSubmission(writer: SerializationWriter, educationSubmission: EducationSubmission | undefined = {} as EducationSubmission) : void {
+export function serializeEducationSubmission(educationSubmission: EducationSubmission | undefined = {} as EducationSubmission, writer: SerializationWriter) : void {
         serializeEntity(writer, educationSubmission)
         writer.writeCollectionOfObjectValues<EducationOutcome>("outcomes", educationSubmission.outcomes, serializeEducationOutcome);
         writer.writeObjectValue<EducationSubmissionRecipient>("recipient", educationSubmission.recipient, serializeEducationSubmissionRecipient);

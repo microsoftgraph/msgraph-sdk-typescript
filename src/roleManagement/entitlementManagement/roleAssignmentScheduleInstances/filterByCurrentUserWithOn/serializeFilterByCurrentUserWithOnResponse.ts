@@ -4,7 +4,7 @@ import {UnifiedRoleAssignmentScheduleInstance} from '../../../../models/unifiedR
 import {FilterByCurrentUserWithOnResponse} from './filterByCurrentUserWithOnResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFilterByCurrentUserWithOnResponse(writer: SerializationWriter, filterByCurrentUserWithOnResponse: FilterByCurrentUserWithOnResponse | undefined = {} as FilterByCurrentUserWithOnResponse) : void {
+export function serializeFilterByCurrentUserWithOnResponse(filterByCurrentUserWithOnResponse: FilterByCurrentUserWithOnResponse | undefined = {} as FilterByCurrentUserWithOnResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, filterByCurrentUserWithOnResponse)
         writer.writeCollectionOfObjectValues<UnifiedRoleAssignmentScheduleInstance>("value", filterByCurrentUserWithOnResponse.value, serializeUnifiedRoleAssignmentScheduleInstance);
 }

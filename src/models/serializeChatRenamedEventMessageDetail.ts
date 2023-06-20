@@ -4,7 +4,7 @@ import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatRenamedEventMessageDetail(writer: SerializationWriter, chatRenamedEventMessageDetail: ChatRenamedEventMessageDetail | undefined = {} as ChatRenamedEventMessageDetail) : void {
+export function serializeChatRenamedEventMessageDetail(chatRenamedEventMessageDetail: ChatRenamedEventMessageDetail | undefined = {} as ChatRenamedEventMessageDetail, writer: SerializationWriter) : void {
         serializeEventMessageDetail(writer, chatRenamedEventMessageDetail)
         writer.writeStringValue("chatDisplayName", chatRenamedEventMessageDetail.chatDisplayName);
         writer.writeStringValue("chatId", chatRenamedEventMessageDetail.chatId);

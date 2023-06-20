@@ -3,7 +3,7 @@ import {AuthenticationMethodModes} from './authenticationMethodModes';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthenticationCombinationConfiguration(writer: SerializationWriter, authenticationCombinationConfiguration: AuthenticationCombinationConfiguration | undefined = {} as AuthenticationCombinationConfiguration) : void {
+export function serializeAuthenticationCombinationConfiguration(authenticationCombinationConfiguration: AuthenticationCombinationConfiguration | undefined = {} as AuthenticationCombinationConfiguration, writer: SerializationWriter) : void {
         serializeEntity(writer, authenticationCombinationConfiguration)
         if(authenticationCombinationConfiguration.appliesToCombinations)
         writer.writeEnumValue<AuthenticationMethodModes>("appliesToCombinations", ...authenticationCombinationConfiguration.appliesToCombinations);

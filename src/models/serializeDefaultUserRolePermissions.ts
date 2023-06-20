@@ -1,7 +1,7 @@
 import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDefaultUserRolePermissions(writer: SerializationWriter, defaultUserRolePermissions: DefaultUserRolePermissions | undefined = {} as DefaultUserRolePermissions) : void {
+export function serializeDefaultUserRolePermissions(defaultUserRolePermissions: DefaultUserRolePermissions | undefined = {} as DefaultUserRolePermissions, writer: SerializationWriter) : void {
         writer.writeBooleanValue("allowedToCreateApps", defaultUserRolePermissions.allowedToCreateApps);
         writer.writeBooleanValue("allowedToCreateSecurityGroups", defaultUserRolePermissions.allowedToCreateSecurityGroups);
         writer.writeBooleanValue("allowedToCreateTenants", defaultUserRolePermissions.allowedToCreateTenants);

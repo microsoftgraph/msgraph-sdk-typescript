@@ -8,7 +8,7 @@ import {serializeItemActionStat} from './serializeItemActionStat';
 import {serializeItemActivity} from './serializeItemActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeItemActivityStat(writer: SerializationWriter, itemActivityStat: ItemActivityStat | undefined = {} as ItemActivityStat) : void {
+export function serializeItemActivityStat(itemActivityStat: ItemActivityStat | undefined = {} as ItemActivityStat, writer: SerializationWriter) : void {
         serializeEntity(writer, itemActivityStat)
         writer.writeObjectValue<ItemActionStat>("access", itemActivityStat.access, serializeItemActionStat);
         writer.writeCollectionOfObjectValues<ItemActivity>("activities", itemActivityStat.activities, serializeItemActivity);

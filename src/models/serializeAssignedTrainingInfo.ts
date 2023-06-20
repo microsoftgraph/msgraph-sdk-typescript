@@ -1,7 +1,7 @@
 import {AssignedTrainingInfo} from './assignedTrainingInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAssignedTrainingInfo(writer: SerializationWriter, assignedTrainingInfo: AssignedTrainingInfo | undefined = {} as AssignedTrainingInfo) : void {
+export function serializeAssignedTrainingInfo(assignedTrainingInfo: AssignedTrainingInfo | undefined = {} as AssignedTrainingInfo, writer: SerializationWriter) : void {
         writer.writeNumberValue("assignedUserCount", assignedTrainingInfo.assignedUserCount);
         writer.writeNumberValue("completedUserCount", assignedTrainingInfo.completedUserCount);
         writer.writeStringValue("displayName", assignedTrainingInfo.displayName);

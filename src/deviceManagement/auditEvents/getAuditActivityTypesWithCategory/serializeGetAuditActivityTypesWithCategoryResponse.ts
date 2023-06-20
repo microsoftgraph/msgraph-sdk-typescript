@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../models/se
 import {GetAuditActivityTypesWithCategoryResponse} from './getAuditActivityTypesWithCategoryResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetAuditActivityTypesWithCategoryResponse(writer: SerializationWriter, getAuditActivityTypesWithCategoryResponse: GetAuditActivityTypesWithCategoryResponse | undefined = {} as GetAuditActivityTypesWithCategoryResponse) : void {
+export function serializeGetAuditActivityTypesWithCategoryResponse(getAuditActivityTypesWithCategoryResponse: GetAuditActivityTypesWithCategoryResponse | undefined = {} as GetAuditActivityTypesWithCategoryResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAuditActivityTypesWithCategoryResponse)
         writer.writeCollectionOfPrimitiveValues<string>("value", getAuditActivityTypesWithCategoryResponse.value);
 }

@@ -5,7 +5,7 @@ import {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
+export function serializeGroup(group: Group | undefined = {} as Group, writer: SerializationWriter) : void {
         serializeEntity(writer, group)
         writer.writeDateValue("createdDateTime", group.createdDateTime);
         writer.writeStringValue("description", group.description);

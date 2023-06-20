@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBrowserSharedCookieCollectionResponse(writer: SerializationWriter, browserSharedCookieCollectionResponse: BrowserSharedCookieCollectionResponse | undefined = {} as BrowserSharedCookieCollectionResponse) : void {
+export function serializeBrowserSharedCookieCollectionResponse(browserSharedCookieCollectionResponse: BrowserSharedCookieCollectionResponse | undefined = {} as BrowserSharedCookieCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, browserSharedCookieCollectionResponse)
         writer.writeCollectionOfObjectValues<BrowserSharedCookie>("value", browserSharedCookieCollectionResponse.value, serializeBrowserSharedCookie);
 }

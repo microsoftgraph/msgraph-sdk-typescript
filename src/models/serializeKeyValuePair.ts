@@ -1,7 +1,7 @@
 import {KeyValuePair} from './keyValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeKeyValuePair(writer: SerializationWriter, keyValuePair: KeyValuePair | undefined = {} as KeyValuePair) : void {
+export function serializeKeyValuePair(keyValuePair: KeyValuePair | undefined = {} as KeyValuePair, writer: SerializationWriter) : void {
         writer.writeStringValue("name", keyValuePair.name);
         writer.writeStringValue("@odata.type", keyValuePair.odataType);
         writer.writeStringValue("value", keyValuePair.value);

@@ -4,7 +4,7 @@ import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmen
 import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceEnrollmentWindowsHelloForBusinessConfiguration(writer: SerializationWriter, deviceEnrollmentWindowsHelloForBusinessConfiguration: DeviceEnrollmentWindowsHelloForBusinessConfiguration | undefined = {} as DeviceEnrollmentWindowsHelloForBusinessConfiguration) : void {
+export function serializeDeviceEnrollmentWindowsHelloForBusinessConfiguration(deviceEnrollmentWindowsHelloForBusinessConfiguration: DeviceEnrollmentWindowsHelloForBusinessConfiguration | undefined = {} as DeviceEnrollmentWindowsHelloForBusinessConfiguration, writer: SerializationWriter) : void {
         serializeDeviceEnrollmentConfiguration(writer, deviceEnrollmentWindowsHelloForBusinessConfiguration)
         writer.writeEnumValue<Enablement>("enhancedBiometricsState", deviceEnrollmentWindowsHelloForBusinessConfiguration.enhancedBiometricsState);
         writer.writeNumberValue("pinExpirationInDays", deviceEnrollmentWindowsHelloForBusinessConfiguration.pinExpirationInDays);

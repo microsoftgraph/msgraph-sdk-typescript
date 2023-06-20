@@ -6,7 +6,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeListItemVersion} from './serializeListItemVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDocumentSetVersion(writer: SerializationWriter, documentSetVersion: DocumentSetVersion | undefined = {} as DocumentSetVersion) : void {
+export function serializeDocumentSetVersion(documentSetVersion: DocumentSetVersion | undefined = {} as DocumentSetVersion, writer: SerializationWriter) : void {
         serializeListItemVersion(writer, documentSetVersion)
         writer.writeStringValue("comment", documentSetVersion.comment);
         writer.writeObjectValue<IdentitySet>("createdBy", documentSetVersion.createdBy, serializeIdentitySet);

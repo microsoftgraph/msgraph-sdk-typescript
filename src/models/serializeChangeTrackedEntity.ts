@@ -4,6 +4,6 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChangeTrackedEntity(writer: SerializationWriter, changeTrackedEntity: ChangeTrackedEntity | undefined = {} as ChangeTrackedEntity) : void {
+export function serializeChangeTrackedEntity(changeTrackedEntity: ChangeTrackedEntity | undefined = {} as ChangeTrackedEntity, writer: SerializationWriter) : void {
         serializeEntity(writer, changeTrackedEntity)
 }

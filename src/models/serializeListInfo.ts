@@ -1,7 +1,7 @@
 import {ListInfo} from './listInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeListInfo(writer: SerializationWriter, listInfo: ListInfo | undefined = {} as ListInfo) : void {
+export function serializeListInfo(listInfo: ListInfo | undefined = {} as ListInfo, writer: SerializationWriter) : void {
         writer.writeBooleanValue("contentTypesEnabled", listInfo.contentTypesEnabled);
         writer.writeBooleanValue("hidden", listInfo.hidden);
         writer.writeStringValue("@odata.type", listInfo.odataType);

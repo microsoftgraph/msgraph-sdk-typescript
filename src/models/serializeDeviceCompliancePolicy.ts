@@ -16,7 +16,7 @@ import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceS
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceCompliancePolicy(writer: SerializationWriter, deviceCompliancePolicy: DeviceCompliancePolicy | undefined = {} as DeviceCompliancePolicy) : void {
+export function serializeDeviceCompliancePolicy(deviceCompliancePolicy: DeviceCompliancePolicy | undefined = {} as DeviceCompliancePolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceCompliancePolicy)
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyAssignment>("assignments", deviceCompliancePolicy.assignments, serializeDeviceCompliancePolicyAssignment);
         writer.writeDateValue("createdDateTime", deviceCompliancePolicy.createdDateTime);

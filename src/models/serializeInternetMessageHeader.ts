@@ -1,7 +1,7 @@
 import {InternetMessageHeader} from './internetMessageHeader';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeInternetMessageHeader(writer: SerializationWriter, internetMessageHeader: InternetMessageHeader | undefined = {} as InternetMessageHeader) : void {
+export function serializeInternetMessageHeader(internetMessageHeader: InternetMessageHeader | undefined = {} as InternetMessageHeader, writer: SerializationWriter) : void {
         writer.writeStringValue("name", internetMessageHeader.name);
         writer.writeStringValue("@odata.type", internetMessageHeader.odataType);
         writer.writeStringValue("value", internetMessageHeader.value);

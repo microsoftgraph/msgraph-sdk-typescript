@@ -8,7 +8,7 @@ import {serializeIosHomeScreenPage} from './serializeIosHomeScreenPage';
 import {serializeIosNotificationSettings} from './serializeIosNotificationSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosDeviceFeaturesConfiguration(writer: SerializationWriter, iosDeviceFeaturesConfiguration: IosDeviceFeaturesConfiguration | undefined = {} as IosDeviceFeaturesConfiguration) : void {
+export function serializeIosDeviceFeaturesConfiguration(iosDeviceFeaturesConfiguration: IosDeviceFeaturesConfiguration | undefined = {} as IosDeviceFeaturesConfiguration, writer: SerializationWriter) : void {
         serializeAppleDeviceFeaturesConfigurationBase(writer, iosDeviceFeaturesConfiguration)
         writer.writeStringValue("assetTagTemplate", iosDeviceFeaturesConfiguration.assetTagTemplate);
         writer.writeCollectionOfObjectValues<IosHomeScreenItem>("homeScreenDockIcons", iosDeviceFeaturesConfiguration.homeScreenDockIcons, serializeIosHomeScreenItem);

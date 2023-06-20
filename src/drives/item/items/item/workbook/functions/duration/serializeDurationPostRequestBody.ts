@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {DurationPostRequestBody} from './durationPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDurationPostRequestBody(writer: SerializationWriter, durationPostRequestBody: DurationPostRequestBody | undefined = {} as DurationPostRequestBody) : void {
+export function serializeDurationPostRequestBody(durationPostRequestBody: DurationPostRequestBody | undefined = {} as DurationPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("basis", durationPostRequestBody.basis, serializeJson);
         writer.writeObjectValue<Json>("coupon", durationPostRequestBody.coupon, serializeJson);
         writer.writeObjectValue<Json>("frequency", durationPostRequestBody.frequency, serializeJson);

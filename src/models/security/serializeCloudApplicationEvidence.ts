@@ -2,7 +2,7 @@ import {CloudApplicationEvidence} from './cloudApplicationEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCloudApplicationEvidence(writer: SerializationWriter, cloudApplicationEvidence: CloudApplicationEvidence | undefined = {} as CloudApplicationEvidence) : void {
+export function serializeCloudApplicationEvidence(cloudApplicationEvidence: CloudApplicationEvidence | undefined = {} as CloudApplicationEvidence, writer: SerializationWriter) : void {
         serializeAlertEvidence(writer, cloudApplicationEvidence)
         writer.writeNumberValue("appId", cloudApplicationEvidence.appId);
         writer.writeStringValue("displayName", cloudApplicationEvidence.displayName);

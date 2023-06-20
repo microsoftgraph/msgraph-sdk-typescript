@@ -10,7 +10,7 @@ import {UnifiedGroupSource} from './unifiedGroupSource';
 import {UserSource} from './userSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEdiscoveryCustodian(writer: SerializationWriter, ediscoveryCustodian: EdiscoveryCustodian | undefined = {} as EdiscoveryCustodian) : void {
+export function serializeEdiscoveryCustodian(ediscoveryCustodian: EdiscoveryCustodian | undefined = {} as EdiscoveryCustodian, writer: SerializationWriter) : void {
         serializeDataSourceContainer(writer, ediscoveryCustodian)
         writer.writeDateValue("acknowledgedDateTime", ediscoveryCustodian.acknowledgedDateTime);
         writer.writeStringValue("email", ediscoveryCustodian.email);

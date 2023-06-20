@@ -5,7 +5,7 @@ import {serializeRedirectUriSettings} from './serializeRedirectUriSettings';
 import {WebApplication} from './webApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeWebApplication(writer: SerializationWriter, webApplication: WebApplication | undefined = {} as WebApplication) : void {
+export function serializeWebApplication(webApplication: WebApplication | undefined = {} as WebApplication, writer: SerializationWriter) : void {
         writer.writeStringValue("homePageUrl", webApplication.homePageUrl);
         writer.writeObjectValue<ImplicitGrantSettings>("implicitGrantSettings", webApplication.implicitGrantSettings, serializeImplicitGrantSettings);
         writer.writeStringValue("logoutUrl", webApplication.logoutUrl);

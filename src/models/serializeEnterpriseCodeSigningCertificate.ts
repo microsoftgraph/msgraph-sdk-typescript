@@ -3,7 +3,7 @@ import {EnterpriseCodeSigningCertificate} from './enterpriseCodeSigningCertifica
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEnterpriseCodeSigningCertificate(writer: SerializationWriter, enterpriseCodeSigningCertificate: EnterpriseCodeSigningCertificate | undefined = {} as EnterpriseCodeSigningCertificate) : void {
+export function serializeEnterpriseCodeSigningCertificate(enterpriseCodeSigningCertificate: EnterpriseCodeSigningCertificate | undefined = {} as EnterpriseCodeSigningCertificate, writer: SerializationWriter) : void {
         serializeEntity(writer, enterpriseCodeSigningCertificate)
         writer.writeStringValue("content", enterpriseCodeSigningCertificate.content);
         writer.writeDateValue("expirationDateTime", enterpriseCodeSigningCertificate.expirationDateTime);

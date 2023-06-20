@@ -28,7 +28,7 @@ import {serializeMediaContentRatingUnitedStates} from './serializeMediaContentRa
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosGeneralDeviceConfiguration(writer: SerializationWriter, iosGeneralDeviceConfiguration: IosGeneralDeviceConfiguration | undefined = {} as IosGeneralDeviceConfiguration) : void {
+export function serializeIosGeneralDeviceConfiguration(iosGeneralDeviceConfiguration: IosGeneralDeviceConfiguration | undefined = {} as IosGeneralDeviceConfiguration, writer: SerializationWriter) : void {
         serializeDeviceConfiguration(writer, iosGeneralDeviceConfiguration)
         writer.writeBooleanValue("accountBlockModification", iosGeneralDeviceConfiguration.accountBlockModification);
         writer.writeBooleanValue("activationLockAllowWhenSupervised", iosGeneralDeviceConfiguration.activationLockAllowWhenSupervised);

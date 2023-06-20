@@ -3,7 +3,7 @@ import {DisplayNameLocalization} from './displayNameLocalization';
 import {serializeDisplayNameLocalization} from './serializeDisplayNameLocalization';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeColumnValidation(writer: SerializationWriter, columnValidation: ColumnValidation | undefined = {} as ColumnValidation) : void {
+export function serializeColumnValidation(columnValidation: ColumnValidation | undefined = {} as ColumnValidation, writer: SerializationWriter) : void {
         writer.writeStringValue("defaultLanguage", columnValidation.defaultLanguage);
         writer.writeCollectionOfObjectValues<DisplayNameLocalization>("descriptions", columnValidation.descriptions, serializeDisplayNameLocalization);
         writer.writeStringValue("formula", columnValidation.formula);

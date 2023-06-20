@@ -4,7 +4,7 @@ import {serializeUser} from './serializeUser';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAadUserConversationMember(writer: SerializationWriter, aadUserConversationMember: AadUserConversationMember | undefined = {} as AadUserConversationMember) : void {
+export function serializeAadUserConversationMember(aadUserConversationMember: AadUserConversationMember | undefined = {} as AadUserConversationMember, writer: SerializationWriter) : void {
         serializeConversationMember(writer, aadUserConversationMember)
         writer.writeStringValue("email", aadUserConversationMember.email);
         writer.writeStringValue("tenantId", aadUserConversationMember.tenantId);

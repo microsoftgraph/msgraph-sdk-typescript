@@ -1,7 +1,7 @@
 import {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCrossTenantAccessPolicyInboundTrust(writer: SerializationWriter, crossTenantAccessPolicyInboundTrust: CrossTenantAccessPolicyInboundTrust | undefined = {} as CrossTenantAccessPolicyInboundTrust) : void {
+export function serializeCrossTenantAccessPolicyInboundTrust(crossTenantAccessPolicyInboundTrust: CrossTenantAccessPolicyInboundTrust | undefined = {} as CrossTenantAccessPolicyInboundTrust, writer: SerializationWriter) : void {
         writer.writeBooleanValue("isCompliantDeviceAccepted", crossTenantAccessPolicyInboundTrust.isCompliantDeviceAccepted);
         writer.writeBooleanValue("isHybridAzureADJoinedDeviceAccepted", crossTenantAccessPolicyInboundTrust.isHybridAzureADJoinedDeviceAccepted);
         writer.writeBooleanValue("isMfaAccepted", crossTenantAccessPolicyInboundTrust.isMfaAccepted);

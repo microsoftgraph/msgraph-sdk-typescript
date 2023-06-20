@@ -5,7 +5,7 @@ import {serializeComplianceManagementPartnerAssignment} from './serializeComplia
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeComplianceManagementPartner(writer: SerializationWriter, complianceManagementPartner: ComplianceManagementPartner | undefined = {} as ComplianceManagementPartner) : void {
+export function serializeComplianceManagementPartner(complianceManagementPartner: ComplianceManagementPartner | undefined = {} as ComplianceManagementPartner, writer: SerializationWriter) : void {
         serializeEntity(writer, complianceManagementPartner)
         writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignment>("androidEnrollmentAssignments", complianceManagementPartner.androidEnrollmentAssignments, serializeComplianceManagementPartnerAssignment);
         writer.writeBooleanValue("androidOnboarded", complianceManagementPartner.androidOnboarded);

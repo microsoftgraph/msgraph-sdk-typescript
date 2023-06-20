@@ -4,7 +4,7 @@ import {serializeDataSet} from './serializeDataSet';
 import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEdiscoveryReviewSet(writer: SerializationWriter, ediscoveryReviewSet: EdiscoveryReviewSet | undefined = {} as EdiscoveryReviewSet) : void {
+export function serializeEdiscoveryReviewSet(ediscoveryReviewSet: EdiscoveryReviewSet | undefined = {} as EdiscoveryReviewSet, writer: SerializationWriter) : void {
         serializeDataSet(writer, ediscoveryReviewSet)
         writer.writeCollectionOfObjectValues<EdiscoveryReviewSetQuery>("queries", ediscoveryReviewSet.queries, serializeEdiscoveryReviewSetQuery);
 }

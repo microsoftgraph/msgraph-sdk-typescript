@@ -64,11 +64,12 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<IdentityProviderCollectionResponse>(requestInfo, createIdentityProviderCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Add new entity to identityProviders
+     * Create a new identityProvider by specifying display name, identityProvider type, client ID, and client secret.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProvider
+     * @see {@link https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityProvider | undefined, requestConfiguration?: IdentityProvidersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProvider | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -100,7 +101,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to identityProviders
+     * Create a new identityProvider by specifying display name, identityProvider type, client ID, and client secret.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -4,7 +4,7 @@ import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessGrantControls(writer: SerializationWriter, conditionalAccessGrantControls: ConditionalAccessGrantControls | undefined = {} as ConditionalAccessGrantControls) : void {
+export function serializeConditionalAccessGrantControls(conditionalAccessGrantControls: ConditionalAccessGrantControls | undefined = {} as ConditionalAccessGrantControls, writer: SerializationWriter) : void {
         writer.writeObjectValue<AuthenticationStrengthPolicy>("authenticationStrength", conditionalAccessGrantControls.authenticationStrength, serializeAuthenticationStrengthPolicy);
         if(conditionalAccessGrantControls.builtInControls)
         writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...conditionalAccessGrantControls.builtInControls);

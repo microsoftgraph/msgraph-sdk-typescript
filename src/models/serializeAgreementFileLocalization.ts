@@ -4,7 +4,7 @@ import {serializeAgreementFileProperties} from './serializeAgreementFileProperti
 import {serializeAgreementFileVersion} from './serializeAgreementFileVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAgreementFileLocalization(writer: SerializationWriter, agreementFileLocalization: AgreementFileLocalization | undefined = {} as AgreementFileLocalization) : void {
+export function serializeAgreementFileLocalization(agreementFileLocalization: AgreementFileLocalization | undefined = {} as AgreementFileLocalization, writer: SerializationWriter) : void {
         serializeAgreementFileProperties(writer, agreementFileLocalization)
         writer.writeCollectionOfObjectValues<AgreementFileVersion>("versions", agreementFileLocalization.versions, serializeAgreementFileVersion);
 }

@@ -4,7 +4,7 @@ import {serializeManagedAppDiagnosticStatus} from '../../../models/serializeMana
 import {GetManagedAppDiagnosticStatusesResponse} from './getManagedAppDiagnosticStatusesResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetManagedAppDiagnosticStatusesResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesResponse: GetManagedAppDiagnosticStatusesResponse | undefined = {} as GetManagedAppDiagnosticStatusesResponse) : void {
+export function serializeGetManagedAppDiagnosticStatusesResponse(getManagedAppDiagnosticStatusesResponse: GetManagedAppDiagnosticStatusesResponse | undefined = {} as GetManagedAppDiagnosticStatusesResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesResponse)
         writer.writeCollectionOfObjectValues<ManagedAppDiagnosticStatus>("value", getManagedAppDiagnosticStatusesResponse.value, serializeManagedAppDiagnosticStatus);
 }

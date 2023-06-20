@@ -7,7 +7,7 @@ import {serializeEventMessage} from './serializeEventMessage';
 import {serializeLocation} from './serializeLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEventMessageRequest(writer: SerializationWriter, eventMessageRequest: EventMessageRequest | undefined = {} as EventMessageRequest) : void {
+export function serializeEventMessageRequest(eventMessageRequest: EventMessageRequest | undefined = {} as EventMessageRequest, writer: SerializationWriter) : void {
         serializeEventMessage(writer, eventMessageRequest)
         writer.writeBooleanValue("allowNewTimeProposals", eventMessageRequest.allowNewTimeProposals);
         writer.writeEnumValue<MeetingRequestType>("meetingRequestType", eventMessageRequest.meetingRequestType);

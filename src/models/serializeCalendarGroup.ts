@@ -4,7 +4,7 @@ import {serializeCalendar} from './serializeCalendar';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCalendarGroup(writer: SerializationWriter, calendarGroup: CalendarGroup | undefined = {} as CalendarGroup) : void {
+export function serializeCalendarGroup(calendarGroup: CalendarGroup | undefined = {} as CalendarGroup, writer: SerializationWriter) : void {
         serializeEntity(writer, calendarGroup)
         writer.writeCollectionOfObjectValues<Calendar>("calendars", calendarGroup.calendars, serializeCalendar);
         writer.writeStringValue("changeKey", calendarGroup.changeKey);

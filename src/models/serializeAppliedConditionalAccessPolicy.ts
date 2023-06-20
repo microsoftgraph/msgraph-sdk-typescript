@@ -2,7 +2,7 @@ import {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
 import {AppliedConditionalAccessPolicyResult} from './appliedConditionalAccessPolicyResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAppliedConditionalAccessPolicy(writer: SerializationWriter, appliedConditionalAccessPolicy: AppliedConditionalAccessPolicy | undefined = {} as AppliedConditionalAccessPolicy) : void {
+export function serializeAppliedConditionalAccessPolicy(appliedConditionalAccessPolicy: AppliedConditionalAccessPolicy | undefined = {} as AppliedConditionalAccessPolicy, writer: SerializationWriter) : void {
         writer.writeStringValue("displayName", appliedConditionalAccessPolicy.displayName);
         writer.writeCollectionOfPrimitiveValues<string>("enforcedGrantControls", appliedConditionalAccessPolicy.enforcedGrantControls);
         writer.writeCollectionOfPrimitiveValues<string>("enforcedSessionControls", appliedConditionalAccessPolicy.enforcedSessionControls);

@@ -2,7 +2,7 @@ import {LearningContent} from './learningContent';
 import {serializeEntity} from './serializeEntity';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLearningContent(writer: SerializationWriter, learningContent: LearningContent | undefined = {} as LearningContent) : void {
+export function serializeLearningContent(learningContent: LearningContent | undefined = {} as LearningContent, writer: SerializationWriter) : void {
         serializeEntity(writer, learningContent)
         writer.writeCollectionOfPrimitiveValues<string>("additionalTags", learningContent.additionalTags);
         writer.writeStringValue("contentWebUrl", learningContent.contentWebUrl);

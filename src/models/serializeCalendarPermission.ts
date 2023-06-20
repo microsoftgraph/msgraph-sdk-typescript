@@ -5,7 +5,7 @@ import {serializeEmailAddress} from './serializeEmailAddress';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCalendarPermission(writer: SerializationWriter, calendarPermission: CalendarPermission | undefined = {} as CalendarPermission) : void {
+export function serializeCalendarPermission(calendarPermission: CalendarPermission | undefined = {} as CalendarPermission, writer: SerializationWriter) : void {
         serializeEntity(writer, calendarPermission)
         if(calendarPermission.allowedRoles)
         writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...calendarPermission.allowedRoles);

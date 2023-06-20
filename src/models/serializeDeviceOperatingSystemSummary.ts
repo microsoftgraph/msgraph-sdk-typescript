@@ -1,7 +1,7 @@
 import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceOperatingSystemSummary(writer: SerializationWriter, deviceOperatingSystemSummary: DeviceOperatingSystemSummary | undefined = {} as DeviceOperatingSystemSummary) : void {
+export function serializeDeviceOperatingSystemSummary(deviceOperatingSystemSummary: DeviceOperatingSystemSummary | undefined = {} as DeviceOperatingSystemSummary, writer: SerializationWriter) : void {
         writer.writeNumberValue("androidCorporateWorkProfileCount", deviceOperatingSystemSummary.androidCorporateWorkProfileCount);
         writer.writeNumberValue("androidCount", deviceOperatingSystemSummary.androidCount);
         writer.writeNumberValue("androidDedicatedCount", deviceOperatingSystemSummary.androidDedicatedCount);

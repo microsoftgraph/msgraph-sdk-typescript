@@ -5,7 +5,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeManagedDevice} from './serializeManagedDevice';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDetectedApp(writer: SerializationWriter, detectedApp: DetectedApp | undefined = {} as DetectedApp) : void {
+export function serializeDetectedApp(detectedApp: DetectedApp | undefined = {} as DetectedApp, writer: SerializationWriter) : void {
         serializeEntity(writer, detectedApp)
         writer.writeNumberValue("deviceCount", detectedApp.deviceCount);
         writer.writeStringValue("displayName", detectedApp.displayName);

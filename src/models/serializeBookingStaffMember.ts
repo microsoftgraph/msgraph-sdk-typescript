@@ -5,7 +5,7 @@ import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase
 import {serializeBookingWorkHours} from './serializeBookingWorkHours';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingStaffMember(writer: SerializationWriter, bookingStaffMember: BookingStaffMember | undefined = {} as BookingStaffMember) : void {
+export function serializeBookingStaffMember(bookingStaffMember: BookingStaffMember | undefined = {} as BookingStaffMember, writer: SerializationWriter) : void {
         serializeBookingStaffMemberBase(writer, bookingStaffMember)
         writer.writeBooleanValue("availabilityIsAffectedByPersonalCalendar", bookingStaffMember.availabilityIsAffectedByPersonalCalendar);
         writer.writeStringValue("displayName", bookingStaffMember.displayName);

@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeContentSharingSession} from './serializeContentSharingSession';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeContentSharingSessionCollectionResponse(writer: SerializationWriter, contentSharingSessionCollectionResponse: ContentSharingSessionCollectionResponse | undefined = {} as ContentSharingSessionCollectionResponse) : void {
+export function serializeContentSharingSessionCollectionResponse(contentSharingSessionCollectionResponse: ContentSharingSessionCollectionResponse | undefined = {} as ContentSharingSessionCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, contentSharingSessionCollectionResponse)
         writer.writeCollectionOfObjectValues<ContentSharingSession>("value", contentSharingSessionCollectionResponse.value, serializeContentSharingSession);
 }

@@ -7,7 +7,7 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeExtension} from './serializeExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDevice(writer: SerializationWriter, device: Device | undefined = {} as Device) : void {
+export function serializeDevice(device: Device | undefined = {} as Device, writer: SerializationWriter) : void {
         serializeDirectoryObject(writer, device)
         writer.writeBooleanValue("accountEnabled", device.accountEnabled);
         writer.writeCollectionOfObjectValues<AlternativeSecurityId>("alternativeSecurityIds", device.alternativeSecurityIds, serializeAlternativeSecurityId);

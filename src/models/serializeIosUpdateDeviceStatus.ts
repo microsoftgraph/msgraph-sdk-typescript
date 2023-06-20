@@ -4,7 +4,7 @@ import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosUpdateDeviceStatus(writer: SerializationWriter, iosUpdateDeviceStatus: IosUpdateDeviceStatus | undefined = {} as IosUpdateDeviceStatus) : void {
+export function serializeIosUpdateDeviceStatus(iosUpdateDeviceStatus: IosUpdateDeviceStatus | undefined = {} as IosUpdateDeviceStatus, writer: SerializationWriter) : void {
         serializeEntity(writer, iosUpdateDeviceStatus)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", iosUpdateDeviceStatus.complianceGracePeriodExpirationDateTime);
         writer.writeStringValue("deviceDisplayName", iosUpdateDeviceStatus.deviceDisplayName);

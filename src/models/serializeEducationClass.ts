@@ -23,7 +23,7 @@ import {serializeGroup} from './serializeGroup';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationClass(writer: SerializationWriter, educationClass: EducationClass | undefined = {} as EducationClass) : void {
+export function serializeEducationClass(educationClass: EducationClass | undefined = {} as EducationClass, writer: SerializationWriter) : void {
         serializeEntity(writer, educationClass)
         writer.writeCollectionOfObjectValues<EducationCategory>("assignmentCategories", educationClass.assignmentCategories, serializeEducationCategory);
         writer.writeObjectValue<EducationAssignmentDefaults>("assignmentDefaults", educationClass.assignmentDefaults, serializeEducationAssignmentDefaults);

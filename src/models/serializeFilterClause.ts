@@ -3,7 +3,7 @@ import {FilterOperand} from './filterOperand';
 import {serializeFilterOperand} from './serializeFilterOperand';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFilterClause(writer: SerializationWriter, filterClause: FilterClause | undefined = {} as FilterClause) : void {
+export function serializeFilterClause(filterClause: FilterClause | undefined = {} as FilterClause, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", filterClause.odataType);
         writer.writeStringValue("operatorName", filterClause.operatorName);
         writer.writeStringValue("sourceOperandName", filterClause.sourceOperandName);

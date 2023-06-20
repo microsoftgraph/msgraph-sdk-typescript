@@ -6,7 +6,7 @@ import {serializeUser} from './serializeUser';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeInvitation(writer: SerializationWriter, invitation: Invitation | undefined = {} as Invitation) : void {
+export function serializeInvitation(invitation: Invitation | undefined = {} as Invitation, writer: SerializationWriter) : void {
         serializeEntity(writer, invitation)
         writer.writeObjectValue<User>("invitedUser", invitation.invitedUser, serializeUser);
         writer.writeStringValue("invitedUserDisplayName", invitation.invitedUserDisplayName);

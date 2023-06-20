@@ -20,7 +20,7 @@ import {Subscription} from './subscription';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeList(writer: SerializationWriter, list: List | undefined = {} as List) : void {
+export function serializeList(list: List | undefined = {} as List, writer: SerializationWriter) : void {
         serializeBaseItem(writer, list)
         writer.writeCollectionOfObjectValues<ColumnDefinition>("columns", list.columns, serializeColumnDefinition);
         writer.writeCollectionOfObjectValues<ContentType>("contentTypes", list.contentTypes, serializeContentType);

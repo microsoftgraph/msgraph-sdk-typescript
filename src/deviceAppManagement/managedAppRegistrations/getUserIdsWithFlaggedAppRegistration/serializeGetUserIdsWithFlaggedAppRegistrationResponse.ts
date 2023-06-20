@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../models/se
 import {GetUserIdsWithFlaggedAppRegistrationResponse} from './getUserIdsWithFlaggedAppRegistrationResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetUserIdsWithFlaggedAppRegistrationResponse(writer: SerializationWriter, getUserIdsWithFlaggedAppRegistrationResponse: GetUserIdsWithFlaggedAppRegistrationResponse | undefined = {} as GetUserIdsWithFlaggedAppRegistrationResponse) : void {
+export function serializeGetUserIdsWithFlaggedAppRegistrationResponse(getUserIdsWithFlaggedAppRegistrationResponse: GetUserIdsWithFlaggedAppRegistrationResponse | undefined = {} as GetUserIdsWithFlaggedAppRegistrationResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getUserIdsWithFlaggedAppRegistrationResponse)
         writer.writeCollectionOfPrimitiveValues<string>("value", getUserIdsWithFlaggedAppRegistrationResponse.value);
 }

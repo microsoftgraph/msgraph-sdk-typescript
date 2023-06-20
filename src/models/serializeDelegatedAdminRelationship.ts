@@ -13,7 +13,7 @@ import {serializeDelegatedAdminRelationshipRequest} from './serializeDelegatedAd
 import {serializeEntity} from './serializeEntity';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDelegatedAdminRelationship(writer: SerializationWriter, delegatedAdminRelationship: DelegatedAdminRelationship | undefined = {} as DelegatedAdminRelationship) : void {
+export function serializeDelegatedAdminRelationship(delegatedAdminRelationship: DelegatedAdminRelationship | undefined = {} as DelegatedAdminRelationship, writer: SerializationWriter) : void {
         serializeEntity(writer, delegatedAdminRelationship)
         writer.writeCollectionOfObjectValues<DelegatedAdminAccessAssignment>("accessAssignments", delegatedAdminRelationship.accessAssignments, serializeDelegatedAdminAccessAssignment);
         writer.writeObjectValue<DelegatedAdminAccessDetails>("accessDetails", delegatedAdminRelationship.accessDetails, serializeDelegatedAdminAccessDetails);

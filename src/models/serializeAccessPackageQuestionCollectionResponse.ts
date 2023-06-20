@@ -4,7 +4,7 @@ import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageQuestionCollectionResponse(writer: SerializationWriter, accessPackageQuestionCollectionResponse: AccessPackageQuestionCollectionResponse | undefined = {} as AccessPackageQuestionCollectionResponse) : void {
+export function serializeAccessPackageQuestionCollectionResponse(accessPackageQuestionCollectionResponse: AccessPackageQuestionCollectionResponse | undefined = {} as AccessPackageQuestionCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessPackageQuestionCollectionResponse)
         writer.writeCollectionOfObjectValues<AccessPackageQuestion>("value", accessPackageQuestionCollectionResponse.value, serializeAccessPackageQuestion);
 }

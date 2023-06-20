@@ -12,7 +12,7 @@ import {serializeMessage} from './serializeMessage';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEventMessage(writer: SerializationWriter, eventMessage: EventMessage | undefined = {} as EventMessage) : void {
+export function serializeEventMessage(eventMessage: EventMessage | undefined = {} as EventMessage, writer: SerializationWriter) : void {
         serializeMessage(writer, eventMessage)
         writer.writeObjectValue<DateTimeTimeZone>("endDateTime", eventMessage.endDateTime, serializeDateTimeTimeZone);
         writer.writeObjectValue<Event>("event", eventMessage.event, serializeEvent);

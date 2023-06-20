@@ -2,6 +2,6 @@ import {AddLargeGalleryViewOperation} from './addLargeGalleryViewOperation';
 import {serializeCommsOperation} from './serializeCommsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAddLargeGalleryViewOperation(writer: SerializationWriter, addLargeGalleryViewOperation: AddLargeGalleryViewOperation | undefined = {} as AddLargeGalleryViewOperation) : void {
+export function serializeAddLargeGalleryViewOperation(addLargeGalleryViewOperation: AddLargeGalleryViewOperation | undefined = {} as AddLargeGalleryViewOperation, writer: SerializationWriter) : void {
         serializeCommsOperation(writer, addLargeGalleryViewOperation)
 }

@@ -8,7 +8,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeGroup} from './serializeGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackage(writer: SerializationWriter, accessPackage: AccessPackage | undefined = {} as AccessPackage) : void {
+export function serializeAccessPackage(accessPackage: AccessPackage | undefined = {} as AccessPackage, writer: SerializationWriter) : void {
         serializeEntity(writer, accessPackage)
         writer.writeCollectionOfObjectValues<AccessPackage>("accessPackagesIncompatibleWith", accessPackage.accessPackagesIncompatibleWith, serializeAccessPackage);
         writer.writeCollectionOfObjectValues<AccessPackageAssignmentPolicy>("assignmentPolicies", accessPackage.assignmentPolicies, serializeAccessPackageAssignmentPolicy);

@@ -21,7 +21,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationAssignment(writer: SerializationWriter, educationAssignment: EducationAssignment | undefined = {} as EducationAssignment) : void {
+export function serializeEducationAssignment(educationAssignment: EducationAssignment | undefined = {} as EducationAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, educationAssignment)
         writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", educationAssignment.addedStudentAction);
         writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", educationAssignment.addToCalendarAction);

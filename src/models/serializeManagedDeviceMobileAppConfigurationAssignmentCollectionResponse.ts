@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeManagedDeviceMobileAppConfigurationAssignment} from './serializeManagedDeviceMobileAppConfigurationAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeManagedDeviceMobileAppConfigurationAssignmentCollectionResponse(writer: SerializationWriter, managedDeviceMobileAppConfigurationAssignmentCollectionResponse: ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse) : void {
+export function serializeManagedDeviceMobileAppConfigurationAssignmentCollectionResponse(managedDeviceMobileAppConfigurationAssignmentCollectionResponse: ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedDeviceMobileAppConfigurationAssignmentCollectionResponse)
         writer.writeCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>("value", managedDeviceMobileAppConfigurationAssignmentCollectionResponse.value, serializeManagedDeviceMobileAppConfigurationAssignment);
 }

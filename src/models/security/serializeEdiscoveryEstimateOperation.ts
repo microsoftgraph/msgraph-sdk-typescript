@@ -4,7 +4,7 @@ import {serializeCaseOperation} from './serializeCaseOperation';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEdiscoveryEstimateOperation(writer: SerializationWriter, ediscoveryEstimateOperation: EdiscoveryEstimateOperation | undefined = {} as EdiscoveryEstimateOperation) : void {
+export function serializeEdiscoveryEstimateOperation(ediscoveryEstimateOperation: EdiscoveryEstimateOperation | undefined = {} as EdiscoveryEstimateOperation, writer: SerializationWriter) : void {
         serializeCaseOperation(writer, ediscoveryEstimateOperation)
         writer.writeNumberValue("indexedItemCount", ediscoveryEstimateOperation.indexedItemCount);
         writer.writeNumberValue("indexedItemsSize", ediscoveryEstimateOperation.indexedItemsSize);

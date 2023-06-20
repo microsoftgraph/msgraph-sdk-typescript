@@ -3,7 +3,7 @@ import {AttackSimulationUser} from './attackSimulationUser';
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAttackSimulationSimulationUserCoverage(writer: SerializationWriter, attackSimulationSimulationUserCoverage: AttackSimulationSimulationUserCoverage | undefined = {} as AttackSimulationSimulationUserCoverage) : void {
+export function serializeAttackSimulationSimulationUserCoverage(attackSimulationSimulationUserCoverage: AttackSimulationSimulationUserCoverage | undefined = {} as AttackSimulationSimulationUserCoverage, writer: SerializationWriter) : void {
         writer.writeObjectValue<AttackSimulationUser>("attackSimulationUser", attackSimulationSimulationUserCoverage.attackSimulationUser, serializeAttackSimulationUser);
         writer.writeNumberValue("clickCount", attackSimulationSimulationUserCoverage.clickCount);
         writer.writeNumberValue("compromisedCount", attackSimulationSimulationUserCoverage.compromisedCount);

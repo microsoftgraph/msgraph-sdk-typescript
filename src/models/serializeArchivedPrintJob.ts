@@ -4,7 +4,7 @@ import {serializeUserIdentity} from './serializeUserIdentity';
 import {UserIdentity} from './userIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeArchivedPrintJob(writer: SerializationWriter, archivedPrintJob: ArchivedPrintJob | undefined = {} as ArchivedPrintJob) : void {
+export function serializeArchivedPrintJob(archivedPrintJob: ArchivedPrintJob | undefined = {} as ArchivedPrintJob, writer: SerializationWriter) : void {
         writer.writeBooleanValue("acquiredByPrinter", archivedPrintJob.acquiredByPrinter);
         writer.writeDateValue("acquiredDateTime", archivedPrintJob.acquiredDateTime);
         writer.writeDateValue("completionDateTime", archivedPrintJob.completionDateTime);

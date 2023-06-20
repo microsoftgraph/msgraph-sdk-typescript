@@ -14,7 +14,7 @@ import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValue
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeContact(writer: SerializationWriter, contact: Contact | undefined = {} as Contact) : void {
+export function serializeContact(contact: Contact | undefined = {} as Contact, writer: SerializationWriter) : void {
         serializeOutlookItem(writer, contact)
         writer.writeStringValue("assistantName", contact.assistantName);
         writer.writeDateValue("birthday", contact.birthday);

@@ -4,7 +4,7 @@ import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthent
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentityApiConnector(writer: SerializationWriter, identityApiConnector: IdentityApiConnector | undefined = {} as IdentityApiConnector) : void {
+export function serializeIdentityApiConnector(identityApiConnector: IdentityApiConnector | undefined = {} as IdentityApiConnector, writer: SerializationWriter) : void {
         serializeEntity(writer, identityApiConnector)
         writer.writeObjectValue<ApiAuthenticationConfigurationBase>("authenticationConfiguration", identityApiConnector.authenticationConfiguration, serializeApiAuthenticationConfigurationBase);
         writer.writeStringValue("displayName", identityApiConnector.displayName);

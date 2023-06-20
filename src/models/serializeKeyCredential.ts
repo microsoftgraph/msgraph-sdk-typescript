@@ -1,7 +1,7 @@
 import {KeyCredential} from './keyCredential';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeKeyCredential(writer: SerializationWriter, keyCredential: KeyCredential | undefined = {} as KeyCredential) : void {
+export function serializeKeyCredential(keyCredential: KeyCredential | undefined = {} as KeyCredential, writer: SerializationWriter) : void {
         writer.writeStringValue("customKeyIdentifier", keyCredential.customKeyIdentifier);
         writer.writeStringValue("displayName", keyCredential.displayName);
         writer.writeDateValue("endDateTime", keyCredential.endDateTime);

@@ -5,7 +5,7 @@ import {serializeTimeSlot} from './serializeTimeSlot';
 import {TimeSlot} from './timeSlot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEventMessageResponse(writer: SerializationWriter, eventMessageResponse: EventMessageResponse | undefined = {} as EventMessageResponse) : void {
+export function serializeEventMessageResponse(eventMessageResponse: EventMessageResponse | undefined = {} as EventMessageResponse, writer: SerializationWriter) : void {
         serializeEventMessage(writer, eventMessageResponse)
         writer.writeObjectValue<TimeSlot>("proposedNewTime", eventMessageResponse.proposedNewTime, serializeTimeSlot);
         writer.writeEnumValue<ResponseType>("responseType", eventMessageResponse.responseType);

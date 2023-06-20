@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeDrive} from './serializeDrive';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDriveCollectionResponse(writer: SerializationWriter, driveCollectionResponse: DriveCollectionResponse | undefined = {} as DriveCollectionResponse) : void {
+export function serializeDriveCollectionResponse(driveCollectionResponse: DriveCollectionResponse | undefined = {} as DriveCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, driveCollectionResponse)
         writer.writeCollectionOfObjectValues<Drive>("value", driveCollectionResponse.value, serializeDrive);
 }

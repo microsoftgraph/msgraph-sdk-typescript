@@ -1,7 +1,7 @@
 import {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBroadcastMeetingCaptionSettings(writer: SerializationWriter, broadcastMeetingCaptionSettings: BroadcastMeetingCaptionSettings | undefined = {} as BroadcastMeetingCaptionSettings) : void {
+export function serializeBroadcastMeetingCaptionSettings(broadcastMeetingCaptionSettings: BroadcastMeetingCaptionSettings | undefined = {} as BroadcastMeetingCaptionSettings, writer: SerializationWriter) : void {
         writer.writeBooleanValue("isCaptionEnabled", broadcastMeetingCaptionSettings.isCaptionEnabled);
         writer.writeStringValue("@odata.type", broadcastMeetingCaptionSettings.odataType);
         writer.writeStringValue("spokenLanguage", broadcastMeetingCaptionSettings.spokenLanguage);

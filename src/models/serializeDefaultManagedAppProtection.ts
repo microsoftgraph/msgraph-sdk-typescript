@@ -9,7 +9,7 @@ import {serializeManagedAppProtection} from './serializeManagedAppProtection';
 import {serializeManagedMobileApp} from './serializeManagedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDefaultManagedAppProtection(writer: SerializationWriter, defaultManagedAppProtection: DefaultManagedAppProtection | undefined = {} as DefaultManagedAppProtection) : void {
+export function serializeDefaultManagedAppProtection(defaultManagedAppProtection: DefaultManagedAppProtection | undefined = {} as DefaultManagedAppProtection, writer: SerializationWriter) : void {
         serializeManagedAppProtection(writer, defaultManagedAppProtection)
         writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", defaultManagedAppProtection.appDataEncryptionType);
         writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", defaultManagedAppProtection.apps, serializeManagedMobileApp);

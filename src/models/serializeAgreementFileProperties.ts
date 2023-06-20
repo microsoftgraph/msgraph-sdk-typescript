@@ -4,7 +4,7 @@ import {serializeAgreementFileData} from './serializeAgreementFileData';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAgreementFileProperties(writer: SerializationWriter, agreementFileProperties: AgreementFileProperties | undefined = {} as AgreementFileProperties) : void {
+export function serializeAgreementFileProperties(agreementFileProperties: AgreementFileProperties | undefined = {} as AgreementFileProperties, writer: SerializationWriter) : void {
         serializeEntity(writer, agreementFileProperties)
         writer.writeDateValue("createdDateTime", agreementFileProperties.createdDateTime);
         writer.writeStringValue("displayName", agreementFileProperties.displayName);

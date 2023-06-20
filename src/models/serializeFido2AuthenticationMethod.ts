@@ -3,7 +3,7 @@ import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFido2AuthenticationMethod(writer: SerializationWriter, fido2AuthenticationMethod: Fido2AuthenticationMethod | undefined = {} as Fido2AuthenticationMethod) : void {
+export function serializeFido2AuthenticationMethod(fido2AuthenticationMethod: Fido2AuthenticationMethod | undefined = {} as Fido2AuthenticationMethod, writer: SerializationWriter) : void {
         serializeAuthenticationMethod(writer, fido2AuthenticationMethod)
         writer.writeStringValue("aaGuid", fido2AuthenticationMethod.aaGuid);
         writer.writeCollectionOfPrimitiveValues<string>("attestationCertificates", fido2AuthenticationMethod.attestationCertificates);

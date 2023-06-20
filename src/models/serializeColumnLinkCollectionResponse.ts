@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeColumnLink} from './serializeColumnLink';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeColumnLinkCollectionResponse(writer: SerializationWriter, columnLinkCollectionResponse: ColumnLinkCollectionResponse | undefined = {} as ColumnLinkCollectionResponse) : void {
+export function serializeColumnLinkCollectionResponse(columnLinkCollectionResponse: ColumnLinkCollectionResponse | undefined = {} as ColumnLinkCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, columnLinkCollectionResponse)
         writer.writeCollectionOfObjectValues<ColumnLink>("value", columnLinkCollectionResponse.value, serializeColumnLink);
 }

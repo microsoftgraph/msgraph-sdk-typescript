@@ -3,7 +3,7 @@ import {FileSystemInfo} from './fileSystemInfo';
 import {serializeFileSystemInfo} from './serializeFileSystemInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDriveItemUploadableProperties(writer: SerializationWriter, driveItemUploadableProperties: DriveItemUploadableProperties | undefined = {} as DriveItemUploadableProperties) : void {
+export function serializeDriveItemUploadableProperties(driveItemUploadableProperties: DriveItemUploadableProperties | undefined = {} as DriveItemUploadableProperties, writer: SerializationWriter) : void {
         writer.writeStringValue("description", driveItemUploadableProperties.description);
         writer.writeNumberValue("fileSize", driveItemUploadableProperties.fileSize);
         writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", driveItemUploadableProperties.fileSystemInfo, serializeFileSystemInfo);

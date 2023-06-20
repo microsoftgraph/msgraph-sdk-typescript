@@ -12,7 +12,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeNamedLocation} from './serializeNamedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessRoot(writer: SerializationWriter, conditionalAccessRoot: ConditionalAccessRoot | undefined = {} as ConditionalAccessRoot) : void {
+export function serializeConditionalAccessRoot(conditionalAccessRoot: ConditionalAccessRoot | undefined = {} as ConditionalAccessRoot, writer: SerializationWriter) : void {
         serializeEntity(writer, conditionalAccessRoot)
         writer.writeCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", conditionalAccessRoot.authenticationContextClassReferences, serializeAuthenticationContextClassReference);
         writer.writeObjectValue<AuthenticationStrengthRoot>("authenticationStrength", conditionalAccessRoot.authenticationStrength, serializeAuthenticationStrengthRoot);

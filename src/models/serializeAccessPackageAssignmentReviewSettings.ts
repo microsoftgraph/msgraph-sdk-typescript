@@ -6,7 +6,7 @@ import {serializeSubjectSet} from './serializeSubjectSet';
 import {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageAssignmentReviewSettings(writer: SerializationWriter, accessPackageAssignmentReviewSettings: AccessPackageAssignmentReviewSettings | undefined = {} as AccessPackageAssignmentReviewSettings) : void {
+export function serializeAccessPackageAssignmentReviewSettings(accessPackageAssignmentReviewSettings: AccessPackageAssignmentReviewSettings | undefined = {} as AccessPackageAssignmentReviewSettings, writer: SerializationWriter) : void {
         writer.writeEnumValue<AccessReviewExpirationBehavior>("expirationBehavior", accessPackageAssignmentReviewSettings.expirationBehavior);
         writer.writeCollectionOfObjectValues<SubjectSet>("fallbackReviewers", accessPackageAssignmentReviewSettings.fallbackReviewers, serializeSubjectSet);
         writer.writeBooleanValue("isEnabled", accessPackageAssignmentReviewSettings.isEnabled);

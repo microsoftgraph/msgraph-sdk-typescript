@@ -2,7 +2,7 @@ import {ApplePushNotificationCertificate} from './applePushNotificationCertifica
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeApplePushNotificationCertificate(writer: SerializationWriter, applePushNotificationCertificate: ApplePushNotificationCertificate | undefined = {} as ApplePushNotificationCertificate) : void {
+export function serializeApplePushNotificationCertificate(applePushNotificationCertificate: ApplePushNotificationCertificate | undefined = {} as ApplePushNotificationCertificate, writer: SerializationWriter) : void {
         serializeEntity(writer, applePushNotificationCertificate)
         writer.writeStringValue("appleIdentifier", applePushNotificationCertificate.appleIdentifier);
         writer.writeStringValue("certificate", applePushNotificationCertificate.certificate);

@@ -4,7 +4,7 @@ import {serializeConversationThread} from './serializeConversationThread';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConversation(writer: SerializationWriter, conversation: Conversation | undefined = {} as Conversation) : void {
+export function serializeConversation(conversation: Conversation | undefined = {} as Conversation, writer: SerializationWriter) : void {
         serializeEntity(writer, conversation)
         writer.writeBooleanValue("hasAttachments", conversation.hasAttachments);
         writer.writeDateValue("lastDeliveredDateTime", conversation.lastDeliveredDateTime);

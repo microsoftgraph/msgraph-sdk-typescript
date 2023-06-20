@@ -8,7 +8,7 @@ import {serializeUser} from './serializeUser';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBaseItem(writer: SerializationWriter, baseItem: BaseItem | undefined = {} as BaseItem) : void {
+export function serializeBaseItem(baseItem: BaseItem | undefined = {} as BaseItem, writer: SerializationWriter) : void {
         serializeEntity(writer, baseItem)
         writer.writeObjectValue<IdentitySet>("createdBy", baseItem.createdBy, serializeIdentitySet);
         writer.writeObjectValue<User>("createdByUser", baseItem.createdByUser, serializeUser);

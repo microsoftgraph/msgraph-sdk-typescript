@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeDirectoryRoleTemplate} from './serializeDirectoryRoleTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDirectoryRoleTemplateCollectionResponse(writer: SerializationWriter, directoryRoleTemplateCollectionResponse: DirectoryRoleTemplateCollectionResponse | undefined = {} as DirectoryRoleTemplateCollectionResponse) : void {
+export function serializeDirectoryRoleTemplateCollectionResponse(directoryRoleTemplateCollectionResponse: DirectoryRoleTemplateCollectionResponse | undefined = {} as DirectoryRoleTemplateCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, directoryRoleTemplateCollectionResponse)
         writer.writeCollectionOfObjectValues<DirectoryRoleTemplate>("value", directoryRoleTemplateCollectionResponse.value, serializeDirectoryRoleTemplate);
 }

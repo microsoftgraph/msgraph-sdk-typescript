@@ -5,7 +5,7 @@ import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticat
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEmailAuthenticationMethodConfiguration(writer: SerializationWriter, emailAuthenticationMethodConfiguration: EmailAuthenticationMethodConfiguration | undefined = {} as EmailAuthenticationMethodConfiguration) : void {
+export function serializeEmailAuthenticationMethodConfiguration(emailAuthenticationMethodConfiguration: EmailAuthenticationMethodConfiguration | undefined = {} as EmailAuthenticationMethodConfiguration, writer: SerializationWriter) : void {
         serializeAuthenticationMethodConfiguration(writer, emailAuthenticationMethodConfiguration)
         writer.writeEnumValue<ExternalEmailOtpState>("allowExternalIdToUseEmailOtp", emailAuthenticationMethodConfiguration.allowExternalIdToUseEmailOtp);
         writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", emailAuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);

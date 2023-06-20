@@ -2,7 +2,7 @@ import {ConfigurationManagerCollectionAssignmentTarget} from './configurationMan
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConfigurationManagerCollectionAssignmentTarget(writer: SerializationWriter, configurationManagerCollectionAssignmentTarget: ConfigurationManagerCollectionAssignmentTarget | undefined = {} as ConfigurationManagerCollectionAssignmentTarget) : void {
+export function serializeConfigurationManagerCollectionAssignmentTarget(configurationManagerCollectionAssignmentTarget: ConfigurationManagerCollectionAssignmentTarget | undefined = {} as ConfigurationManagerCollectionAssignmentTarget, writer: SerializationWriter) : void {
         serializeDeviceAndAppManagementAssignmentTarget(writer, configurationManagerCollectionAssignmentTarget)
         writer.writeStringValue("collectionId", configurationManagerCollectionAssignmentTarget.collectionId);
 }

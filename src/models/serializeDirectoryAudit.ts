@@ -9,7 +9,7 @@ import {serializeTargetResource} from './serializeTargetResource';
 import {TargetResource} from './targetResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDirectoryAudit(writer: SerializationWriter, directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit) : void {
+export function serializeDirectoryAudit(directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit, writer: SerializationWriter) : void {
         serializeEntity(writer, directoryAudit)
         writer.writeDateValue("activityDateTime", directoryAudit.activityDateTime);
         writer.writeStringValue("activityDisplayName", directoryAudit.activityDisplayName);

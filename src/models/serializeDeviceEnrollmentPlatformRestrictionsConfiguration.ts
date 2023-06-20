@@ -4,7 +4,7 @@ import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmen
 import {serializeDeviceEnrollmentPlatformRestriction} from './serializeDeviceEnrollmentPlatformRestriction';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceEnrollmentPlatformRestrictionsConfiguration(writer: SerializationWriter, deviceEnrollmentPlatformRestrictionsConfiguration: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined = {} as DeviceEnrollmentPlatformRestrictionsConfiguration) : void {
+export function serializeDeviceEnrollmentPlatformRestrictionsConfiguration(deviceEnrollmentPlatformRestrictionsConfiguration: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined = {} as DeviceEnrollmentPlatformRestrictionsConfiguration, writer: SerializationWriter) : void {
         serializeDeviceEnrollmentConfiguration(writer, deviceEnrollmentPlatformRestrictionsConfiguration)
         writer.writeObjectValue<DeviceEnrollmentPlatformRestriction>("androidRestriction", deviceEnrollmentPlatformRestrictionsConfiguration.androidRestriction, serializeDeviceEnrollmentPlatformRestriction);
         writer.writeObjectValue<DeviceEnrollmentPlatformRestriction>("iosRestriction", deviceEnrollmentPlatformRestrictionsConfiguration.iosRestriction, serializeDeviceEnrollmentPlatformRestriction);

@@ -1,7 +1,7 @@
 import {AuditActor} from './auditActor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuditActor(writer: SerializationWriter, auditActor: AuditActor | undefined = {} as AuditActor) : void {
+export function serializeAuditActor(auditActor: AuditActor | undefined = {} as AuditActor, writer: SerializationWriter) : void {
         writer.writeStringValue("applicationDisplayName", auditActor.applicationDisplayName);
         writer.writeStringValue("applicationId", auditActor.applicationId);
         writer.writeStringValue("auditActorType", auditActor.auditActorType);

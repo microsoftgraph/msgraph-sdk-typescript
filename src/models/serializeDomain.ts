@@ -10,7 +10,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeInternalDomainFederation} from './serializeInternalDomainFederation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDomain(writer: SerializationWriter, domain: Domain | undefined = {} as Domain) : void {
+export function serializeDomain(domain: Domain | undefined = {} as Domain, writer: SerializationWriter) : void {
         serializeEntity(writer, domain)
         writer.writeStringValue("authenticationType", domain.authenticationType);
         writer.writeStringValue("availabilityStatus", domain.availabilityStatus);

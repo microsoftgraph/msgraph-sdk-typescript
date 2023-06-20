@@ -5,7 +5,7 @@ import {serializePermissionScope} from './serializePermissionScope';
 import {serializePreAuthorizedApplication} from './serializePreAuthorizedApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeApiApplication(writer: SerializationWriter, apiApplication: ApiApplication | undefined = {} as ApiApplication) : void {
+export function serializeApiApplication(apiApplication: ApiApplication | undefined = {} as ApiApplication, writer: SerializationWriter) : void {
         writer.writeBooleanValue("acceptMappedClaims", apiApplication.acceptMappedClaims);
         writer.writeCollectionOfPrimitiveValues<string>("knownClientApplications", apiApplication.knownClientApplications);
         writer.writeCollectionOfObjectValues<PermissionScope>("oauth2PermissionScopes", apiApplication.oauth2PermissionScopes, serializePermissionScope);

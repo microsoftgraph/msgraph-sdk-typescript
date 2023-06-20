@@ -6,7 +6,7 @@ import {serializeAccessReviewScheduleDefinition} from './serializeAccessReviewSc
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewSet(writer: SerializationWriter, accessReviewSet: AccessReviewSet | undefined = {} as AccessReviewSet) : void {
+export function serializeAccessReviewSet(accessReviewSet: AccessReviewSet | undefined = {} as AccessReviewSet, writer: SerializationWriter) : void {
         serializeEntity(writer, accessReviewSet)
         writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("definitions", accessReviewSet.definitions, serializeAccessReviewScheduleDefinition);
         writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinition>("historyDefinitions", accessReviewSet.historyDefinitions, serializeAccessReviewHistoryDefinition);

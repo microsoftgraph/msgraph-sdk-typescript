@@ -8,7 +8,7 @@ import {serializeTimeSlot} from './serializeTimeSlot';
 import {TimeSlot} from './timeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMeetingTimeSuggestion(writer: SerializationWriter, meetingTimeSuggestion: MeetingTimeSuggestion | undefined = {} as MeetingTimeSuggestion) : void {
+export function serializeMeetingTimeSuggestion(meetingTimeSuggestion: MeetingTimeSuggestion | undefined = {} as MeetingTimeSuggestion, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<AttendeeAvailability>("attendeeAvailability", meetingTimeSuggestion.attendeeAvailability, serializeAttendeeAvailability);
         writer.writeNumberValue("confidence", meetingTimeSuggestion.confidence);
         writer.writeCollectionOfObjectValues<Location>("locations", meetingTimeSuggestion.locations, serializeLocation);

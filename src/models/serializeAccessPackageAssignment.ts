@@ -11,7 +11,7 @@ import {serializeEntitlementManagementSchedule} from './serializeEntitlementMana
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageAssignment(writer: SerializationWriter, accessPackageAssignment: AccessPackageAssignment | undefined = {} as AccessPackageAssignment) : void {
+export function serializeAccessPackageAssignment(accessPackageAssignment: AccessPackageAssignment | undefined = {} as AccessPackageAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, accessPackageAssignment)
         writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignment.accessPackage, serializeAccessPackage);
         writer.writeObjectValue<AccessPackageAssignmentPolicy>("assignmentPolicy", accessPackageAssignment.assignmentPolicy, serializeAccessPackageAssignmentPolicy);

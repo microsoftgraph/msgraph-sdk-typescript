@@ -9,7 +9,7 @@ import {UserPurpose} from './userPurpose';
 import {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMailboxSettings(writer: SerializationWriter, mailboxSettings: MailboxSettings | undefined = {} as MailboxSettings) : void {
+export function serializeMailboxSettings(mailboxSettings: MailboxSettings | undefined = {} as MailboxSettings, writer: SerializationWriter) : void {
         writer.writeStringValue("archiveFolder", mailboxSettings.archiveFolder);
         writer.writeObjectValue<AutomaticRepliesSetting>("automaticRepliesSetting", mailboxSettings.automaticRepliesSetting, serializeAutomaticRepliesSetting);
         writer.writeStringValue("dateFormat", mailboxSettings.dateFormat);

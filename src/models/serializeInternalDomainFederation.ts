@@ -6,7 +6,7 @@ import {serializeSigningCertificateUpdateStatus} from './serializeSigningCertifi
 import {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeInternalDomainFederation(writer: SerializationWriter, internalDomainFederation: InternalDomainFederation | undefined = {} as InternalDomainFederation) : void {
+export function serializeInternalDomainFederation(internalDomainFederation: InternalDomainFederation | undefined = {} as InternalDomainFederation, writer: SerializationWriter) : void {
         serializeSamlOrWsFedProvider(writer, internalDomainFederation)
         writer.writeStringValue("activeSignInUri", internalDomainFederation.activeSignInUri);
         writer.writeEnumValue<FederatedIdpMfaBehavior>("federatedIdpMfaBehavior", internalDomainFederation.federatedIdpMfaBehavior);

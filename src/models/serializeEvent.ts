@@ -33,7 +33,7 @@ import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValue
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEvent(writer: SerializationWriter, event: Event | undefined = {} as Event) : void {
+export function serializeEvent(event: Event | undefined = {} as Event, writer: SerializationWriter) : void {
         serializeOutlookItem(writer, event)
         writer.writeBooleanValue("allowNewTimeProposals", event.allowNewTimeProposals);
         writer.writeCollectionOfObjectValues<Attachment>("attachments", event.attachments, serializeAttachment);

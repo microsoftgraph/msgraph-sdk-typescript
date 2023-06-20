@@ -1,7 +1,7 @@
 import {InformationalUrl} from './informationalUrl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeInformationalUrl(writer: SerializationWriter, informationalUrl: InformationalUrl | undefined = {} as InformationalUrl) : void {
+export function serializeInformationalUrl(informationalUrl: InformationalUrl | undefined = {} as InformationalUrl, writer: SerializationWriter) : void {
         writer.writeStringValue("logoUrl", informationalUrl.logoUrl);
         writer.writeStringValue("marketingUrl", informationalUrl.marketingUrl);
         writer.writeStringValue("@odata.type", informationalUrl.odataType);

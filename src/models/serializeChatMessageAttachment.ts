@@ -1,7 +1,7 @@
 import {ChatMessageAttachment} from './chatMessageAttachment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatMessageAttachment(writer: SerializationWriter, chatMessageAttachment: ChatMessageAttachment | undefined = {} as ChatMessageAttachment) : void {
+export function serializeChatMessageAttachment(chatMessageAttachment: ChatMessageAttachment | undefined = {} as ChatMessageAttachment, writer: SerializationWriter) : void {
         writer.writeStringValue("content", chatMessageAttachment.content);
         writer.writeStringValue("contentType", chatMessageAttachment.contentType);
         writer.writeStringValue("contentUrl", chatMessageAttachment.contentUrl);

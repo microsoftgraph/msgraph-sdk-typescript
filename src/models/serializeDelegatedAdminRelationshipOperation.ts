@@ -4,7 +4,7 @@ import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDelegatedAdminRelationshipOperation(writer: SerializationWriter, delegatedAdminRelationshipOperation: DelegatedAdminRelationshipOperation | undefined = {} as DelegatedAdminRelationshipOperation) : void {
+export function serializeDelegatedAdminRelationshipOperation(delegatedAdminRelationshipOperation: DelegatedAdminRelationshipOperation | undefined = {} as DelegatedAdminRelationshipOperation, writer: SerializationWriter) : void {
         serializeEntity(writer, delegatedAdminRelationshipOperation)
         writer.writeDateValue("createdDateTime", delegatedAdminRelationshipOperation.createdDateTime);
         writer.writeStringValue("data", delegatedAdminRelationshipOperation.data);

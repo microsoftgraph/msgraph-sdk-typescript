@@ -1,7 +1,7 @@
 import {AlertComment} from './alertComment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAlertComment(writer: SerializationWriter, alertComment: AlertComment | undefined = {} as AlertComment) : void {
+export function serializeAlertComment(alertComment: AlertComment | undefined = {} as AlertComment, writer: SerializationWriter) : void {
         writer.writeStringValue("comment", alertComment.comment);
         writer.writeStringValue("createdByDisplayName", alertComment.createdByDisplayName);
         writer.writeDateValue("createdDateTime", alertComment.createdDateTime);

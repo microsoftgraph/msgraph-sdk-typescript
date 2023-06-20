@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {AccrIntPostRequestBody} from './accrIntPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccrIntPostRequestBody(writer: SerializationWriter, accrIntPostRequestBody: AccrIntPostRequestBody | undefined = {} as AccrIntPostRequestBody) : void {
+export function serializeAccrIntPostRequestBody(accrIntPostRequestBody: AccrIntPostRequestBody | undefined = {} as AccrIntPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("basis", accrIntPostRequestBody.basis, serializeJson);
         writer.writeObjectValue<Json>("calcMethod", accrIntPostRequestBody.calcMethod, serializeJson);
         writer.writeObjectValue<Json>("firstInterest", accrIntPostRequestBody.firstInterest, serializeJson);

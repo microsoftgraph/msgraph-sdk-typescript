@@ -3,7 +3,7 @@ import {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationAssignmentGrade(writer: SerializationWriter, educationAssignmentGrade: EducationAssignmentGrade | undefined = {} as EducationAssignmentGrade) : void {
+export function serializeEducationAssignmentGrade(educationAssignmentGrade: EducationAssignmentGrade | undefined = {} as EducationAssignmentGrade, writer: SerializationWriter) : void {
         writer.writeObjectValue<IdentitySet>("gradedBy", educationAssignmentGrade.gradedBy, serializeIdentitySet);
         writer.writeDateValue("gradedDateTime", educationAssignmentGrade.gradedDateTime);
         writer.writeStringValue("@odata.type", educationAssignmentGrade.odataType);

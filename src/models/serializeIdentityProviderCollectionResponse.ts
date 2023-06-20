@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeIdentityProvider} from './serializeIdentityProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentityProviderCollectionResponse(writer: SerializationWriter, identityProviderCollectionResponse: IdentityProviderCollectionResponse | undefined = {} as IdentityProviderCollectionResponse) : void {
+export function serializeIdentityProviderCollectionResponse(identityProviderCollectionResponse: IdentityProviderCollectionResponse | undefined = {} as IdentityProviderCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, identityProviderCollectionResponse)
         writer.writeCollectionOfObjectValues<IdentityProvider>("value", identityProviderCollectionResponse.value, serializeIdentityProvider);
 }

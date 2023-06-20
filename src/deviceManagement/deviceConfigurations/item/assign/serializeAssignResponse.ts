@@ -4,7 +4,7 @@ import {serializeDeviceConfigurationAssignment} from '../../../../models/seriali
 import {AssignResponse} from './assignResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAssignResponse(writer: SerializationWriter, assignResponse: AssignResponse | undefined = {} as AssignResponse) : void {
+export function serializeAssignResponse(assignResponse: AssignResponse | undefined = {} as AssignResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, assignResponse)
         writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("value", assignResponse.value, serializeDeviceConfigurationAssignment);
 }

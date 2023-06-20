@@ -4,7 +4,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeSelfServiceSignUpAuthenticationFlowConfiguration} from './serializeSelfServiceSignUpAuthenticationFlowConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthenticationFlowsPolicy(writer: SerializationWriter, authenticationFlowsPolicy: AuthenticationFlowsPolicy | undefined = {} as AuthenticationFlowsPolicy) : void {
+export function serializeAuthenticationFlowsPolicy(authenticationFlowsPolicy: AuthenticationFlowsPolicy | undefined = {} as AuthenticationFlowsPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, authenticationFlowsPolicy)
         writer.writeStringValue("description", authenticationFlowsPolicy.description);
         writer.writeStringValue("displayName", authenticationFlowsPolicy.displayName);

@@ -2,6 +2,6 @@ import {EducationAssignmentGroupRecipient} from './educationAssignmentGroupRecip
 import {serializeEducationAssignmentRecipient} from './serializeEducationAssignmentRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationAssignmentGroupRecipient(writer: SerializationWriter, educationAssignmentGroupRecipient: EducationAssignmentGroupRecipient | undefined = {} as EducationAssignmentGroupRecipient) : void {
+export function serializeEducationAssignmentGroupRecipient(educationAssignmentGroupRecipient: EducationAssignmentGroupRecipient | undefined = {} as EducationAssignmentGroupRecipient, writer: SerializationWriter) : void {
         serializeEducationAssignmentRecipient(writer, educationAssignmentGroupRecipient)
 }

@@ -4,7 +4,7 @@ import {ChatMessageReaction} from './chatMessageReaction';
 import {serializeChatMessageReaction} from './serializeChatMessageReaction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatMessageHistoryItem(writer: SerializationWriter, chatMessageHistoryItem: ChatMessageHistoryItem | undefined = {} as ChatMessageHistoryItem) : void {
+export function serializeChatMessageHistoryItem(chatMessageHistoryItem: ChatMessageHistoryItem | undefined = {} as ChatMessageHistoryItem, writer: SerializationWriter) : void {
         writer.writeEnumValue<ChatMessageActions>("actions", chatMessageHistoryItem.actions);
         writer.writeDateValue("modifiedDateTime", chatMessageHistoryItem.modifiedDateTime);
         writer.writeStringValue("@odata.type", chatMessageHistoryItem.odataType);

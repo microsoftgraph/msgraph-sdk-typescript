@@ -5,7 +5,7 @@ import {serializeDeviceComplianceSettingState} from './serializeDeviceCompliance
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceCompliancePolicySettingStateSummary(writer: SerializationWriter, deviceCompliancePolicySettingStateSummary: DeviceCompliancePolicySettingStateSummary | undefined = {} as DeviceCompliancePolicySettingStateSummary) : void {
+export function serializeDeviceCompliancePolicySettingStateSummary(deviceCompliancePolicySettingStateSummary: DeviceCompliancePolicySettingStateSummary | undefined = {} as DeviceCompliancePolicySettingStateSummary, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceCompliancePolicySettingStateSummary)
         writer.writeNumberValue("compliantDeviceCount", deviceCompliancePolicySettingStateSummary.compliantDeviceCount);
         writer.writeNumberValue("conflictDeviceCount", deviceCompliancePolicySettingStateSummary.conflictDeviceCount);

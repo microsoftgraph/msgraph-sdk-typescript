@@ -2,7 +2,7 @@ import {Website} from './website';
 import {WebsiteType} from './websiteType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeWebsite(writer: SerializationWriter, website: Website | undefined = {} as Website) : void {
+export function serializeWebsite(website: Website | undefined = {} as Website, writer: SerializationWriter) : void {
         writer.writeStringValue("address", website.address);
         writer.writeStringValue("displayName", website.displayName);
         writer.writeStringValue("@odata.type", website.odataType);

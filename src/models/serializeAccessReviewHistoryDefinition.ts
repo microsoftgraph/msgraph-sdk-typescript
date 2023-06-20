@@ -12,7 +12,7 @@ import {serializeUserIdentity} from './serializeUserIdentity';
 import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewHistoryDefinition(writer: SerializationWriter, accessReviewHistoryDefinition: AccessReviewHistoryDefinition | undefined = {} as AccessReviewHistoryDefinition) : void {
+export function serializeAccessReviewHistoryDefinition(accessReviewHistoryDefinition: AccessReviewHistoryDefinition | undefined = {} as AccessReviewHistoryDefinition, writer: SerializationWriter) : void {
         serializeEntity(writer, accessReviewHistoryDefinition)
         writer.writeObjectValue<UserIdentity>("createdBy", accessReviewHistoryDefinition.createdBy, serializeUserIdentity);
         writer.writeDateValue("createdDateTime", accessReviewHistoryDefinition.createdDateTime);

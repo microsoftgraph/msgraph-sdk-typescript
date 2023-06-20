@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {MaxPostRequestBody} from './maxPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMaxPostRequestBody(writer: SerializationWriter, maxPostRequestBody: MaxPostRequestBody | undefined = {} as MaxPostRequestBody) : void {
+export function serializeMaxPostRequestBody(maxPostRequestBody: MaxPostRequestBody | undefined = {} as MaxPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("values", maxPostRequestBody.values, serializeJson);
         writer.writeAdditionalData(maxPostRequestBody.additionalData);
 }

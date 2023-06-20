@@ -14,6 +14,8 @@ export interface MediaStream extends AdditionalDataHolder, Parsable {
     averageAudioNetworkJitter?: Duration | undefined;
     /** Average estimated bandwidth available between two endpoints in bits per second. */
     averageBandwidthEstimate?: number | undefined;
+    /** Average duration of the received freezing time in the video stream. */
+    averageFreezeDuration?: Duration | undefined;
     /** Average jitter for the stream computed as specified in [RFC 3550][], denoted in [ISO 8601][] format. For example, 1 second is denoted as 'PT1S', where 'P' is the duration designator, 'T' is the time designator, and 'S' is the second designator. */
     averageJitter?: Duration | undefined;
     /** Average packet loss rate for stream. */
@@ -32,6 +34,8 @@ export interface MediaStream extends AdditionalDataHolder, Parsable {
     averageVideoPacketLossRate?: number | undefined;
     /** UTC time when the stream ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     endDateTime?: Date | undefined;
+    /** Indicates whether the forward error correction (FEC) was used at some point during the session. The default value is null. */
+    isAudioForwardErrorCorrectionUsed?: boolean | undefined;
     /** Fraction of the call where frame rate is less than 7.5 frames per second. */
     lowFrameRateRatio?: number | undefined;
     /** Fraction of the call that the client is running less than 70% expected video processing capability. */
@@ -52,6 +56,8 @@ export interface MediaStream extends AdditionalDataHolder, Parsable {
     packetUtilization?: number | undefined;
     /** Packet loss rate after FEC has been applied aggregated across all video streams and codecs. */
     postForwardErrorCorrectionPacketLossRate?: number | undefined;
+    /** Average duration of the received freezing time in the video stream represented in root mean square. */
+    rmsFreezeDuration?: Duration | undefined;
     /** UTC time when the stream started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     startDateTime?: Date | undefined;
     /** The streamDirection property */

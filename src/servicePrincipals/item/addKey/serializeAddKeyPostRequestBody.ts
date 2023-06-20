@@ -5,7 +5,7 @@ import {serializePasswordCredential} from '../../../models/serializePasswordCred
 import {AddKeyPostRequestBody} from './addKeyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAddKeyPostRequestBody(writer: SerializationWriter, addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody) : void {
+export function serializeAddKeyPostRequestBody(addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<KeyCredential>("keyCredential", addKeyPostRequestBody.keyCredential, serializeKeyCredential);
         writer.writeObjectValue<PasswordCredential>("passwordCredential", addKeyPostRequestBody.passwordCredential, serializePasswordCredential);
         writer.writeStringValue("proof", addKeyPostRequestBody.proof);

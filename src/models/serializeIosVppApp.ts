@@ -7,7 +7,7 @@ import {VppLicensingType} from './vppLicensingType';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosVppApp(writer: SerializationWriter, iosVppApp: IosVppApp | undefined = {} as IosVppApp) : void {
+export function serializeIosVppApp(iosVppApp: IosVppApp | undefined = {} as IosVppApp, writer: SerializationWriter) : void {
         serializeMobileApp(writer, iosVppApp)
         writer.writeObjectValue<IosDeviceType>("applicableDeviceType", iosVppApp.applicableDeviceType, serializeIosDeviceType);
         writer.writeStringValue("appStoreUrl", iosVppApp.appStoreUrl);

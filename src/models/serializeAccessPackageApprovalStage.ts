@@ -3,7 +3,7 @@ import {serializeSubjectSet} from './serializeSubjectSet';
 import {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageApprovalStage(writer: SerializationWriter, accessPackageApprovalStage: AccessPackageApprovalStage | undefined = {} as AccessPackageApprovalStage) : void {
+export function serializeAccessPackageApprovalStage(accessPackageApprovalStage: AccessPackageApprovalStage | undefined = {} as AccessPackageApprovalStage, writer: SerializationWriter) : void {
         writer.writeDurationValue("durationBeforeAutomaticDenial", accessPackageApprovalStage.durationBeforeAutomaticDenial);
         writer.writeDurationValue("durationBeforeEscalation", accessPackageApprovalStage.durationBeforeEscalation);
         writer.writeCollectionOfObjectValues<SubjectSet>("escalationApprovers", accessPackageApprovalStage.escalationApprovers, serializeSubjectSet);

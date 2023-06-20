@@ -4,7 +4,7 @@ import {serializeRolePermission} from '../../models/serializeRolePermission';
 import {GetEffectivePermissionsWithScopeResponse} from './getEffectivePermissionsWithScopeResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetEffectivePermissionsWithScopeResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeResponse: GetEffectivePermissionsWithScopeResponse | undefined = {} as GetEffectivePermissionsWithScopeResponse) : void {
+export function serializeGetEffectivePermissionsWithScopeResponse(getEffectivePermissionsWithScopeResponse: GetEffectivePermissionsWithScopeResponse | undefined = {} as GetEffectivePermissionsWithScopeResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeResponse)
         writer.writeCollectionOfObjectValues<RolePermission>("value", getEffectivePermissionsWithScopeResponse.value, serializeRolePermission);
 }

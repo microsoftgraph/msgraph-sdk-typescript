@@ -4,7 +4,7 @@ import {serializeAccessReviewStage} from './serializeAccessReviewStage';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewStageCollectionResponse(writer: SerializationWriter, accessReviewStageCollectionResponse: AccessReviewStageCollectionResponse | undefined = {} as AccessReviewStageCollectionResponse) : void {
+export function serializeAccessReviewStageCollectionResponse(accessReviewStageCollectionResponse: AccessReviewStageCollectionResponse | undefined = {} as AccessReviewStageCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessReviewStageCollectionResponse)
         writer.writeCollectionOfObjectValues<AccessReviewStage>("value", accessReviewStageCollectionResponse.value, serializeAccessReviewStage);
 }

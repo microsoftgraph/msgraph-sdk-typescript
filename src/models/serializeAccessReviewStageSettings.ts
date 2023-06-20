@@ -3,7 +3,7 @@ import {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewStageSettings(writer: SerializationWriter, accessReviewStageSettings: AccessReviewStageSettings | undefined = {} as AccessReviewStageSettings) : void {
+export function serializeAccessReviewStageSettings(accessReviewStageSettings: AccessReviewStageSettings | undefined = {} as AccessReviewStageSettings, writer: SerializationWriter) : void {
         writer.writeCollectionOfPrimitiveValues<string>("decisionsThatWillMoveToNextStage", accessReviewStageSettings.decisionsThatWillMoveToNextStage);
         writer.writeCollectionOfPrimitiveValues<string>("dependsOn", accessReviewStageSettings.dependsOn);
         writer.writeNumberValue("durationInDays", accessReviewStageSettings.durationInDays);

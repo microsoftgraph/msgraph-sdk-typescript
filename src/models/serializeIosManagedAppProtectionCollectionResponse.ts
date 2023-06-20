@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeIosManagedAppProtection} from './serializeIosManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosManagedAppProtectionCollectionResponse(writer: SerializationWriter, iosManagedAppProtectionCollectionResponse: IosManagedAppProtectionCollectionResponse | undefined = {} as IosManagedAppProtectionCollectionResponse) : void {
+export function serializeIosManagedAppProtectionCollectionResponse(iosManagedAppProtectionCollectionResponse: IosManagedAppProtectionCollectionResponse | undefined = {} as IosManagedAppProtectionCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, iosManagedAppProtectionCollectionResponse)
         writer.writeCollectionOfObjectValues<IosManagedAppProtection>("value", iosManagedAppProtectionCollectionResponse.value, serializeIosManagedAppProtection);
 }

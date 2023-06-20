@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeChatMessage} from './serializeChatMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatMessageCollectionResponse(writer: SerializationWriter, chatMessageCollectionResponse: ChatMessageCollectionResponse | undefined = {} as ChatMessageCollectionResponse) : void {
+export function serializeChatMessageCollectionResponse(chatMessageCollectionResponse: ChatMessageCollectionResponse | undefined = {} as ChatMessageCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, chatMessageCollectionResponse)
         writer.writeCollectionOfObjectValues<ChatMessage>("value", chatMessageCollectionResponse.value, serializeChatMessage);
 }

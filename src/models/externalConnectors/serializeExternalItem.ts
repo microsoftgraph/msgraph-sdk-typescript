@@ -10,7 +10,7 @@ import {serializeExternalItemContent} from './serializeExternalItemContent';
 import {serializeProperties} from './serializeProperties';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeExternalItem(writer: SerializationWriter, externalItem: ExternalItem | undefined = {} as ExternalItem) : void {
+export function serializeExternalItem(externalItem: ExternalItem | undefined = {} as ExternalItem, writer: SerializationWriter) : void {
         serializeEntity(writer, externalItem)
         writer.writeCollectionOfObjectValues<Acl>("acl", externalItem.acl, serializeAcl);
         writer.writeCollectionOfObjectValues<ExternalActivity>("activities", externalItem.activities, serializeExternalActivity);

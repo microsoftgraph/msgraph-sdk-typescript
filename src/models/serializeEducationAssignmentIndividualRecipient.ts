@@ -2,7 +2,7 @@ import {EducationAssignmentIndividualRecipient} from './educationAssignmentIndiv
 import {serializeEducationAssignmentRecipient} from './serializeEducationAssignmentRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationAssignmentIndividualRecipient(writer: SerializationWriter, educationAssignmentIndividualRecipient: EducationAssignmentIndividualRecipient | undefined = {} as EducationAssignmentIndividualRecipient) : void {
+export function serializeEducationAssignmentIndividualRecipient(educationAssignmentIndividualRecipient: EducationAssignmentIndividualRecipient | undefined = {} as EducationAssignmentIndividualRecipient, writer: SerializationWriter) : void {
         serializeEducationAssignmentRecipient(writer, educationAssignmentIndividualRecipient)
         writer.writeCollectionOfPrimitiveValues<string>("recipients", educationAssignmentIndividualRecipient.recipients);
 }

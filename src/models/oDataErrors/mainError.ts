@@ -9,8 +9,8 @@ export interface MainError extends AdditionalDataHolder, Parsable {
     code?: string | undefined;
     /** The details property */
     details?: ErrorDetails[] | undefined;
-    /** The innererror property */
-    innererror?: InnerError | undefined;
+    /** The innerError property */
+    innerError?: InnerError | undefined;
     /** The message property */
     message?: string | undefined;
     /** The target property */

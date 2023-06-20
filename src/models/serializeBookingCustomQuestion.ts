@@ -3,7 +3,7 @@ import {BookingCustomQuestion} from './bookingCustomQuestion';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingCustomQuestion(writer: SerializationWriter, bookingCustomQuestion: BookingCustomQuestion | undefined = {} as BookingCustomQuestion) : void {
+export function serializeBookingCustomQuestion(bookingCustomQuestion: BookingCustomQuestion | undefined = {} as BookingCustomQuestion, writer: SerializationWriter) : void {
         serializeEntity(writer, bookingCustomQuestion)
         writer.writeEnumValue<AnswerInputType>("answerInputType", bookingCustomQuestion.answerInputType);
         writer.writeCollectionOfPrimitiveValues<string>("answerOptions", bookingCustomQuestion.answerOptions);

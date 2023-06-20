@@ -4,7 +4,7 @@ import {DelegatedAdminRelationshipRequestStatus} from './delegatedAdminRelations
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDelegatedAdminRelationshipRequest(writer: SerializationWriter, delegatedAdminRelationshipRequest: DelegatedAdminRelationshipRequest | undefined = {} as DelegatedAdminRelationshipRequest) : void {
+export function serializeDelegatedAdminRelationshipRequest(delegatedAdminRelationshipRequest: DelegatedAdminRelationshipRequest | undefined = {} as DelegatedAdminRelationshipRequest, writer: SerializationWriter) : void {
         serializeEntity(writer, delegatedAdminRelationshipRequest)
         writer.writeEnumValue<DelegatedAdminRelationshipRequestAction>("action", delegatedAdminRelationshipRequest.action);
         writer.writeDateValue("createdDateTime", delegatedAdminRelationshipRequest.createdDateTime);

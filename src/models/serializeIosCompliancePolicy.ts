@@ -4,7 +4,7 @@ import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosCompliancePolicy(writer: SerializationWriter, iosCompliancePolicy: IosCompliancePolicy | undefined = {} as IosCompliancePolicy) : void {
+export function serializeIosCompliancePolicy(iosCompliancePolicy: IosCompliancePolicy | undefined = {} as IosCompliancePolicy, writer: SerializationWriter) : void {
         serializeDeviceCompliancePolicy(writer, iosCompliancePolicy)
         writer.writeBooleanValue("deviceThreatProtectionEnabled", iosCompliancePolicy.deviceThreatProtectionEnabled);
         writer.writeEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", iosCompliancePolicy.deviceThreatProtectionRequiredSecurityLevel);

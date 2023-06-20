@@ -4,7 +4,7 @@ import {serializeStringKeyAttributeMappingSourceValuePair} from './serializeStri
 import {StringKeyAttributeMappingSourceValuePair} from './stringKeyAttributeMappingSourceValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAttributeMappingSource(writer: SerializationWriter, attributeMappingSource: AttributeMappingSource | undefined = {} as AttributeMappingSource) : void {
+export function serializeAttributeMappingSource(attributeMappingSource: AttributeMappingSource | undefined = {} as AttributeMappingSource, writer: SerializationWriter) : void {
         writer.writeStringValue("expression", attributeMappingSource.expression);
         writer.writeStringValue("name", attributeMappingSource.name);
         writer.writeStringValue("@odata.type", attributeMappingSource.odataType);

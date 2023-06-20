@@ -8,7 +8,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBrowserSharedCookie(writer: SerializationWriter, browserSharedCookie: BrowserSharedCookie | undefined = {} as BrowserSharedCookie) : void {
+export function serializeBrowserSharedCookie(browserSharedCookie: BrowserSharedCookie | undefined = {} as BrowserSharedCookie, writer: SerializationWriter) : void {
         serializeEntity(writer, browserSharedCookie)
         writer.writeStringValue("comment", browserSharedCookie.comment);
         writer.writeDateValue("createdDateTime", browserSharedCookie.createdDateTime);

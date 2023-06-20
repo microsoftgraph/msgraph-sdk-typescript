@@ -3,7 +3,7 @@ import {serializeMobileAppAssignment} from '../../../../models/serializeMobileAp
 import {AssignPostRequestBody} from './assignPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {
+export function serializeAssignPostRequestBody(assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<MobileAppAssignment>("mobileAppAssignments", assignPostRequestBody.mobileAppAssignments, serializeMobileAppAssignment);
         writer.writeAdditionalData(assignPostRequestBody.additionalData);
 }

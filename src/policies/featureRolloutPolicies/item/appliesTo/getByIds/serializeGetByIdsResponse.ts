@@ -4,7 +4,7 @@ import {serializeDirectoryObject} from '../../../../../models/serializeDirectory
 import {GetByIdsResponse} from './getByIdsResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetByIdsResponse(writer: SerializationWriter, getByIdsResponse: GetByIdsResponse | undefined = {} as GetByIdsResponse) : void {
+export function serializeGetByIdsResponse(getByIdsResponse: GetByIdsResponse | undefined = {} as GetByIdsResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getByIdsResponse)
         writer.writeCollectionOfObjectValues<DirectoryObject>("value", getByIdsResponse.value, serializeDirectoryObject);
 }

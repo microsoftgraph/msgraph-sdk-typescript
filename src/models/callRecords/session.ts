@@ -14,6 +14,8 @@ export interface Session extends Entity, Parsable {
     endDateTime?: Date | undefined;
     /** Failure information associated with the session if the session failed. */
     failureInfo?: FailureInfo | undefined;
+    /** Specifies whether the session is a test. */
+    isTest?: boolean | undefined;
     /** List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue. */
     modalities?: Modality[] | undefined;
     /** The list of segments involved in the session. Read-only. Nullable. */

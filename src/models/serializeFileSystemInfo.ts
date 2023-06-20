@@ -1,7 +1,7 @@
 import {FileSystemInfo} from './fileSystemInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFileSystemInfo(writer: SerializationWriter, fileSystemInfo: FileSystemInfo | undefined = {} as FileSystemInfo) : void {
+export function serializeFileSystemInfo(fileSystemInfo: FileSystemInfo | undefined = {} as FileSystemInfo, writer: SerializationWriter) : void {
         writer.writeDateValue("createdDateTime", fileSystemInfo.createdDateTime);
         writer.writeDateValue("lastAccessedDateTime", fileSystemInfo.lastAccessedDateTime);
         writer.writeDateValue("lastModifiedDateTime", fileSystemInfo.lastModifiedDateTime);

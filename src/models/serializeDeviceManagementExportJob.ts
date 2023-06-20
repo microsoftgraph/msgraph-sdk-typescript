@@ -5,7 +5,7 @@ import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceManagementExportJob(writer: SerializationWriter, deviceManagementExportJob: DeviceManagementExportJob | undefined = {} as DeviceManagementExportJob) : void {
+export function serializeDeviceManagementExportJob(deviceManagementExportJob: DeviceManagementExportJob | undefined = {} as DeviceManagementExportJob, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceManagementExportJob)
         writer.writeDateValue("expirationDateTime", deviceManagementExportJob.expirationDateTime);
         writer.writeStringValue("filter", deviceManagementExportJob.filter);

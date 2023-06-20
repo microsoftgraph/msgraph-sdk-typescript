@@ -3,7 +3,7 @@ import {WorkbookSortField} from '../../../../../../../../../models/workbookSortF
 import {ApplyPostRequestBody} from './applyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody) : void {
+export function serializeApplyPostRequestBody(applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", applyPostRequestBody.fields, serializeWorkbookSortField);
         writer.writeBooleanValue("matchCase", applyPostRequestBody.matchCase);
         writer.writeStringValue("method", applyPostRequestBody.method);

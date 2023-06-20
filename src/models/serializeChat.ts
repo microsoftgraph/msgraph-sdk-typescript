@@ -19,7 +19,7 @@ import {TeamsTab} from './teamsTab';
 import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChat(writer: SerializationWriter, chat: Chat | undefined = {} as Chat) : void {
+export function serializeChat(chat: Chat | undefined = {} as Chat, writer: SerializationWriter) : void {
         serializeEntity(writer, chat)
         writer.writeEnumValue<ChatType>("chatType", chat.chatType);
         writer.writeDateValue("createdDateTime", chat.createdDateTime);

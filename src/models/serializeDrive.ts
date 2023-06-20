@@ -14,7 +14,7 @@ import {SharepointIds} from './sharepointIds';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDrive(writer: SerializationWriter, drive: Drive | undefined = {} as Drive) : void {
+export function serializeDrive(drive: Drive | undefined = {} as Drive, writer: SerializationWriter) : void {
         serializeBaseItem(writer, drive)
         writer.writeCollectionOfObjectValues<DriveItem>("bundles", drive.bundles, serializeDriveItem);
         writer.writeStringValue("driveType", drive.driveType);

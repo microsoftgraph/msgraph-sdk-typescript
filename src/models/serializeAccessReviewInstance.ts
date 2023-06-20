@@ -12,7 +12,7 @@ import {serializeAccessReviewStage} from './serializeAccessReviewStage';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewInstance(writer: SerializationWriter, accessReviewInstance: AccessReviewInstance | undefined = {} as AccessReviewInstance) : void {
+export function serializeAccessReviewInstance(accessReviewInstance: AccessReviewInstance | undefined = {} as AccessReviewInstance, writer: SerializationWriter) : void {
         serializeEntity(writer, accessReviewInstance)
         writer.writeCollectionOfObjectValues<AccessReviewReviewer>("contactedReviewers", accessReviewInstance.contactedReviewers, serializeAccessReviewReviewer);
         writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("decisions", accessReviewInstance.decisions, serializeAccessReviewInstanceDecisionItem);

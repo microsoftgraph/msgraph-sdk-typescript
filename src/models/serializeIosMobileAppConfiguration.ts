@@ -4,7 +4,7 @@ import {serializeAppConfigurationSettingItem} from './serializeAppConfigurationS
 import {serializeManagedDeviceMobileAppConfiguration} from './serializeManagedDeviceMobileAppConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosMobileAppConfiguration(writer: SerializationWriter, iosMobileAppConfiguration: IosMobileAppConfiguration | undefined = {} as IosMobileAppConfiguration) : void {
+export function serializeIosMobileAppConfiguration(iosMobileAppConfiguration: IosMobileAppConfiguration | undefined = {} as IosMobileAppConfiguration, writer: SerializationWriter) : void {
         serializeManagedDeviceMobileAppConfiguration(writer, iosMobileAppConfiguration)
         writer.writeStringValue("encodedSettingXml", iosMobileAppConfiguration.encodedSettingXml);
         writer.writeCollectionOfObjectValues<AppConfigurationSettingItem>("settings", iosMobileAppConfiguration.settings, serializeAppConfigurationSettingItem);

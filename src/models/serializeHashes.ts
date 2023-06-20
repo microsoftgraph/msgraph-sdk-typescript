@@ -1,7 +1,7 @@
 import {Hashes} from './hashes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeHashes(writer: SerializationWriter, hashes: Hashes | undefined = {} as Hashes) : void {
+export function serializeHashes(hashes: Hashes | undefined = {} as Hashes, writer: SerializationWriter) : void {
         writer.writeStringValue("crc32Hash", hashes.crc32Hash);
         writer.writeStringValue("@odata.type", hashes.odataType);
         writer.writeStringValue("quickXorHash", hashes.quickXorHash);

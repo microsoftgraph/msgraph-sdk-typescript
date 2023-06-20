@@ -3,7 +3,7 @@ import {serializeSharepointIds} from './serializeSharepointIds';
 import {SharepointIds} from './sharepointIds';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeItemReference(writer: SerializationWriter, itemReference: ItemReference | undefined = {} as ItemReference) : void {
+export function serializeItemReference(itemReference: ItemReference | undefined = {} as ItemReference, writer: SerializationWriter) : void {
         writer.writeStringValue("driveId", itemReference.driveId);
         writer.writeStringValue("driveType", itemReference.driveType);
         writer.writeStringValue("id", itemReference.id);

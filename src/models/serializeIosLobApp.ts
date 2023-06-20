@@ -6,7 +6,7 @@ import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperating
 import {serializeMobileLobApp} from './serializeMobileLobApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosLobApp(writer: SerializationWriter, iosLobApp: IosLobApp | undefined = {} as IosLobApp) : void {
+export function serializeIosLobApp(iosLobApp: IosLobApp | undefined = {} as IosLobApp, writer: SerializationWriter) : void {
         serializeMobileLobApp(writer, iosLobApp)
         writer.writeObjectValue<IosDeviceType>("applicableDeviceType", iosLobApp.applicableDeviceType, serializeIosDeviceType);
         writer.writeStringValue("buildNumber", iosLobApp.buildNumber);

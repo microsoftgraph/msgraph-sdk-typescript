@@ -3,7 +3,7 @@ import {IdentitySet} from './identitySet';
 import {serializeIdentity} from './serializeIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentitySet(writer: SerializationWriter, identitySet: IdentitySet | undefined = {} as IdentitySet) : void {
+export function serializeIdentitySet(identitySet: IdentitySet | undefined = {} as IdentitySet, writer: SerializationWriter) : void {
         writer.writeObjectValue<Identity>("application", identitySet.application, serializeIdentity);
         writer.writeObjectValue<Identity>("device", identitySet.device, serializeIdentity);
         writer.writeStringValue("@odata.type", identitySet.odataType);

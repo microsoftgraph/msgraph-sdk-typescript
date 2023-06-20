@@ -37,7 +37,7 @@ import {TextColumn} from './textColumn';
 import {ThumbnailColumn} from './thumbnailColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeColumnDefinition(writer: SerializationWriter, columnDefinition: ColumnDefinition | undefined = {} as ColumnDefinition) : void {
+export function serializeColumnDefinition(columnDefinition: ColumnDefinition | undefined = {} as ColumnDefinition, writer: SerializationWriter) : void {
         serializeEntity(writer, columnDefinition)
         writer.writeObjectValue<BooleanColumn>("boolean", columnDefinition.boolean, serializeBooleanColumn);
         writer.writeObjectValue<CalculatedColumn>("calculated", columnDefinition.calculated, serializeCalculatedColumn);

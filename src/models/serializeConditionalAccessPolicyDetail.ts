@@ -7,7 +7,7 @@ import {serializeConditionalAccessGrantControls} from './serializeConditionalAcc
 import {serializeConditionalAccessSessionControls} from './serializeConditionalAccessSessionControls';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessPolicyDetail(writer: SerializationWriter, conditionalAccessPolicyDetail: ConditionalAccessPolicyDetail | undefined = {} as ConditionalAccessPolicyDetail) : void {
+export function serializeConditionalAccessPolicyDetail(conditionalAccessPolicyDetail: ConditionalAccessPolicyDetail | undefined = {} as ConditionalAccessPolicyDetail, writer: SerializationWriter) : void {
         writer.writeObjectValue<ConditionalAccessConditionSet>("conditions", conditionalAccessPolicyDetail.conditions, serializeConditionalAccessConditionSet);
         writer.writeObjectValue<ConditionalAccessGrantControls>("grantControls", conditionalAccessPolicyDetail.grantControls, serializeConditionalAccessGrantControls);
         writer.writeStringValue("@odata.type", conditionalAccessPolicyDetail.odataType);

@@ -3,7 +3,7 @@ import {ConditionalAccessUsers} from './conditionalAccessUsers';
 import {serializeConditionalAccessGuestsOrExternalUsers} from './serializeConditionalAccessGuestsOrExternalUsers';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessUsers(writer: SerializationWriter, conditionalAccessUsers: ConditionalAccessUsers | undefined = {} as ConditionalAccessUsers) : void {
+export function serializeConditionalAccessUsers(conditionalAccessUsers: ConditionalAccessUsers | undefined = {} as ConditionalAccessUsers, writer: SerializationWriter) : void {
         writer.writeCollectionOfPrimitiveValues<string>("excludeGroups", conditionalAccessUsers.excludeGroups);
         writer.writeObjectValue<ConditionalAccessGuestsOrExternalUsers>("excludeGuestsOrExternalUsers", conditionalAccessUsers.excludeGuestsOrExternalUsers, serializeConditionalAccessGuestsOrExternalUsers);
         writer.writeCollectionOfPrimitiveValues<string>("excludeRoles", conditionalAccessUsers.excludeRoles);

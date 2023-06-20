@@ -2,7 +2,7 @@ import {DeviceConfigurationDeviceStateSummary} from './deviceConfigurationDevice
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceConfigurationDeviceStateSummary(writer: SerializationWriter, deviceConfigurationDeviceStateSummary: DeviceConfigurationDeviceStateSummary | undefined = {} as DeviceConfigurationDeviceStateSummary) : void {
+export function serializeDeviceConfigurationDeviceStateSummary(deviceConfigurationDeviceStateSummary: DeviceConfigurationDeviceStateSummary | undefined = {} as DeviceConfigurationDeviceStateSummary, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceConfigurationDeviceStateSummary)
         writer.writeNumberValue("compliantDeviceCount", deviceConfigurationDeviceStateSummary.compliantDeviceCount);
         writer.writeNumberValue("conflictDeviceCount", deviceConfigurationDeviceStateSummary.conflictDeviceCount);

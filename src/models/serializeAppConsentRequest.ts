@@ -6,7 +6,7 @@ import {serializeUserConsentRequest} from './serializeUserConsentRequest';
 import {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAppConsentRequest(writer: SerializationWriter, appConsentRequest: AppConsentRequest | undefined = {} as AppConsentRequest) : void {
+export function serializeAppConsentRequest(appConsentRequest: AppConsentRequest | undefined = {} as AppConsentRequest, writer: SerializationWriter) : void {
         serializeEntity(writer, appConsentRequest)
         writer.writeStringValue("appDisplayName", appConsentRequest.appDisplayName);
         writer.writeStringValue("appId", appConsentRequest.appId);

@@ -4,7 +4,7 @@ import {serializeAttachmentBase} from './serializeAttachmentBase';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAttachmentBaseCollectionResponse(writer: SerializationWriter, attachmentBaseCollectionResponse: AttachmentBaseCollectionResponse | undefined = {} as AttachmentBaseCollectionResponse) : void {
+export function serializeAttachmentBaseCollectionResponse(attachmentBaseCollectionResponse: AttachmentBaseCollectionResponse | undefined = {} as AttachmentBaseCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, attachmentBaseCollectionResponse)
         writer.writeCollectionOfObjectValues<AttachmentBase>("value", attachmentBaseCollectionResponse.value, serializeAttachmentBase);
 }

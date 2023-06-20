@@ -1,7 +1,7 @@
 import {Audio} from './audio';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAudio(writer: SerializationWriter, audio: Audio | undefined = {} as Audio) : void {
+export function serializeAudio(audio: Audio | undefined = {} as Audio, writer: SerializationWriter) : void {
         writer.writeStringValue("album", audio.album);
         writer.writeStringValue("albumArtist", audio.albumArtist);
         writer.writeStringValue("artist", audio.artist);

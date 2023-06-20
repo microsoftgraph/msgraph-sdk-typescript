@@ -59,11 +59,12 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<TeamsTabCollectionResponse>(requestInfo, createTeamsTabCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Create new navigation property to tabs for groups
+     * Adds (pins) a tab to the specified channel within a team. The corresponding app must already be installed in the team.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTab
+     * @see {@link https://docs.microsoft.com/graph/api/channel-post-tabs?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsTab | undefined, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTab | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -95,7 +96,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to tabs for groups
+     * Adds (pins) a tab to the specified channel within a team. The corresponding app must already be installed in the team.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

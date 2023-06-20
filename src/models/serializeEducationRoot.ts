@@ -7,7 +7,7 @@ import {serializeEducationSchool} from './serializeEducationSchool';
 import {serializeEducationUser} from './serializeEducationUser';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationRoot(writer: SerializationWriter, educationRoot: EducationRoot | undefined = {} as EducationRoot) : void {
+export function serializeEducationRoot(educationRoot: EducationRoot | undefined = {} as EducationRoot, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<EducationClass>("classes", educationRoot.classes, serializeEducationClass);
         writer.writeObjectValue<EducationUser>("me", educationRoot.me, serializeEducationUser);
         writer.writeStringValue("@odata.type", educationRoot.odataType);

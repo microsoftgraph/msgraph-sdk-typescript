@@ -62,11 +62,12 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ColumnDefinition>(requestInfo, createColumnDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property columns in drives
+     * Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ColumnDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ColumnDefinition | undefined, requestConfiguration?: ColumnDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ColumnDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -114,7 +115,7 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property columns in drives
+     * Update a [site][], a [list][], or a [content type][contentType] [column][columnDefinition].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

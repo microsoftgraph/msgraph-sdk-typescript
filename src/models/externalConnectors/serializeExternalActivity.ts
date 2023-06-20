@@ -5,7 +5,7 @@ import {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeExternalActivity(writer: SerializationWriter, externalActivity: ExternalActivity | undefined = {} as ExternalActivity) : void {
+export function serializeExternalActivity(externalActivity: ExternalActivity | undefined = {} as ExternalActivity, writer: SerializationWriter) : void {
         serializeEntity(writer, externalActivity)
         writer.writeObjectValue<Identity>("performedBy", externalActivity.performedBy, serializeIdentity);
         writer.writeDateValue("startDateTime", externalActivity.startDateTime);

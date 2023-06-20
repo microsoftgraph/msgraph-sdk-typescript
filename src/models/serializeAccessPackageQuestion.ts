@@ -4,7 +4,7 @@ import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocal
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageQuestion(writer: SerializationWriter, accessPackageQuestion: AccessPackageQuestion | undefined = {} as AccessPackageQuestion) : void {
+export function serializeAccessPackageQuestion(accessPackageQuestion: AccessPackageQuestion | undefined = {} as AccessPackageQuestion, writer: SerializationWriter) : void {
         serializeEntity(writer, accessPackageQuestion)
         writer.writeBooleanValue("isAnswerEditable", accessPackageQuestion.isAnswerEditable);
         writer.writeBooleanValue("isRequired", accessPackageQuestion.isRequired);

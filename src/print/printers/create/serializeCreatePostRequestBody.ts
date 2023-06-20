@@ -3,7 +3,7 @@ import {serializePrintCertificateSigningRequest} from '../../../models/serialize
 import {CreatePostRequestBody} from './createPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : void {
+export function serializeCreatePostRequestBody(createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<PrintCertificateSigningRequest>("certificateSigningRequest", createPostRequestBody.certificateSigningRequest, serializePrintCertificateSigningRequest);
         writer.writeStringValue("connectorId", createPostRequestBody.connectorId);
         writer.writeStringValue("displayName", createPostRequestBody.displayName);

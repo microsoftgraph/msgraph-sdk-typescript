@@ -1,7 +1,7 @@
 import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceHealthAttestationState(writer: SerializationWriter, deviceHealthAttestationState: DeviceHealthAttestationState | undefined = {} as DeviceHealthAttestationState) : void {
+export function serializeDeviceHealthAttestationState(deviceHealthAttestationState: DeviceHealthAttestationState | undefined = {} as DeviceHealthAttestationState, writer: SerializationWriter) : void {
         writer.writeStringValue("attestationIdentityKey", deviceHealthAttestationState.attestationIdentityKey);
         writer.writeStringValue("bitLockerStatus", deviceHealthAttestationState.bitLockerStatus);
         writer.writeStringValue("bootAppSecurityVersion", deviceHealthAttestationState.bootAppSecurityVersion);

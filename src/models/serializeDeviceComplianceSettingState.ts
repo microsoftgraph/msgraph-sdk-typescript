@@ -3,7 +3,7 @@ import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceComplianceSettingState(writer: SerializationWriter, deviceComplianceSettingState: DeviceComplianceSettingState | undefined = {} as DeviceComplianceSettingState) : void {
+export function serializeDeviceComplianceSettingState(deviceComplianceSettingState: DeviceComplianceSettingState | undefined = {} as DeviceComplianceSettingState, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceComplianceSettingState)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", deviceComplianceSettingState.complianceGracePeriodExpirationDateTime);
         writer.writeStringValue("deviceId", deviceComplianceSettingState.deviceId);

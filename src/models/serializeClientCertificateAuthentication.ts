@@ -4,7 +4,7 @@ import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthent
 import {serializePkcs12CertificateInformation} from './serializePkcs12CertificateInformation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeClientCertificateAuthentication(writer: SerializationWriter, clientCertificateAuthentication: ClientCertificateAuthentication | undefined = {} as ClientCertificateAuthentication) : void {
+export function serializeClientCertificateAuthentication(clientCertificateAuthentication: ClientCertificateAuthentication | undefined = {} as ClientCertificateAuthentication, writer: SerializationWriter) : void {
         serializeApiAuthenticationConfigurationBase(writer, clientCertificateAuthentication)
         writer.writeCollectionOfObjectValues<Pkcs12CertificateInformation>("certificateList", clientCertificateAuthentication.certificateList, serializePkcs12CertificateInformation);
 }

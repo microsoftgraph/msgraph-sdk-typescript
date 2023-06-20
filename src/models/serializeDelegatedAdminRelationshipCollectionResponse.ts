@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeDelegatedAdminRelationship} from './serializeDelegatedAdminRelationship';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDelegatedAdminRelationshipCollectionResponse(writer: SerializationWriter, delegatedAdminRelationshipCollectionResponse: DelegatedAdminRelationshipCollectionResponse | undefined = {} as DelegatedAdminRelationshipCollectionResponse) : void {
+export function serializeDelegatedAdminRelationshipCollectionResponse(delegatedAdminRelationshipCollectionResponse: DelegatedAdminRelationshipCollectionResponse | undefined = {} as DelegatedAdminRelationshipCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminRelationshipCollectionResponse)
         writer.writeCollectionOfObjectValues<DelegatedAdminRelationship>("value", delegatedAdminRelationshipCollectionResponse.value, serializeDelegatedAdminRelationship);
 }

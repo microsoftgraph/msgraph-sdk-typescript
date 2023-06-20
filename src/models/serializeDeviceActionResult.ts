@@ -2,7 +2,7 @@ import {ActionState} from './actionState';
 import {DeviceActionResult} from './deviceActionResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceActionResult(writer: SerializationWriter, deviceActionResult: DeviceActionResult | undefined = {} as DeviceActionResult) : void {
+export function serializeDeviceActionResult(deviceActionResult: DeviceActionResult | undefined = {} as DeviceActionResult, writer: SerializationWriter) : void {
         writer.writeStringValue("actionName", deviceActionResult.actionName);
         writer.writeEnumValue<ActionState>("actionState", deviceActionResult.actionState);
         writer.writeDateValue("lastUpdatedDateTime", deviceActionResult.lastUpdatedDateTime);

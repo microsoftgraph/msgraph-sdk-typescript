@@ -4,7 +4,7 @@ import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeC
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceManagementExchangeConnector(writer: SerializationWriter, deviceManagementExchangeConnector: DeviceManagementExchangeConnector | undefined = {} as DeviceManagementExchangeConnector) : void {
+export function serializeDeviceManagementExchangeConnector(deviceManagementExchangeConnector: DeviceManagementExchangeConnector | undefined = {} as DeviceManagementExchangeConnector, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceManagementExchangeConnector)
         writer.writeStringValue("connectorServerName", deviceManagementExchangeConnector.connectorServerName);
         writer.writeStringValue("exchangeAlias", deviceManagementExchangeConnector.exchangeAlias);

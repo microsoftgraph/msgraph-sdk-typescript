@@ -9,7 +9,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBrowserSiteList(writer: SerializationWriter, browserSiteList: BrowserSiteList | undefined = {} as BrowserSiteList) : void {
+export function serializeBrowserSiteList(browserSiteList: BrowserSiteList | undefined = {} as BrowserSiteList, writer: SerializationWriter) : void {
         serializeEntity(writer, browserSiteList)
         writer.writeStringValue("description", browserSiteList.description);
         writer.writeStringValue("displayName", browserSiteList.displayName);

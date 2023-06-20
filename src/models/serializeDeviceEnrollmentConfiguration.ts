@@ -4,7 +4,7 @@ import {serializeEnrollmentConfigurationAssignment} from './serializeEnrollmentC
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceEnrollmentConfiguration(writer: SerializationWriter, deviceEnrollmentConfiguration: DeviceEnrollmentConfiguration | undefined = {} as DeviceEnrollmentConfiguration) : void {
+export function serializeDeviceEnrollmentConfiguration(deviceEnrollmentConfiguration: DeviceEnrollmentConfiguration | undefined = {} as DeviceEnrollmentConfiguration, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceEnrollmentConfiguration)
         writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignment>("assignments", deviceEnrollmentConfiguration.assignments, serializeEnrollmentConfigurationAssignment);
         writer.writeDateValue("createdDateTime", deviceEnrollmentConfiguration.createdDateTime);

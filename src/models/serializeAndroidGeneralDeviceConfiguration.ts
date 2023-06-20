@@ -7,7 +7,7 @@ import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAndroidGeneralDeviceConfiguration(writer: SerializationWriter, androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration) : void {
+export function serializeAndroidGeneralDeviceConfiguration(androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration, writer: SerializationWriter) : void {
         serializeDeviceConfiguration(writer, androidGeneralDeviceConfiguration)
         writer.writeBooleanValue("appsBlockClipboardSharing", androidGeneralDeviceConfiguration.appsBlockClipboardSharing);
         writer.writeBooleanValue("appsBlockCopyPaste", androidGeneralDeviceConfiguration.appsBlockCopyPaste);

@@ -9,7 +9,7 @@ import {serializeServicePrincipalRiskDetection} from './serializeServicePrincipa
 import {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentityProtectionRoot(writer: SerializationWriter, identityProtectionRoot: IdentityProtectionRoot | undefined = {} as IdentityProtectionRoot) : void {
+export function serializeIdentityProtectionRoot(identityProtectionRoot: IdentityProtectionRoot | undefined = {} as IdentityProtectionRoot, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", identityProtectionRoot.odataType);
         writer.writeCollectionOfObjectValues<RiskDetection>("riskDetections", identityProtectionRoot.riskDetections, serializeRiskDetection);
         writer.writeCollectionOfObjectValues<RiskyServicePrincipal>("riskyServicePrincipals", identityProtectionRoot.riskyServicePrincipals, serializeRiskyServicePrincipal);

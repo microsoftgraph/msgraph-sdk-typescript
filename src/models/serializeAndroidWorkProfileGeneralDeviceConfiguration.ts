@@ -5,7 +5,7 @@ import {AndroidWorkProfileRequiredPasswordType} from './androidWorkProfileRequir
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAndroidWorkProfileGeneralDeviceConfiguration(writer: SerializationWriter, androidWorkProfileGeneralDeviceConfiguration: AndroidWorkProfileGeneralDeviceConfiguration | undefined = {} as AndroidWorkProfileGeneralDeviceConfiguration) : void {
+export function serializeAndroidWorkProfileGeneralDeviceConfiguration(androidWorkProfileGeneralDeviceConfiguration: AndroidWorkProfileGeneralDeviceConfiguration | undefined = {} as AndroidWorkProfileGeneralDeviceConfiguration, writer: SerializationWriter) : void {
         serializeDeviceConfiguration(writer, androidWorkProfileGeneralDeviceConfiguration)
         writer.writeBooleanValue("passwordBlockFingerprintUnlock", androidWorkProfileGeneralDeviceConfiguration.passwordBlockFingerprintUnlock);
         writer.writeBooleanValue("passwordBlockTrustAgents", androidWorkProfileGeneralDeviceConfiguration.passwordBlockTrustAgents);

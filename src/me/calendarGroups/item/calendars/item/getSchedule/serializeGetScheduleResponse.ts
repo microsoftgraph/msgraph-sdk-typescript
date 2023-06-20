@@ -4,7 +4,7 @@ import {serializeScheduleInformation} from '../../../../../../models/serializeSc
 import {GetScheduleResponse} from './getScheduleResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetScheduleResponse(writer: SerializationWriter, getScheduleResponse: GetScheduleResponse | undefined = {} as GetScheduleResponse) : void {
+export function serializeGetScheduleResponse(getScheduleResponse: GetScheduleResponse | undefined = {} as GetScheduleResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getScheduleResponse)
         writer.writeCollectionOfObjectValues<ScheduleInformation>("value", getScheduleResponse.value, serializeScheduleInformation);
 }

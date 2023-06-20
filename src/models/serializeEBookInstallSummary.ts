@@ -2,7 +2,7 @@ import {EBookInstallSummary} from './eBookInstallSummary';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEBookInstallSummary(writer: SerializationWriter, eBookInstallSummary: EBookInstallSummary | undefined = {} as EBookInstallSummary) : void {
+export function serializeEBookInstallSummary(eBookInstallSummary: EBookInstallSummary | undefined = {} as EBookInstallSummary, writer: SerializationWriter) : void {
         serializeEntity(writer, eBookInstallSummary)
         writer.writeNumberValue("failedDeviceCount", eBookInstallSummary.failedDeviceCount);
         writer.writeNumberValue("failedUserCount", eBookInstallSummary.failedUserCount);

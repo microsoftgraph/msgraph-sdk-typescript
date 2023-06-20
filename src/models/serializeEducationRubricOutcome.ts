@@ -6,7 +6,7 @@ import {serializeRubricQualityFeedbackModel} from './serializeRubricQualityFeedb
 import {serializeRubricQualitySelectedColumnModel} from './serializeRubricQualitySelectedColumnModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationRubricOutcome(writer: SerializationWriter, educationRubricOutcome: EducationRubricOutcome | undefined = {} as EducationRubricOutcome) : void {
+export function serializeEducationRubricOutcome(educationRubricOutcome: EducationRubricOutcome | undefined = {} as EducationRubricOutcome, writer: SerializationWriter) : void {
         serializeEducationOutcome(writer, educationRubricOutcome)
         writer.writeCollectionOfObjectValues<RubricQualityFeedbackModel>("publishedRubricQualityFeedback", educationRubricOutcome.publishedRubricQualityFeedback, serializeRubricQualityFeedbackModel);
         writer.writeCollectionOfObjectValues<RubricQualitySelectedColumnModel>("publishedRubricQualitySelectedLevels", educationRubricOutcome.publishedRubricQualitySelectedLevels, serializeRubricQualitySelectedColumnModel);

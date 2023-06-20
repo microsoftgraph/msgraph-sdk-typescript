@@ -5,7 +5,7 @@ import {Status} from './status';
 import {UserActivity} from './userActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeActivityHistoryItem(writer: SerializationWriter, activityHistoryItem: ActivityHistoryItem | undefined = {} as ActivityHistoryItem) : void {
+export function serializeActivityHistoryItem(activityHistoryItem: ActivityHistoryItem | undefined = {} as ActivityHistoryItem, writer: SerializationWriter) : void {
         serializeEntity(writer, activityHistoryItem)
         writer.writeNumberValue("activeDurationSeconds", activityHistoryItem.activeDurationSeconds);
         writer.writeObjectValue<UserActivity>("activity", activityHistoryItem.activity, serializeUserActivity);

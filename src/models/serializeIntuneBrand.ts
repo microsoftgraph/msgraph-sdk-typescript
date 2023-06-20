@@ -5,7 +5,7 @@ import {serializeMimeContent} from './serializeMimeContent';
 import {serializeRgbColor} from './serializeRgbColor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIntuneBrand(writer: SerializationWriter, intuneBrand: IntuneBrand | undefined = {} as IntuneBrand) : void {
+export function serializeIntuneBrand(intuneBrand: IntuneBrand | undefined = {} as IntuneBrand, writer: SerializationWriter) : void {
         writer.writeStringValue("contactITEmailAddress", intuneBrand.contactITEmailAddress);
         writer.writeStringValue("contactITName", intuneBrand.contactITName);
         writer.writeStringValue("contactITNotes", intuneBrand.contactITNotes);

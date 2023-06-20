@@ -1,7 +1,7 @@
 import {MeetingInfo} from './meetingInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMeetingInfo(writer: SerializationWriter, meetingInfo: MeetingInfo | undefined = {} as MeetingInfo) : void {
+export function serializeMeetingInfo(meetingInfo: MeetingInfo | undefined = {} as MeetingInfo, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", meetingInfo.odataType);
         writer.writeAdditionalData(meetingInfo.additionalData);
 }

@@ -7,7 +7,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySource} from './serializeIdentitySource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConnectedOrganization(writer: SerializationWriter, connectedOrganization: ConnectedOrganization | undefined = {} as ConnectedOrganization) : void {
+export function serializeConnectedOrganization(connectedOrganization: ConnectedOrganization | undefined = {} as ConnectedOrganization, writer: SerializationWriter) : void {
         serializeEntity(writer, connectedOrganization)
         writer.writeDateValue("createdDateTime", connectedOrganization.createdDateTime);
         writer.writeStringValue("description", connectedOrganization.description);

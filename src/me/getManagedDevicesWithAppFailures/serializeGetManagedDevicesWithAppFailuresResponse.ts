@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../models/seria
 import {GetManagedDevicesWithAppFailuresResponse} from './getManagedDevicesWithAppFailuresResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetManagedDevicesWithAppFailuresResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresResponse: GetManagedDevicesWithAppFailuresResponse | undefined = {} as GetManagedDevicesWithAppFailuresResponse) : void {
+export function serializeGetManagedDevicesWithAppFailuresResponse(getManagedDevicesWithAppFailuresResponse: GetManagedDevicesWithAppFailuresResponse | undefined = {} as GetManagedDevicesWithAppFailuresResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresResponse)
         writer.writeCollectionOfPrimitiveValues<string>("value", getManagedDevicesWithAppFailuresResponse.value);
 }

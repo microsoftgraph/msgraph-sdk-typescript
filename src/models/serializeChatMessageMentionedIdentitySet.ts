@@ -4,7 +4,7 @@ import {serializeTeamworkConversationIdentity} from './serializeTeamworkConversa
 import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatMessageMentionedIdentitySet(writer: SerializationWriter, chatMessageMentionedIdentitySet: ChatMessageMentionedIdentitySet | undefined = {} as ChatMessageMentionedIdentitySet) : void {
+export function serializeChatMessageMentionedIdentitySet(chatMessageMentionedIdentitySet: ChatMessageMentionedIdentitySet | undefined = {} as ChatMessageMentionedIdentitySet, writer: SerializationWriter) : void {
         serializeIdentitySet(writer, chatMessageMentionedIdentitySet)
         writer.writeObjectValue<TeamworkConversationIdentity>("conversation", chatMessageMentionedIdentitySet.conversation, serializeTeamworkConversationIdentity);
 }

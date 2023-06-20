@@ -4,7 +4,7 @@ import {serializeAttendanceRecord} from './serializeAttendanceRecord';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMeetingAttendanceReport(writer: SerializationWriter, meetingAttendanceReport: MeetingAttendanceReport | undefined = {} as MeetingAttendanceReport) : void {
+export function serializeMeetingAttendanceReport(meetingAttendanceReport: MeetingAttendanceReport | undefined = {} as MeetingAttendanceReport, writer: SerializationWriter) : void {
         serializeEntity(writer, meetingAttendanceReport)
         writer.writeCollectionOfObjectValues<AttendanceRecord>("attendanceRecords", meetingAttendanceReport.attendanceRecords, serializeAttendanceRecord);
         writer.writeDateValue("meetingEndDateTime", meetingAttendanceReport.meetingEndDateTime);

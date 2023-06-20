@@ -4,7 +4,7 @@ import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDevice
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEnrollmentConfigurationAssignment(writer: SerializationWriter, enrollmentConfigurationAssignment: EnrollmentConfigurationAssignment | undefined = {} as EnrollmentConfigurationAssignment) : void {
+export function serializeEnrollmentConfigurationAssignment(enrollmentConfigurationAssignment: EnrollmentConfigurationAssignment | undefined = {} as EnrollmentConfigurationAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, enrollmentConfigurationAssignment)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", enrollmentConfigurationAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }

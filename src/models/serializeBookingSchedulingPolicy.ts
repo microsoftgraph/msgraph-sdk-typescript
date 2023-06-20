@@ -1,7 +1,7 @@
 import {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingSchedulingPolicy(writer: SerializationWriter, bookingSchedulingPolicy: BookingSchedulingPolicy | undefined = {} as BookingSchedulingPolicy) : void {
+export function serializeBookingSchedulingPolicy(bookingSchedulingPolicy: BookingSchedulingPolicy | undefined = {} as BookingSchedulingPolicy, writer: SerializationWriter) : void {
         writer.writeBooleanValue("allowStaffSelection", bookingSchedulingPolicy.allowStaffSelection);
         writer.writeDurationValue("maximumAdvance", bookingSchedulingPolicy.maximumAdvance);
         writer.writeDurationValue("minimumLeadTime", bookingSchedulingPolicy.minimumLeadTime);

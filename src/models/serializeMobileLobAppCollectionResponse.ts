@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeMobileLobApp} from './serializeMobileLobApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMobileLobAppCollectionResponse(writer: SerializationWriter, mobileLobAppCollectionResponse: MobileLobAppCollectionResponse | undefined = {} as MobileLobAppCollectionResponse) : void {
+export function serializeMobileLobAppCollectionResponse(mobileLobAppCollectionResponse: MobileLobAppCollectionResponse | undefined = {} as MobileLobAppCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, mobileLobAppCollectionResponse)
         writer.writeCollectionOfObjectValues<MobileLobApp>("value", mobileLobAppCollectionResponse.value, serializeMobileLobApp);
 }

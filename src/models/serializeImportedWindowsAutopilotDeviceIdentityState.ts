@@ -2,7 +2,7 @@ import {ImportedWindowsAutopilotDeviceIdentityImportStatus} from './importedWind
 import {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAutopilotDeviceIdentityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeImportedWindowsAutopilotDeviceIdentityState(writer: SerializationWriter, importedWindowsAutopilotDeviceIdentityState: ImportedWindowsAutopilotDeviceIdentityState | undefined = {} as ImportedWindowsAutopilotDeviceIdentityState) : void {
+export function serializeImportedWindowsAutopilotDeviceIdentityState(importedWindowsAutopilotDeviceIdentityState: ImportedWindowsAutopilotDeviceIdentityState | undefined = {} as ImportedWindowsAutopilotDeviceIdentityState, writer: SerializationWriter) : void {
         writer.writeNumberValue("deviceErrorCode", importedWindowsAutopilotDeviceIdentityState.deviceErrorCode);
         writer.writeStringValue("deviceErrorName", importedWindowsAutopilotDeviceIdentityState.deviceErrorName);
         writer.writeEnumValue<ImportedWindowsAutopilotDeviceIdentityImportStatus>("deviceImportStatus", importedWindowsAutopilotDeviceIdentityState.deviceImportStatus);

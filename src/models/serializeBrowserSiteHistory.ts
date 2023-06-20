@@ -6,7 +6,7 @@ import {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBrowserSiteHistory(writer: SerializationWriter, browserSiteHistory: BrowserSiteHistory | undefined = {} as BrowserSiteHistory) : void {
+export function serializeBrowserSiteHistory(browserSiteHistory: BrowserSiteHistory | undefined = {} as BrowserSiteHistory, writer: SerializationWriter) : void {
         writer.writeBooleanValue("allowRedirect", browserSiteHistory.allowRedirect);
         writer.writeStringValue("comment", browserSiteHistory.comment);
         writer.writeEnumValue<BrowserSiteCompatibilityMode>("compatibilityMode", browserSiteHistory.compatibilityMode);

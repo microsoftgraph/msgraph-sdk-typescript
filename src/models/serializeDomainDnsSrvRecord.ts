@@ -2,7 +2,7 @@ import {DomainDnsSrvRecord} from './domainDnsSrvRecord';
 import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDomainDnsSrvRecord(writer: SerializationWriter, domainDnsSrvRecord: DomainDnsSrvRecord | undefined = {} as DomainDnsSrvRecord) : void {
+export function serializeDomainDnsSrvRecord(domainDnsSrvRecord: DomainDnsSrvRecord | undefined = {} as DomainDnsSrvRecord, writer: SerializationWriter) : void {
         serializeDomainDnsRecord(writer, domainDnsSrvRecord)
         writer.writeStringValue("nameTarget", domainDnsSrvRecord.nameTarget);
         writer.writeNumberValue("port", domainDnsSrvRecord.port);

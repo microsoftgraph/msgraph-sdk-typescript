@@ -10,7 +10,7 @@ import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValue
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMailFolder(writer: SerializationWriter, mailFolder: MailFolder | undefined = {} as MailFolder) : void {
+export function serializeMailFolder(mailFolder: MailFolder | undefined = {} as MailFolder, writer: SerializationWriter) : void {
         serializeEntity(writer, mailFolder)
         writer.writeNumberValue("childFolderCount", mailFolder.childFolderCount);
         writer.writeCollectionOfObjectValues<MailFolder>("childFolders", mailFolder.childFolders, serializeMailFolder);

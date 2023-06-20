@@ -2,7 +2,7 @@ import {MailSearchFolder} from './mailSearchFolder';
 import {serializeMailFolder} from './serializeMailFolder';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMailSearchFolder(writer: SerializationWriter, mailSearchFolder: MailSearchFolder | undefined = {} as MailSearchFolder) : void {
+export function serializeMailSearchFolder(mailSearchFolder: MailSearchFolder | undefined = {} as MailSearchFolder, writer: SerializationWriter) : void {
         serializeMailFolder(writer, mailSearchFolder)
         writer.writeStringValue("filterQuery", mailSearchFolder.filterQuery);
         writer.writeBooleanValue("includeNestedFolders", mailSearchFolder.includeNestedFolders);

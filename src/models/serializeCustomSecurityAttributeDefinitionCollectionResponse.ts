@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeCustomSecurityAttributeDefinition} from './serializeCustomSecurityAttributeDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCustomSecurityAttributeDefinitionCollectionResponse(writer: SerializationWriter, customSecurityAttributeDefinitionCollectionResponse: CustomSecurityAttributeDefinitionCollectionResponse | undefined = {} as CustomSecurityAttributeDefinitionCollectionResponse) : void {
+export function serializeCustomSecurityAttributeDefinitionCollectionResponse(customSecurityAttributeDefinitionCollectionResponse: CustomSecurityAttributeDefinitionCollectionResponse | undefined = {} as CustomSecurityAttributeDefinitionCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, customSecurityAttributeDefinitionCollectionResponse)
         writer.writeCollectionOfObjectValues<CustomSecurityAttributeDefinition>("value", customSecurityAttributeDefinitionCollectionResponse.value, serializeCustomSecurityAttributeDefinition);
 }

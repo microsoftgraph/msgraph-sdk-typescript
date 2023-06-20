@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../../../mod
 import {GetApplicablePolicyRequirementsResponse} from './getApplicablePolicyRequirementsResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetApplicablePolicyRequirementsResponse(writer: SerializationWriter, getApplicablePolicyRequirementsResponse: GetApplicablePolicyRequirementsResponse | undefined = {} as GetApplicablePolicyRequirementsResponse) : void {
+export function serializeGetApplicablePolicyRequirementsResponse(getApplicablePolicyRequirementsResponse: GetApplicablePolicyRequirementsResponse | undefined = {} as GetApplicablePolicyRequirementsResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsResponse)
         writer.writeCollectionOfObjectValues<AccessPackageAssignmentRequestRequirements>("value", getApplicablePolicyRequirementsResponse.value, serializeAccessPackageAssignmentRequestRequirements);
 }

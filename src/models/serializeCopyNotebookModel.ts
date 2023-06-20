@@ -6,7 +6,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeNotebookLinks} from './serializeNotebookLinks';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCopyNotebookModel(writer: SerializationWriter, copyNotebookModel: CopyNotebookModel | undefined = {} as CopyNotebookModel) : void {
+export function serializeCopyNotebookModel(copyNotebookModel: CopyNotebookModel | undefined = {} as CopyNotebookModel, writer: SerializationWriter) : void {
         writer.writeStringValue("createdBy", copyNotebookModel.createdBy);
         writer.writeObjectValue<IdentitySet>("createdByIdentity", copyNotebookModel.createdByIdentity, serializeIdentitySet);
         writer.writeDateValue("createdTime", copyNotebookModel.createdTime);

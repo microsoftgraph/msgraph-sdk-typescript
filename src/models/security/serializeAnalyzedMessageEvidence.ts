@@ -4,7 +4,7 @@ import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeEmailSender} from './serializeEmailSender';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAnalyzedMessageEvidence(writer: SerializationWriter, analyzedMessageEvidence: AnalyzedMessageEvidence | undefined = {} as AnalyzedMessageEvidence) : void {
+export function serializeAnalyzedMessageEvidence(analyzedMessageEvidence: AnalyzedMessageEvidence | undefined = {} as AnalyzedMessageEvidence, writer: SerializationWriter) : void {
         serializeAlertEvidence(writer, analyzedMessageEvidence)
         writer.writeStringValue("antiSpamDirection", analyzedMessageEvidence.antiSpamDirection);
         writer.writeNumberValue("attachmentsCount", analyzedMessageEvidence.attachmentsCount);

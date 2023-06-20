@@ -5,7 +5,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDirectoryDefinition(writer: SerializationWriter, directoryDefinition: DirectoryDefinition | undefined = {} as DirectoryDefinition) : void {
+export function serializeDirectoryDefinition(directoryDefinition: DirectoryDefinition | undefined = {} as DirectoryDefinition, writer: SerializationWriter) : void {
         serializeEntity(writer, directoryDefinition)
         writer.writeEnumValue<DirectoryDefinitionDiscoverabilities>("discoverabilities", directoryDefinition.discoverabilities);
         writer.writeDateValue("discoveryDateTime", directoryDefinition.discoveryDateTime);

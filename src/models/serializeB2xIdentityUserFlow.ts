@@ -12,7 +12,7 @@ import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfigura
 import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeB2xIdentityUserFlow(writer: SerializationWriter, b2xIdentityUserFlow: B2xIdentityUserFlow | undefined = {} as B2xIdentityUserFlow) : void {
+export function serializeB2xIdentityUserFlow(b2xIdentityUserFlow: B2xIdentityUserFlow | undefined = {} as B2xIdentityUserFlow, writer: SerializationWriter) : void {
         serializeIdentityUserFlow(writer, b2xIdentityUserFlow)
         writer.writeObjectValue<UserFlowApiConnectorConfiguration>("apiConnectorConfiguration", b2xIdentityUserFlow.apiConnectorConfiguration, serializeUserFlowApiConnectorConfiguration);
         writer.writeCollectionOfObjectValues<IdentityProvider>("identityProviders", b2xIdentityUserFlow.identityProviders, serializeIdentityProvider);

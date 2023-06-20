@@ -3,7 +3,7 @@ import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLongRunningOperation(writer: SerializationWriter, longRunningOperation: LongRunningOperation | undefined = {} as LongRunningOperation) : void {
+export function serializeLongRunningOperation(longRunningOperation: LongRunningOperation | undefined = {} as LongRunningOperation, writer: SerializationWriter) : void {
         serializeEntity(writer, longRunningOperation)
         writer.writeDateValue("createdDateTime", longRunningOperation.createdDateTime);
         writer.writeDateValue("lastActionDateTime", longRunningOperation.lastActionDateTime);

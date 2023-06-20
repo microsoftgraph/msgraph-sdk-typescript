@@ -3,7 +3,7 @@ import {EducationOrganization} from './educationOrganization';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationOrganization(writer: SerializationWriter, educationOrganization: EducationOrganization | undefined = {} as EducationOrganization) : void {
+export function serializeEducationOrganization(educationOrganization: EducationOrganization | undefined = {} as EducationOrganization, writer: SerializationWriter) : void {
         serializeEntity(writer, educationOrganization)
         writer.writeStringValue("description", educationOrganization.description);
         writer.writeStringValue("displayName", educationOrganization.displayName);

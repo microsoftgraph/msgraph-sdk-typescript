@@ -1,7 +1,7 @@
 import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAndroidMinimumOperatingSystem(writer: SerializationWriter, androidMinimumOperatingSystem: AndroidMinimumOperatingSystem | undefined = {} as AndroidMinimumOperatingSystem) : void {
+export function serializeAndroidMinimumOperatingSystem(androidMinimumOperatingSystem: AndroidMinimumOperatingSystem | undefined = {} as AndroidMinimumOperatingSystem, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", androidMinimumOperatingSystem.odataType);
         writer.writeBooleanValue("v10_0", androidMinimumOperatingSystem.v10_0);
         writer.writeBooleanValue("v11_0", androidMinimumOperatingSystem.v11_0);

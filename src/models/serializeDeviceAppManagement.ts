@@ -30,7 +30,7 @@ import {VppToken} from './vppToken';
 import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceAppManagement(writer: SerializationWriter, deviceAppManagement: DeviceAppManagement | undefined = {} as DeviceAppManagement) : void {
+export function serializeDeviceAppManagement(deviceAppManagement: DeviceAppManagement | undefined = {} as DeviceAppManagement, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceAppManagement)
         writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("androidManagedAppProtections", deviceAppManagement.androidManagedAppProtections, serializeAndroidManagedAppProtection);
         writer.writeCollectionOfObjectValues<DefaultManagedAppProtection>("defaultManagedAppProtections", deviceAppManagement.defaultManagedAppProtections, serializeDefaultManagedAppProtection);

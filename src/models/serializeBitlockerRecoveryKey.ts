@@ -3,7 +3,7 @@ import {serializeEntity} from './serializeEntity';
 import {VolumeType} from './volumeType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBitlockerRecoveryKey(writer: SerializationWriter, bitlockerRecoveryKey: BitlockerRecoveryKey | undefined = {} as BitlockerRecoveryKey) : void {
+export function serializeBitlockerRecoveryKey(bitlockerRecoveryKey: BitlockerRecoveryKey | undefined = {} as BitlockerRecoveryKey, writer: SerializationWriter) : void {
         serializeEntity(writer, bitlockerRecoveryKey)
         writer.writeDateValue("createdDateTime", bitlockerRecoveryKey.createdDateTime);
         writer.writeStringValue("deviceId", bitlockerRecoveryKey.deviceId);

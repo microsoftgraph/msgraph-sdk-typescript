@@ -1,7 +1,7 @@
 import {HostSecurityState} from './hostSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeHostSecurityState(writer: SerializationWriter, hostSecurityState: HostSecurityState | undefined = {} as HostSecurityState) : void {
+export function serializeHostSecurityState(hostSecurityState: HostSecurityState | undefined = {} as HostSecurityState, writer: SerializationWriter) : void {
         writer.writeStringValue("fqdn", hostSecurityState.fqdn);
         writer.writeBooleanValue("isAzureAdJoined", hostSecurityState.isAzureAdJoined);
         writer.writeBooleanValue("isAzureAdRegistered", hostSecurityState.isAzureAdRegistered);

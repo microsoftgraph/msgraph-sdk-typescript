@@ -9,7 +9,7 @@ import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeItemBody} from './serializeItemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatMessageInfo(writer: SerializationWriter, chatMessageInfo: ChatMessageInfo | undefined = {} as ChatMessageInfo) : void {
+export function serializeChatMessageInfo(chatMessageInfo: ChatMessageInfo | undefined = {} as ChatMessageInfo, writer: SerializationWriter) : void {
         serializeEntity(writer, chatMessageInfo)
         writer.writeObjectValue<ItemBody>("body", chatMessageInfo.body, serializeItemBody);
         writer.writeDateValue("createdDateTime", chatMessageInfo.createdDateTime);

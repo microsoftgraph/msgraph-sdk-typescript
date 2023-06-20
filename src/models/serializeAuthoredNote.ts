@@ -6,7 +6,7 @@ import {serializeIdentity} from './serializeIdentity';
 import {serializeItemBody} from './serializeItemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthoredNote(writer: SerializationWriter, authoredNote: AuthoredNote | undefined = {} as AuthoredNote) : void {
+export function serializeAuthoredNote(authoredNote: AuthoredNote | undefined = {} as AuthoredNote, writer: SerializationWriter) : void {
         serializeEntity(writer, authoredNote)
         writer.writeObjectValue<Identity>("author", authoredNote.author, serializeIdentity);
         writer.writeObjectValue<ItemBody>("content", authoredNote.content, serializeItemBody);

@@ -4,7 +4,7 @@ import {serializePermission} from '../../../../../models/serializePermission';
 import {GrantResponse} from './grantResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGrantResponse(writer: SerializationWriter, grantResponse: GrantResponse | undefined = {} as GrantResponse) : void {
+export function serializeGrantResponse(grantResponse: GrantResponse | undefined = {} as GrantResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, grantResponse)
         writer.writeCollectionOfObjectValues<Permission>("value", grantResponse.value, serializePermission);
 }

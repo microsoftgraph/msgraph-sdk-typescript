@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {ImCoshPostRequestBody} from './imCoshPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeImCoshPostRequestBody(writer: SerializationWriter, imCoshPostRequestBody: ImCoshPostRequestBody | undefined = {} as ImCoshPostRequestBody) : void {
+export function serializeImCoshPostRequestBody(imCoshPostRequestBody: ImCoshPostRequestBody | undefined = {} as ImCoshPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("inumber", imCoshPostRequestBody.inumber, serializeJson);
         writer.writeAdditionalData(imCoshPostRequestBody.additionalData);
 }

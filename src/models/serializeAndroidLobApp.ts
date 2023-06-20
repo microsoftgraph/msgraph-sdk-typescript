@@ -4,7 +4,7 @@ import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumO
 import {serializeMobileLobApp} from './serializeMobileLobApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAndroidLobApp(writer: SerializationWriter, androidLobApp: AndroidLobApp | undefined = {} as AndroidLobApp) : void {
+export function serializeAndroidLobApp(androidLobApp: AndroidLobApp | undefined = {} as AndroidLobApp, writer: SerializationWriter) : void {
         serializeMobileLobApp(writer, androidLobApp)
         writer.writeObjectValue<AndroidMinimumOperatingSystem>("minimumSupportedOperatingSystem", androidLobApp.minimumSupportedOperatingSystem, serializeAndroidMinimumOperatingSystem);
         writer.writeStringValue("packageId", androidLobApp.packageId);

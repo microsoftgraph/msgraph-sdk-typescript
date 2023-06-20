@@ -1,7 +1,7 @@
 import {LicenseAssignmentState} from './licenseAssignmentState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLicenseAssignmentState(writer: SerializationWriter, licenseAssignmentState: LicenseAssignmentState | undefined = {} as LicenseAssignmentState) : void {
+export function serializeLicenseAssignmentState(licenseAssignmentState: LicenseAssignmentState | undefined = {} as LicenseAssignmentState, writer: SerializationWriter) : void {
         writer.writeStringValue("assignedByGroup", licenseAssignmentState.assignedByGroup);
         writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", licenseAssignmentState.disabledPlans);
         writer.writeStringValue("error", licenseAssignmentState.errorEscaped);

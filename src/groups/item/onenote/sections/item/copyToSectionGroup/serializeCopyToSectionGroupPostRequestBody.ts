@@ -1,7 +1,7 @@
 import {CopyToSectionGroupPostRequestBody} from './copyToSectionGroupPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCopyToSectionGroupPostRequestBody(writer: SerializationWriter, copyToSectionGroupPostRequestBody: CopyToSectionGroupPostRequestBody | undefined = {} as CopyToSectionGroupPostRequestBody) : void {
+export function serializeCopyToSectionGroupPostRequestBody(copyToSectionGroupPostRequestBody: CopyToSectionGroupPostRequestBody | undefined = {} as CopyToSectionGroupPostRequestBody, writer: SerializationWriter) : void {
         writer.writeStringValue("groupId", copyToSectionGroupPostRequestBody.groupId);
         writer.writeStringValue("id", copyToSectionGroupPostRequestBody.id);
         writer.writeStringValue("renameAs", copyToSectionGroupPostRequestBody.renameAs);

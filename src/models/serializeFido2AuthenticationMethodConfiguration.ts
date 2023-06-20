@@ -6,7 +6,7 @@ import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMeth
 import {serializeFido2KeyRestrictions} from './serializeFido2KeyRestrictions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFido2AuthenticationMethodConfiguration(writer: SerializationWriter, fido2AuthenticationMethodConfiguration: Fido2AuthenticationMethodConfiguration | undefined = {} as Fido2AuthenticationMethodConfiguration) : void {
+export function serializeFido2AuthenticationMethodConfiguration(fido2AuthenticationMethodConfiguration: Fido2AuthenticationMethodConfiguration | undefined = {} as Fido2AuthenticationMethodConfiguration, writer: SerializationWriter) : void {
         serializeAuthenticationMethodConfiguration(writer, fido2AuthenticationMethodConfiguration)
         writer.writeCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", fido2AuthenticationMethodConfiguration.includeTargets, serializeAuthenticationMethodTarget);
         writer.writeBooleanValue("isAttestationEnforced", fido2AuthenticationMethodConfiguration.isAttestationEnforced);

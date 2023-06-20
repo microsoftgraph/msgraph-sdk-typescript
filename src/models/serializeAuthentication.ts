@@ -22,7 +22,7 @@ import {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuth
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthentication(writer: SerializationWriter, authentication: Authentication | undefined = {} as Authentication) : void {
+export function serializeAuthentication(authentication: Authentication | undefined = {} as Authentication, writer: SerializationWriter) : void {
         serializeEntity(writer, authentication)
         writer.writeCollectionOfObjectValues<EmailAuthenticationMethod>("emailMethods", authentication.emailMethods, serializeEmailAuthenticationMethod);
         writer.writeCollectionOfObjectValues<Fido2AuthenticationMethod>("fido2Methods", authentication.fido2Methods, serializeFido2AuthenticationMethod);

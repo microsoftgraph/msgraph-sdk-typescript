@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {CumIPmtPostRequestBody} from './cumIPmtPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: CumIPmtPostRequestBody | undefined = {} as CumIPmtPostRequestBody) : void {
+export function serializeCumIPmtPostRequestBody(cumIPmtPostRequestBody: CumIPmtPostRequestBody | undefined = {} as CumIPmtPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("endPeriod", cumIPmtPostRequestBody.endPeriod, serializeJson);
         writer.writeObjectValue<Json>("nper", cumIPmtPostRequestBody.nper, serializeJson);
         writer.writeObjectValue<Json>("pv", cumIPmtPostRequestBody.pv, serializeJson);

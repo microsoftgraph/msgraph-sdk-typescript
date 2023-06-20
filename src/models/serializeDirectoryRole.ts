@@ -5,7 +5,7 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDirectoryRole(writer: SerializationWriter, directoryRole: DirectoryRole | undefined = {} as DirectoryRole) : void {
+export function serializeDirectoryRole(directoryRole: DirectoryRole | undefined = {} as DirectoryRole, writer: SerializationWriter) : void {
         serializeDirectoryObject(writer, directoryRole)
         writer.writeStringValue("description", directoryRole.description);
         writer.writeStringValue("displayName", directoryRole.displayName);

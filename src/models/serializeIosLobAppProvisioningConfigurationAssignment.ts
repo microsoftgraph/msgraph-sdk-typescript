@@ -4,7 +4,7 @@ import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDevice
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosLobAppProvisioningConfigurationAssignment(writer: SerializationWriter, iosLobAppProvisioningConfigurationAssignment: IosLobAppProvisioningConfigurationAssignment | undefined = {} as IosLobAppProvisioningConfigurationAssignment) : void {
+export function serializeIosLobAppProvisioningConfigurationAssignment(iosLobAppProvisioningConfigurationAssignment: IosLobAppProvisioningConfigurationAssignment | undefined = {} as IosLobAppProvisioningConfigurationAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, iosLobAppProvisioningConfigurationAssignment)
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", iosLobAppProvisioningConfigurationAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);
 }

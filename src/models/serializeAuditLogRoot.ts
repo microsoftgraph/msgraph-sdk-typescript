@@ -8,7 +8,7 @@ import {serializeSignIn} from './serializeSignIn';
 import {SignIn} from './signIn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuditLogRoot(writer: SerializationWriter, auditLogRoot: AuditLogRoot | undefined = {} as AuditLogRoot) : void {
+export function serializeAuditLogRoot(auditLogRoot: AuditLogRoot | undefined = {} as AuditLogRoot, writer: SerializationWriter) : void {
         serializeEntity(writer, auditLogRoot)
         writer.writeCollectionOfObjectValues<DirectoryAudit>("directoryAudits", auditLogRoot.directoryAudits, serializeDirectoryAudit);
         writer.writeCollectionOfObjectValues<ProvisioningObjectSummary>("provisioning", auditLogRoot.provisioning, serializeProvisioningObjectSummary);

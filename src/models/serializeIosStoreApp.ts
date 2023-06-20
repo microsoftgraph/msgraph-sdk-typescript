@@ -6,7 +6,7 @@ import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperating
 import {serializeMobileApp} from './serializeMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosStoreApp(writer: SerializationWriter, iosStoreApp: IosStoreApp | undefined = {} as IosStoreApp) : void {
+export function serializeIosStoreApp(iosStoreApp: IosStoreApp | undefined = {} as IosStoreApp, writer: SerializationWriter) : void {
         serializeMobileApp(writer, iosStoreApp)
         writer.writeObjectValue<IosDeviceType>("applicableDeviceType", iosStoreApp.applicableDeviceType, serializeIosDeviceType);
         writer.writeStringValue("appStoreUrl", iosStoreApp.appStoreUrl);

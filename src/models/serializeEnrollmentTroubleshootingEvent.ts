@@ -4,7 +4,7 @@ import {EnrollmentTroubleshootingEvent} from './enrollmentTroubleshootingEvent';
 import {serializeDeviceManagementTroubleshootingEvent} from './serializeDeviceManagementTroubleshootingEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEnrollmentTroubleshootingEvent(writer: SerializationWriter, enrollmentTroubleshootingEvent: EnrollmentTroubleshootingEvent | undefined = {} as EnrollmentTroubleshootingEvent) : void {
+export function serializeEnrollmentTroubleshootingEvent(enrollmentTroubleshootingEvent: EnrollmentTroubleshootingEvent | undefined = {} as EnrollmentTroubleshootingEvent, writer: SerializationWriter) : void {
         serializeDeviceManagementTroubleshootingEvent(writer, enrollmentTroubleshootingEvent)
         writer.writeStringValue("deviceId", enrollmentTroubleshootingEvent.deviceId);
         writer.writeEnumValue<DeviceEnrollmentType>("enrollmentType", enrollmentTroubleshootingEvent.enrollmentType);

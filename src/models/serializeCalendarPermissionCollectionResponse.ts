@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeCalendarPermission} from './serializeCalendarPermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCalendarPermissionCollectionResponse(writer: SerializationWriter, calendarPermissionCollectionResponse: CalendarPermissionCollectionResponse | undefined = {} as CalendarPermissionCollectionResponse) : void {
+export function serializeCalendarPermissionCollectionResponse(calendarPermissionCollectionResponse: CalendarPermissionCollectionResponse | undefined = {} as CalendarPermissionCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, calendarPermissionCollectionResponse)
         writer.writeCollectionOfObjectValues<CalendarPermission>("value", calendarPermissionCollectionResponse.value, serializeCalendarPermission);
 }

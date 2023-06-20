@@ -5,7 +5,7 @@ import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDevice
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeManagedEBookAssignment(writer: SerializationWriter, managedEBookAssignment: ManagedEBookAssignment | undefined = {} as ManagedEBookAssignment) : void {
+export function serializeManagedEBookAssignment(managedEBookAssignment: ManagedEBookAssignment | undefined = {} as ManagedEBookAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, managedEBookAssignment)
         writer.writeEnumValue<InstallIntent>("installIntent", managedEBookAssignment.installIntent);
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", managedEBookAssignment.target, serializeDeviceAndAppManagementAssignmentTarget);

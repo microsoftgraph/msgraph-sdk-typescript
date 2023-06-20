@@ -11,7 +11,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeLocation} from './serializeLocation';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingService(writer: SerializationWriter, bookingService: BookingService | undefined = {} as BookingService) : void {
+export function serializeBookingService(bookingService: BookingService | undefined = {} as BookingService, writer: SerializationWriter) : void {
         serializeEntity(writer, bookingService)
         writer.writeStringValue("additionalInformation", bookingService.additionalInformation);
         writer.writeCollectionOfObjectValues<BookingQuestionAssignment>("customQuestions", bookingService.customQuestions, serializeBookingQuestionAssignment);

@@ -6,7 +6,7 @@ import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
 import {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMembersAddedEventMessageDetail(writer: SerializationWriter, membersAddedEventMessageDetail: MembersAddedEventMessageDetail | undefined = {} as MembersAddedEventMessageDetail) : void {
+export function serializeMembersAddedEventMessageDetail(membersAddedEventMessageDetail: MembersAddedEventMessageDetail | undefined = {} as MembersAddedEventMessageDetail, writer: SerializationWriter) : void {
         serializeEventMessageDetail(writer, membersAddedEventMessageDetail)
         writer.writeObjectValue<IdentitySet>("initiator", membersAddedEventMessageDetail.initiator, serializeIdentitySet);
         writer.writeCollectionOfObjectValues<TeamworkUserIdentity>("members", membersAddedEventMessageDetail.members, serializeTeamworkUserIdentity);

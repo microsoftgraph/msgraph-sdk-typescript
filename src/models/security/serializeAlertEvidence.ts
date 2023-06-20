@@ -4,7 +4,7 @@ import {EvidenceRole} from './evidenceRole';
 import {EvidenceVerdict} from './evidenceVerdict';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAlertEvidence(writer: SerializationWriter, alertEvidence: AlertEvidence | undefined = {} as AlertEvidence) : void {
+export function serializeAlertEvidence(alertEvidence: AlertEvidence | undefined = {} as AlertEvidence, writer: SerializationWriter) : void {
         writer.writeDateValue("createdDateTime", alertEvidence.createdDateTime);
         writer.writeCollectionOfPrimitiveValues<string>("detailedRoles", alertEvidence.detailedRoles);
         writer.writeStringValue("@odata.type", alertEvidence.odataType);

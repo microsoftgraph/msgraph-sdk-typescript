@@ -3,7 +3,7 @@ import {InstallState} from './installState';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceInstallState(writer: SerializationWriter, deviceInstallState: DeviceInstallState | undefined = {} as DeviceInstallState) : void {
+export function serializeDeviceInstallState(deviceInstallState: DeviceInstallState | undefined = {} as DeviceInstallState, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceInstallState)
         writer.writeStringValue("deviceId", deviceInstallState.deviceId);
         writer.writeStringValue("deviceName", deviceInstallState.deviceName);

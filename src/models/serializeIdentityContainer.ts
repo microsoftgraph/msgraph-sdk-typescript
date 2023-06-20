@@ -12,7 +12,7 @@ import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentityContainer(writer: SerializationWriter, identityContainer: IdentityContainer | undefined = {} as IdentityContainer) : void {
+export function serializeIdentityContainer(identityContainer: IdentityContainer | undefined = {} as IdentityContainer, writer: SerializationWriter) : void {
         serializeEntity(writer, identityContainer)
         writer.writeCollectionOfObjectValues<IdentityApiConnector>("apiConnectors", identityContainer.apiConnectors, serializeIdentityApiConnector);
         writer.writeCollectionOfObjectValues<B2xIdentityUserFlow>("b2xUserFlows", identityContainer.b2xUserFlows, serializeB2xIdentityUserFlow);

@@ -3,7 +3,7 @@ import {serializeInvitationParticipantInfo} from '../../../../../models/serializ
 import {InvitePostRequestBody} from './invitePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : void {
+export function serializeInvitePostRequestBody(invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody, writer: SerializationWriter) : void {
         writer.writeStringValue("clientContext", invitePostRequestBody.clientContext);
         writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", invitePostRequestBody.participants, serializeInvitationParticipantInfo);
         writer.writeAdditionalData(invitePostRequestBody.additionalData);

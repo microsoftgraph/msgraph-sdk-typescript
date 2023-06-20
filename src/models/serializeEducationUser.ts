@@ -34,7 +34,7 @@ import {serializeUser} from './serializeUser';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationUser(writer: SerializationWriter, educationUser: EducationUser | undefined = {} as EducationUser) : void {
+export function serializeEducationUser(educationUser: EducationUser | undefined = {} as EducationUser, writer: SerializationWriter) : void {
         serializeEntity(writer, educationUser)
         writer.writeBooleanValue("accountEnabled", educationUser.accountEnabled);
         writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", educationUser.assignedLicenses, serializeAssignedLicense);

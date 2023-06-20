@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeDirectoryDefinition} from './serializeDirectoryDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDirectoryDefinitionCollectionResponse(writer: SerializationWriter, directoryDefinitionCollectionResponse: DirectoryDefinitionCollectionResponse | undefined = {} as DirectoryDefinitionCollectionResponse) : void {
+export function serializeDirectoryDefinitionCollectionResponse(directoryDefinitionCollectionResponse: DirectoryDefinitionCollectionResponse | undefined = {} as DirectoryDefinitionCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, directoryDefinitionCollectionResponse)
         writer.writeCollectionOfObjectValues<DirectoryDefinition>("value", directoryDefinitionCollectionResponse.value, serializeDirectoryDefinition);
 }

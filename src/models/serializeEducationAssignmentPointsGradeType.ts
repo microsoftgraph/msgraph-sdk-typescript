@@ -2,7 +2,7 @@ import {EducationAssignmentPointsGradeType} from './educationAssignmentPointsGra
 import {serializeEducationAssignmentGradeType} from './serializeEducationAssignmentGradeType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationAssignmentPointsGradeType(writer: SerializationWriter, educationAssignmentPointsGradeType: EducationAssignmentPointsGradeType | undefined = {} as EducationAssignmentPointsGradeType) : void {
+export function serializeEducationAssignmentPointsGradeType(educationAssignmentPointsGradeType: EducationAssignmentPointsGradeType | undefined = {} as EducationAssignmentPointsGradeType, writer: SerializationWriter) : void {
         serializeEducationAssignmentGradeType(writer, educationAssignmentPointsGradeType)
         writer.writeNumberValue("maxPoints", educationAssignmentPointsGradeType.maxPoints);
 }

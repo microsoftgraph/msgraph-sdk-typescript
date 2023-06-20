@@ -4,7 +4,7 @@ import {ProductFamily} from './productFamily';
 import {serializeUserAgent} from './serializeUserAgent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeClientUserAgent(writer: SerializationWriter, clientUserAgent: ClientUserAgent | undefined = {} as ClientUserAgent) : void {
+export function serializeClientUserAgent(clientUserAgent: ClientUserAgent | undefined = {} as ClientUserAgent, writer: SerializationWriter) : void {
         serializeUserAgent(writer, clientUserAgent)
         writer.writeStringValue("azureADAppId", clientUserAgent.azureADAppId);
         writer.writeStringValue("communicationServiceId", clientUserAgent.communicationServiceId);

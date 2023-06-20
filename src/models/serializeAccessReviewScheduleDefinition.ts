@@ -16,7 +16,7 @@ import {serializeUserIdentity} from './serializeUserIdentity';
 import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewScheduleDefinition(writer: SerializationWriter, accessReviewScheduleDefinition: AccessReviewScheduleDefinition | undefined = {} as AccessReviewScheduleDefinition) : void {
+export function serializeAccessReviewScheduleDefinition(accessReviewScheduleDefinition: AccessReviewScheduleDefinition | undefined = {} as AccessReviewScheduleDefinition, writer: SerializationWriter) : void {
         serializeEntity(writer, accessReviewScheduleDefinition)
         writer.writeCollectionOfObjectValues<AccessReviewNotificationRecipientItem>("additionalNotificationRecipients", accessReviewScheduleDefinition.additionalNotificationRecipients, serializeAccessReviewNotificationRecipientItem);
         writer.writeObjectValue<UserIdentity>("createdBy", accessReviewScheduleDefinition.createdBy, serializeUserIdentity);

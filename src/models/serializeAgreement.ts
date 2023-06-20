@@ -10,7 +10,7 @@ import {serializeTermsExpiration} from './serializeTermsExpiration';
 import {TermsExpiration} from './termsExpiration';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAgreement(writer: SerializationWriter, agreement: Agreement | undefined = {} as Agreement) : void {
+export function serializeAgreement(agreement: Agreement | undefined = {} as Agreement, writer: SerializationWriter) : void {
         serializeEntity(writer, agreement)
         writer.writeCollectionOfObjectValues<AgreementAcceptance>("acceptances", agreement.acceptances, serializeAgreementAcceptance);
         writer.writeStringValue("displayName", agreement.displayName);

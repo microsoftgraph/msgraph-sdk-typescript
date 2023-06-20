@@ -4,7 +4,7 @@ import {DataSourceContainerStatus} from './dataSourceContainerStatus';
 import {DataSourceHoldStatus} from './dataSourceHoldStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDataSourceContainer(writer: SerializationWriter, dataSourceContainer: DataSourceContainer | undefined = {} as DataSourceContainer) : void {
+export function serializeDataSourceContainer(dataSourceContainer: DataSourceContainer | undefined = {} as DataSourceContainer, writer: SerializationWriter) : void {
         serializeEntity(writer, dataSourceContainer)
         writer.writeDateValue("createdDateTime", dataSourceContainer.createdDateTime);
         writer.writeStringValue("displayName", dataSourceContainer.displayName);

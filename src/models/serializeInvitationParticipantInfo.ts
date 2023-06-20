@@ -3,7 +3,7 @@ import {InvitationParticipantInfo} from './invitationParticipantInfo';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeInvitationParticipantInfo(writer: SerializationWriter, invitationParticipantInfo: InvitationParticipantInfo | undefined = {} as InvitationParticipantInfo) : void {
+export function serializeInvitationParticipantInfo(invitationParticipantInfo: InvitationParticipantInfo | undefined = {} as InvitationParticipantInfo, writer: SerializationWriter) : void {
         writer.writeBooleanValue("hidden", invitationParticipantInfo.hidden);
         writer.writeObjectValue<IdentitySet>("identity", invitationParticipantInfo.identity, serializeIdentitySet);
         writer.writeStringValue("@odata.type", invitationParticipantInfo.odataType);

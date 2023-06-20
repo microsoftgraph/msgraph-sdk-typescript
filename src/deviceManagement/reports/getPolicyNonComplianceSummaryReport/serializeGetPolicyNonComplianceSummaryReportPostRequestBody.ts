@@ -1,7 +1,7 @@
 import {GetPolicyNonComplianceSummaryReportPostRequestBody} from './getPolicyNonComplianceSummaryReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetPolicyNonComplianceSummaryReportPostRequestBody(writer: SerializationWriter, getPolicyNonComplianceSummaryReportPostRequestBody: GetPolicyNonComplianceSummaryReportPostRequestBody | undefined = {} as GetPolicyNonComplianceSummaryReportPostRequestBody) : void {
+export function serializeGetPolicyNonComplianceSummaryReportPostRequestBody(getPolicyNonComplianceSummaryReportPostRequestBody: GetPolicyNonComplianceSummaryReportPostRequestBody | undefined = {} as GetPolicyNonComplianceSummaryReportPostRequestBody, writer: SerializationWriter) : void {
         writer.writeStringValue("filter", getPolicyNonComplianceSummaryReportPostRequestBody.filter);
         writer.writeCollectionOfPrimitiveValues<string>("groupBy", getPolicyNonComplianceSummaryReportPostRequestBody.groupBy);
         writer.writeStringValue("name", getPolicyNonComplianceSummaryReportPostRequestBody.name);

@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../models/se
 import {GetPstnCallsWithFromDateTimeWithToDateTimeResponse} from './getPstnCallsWithFromDateTimeWithToDateTimeResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetPstnCallsWithFromDateTimeWithToDateTimeResponse(writer: SerializationWriter, getPstnCallsWithFromDateTimeWithToDateTimeResponse: GetPstnCallsWithFromDateTimeWithToDateTimeResponse | undefined = {} as GetPstnCallsWithFromDateTimeWithToDateTimeResponse) : void {
+export function serializeGetPstnCallsWithFromDateTimeWithToDateTimeResponse(getPstnCallsWithFromDateTimeWithToDateTimeResponse: GetPstnCallsWithFromDateTimeWithToDateTimeResponse | undefined = {} as GetPstnCallsWithFromDateTimeWithToDateTimeResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getPstnCallsWithFromDateTimeWithToDateTimeResponse)
         writer.writeCollectionOfObjectValues<PstnCallLogRow>("value", getPstnCallsWithFromDateTimeWithToDateTimeResponse.value, serializePstnCallLogRow);
 }

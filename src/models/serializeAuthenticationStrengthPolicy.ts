@@ -7,7 +7,7 @@ import {serializeAuthenticationCombinationConfiguration} from './serializeAuthen
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthenticationStrengthPolicy(writer: SerializationWriter, authenticationStrengthPolicy: AuthenticationStrengthPolicy | undefined = {} as AuthenticationStrengthPolicy) : void {
+export function serializeAuthenticationStrengthPolicy(authenticationStrengthPolicy: AuthenticationStrengthPolicy | undefined = {} as AuthenticationStrengthPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, authenticationStrengthPolicy)
         if(authenticationStrengthPolicy.allowedCombinations)
         writer.writeEnumValue<AuthenticationMethodModes>("allowedCombinations", ...authenticationStrengthPolicy.allowedCombinations);

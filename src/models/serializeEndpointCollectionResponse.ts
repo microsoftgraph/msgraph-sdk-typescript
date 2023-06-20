@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeEndpoint} from './serializeEndpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEndpointCollectionResponse(writer: SerializationWriter, endpointCollectionResponse: EndpointCollectionResponse | undefined = {} as EndpointCollectionResponse) : void {
+export function serializeEndpointCollectionResponse(endpointCollectionResponse: EndpointCollectionResponse | undefined = {} as EndpointCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, endpointCollectionResponse)
         writer.writeCollectionOfObjectValues<Endpoint>("value", endpointCollectionResponse.value, serializeEndpoint);
 }

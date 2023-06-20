@@ -3,7 +3,7 @@ import {Hashes} from './hashes';
 import {serializeHashes} from './serializeHashes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFile(writer: SerializationWriter, file: File | undefined = {} as File) : void {
+export function serializeFile(file: File | undefined = {} as File, writer: SerializationWriter) : void {
         writer.writeObjectValue<Hashes>("hashes", file.hashes, serializeHashes);
         writer.writeStringValue("mimeType", file.mimeType);
         writer.writeStringValue("@odata.type", file.odataType);

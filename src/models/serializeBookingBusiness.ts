@@ -18,7 +18,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingBusiness(writer: SerializationWriter, bookingBusiness: BookingBusiness | undefined = {} as BookingBusiness) : void {
+export function serializeBookingBusiness(bookingBusiness: BookingBusiness | undefined = {} as BookingBusiness, writer: SerializationWriter) : void {
         serializeEntity(writer, bookingBusiness)
         writer.writeObjectValue<PhysicalAddress>("address", bookingBusiness.address, serializePhysicalAddress);
         writer.writeCollectionOfObjectValues<BookingAppointment>("appointments", bookingBusiness.appointments, serializeBookingAppointment);

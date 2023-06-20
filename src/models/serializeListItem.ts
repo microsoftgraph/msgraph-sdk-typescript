@@ -16,7 +16,7 @@ import {serializeSharepointIds} from './serializeSharepointIds';
 import {SharepointIds} from './sharepointIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeListItem(writer: SerializationWriter, listItem: ListItem | undefined = {} as ListItem) : void {
+export function serializeListItem(listItem: ListItem | undefined = {} as ListItem, writer: SerializationWriter) : void {
         serializeBaseItem(writer, listItem)
         writer.writeObjectValue<ItemAnalytics>("analytics", listItem.analytics, serializeItemAnalytics);
         writer.writeObjectValue<ContentTypeInfo>("contentType", listItem.contentType, serializeContentTypeInfo);

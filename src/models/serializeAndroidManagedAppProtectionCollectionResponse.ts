@@ -4,7 +4,7 @@ import {serializeAndroidManagedAppProtection} from './serializeAndroidManagedApp
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAndroidManagedAppProtectionCollectionResponse(writer: SerializationWriter, androidManagedAppProtectionCollectionResponse: AndroidManagedAppProtectionCollectionResponse | undefined = {} as AndroidManagedAppProtectionCollectionResponse) : void {
+export function serializeAndroidManagedAppProtectionCollectionResponse(androidManagedAppProtectionCollectionResponse: AndroidManagedAppProtectionCollectionResponse | undefined = {} as AndroidManagedAppProtectionCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, androidManagedAppProtectionCollectionResponse)
         writer.writeCollectionOfObjectValues<AndroidManagedAppProtection>("value", androidManagedAppProtectionCollectionResponse.value, serializeAndroidManagedAppProtection);
 }

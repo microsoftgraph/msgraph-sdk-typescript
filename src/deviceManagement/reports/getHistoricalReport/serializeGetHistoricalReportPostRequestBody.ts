@@ -1,7 +1,7 @@
 import {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: GetHistoricalReportPostRequestBody | undefined = {} as GetHistoricalReportPostRequestBody) : void {
+export function serializeGetHistoricalReportPostRequestBody(getHistoricalReportPostRequestBody: GetHistoricalReportPostRequestBody | undefined = {} as GetHistoricalReportPostRequestBody, writer: SerializationWriter) : void {
         writer.writeStringValue("filter", getHistoricalReportPostRequestBody.filter);
         writer.writeCollectionOfPrimitiveValues<string>("groupBy", getHistoricalReportPostRequestBody.groupBy);
         writer.writeStringValue("name", getHistoricalReportPostRequestBody.name);

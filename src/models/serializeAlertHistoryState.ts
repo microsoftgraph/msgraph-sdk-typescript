@@ -3,7 +3,7 @@ import {AlertHistoryState} from './alertHistoryState';
 import {AlertStatus} from './alertStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAlertHistoryState(writer: SerializationWriter, alertHistoryState: AlertHistoryState | undefined = {} as AlertHistoryState) : void {
+export function serializeAlertHistoryState(alertHistoryState: AlertHistoryState | undefined = {} as AlertHistoryState, writer: SerializationWriter) : void {
         writer.writeStringValue("appId", alertHistoryState.appId);
         writer.writeStringValue("assignedTo", alertHistoryState.assignedTo);
         writer.writeCollectionOfPrimitiveValues<string>("comments", alertHistoryState.comments);

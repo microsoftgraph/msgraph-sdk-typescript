@@ -9,7 +9,7 @@ import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
 import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeManagedAppRegistration(writer: SerializationWriter, managedAppRegistration: ManagedAppRegistration | undefined = {} as ManagedAppRegistration) : void {
+export function serializeManagedAppRegistration(managedAppRegistration: ManagedAppRegistration | undefined = {} as ManagedAppRegistration, writer: SerializationWriter) : void {
         serializeEntity(writer, managedAppRegistration)
         writer.writeObjectValue<MobileAppIdentifier>("appIdentifier", managedAppRegistration.appIdentifier, serializeMobileAppIdentifier);
         writer.writeStringValue("applicationVersion", managedAppRegistration.applicationVersion);

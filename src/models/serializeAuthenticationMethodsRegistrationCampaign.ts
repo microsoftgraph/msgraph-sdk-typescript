@@ -6,7 +6,7 @@ import {serializeAuthenticationMethodsRegistrationCampaignIncludeTarget} from '.
 import {serializeExcludeTarget} from './serializeExcludeTarget';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthenticationMethodsRegistrationCampaign(writer: SerializationWriter, authenticationMethodsRegistrationCampaign: AuthenticationMethodsRegistrationCampaign | undefined = {} as AuthenticationMethodsRegistrationCampaign) : void {
+export function serializeAuthenticationMethodsRegistrationCampaign(authenticationMethodsRegistrationCampaign: AuthenticationMethodsRegistrationCampaign | undefined = {} as AuthenticationMethodsRegistrationCampaign, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<ExcludeTarget>("excludeTargets", authenticationMethodsRegistrationCampaign.excludeTargets, serializeExcludeTarget);
         writer.writeCollectionOfObjectValues<AuthenticationMethodsRegistrationCampaignIncludeTarget>("includeTargets", authenticationMethodsRegistrationCampaign.includeTargets, serializeAuthenticationMethodsRegistrationCampaignIncludeTarget);
         writer.writeStringValue("@odata.type", authenticationMethodsRegistrationCampaign.odataType);

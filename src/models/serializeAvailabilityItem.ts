@@ -4,7 +4,7 @@ import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAvailabilityItem(writer: SerializationWriter, availabilityItem: AvailabilityItem | undefined = {} as AvailabilityItem) : void {
+export function serializeAvailabilityItem(availabilityItem: AvailabilityItem | undefined = {} as AvailabilityItem, writer: SerializationWriter) : void {
         writer.writeObjectValue<DateTimeTimeZone>("endDateTime", availabilityItem.endDateTime, serializeDateTimeTimeZone);
         writer.writeStringValue("@odata.type", availabilityItem.odataType);
         writer.writeStringValue("serviceId", availabilityItem.serviceId);

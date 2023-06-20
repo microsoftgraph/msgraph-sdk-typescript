@@ -2,7 +2,7 @@ import {ExpirationPattern} from './expirationPattern';
 import {ExpirationPatternType} from './expirationPatternType';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeExpirationPattern(writer: SerializationWriter, expirationPattern: ExpirationPattern | undefined = {} as ExpirationPattern) : void {
+export function serializeExpirationPattern(expirationPattern: ExpirationPattern | undefined = {} as ExpirationPattern, writer: SerializationWriter) : void {
         writer.writeDurationValue("duration", expirationPattern.duration);
         writer.writeDateValue("endDateTime", expirationPattern.endDateTime);
         writer.writeStringValue("@odata.type", expirationPattern.odataType);

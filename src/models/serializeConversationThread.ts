@@ -6,7 +6,7 @@ import {serializePost} from './serializePost';
 import {serializeRecipient} from './serializeRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConversationThread(writer: SerializationWriter, conversationThread: ConversationThread | undefined = {} as ConversationThread) : void {
+export function serializeConversationThread(conversationThread: ConversationThread | undefined = {} as ConversationThread, writer: SerializationWriter) : void {
         serializeEntity(writer, conversationThread)
         writer.writeCollectionOfObjectValues<Recipient>("ccRecipients", conversationThread.ccRecipients, serializeRecipient);
         writer.writeBooleanValue("hasAttachments", conversationThread.hasAttachments);

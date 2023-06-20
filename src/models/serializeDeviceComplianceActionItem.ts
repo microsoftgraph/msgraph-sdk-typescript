@@ -3,7 +3,7 @@ import {DeviceComplianceActionType} from './deviceComplianceActionType';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceComplianceActionItem(writer: SerializationWriter, deviceComplianceActionItem: DeviceComplianceActionItem | undefined = {} as DeviceComplianceActionItem) : void {
+export function serializeDeviceComplianceActionItem(deviceComplianceActionItem: DeviceComplianceActionItem | undefined = {} as DeviceComplianceActionItem, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceComplianceActionItem)
         writer.writeEnumValue<DeviceComplianceActionType>("actionType", deviceComplianceActionItem.actionType);
         writer.writeNumberValue("gracePeriodHours", deviceComplianceActionItem.gracePeriodHours);

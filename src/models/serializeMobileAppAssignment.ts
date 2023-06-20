@@ -7,7 +7,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMobileAppAssignment(writer: SerializationWriter, mobileAppAssignment: MobileAppAssignment | undefined = {} as MobileAppAssignment) : void {
+export function serializeMobileAppAssignment(mobileAppAssignment: MobileAppAssignment | undefined = {} as MobileAppAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, mobileAppAssignment)
         writer.writeEnumValue<InstallIntent>("intent", mobileAppAssignment.intent);
         writer.writeObjectValue<MobileAppAssignmentSettings>("settings", mobileAppAssignment.settings, serializeMobileAppAssignmentSettings);

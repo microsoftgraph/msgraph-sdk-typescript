@@ -4,7 +4,7 @@ import {serializeItemActivityStat} from '../../../../../../../../../models/seria
 import {GetActivitiesByIntervalResponse} from './getActivitiesByIntervalResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetActivitiesByIntervalResponse(writer: SerializationWriter, getActivitiesByIntervalResponse: GetActivitiesByIntervalResponse | undefined = {} as GetActivitiesByIntervalResponse) : void {
+export function serializeGetActivitiesByIntervalResponse(getActivitiesByIntervalResponse: GetActivitiesByIntervalResponse | undefined = {} as GetActivitiesByIntervalResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getActivitiesByIntervalResponse)
         writer.writeCollectionOfObjectValues<ItemActivityStat>("value", getActivitiesByIntervalResponse.value, serializeItemActivityStat);
 }

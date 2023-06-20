@@ -4,7 +4,7 @@ import {serializeDelegatedAdminServiceManagementDetail} from './serializeDelegat
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDelegatedAdminCustomer(writer: SerializationWriter, delegatedAdminCustomer: DelegatedAdminCustomer | undefined = {} as DelegatedAdminCustomer) : void {
+export function serializeDelegatedAdminCustomer(delegatedAdminCustomer: DelegatedAdminCustomer | undefined = {} as DelegatedAdminCustomer, writer: SerializationWriter) : void {
         serializeEntity(writer, delegatedAdminCustomer)
         writer.writeStringValue("displayName", delegatedAdminCustomer.displayName);
         writer.writeCollectionOfObjectValues<DelegatedAdminServiceManagementDetail>("serviceManagementDetails", delegatedAdminCustomer.serviceManagementDetails, serializeDelegatedAdminServiceManagementDetail);

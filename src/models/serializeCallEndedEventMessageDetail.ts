@@ -7,7 +7,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import {TeamworkCallEventType} from './teamworkCallEventType';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCallEndedEventMessageDetail(writer: SerializationWriter, callEndedEventMessageDetail: CallEndedEventMessageDetail | undefined = {} as CallEndedEventMessageDetail) : void {
+export function serializeCallEndedEventMessageDetail(callEndedEventMessageDetail: CallEndedEventMessageDetail | undefined = {} as CallEndedEventMessageDetail, writer: SerializationWriter) : void {
         serializeEventMessageDetail(writer, callEndedEventMessageDetail)
         writer.writeDurationValue("callDuration", callEndedEventMessageDetail.callDuration);
         writer.writeEnumValue<TeamworkCallEventType>("callEventType", callEndedEventMessageDetail.callEventType);

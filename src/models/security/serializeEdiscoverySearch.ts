@@ -11,7 +11,7 @@ import {serializeEdiscoveryNoncustodialDataSource} from './serializeEdiscoveryNo
 import {serializeSearch} from './serializeSearch';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEdiscoverySearch(writer: SerializationWriter, ediscoverySearch: EdiscoverySearch | undefined = {} as EdiscoverySearch) : void {
+export function serializeEdiscoverySearch(ediscoverySearch: EdiscoverySearch | undefined = {} as EdiscoverySearch, writer: SerializationWriter) : void {
         serializeSearch(writer, ediscoverySearch)
         writer.writeCollectionOfObjectValues<DataSource>("additionalSources", ediscoverySearch.additionalSources, serializeDataSource);
         writer.writeObjectValue<EdiscoveryAddToReviewSetOperation>("addToReviewSetOperation", ediscoverySearch.addToReviewSetOperation, serializeEdiscoveryAddToReviewSetOperation);

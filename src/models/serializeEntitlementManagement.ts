@@ -18,7 +18,7 @@ import {serializeEntitlementManagementSettings} from './serializeEntitlementMana
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEntitlementManagement(writer: SerializationWriter, entitlementManagement: EntitlementManagement | undefined = {} as EntitlementManagement) : void {
+export function serializeEntitlementManagement(entitlementManagement: EntitlementManagement | undefined = {} as EntitlementManagement, writer: SerializationWriter) : void {
         serializeEntity(writer, entitlementManagement)
         writer.writeCollectionOfObjectValues<Approval>("accessPackageAssignmentApprovals", entitlementManagement.accessPackageAssignmentApprovals, serializeApproval);
         writer.writeCollectionOfObjectValues<AccessPackage>("accessPackages", entitlementManagement.accessPackages, serializeAccessPackage);

@@ -2,7 +2,7 @@ import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMob
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeManagedDeviceMobileAppConfigurationUserSummary(writer: SerializationWriter, managedDeviceMobileAppConfigurationUserSummary: ManagedDeviceMobileAppConfigurationUserSummary | undefined = {} as ManagedDeviceMobileAppConfigurationUserSummary) : void {
+export function serializeManagedDeviceMobileAppConfigurationUserSummary(managedDeviceMobileAppConfigurationUserSummary: ManagedDeviceMobileAppConfigurationUserSummary | undefined = {} as ManagedDeviceMobileAppConfigurationUserSummary, writer: SerializationWriter) : void {
         serializeEntity(writer, managedDeviceMobileAppConfigurationUserSummary)
         writer.writeNumberValue("configurationVersion", managedDeviceMobileAppConfigurationUserSummary.configurationVersion);
         writer.writeNumberValue("errorCount", managedDeviceMobileAppConfigurationUserSummary.errorCount);

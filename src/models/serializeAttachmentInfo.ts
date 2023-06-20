@@ -2,7 +2,7 @@ import {AttachmentInfo} from './attachmentInfo';
 import {AttachmentType} from './attachmentType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAttachmentInfo(writer: SerializationWriter, attachmentInfo: AttachmentInfo | undefined = {} as AttachmentInfo) : void {
+export function serializeAttachmentInfo(attachmentInfo: AttachmentInfo | undefined = {} as AttachmentInfo, writer: SerializationWriter) : void {
         writer.writeEnumValue<AttachmentType>("attachmentType", attachmentInfo.attachmentType);
         writer.writeStringValue("contentType", attachmentInfo.contentType);
         writer.writeStringValue("name", attachmentInfo.name);

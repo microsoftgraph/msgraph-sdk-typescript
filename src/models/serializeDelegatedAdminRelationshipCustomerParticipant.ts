@@ -1,7 +1,7 @@
 import {DelegatedAdminRelationshipCustomerParticipant} from './delegatedAdminRelationshipCustomerParticipant';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDelegatedAdminRelationshipCustomerParticipant(writer: SerializationWriter, delegatedAdminRelationshipCustomerParticipant: DelegatedAdminRelationshipCustomerParticipant | undefined = {} as DelegatedAdminRelationshipCustomerParticipant) : void {
+export function serializeDelegatedAdminRelationshipCustomerParticipant(delegatedAdminRelationshipCustomerParticipant: DelegatedAdminRelationshipCustomerParticipant | undefined = {} as DelegatedAdminRelationshipCustomerParticipant, writer: SerializationWriter) : void {
         writer.writeStringValue("displayName", delegatedAdminRelationshipCustomerParticipant.displayName);
         writer.writeStringValue("@odata.type", delegatedAdminRelationshipCustomerParticipant.odataType);
         writer.writeStringValue("tenantId", delegatedAdminRelationshipCustomerParticipant.tenantId);

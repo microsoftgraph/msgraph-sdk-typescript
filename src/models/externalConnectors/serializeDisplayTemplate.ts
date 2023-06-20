@@ -5,7 +5,7 @@ import {PropertyRule} from './propertyRule';
 import {serializePropertyRule} from './serializePropertyRule';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDisplayTemplate(writer: SerializationWriter, displayTemplate: DisplayTemplate | undefined = {} as DisplayTemplate) : void {
+export function serializeDisplayTemplate(displayTemplate: DisplayTemplate | undefined = {} as DisplayTemplate, writer: SerializationWriter) : void {
         writer.writeStringValue("id", displayTemplate.id);
         writer.writeObjectValue<Json>("layout", displayTemplate.layout, serializeJson);
         writer.writeStringValue("@odata.type", displayTemplate.odataType);

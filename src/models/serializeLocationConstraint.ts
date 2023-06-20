@@ -3,7 +3,7 @@ import {LocationConstraintItem} from './locationConstraintItem';
 import {serializeLocationConstraintItem} from './serializeLocationConstraintItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLocationConstraint(writer: SerializationWriter, locationConstraint: LocationConstraint | undefined = {} as LocationConstraint) : void {
+export function serializeLocationConstraint(locationConstraint: LocationConstraint | undefined = {} as LocationConstraint, writer: SerializationWriter) : void {
         writer.writeBooleanValue("isRequired", locationConstraint.isRequired);
         writer.writeCollectionOfObjectValues<LocationConstraintItem>("locations", locationConstraint.locations, serializeLocationConstraintItem);
         writer.writeStringValue("@odata.type", locationConstraint.odataType);

@@ -7,7 +7,7 @@ import {serializeContentTypeInfo} from './serializeContentTypeInfo';
 import {serializeDocumentSetContent} from './serializeDocumentSetContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDocumentSet(writer: SerializationWriter, documentSet: DocumentSet | undefined = {} as DocumentSet) : void {
+export function serializeDocumentSet(documentSet: DocumentSet | undefined = {} as DocumentSet, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<ContentTypeInfo>("allowedContentTypes", documentSet.allowedContentTypes, serializeContentTypeInfo);
         writer.writeCollectionOfObjectValues<DocumentSetContent>("defaultContents", documentSet.defaultContents, serializeDocumentSetContent);
         writer.writeStringValue("@odata.type", documentSet.odataType);

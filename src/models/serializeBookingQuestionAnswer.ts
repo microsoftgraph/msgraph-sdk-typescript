@@ -2,7 +2,7 @@ import {AnswerInputType} from './answerInputType';
 import {BookingQuestionAnswer} from './bookingQuestionAnswer';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingQuestionAnswer(writer: SerializationWriter, bookingQuestionAnswer: BookingQuestionAnswer | undefined = {} as BookingQuestionAnswer) : void {
+export function serializeBookingQuestionAnswer(bookingQuestionAnswer: BookingQuestionAnswer | undefined = {} as BookingQuestionAnswer, writer: SerializationWriter) : void {
         writer.writeStringValue("answer", bookingQuestionAnswer.answer);
         writer.writeEnumValue<AnswerInputType>("answerInputType", bookingQuestionAnswer.answerInputType);
         writer.writeCollectionOfPrimitiveValues<string>("answerOptions", bookingQuestionAnswer.answerOptions);

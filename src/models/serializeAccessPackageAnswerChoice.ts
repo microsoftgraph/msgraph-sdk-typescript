@@ -3,7 +3,7 @@ import {AccessPackageLocalizedText} from './accessPackageLocalizedText';
 import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageAnswerChoice(writer: SerializationWriter, accessPackageAnswerChoice: AccessPackageAnswerChoice | undefined = {} as AccessPackageAnswerChoice) : void {
+export function serializeAccessPackageAnswerChoice(accessPackageAnswerChoice: AccessPackageAnswerChoice | undefined = {} as AccessPackageAnswerChoice, writer: SerializationWriter) : void {
         writer.writeStringValue("actualValue", accessPackageAnswerChoice.actualValue);
         writer.writeCollectionOfObjectValues<AccessPackageLocalizedText>("localizations", accessPackageAnswerChoice.localizations, serializeAccessPackageLocalizedText);
         writer.writeStringValue("@odata.type", accessPackageAnswerChoice.odataType);

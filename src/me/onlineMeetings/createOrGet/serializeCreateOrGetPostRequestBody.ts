@@ -5,7 +5,7 @@ import {serializeMeetingParticipants} from '../../../models/serializeMeetingPart
 import {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : void {
+export function serializeCreateOrGetPostRequestBody(createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);
         writer.writeDateValue("endDateTime", createOrGetPostRequestBody.endDateTime);
         writer.writeStringValue("externalId", createOrGetPostRequestBody.externalId);

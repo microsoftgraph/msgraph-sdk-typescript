@@ -1,7 +1,7 @@
 import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosMinimumOperatingSystem(writer: SerializationWriter, iosMinimumOperatingSystem: IosMinimumOperatingSystem | undefined = {} as IosMinimumOperatingSystem) : void {
+export function serializeIosMinimumOperatingSystem(iosMinimumOperatingSystem: IosMinimumOperatingSystem | undefined = {} as IosMinimumOperatingSystem, writer: SerializationWriter) : void {
         writer.writeStringValue("@odata.type", iosMinimumOperatingSystem.odataType);
         writer.writeBooleanValue("v10_0", iosMinimumOperatingSystem.v10_0);
         writer.writeBooleanValue("v11_0", iosMinimumOperatingSystem.v11_0);

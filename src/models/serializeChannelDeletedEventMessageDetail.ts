@@ -4,7 +4,7 @@ import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChannelDeletedEventMessageDetail(writer: SerializationWriter, channelDeletedEventMessageDetail: ChannelDeletedEventMessageDetail | undefined = {} as ChannelDeletedEventMessageDetail) : void {
+export function serializeChannelDeletedEventMessageDetail(channelDeletedEventMessageDetail: ChannelDeletedEventMessageDetail | undefined = {} as ChannelDeletedEventMessageDetail, writer: SerializationWriter) : void {
         serializeEventMessageDetail(writer, channelDeletedEventMessageDetail)
         writer.writeStringValue("channelDisplayName", channelDeletedEventMessageDetail.channelDisplayName);
         writer.writeStringValue("channelId", channelDeletedEventMessageDetail.channelId);

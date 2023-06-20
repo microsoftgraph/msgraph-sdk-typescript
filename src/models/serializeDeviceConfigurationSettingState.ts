@@ -4,7 +4,7 @@ import {serializeSettingSource} from './serializeSettingSource';
 import {SettingSource} from './settingSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceConfigurationSettingState(writer: SerializationWriter, deviceConfigurationSettingState: DeviceConfigurationSettingState | undefined = {} as DeviceConfigurationSettingState) : void {
+export function serializeDeviceConfigurationSettingState(deviceConfigurationSettingState: DeviceConfigurationSettingState | undefined = {} as DeviceConfigurationSettingState, writer: SerializationWriter) : void {
         writer.writeStringValue("currentValue", deviceConfigurationSettingState.currentValue);
         writer.writeNumberValue("errorCode", deviceConfigurationSettingState.errorCode);
         writer.writeStringValue("errorDescription", deviceConfigurationSettingState.errorDescription);

@@ -8,7 +8,7 @@ import {CaseOperation} from './caseOperation';
 import {CaseOperationStatus} from './caseOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCaseOperation(writer: SerializationWriter, caseOperation: CaseOperation | undefined = {} as CaseOperation) : void {
+export function serializeCaseOperation(caseOperation: CaseOperation | undefined = {} as CaseOperation, writer: SerializationWriter) : void {
         serializeEntity(writer, caseOperation)
         writer.writeEnumValue<CaseAction>("action", caseOperation.action);
         writer.writeDateValue("completedDateTime", caseOperation.completedDateTime);

@@ -4,7 +4,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeImportedWindowsAutopilotDeviceIdentityState} from './serializeImportedWindowsAutopilotDeviceIdentityState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeImportedWindowsAutopilotDeviceIdentity(writer: SerializationWriter, importedWindowsAutopilotDeviceIdentity: ImportedWindowsAutopilotDeviceIdentity | undefined = {} as ImportedWindowsAutopilotDeviceIdentity) : void {
+export function serializeImportedWindowsAutopilotDeviceIdentity(importedWindowsAutopilotDeviceIdentity: ImportedWindowsAutopilotDeviceIdentity | undefined = {} as ImportedWindowsAutopilotDeviceIdentity, writer: SerializationWriter) : void {
         serializeEntity(writer, importedWindowsAutopilotDeviceIdentity)
         writer.writeStringValue("assignedUserPrincipalName", importedWindowsAutopilotDeviceIdentity.assignedUserPrincipalName);
         writer.writeStringValue("groupTag", importedWindowsAutopilotDeviceIdentity.groupTag);

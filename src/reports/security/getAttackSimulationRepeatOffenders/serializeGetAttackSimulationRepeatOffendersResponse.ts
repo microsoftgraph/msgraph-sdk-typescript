@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../models/se
 import {GetAttackSimulationRepeatOffendersResponse} from './getAttackSimulationRepeatOffendersResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetAttackSimulationRepeatOffendersResponse(writer: SerializationWriter, getAttackSimulationRepeatOffendersResponse: GetAttackSimulationRepeatOffendersResponse | undefined = {} as GetAttackSimulationRepeatOffendersResponse) : void {
+export function serializeGetAttackSimulationRepeatOffendersResponse(getAttackSimulationRepeatOffendersResponse: GetAttackSimulationRepeatOffendersResponse | undefined = {} as GetAttackSimulationRepeatOffendersResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationRepeatOffendersResponse)
         writer.writeCollectionOfObjectValues<AttackSimulationRepeatOffender>("value", getAttackSimulationRepeatOffendersResponse.value, serializeAttackSimulationRepeatOffender);
 }

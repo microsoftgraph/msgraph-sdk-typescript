@@ -12,7 +12,7 @@ import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {ServiceSource} from './serviceSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
+export function serializeAlert(alert: Alert | undefined = {} as Alert, writer: SerializationWriter) : void {
         serializeEntity(writer, alert)
         writer.writeStringValue("actorDisplayName", alert.actorDisplayName);
         writer.writeStringValue("alertWebUrl", alert.alertWebUrl);

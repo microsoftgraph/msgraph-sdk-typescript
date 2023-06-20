@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeDeviceManagementPartner} from './serializeDeviceManagementPartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceManagementPartnerCollectionResponse(writer: SerializationWriter, deviceManagementPartnerCollectionResponse: DeviceManagementPartnerCollectionResponse | undefined = {} as DeviceManagementPartnerCollectionResponse) : void {
+export function serializeDeviceManagementPartnerCollectionResponse(deviceManagementPartnerCollectionResponse: DeviceManagementPartnerCollectionResponse | undefined = {} as DeviceManagementPartnerCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceManagementPartnerCollectionResponse)
         writer.writeCollectionOfObjectValues<DeviceManagementPartner>("value", deviceManagementPartnerCollectionResponse.value, serializeDeviceManagementPartner);
 }

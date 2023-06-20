@@ -4,7 +4,7 @@ import {CrossTenantAccessPolicyTargetConfigurationAccessType} from './crossTenan
 import {serializeCrossTenantAccessPolicyTarget} from './serializeCrossTenantAccessPolicyTarget';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCrossTenantAccessPolicyTargetConfiguration(writer: SerializationWriter, crossTenantAccessPolicyTargetConfiguration: CrossTenantAccessPolicyTargetConfiguration | undefined = {} as CrossTenantAccessPolicyTargetConfiguration) : void {
+export function serializeCrossTenantAccessPolicyTargetConfiguration(crossTenantAccessPolicyTargetConfiguration: CrossTenantAccessPolicyTargetConfiguration | undefined = {} as CrossTenantAccessPolicyTargetConfiguration, writer: SerializationWriter) : void {
         writer.writeEnumValue<CrossTenantAccessPolicyTargetConfigurationAccessType>("accessType", crossTenantAccessPolicyTargetConfiguration.accessType);
         writer.writeStringValue("@odata.type", crossTenantAccessPolicyTargetConfiguration.odataType);
         writer.writeCollectionOfObjectValues<CrossTenantAccessPolicyTarget>("targets", crossTenantAccessPolicyTargetConfiguration.targets, serializeCrossTenantAccessPolicyTarget);

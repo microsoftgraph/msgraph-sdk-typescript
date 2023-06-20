@@ -4,7 +4,7 @@ import {serializeMobileApp} from './serializeMobileApp';
 import {serializeMobileAppContent} from './serializeMobileAppContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMobileLobApp(writer: SerializationWriter, mobileLobApp: MobileLobApp | undefined = {} as MobileLobApp) : void {
+export function serializeMobileLobApp(mobileLobApp: MobileLobApp | undefined = {} as MobileLobApp, writer: SerializationWriter) : void {
         serializeMobileApp(writer, mobileLobApp)
         writer.writeStringValue("committedContentVersion", mobileLobApp.committedContentVersion);
         writer.writeCollectionOfObjectValues<MobileAppContent>("contentVersions", mobileLobApp.contentVersions, serializeMobileAppContent);

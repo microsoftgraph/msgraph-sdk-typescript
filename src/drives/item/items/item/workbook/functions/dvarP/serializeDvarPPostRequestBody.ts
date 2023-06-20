@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {DvarPPostRequestBody} from './dvarPPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDvarPPostRequestBody(writer: SerializationWriter, dvarPPostRequestBody: DvarPPostRequestBody | undefined = {} as DvarPPostRequestBody) : void {
+export function serializeDvarPPostRequestBody(dvarPPostRequestBody: DvarPPostRequestBody | undefined = {} as DvarPPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("criteria", dvarPPostRequestBody.criteria, serializeJson);
         writer.writeObjectValue<Json>("database", dvarPPostRequestBody.database, serializeJson);
         writer.writeObjectValue<Json>("field", dvarPPostRequestBody.field, serializeJson);

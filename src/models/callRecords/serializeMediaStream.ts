@@ -4,11 +4,12 @@ import {MediaStreamDirection} from './mediaStreamDirection';
 import {VideoCodec} from './videoCodec';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMediaStream(writer: SerializationWriter, mediaStream: MediaStream | undefined = {} as MediaStream) : void {
+export function serializeMediaStream(mediaStream: MediaStream | undefined = {} as MediaStream, writer: SerializationWriter) : void {
         writer.writeEnumValue<AudioCodec>("audioCodec", mediaStream.audioCodec);
         writer.writeNumberValue("averageAudioDegradation", mediaStream.averageAudioDegradation);
         writer.writeDurationValue("averageAudioNetworkJitter", mediaStream.averageAudioNetworkJitter);
         writer.writeNumberValue("averageBandwidthEstimate", mediaStream.averageBandwidthEstimate);
+        writer.writeDurationValue("averageFreezeDuration", mediaStream.averageFreezeDuration);
         writer.writeDurationValue("averageJitter", mediaStream.averageJitter);
         writer.writeNumberValue("averagePacketLossRate", mediaStream.averagePacketLossRate);
         writer.writeNumberValue("averageRatioOfConcealedSamples", mediaStream.averageRatioOfConcealedSamples);
@@ -18,6 +19,7 @@ export function serializeMediaStream(writer: SerializationWriter, mediaStream: M
         writer.writeNumberValue("averageVideoFrameRate", mediaStream.averageVideoFrameRate);
         writer.writeNumberValue("averageVideoPacketLossRate", mediaStream.averageVideoPacketLossRate);
         writer.writeDateValue("endDateTime", mediaStream.endDateTime);
+        writer.writeBooleanValue("isAudioForwardErrorCorrectionUsed", mediaStream.isAudioForwardErrorCorrectionUsed);
         writer.writeNumberValue("lowFrameRateRatio", mediaStream.lowFrameRateRatio);
         writer.writeNumberValue("lowVideoProcessingCapabilityRatio", mediaStream.lowVideoProcessingCapabilityRatio);
         writer.writeDurationValue("maxAudioNetworkJitter", mediaStream.maxAudioNetworkJitter);
@@ -28,6 +30,7 @@ export function serializeMediaStream(writer: SerializationWriter, mediaStream: M
         writer.writeStringValue("@odata.type", mediaStream.odataType);
         writer.writeNumberValue("packetUtilization", mediaStream.packetUtilization);
         writer.writeNumberValue("postForwardErrorCorrectionPacketLossRate", mediaStream.postForwardErrorCorrectionPacketLossRate);
+        writer.writeDurationValue("rmsFreezeDuration", mediaStream.rmsFreezeDuration);
         writer.writeDateValue("startDateTime", mediaStream.startDateTime);
         writer.writeEnumValue<MediaStreamDirection>("streamDirection", mediaStream.streamDirection);
         writer.writeStringValue("streamId", mediaStream.streamId);

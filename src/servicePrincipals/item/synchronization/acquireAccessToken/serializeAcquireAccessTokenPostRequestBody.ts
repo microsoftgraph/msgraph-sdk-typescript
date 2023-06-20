@@ -3,7 +3,7 @@ import {SynchronizationSecretKeyStringValuePair} from '../../../../models/synchr
 import {AcquireAccessTokenPostRequestBody} from './acquireAccessTokenPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAcquireAccessTokenPostRequestBody(writer: SerializationWriter, acquireAccessTokenPostRequestBody: AcquireAccessTokenPostRequestBody | undefined = {} as AcquireAccessTokenPostRequestBody) : void {
+export function serializeAcquireAccessTokenPostRequestBody(acquireAccessTokenPostRequestBody: AcquireAccessTokenPostRequestBody | undefined = {} as AcquireAccessTokenPostRequestBody, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>("credentials", acquireAccessTokenPostRequestBody.credentials, serializeSynchronizationSecretKeyStringValuePair);
         writer.writeAdditionalData(acquireAccessTokenPostRequestBody.additionalData);
 }

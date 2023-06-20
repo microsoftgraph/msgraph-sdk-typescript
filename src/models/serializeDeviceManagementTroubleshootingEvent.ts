@@ -2,7 +2,7 @@ import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroublesho
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceManagementTroubleshootingEvent(writer: SerializationWriter, deviceManagementTroubleshootingEvent: DeviceManagementTroubleshootingEvent | undefined = {} as DeviceManagementTroubleshootingEvent) : void {
+export function serializeDeviceManagementTroubleshootingEvent(deviceManagementTroubleshootingEvent: DeviceManagementTroubleshootingEvent | undefined = {} as DeviceManagementTroubleshootingEvent, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceManagementTroubleshootingEvent)
         writer.writeStringValue("correlationId", deviceManagementTroubleshootingEvent.correlationId);
         writer.writeDateValue("eventDateTime", deviceManagementTroubleshootingEvent.eventDateTime);

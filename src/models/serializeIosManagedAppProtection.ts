@@ -7,7 +7,7 @@ import {serializeManagedMobileApp} from './serializeManagedMobileApp';
 import {serializeTargetedManagedAppProtection} from './serializeTargetedManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosManagedAppProtection(writer: SerializationWriter, iosManagedAppProtection: IosManagedAppProtection | undefined = {} as IosManagedAppProtection) : void {
+export function serializeIosManagedAppProtection(iosManagedAppProtection: IosManagedAppProtection | undefined = {} as IosManagedAppProtection, writer: SerializationWriter) : void {
         serializeTargetedManagedAppProtection(writer, iosManagedAppProtection)
         writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", iosManagedAppProtection.appDataEncryptionType);
         writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", iosManagedAppProtection.apps, serializeManagedMobileApp);

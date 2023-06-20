@@ -2,7 +2,7 @@ import {AppRoleAssignment} from './appRoleAssignment';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAppRoleAssignment(writer: SerializationWriter, appRoleAssignment: AppRoleAssignment | undefined = {} as AppRoleAssignment) : void {
+export function serializeAppRoleAssignment(appRoleAssignment: AppRoleAssignment | undefined = {} as AppRoleAssignment, writer: SerializationWriter) : void {
         serializeDirectoryObject(writer, appRoleAssignment)
         writer.writeStringValue("appRoleId", appRoleAssignment.appRoleId);
         writer.writeDateValue("createdDateTime", appRoleAssignment.createdDateTime);

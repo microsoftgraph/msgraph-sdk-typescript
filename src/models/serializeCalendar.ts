@@ -14,7 +14,7 @@ import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValue
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCalendar(writer: SerializationWriter, calendar: Calendar | undefined = {} as Calendar) : void {
+export function serializeCalendar(calendar: Calendar | undefined = {} as Calendar, writer: SerializationWriter) : void {
         serializeEntity(writer, calendar)
         if(calendar.allowedOnlineMeetingProviders)
         writer.writeEnumValue<OnlineMeetingProviderType>("allowedOnlineMeetingProviders", ...calendar.allowedOnlineMeetingProviders);

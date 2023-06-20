@@ -24,7 +24,7 @@ import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeItemBody} from './serializeItemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChatMessage(writer: SerializationWriter, chatMessage: ChatMessage | undefined = {} as ChatMessage) : void {
+export function serializeChatMessage(chatMessage: ChatMessage | undefined = {} as ChatMessage, writer: SerializationWriter) : void {
         serializeEntity(writer, chatMessage)
         writer.writeCollectionOfObjectValues<ChatMessageAttachment>("attachments", chatMessage.attachments, serializeChatMessageAttachment);
         writer.writeObjectValue<ItemBody>("body", chatMessage.body, serializeItemBody);

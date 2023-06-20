@@ -9,7 +9,7 @@ import {serializeOnlineMeeting} from './serializeOnlineMeeting';
 import {serializePresence} from './serializePresence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCloudCommunications(writer: SerializationWriter, cloudCommunications: CloudCommunications | undefined = {} as CloudCommunications) : void {
+export function serializeCloudCommunications(cloudCommunications: CloudCommunications | undefined = {} as CloudCommunications, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<CallRecord>("callRecords", cloudCommunications.callRecords, serializeCallRecord);
         writer.writeCollectionOfObjectValues<Call>("calls", cloudCommunications.calls, serializeCall);
         writer.writeStringValue("@odata.type", cloudCommunications.odataType);

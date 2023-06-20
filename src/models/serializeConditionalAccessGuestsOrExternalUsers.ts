@@ -4,7 +4,7 @@ import {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsO
 import {serializeConditionalAccessExternalTenants} from './serializeConditionalAccessExternalTenants';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessGuestsOrExternalUsers(writer: SerializationWriter, conditionalAccessGuestsOrExternalUsers: ConditionalAccessGuestsOrExternalUsers | undefined = {} as ConditionalAccessGuestsOrExternalUsers) : void {
+export function serializeConditionalAccessGuestsOrExternalUsers(conditionalAccessGuestsOrExternalUsers: ConditionalAccessGuestsOrExternalUsers | undefined = {} as ConditionalAccessGuestsOrExternalUsers, writer: SerializationWriter) : void {
         writer.writeObjectValue<ConditionalAccessExternalTenants>("externalTenants", conditionalAccessGuestsOrExternalUsers.externalTenants, serializeConditionalAccessExternalTenants);
         writer.writeEnumValue<ConditionalAccessGuestOrExternalUserTypes>("guestOrExternalUserTypes", conditionalAccessGuestsOrExternalUsers.guestOrExternalUserTypes);
         writer.writeStringValue("@odata.type", conditionalAccessGuestsOrExternalUsers.odataType);

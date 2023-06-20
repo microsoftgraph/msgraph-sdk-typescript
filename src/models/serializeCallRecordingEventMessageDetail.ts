@@ -5,7 +5,7 @@ import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCallRecordingEventMessageDetail(writer: SerializationWriter, callRecordingEventMessageDetail: CallRecordingEventMessageDetail | undefined = {} as CallRecordingEventMessageDetail) : void {
+export function serializeCallRecordingEventMessageDetail(callRecordingEventMessageDetail: CallRecordingEventMessageDetail | undefined = {} as CallRecordingEventMessageDetail, writer: SerializationWriter) : void {
         serializeEventMessageDetail(writer, callRecordingEventMessageDetail)
         writer.writeStringValue("callId", callRecordingEventMessageDetail.callId);
         writer.writeStringValue("callRecordingDisplayName", callRecordingEventMessageDetail.callRecordingDisplayName);

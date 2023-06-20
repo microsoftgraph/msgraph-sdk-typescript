@@ -10,7 +10,7 @@ import {serializeAlert} from './serializeAlert';
 import {serializeAlertComment} from './serializeAlertComment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIncident(writer: SerializationWriter, incident: Incident | undefined = {} as Incident) : void {
+export function serializeIncident(incident: Incident | undefined = {} as Incident, writer: SerializationWriter) : void {
         serializeEntity(writer, incident)
         writer.writeCollectionOfObjectValues<Alert>("alerts", incident.alerts, serializeAlert);
         writer.writeStringValue("assignedTo", incident.assignedTo);

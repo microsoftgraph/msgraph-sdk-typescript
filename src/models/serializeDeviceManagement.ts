@@ -71,7 +71,7 @@ import {WindowsInformationProtectionAppLearningSummary} from './windowsInformati
 import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceManagement(writer: SerializationWriter, deviceManagement: DeviceManagement | undefined = {} as DeviceManagement) : void {
+export function serializeDeviceManagement(deviceManagement: DeviceManagement | undefined = {} as DeviceManagement, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceManagement)
         writer.writeObjectValue<ApplePushNotificationCertificate>("applePushNotificationCertificate", deviceManagement.applePushNotificationCertificate, serializeApplePushNotificationCertificate);
         writer.writeCollectionOfObjectValues<AuditEvent>("auditEvents", deviceManagement.auditEvents, serializeAuditEvent);

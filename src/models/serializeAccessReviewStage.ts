@@ -6,7 +6,7 @@ import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewe
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewStage(writer: SerializationWriter, accessReviewStage: AccessReviewStage | undefined = {} as AccessReviewStage) : void {
+export function serializeAccessReviewStage(accessReviewStage: AccessReviewStage | undefined = {} as AccessReviewStage, writer: SerializationWriter) : void {
         serializeEntity(writer, accessReviewStage)
         writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("decisions", accessReviewStage.decisions, serializeAccessReviewInstanceDecisionItem);
         writer.writeDateValue("endDateTime", accessReviewStage.endDateTime);

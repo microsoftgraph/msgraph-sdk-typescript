@@ -14,7 +14,7 @@ import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceS
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceConfiguration(writer: SerializationWriter, deviceConfiguration: DeviceConfiguration | undefined = {} as DeviceConfiguration) : void {
+export function serializeDeviceConfiguration(deviceConfiguration: DeviceConfiguration | undefined = {} as DeviceConfiguration, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceConfiguration)
         writer.writeCollectionOfObjectValues<DeviceConfigurationAssignment>("assignments", deviceConfiguration.assignments, serializeDeviceConfigurationAssignment);
         writer.writeDateValue("createdDateTime", deviceConfiguration.createdDateTime);

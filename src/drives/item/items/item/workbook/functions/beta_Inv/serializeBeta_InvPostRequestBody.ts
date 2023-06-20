@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {Beta_InvPostRequestBody} from './beta_InvPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Beta_InvPostRequestBody | undefined = {} as Beta_InvPostRequestBody) : void {
+export function serializeBeta_InvPostRequestBody(beta_InvPostRequestBody: Beta_InvPostRequestBody | undefined = {} as Beta_InvPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("a", beta_InvPostRequestBody.a, serializeJson);
         writer.writeObjectValue<Json>("alpha", beta_InvPostRequestBody.alpha, serializeJson);
         writer.writeObjectValue<Json>("b", beta_InvPostRequestBody.b, serializeJson);

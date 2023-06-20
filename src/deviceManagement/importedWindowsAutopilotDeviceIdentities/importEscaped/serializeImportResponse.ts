@@ -4,7 +4,7 @@ import {serializeImportedWindowsAutopilotDeviceIdentity} from '../../../models/s
 import {ImportResponse} from './importResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeImportResponse(writer: SerializationWriter, importResponse: ImportResponse | undefined = {} as ImportResponse) : void {
+export function serializeImportResponse(importResponse: ImportResponse | undefined = {} as ImportResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, importResponse)
         writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("value", importResponse.value, serializeImportedWindowsAutopilotDeviceIdentity);
 }

@@ -14,7 +14,7 @@ import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {serializeOnPremisesDirectorySynchronization} from './serializeOnPremisesDirectorySynchronization';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDirectory(writer: SerializationWriter, directory: Directory | undefined = {} as Directory) : void {
+export function serializeDirectory(directory: Directory | undefined = {} as Directory, writer: SerializationWriter) : void {
         serializeEntity(writer, directory)
         writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", directory.administrativeUnits, serializeAdministrativeUnit);
         writer.writeCollectionOfObjectValues<AttributeSet>("attributeSets", directory.attributeSets, serializeAttributeSet);

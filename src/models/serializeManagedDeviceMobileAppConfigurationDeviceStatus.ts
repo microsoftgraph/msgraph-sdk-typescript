@@ -3,7 +3,7 @@ import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMo
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeManagedDeviceMobileAppConfigurationDeviceStatus(writer: SerializationWriter, managedDeviceMobileAppConfigurationDeviceStatus: ManagedDeviceMobileAppConfigurationDeviceStatus | undefined = {} as ManagedDeviceMobileAppConfigurationDeviceStatus) : void {
+export function serializeManagedDeviceMobileAppConfigurationDeviceStatus(managedDeviceMobileAppConfigurationDeviceStatus: ManagedDeviceMobileAppConfigurationDeviceStatus | undefined = {} as ManagedDeviceMobileAppConfigurationDeviceStatus, writer: SerializationWriter) : void {
         serializeEntity(writer, managedDeviceMobileAppConfigurationDeviceStatus)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", managedDeviceMobileAppConfigurationDeviceStatus.complianceGracePeriodExpirationDateTime);
         writer.writeStringValue("deviceDisplayName", managedDeviceMobileAppConfigurationDeviceStatus.deviceDisplayName);

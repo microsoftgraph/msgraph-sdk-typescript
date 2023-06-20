@@ -4,7 +4,7 @@ import {serializeFilterOperatorSchema} from '../../../../../../../models/seriali
 import {FilterOperatorsResponse} from './filterOperatorsResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFilterOperatorsResponse(writer: SerializationWriter, filterOperatorsResponse: FilterOperatorsResponse | undefined = {} as FilterOperatorsResponse) : void {
+export function serializeFilterOperatorsResponse(filterOperatorsResponse: FilterOperatorsResponse | undefined = {} as FilterOperatorsResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsResponse)
         writer.writeCollectionOfObjectValues<FilterOperatorSchema>("value", filterOperatorsResponse.value, serializeFilterOperatorSchema);
 }

@@ -3,7 +3,7 @@ import {IncomingContext} from './incomingContext';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIncomingContext(writer: SerializationWriter, incomingContext: IncomingContext | undefined = {} as IncomingContext) : void {
+export function serializeIncomingContext(incomingContext: IncomingContext | undefined = {} as IncomingContext, writer: SerializationWriter) : void {
         writer.writeStringValue("observedParticipantId", incomingContext.observedParticipantId);
         writer.writeStringValue("@odata.type", incomingContext.odataType);
         writer.writeObjectValue<IdentitySet>("onBehalfOf", incomingContext.onBehalfOf, serializeIdentitySet);

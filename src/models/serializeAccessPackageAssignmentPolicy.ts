@@ -21,7 +21,7 @@ import {serializeSubjectSet} from './serializeSubjectSet';
 import {SubjectSet} from './subjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageAssignmentPolicy(writer: SerializationWriter, accessPackageAssignmentPolicy: AccessPackageAssignmentPolicy | undefined = {} as AccessPackageAssignmentPolicy) : void {
+export function serializeAccessPackageAssignmentPolicy(accessPackageAssignmentPolicy: AccessPackageAssignmentPolicy | undefined = {} as AccessPackageAssignmentPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, accessPackageAssignmentPolicy)
         writer.writeObjectValue<AccessPackage>("accessPackage", accessPackageAssignmentPolicy.accessPackage, serializeAccessPackage);
         writer.writeEnumValue<AllowedTargetScope>("allowedTargetScope", accessPackageAssignmentPolicy.allowedTargetScope);

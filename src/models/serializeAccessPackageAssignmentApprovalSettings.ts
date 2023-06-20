@@ -3,7 +3,7 @@ import {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignment
 import {serializeAccessPackageApprovalStage} from './serializeAccessPackageApprovalStage';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageAssignmentApprovalSettings(writer: SerializationWriter, accessPackageAssignmentApprovalSettings: AccessPackageAssignmentApprovalSettings | undefined = {} as AccessPackageAssignmentApprovalSettings) : void {
+export function serializeAccessPackageAssignmentApprovalSettings(accessPackageAssignmentApprovalSettings: AccessPackageAssignmentApprovalSettings | undefined = {} as AccessPackageAssignmentApprovalSettings, writer: SerializationWriter) : void {
         writer.writeBooleanValue("isApprovalRequiredForAdd", accessPackageAssignmentApprovalSettings.isApprovalRequiredForAdd);
         writer.writeBooleanValue("isApprovalRequiredForUpdate", accessPackageAssignmentApprovalSettings.isApprovalRequiredForUpdate);
         writer.writeStringValue("@odata.type", accessPackageAssignmentApprovalSettings.odataType);

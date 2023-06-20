@@ -1,7 +1,7 @@
 import {IosDeviceType} from './iosDeviceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosDeviceType(writer: SerializationWriter, iosDeviceType: IosDeviceType | undefined = {} as IosDeviceType) : void {
+export function serializeIosDeviceType(iosDeviceType: IosDeviceType | undefined = {} as IosDeviceType, writer: SerializationWriter) : void {
         writer.writeBooleanValue("iPad", iosDeviceType.iPad);
         writer.writeBooleanValue("iPhoneAndIPod", iosDeviceType.iPhoneAndIPod);
         writer.writeStringValue("@odata.type", iosDeviceType.odataType);

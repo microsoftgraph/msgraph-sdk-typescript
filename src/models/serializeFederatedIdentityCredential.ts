@@ -2,7 +2,7 @@ import {FederatedIdentityCredential} from './federatedIdentityCredential';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFederatedIdentityCredential(writer: SerializationWriter, federatedIdentityCredential: FederatedIdentityCredential | undefined = {} as FederatedIdentityCredential) : void {
+export function serializeFederatedIdentityCredential(federatedIdentityCredential: FederatedIdentityCredential | undefined = {} as FederatedIdentityCredential, writer: SerializationWriter) : void {
         serializeEntity(writer, federatedIdentityCredential)
         writer.writeCollectionOfPrimitiveValues<string>("audiences", federatedIdentityCredential.audiences);
         writer.writeStringValue("description", federatedIdentityCredential.description);

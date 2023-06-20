@@ -3,7 +3,7 @@ import {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceConfigurationDeviceStatus(writer: SerializationWriter, deviceConfigurationDeviceStatus: DeviceConfigurationDeviceStatus | undefined = {} as DeviceConfigurationDeviceStatus) : void {
+export function serializeDeviceConfigurationDeviceStatus(deviceConfigurationDeviceStatus: DeviceConfigurationDeviceStatus | undefined = {} as DeviceConfigurationDeviceStatus, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceConfigurationDeviceStatus)
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", deviceConfigurationDeviceStatus.complianceGracePeriodExpirationDateTime);
         writer.writeStringValue("deviceDisplayName", deviceConfigurationDeviceStatus.deviceDisplayName);

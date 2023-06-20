@@ -4,7 +4,7 @@ import {serializeResourceSpecificPermissionGrant} from '../../../models/serializ
 import {CheckGrantedPermissionsForAppResponse} from './checkGrantedPermissionsForAppResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCheckGrantedPermissionsForAppResponse(writer: SerializationWriter, checkGrantedPermissionsForAppResponse: CheckGrantedPermissionsForAppResponse | undefined = {} as CheckGrantedPermissionsForAppResponse) : void {
+export function serializeCheckGrantedPermissionsForAppResponse(checkGrantedPermissionsForAppResponse: CheckGrantedPermissionsForAppResponse | undefined = {} as CheckGrantedPermissionsForAppResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, checkGrantedPermissionsForAppResponse)
         writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("value", checkGrantedPermissionsForAppResponse.value, serializeResourceSpecificPermissionGrant);
 }

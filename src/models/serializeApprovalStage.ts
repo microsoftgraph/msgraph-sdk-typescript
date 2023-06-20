@@ -4,7 +4,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeApprovalStage(writer: SerializationWriter, approvalStage: ApprovalStage | undefined = {} as ApprovalStage) : void {
+export function serializeApprovalStage(approvalStage: ApprovalStage | undefined = {} as ApprovalStage, writer: SerializationWriter) : void {
         serializeEntity(writer, approvalStage)
         writer.writeBooleanValue("assignedToMe", approvalStage.assignedToMe);
         writer.writeStringValue("displayName", approvalStage.displayName);

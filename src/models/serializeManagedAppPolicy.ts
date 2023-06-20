@@ -2,7 +2,7 @@ import {ManagedAppPolicy} from './managedAppPolicy';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeManagedAppPolicy(writer: SerializationWriter, managedAppPolicy: ManagedAppPolicy | undefined = {} as ManagedAppPolicy) : void {
+export function serializeManagedAppPolicy(managedAppPolicy: ManagedAppPolicy | undefined = {} as ManagedAppPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, managedAppPolicy)
         writer.writeDateValue("createdDateTime", managedAppPolicy.createdDateTime);
         writer.writeStringValue("description", managedAppPolicy.description);

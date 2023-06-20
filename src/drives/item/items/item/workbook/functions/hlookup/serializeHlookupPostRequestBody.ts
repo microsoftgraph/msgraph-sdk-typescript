@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {HlookupPostRequestBody} from './hlookupPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeHlookupPostRequestBody(writer: SerializationWriter, hlookupPostRequestBody: HlookupPostRequestBody | undefined = {} as HlookupPostRequestBody) : void {
+export function serializeHlookupPostRequestBody(hlookupPostRequestBody: HlookupPostRequestBody | undefined = {} as HlookupPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("lookupValue", hlookupPostRequestBody.lookupValue, serializeJson);
         writer.writeObjectValue<Json>("rangeLookup", hlookupPostRequestBody.rangeLookup, serializeJson);
         writer.writeObjectValue<Json>("rowIndexNum", hlookupPostRequestBody.rowIndexNum, serializeJson);

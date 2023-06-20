@@ -6,7 +6,7 @@ import {serializeDeviceConfigurationSettingState} from './serializeDeviceConfigu
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceConfigurationState(writer: SerializationWriter, deviceConfigurationState: DeviceConfigurationState | undefined = {} as DeviceConfigurationState) : void {
+export function serializeDeviceConfigurationState(deviceConfigurationState: DeviceConfigurationState | undefined = {} as DeviceConfigurationState, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceConfigurationState)
         writer.writeStringValue("displayName", deviceConfigurationState.displayName);
         writer.writeEnumValue<PolicyPlatformType>("platformType", deviceConfigurationState.platformType);

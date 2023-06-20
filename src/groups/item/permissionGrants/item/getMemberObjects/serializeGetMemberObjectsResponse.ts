@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../../../mod
 import {GetMemberObjectsResponse} from './getMemberObjectsResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetMemberObjectsResponse(writer: SerializationWriter, getMemberObjectsResponse: GetMemberObjectsResponse | undefined = {} as GetMemberObjectsResponse) : void {
+export function serializeGetMemberObjectsResponse(getMemberObjectsResponse: GetMemberObjectsResponse | undefined = {} as GetMemberObjectsResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectsResponse)
         writer.writeCollectionOfPrimitiveValues<string>("value", getMemberObjectsResponse.value);
 }

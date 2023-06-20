@@ -7,7 +7,7 @@ import {serializeUserAttributeValuesItem} from './serializeUserAttributeValuesIt
 import {UserAttributeValuesItem} from './userAttributeValuesItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentityUserFlowAttributeAssignment(writer: SerializationWriter, identityUserFlowAttributeAssignment: IdentityUserFlowAttributeAssignment | undefined = {} as IdentityUserFlowAttributeAssignment) : void {
+export function serializeIdentityUserFlowAttributeAssignment(identityUserFlowAttributeAssignment: IdentityUserFlowAttributeAssignment | undefined = {} as IdentityUserFlowAttributeAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, identityUserFlowAttributeAssignment)
         writer.writeStringValue("displayName", identityUserFlowAttributeAssignment.displayName);
         writer.writeBooleanValue("isOptional", identityUserFlowAttributeAssignment.isOptional);

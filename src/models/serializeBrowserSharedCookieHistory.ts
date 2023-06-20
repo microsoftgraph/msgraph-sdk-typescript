@@ -4,7 +4,7 @@ import {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBrowserSharedCookieHistory(writer: SerializationWriter, browserSharedCookieHistory: BrowserSharedCookieHistory | undefined = {} as BrowserSharedCookieHistory) : void {
+export function serializeBrowserSharedCookieHistory(browserSharedCookieHistory: BrowserSharedCookieHistory | undefined = {} as BrowserSharedCookieHistory, writer: SerializationWriter) : void {
         writer.writeStringValue("comment", browserSharedCookieHistory.comment);
         writer.writeStringValue("displayName", browserSharedCookieHistory.displayName);
         writer.writeBooleanValue("hostOnly", browserSharedCookieHistory.hostOnly);

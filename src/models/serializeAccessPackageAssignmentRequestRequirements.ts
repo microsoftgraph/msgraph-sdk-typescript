@@ -5,7 +5,7 @@ import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
 import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageAssignmentRequestRequirements(writer: SerializationWriter, accessPackageAssignmentRequestRequirements: AccessPackageAssignmentRequestRequirements | undefined = {} as AccessPackageAssignmentRequestRequirements) : void {
+export function serializeAccessPackageAssignmentRequestRequirements(accessPackageAssignmentRequestRequirements: AccessPackageAssignmentRequestRequirements | undefined = {} as AccessPackageAssignmentRequestRequirements, writer: SerializationWriter) : void {
         writer.writeBooleanValue("allowCustomAssignmentSchedule", accessPackageAssignmentRequestRequirements.allowCustomAssignmentSchedule);
         writer.writeBooleanValue("isApprovalRequiredForAdd", accessPackageAssignmentRequestRequirements.isApprovalRequiredForAdd);
         writer.writeBooleanValue("isApprovalRequiredForUpdate", accessPackageAssignmentRequestRequirements.isApprovalRequiredForUpdate);

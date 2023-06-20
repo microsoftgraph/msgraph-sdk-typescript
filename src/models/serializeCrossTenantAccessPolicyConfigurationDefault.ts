@@ -8,7 +8,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeInboundOutboundPolicyConfiguration} from './serializeInboundOutboundPolicyConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCrossTenantAccessPolicyConfigurationDefault(writer: SerializationWriter, crossTenantAccessPolicyConfigurationDefault: CrossTenantAccessPolicyConfigurationDefault | undefined = {} as CrossTenantAccessPolicyConfigurationDefault) : void {
+export function serializeCrossTenantAccessPolicyConfigurationDefault(crossTenantAccessPolicyConfigurationDefault: CrossTenantAccessPolicyConfigurationDefault | undefined = {} as CrossTenantAccessPolicyConfigurationDefault, writer: SerializationWriter) : void {
         serializeEntity(writer, crossTenantAccessPolicyConfigurationDefault)
         writer.writeObjectValue<InboundOutboundPolicyConfiguration>("automaticUserConsentSettings", crossTenantAccessPolicyConfigurationDefault.automaticUserConsentSettings, serializeInboundOutboundPolicyConfiguration);
         writer.writeObjectValue<CrossTenantAccessPolicyB2BSetting>("b2bCollaborationInbound", crossTenantAccessPolicyConfigurationDefault.b2bCollaborationInbound, serializeCrossTenantAccessPolicyB2BSetting);

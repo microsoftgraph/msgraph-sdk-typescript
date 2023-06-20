@@ -10,7 +10,7 @@ import {serializeVmMetadata} from './serializeVmMetadata';
 import {VmMetadata} from './vmMetadata';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : void {
+export function serializeDeviceEvidence(deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence, writer: SerializationWriter) : void {
         serializeAlertEvidence(writer, deviceEvidence)
         writer.writeStringValue("azureAdDeviceId", deviceEvidence.azureAdDeviceId);
         writer.writeEnumValue<DefenderAvStatus>("defenderAvStatus", deviceEvidence.defenderAvStatus);

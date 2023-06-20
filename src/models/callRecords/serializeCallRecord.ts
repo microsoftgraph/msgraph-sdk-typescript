@@ -8,7 +8,7 @@ import {serializeSession} from './serializeSession';
 import {Session} from './session';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCallRecord(writer: SerializationWriter, callRecord: CallRecord | undefined = {} as CallRecord) : void {
+export function serializeCallRecord(callRecord: CallRecord | undefined = {} as CallRecord, writer: SerializationWriter) : void {
         serializeEntity(writer, callRecord)
         writer.writeDateValue("endDateTime", callRecord.endDateTime);
         writer.writeStringValue("joinWebUrl", callRecord.joinWebUrl);

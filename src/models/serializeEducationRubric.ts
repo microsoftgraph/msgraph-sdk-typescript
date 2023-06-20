@@ -12,7 +12,7 @@ import {serializeRubricLevel} from './serializeRubricLevel';
 import {serializeRubricQuality} from './serializeRubricQuality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationRubric(writer: SerializationWriter, educationRubric: EducationRubric | undefined = {} as EducationRubric) : void {
+export function serializeEducationRubric(educationRubric: EducationRubric | undefined = {} as EducationRubric, writer: SerializationWriter) : void {
         serializeEntity(writer, educationRubric)
         writer.writeObjectValue<EducationItemBody>("description", educationRubric.description, serializeEducationItemBody);
         writer.writeStringValue("displayName", educationRubric.displayName);

@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../../../mod
 import {AddActivitiesResponse} from './addActivitiesResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAddActivitiesResponse(writer: SerializationWriter, addActivitiesResponse: AddActivitiesResponse | undefined = {} as AddActivitiesResponse) : void {
+export function serializeAddActivitiesResponse(addActivitiesResponse: AddActivitiesResponse | undefined = {} as AddActivitiesResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, addActivitiesResponse)
         writer.writeCollectionOfObjectValues<ExternalActivityResult>("value", addActivitiesResponse.value, serializeExternalActivityResult);
 }

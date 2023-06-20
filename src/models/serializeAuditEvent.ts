@@ -6,7 +6,7 @@ import {serializeAuditResource} from './serializeAuditResource';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuditEvent(writer: SerializationWriter, auditEvent: AuditEvent | undefined = {} as AuditEvent) : void {
+export function serializeAuditEvent(auditEvent: AuditEvent | undefined = {} as AuditEvent, writer: SerializationWriter) : void {
         serializeEntity(writer, auditEvent)
         writer.writeStringValue("activity", auditEvent.activity);
         writer.writeDateValue("activityDateTime", auditEvent.activityDateTime);

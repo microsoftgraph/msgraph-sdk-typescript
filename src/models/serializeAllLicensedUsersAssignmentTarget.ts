@@ -2,6 +2,6 @@ import {AllLicensedUsersAssignmentTarget} from './allLicensedUsersAssignmentTarg
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAllLicensedUsersAssignmentTarget(writer: SerializationWriter, allLicensedUsersAssignmentTarget: AllLicensedUsersAssignmentTarget | undefined = {} as AllLicensedUsersAssignmentTarget) : void {
+export function serializeAllLicensedUsersAssignmentTarget(allLicensedUsersAssignmentTarget: AllLicensedUsersAssignmentTarget | undefined = {} as AllLicensedUsersAssignmentTarget, writer: SerializationWriter) : void {
         serializeDeviceAndAppManagementAssignmentTarget(writer, allLicensedUsersAssignmentTarget)
 }

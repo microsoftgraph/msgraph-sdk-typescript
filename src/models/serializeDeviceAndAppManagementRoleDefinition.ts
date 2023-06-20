@@ -2,6 +2,6 @@ import {DeviceAndAppManagementRoleDefinition} from './deviceAndAppManagementRole
 import {serializeRoleDefinition} from './serializeRoleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceAndAppManagementRoleDefinition(writer: SerializationWriter, deviceAndAppManagementRoleDefinition: DeviceAndAppManagementRoleDefinition | undefined = {} as DeviceAndAppManagementRoleDefinition) : void {
+export function serializeDeviceAndAppManagementRoleDefinition(deviceAndAppManagementRoleDefinition: DeviceAndAppManagementRoleDefinition | undefined = {} as DeviceAndAppManagementRoleDefinition, writer: SerializationWriter) : void {
         serializeRoleDefinition(writer, deviceAndAppManagementRoleDefinition)
 }

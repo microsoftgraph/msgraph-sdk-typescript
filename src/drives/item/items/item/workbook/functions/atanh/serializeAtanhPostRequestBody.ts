@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {AtanhPostRequestBody} from './atanhPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAtanhPostRequestBody(writer: SerializationWriter, atanhPostRequestBody: AtanhPostRequestBody | undefined = {} as AtanhPostRequestBody) : void {
+export function serializeAtanhPostRequestBody(atanhPostRequestBody: AtanhPostRequestBody | undefined = {} as AtanhPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("number", atanhPostRequestBody.number, serializeJson);
         writer.writeAdditionalData(atanhPostRequestBody.additionalData);
 }

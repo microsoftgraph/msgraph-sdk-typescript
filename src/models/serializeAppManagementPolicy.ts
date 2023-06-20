@@ -6,7 +6,7 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializePolicyBase} from './serializePolicyBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAppManagementPolicy(writer: SerializationWriter, appManagementPolicy: AppManagementPolicy | undefined = {} as AppManagementPolicy) : void {
+export function serializeAppManagementPolicy(appManagementPolicy: AppManagementPolicy | undefined = {} as AppManagementPolicy, writer: SerializationWriter) : void {
         serializePolicyBase(writer, appManagementPolicy)
         writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", appManagementPolicy.appliesTo, serializeDirectoryObject);
         writer.writeBooleanValue("isEnabled", appManagementPolicy.isEnabled);

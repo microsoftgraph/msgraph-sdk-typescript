@@ -5,7 +5,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeResultInfo} from './serializeResultInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCommsOperation(writer: SerializationWriter, commsOperation: CommsOperation | undefined = {} as CommsOperation) : void {
+export function serializeCommsOperation(commsOperation: CommsOperation | undefined = {} as CommsOperation, writer: SerializationWriter) : void {
         serializeEntity(writer, commsOperation)
         writer.writeStringValue("clientContext", commsOperation.clientContext);
         writer.writeObjectValue<ResultInfo>("resultInfo", commsOperation.resultInfo, serializeResultInfo);

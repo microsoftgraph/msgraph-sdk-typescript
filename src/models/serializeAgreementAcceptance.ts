@@ -3,7 +3,7 @@ import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAgreementAcceptance(writer: SerializationWriter, agreementAcceptance: AgreementAcceptance | undefined = {} as AgreementAcceptance) : void {
+export function serializeAgreementAcceptance(agreementAcceptance: AgreementAcceptance | undefined = {} as AgreementAcceptance, writer: SerializationWriter) : void {
         serializeEntity(writer, agreementAcceptance)
         writer.writeStringValue("agreementFileId", agreementAcceptance.agreementFileId);
         writer.writeStringValue("agreementId", agreementAcceptance.agreementId);

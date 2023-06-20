@@ -13,7 +13,7 @@ import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import {TeamsTab} from './teamsTab';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeChannel(writer: SerializationWriter, channel: Channel | undefined = {} as Channel) : void {
+export function serializeChannel(channel: Channel | undefined = {} as Channel, writer: SerializationWriter) : void {
         serializeEntity(writer, channel)
         writer.writeDateValue("createdDateTime", channel.createdDateTime);
         writer.writeStringValue("description", channel.description);

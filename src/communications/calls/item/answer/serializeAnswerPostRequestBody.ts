@@ -6,7 +6,7 @@ import {serializeMediaConfig} from '../../../../models/serializeMediaConfig';
 import {AnswerPostRequestBody} from './answerPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody) : void {
+export function serializeAnswerPostRequestBody(answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody, writer: SerializationWriter) : void {
         if(answerPostRequestBody.acceptedModalities)
         writer.writeEnumValue<Modality>("acceptedModalities", ...answerPostRequestBody.acceptedModalities);
         writer.writeStringValue("callbackUri", answerPostRequestBody.callbackUri);

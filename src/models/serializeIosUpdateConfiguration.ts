@@ -3,7 +3,7 @@ import {IosUpdateConfiguration} from './iosUpdateConfiguration';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export function serializeIosUpdateConfiguration(writer: SerializationWriter, iosUpdateConfiguration: IosUpdateConfiguration | undefined = {} as IosUpdateConfiguration) : void {
+export function serializeIosUpdateConfiguration(iosUpdateConfiguration: IosUpdateConfiguration | undefined = {} as IosUpdateConfiguration, writer: SerializationWriter) : void {
         serializeDeviceConfiguration(writer, iosUpdateConfiguration)
         writer.writeTimeOnlyValue("activeHoursEnd", iosUpdateConfiguration.activeHoursEnd);
         writer.writeTimeOnlyValue("activeHoursStart", iosUpdateConfiguration.activeHoursStart);

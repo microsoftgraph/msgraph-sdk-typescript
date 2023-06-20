@@ -7,7 +7,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeRegistrationEnforcement} from './serializeRegistrationEnforcement';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthenticationMethodsPolicy(writer: SerializationWriter, authenticationMethodsPolicy: AuthenticationMethodsPolicy | undefined = {} as AuthenticationMethodsPolicy) : void {
+export function serializeAuthenticationMethodsPolicy(authenticationMethodsPolicy: AuthenticationMethodsPolicy | undefined = {} as AuthenticationMethodsPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, authenticationMethodsPolicy)
         writer.writeCollectionOfObjectValues<AuthenticationMethodConfiguration>("authenticationMethodConfigurations", authenticationMethodsPolicy.authenticationMethodConfigurations, serializeAuthenticationMethodConfiguration);
         writer.writeStringValue("description", authenticationMethodsPolicy.description);

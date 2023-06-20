@@ -4,7 +4,7 @@ import {RoutingType} from './routingType';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCallRoute(writer: SerializationWriter, callRoute: CallRoute | undefined = {} as CallRoute) : void {
+export function serializeCallRoute(callRoute: CallRoute | undefined = {} as CallRoute, writer: SerializationWriter) : void {
         writer.writeObjectValue<IdentitySet>("final", callRoute.final, serializeIdentitySet);
         writer.writeStringValue("@odata.type", callRoute.odataType);
         writer.writeObjectValue<IdentitySet>("original", callRoute.original, serializeIdentitySet);

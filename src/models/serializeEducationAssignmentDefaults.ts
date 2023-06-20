@@ -4,7 +4,7 @@ import {EducationAssignmentDefaults} from './educationAssignmentDefaults';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationAssignmentDefaults(writer: SerializationWriter, educationAssignmentDefaults: EducationAssignmentDefaults | undefined = {} as EducationAssignmentDefaults) : void {
+export function serializeEducationAssignmentDefaults(educationAssignmentDefaults: EducationAssignmentDefaults | undefined = {} as EducationAssignmentDefaults, writer: SerializationWriter) : void {
         serializeEntity(writer, educationAssignmentDefaults)
         writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", educationAssignmentDefaults.addedStudentAction);
         writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", educationAssignmentDefaults.addToCalendarAction);

@@ -2,7 +2,7 @@ import {Endpoint} from './endpoint';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEndpoint(writer: SerializationWriter, endpoint: Endpoint | undefined = {} as Endpoint) : void {
+export function serializeEndpoint(endpoint: Endpoint | undefined = {} as Endpoint, writer: SerializationWriter) : void {
         serializeDirectoryObject(writer, endpoint)
         writer.writeStringValue("capability", endpoint.capability);
         writer.writeStringValue("providerId", endpoint.providerId);

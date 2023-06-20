@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeGroupSetting} from './serializeGroupSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGroupSettingCollectionResponse(writer: SerializationWriter, groupSettingCollectionResponse: GroupSettingCollectionResponse | undefined = {} as GroupSettingCollectionResponse) : void {
+export function serializeGroupSettingCollectionResponse(groupSettingCollectionResponse: GroupSettingCollectionResponse | undefined = {} as GroupSettingCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, groupSettingCollectionResponse)
         writer.writeCollectionOfObjectValues<GroupSetting>("value", groupSettingCollectionResponse.value, serializeGroupSetting);
 }

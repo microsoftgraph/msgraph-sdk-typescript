@@ -1,7 +1,7 @@
 import {CopyToNotebookPostRequestBody} from './copyToNotebookPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCopyToNotebookPostRequestBody(writer: SerializationWriter, copyToNotebookPostRequestBody: CopyToNotebookPostRequestBody | undefined = {} as CopyToNotebookPostRequestBody) : void {
+export function serializeCopyToNotebookPostRequestBody(copyToNotebookPostRequestBody: CopyToNotebookPostRequestBody | undefined = {} as CopyToNotebookPostRequestBody, writer: SerializationWriter) : void {
         writer.writeStringValue("groupId", copyToNotebookPostRequestBody.groupId);
         writer.writeStringValue("id", copyToNotebookPostRequestBody.id);
         writer.writeStringValue("renameAs", copyToNotebookPostRequestBody.renameAs);

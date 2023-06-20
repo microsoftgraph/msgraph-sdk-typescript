@@ -1,7 +1,7 @@
 import {AppListItem} from './appListItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAppListItem(writer: SerializationWriter, appListItem: AppListItem | undefined = {} as AppListItem) : void {
+export function serializeAppListItem(appListItem: AppListItem | undefined = {} as AppListItem, writer: SerializationWriter) : void {
         writer.writeStringValue("appId", appListItem.appId);
         writer.writeStringValue("appStoreUrl", appListItem.appStoreUrl);
         writer.writeStringValue("name", appListItem.name);

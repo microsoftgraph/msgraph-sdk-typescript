@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {Binom_DistPostRequestBody} from './binom_DistPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Binom_DistPostRequestBody | undefined = {} as Binom_DistPostRequestBody) : void {
+export function serializeBinom_DistPostRequestBody(binom_DistPostRequestBody: Binom_DistPostRequestBody | undefined = {} as Binom_DistPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("cumulative", binom_DistPostRequestBody.cumulative, serializeJson);
         writer.writeObjectValue<Json>("numberS", binom_DistPostRequestBody.numberS, serializeJson);
         writer.writeObjectValue<Json>("probabilityS", binom_DistPostRequestBody.probabilityS, serializeJson);

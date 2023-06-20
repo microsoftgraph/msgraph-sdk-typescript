@@ -1,7 +1,7 @@
 import {GetNoncompliantDevicesAndSettingsReportPostRequestBody} from './getNoncompliantDevicesAndSettingsReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody(writer: SerializationWriter, getNoncompliantDevicesAndSettingsReportPostRequestBody: GetNoncompliantDevicesAndSettingsReportPostRequestBody | undefined = {} as GetNoncompliantDevicesAndSettingsReportPostRequestBody) : void {
+export function serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody(getNoncompliantDevicesAndSettingsReportPostRequestBody: GetNoncompliantDevicesAndSettingsReportPostRequestBody | undefined = {} as GetNoncompliantDevicesAndSettingsReportPostRequestBody, writer: SerializationWriter) : void {
         writer.writeStringValue("filter", getNoncompliantDevicesAndSettingsReportPostRequestBody.filter);
         writer.writeCollectionOfPrimitiveValues<string>("groupBy", getNoncompliantDevicesAndSettingsReportPostRequestBody.groupBy);
         writer.writeStringValue("name", getNoncompliantDevicesAndSettingsReportPostRequestBody.name);

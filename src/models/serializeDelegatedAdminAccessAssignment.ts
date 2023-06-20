@@ -7,7 +7,7 @@ import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAcc
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDelegatedAdminAccessAssignment(writer: SerializationWriter, delegatedAdminAccessAssignment: DelegatedAdminAccessAssignment | undefined = {} as DelegatedAdminAccessAssignment) : void {
+export function serializeDelegatedAdminAccessAssignment(delegatedAdminAccessAssignment: DelegatedAdminAccessAssignment | undefined = {} as DelegatedAdminAccessAssignment, writer: SerializationWriter) : void {
         serializeEntity(writer, delegatedAdminAccessAssignment)
         writer.writeObjectValue<DelegatedAdminAccessContainer>("accessContainer", delegatedAdminAccessAssignment.accessContainer, serializeDelegatedAdminAccessContainer);
         writer.writeObjectValue<DelegatedAdminAccessDetails>("accessDetails", delegatedAdminAccessAssignment.accessDetails, serializeDelegatedAdminAccessDetails);

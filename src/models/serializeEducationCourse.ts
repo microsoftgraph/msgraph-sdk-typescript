@@ -1,7 +1,7 @@
 import {EducationCourse} from './educationCourse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationCourse(writer: SerializationWriter, educationCourse: EducationCourse | undefined = {} as EducationCourse) : void {
+export function serializeEducationCourse(educationCourse: EducationCourse | undefined = {} as EducationCourse, writer: SerializationWriter) : void {
         writer.writeStringValue("courseNumber", educationCourse.courseNumber);
         writer.writeStringValue("description", educationCourse.description);
         writer.writeStringValue("displayName", educationCourse.displayName);

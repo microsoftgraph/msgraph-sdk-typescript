@@ -5,7 +5,7 @@ import {serializeDefaultUserRolePermissions} from './serializeDefaultUserRolePer
 import {serializePolicyBase} from './serializePolicyBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthorizationPolicy(writer: SerializationWriter, authorizationPolicy: AuthorizationPolicy | undefined = {} as AuthorizationPolicy) : void {
+export function serializeAuthorizationPolicy(authorizationPolicy: AuthorizationPolicy | undefined = {} as AuthorizationPolicy, writer: SerializationWriter) : void {
         serializePolicyBase(writer, authorizationPolicy)
         writer.writeBooleanValue("allowedToSignUpEmailBasedSubscriptions", authorizationPolicy.allowedToSignUpEmailBasedSubscriptions);
         writer.writeBooleanValue("allowedToUseSSPR", authorizationPolicy.allowedToUseSSPR);

@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../../models
 import {AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse} from './additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse(writer: SerializationWriter, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse | undefined = {} as AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse) : void {
+export function serializeAdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse(additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse: AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse | undefined = {} as AdditionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse)
         writer.writeCollectionOfObjectValues<AccessPackageAssignment>("value", additionalAccessWithAccessPackageIdWithIncompatibleAccessPackageIdResponse.value, serializeAccessPackageAssignment);
 }

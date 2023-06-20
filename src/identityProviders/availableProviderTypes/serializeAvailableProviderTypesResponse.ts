@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../models/seria
 import {AvailableProviderTypesResponse} from './availableProviderTypesResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAvailableProviderTypesResponse(writer: SerializationWriter, availableProviderTypesResponse: AvailableProviderTypesResponse | undefined = {} as AvailableProviderTypesResponse) : void {
+export function serializeAvailableProviderTypesResponse(availableProviderTypesResponse: AvailableProviderTypesResponse | undefined = {} as AvailableProviderTypesResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, availableProviderTypesResponse)
         writer.writeCollectionOfPrimitiveValues<string>("value", availableProviderTypesResponse.value);
 }

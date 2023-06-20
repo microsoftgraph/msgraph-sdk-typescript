@@ -37,7 +37,7 @@ import {serializeToneInfo} from './serializeToneInfo';
 import {ToneInfo} from './toneInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCall(writer: SerializationWriter, call: Call | undefined = {} as Call) : void {
+export function serializeCall(call: Call | undefined = {} as Call, writer: SerializationWriter) : void {
         serializeEntity(writer, call)
         writer.writeCollectionOfObjectValues<AudioRoutingGroup>("audioRoutingGroups", call.audioRoutingGroups, serializeAudioRoutingGroup);
         writer.writeStringValue("callbackUri", call.callbackUri);

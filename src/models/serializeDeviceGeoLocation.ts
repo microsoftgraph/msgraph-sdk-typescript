@@ -1,7 +1,7 @@
 import {DeviceGeoLocation} from './deviceGeoLocation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceGeoLocation(writer: SerializationWriter, deviceGeoLocation: DeviceGeoLocation | undefined = {} as DeviceGeoLocation) : void {
+export function serializeDeviceGeoLocation(deviceGeoLocation: DeviceGeoLocation | undefined = {} as DeviceGeoLocation, writer: SerializationWriter) : void {
         writer.writeNumberValue("altitude", deviceGeoLocation.altitude);
         writer.writeNumberValue("heading", deviceGeoLocation.heading);
         writer.writeNumberValue("horizontalAccuracy", deviceGeoLocation.horizontalAccuracy);

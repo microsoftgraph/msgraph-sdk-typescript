@@ -3,7 +3,7 @@ import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDataPolicyOperation(writer: SerializationWriter, dataPolicyOperation: DataPolicyOperation | undefined = {} as DataPolicyOperation) : void {
+export function serializeDataPolicyOperation(dataPolicyOperation: DataPolicyOperation | undefined = {} as DataPolicyOperation, writer: SerializationWriter) : void {
         serializeEntity(writer, dataPolicyOperation)
         writer.writeDateValue("completedDateTime", dataPolicyOperation.completedDateTime);
         writer.writeNumberValue("progress", dataPolicyOperation.progress);

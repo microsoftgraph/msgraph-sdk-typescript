@@ -2,7 +2,7 @@ import {AuthenticationMethodsRegistrationCampaignIncludeTarget} from './authenti
 import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAuthenticationMethodsRegistrationCampaignIncludeTarget(writer: SerializationWriter, authenticationMethodsRegistrationCampaignIncludeTarget: AuthenticationMethodsRegistrationCampaignIncludeTarget | undefined = {} as AuthenticationMethodsRegistrationCampaignIncludeTarget) : void {
+export function serializeAuthenticationMethodsRegistrationCampaignIncludeTarget(authenticationMethodsRegistrationCampaignIncludeTarget: AuthenticationMethodsRegistrationCampaignIncludeTarget | undefined = {} as AuthenticationMethodsRegistrationCampaignIncludeTarget, writer: SerializationWriter) : void {
         writer.writeStringValue("id", authenticationMethodsRegistrationCampaignIncludeTarget.id);
         writer.writeStringValue("@odata.type", authenticationMethodsRegistrationCampaignIncludeTarget.odataType);
         writer.writeStringValue("targetedAuthenticationMethod", authenticationMethodsRegistrationCampaignIncludeTarget.targetedAuthenticationMethod);

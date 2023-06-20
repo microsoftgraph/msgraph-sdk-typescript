@@ -3,7 +3,7 @@ import {serializeJson} from '../../../../../../../models/serializeJson';
 import {AmorLincPostRequestBody} from './amorLincPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: AmorLincPostRequestBody | undefined = {} as AmorLincPostRequestBody) : void {
+export function serializeAmorLincPostRequestBody(amorLincPostRequestBody: AmorLincPostRequestBody | undefined = {} as AmorLincPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<Json>("basis", amorLincPostRequestBody.basis, serializeJson);
         writer.writeObjectValue<Json>("cost", amorLincPostRequestBody.cost, serializeJson);
         writer.writeObjectValue<Json>("datePurchased", amorLincPostRequestBody.datePurchased, serializeJson);

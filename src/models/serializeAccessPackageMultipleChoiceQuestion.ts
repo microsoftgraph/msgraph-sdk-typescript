@@ -4,7 +4,7 @@ import {serializeAccessPackageAnswerChoice} from './serializeAccessPackageAnswer
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessPackageMultipleChoiceQuestion(writer: SerializationWriter, accessPackageMultipleChoiceQuestion: AccessPackageMultipleChoiceQuestion | undefined = {} as AccessPackageMultipleChoiceQuestion) : void {
+export function serializeAccessPackageMultipleChoiceQuestion(accessPackageMultipleChoiceQuestion: AccessPackageMultipleChoiceQuestion | undefined = {} as AccessPackageMultipleChoiceQuestion, writer: SerializationWriter) : void {
         serializeAccessPackageQuestion(writer, accessPackageMultipleChoiceQuestion)
         writer.writeCollectionOfObjectValues<AccessPackageAnswerChoice>("choices", accessPackageMultipleChoiceQuestion.choices, serializeAccessPackageAnswerChoice);
         writer.writeBooleanValue("isMultipleSelectionAllowed", accessPackageMultipleChoiceQuestion.isMultipleSelectionAllowed);

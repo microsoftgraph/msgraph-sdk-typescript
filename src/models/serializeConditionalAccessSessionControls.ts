@@ -9,7 +9,7 @@ import {serializeSignInFrequencySessionControl} from './serializeSignInFrequency
 import {SignInFrequencySessionControl} from './signInFrequencySessionControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessSessionControls(writer: SerializationWriter, conditionalAccessSessionControls: ConditionalAccessSessionControls | undefined = {} as ConditionalAccessSessionControls) : void {
+export function serializeConditionalAccessSessionControls(conditionalAccessSessionControls: ConditionalAccessSessionControls | undefined = {} as ConditionalAccessSessionControls, writer: SerializationWriter) : void {
         writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", conditionalAccessSessionControls.applicationEnforcedRestrictions, serializeApplicationEnforcedRestrictionsSessionControl);
         writer.writeObjectValue<CloudAppSecuritySessionControl>("cloudAppSecurity", conditionalAccessSessionControls.cloudAppSecurity, serializeCloudAppSecuritySessionControl);
         writer.writeBooleanValue("disableResilienceDefaults", conditionalAccessSessionControls.disableResilienceDefaults);

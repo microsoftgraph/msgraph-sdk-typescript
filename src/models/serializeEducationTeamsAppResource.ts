@@ -2,7 +2,7 @@ import {EducationTeamsAppResource} from './educationTeamsAppResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEducationTeamsAppResource(writer: SerializationWriter, educationTeamsAppResource: EducationTeamsAppResource | undefined = {} as EducationTeamsAppResource) : void {
+export function serializeEducationTeamsAppResource(educationTeamsAppResource: EducationTeamsAppResource | undefined = {} as EducationTeamsAppResource, writer: SerializationWriter) : void {
         serializeEducationResource(writer, educationTeamsAppResource)
         writer.writeStringValue("appIconWebUrl", educationTeamsAppResource.appIconWebUrl);
         writer.writeStringValue("appId", educationTeamsAppResource.appId);

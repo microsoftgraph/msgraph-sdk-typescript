@@ -3,7 +3,7 @@ import {serializeImportedWindowsAutopilotDeviceIdentity} from '../../../models/s
 import {ImportPostRequestBody} from './importPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeImportPostRequestBody(writer: SerializationWriter, importPostRequestBody: ImportPostRequestBody | undefined = {} as ImportPostRequestBody) : void {
+export function serializeImportPostRequestBody(importPostRequestBody: ImportPostRequestBody | undefined = {} as ImportPostRequestBody, writer: SerializationWriter) : void {
         writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", importPostRequestBody.importedWindowsAutopilotDeviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
         writer.writeAdditionalData(importPostRequestBody.additionalData);
 }

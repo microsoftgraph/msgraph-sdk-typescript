@@ -17,7 +17,7 @@ import {serializeSchema} from './serializeSchema';
 import {serializeSearchSettings} from './serializeSearchSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeExternalConnection(writer: SerializationWriter, externalConnection: ExternalConnection | undefined = {} as ExternalConnection) : void {
+export function serializeExternalConnection(externalConnection: ExternalConnection | undefined = {} as ExternalConnection, writer: SerializationWriter) : void {
         serializeEntity(writer, externalConnection)
         writer.writeObjectValue<ActivitySettings>("activitySettings", externalConnection.activitySettings, serializeActivitySettings);
         writer.writeObjectValue<Configuration>("configuration", externalConnection.configuration, serializeConfiguration);

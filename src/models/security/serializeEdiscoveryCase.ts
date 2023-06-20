@@ -18,7 +18,7 @@ import {serializeEdiscoveryReviewTag} from './serializeEdiscoveryReviewTag';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeEdiscoveryCase(writer: SerializationWriter, ediscoveryCase: EdiscoveryCase | undefined = {} as EdiscoveryCase) : void {
+export function serializeEdiscoveryCase(ediscoveryCase: EdiscoveryCase | undefined = {} as EdiscoveryCase, writer: SerializationWriter) : void {
         serializeCaseEscaped(writer, ediscoveryCase)
         writer.writeObjectValue<IdentitySet>("closedBy", ediscoveryCase.closedBy, serializeIdentitySet);
         writer.writeDateValue("closedDateTime", ediscoveryCase.closedDateTime);

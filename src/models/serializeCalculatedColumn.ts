@@ -1,7 +1,7 @@
 import {CalculatedColumn} from './calculatedColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCalculatedColumn(writer: SerializationWriter, calculatedColumn: CalculatedColumn | undefined = {} as CalculatedColumn) : void {
+export function serializeCalculatedColumn(calculatedColumn: CalculatedColumn | undefined = {} as CalculatedColumn, writer: SerializationWriter) : void {
         writer.writeStringValue("format", calculatedColumn.format);
         writer.writeStringValue("formula", calculatedColumn.formula);
         writer.writeStringValue("@odata.type", calculatedColumn.odataType);

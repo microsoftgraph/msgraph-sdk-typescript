@@ -3,7 +3,7 @@ import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeMobileAppContentFile(writer: SerializationWriter, mobileAppContentFile: MobileAppContentFile | undefined = {} as MobileAppContentFile) : void {
+export function serializeMobileAppContentFile(mobileAppContentFile: MobileAppContentFile | undefined = {} as MobileAppContentFile, writer: SerializationWriter) : void {
         serializeEntity(writer, mobileAppContentFile)
         writer.writeStringValue("azureStorageUri", mobileAppContentFile.azureStorageUri);
         writer.writeDateValue("azureStorageUriExpirationDateTime", mobileAppContentFile.azureStorageUriExpirationDateTime);

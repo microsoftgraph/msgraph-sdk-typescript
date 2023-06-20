@@ -3,7 +3,7 @@ import {WorkbookFilterCriteria} from '../../../../../../../../../../../models/wo
 import {ApplyPostRequestBody} from './applyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody) : void {
+export function serializeApplyPostRequestBody(applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody, writer: SerializationWriter) : void {
         writer.writeObjectValue<WorkbookFilterCriteria>("criteria", applyPostRequestBody.criteria, serializeWorkbookFilterCriteria);
         writer.writeAdditionalData(applyPostRequestBody.additionalData);
 }

@@ -4,7 +4,7 @@ import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewe
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAdminConsentRequestPolicy(writer: SerializationWriter, adminConsentRequestPolicy: AdminConsentRequestPolicy | undefined = {} as AdminConsentRequestPolicy) : void {
+export function serializeAdminConsentRequestPolicy(adminConsentRequestPolicy: AdminConsentRequestPolicy | undefined = {} as AdminConsentRequestPolicy, writer: SerializationWriter) : void {
         serializeEntity(writer, adminConsentRequestPolicy)
         writer.writeBooleanValue("isEnabled", adminConsentRequestPolicy.isEnabled);
         writer.writeBooleanValue("notifyReviewers", adminConsentRequestPolicy.notifyReviewers);

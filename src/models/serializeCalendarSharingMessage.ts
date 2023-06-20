@@ -4,7 +4,7 @@ import {serializeCalendarSharingMessageAction} from './serializeCalendarSharingM
 import {serializeMessage} from './serializeMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCalendarSharingMessage(writer: SerializationWriter, calendarSharingMessage: CalendarSharingMessage | undefined = {} as CalendarSharingMessage) : void {
+export function serializeCalendarSharingMessage(calendarSharingMessage: CalendarSharingMessage | undefined = {} as CalendarSharingMessage, writer: SerializationWriter) : void {
         serializeMessage(writer, calendarSharingMessage)
         writer.writeBooleanValue("canAccept", calendarSharingMessage.canAccept);
         writer.writeObjectValue<CalendarSharingMessageAction>("sharingMessageAction", calendarSharingMessage.sharingMessageAction, serializeCalendarSharingMessageAction);

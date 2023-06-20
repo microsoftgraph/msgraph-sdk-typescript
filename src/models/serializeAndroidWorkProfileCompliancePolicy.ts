@@ -4,7 +4,7 @@ import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAndroidWorkProfileCompliancePolicy(writer: SerializationWriter, androidWorkProfileCompliancePolicy: AndroidWorkProfileCompliancePolicy | undefined = {} as AndroidWorkProfileCompliancePolicy) : void {
+export function serializeAndroidWorkProfileCompliancePolicy(androidWorkProfileCompliancePolicy: AndroidWorkProfileCompliancePolicy | undefined = {} as AndroidWorkProfileCompliancePolicy, writer: SerializationWriter) : void {
         serializeDeviceCompliancePolicy(writer, androidWorkProfileCompliancePolicy)
         writer.writeBooleanValue("deviceThreatProtectionEnabled", androidWorkProfileCompliancePolicy.deviceThreatProtectionEnabled);
         writer.writeEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", androidWorkProfileCompliancePolicy.deviceThreatProtectionRequiredSecurityLevel);

@@ -4,7 +4,7 @@ import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentityUserFlowAttribute(writer: SerializationWriter, identityUserFlowAttribute: IdentityUserFlowAttribute | undefined = {} as IdentityUserFlowAttribute) : void {
+export function serializeIdentityUserFlowAttribute(identityUserFlowAttribute: IdentityUserFlowAttribute | undefined = {} as IdentityUserFlowAttribute, writer: SerializationWriter) : void {
         serializeEntity(writer, identityUserFlowAttribute)
         writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", identityUserFlowAttribute.dataType);
         writer.writeStringValue("description", identityUserFlowAttribute.description);

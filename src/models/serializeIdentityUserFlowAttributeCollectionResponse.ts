@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIdentityUserFlowAttributeCollectionResponse(writer: SerializationWriter, identityUserFlowAttributeCollectionResponse: IdentityUserFlowAttributeCollectionResponse | undefined = {} as IdentityUserFlowAttributeCollectionResponse) : void {
+export function serializeIdentityUserFlowAttributeCollectionResponse(identityUserFlowAttributeCollectionResponse: IdentityUserFlowAttributeCollectionResponse | undefined = {} as IdentityUserFlowAttributeCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, identityUserFlowAttributeCollectionResponse)
         writer.writeCollectionOfObjectValues<IdentityUserFlowAttribute>("value", identityUserFlowAttributeCollectionResponse.value, serializeIdentityUserFlowAttribute);
 }

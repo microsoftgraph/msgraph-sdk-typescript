@@ -10,7 +10,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBrowserSite(writer: SerializationWriter, browserSite: BrowserSite | undefined = {} as BrowserSite) : void {
+export function serializeBrowserSite(browserSite: BrowserSite | undefined = {} as BrowserSite, writer: SerializationWriter) : void {
         serializeEntity(writer, browserSite)
         writer.writeBooleanValue("allowRedirect", browserSite.allowRedirect);
         writer.writeStringValue("comment", browserSite.comment);

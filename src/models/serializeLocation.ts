@@ -7,7 +7,7 @@ import {serializeOutlookGeoCoordinates} from './serializeOutlookGeoCoordinates';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeLocation(writer: SerializationWriter, location: Location | undefined = {} as Location) : void {
+export function serializeLocation(location: Location | undefined = {} as Location, writer: SerializationWriter) : void {
         writer.writeObjectValue<PhysicalAddress>("address", location.address, serializePhysicalAddress);
         writer.writeObjectValue<OutlookGeoCoordinates>("coordinates", location.coordinates, serializeOutlookGeoCoordinates);
         writer.writeStringValue("displayName", location.displayName);

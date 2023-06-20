@@ -6,7 +6,7 @@ import {serializeDeviceManagementPartnerAssignment} from './serializeDeviceManag
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDeviceManagementPartner(writer: SerializationWriter, deviceManagementPartner: DeviceManagementPartner | undefined = {} as DeviceManagementPartner) : void {
+export function serializeDeviceManagementPartner(deviceManagementPartner: DeviceManagementPartner | undefined = {} as DeviceManagementPartner, writer: SerializationWriter) : void {
         serializeEntity(writer, deviceManagementPartner)
         writer.writeStringValue("displayName", deviceManagementPartner.displayName);
         writer.writeCollectionOfObjectValues<DeviceManagementPartnerAssignment>("groupsRequiringPartnerEnrollment", deviceManagementPartner.groupsRequiringPartnerEnrollment, serializeDeviceManagementPartnerAssignment);

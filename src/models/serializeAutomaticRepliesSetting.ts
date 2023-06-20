@@ -5,7 +5,7 @@ import {ExternalAudienceScope} from './externalAudienceScope';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAutomaticRepliesSetting(writer: SerializationWriter, automaticRepliesSetting: AutomaticRepliesSetting | undefined = {} as AutomaticRepliesSetting) : void {
+export function serializeAutomaticRepliesSetting(automaticRepliesSetting: AutomaticRepliesSetting | undefined = {} as AutomaticRepliesSetting, writer: SerializationWriter) : void {
         writer.writeEnumValue<ExternalAudienceScope>("externalAudience", automaticRepliesSetting.externalAudience);
         writer.writeStringValue("externalReplyMessage", automaticRepliesSetting.externalReplyMessage);
         writer.writeStringValue("internalReplyMessage", automaticRepliesSetting.internalReplyMessage);

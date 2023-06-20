@@ -1,7 +1,7 @@
 import {CertificationControl} from './certificationControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeCertificationControl(writer: SerializationWriter, certificationControl: CertificationControl | undefined = {} as CertificationControl) : void {
+export function serializeCertificationControl(certificationControl: CertificationControl | undefined = {} as CertificationControl, writer: SerializationWriter) : void {
         writer.writeStringValue("name", certificationControl.name);
         writer.writeStringValue("@odata.type", certificationControl.odataType);
         writer.writeStringValue("url", certificationControl.url);

@@ -56,7 +56,7 @@ import {Video} from './video';
 import {Workbook} from './workbook';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeDriveItem(writer: SerializationWriter, driveItem: DriveItem | undefined = {} as DriveItem) : void {
+export function serializeDriveItem(driveItem: DriveItem | undefined = {} as DriveItem, writer: SerializationWriter) : void {
         serializeBaseItem(writer, driveItem)
         writer.writeObjectValue<ItemAnalytics>("analytics", driveItem.analytics, serializeItemAnalytics);
         writer.writeObjectValue<Audio>("audio", driveItem.audio, serializeAudio);

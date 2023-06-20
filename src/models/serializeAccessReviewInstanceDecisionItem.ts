@@ -8,7 +8,7 @@ import {serializeUserIdentity} from './serializeUserIdentity';
 import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeAccessReviewInstanceDecisionItem(writer: SerializationWriter, accessReviewInstanceDecisionItem: AccessReviewInstanceDecisionItem | undefined = {} as AccessReviewInstanceDecisionItem) : void {
+export function serializeAccessReviewInstanceDecisionItem(accessReviewInstanceDecisionItem: AccessReviewInstanceDecisionItem | undefined = {} as AccessReviewInstanceDecisionItem, writer: SerializationWriter) : void {
         serializeEntity(writer, accessReviewInstanceDecisionItem)
         writer.writeStringValue("accessReviewId", accessReviewInstanceDecisionItem.accessReviewId);
         writer.writeObjectValue<UserIdentity>("appliedBy", accessReviewInstanceDecisionItem.appliedBy, serializeUserIdentity);

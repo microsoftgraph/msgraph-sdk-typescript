@@ -3,7 +3,7 @@ import {GenericError} from './genericError';
 import {serializeGenericError} from './serializeGenericError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConvertIdResult(writer: SerializationWriter, convertIdResult: ConvertIdResult | undefined = {} as ConvertIdResult) : void {
+export function serializeConvertIdResult(convertIdResult: ConvertIdResult | undefined = {} as ConvertIdResult, writer: SerializationWriter) : void {
         writer.writeObjectValue<GenericError>("errorDetails", convertIdResult.errorDetails, serializeGenericError);
         writer.writeStringValue("@odata.type", convertIdResult.odataType);
         writer.writeStringValue("sourceId", convertIdResult.sourceId);

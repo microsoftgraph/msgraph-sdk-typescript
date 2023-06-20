@@ -2,7 +2,7 @@ import {IosNotificationAlertType} from './iosNotificationAlertType';
 import {IosNotificationSettings} from './iosNotificationSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeIosNotificationSettings(writer: SerializationWriter, iosNotificationSettings: IosNotificationSettings | undefined = {} as IosNotificationSettings) : void {
+export function serializeIosNotificationSettings(iosNotificationSettings: IosNotificationSettings | undefined = {} as IosNotificationSettings, writer: SerializationWriter) : void {
         writer.writeEnumValue<IosNotificationAlertType>("alertType", iosNotificationSettings.alertType);
         writer.writeStringValue("appName", iosNotificationSettings.appName);
         writer.writeBooleanValue("badgesEnabled", iosNotificationSettings.badgesEnabled);

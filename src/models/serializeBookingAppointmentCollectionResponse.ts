@@ -4,7 +4,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeBookingAppointment} from './serializeBookingAppointment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeBookingAppointmentCollectionResponse(writer: SerializationWriter, bookingAppointmentCollectionResponse: BookingAppointmentCollectionResponse | undefined = {} as BookingAppointmentCollectionResponse) : void {
+export function serializeBookingAppointmentCollectionResponse(bookingAppointmentCollectionResponse: BookingAppointmentCollectionResponse | undefined = {} as BookingAppointmentCollectionResponse, writer: SerializationWriter) : void {
         serializeBaseCollectionPaginationCountResponse(writer, bookingAppointmentCollectionResponse)
         writer.writeCollectionOfObjectValues<BookingAppointment>("value", bookingAppointmentCollectionResponse.value, serializeBookingAppointment);
 }

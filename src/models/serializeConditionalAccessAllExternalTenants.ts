@@ -2,6 +2,6 @@ import {ConditionalAccessAllExternalTenants} from './conditionalAccessAllExterna
 import {serializeConditionalAccessExternalTenants} from './serializeConditionalAccessExternalTenants';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeConditionalAccessAllExternalTenants(writer: SerializationWriter, conditionalAccessAllExternalTenants: ConditionalAccessAllExternalTenants | undefined = {} as ConditionalAccessAllExternalTenants) : void {
+export function serializeConditionalAccessAllExternalTenants(conditionalAccessAllExternalTenants: ConditionalAccessAllExternalTenants | undefined = {} as ConditionalAccessAllExternalTenants, writer: SerializationWriter) : void {
         serializeConditionalAccessExternalTenants(writer, conditionalAccessAllExternalTenants)
 }

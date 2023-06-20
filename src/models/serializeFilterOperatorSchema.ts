@@ -5,7 +5,7 @@ import {ScopeOperatorType} from './scopeOperatorType';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export function serializeFilterOperatorSchema(writer: SerializationWriter, filterOperatorSchema: FilterOperatorSchema | undefined = {} as FilterOperatorSchema) : void {
+export function serializeFilterOperatorSchema(filterOperatorSchema: FilterOperatorSchema | undefined = {} as FilterOperatorSchema, writer: SerializationWriter) : void {
         serializeEntity(writer, filterOperatorSchema)
         writer.writeEnumValue<ScopeOperatorType>("arity", filterOperatorSchema.arity);
         writer.writeEnumValue<ScopeOperatorMultiValuedComparisonType>("multivaluedComparisonType", filterOperatorSchema.multivaluedComparisonType);
