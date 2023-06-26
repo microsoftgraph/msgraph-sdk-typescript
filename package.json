@@ -33,7 +33,7 @@
     },
     "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme",
     "devDependencies": {
-        "@azure/identity": "3.2.2",
+        "@azure/identity": "3.2.3",
         "@microsoft/kiota-authentication-azure": "^1.0.0-preview.4",
         "@types/chai": "^4.3.0",
         "@types/mocha": "^10.0.0",
