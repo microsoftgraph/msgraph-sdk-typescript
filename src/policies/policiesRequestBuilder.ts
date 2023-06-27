@@ -33,79 +33,117 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the policyRoot singleton.
  */
 export class PoliciesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get activityBasedTimeoutPolicies(): ActivityBasedTimeoutPoliciesRequestBuilder {
         return new ActivityBasedTimeoutPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the adminConsentRequestPolicy property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the adminConsentRequestPolicy property of the microsoft.graph.policyRoot entity.
+     */
     public get adminConsentRequestPolicy(): AdminConsentRequestPolicyRequestBuilder {
         return new AdminConsentRequestPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get appManagementPolicies(): AppManagementPoliciesRequestBuilder {
         return new AppManagementPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity.
+     */
     public get authenticationFlowsPolicy(): AuthenticationFlowsPolicyRequestBuilder {
         return new AuthenticationFlowsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity.
+     */
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get authenticationStrengthPolicies(): AuthenticationStrengthPoliciesRequestBuilder {
         return new AuthenticationStrengthPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
+     */
     public get authorizationPolicy(): AuthorizationPolicyRequestBuilder {
         return new AuthorizationPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
         return new ConditionalAccessPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
+     */
     public get crossTenantAccessPolicy(): CrossTenantAccessPolicyRequestBuilder {
         return new CrossTenantAccessPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.
+     */
     public get defaultAppManagementPolicy(): DefaultAppManagementPolicyRequestBuilder {
         return new DefaultAppManagementPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
         return new FeatureRolloutPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the identitySecurityDefaultsEnforcementPolicy property of the microsoft.graph.policyRoot entity.
+     */
     public get identitySecurityDefaultsEnforcementPolicy(): IdentitySecurityDefaultsEnforcementPolicyRequestBuilder {
         return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
         return new PermissionGrantPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get roleManagementPolicies(): RoleManagementPoliciesRequestBuilder {
         return new RoleManagementPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
+     */
     public get roleManagementPolicyAssignments(): RoleManagementPolicyAssignmentsRequestBuilder {
         return new RoleManagementPolicyAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity. */
+    /**
+     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
+     */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

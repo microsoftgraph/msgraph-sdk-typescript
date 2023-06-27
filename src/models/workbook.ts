@@ -9,18 +9,32 @@ import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Workbook extends Entity, Parsable {
-    /** The application property */
+    /**
+     * The application property
+     */
     application?: WorkbookApplication | undefined;
-    /** The comments property */
+    /**
+     * Represents a collection of comments in a workbook.
+     */
     comments?: WorkbookComment[] | undefined;
-    /** The functions property */
+    /**
+     * The functions property
+     */
     functions?: WorkbookFunctions | undefined;
-    /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
+    /**
+     * Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.
+     */
     names?: WorkbookNamedItem[] | undefined;
-    /** The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. */
+    /**
+     * The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
+     */
     operations?: WorkbookOperation[] | undefined;
-    /** Represents a collection of tables associated with the workbook. Read-only. */
+    /**
+     * Represents a collection of tables associated with the workbook. Read-only.
+     */
     tables?: WorkbookTable[] | undefined;
-    /** Represents a collection of worksheets associated with the workbook. Read-only. */
+    /**
+     * Represents a collection of worksheets associated with the workbook. Read-only.
+     */
     worksheets?: WorkbookWorksheet[] | undefined;
 }

@@ -16,19 +16,27 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
  */
 export class RegisteredDevicesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to appRoleAssignment. */
+    /**
+     * Casts the previous resource to appRoleAssignment.
+     */
     public get graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
         return new GraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to device. */
+    /**
+     * Casts the previous resource to device.
+     */
     public get graphDevice(): GraphDeviceRequestBuilder {
         return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to endpoint. */
+    /**
+     * Casts the previous resource to endpoint.
+     */
     public get graphEndpoint(): GraphEndpointRequestBuilder {
         return new GraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -2,10 +2,16 @@ import {SignInsRequestBuilderGetQueryParameters} from './signInsRequestBuilderGe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SignInsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SignInsRequestBuilderGetQueryParameters | undefined;
 }

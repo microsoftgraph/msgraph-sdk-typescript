@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
  */
 export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the cancel method. */
+    /**
+     * Provides operations to call the cancel method.
+     */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }

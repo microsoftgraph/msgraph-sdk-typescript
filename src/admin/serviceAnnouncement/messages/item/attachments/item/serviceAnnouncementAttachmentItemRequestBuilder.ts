@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
  */
 export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the admin entity. */
+    /**
+     * Provides operations to manage the media for the admin entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -1,4 +1,6 @@
-/** Possible values for applicationGuardBlockClipboardSharingType */
+/**
+ * Possible values for applicationGuardBlockClipboardSharingType
+ */
 export enum ApplicationGuardBlockClipboardSharingType {
     /** Not Configured */
     NotConfigured = "notConfigured",

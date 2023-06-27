@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
  */
 export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity. */
+    /**
+     * Provides operations to manage the contacts property of the microsoft.graph.contactFolder entity.
+     */
     public get contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

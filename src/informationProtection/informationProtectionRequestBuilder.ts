@@ -16,11 +16,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the informationProtection singleton.
  */
 export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity. */
+    /**
+     * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
+     */
     public get bitlocker(): BitlockerRequestBuilder {
         return new BitlockerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity. */
+    /**
+     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
+     */
     public get threatAssessmentRequests(): ThreatAssessmentRequestsRequestBuilder {
         return new ThreatAssessmentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -1,4 +1,6 @@
-/** Possible values for Miracast channel. */
+/**
+ * Possible values for Miracast channel.
+ */
 export enum MiracastChannel {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

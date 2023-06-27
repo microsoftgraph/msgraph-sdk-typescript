@@ -39,10 +39,11 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The managed app statuses.
+     * Read properties and relationships of the managedAppStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappstatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -89,7 +90,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The managed app statuses.
+     * Read properties and relationships of the managedAppStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

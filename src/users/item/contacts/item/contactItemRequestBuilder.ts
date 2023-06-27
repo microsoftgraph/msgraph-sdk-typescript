@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the contacts property of the microsoft.graph.user entity.
  */
 export class ContactItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the extensions property of the microsoft.graph.contact entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.contact entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the photo property of the microsoft.graph.contact entity. */
+    /**
+     * Provides operations to manage the photo property of the microsoft.graph.contact entity.
+     */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }

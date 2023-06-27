@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
  */
 export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity. */
+    /**
+     * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
+     */
     public get retentionEventTypes(): RetentionEventTypesRequestBuilder {
         return new RetentionEventTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

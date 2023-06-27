@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
  */
 export class AccessReviewHistoryInstanceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the generateDownloadUri method. */
+    /**
+     * Provides operations to call the generateDownloadUri method.
+     */
     public get generateDownloadUri(): GenerateDownloadUriRequestBuilder {
         return new GenerateDownloadUriRequestBuilder(this.pathParameters, this.requestAdapter);
     }

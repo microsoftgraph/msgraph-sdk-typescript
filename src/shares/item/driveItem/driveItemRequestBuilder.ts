@@ -12,7 +12,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.
  */
 export class DriveItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the media for the sharedDriveItem entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -11,6 +11,7 @@ import {AppConsentRequestBuilder} from './appConsent/appConsentRequestBuilder';
 import {EntitlementManagementRequestBuilder} from './entitlementManagement/entitlementManagementRequestBuilder';
 import {IdentityGovernanceRequestBuilderGetRequestConfiguration} from './identityGovernanceRequestBuilderGetRequestConfiguration';
 import {IdentityGovernanceRequestBuilderPatchRequestConfiguration} from './identityGovernanceRequestBuilderPatchRequestConfiguration';
+import {LifecycleWorkflowsRequestBuilder} from './lifecycleWorkflows/lifecycleWorkflowsRequestBuilder';
 import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -18,19 +19,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the identityGovernance singleton.
  */
 export class IdentityGovernanceRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity. */
+    /**
+     * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
+     */
     public get accessReviews(): AccessReviewsRequestBuilder {
         return new AccessReviewsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity. */
+    /**
+     * Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.
+     */
     public get appConsent(): AppConsentRequestBuilder {
         return new AppConsentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity. */
+    /**
+     * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
+     */
     public get entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity. */
+    /**
+     * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
+     */
+    public get lifecycleWorkflows(): LifecycleWorkflowsRequestBuilder {
+        return new LifecycleWorkflowsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.
+     */
     public get termsOfUse(): TermsOfUseRequestBuilder {
         return new TermsOfUseRequestBuilder(this.pathParameters, this.requestAdapter);
     }

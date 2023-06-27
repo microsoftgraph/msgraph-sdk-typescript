@@ -24,43 +24,63 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the security singleton.
  */
 export class SecurityRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the alerts property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+     */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
+     */
     public get alerts_v2(): Alerts_v2RequestBuilder {
         return new Alerts_v2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attackSimulation property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
+     */
     public get attackSimulation(): AttackSimulationRequestBuilder {
         return new AttackSimulationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the cases property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the cases property of the microsoft.graph.security entity.
+     */
     public get cases(): CasesRequestBuilder {
         return new CasesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the incidents property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the incidents property of the microsoft.graph.security entity.
+     */
     public get incidents(): IncidentsRequestBuilder {
         return new IncidentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the runHuntingQuery method. */
+    /**
+     * Provides operations to call the runHuntingQuery method.
+     */
     public get microsoftGraphSecurityRunHuntingQuery(): MicrosoftGraphSecurityRunHuntingQueryRequestBuilder {
         return new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
+     */
     public get secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the secureScores property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+     */
     public get secureScores(): SecureScoresRequestBuilder {
         return new SecureScoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the triggers property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the triggers property of the microsoft.graph.security entity.
+     */
     public get triggers(): TriggersRequestBuilder {
         return new TriggersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the triggerTypes property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
+     */
     public get triggerTypes(): TriggerTypesRequestBuilder {
         return new TriggerTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

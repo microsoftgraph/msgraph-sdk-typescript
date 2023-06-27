@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
  */
 export class ItemActivityStatItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity. */
+    /**
+     * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
+     */
     public get activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

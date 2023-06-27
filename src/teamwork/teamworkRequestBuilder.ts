@@ -17,15 +17,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the teamwork singleton.
  */
 export class TeamworkRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity. */
+    /**
+     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
+     */
     public get deletedTeams(): DeletedTeamsRequestBuilder {
         return new DeletedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendActivityNotificationToRecipients method. */
+    /**
+     * Provides operations to call the sendActivityNotificationToRecipients method.
+     */
     public get sendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
         return new SendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity. */
+    /**
+     * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
+     */
     public get workforceIntegrations(): WorkforceIntegrationsRequestBuilder {
         return new WorkforceIntegrationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

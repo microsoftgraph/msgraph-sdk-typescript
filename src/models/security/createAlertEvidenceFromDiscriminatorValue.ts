@@ -2,7 +2,6 @@ import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {deserializeIntoAmazonResourceEvidence} from './deserializeIntoAmazonResourceEvidence';
 import {deserializeIntoAnalyzedMessageEvidence} from './deserializeIntoAnalyzedMessageEvidence';
 import {deserializeIntoAzureResourceEvidence} from './deserializeIntoAzureResourceEvidence';
-import {deserializeIntoCloudApplicationEvidence} from './deserializeIntoCloudApplicationEvidence';
 import {deserializeIntoDeviceEvidence} from './deserializeIntoDeviceEvidence';
 import {deserializeIntoFileEvidence} from './deserializeIntoFileEvidence';
 import {deserializeIntoGoogleCloudResourceEvidence} from './deserializeIntoGoogleCloudResourceEvidence';
@@ -16,7 +15,7 @@ import {deserializeIntoRegistryValueEvidence} from './deserializeIntoRegistryVal
 import {deserializeIntoSecurityGroupEvidence} from './deserializeIntoSecurityGroupEvidence';
 import {deserializeIntoUrlEvidence} from './deserializeIntoUrlEvidence';
 import {deserializeIntoUserEvidence} from './deserializeIntoUserEvidence';
-import {AlertEvidence, AmazonResourceEvidence, AnalyzedMessageEvidence, AzureResourceEvidence, CloudApplicationEvidence, DeviceEvidence, FileEvidence, GoogleCloudResourceEvidence, IpEvidence, MailboxEvidence, MailClusterEvidence, OauthApplicationEvidence, ProcessEvidence, RegistryKeyEvidence, RegistryValueEvidence, SecurityGroupEvidence, UrlEvidence, UserEvidence} from './index';
+import {AlertEvidence, AmazonResourceEvidence, AnalyzedMessageEvidence, AzureResourceEvidence, DeviceEvidence, FileEvidence, GoogleCloudResourceEvidence, IpEvidence, MailboxEvidence, MailClusterEvidence, OauthApplicationEvidence, ProcessEvidence, RegistryKeyEvidence, RegistryValueEvidence, SecurityGroupEvidence, UrlEvidence, UserEvidence} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -32,8 +31,6 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoAnalyzedMessageEvidence;
                 case "#microsoft.graph.security.azureResourceEvidence":
                     return deserializeIntoAzureResourceEvidence;
-                case "#microsoft.graph.security.cloudApplicationEvidence":
-                    return deserializeIntoCloudApplicationEvidence;
                 case "#microsoft.graph.security.deviceEvidence":
                     return deserializeIntoDeviceEvidence;
                 case "#microsoft.graph.security.fileEvidence":

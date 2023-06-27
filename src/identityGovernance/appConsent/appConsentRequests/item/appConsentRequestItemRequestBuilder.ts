@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
  */
 export class AppConsentRequestItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity. */
+    /**
+     * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
+     */
     public get userConsentRequests(): UserConsentRequestsRequestBuilder {
         return new UserConsentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

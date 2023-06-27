@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
  */
 export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity. */
+    /**
+     * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
+     */
     public get definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity. */
+    /**
+     * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
+     */
     public get historyDefinitions(): HistoryDefinitionsRequestBuilder {
         return new HistoryDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

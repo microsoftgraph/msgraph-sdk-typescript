@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tags property of the microsoft.graph.team entity.
  */
 export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the members property of the microsoft.graph.teamworkTag entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -2,10 +2,16 @@ import {LongRunningOperationItemRequestBuilderGetQueryParameters} from './longRu
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface LongRunningOperationItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: LongRunningOperationItemRequestBuilderGetQueryParameters | undefined;
 }

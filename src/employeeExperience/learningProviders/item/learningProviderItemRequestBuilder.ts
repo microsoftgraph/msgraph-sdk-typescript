@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
  */
 export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity. */
+    /**
+     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+     */
     public get learningContents(): LearningContentsRequestBuilder {
         return new LearningContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

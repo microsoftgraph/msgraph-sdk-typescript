@@ -26,43 +26,63 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of drive entities.
  */
 export class DriveItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the bundles property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
+     */
     public get bundles(): BundlesRequestBuilder {
         return new BundlesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the following property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the following property of the microsoft.graph.drive entity.
+     */
     public get following(): FollowingRequestBuilder {
         return new FollowingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.drive entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the list property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the list property of the microsoft.graph.drive entity.
+     */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the recent method. */
+    /**
+     * Provides operations to call the recent method.
+     */
     public get recent(): RecentRequestBuilder {
         return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the root property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the root property of the microsoft.graph.drive entity.
+     */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sharedWithMe method. */
+    /**
+     * Provides operations to call the sharedWithMe method.
+     */
     public get sharedWithMe(): SharedWithMeRequestBuilder {
         return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the special property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the special property of the microsoft.graph.drive entity.
+     */
     public get special(): SpecialRequestBuilder {
         return new SpecialRequestBuilder(this.pathParameters, this.requestAdapter);
     }

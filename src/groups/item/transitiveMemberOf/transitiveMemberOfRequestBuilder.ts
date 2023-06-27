@@ -15,15 +15,21 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.group entity.
  */
 export class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to administrativeUnit. */
+    /**
+     * Casts the previous resource to administrativeUnit.
+     */
     public get graphAdministrativeUnit(): GraphAdministrativeUnitRequestBuilder {
         return new GraphAdministrativeUnitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to group. */
+    /**
+     * Casts the previous resource to group.
+     */
     public get graphGroup(): GraphGroupRequestBuilder {
         return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }

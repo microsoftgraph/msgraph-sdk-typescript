@@ -2,10 +2,16 @@ import {MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters} from './mont
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters | undefined;
 }

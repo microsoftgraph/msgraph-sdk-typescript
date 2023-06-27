@@ -23,35 +23,51 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
  */
 export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
+     */
     public get assignmentCategories(): AssignmentCategoriesRequestBuilder {
         return new AssignmentCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity.
+     */
     public get assignmentDefaults(): AssignmentDefaultsRequestBuilder {
         return new AssignmentDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignments property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
+     */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity.
+     */
     public get assignmentSettings(): AssignmentSettingsRequestBuilder {
         return new AssignmentSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the group property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the group property of the microsoft.graph.educationClass entity.
+     */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.educationClass entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schools property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
+     */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the teachers property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the teachers property of the microsoft.graph.educationClass entity.
+     */
     public get teachers(): TeachersRequestBuilder {
         return new TeachersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -2,10 +2,16 @@ import {AdditionalAccessRequestBuilderGetQueryParameters} from './additionalAcce
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AdditionalAccessRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AdditionalAccessRequestBuilderGetQueryParameters | undefined;
 }

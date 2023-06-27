@@ -1,4 +1,6 @@
-/** Type of managed browser */
+/**
+ * Type of managed browser
+ */
 export enum ManagedBrowserType {
     /** Not configured */
     NotConfigured = "notConfigured",

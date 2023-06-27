@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
  */
 export class EdiscoveryReviewSetQueryItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the applyTags method. */
+    /**
+     * Provides operations to call the applyTags method.
+     */
     public get microsoftGraphSecurityApplyTags(): MicrosoftGraphSecurityApplyTagsRequestBuilder {
         return new MicrosoftGraphSecurityApplyTagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

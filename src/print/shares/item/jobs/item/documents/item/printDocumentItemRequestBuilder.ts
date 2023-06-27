@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
  */
 export class PrintDocumentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the print entity. */
+    /**
+     * Provides operations to manage the media for the print entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the createUploadSession method. */
+    /**
+     * Provides operations to call the createUploadSession method.
+     */
     public get createUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }

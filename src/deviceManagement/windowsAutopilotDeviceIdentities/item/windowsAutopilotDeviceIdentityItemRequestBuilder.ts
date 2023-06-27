@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
  */
 export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the assignUserToDevice method. */
+    /**
+     * Provides operations to call the assignUserToDevice method.
+     */
     public get assignUserToDevice(): AssignUserToDeviceRequestBuilder {
         return new AssignUserToDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unassignUserFromDevice method. */
+    /**
+     * Provides operations to call the unassignUserFromDevice method.
+     */
     public get unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
         return new UnassignUserFromDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the updateDeviceProperties method. */
+    /**
+     * Provides operations to call the updateDeviceProperties method.
+     */
     public get updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
         return new UpdateDevicePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -39,9 +45,10 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property windowsAutopilotDeviceIdentities for deviceManagement
+     * Deletes a windowsAutopilotDeviceIdentity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -54,10 +61,11 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The Windows autopilot device identities contained collection.
+     * Read properties and relationships of the windowsAutopilotDeviceIdentity object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsAutopilotDeviceIdentity
+     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,7 +96,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
         return this.requestAdapter?.sendAsync<WindowsAutopilotDeviceIdentity>(requestInfo, createWindowsAutopilotDeviceIdentityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property windowsAutopilotDeviceIdentities for deviceManagement
+     * Deletes a windowsAutopilotDeviceIdentity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +112,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
         return requestInfo;
     };
     /**
-     * The Windows autopilot device identities contained collection.
+     * Read properties and relationships of the windowsAutopilotDeviceIdentity object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
  */
 export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the chat property of the microsoft.graph.userScopeTeamsAppInstallation entity. */
+    /**
+     * Provides operations to manage the chat property of the microsoft.graph.userScopeTeamsAppInstallation entity.
+     */
     public get chat(): ChatRequestBuilder {
         return new ChatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the teamsApp property of the microsoft.graph.teamsAppInstallation entity. */
+    /**
+     * Provides operations to manage the teamsApp property of the microsoft.graph.teamsAppInstallation entity.
+     */
     public get teamsApp(): TeamsAppRequestBuilder {
         return new TeamsAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the teamsAppDefinition property of the microsoft.graph.teamsAppInstallation entity. */
+    /**
+     * Provides operations to manage the teamsAppDefinition property of the microsoft.graph.teamsAppInstallation entity.
+     */
     public get teamsAppDefinition(): TeamsAppDefinitionRequestBuilder {
         return new TeamsAppDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }

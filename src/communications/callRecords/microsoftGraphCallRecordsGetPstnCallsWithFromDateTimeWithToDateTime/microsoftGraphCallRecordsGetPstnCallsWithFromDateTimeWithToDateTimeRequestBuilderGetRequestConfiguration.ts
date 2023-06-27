@@ -2,10 +2,16 @@ import {MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeReque
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters | undefined;
 }

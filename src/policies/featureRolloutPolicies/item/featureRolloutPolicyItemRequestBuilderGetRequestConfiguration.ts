@@ -2,10 +2,16 @@ import {FeatureRolloutPolicyItemRequestBuilderGetQueryParameters} from './featur
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: FeatureRolloutPolicyItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -2,10 +2,16 @@ import {SchemaRequestBuilderGetQueryParameters} from './schemaRequestBuilderGetQ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SchemaRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SchemaRequestBuilderGetQueryParameters | undefined;
 }

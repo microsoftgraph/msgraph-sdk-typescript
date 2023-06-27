@@ -24,39 +24,57 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
  */
 export class ChannelItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the completeMigration method. */
+    /**
+     * Provides operations to call the completeMigration method.
+     */
     public get completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the doesUserHaveAccess method. */
+    /**
+     * Provides operations to call the doesUserHaveAccess method.
+     */
     public get doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
         return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the filesFolder property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
+     */
     public get filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.channel entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the messages property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.channel entity.
+     */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the provisionEmail method. */
+    /**
+     * Provides operations to call the provisionEmail method.
+     */
     public get provisionEmail(): ProvisionEmailRequestBuilder {
         return new ProvisionEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removeEmail method. */
+    /**
+     * Provides operations to call the removeEmail method.
+     */
     public get removeEmail(): RemoveEmailRequestBuilder {
         return new RemoveEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
+     */
     public get sharedWithTeams(): SharedWithTeamsRequestBuilder {
         return new SharedWithTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tabs property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
+     */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

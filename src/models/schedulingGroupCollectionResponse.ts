@@ -3,6 +3,8 @@ import {SchedulingGroup} from './schedulingGroup';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SchedulingGroupCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: SchedulingGroup[] | undefined;
 }

@@ -2,10 +2,16 @@ import {IncidentsRequestBuilderGetQueryParameters} from './incidentsRequestBuild
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface IncidentsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: IncidentsRequestBuilderGetQueryParameters | undefined;
 }

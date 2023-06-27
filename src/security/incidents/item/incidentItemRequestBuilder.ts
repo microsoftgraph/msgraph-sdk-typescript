@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
  */
 export class IncidentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the alerts property of the microsoft.graph.security.incident entity. */
+    /**
+     * Provides operations to manage the alerts property of the microsoft.graph.security.incident entity.
+     */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

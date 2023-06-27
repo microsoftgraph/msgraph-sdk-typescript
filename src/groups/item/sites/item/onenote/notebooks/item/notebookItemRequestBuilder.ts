@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
  */
 export class NotebookItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the copyNotebook method. */
+    /**
+     * Provides operations to call the copyNotebook method.
+     */
     public get copyNotebook(): CopyNotebookRequestBuilder {
         return new CopyNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity. */
+    /**
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.
+     */
     public get sectionGroups(): SectionGroupsRequestBuilder {
         return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sections property of the microsoft.graph.notebook entity. */
+    /**
+     * Provides operations to manage the sections property of the microsoft.graph.notebook entity.
+     */
     public get sections(): SectionsRequestBuilder {
         return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

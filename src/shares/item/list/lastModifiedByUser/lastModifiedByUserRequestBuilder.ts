@@ -12,7 +12,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
  */
 export class LastModifiedByUserRequestBuilder extends BaseRequestBuilder {
-    /** The mailboxSettings property */
+    /**
+     * The mailboxSettings property
+     */
     public get mailboxSettings(): MailboxSettingsRequestBuilder {
         return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

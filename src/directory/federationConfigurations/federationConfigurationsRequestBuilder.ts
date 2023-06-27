@@ -19,11 +19,15 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
  */
 export class FederationConfigurationsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the availableProviderTypes method. */
+    /**
+     * Provides operations to call the availableProviderTypes method.
+     */
     public get availableProviderTypes(): AvailableProviderTypesRequestBuilder {
         return new AvailableProviderTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -25,43 +25,63 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
  */
 export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the associateWithHubSites method. */
+    /**
+     * Provides operations to call the associateWithHubSites method.
+     */
     public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
         return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the base property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the base property of the microsoft.graph.contentType entity.
+     */
     public get base(): BaseRequestBuilderEscaped {
         return new BaseRequestBuilderEscaped(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+     */
     public get baseTypes(): BaseTypesRequestBuilder {
         return new BaseTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
+     */
     public get columnLinks(): ColumnLinksRequestBuilder {
         return new ColumnLinksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
+     */
     public get columnPositions(): ColumnPositionsRequestBuilder {
         return new ColumnPositionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columns property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copyToDefaultContentLocation method. */
+    /**
+     * Provides operations to call the copyToDefaultContentLocation method.
+     */
     public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
         return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isPublished method. */
+    /**
+     * Provides operations to call the isPublished method.
+     */
     public get isPublished(): IsPublishedRequestBuilder {
         return new IsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the publish method. */
+    /**
+     * Provides operations to call the publish method.
+     */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unpublish method. */
+    /**
+     * Provides operations to call the unpublish method.
+     */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }

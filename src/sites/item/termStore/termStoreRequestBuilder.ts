@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the termStore property of the microsoft.graph.site entity.
  */
 export class TermStoreRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the groups property of the microsoft.graph.termStore.store entity. */
+    /**
+     * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
+     */
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sets property of the microsoft.graph.termStore.store entity. */
+    /**
+     * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
+     */
     public get sets(): SetsRequestBuilder {
         return new SetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

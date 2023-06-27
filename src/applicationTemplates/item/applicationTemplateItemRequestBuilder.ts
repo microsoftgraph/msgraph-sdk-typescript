@@ -12,7 +12,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the instantiate method. */
+    /**
+     * Provides operations to call the instantiate method.
+     */
     public get instantiate(): InstantiateRequestBuilder {
         return new InstantiateRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -2,10 +2,16 @@ import {LocalizedNotificationMessagesRequestBuilderGetQueryParameters} from './l
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: LocalizedNotificationMessagesRequestBuilderGetQueryParameters | undefined;
 }

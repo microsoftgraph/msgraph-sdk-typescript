@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
  */
 export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity. */
+    /**
+     * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
+     */
     public get combinationConfigurations(): CombinationConfigurationsRequestBuilder {
         return new CombinationConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the updateAllowedCombinations method. */
+    /**
+     * Provides operations to call the updateAllowedCombinations method.
+     */
     public get updateAllowedCombinations(): UpdateAllowedCombinationsRequestBuilder {
         return new UpdateAllowedCombinationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the usage method. */
+    /**
+     * Provides operations to call the usage method.
+     */
     public get usage(): UsageRequestBuilder {
         return new UsageRequestBuilder(this.pathParameters, this.requestAdapter);
     }

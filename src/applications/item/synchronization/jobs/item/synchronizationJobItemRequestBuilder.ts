@@ -21,27 +21,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
  */
 export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the pause method. */
+    /**
+     * Provides operations to call the pause method.
+     */
     public get pause(): PauseRequestBuilder {
         return new PauseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the provisionOnDemand method. */
+    /**
+     * Provides operations to call the provisionOnDemand method.
+     */
     public get provisionOnDemand(): ProvisionOnDemandRequestBuilder {
         return new ProvisionOnDemandRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restart method. */
+    /**
+     * Provides operations to call the restart method.
+     */
     public get restart(): RestartRequestBuilder {
         return new RestartRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity. */
+    /**
+     * Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
+     */
     public get schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the start method. */
+    /**
+     * Provides operations to call the start method.
+     */
     public get start(): StartRequestBuilder {
         return new StartRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the validateCredentials method. */
+    /**
+     * Provides operations to call the validateCredentials method.
+     */
     public get validateCredentials(): ValidateCredentialsRequestBuilder {
         return new ValidateCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

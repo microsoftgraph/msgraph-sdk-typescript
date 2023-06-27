@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
  */
 export class AccessReviewStageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity. */
+    /**
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
+     */
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stop method. */
+    /**
+     * Provides operations to call the stop method.
+     */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }

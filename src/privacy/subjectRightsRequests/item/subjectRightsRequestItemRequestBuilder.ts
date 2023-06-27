@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
  */
 export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the getFinalAttachment method. */
+    /**
+     * Provides operations to call the getFinalAttachment method.
+     */
     public get getFinalAttachment(): GetFinalAttachmentRequestBuilder {
         return new GetFinalAttachmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getFinalReport method. */
+    /**
+     * Provides operations to call the getFinalReport method.
+     */
     public get getFinalReport(): GetFinalReportRequestBuilder {
         return new GetFinalReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity. */
+    /**
+     * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
+     */
     public get notes(): NotesRequestBuilder {
         return new NotesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the team property of the microsoft.graph.subjectRightsRequest entity. */
+    /**
+     * Provides operations to manage the team property of the microsoft.graph.subjectRightsRequest entity.
+     */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }

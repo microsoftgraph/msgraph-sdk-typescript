@@ -20,23 +20,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
  */
 export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the assign method. */
+    /**
+     * Provides operations to call the assign method.
+     */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity. */
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
+     */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity. */
+    /**
+     * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
+     */
     public get deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity. */
+    /**
+     * Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity.
+     */
     public get installSummary(): InstallSummaryRequestBuilder {
         return new InstallSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity. */
+    /**
+     * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
+     */
     public get userStateSummary(): UserStateSummaryRequestBuilder {
         return new UserStateSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,9 +59,10 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property managedEBooks for deviceAppManagement
+     * Deletes a iosVppEBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebook-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedEBookItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -64,10 +75,11 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The Managed eBook.
+     * Read properties and relationships of the iosVppEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedEBook
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebook-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedEBookItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedEBook | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,11 +92,12 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ManagedEBook>(requestInfo, createManagedEBookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property managedEBooks in deviceAppManagement
+     * Update the properties of a iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedEBook
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebook-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedEBook | undefined, requestConfiguration?: ManagedEBookItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedEBook | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -98,7 +111,7 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ManagedEBook>(requestInfo, createManagedEBookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property managedEBooks for deviceAppManagement
+     * Deletes a iosVppEBook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -114,7 +127,7 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The Managed eBook.
+     * Read properties and relationships of the iosVppEBook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -132,7 +145,7 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property managedEBooks in deviceAppManagement
+     * Update the properties of a iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

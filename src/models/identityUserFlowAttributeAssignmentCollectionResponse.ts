@@ -3,6 +3,8 @@ import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAs
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityUserFlowAttributeAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: IdentityUserFlowAttributeAssignment[] | undefined;
 }

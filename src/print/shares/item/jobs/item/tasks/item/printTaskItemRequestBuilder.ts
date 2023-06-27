@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tasks property of the microsoft.graph.printJob entity.
  */
 export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the definition property of the microsoft.graph.printTask entity. */
+    /**
+     * Provides operations to manage the definition property of the microsoft.graph.printTask entity.
+     */
     public get definition(): DefinitionRequestBuilder {
         return new DefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the trigger property of the microsoft.graph.printTask entity. */
+    /**
+     * Provides operations to manage the trigger property of the microsoft.graph.printTask entity.
+     */
     public get trigger(): TriggerRequestBuilder {
         return new TriggerRequestBuilder(this.pathParameters, this.requestAdapter);
     }

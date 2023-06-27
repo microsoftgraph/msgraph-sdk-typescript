@@ -2,10 +2,16 @@ import {B2xUserFlowsRequestBuilderGetQueryParameters} from './b2xUserFlowsReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface B2xUserFlowsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: B2xUserFlowsRequestBuilderGetQueryParameters | undefined;
 }

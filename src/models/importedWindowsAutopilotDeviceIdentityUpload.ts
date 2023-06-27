@@ -4,10 +4,16 @@ import {ImportedWindowsAutopilotDeviceIdentityUploadStatus} from './importedWind
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ImportedWindowsAutopilotDeviceIdentityUpload extends Entity, Parsable {
-    /** DateTime when the entity is created. */
+    /**
+     * DateTime when the entity is created.
+     */
     createdDateTimeUtc?: Date | undefined;
-    /** Collection of all Autopilot devices as a part of this upload. */
+    /**
+     * Collection of all Autopilot devices as a part of this upload.
+     */
     deviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
-    /** The status property */
+    /**
+     * The status property
+     */
     status?: ImportedWindowsAutopilotDeviceIdentityUploadStatus | undefined;
 }

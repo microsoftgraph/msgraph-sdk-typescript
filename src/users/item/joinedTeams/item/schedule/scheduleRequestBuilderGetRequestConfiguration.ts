@@ -2,10 +2,16 @@ import {ScheduleRequestBuilderGetQueryParameters} from './scheduleRequestBuilder
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ScheduleRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ScheduleRequestBuilderGetQueryParameters | undefined;
 }

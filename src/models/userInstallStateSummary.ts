@@ -3,14 +3,24 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserInstallStateSummary extends Entity, Parsable {
-    /** The install state of the eBook. */
+    /**
+     * The install state of the eBook.
+     */
     deviceStates?: DeviceInstallState[] | undefined;
-    /** Failed Device Count. */
+    /**
+     * Failed Device Count.
+     */
     failedDeviceCount?: number | undefined;
-    /** Installed Device Count. */
+    /**
+     * Installed Device Count.
+     */
     installedDeviceCount?: number | undefined;
-    /** Not installed device count. */
+    /**
+     * Not installed device count.
+     */
     notInstalledDeviceCount?: number | undefined;
-    /** User name. */
+    /**
+     * User name.
+     */
     userName?: string | undefined;
 }

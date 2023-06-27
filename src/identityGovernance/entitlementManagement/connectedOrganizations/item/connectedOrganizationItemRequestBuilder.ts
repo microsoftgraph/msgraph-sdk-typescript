@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
  */
 export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the externalSponsors property of the microsoft.graph.connectedOrganization entity. */
+    /**
+     * Provides operations to manage the externalSponsors property of the microsoft.graph.connectedOrganization entity.
+     */
     public get externalSponsors(): ExternalSponsorsRequestBuilder {
         return new ExternalSponsorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the internalSponsors property of the microsoft.graph.connectedOrganization entity. */
+    /**
+     * Provides operations to manage the internalSponsors property of the microsoft.graph.connectedOrganization entity.
+     */
     public get internalSponsors(): InternalSponsorsRequestBuilder {
         return new InternalSponsorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

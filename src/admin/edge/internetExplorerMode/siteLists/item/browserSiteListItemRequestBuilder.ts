@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
  */
 export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the publish method. */
+    /**
+     * Provides operations to call the publish method.
+     */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity. */
+    /**
+     * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+     */
     public get sharedCookies(): SharedCookiesRequestBuilder {
         return new SharedCookiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity. */
+    /**
+     * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+     */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

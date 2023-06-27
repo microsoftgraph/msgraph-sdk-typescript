@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
  */
 export class CallRecordItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity. */
+    /**
+     * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
+     */
     public get sessions(): SessionsRequestBuilder {
         return new SessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

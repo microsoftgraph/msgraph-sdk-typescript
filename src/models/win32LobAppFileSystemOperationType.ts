@@ -1,4 +1,6 @@
-/** Contains all supported file system detection type. */
+/**
+ * Contains all supported file system detection type.
+ */
 export enum Win32LobAppFileSystemOperationType {
     /** Not configured. */
     NotConfigured = "notConfigured",

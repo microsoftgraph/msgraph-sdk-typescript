@@ -4,26 +4,48 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuditEvent extends Entity, Parsable {
-    /** Friendly name of the activity. */
+    /**
+     * Friendly name of the activity.
+     */
     activity?: string | undefined;
-    /** The date time in UTC when the activity was performed. */
+    /**
+     * The date time in UTC when the activity was performed.
+     */
     activityDateTime?: Date | undefined;
-    /** The HTTP operation type of the activity. */
+    /**
+     * The HTTP operation type of the activity.
+     */
     activityOperationType?: string | undefined;
-    /** The result of the activity. */
+    /**
+     * The result of the activity.
+     */
     activityResult?: string | undefined;
-    /** The type of activity that was being performed. */
+    /**
+     * The type of activity that was being performed.
+     */
     activityType?: string | undefined;
-    /** AAD user and application that are associated with the audit event. */
+    /**
+     * AAD user and application that are associated with the audit event.
+     */
     actor?: AuditActor | undefined;
-    /** Audit category. */
+    /**
+     * Audit category.
+     */
     category?: string | undefined;
-    /** Component name. */
+    /**
+     * Component name.
+     */
     componentName?: string | undefined;
-    /** The client request Id that is used to correlate activity within the system. */
+    /**
+     * The client request Id that is used to correlate activity within the system.
+     */
     correlationId?: string | undefined;
-    /** Event display name. */
+    /**
+     * Event display name.
+     */
     displayName?: string | undefined;
-    /** Resources being modified. */
+    /**
+     * Resources being modified.
+     */
     resources?: AuditResource[] | undefined;
 }

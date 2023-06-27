@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
  */
 export class MailFolderItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the copy method. */
+    /**
+     * Provides operations to call the copy method.
+     */
     public get copy(): CopyRequestBuilder {
         return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity. */
+    /**
+     * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
+     */
     public get messageRules(): MessageRulesRequestBuilder {
         return new MessageRulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the messages property of the microsoft.graph.mailFolder entity. */
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
+     */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the move method. */
+    /**
+     * Provides operations to call the move method.
+     */
     public get move(): MoveRequestBuilder {
         return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }

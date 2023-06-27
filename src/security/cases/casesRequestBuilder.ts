@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the cases property of the microsoft.graph.security entity.
  */
 export class CasesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity. */
+    /**
+     * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
+     */
     public get ediscoveryCases(): EdiscoveryCasesRequestBuilder {
         return new EdiscoveryCasesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

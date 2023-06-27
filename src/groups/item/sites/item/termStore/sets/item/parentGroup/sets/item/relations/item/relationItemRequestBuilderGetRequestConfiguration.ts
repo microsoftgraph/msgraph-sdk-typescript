@@ -2,10 +2,16 @@ import {RelationItemRequestBuilderGetQueryParameters} from './relationItemReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RelationItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RelationItemRequestBuilderGetQueryParameters | undefined;
 }

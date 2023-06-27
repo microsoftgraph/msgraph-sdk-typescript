@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the appCatalogs singleton.
  */
 export class AppCatalogsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity. */
+    /**
+     * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
+     */
     public get teamsApps(): TeamsAppsRequestBuilder {
         return new TeamsAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

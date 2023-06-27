@@ -3,6 +3,8 @@ import {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalRiskDetectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ServicePrincipalRiskDetection[] | undefined;
 }

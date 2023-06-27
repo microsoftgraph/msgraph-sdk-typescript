@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
  */
 export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity. */
+    /**
+     * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
+     */
     public get activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addActivities method. */
+    /**
+     * Provides operations to call the addActivities method.
+     */
     public get microsoftGraphExternalConnectorsAddActivities(): MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder {
         return new MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

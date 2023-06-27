@@ -21,27 +21,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
  */
 export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the abort method. */
+    /**
+     * Provides operations to call the abort method.
+     */
     public get abort(): AbortRequestBuilder {
         return new AbortRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
+    /**
+     * Provides operations to call the cancel method.
+     */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the documents property of the microsoft.graph.printJob entity. */
+    /**
+     * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
+     */
     public get documents(): DocumentsRequestBuilder {
         return new DocumentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the redirect method. */
+    /**
+     * Provides operations to call the redirect method.
+     */
     public get redirect(): RedirectRequestBuilder {
         return new RedirectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the start method. */
+    /**
+     * Provides operations to call the start method.
+     */
     public get start(): StartRequestBuilder {
         return new StartRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tasks property of the microsoft.graph.printJob entity. */
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.printJob entity.
+     */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }

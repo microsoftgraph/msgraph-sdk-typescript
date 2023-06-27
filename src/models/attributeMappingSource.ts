@@ -3,16 +3,28 @@ import {StringKeyAttributeMappingSourceValuePair} from './stringKeyAttributeMapp
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttributeMappingSource extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The expression property */
+    /**
+     * The expression property
+     */
     expression?: string | undefined;
-    /** The name property */
+    /**
+     * The name property
+     */
     name?: string | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The parameters property */
+    /**
+     * The parameters property
+     */
     parameters?: StringKeyAttributeMappingSourceValuePair[] | undefined;
-    /** The type property */
+    /**
+     * The type property
+     */
     type?: AttributeMappingSourceType | undefined;
 }

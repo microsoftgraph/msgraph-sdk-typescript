@@ -1,4 +1,6 @@
-/** Partner state of this tenant. */
+/**
+ * Partner state of this tenant.
+ */
 export enum MobileThreatPartnerTenantState {
     /** Partner is unavailable. */
     Unavailable = "unavailable",

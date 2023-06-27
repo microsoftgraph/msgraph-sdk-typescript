@@ -21,6 +21,7 @@ export class RequestRemoteAssistanceRequestBuilder extends BaseRequestBuilder {
      * Request remote assistance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-requestremoteassistance?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RequestRemoteAssistanceRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

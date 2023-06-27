@@ -2,10 +2,16 @@ import {ActivityHistoryItemItemRequestBuilderGetQueryParameters} from './activit
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ActivityHistoryItemItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ActivityHistoryItemItemRequestBuilderGetQueryParameters | undefined;
 }

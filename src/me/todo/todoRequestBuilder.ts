@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the todo property of the microsoft.graph.user entity.
  */
 export class TodoRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the lists property of the microsoft.graph.todo entity. */
+    /**
+     * Provides operations to manage the lists property of the microsoft.graph.todo entity.
+     */
     public get lists(): ListsRequestBuilder {
         return new ListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

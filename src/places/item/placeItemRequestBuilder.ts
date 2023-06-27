@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of place entities.
  */
 export class PlaceItemRequestBuilder extends BaseRequestBuilder {
-    /** Casts the previous resource to room. */
+    /**
+     * Casts the previous resource to room.
+     */
     public get graphRoom(): GraphRoomRequestBuilder {
         return new GraphRoomRequestBuilder(this.pathParameters, this.requestAdapter);
     }

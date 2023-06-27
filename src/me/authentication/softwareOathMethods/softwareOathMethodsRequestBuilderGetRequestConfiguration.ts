@@ -2,10 +2,16 @@ import {SoftwareOathMethodsRequestBuilderGetQueryParameters} from './softwareOat
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SoftwareOathMethodsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SoftwareOathMethodsRequestBuilderGetQueryParameters | undefined;
 }

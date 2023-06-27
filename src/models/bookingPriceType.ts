@@ -1,4 +1,6 @@
-/** Represents the type of pricing of a booking service. */
+/**
+ * Represents the type of pricing of a booking service.
+ */
 export enum BookingPriceType {
     /** The price of the service is not defined. */
     Undefined = "undefined",

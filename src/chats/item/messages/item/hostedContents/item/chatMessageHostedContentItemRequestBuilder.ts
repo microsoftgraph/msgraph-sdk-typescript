@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
  */
 export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the chat entity. */
+    /**
+     * Provides operations to manage the media for the chat entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }

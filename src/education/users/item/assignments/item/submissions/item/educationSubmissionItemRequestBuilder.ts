@@ -23,35 +23,51 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
  */
 export class EducationSubmissionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity. */
+    /**
+     * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
+     */
     public get outcomes(): OutcomesRequestBuilder {
         return new OutcomesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reassign method. */
+    /**
+     * Provides operations to call the reassign method.
+     */
     public get reassign(): ReassignRequestBuilder {
         return new ReassignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity. */
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity.
+     */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the return method. */
+    /**
+     * Provides operations to call the return method.
+     */
     public get returnEscaped(): ReturnRequestBuilder {
         return new ReturnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setUpResourcesFolder method. */
+    /**
+     * Provides operations to call the setUpResourcesFolder method.
+     */
     public get setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
         return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the submit method. */
+    /**
+     * Provides operations to call the submit method.
+     */
     public get submit(): SubmitRequestBuilder {
         return new SubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity. */
+    /**
+     * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
+     */
     public get submittedResources(): SubmittedResourcesRequestBuilder {
         return new SubmittedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unsubmit method. */
+    /**
+     * Provides operations to call the unsubmit method.
+     */
     public get unsubmit(): UnsubmitRequestBuilder {
         return new UnsubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }

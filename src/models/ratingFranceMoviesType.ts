@@ -1,4 +1,6 @@
-/** Movies rating labels in France */
+/**
+ * Movies rating labels in France
+ */
 export enum RatingFranceMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

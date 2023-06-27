@@ -24,39 +24,57 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
  */
 export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the close method. */
+    /**
+     * Provides operations to call the close method.
+     */
     public get microsoftGraphSecurityClose(): MicrosoftGraphSecurityCloseRequestBuilder {
         return new MicrosoftGraphSecurityCloseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reopen method. */
+    /**
+     * Provides operations to call the reopen method.
+     */
     public get microsoftGraphSecurityReopen(): MicrosoftGraphSecurityReopenRequestBuilder {
         return new MicrosoftGraphSecurityReopenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get noncustodialDataSources(): NoncustodialDataSourcesRequestBuilder {
         return new NoncustodialDataSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get reviewSets(): ReviewSetsRequestBuilder {
         return new ReviewSetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get searches(): SearchesRequestBuilder {
         return new SearchesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get tags(): TagsRequestBuilder {
         return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

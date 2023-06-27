@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
  */
 export class SimulationAutomationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity. */
+    /**
+     * Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
+     */
     public get runs(): RunsRequestBuilder {
         return new RunsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

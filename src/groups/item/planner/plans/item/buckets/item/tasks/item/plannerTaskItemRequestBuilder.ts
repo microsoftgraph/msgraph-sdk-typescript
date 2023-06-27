@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity.
  */
 export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+     */
     public get assignedToTaskBoardFormat(): AssignedToTaskBoardFormatRequestBuilder {
         return new AssignedToTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+     */
     public get bucketTaskBoardFormat(): BucketTaskBoardFormatRequestBuilder {
         return new BucketTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the details property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the details property of the microsoft.graph.plannerTask entity.
+     */
     public get details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+     */
     public get progressTaskBoardFormat(): ProgressTaskBoardFormatRequestBuilder {
         return new ProgressTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }

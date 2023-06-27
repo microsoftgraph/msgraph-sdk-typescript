@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
  */
 export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity. */
+    /**
+     * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
+     */
     public get identitySynchronization(): IdentitySynchronizationRequestBuilder {
         return new IdentitySynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -22,31 +22,45 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
  */
 export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the organization entity. */
+    /**
+     * Provides operations to manage the media for the organization entity.
+     */
     public get backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organization entity. */
+    /**
+     * Provides operations to manage the media for the organization entity.
+     */
     public get bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organization entity. */
+    /**
+     * Provides operations to manage the media for the organization entity.
+     */
     public get customCSS(): CustomCSSRequestBuilder {
         return new CustomCSSRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organization entity. */
+    /**
+     * Provides operations to manage the media for the organization entity.
+     */
     public get favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organization entity. */
+    /**
+     * Provides operations to manage the media for the organization entity.
+     */
     public get headerLogo(): HeaderLogoRequestBuilder {
         return new HeaderLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organization entity. */
+    /**
+     * Provides operations to manage the media for the organization entity.
+     */
     public get squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organization entity. */
+    /**
+     * Provides operations to manage the media for the organization entity.
+     */
     public get squareLogoDark(): SquareLogoDarkRequestBuilder {
         return new SquareLogoDarkRequestBuilder(this.pathParameters, this.requestAdapter);
     }

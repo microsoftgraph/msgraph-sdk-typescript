@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
  */
 export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

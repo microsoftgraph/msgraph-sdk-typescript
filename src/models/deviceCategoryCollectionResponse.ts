@@ -3,6 +3,8 @@ import {DeviceCategory} from './deviceCategory';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceCategoryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DeviceCategory[] | undefined;
 }

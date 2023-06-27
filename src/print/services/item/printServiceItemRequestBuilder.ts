@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the services property of the microsoft.graph.print entity.
  */
 export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the endpoints property of the microsoft.graph.printService entity. */
+    /**
+     * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
+     */
     public get endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

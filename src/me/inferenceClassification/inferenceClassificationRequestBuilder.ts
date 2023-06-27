@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity.
  */
 export class InferenceClassificationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity. */
+    /**
+     * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
+     */
     public get overrides(): OverridesRequestBuilder {
         return new OverridesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

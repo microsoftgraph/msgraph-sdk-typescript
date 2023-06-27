@@ -366,6 +366,16 @@ import {deserializeIntoExternalConnectionCollectionResponse} from './externalCon
 import {deserializeIntoExternalGroupCollectionResponse} from './externalConnectors/deserializeIntoExternalGroupCollectionResponse';
 import {deserializeIntoExternalItemCollectionResponse} from './externalConnectors/deserializeIntoExternalItemCollectionResponse';
 import {deserializeIntoIdentityCollectionResponse} from './externalConnectors/deserializeIntoIdentityCollectionResponse';
+import {deserializeIntoCustomTaskExtensionCollectionResponse} from './identityGovernance/deserializeIntoCustomTaskExtensionCollectionResponse';
+import {deserializeIntoRunCollectionResponse} from './identityGovernance/deserializeIntoRunCollectionResponse';
+import {deserializeIntoTaskCollectionResponse} from './identityGovernance/deserializeIntoTaskCollectionResponse';
+import {deserializeIntoTaskDefinitionCollectionResponse} from './identityGovernance/deserializeIntoTaskDefinitionCollectionResponse';
+import {deserializeIntoTaskProcessingResultCollectionResponse} from './identityGovernance/deserializeIntoTaskProcessingResultCollectionResponse';
+import {deserializeIntoTaskReportCollectionResponse} from './identityGovernance/deserializeIntoTaskReportCollectionResponse';
+import {deserializeIntoUserProcessingResultCollectionResponse} from './identityGovernance/deserializeIntoUserProcessingResultCollectionResponse';
+import {deserializeIntoWorkflowCollectionResponse} from './identityGovernance/deserializeIntoWorkflowCollectionResponse';
+import {deserializeIntoWorkflowTemplateCollectionResponse} from './identityGovernance/deserializeIntoWorkflowTemplateCollectionResponse';
+import {deserializeIntoWorkflowVersionCollectionResponse} from './identityGovernance/deserializeIntoWorkflowVersionCollectionResponse';
 import {BaseCollectionPaginationCountResponse} from './index';
 import {deserializeIntoAlertCollectionResponse as I2f2a8b6f686881a452c9844bb4805c853579d99bd709be44130087f8e7e3b233} from './security/deserializeIntoAlertCollectionResponse';
 import {deserializeIntoCaseOperationCollectionResponse} from './security/deserializeIntoCaseOperationCollectionResponse';

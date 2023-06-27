@@ -21,27 +21,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
  */
 export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity. */
+    /**
+     * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
+     */
     public get accessPackagesIncompatibleWith(): AccessPackagesIncompatibleWithRequestBuilder {
         return new AccessPackagesIncompatibleWithRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity. */
+    /**
+     * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
+     */
     public get assignmentPolicies(): AssignmentPoliciesRequestBuilder {
         return new AssignmentPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the catalog property of the microsoft.graph.accessPackage entity. */
+    /**
+     * Provides operations to manage the catalog property of the microsoft.graph.accessPackage entity.
+     */
     public get catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getApplicablePolicyRequirements method. */
+    /**
+     * Provides operations to call the getApplicablePolicyRequirements method.
+     */
     public get getApplicablePolicyRequirements(): GetApplicablePolicyRequirementsRequestBuilder {
         return new GetApplicablePolicyRequirementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity. */
+    /**
+     * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.
+     */
     public get incompatibleAccessPackages(): IncompatibleAccessPackagesRequestBuilder {
         return new IncompatibleAccessPackagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity. */
+    /**
+     * Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.
+     */
     public get incompatibleGroups(): IncompatibleGroupsRequestBuilder {
         return new IncompatibleGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

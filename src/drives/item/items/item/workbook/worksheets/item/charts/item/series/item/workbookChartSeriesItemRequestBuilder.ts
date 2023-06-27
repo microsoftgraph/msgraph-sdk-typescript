@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
  */
 export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChartSeries entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChartSeries entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity. */
+    /**
+     * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
+     */
     public get points(): PointsRequestBuilder {
         return new PointsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

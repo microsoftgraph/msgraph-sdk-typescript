@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.
  */
 export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method. */
+    /**
+     * Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.
+     */
     public get downloadApplePushNotificationCertificateSigningRequest(): DownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
         return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,11 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Apple push notification certificate.
+     * Read properties and relationships of the applePushNotificationCertificate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplePushNotificationCertificate
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +63,12 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
         return this.requestAdapter?.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property applePushNotificationCertificate in deviceManagement
+     * Update the properties of a applePushNotificationCertificate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplePushNotificationCertificate
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ApplePushNotificationCertificate | undefined, requestConfiguration?: ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -94,7 +98,7 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Apple push notification certificate.
+     * Read properties and relationships of the applePushNotificationCertificate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +116,7 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Update the navigation property applePushNotificationCertificate in deviceManagement
+     * Update the properties of a applePushNotificationCertificate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

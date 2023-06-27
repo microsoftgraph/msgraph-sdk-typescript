@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
  */
 export class AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the resetPassword method. */
+    /**
+     * Provides operations to call the resetPassword method.
+     */
     public get resetPassword(): ResetPasswordRequestBuilder {
         return new ResetPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }

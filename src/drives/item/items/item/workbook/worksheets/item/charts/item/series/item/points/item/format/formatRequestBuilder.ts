@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the format property of the microsoft.graph.workbookChartPoint entity.
  */
 export class FormatRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the fill property of the microsoft.graph.workbookChartPointFormat entity. */
+    /**
+     * Provides operations to manage the fill property of the microsoft.graph.workbookChartPointFormat entity.
+     */
     public get fill(): FillRequestBuilder {
         return new FillRequestBuilder(this.pathParameters, this.requestAdapter);
     }

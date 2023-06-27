@@ -16,19 +16,27 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the collection of site entities.
  */
 export class SitesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the add method. */
+    /**
+     * Provides operations to call the add method.
+     */
     public get add(): AddRequestBuilder {
         return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getAllSites method. */
+    /**
+     * Provides operations to call the getAllSites method.
+     */
     public get getAllSites(): GetAllSitesRequestBuilder {
         return new GetAllSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the remove method. */
+    /**
+     * Provides operations to call the remove method.
+     */
     public get remove(): RemoveRequestBuilder {
         return new RemoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -19,7 +19,9 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
  */
 export class PointsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the count method. */
+    /**
+     * Provides operations to call the count method.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }

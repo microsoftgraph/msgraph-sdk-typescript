@@ -21,10 +21,11 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/sendActivityNotificationToRecipients");
     };
     /**
-     * Invoke action sendActivityNotificationToRecipients
+     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SendActivityNotificationToRecipientsPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +39,7 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Invoke action sendActivityNotificationToRecipients
+     * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,4 +1,6 @@
-/** Android required password type. */
+/**
+ * Android required password type.
+ */
 export enum AndroidRequiredPasswordType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

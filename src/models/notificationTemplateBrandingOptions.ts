@@ -1,4 +1,6 @@
-/** Branding Options for the Message Template. Branding is defined in the Intune Admin Console. */
+/**
+ * Branding Options for the Message Template. Branding is defined in the Intune Admin Console.
+ */
 export enum NotificationTemplateBrandingOptions {
     /** Indicates that no branding options are set in the message template. */
     None = "none",

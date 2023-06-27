@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the privacy singleton.
  */
 export class PrivacyRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity. */
+    /**
+     * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
+     */
     public get subjectRightsRequests(): SubjectRightsRequestsRequestBuilder {
         return new SubjectRightsRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

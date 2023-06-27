@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the format property of the microsoft.graph.workbookChartAxisTitle entity.
  */
 export class FormatRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the font property of the microsoft.graph.workbookChartAxisTitleFormat entity. */
+    /**
+     * Provides operations to manage the font property of the microsoft.graph.workbookChartAxisTitleFormat entity.
+     */
     public get font(): FontRequestBuilder {
         return new FontRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -39,10 +39,11 @@ export class DeploymentSummaryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Navigation property to deployment summary of the configuration.
+     * Read properties and relationships of the managedAppPolicyDeploymentSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppPolicyDeploymentSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedapppolicydeploymentsummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeploymentSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppPolicyDeploymentSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +56,12 @@ export class DeploymentSummaryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ManagedAppPolicyDeploymentSummary>(requestInfo, createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property deploymentSummary in deviceAppManagement
+     * Update the properties of a managedAppPolicyDeploymentSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppPolicyDeploymentSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedapppolicydeploymentsummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedAppPolicyDeploymentSummary | undefined, requestConfiguration?: DeploymentSummaryRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppPolicyDeploymentSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +91,7 @@ export class DeploymentSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Navigation property to deployment summary of the configuration.
+     * Read properties and relationships of the managedAppPolicyDeploymentSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +109,7 @@ export class DeploymentSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property deploymentSummary in deviceAppManagement
+     * Update the properties of a managedAppPolicyDeploymentSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

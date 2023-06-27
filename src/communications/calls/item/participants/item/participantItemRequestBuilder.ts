@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
  */
 export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the mute method. */
+    /**
+     * Provides operations to call the mute method.
+     */
     public get mute(): MuteRequestBuilder {
         return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the startHoldMusic method. */
+    /**
+     * Provides operations to call the startHoldMusic method.
+     */
     public get startHoldMusic(): StartHoldMusicRequestBuilder {
         return new StartHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stopHoldMusic method. */
+    /**
+     * Provides operations to call the stopHoldMusic method.
+     */
     public get stopHoldMusic(): StopHoldMusicRequestBuilder {
         return new StopHoldMusicRequestBuilder(this.pathParameters, this.requestAdapter);
     }

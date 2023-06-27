@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the analytics property of the microsoft.graph.site entity.
  */
 export class AnalyticsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity. */
+    /**
+     * Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.
+     */
     public get allTime(): AllTimeRequestBuilder {
         return new AllTimeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity. */
+    /**
+     * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+     */
     public get itemActivityStats(): ItemActivityStatsRequestBuilder {
         return new ItemActivityStatsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity. */
+    /**
+     * Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.
+     */
     public get lastSevenDays(): LastSevenDaysRequestBuilder {
         return new LastSevenDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -17,15 +17,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the admin singleton.
  */
 export class AdminRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the edge property of the microsoft.graph.admin entity. */
+    /**
+     * Provides operations to manage the edge property of the microsoft.graph.admin entity.
+     */
     public get edge(): EdgeRequestBuilder {
         return new EdgeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
+    /**
+     * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
+     */
     public get serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sharepoint property of the microsoft.graph.admin entity. */
+    /**
+     * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
+     */
     public get sharepoint(): SharepointRequestBuilder {
         return new SharepointRequestBuilder(this.pathParameters, this.requestAdapter);
     }

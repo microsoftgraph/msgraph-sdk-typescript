@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
  */
 export class ServiceAnnouncementRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity. */
+    /**
+     * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
+     */
     public get healthOverviews(): HealthOverviewsRequestBuilder {
         return new HealthOverviewsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity. */
+    /**
+     * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
+     */
     public get issues(): IssuesRequestBuilder {
         return new IssuesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity. */
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
+     */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

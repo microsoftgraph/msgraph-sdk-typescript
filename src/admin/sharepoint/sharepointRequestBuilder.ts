@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
  */
 export class SharepointRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the settings property of the microsoft.graph.sharepoint entity. */
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.sharepoint entity.
+     */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
  */
 export class AccessReviewHistoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity. */
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
+     */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

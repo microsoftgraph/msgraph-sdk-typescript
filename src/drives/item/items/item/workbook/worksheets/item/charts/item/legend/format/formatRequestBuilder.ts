@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the format property of the microsoft.graph.workbookChartLegend entity.
  */
 export class FormatRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the fill property of the microsoft.graph.workbookChartLegendFormat entity. */
+    /**
+     * Provides operations to manage the fill property of the microsoft.graph.workbookChartLegendFormat entity.
+     */
     public get fill(): FillRequestBuilder {
         return new FillRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the font property of the microsoft.graph.workbookChartLegendFormat entity. */
+    /**
+     * Provides operations to manage the font property of the microsoft.graph.workbookChartLegendFormat entity.
+     */
     public get font(): FontRequestBuilder {
         return new FontRequestBuilder(this.pathParameters, this.requestAdapter);
     }

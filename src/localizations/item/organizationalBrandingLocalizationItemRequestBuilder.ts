@@ -22,31 +22,45 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of organizationalBrandingLocalization entities.
  */
 export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get customCSS(): CustomCSSRequestBuilder {
         return new CustomCSSRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get headerLogo(): HeaderLogoRequestBuilder {
         return new HeaderLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get squareLogoDark(): SquareLogoDarkRequestBuilder {
         return new SquareLogoDarkRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -3,12 +3,20 @@ import {Message} from './message';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CalendarSharingMessage extends Message, Parsable {
-    /** The canAccept property */
+    /**
+     * The canAccept property
+     */
     canAccept?: boolean | undefined;
-    /** The sharingMessageAction property */
+    /**
+     * The sharingMessageAction property
+     */
     sharingMessageAction?: CalendarSharingMessageAction | undefined;
-    /** The sharingMessageActions property */
+    /**
+     * The sharingMessageActions property
+     */
     sharingMessageActions?: CalendarSharingMessageAction[] | undefined;
-    /** The suggestedCalendarName property */
+    /**
+     * The suggestedCalendarName property
+     */
     suggestedCalendarName?: string | undefined;
 }

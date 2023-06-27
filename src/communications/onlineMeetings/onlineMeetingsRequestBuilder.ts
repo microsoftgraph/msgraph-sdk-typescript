@@ -19,11 +19,15 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
  */
 export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the createOrGet method. */
+    /**
+     * Provides operations to call the createOrGet method.
+     */
     public get createOrGet(): CreateOrGetRequestBuilder {
         return new CreateOrGetRequestBuilder(this.pathParameters, this.requestAdapter);
     }

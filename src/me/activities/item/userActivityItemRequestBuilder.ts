@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the activities property of the microsoft.graph.user entity.
  */
 export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity. */
+    /**
+     * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
+     */
     public get historyItems(): HistoryItemsRequestBuilder {
         return new HistoryItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

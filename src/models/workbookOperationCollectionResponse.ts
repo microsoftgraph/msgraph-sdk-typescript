@@ -3,6 +3,8 @@ import {WorkbookOperation} from './workbookOperation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: WorkbookOperation[] | undefined;
 }

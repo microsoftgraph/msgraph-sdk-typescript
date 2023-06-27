@@ -3,6 +3,8 @@ import {ConditionalAccessTemplate} from './conditionalAccessTemplate';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessTemplateCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ConditionalAccessTemplate[] | undefined;
 }

@@ -5,20 +5,36 @@ import {TeamworkNotificationRecipient} from '../../models/teamworkNotificationRe
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SendActivityNotificationToRecipientsPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** The activityType property */
+    /**
+     * The activityType property
+     */
     activityType?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The chainId property */
+    /**
+     * The chainId property
+     */
     chainId?: number | undefined;
-    /** The previewText property */
+    /**
+     * The previewText property
+     */
     previewText?: ItemBody | undefined;
-    /** The recipients property */
+    /**
+     * The recipients property
+     */
     recipients?: TeamworkNotificationRecipient[] | undefined;
-    /** The teamsAppId property */
+    /**
+     * The teamsAppId property
+     */
     teamsAppId?: string | undefined;
-    /** The templateParameters property */
+    /**
+     * The templateParameters property
+     */
     templateParameters?: KeyValuePair[] | undefined;
-    /** The topic property */
+    /**
+     * The topic property
+     */
     topic?: TeamworkActivityTopic | undefined;
 }

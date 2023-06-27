@@ -20,27 +20,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the directory singleton.
  */
 export class DirectoryRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
+     */
     public get administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attributeSets property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
+     */
     public get attributeSets(): AttributeSetsRequestBuilder {
         return new AttributeSetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+     */
     public get customSecurityAttributeDefinitions(): CustomSecurityAttributeDefinitionsRequestBuilder {
         return new CustomSecurityAttributeDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deletedItems property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
+     */
     public get deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
+     */
     public get federationConfigurations(): FederationConfigurationsRequestBuilder {
         return new FederationConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
+     */
     public get onPremisesSynchronization(): OnPremisesSynchronizationRequestBuilder {
         return new OnPremisesSynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }

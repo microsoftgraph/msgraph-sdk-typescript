@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the format property of the microsoft.graph.workbookChartGridlines entity.
  */
 export class FormatRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the line property of the microsoft.graph.workbookChartGridlinesFormat entity. */
+    /**
+     * Provides operations to manage the line property of the microsoft.graph.workbookChartGridlinesFormat entity.
+     */
     public get line(): LineRequestBuilder {
         return new LineRequestBuilder(this.pathParameters, this.requestAdapter);
     }

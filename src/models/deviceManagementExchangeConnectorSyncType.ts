@@ -1,4 +1,6 @@
-/** The type of Exchange Connector sync requested. */
+/**
+ * The type of Exchange Connector sync requested.
+ */
 export enum DeviceManagementExchangeConnectorSyncType {
     /** Discover all the device in Exchange. */
     FullSync = "fullSync",

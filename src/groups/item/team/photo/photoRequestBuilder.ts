@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the photo property of the microsoft.graph.team entity.
  */
 export class PhotoRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the group entity. */
+    /**
+     * Provides operations to manage the media for the group entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }

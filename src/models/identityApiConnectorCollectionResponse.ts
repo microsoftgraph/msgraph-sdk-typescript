@@ -3,6 +3,8 @@ import {IdentityApiConnector} from './identityApiConnector';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityApiConnectorCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: IdentityApiConnector[] | undefined;
 }

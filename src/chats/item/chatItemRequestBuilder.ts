@@ -26,47 +26,69 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of chat entities.
  */
 export class ChatItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the hideForUser method. */
+    /**
+     * Provides operations to call the hideForUser method.
+     */
     public get hideForUser(): HideForUserRequestBuilder {
         return new HideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the installedApps property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
+     */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.
+     */
     public get lastMessagePreview(): LastMessagePreviewRequestBuilder {
         return new LastMessagePreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the markChatReadForUser method. */
+    /**
+     * Provides operations to call the markChatReadForUser method.
+     */
     public get markChatReadForUser(): MarkChatReadForUserRequestBuilder {
         return new MarkChatReadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the markChatUnreadForUser method. */
+    /**
+     * Provides operations to call the markChatUnreadForUser method.
+     */
     public get markChatUnreadForUser(): MarkChatUnreadForUserRequestBuilder {
         return new MarkChatUnreadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.chat entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the messages property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.chat entity.
+     */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
+     */
     public get pinnedMessages(): PinnedMessagesRequestBuilder {
         return new PinnedMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendActivityNotification method. */
+    /**
+     * Provides operations to call the sendActivityNotification method.
+     */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tabs property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
+     */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unhideForUser method. */
+    /**
+     * Provides operations to call the unhideForUser method.
+     */
     public get unhideForUser(): UnhideForUserRequestBuilder {
         return new UnhideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }

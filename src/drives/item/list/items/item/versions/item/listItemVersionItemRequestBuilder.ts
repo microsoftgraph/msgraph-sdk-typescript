@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
  */
 export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the fields property of the microsoft.graph.listItemVersion entity. */
+    /**
+     * Provides operations to manage the fields property of the microsoft.graph.listItemVersion entity.
+     */
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restoreVersion method. */
+    /**
+     * Provides operations to call the restoreVersion method.
+     */
     public get restoreVersion(): RestoreVersionRequestBuilder {
         return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
  */
 export class ExternalActivityItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the performedBy property of the microsoft.graph.externalConnectors.externalActivity entity. */
+    /**
+     * Provides operations to manage the performedBy property of the microsoft.graph.externalConnectors.externalActivity entity.
+     */
     public get performedBy(): PerformedByRequestBuilder {
         return new PerformedByRequestBuilder(this.pathParameters, this.requestAdapter);
     }

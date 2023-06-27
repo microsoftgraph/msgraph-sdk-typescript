@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
  */
 export class AssociatedTeamInfoItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the team property of the microsoft.graph.teamInfo entity. */
+    /**
+     * Provides operations to manage the team property of the microsoft.graph.teamInfo entity.
+     */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }

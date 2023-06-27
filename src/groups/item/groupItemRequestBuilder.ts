@@ -56,167 +56,249 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of group entities.
  */
 export class GroupItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the acceptedSenders property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the acceptedSenders property of the microsoft.graph.group entity.
+     */
     public get acceptedSenders(): AcceptedSendersRequestBuilder {
         return new AcceptedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addFavorite method. */
+    /**
+     * Provides operations to call the addFavorite method.
+     */
     public get addFavorite(): AddFavoriteRequestBuilder {
         return new AddFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.
+     */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the assignLicense method. */
+    /**
+     * Provides operations to call the assignLicense method.
+     */
     public get assignLicense(): AssignLicenseRequestBuilder {
         return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calendar property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the calendar property of the microsoft.graph.group entity.
+     */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calendarView property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the calendarView property of the microsoft.graph.group entity.
+     */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkGrantedPermissionsForApp method. */
+    /**
+     * Provides operations to call the checkGrantedPermissionsForApp method.
+     */
     public get checkGrantedPermissionsForApp(): CheckGrantedPermissionsForAppRequestBuilder {
         return new CheckGrantedPermissionsForAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkMemberGroups method. */
+    /**
+     * Provides operations to call the checkMemberGroups method.
+     */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkMemberObjects method. */
+    /**
+     * Provides operations to call the checkMemberObjects method.
+     */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the conversations property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the conversations property of the microsoft.graph.group entity.
+     */
     public get conversations(): ConversationsRequestBuilder {
         return new ConversationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.group entity.
+     */
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
         return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drive property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the drive property of the microsoft.graph.group entity.
+     */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drives property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the drives property of the microsoft.graph.group entity.
+     */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the events property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the events property of the microsoft.graph.group entity.
+     */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensions property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.group entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberGroups method. */
+    /**
+     * Provides operations to call the getMemberGroups method.
+     */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberObjects method. */
+    /**
+     * Provides operations to call the getMemberObjects method.
+     */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
+     */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the memberOf property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the memberOf property of the microsoft.graph.group entity.
+     */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.group entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity.
+     */
     public get membersWithLicenseErrors(): MembersWithLicenseErrorsRequestBuilder {
         return new MembersWithLicenseErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the onenote property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the onenote property of the microsoft.graph.group entity.
+     */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the owners property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the owners property of the microsoft.graph.group entity.
+     */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the permissionGrants property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
+     */
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the photo property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the photo property of the microsoft.graph.group entity.
+     */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the photos property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the photos property of the microsoft.graph.group entity.
+     */
     public get photos(): PhotosRequestBuilder {
         return new PhotosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the planner property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the planner property of the microsoft.graph.group entity.
+     */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the rejectedSenders property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the rejectedSenders property of the microsoft.graph.group entity.
+     */
     public get rejectedSenders(): RejectedSendersRequestBuilder {
         return new RejectedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removeFavorite method. */
+    /**
+     * Provides operations to call the removeFavorite method.
+     */
     public get removeFavorite(): RemoveFavoriteRequestBuilder {
         return new RemoveFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the renew method. */
+    /**
+     * Provides operations to call the renew method.
+     */
     public get renew(): RenewRequestBuilder {
         return new RenewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the resetUnseenCount method. */
+    /**
+     * Provides operations to call the resetUnseenCount method.
+     */
     public get resetUnseenCount(): ResetUnseenCountRequestBuilder {
         return new ResetUnseenCountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restore method. */
+    /**
+     * Provides operations to call the restore method.
+     */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the settings property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.group entity.
+     */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sites property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the sites property of the microsoft.graph.group entity.
+     */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the subscribeByMail method. */
+    /**
+     * Provides operations to call the subscribeByMail method.
+     */
     public get subscribeByMail(): SubscribeByMailRequestBuilder {
         return new SubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the team property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the team property of the microsoft.graph.group entity.
+     */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the threads property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the threads property of the microsoft.graph.group entity.
+     */
     public get threads(): ThreadsRequestBuilder {
         return new ThreadsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.group entity.
+     */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the transitiveMembers property of the microsoft.graph.group entity. */
+    /**
+     * Provides operations to manage the transitiveMembers property of the microsoft.graph.group entity.
+     */
     public get transitiveMembers(): TransitiveMembersRequestBuilder {
         return new TransitiveMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unsubscribeByMail method. */
+    /**
+     * Provides operations to call the unsubscribeByMail method.
+     */
     public get unsubscribeByMail(): UnsubscribeByMailRequestBuilder {
         return new UnsubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the validateProperties method. */
+    /**
+     * Provides operations to call the validateProperties method.
+     */
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -262,12 +344,12 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Add a member to a security or Microsoft 365 group through the **members** navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+     * Update the properties of a group object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
-     * @see {@link https://docs.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/group-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Group | undefined, requestConfiguration?: GroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -315,7 +397,7 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add a member to a security or Microsoft 365 group through the **members** navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
+     * Update the properties of a group object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

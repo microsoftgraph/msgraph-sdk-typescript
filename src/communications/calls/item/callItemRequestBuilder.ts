@@ -33,75 +33,111 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
  */
 export class CallItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the addLargeGalleryView method. */
+    /**
+     * Provides operations to call the addLargeGalleryView method.
+     */
     public get addLargeGalleryView(): AddLargeGalleryViewRequestBuilder {
         return new AddLargeGalleryViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the answer method. */
+    /**
+     * Provides operations to call the answer method.
+     */
     public get answer(): AnswerRequestBuilder {
         return new AnswerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+     */
     public get audioRoutingGroups(): AudioRoutingGroupsRequestBuilder {
         return new AudioRoutingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancelMediaProcessing method. */
+    /**
+     * Provides operations to call the cancelMediaProcessing method.
+     */
     public get cancelMediaProcessing(): CancelMediaProcessingRequestBuilder {
         return new CancelMediaProcessingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the changeScreenSharingRole method. */
+    /**
+     * Provides operations to call the changeScreenSharingRole method.
+     */
     public get changeScreenSharingRole(): ChangeScreenSharingRoleRequestBuilder {
         return new ChangeScreenSharingRoleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
+     */
     public get contentSharingSessions(): ContentSharingSessionsRequestBuilder {
         return new ContentSharingSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the keepAlive method. */
+    /**
+     * Provides operations to call the keepAlive method.
+     */
     public get keepAlive(): KeepAliveRequestBuilder {
         return new KeepAliveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the mute method. */
+    /**
+     * Provides operations to call the mute method.
+     */
     public get mute(): MuteRequestBuilder {
         return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.call entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the participants property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the participants property of the microsoft.graph.call entity.
+     */
     public get participants(): ParticipantsRequestBuilder {
         return new ParticipantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the playPrompt method. */
+    /**
+     * Provides operations to call the playPrompt method.
+     */
     public get playPrompt(): PlayPromptRequestBuilder {
         return new PlayPromptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the recordResponse method. */
+    /**
+     * Provides operations to call the recordResponse method.
+     */
     public get recordResponse(): RecordResponseRequestBuilder {
         return new RecordResponseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the redirect method. */
+    /**
+     * Provides operations to call the redirect method.
+     */
     public get redirect(): RedirectRequestBuilder {
         return new RedirectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reject method. */
+    /**
+     * Provides operations to call the reject method.
+     */
     public get reject(): RejectRequestBuilder {
         return new RejectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the subscribeToTone method. */
+    /**
+     * Provides operations to call the subscribeToTone method.
+     */
     public get subscribeToTone(): SubscribeToToneRequestBuilder {
         return new SubscribeToToneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the transfer method. */
+    /**
+     * Provides operations to call the transfer method.
+     */
     public get transfer(): TransferRequestBuilder {
         return new TransferRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unmute method. */
+    /**
+     * Provides operations to call the unmute method.
+     */
     public get unmute(): UnmuteRequestBuilder {
         return new UnmuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the updateRecordingStatus method. */
+    /**
+     * Provides operations to call the updateRecordingStatus method.
+     */
     public get updateRecordingStatus(): UpdateRecordingStatusRequestBuilder {
         return new UpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the issues property of the microsoft.graph.serviceAnnouncement entity.
  */
 export class ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the incidentReport method. */
+    /**
+     * Provides operations to call the incidentReport method.
+     */
     public get incidentReport(): IncidentReportRequestBuilder {
         return new IncidentReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }

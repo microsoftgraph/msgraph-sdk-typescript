@@ -17,15 +17,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the planner singleton.
  */
 export class PlannerRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the buckets property of the microsoft.graph.planner entity. */
+    /**
+     * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
+     */
     public get buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the plans property of the microsoft.graph.planner entity. */
+    /**
+     * Provides operations to manage the plans property of the microsoft.graph.planner entity.
+     */
     public get plans(): PlansRequestBuilder {
         return new PlansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tasks property of the microsoft.graph.planner entity. */
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.planner entity.
+     */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }

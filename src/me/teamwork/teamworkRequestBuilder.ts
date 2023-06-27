@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the teamwork property of the microsoft.graph.user entity.
  */
 export class TeamworkRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity. */
+    /**
+     * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
+     */
     public get associatedTeams(): AssociatedTeamsRequestBuilder {
         return new AssociatedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity. */
+    /**
+     * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
+     */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendActivityNotification method. */
+    /**
+     * Provides operations to call the sendActivityNotification method.
+     */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -54,7 +60,7 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get teamwork from me
+     * A container for Microsoft Teams features available for the user. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserTeamwork
@@ -104,7 +110,7 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get teamwork from me
+     * A container for Microsoft Teams features available for the user. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

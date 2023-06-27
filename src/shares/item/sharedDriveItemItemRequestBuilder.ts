@@ -24,39 +24,57 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of sharedDriveItem entities.
  */
 export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get permission(): PermissionRequestBuilder {
         return new PermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the site property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the site property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get site(): SiteRequestBuilder {
         return new SiteRequestBuilder(this.pathParameters, this.requestAdapter);
     }

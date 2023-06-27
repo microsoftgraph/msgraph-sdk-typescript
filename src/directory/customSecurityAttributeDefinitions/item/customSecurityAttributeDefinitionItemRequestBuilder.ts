@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
  */
 export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity. */
+    /**
+     * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
+     */
     public get allowedValues(): AllowedValuesRequestBuilder {
         return new AllowedValuesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

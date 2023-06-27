@@ -22,31 +22,45 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of domain entities.
  */
 export class DomainItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity.
+     */
     public get domainNameReferences(): DomainNameReferencesRequestBuilder {
         return new DomainNameReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
+     */
     public get federationConfiguration(): FederationConfigurationRequestBuilder {
         return new FederationConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the forceDelete method. */
+    /**
+     * Provides operations to call the forceDelete method.
+     */
     public get forceDelete(): ForceDeleteRequestBuilder {
         return new ForceDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the promote method. */
+    /**
+     * Provides operations to call the promote method.
+     */
     public get promote(): PromoteRequestBuilder {
         return new PromoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
+     */
     public get serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
         return new ServiceConfigurationRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
+     */
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the verify method. */
+    /**
+     * Provides operations to call the verify method.
+     */
     public get verify(): VerifyRequestBuilder {
         return new VerifyRequestBuilder(this.pathParameters, this.requestAdapter);
     }

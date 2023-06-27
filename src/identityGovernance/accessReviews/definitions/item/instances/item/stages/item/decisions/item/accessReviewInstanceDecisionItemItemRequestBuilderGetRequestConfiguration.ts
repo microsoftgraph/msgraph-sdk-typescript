@@ -2,10 +2,16 @@ import {AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters} fr
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters | undefined;
 }

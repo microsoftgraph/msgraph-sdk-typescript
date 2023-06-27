@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
  */
 export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
+    /**
+     * Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the catalog property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
+    /**
+     * Provides operations to manage the catalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     */
     public get catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
+    /**
+     * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     */
     public get questions(): QuestionsRequestBuilder {
         return new QuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

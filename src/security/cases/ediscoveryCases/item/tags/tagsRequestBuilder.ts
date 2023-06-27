@@ -19,11 +19,15 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class TagsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the asHierarchy method. */
+    /**
+     * Provides operations to call the asHierarchy method.
+     */
     public get microsoftGraphSecurityAsHierarchy(): MicrosoftGraphSecurityAsHierarchyRequestBuilder {
         return new MicrosoftGraphSecurityAsHierarchyRequestBuilder(this.pathParameters, this.requestAdapter);
     }

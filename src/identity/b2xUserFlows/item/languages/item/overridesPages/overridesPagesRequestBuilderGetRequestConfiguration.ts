@@ -2,10 +2,16 @@ import {OverridesPagesRequestBuilderGetQueryParameters} from './overridesPagesRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface OverridesPagesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: OverridesPagesRequestBuilderGetQueryParameters | undefined;
 }

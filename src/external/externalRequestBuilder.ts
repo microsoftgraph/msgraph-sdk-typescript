@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the external singleton.
  */
 export class ExternalRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity. */
+    /**
+     * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
+     */
     public get connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

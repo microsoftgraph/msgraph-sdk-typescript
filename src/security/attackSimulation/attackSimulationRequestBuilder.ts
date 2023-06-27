@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
  */
 export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity. */
+    /**
+     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
+     */
     public get simulationAutomations(): SimulationAutomationsRequestBuilder {
         return new SimulationAutomationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity. */
+    /**
+     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+     */
     public get simulations(): SimulationsRequestBuilder {
         return new SimulationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

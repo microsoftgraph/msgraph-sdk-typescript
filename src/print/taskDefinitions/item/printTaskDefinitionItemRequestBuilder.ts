@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
  */
 export class PrintTaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity. */
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
+     */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }

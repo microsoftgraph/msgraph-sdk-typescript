@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
  */
 export class SchemaRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity. */
+    /**
+     * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
+     */
     public get directories(): DirectoriesRequestBuilder {
         return new DirectoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the filterOperators method. */
+    /**
+     * Provides operations to call the filterOperators method.
+     */
     public get filterOperators(): FilterOperatorsRequestBuilder {
         return new FilterOperatorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the functions method. */
+    /**
+     * Provides operations to call the functions method.
+     */
     public get functions(): FunctionsRequestBuilder {
         return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the parseExpression method. */
+    /**
+     * Provides operations to call the parseExpression method.
+     */
     public get parseExpression(): ParseExpressionRequestBuilder {
         return new ParseExpressionRequestBuilder(this.pathParameters, this.requestAdapter);
     }

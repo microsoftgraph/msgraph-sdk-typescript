@@ -3,6 +3,8 @@ import {Alert} from './alert';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AlertCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: Alert[] | undefined;
 }

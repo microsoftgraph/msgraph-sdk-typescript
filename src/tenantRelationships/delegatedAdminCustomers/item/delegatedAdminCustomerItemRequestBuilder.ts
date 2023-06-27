@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
  */
 export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity. */
+    /**
+     * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
+     */
     public get serviceManagementDetails(): ServiceManagementDetailsRequestBuilder {
         return new ServiceManagementDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

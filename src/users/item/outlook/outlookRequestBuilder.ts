@@ -15,15 +15,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the outlook property of the microsoft.graph.user entity.
  */
 export class OutlookRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity. */
+    /**
+     * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
+     */
     public get masterCategories(): MasterCategoriesRequestBuilder {
         return new MasterCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the supportedLanguages method. */
+    /**
+     * Provides operations to call the supportedLanguages method.
+     */
     public get supportedLanguages(): SupportedLanguagesRequestBuilder {
         return new SupportedLanguagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the supportedTimeZones method. */
+    /**
+     * Provides operations to call the supportedTimeZones method.
+     */
     public get supportedTimeZones(): SupportedTimeZonesRequestBuilder {
         return new SupportedTimeZonesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -5,10 +5,16 @@ import {SynchronizationTemplate} from './synchronizationTemplate';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Synchronization extends Entity, Parsable {
-    /** The jobs property */
+    /**
+     * The jobs property
+     */
     jobs?: SynchronizationJob[] | undefined;
-    /** The secrets property */
+    /**
+     * The secrets property
+     */
     secrets?: SynchronizationSecretKeyStringValuePair[] | undefined;
-    /** The templates property */
+    /**
+     * The templates property
+     */
     templates?: SynchronizationTemplate[] | undefined;
 }

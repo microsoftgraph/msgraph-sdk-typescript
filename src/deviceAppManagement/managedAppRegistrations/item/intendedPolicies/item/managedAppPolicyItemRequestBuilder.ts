@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the intendedPolicies property of the microsoft.graph.managedAppRegistration entity.
  */
 export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the targetApps method. */
+    /**
+     * Provides operations to call the targetApps method.
+     */
     public get targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

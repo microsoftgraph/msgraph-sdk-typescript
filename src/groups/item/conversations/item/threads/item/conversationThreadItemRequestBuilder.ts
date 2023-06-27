@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the threads property of the microsoft.graph.conversation entity.
  */
 export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the posts property of the microsoft.graph.conversationThread entity. */
+    /**
+     * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
+     */
     public get posts(): PostsRequestBuilder {
         return new PostsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reply method. */
+    /**
+     * Provides operations to call the reply method.
+     */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }

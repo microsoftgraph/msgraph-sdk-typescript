@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
  */
 export class ThreatAssessmentRequestItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity. */
+    /**
+     * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
+     */
     public get results(): ResultsRequestBuilder {
         return new ResultsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

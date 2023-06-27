@@ -24,31 +24,45 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
 export class MessagesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the archive method. */
+    /**
+     * Provides operations to call the archive method.
+     */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the favorite method. */
+    /**
+     * Provides operations to call the favorite method.
+     */
     public get favorite(): FavoriteRequestBuilder {
         return new FavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the markRead method. */
+    /**
+     * Provides operations to call the markRead method.
+     */
     public get markRead(): MarkReadRequestBuilder {
         return new MarkReadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the markUnread method. */
+    /**
+     * Provides operations to call the markUnread method.
+     */
     public get markUnread(): MarkUnreadRequestBuilder {
         return new MarkUnreadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unarchive method. */
+    /**
+     * Provides operations to call the unarchive method.
+     */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unfavorite method. */
+    /**
+     * Provides operations to call the unfavorite method.
+     */
     public get unfavorite(): UnfavoriteRequestBuilder {
         return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }

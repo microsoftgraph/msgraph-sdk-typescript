@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryReviewSetItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the addToReviewSet method. */
+    /**
+     * Provides operations to call the addToReviewSet method.
+     */
     public get microsoftGraphSecurityAddToReviewSet(): MicrosoftGraphSecurityAddToReviewSetRequestBuilder {
         return new MicrosoftGraphSecurityAddToReviewSetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity. */
+    /**
+     * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
+     */
     public get queries(): QueriesRequestBuilder {
         return new QueriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

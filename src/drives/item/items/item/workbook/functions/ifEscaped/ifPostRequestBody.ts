@@ -2,12 +2,20 @@ import {Json} from '../../../../../../../models/json';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IfPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The logicalTest property */
+    /**
+     * The logicalTest property
+     */
     logicalTest?: Json | undefined;
-    /** The valueIfFalse property */
+    /**
+     * The valueIfFalse property
+     */
     valueIfFalse?: Json | undefined;
-    /** The valueIfTrue property */
+    /**
+     * The valueIfTrue property
+     */
     valueIfTrue?: Json | undefined;
 }

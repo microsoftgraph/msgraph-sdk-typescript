@@ -22,31 +22,45 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity. */
+    /**
+     * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
+     */
     public get additionalSources(): AdditionalSourcesRequestBuilder {
         return new AdditionalSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity. */
+    /**
+     * Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity.
+     */
     public get addToReviewSetOperation(): AddToReviewSetOperationRequestBuilder {
         return new AddToReviewSetOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity. */
+    /**
+     * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
+     */
     public get custodianSources(): CustodianSourcesRequestBuilder {
         return new CustodianSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity. */
+    /**
+     * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity.
+     */
     public get lastEstimateStatisticsOperation(): LastEstimateStatisticsOperationRequestBuilder {
         return new LastEstimateStatisticsOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the estimateStatistics method. */
+    /**
+     * Provides operations to call the estimateStatistics method.
+     */
     public get microsoftGraphSecurityEstimateStatistics(): MicrosoftGraphSecurityEstimateStatisticsRequestBuilder {
         return new MicrosoftGraphSecurityEstimateStatisticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the purgeData method. */
+    /**
+     * Provides operations to call the purgeData method.
+     */
     public get microsoftGraphSecurityPurgeData(): MicrosoftGraphSecurityPurgeDataRequestBuilder {
         return new MicrosoftGraphSecurityPurgeDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity. */
+    /**
+     * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
+     */
     public get noncustodialSources(): NoncustodialSourcesRequestBuilder {
         return new NoncustodialSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

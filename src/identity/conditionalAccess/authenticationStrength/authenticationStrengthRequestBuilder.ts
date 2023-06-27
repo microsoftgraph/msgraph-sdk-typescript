@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.
  */
 export class AuthenticationStrengthRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity. */
+    /**
+     * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
+     */
     public get authenticationMethodModes(): AuthenticationMethodModesRequestBuilder {
         return new AuthenticationMethodModesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity. */
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
+     */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

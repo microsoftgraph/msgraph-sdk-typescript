@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
  */
 export class UnifiedRbacResourceNamespaceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity. */
+    /**
+     * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
+     */
     public get resourceActions(): ResourceActionsRequestBuilder {
         return new ResourceActionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

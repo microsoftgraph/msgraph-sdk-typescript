@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of subscription entities.
  */
 export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the reauthorize method. */
+    /**
+     * Provides operations to call the reauthorize method.
+     */
     public get reauthorize(): ReauthorizeRequestBuilder {
         return new ReauthorizeRequestBuilder(this.pathParameters, this.requestAdapter);
     }

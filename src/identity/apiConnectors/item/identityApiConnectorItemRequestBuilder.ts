@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
  */
 export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the uploadClientCertificate method. */
+    /**
+     * Provides operations to call the uploadClientCertificate method.
+     */
     public get uploadClientCertificate(): UploadClientCertificateRequestBuilder {
         return new UploadClientCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }

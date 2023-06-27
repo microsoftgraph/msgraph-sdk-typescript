@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
  */
 export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the teamsApp property of the microsoft.graph.teamsTab entity. */
+    /**
+     * Provides operations to manage the teamsApp property of the microsoft.graph.teamsTab entity.
+     */
     public get teamsApp(): TeamsAppRequestBuilder {
         return new TeamsAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }

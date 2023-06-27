@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
  */
 export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the refresh method. */
+    /**
+     * Provides operations to call the refresh method.
+     */
     public get refresh(): RefreshRequestBuilder {
         return new RefreshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheet property of the microsoft.graph.workbookPivotTable entity. */
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookPivotTable entity.
+     */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -2,10 +2,16 @@ import {OpenShiftChangeRequestsRequestBuilderGetQueryParameters} from './openShi
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: OpenShiftChangeRequestsRequestBuilderGetQueryParameters | undefined;
 }

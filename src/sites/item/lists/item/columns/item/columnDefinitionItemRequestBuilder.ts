@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the columns property of the microsoft.graph.list entity.
  */
 export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity. */
+    /**
+     * Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.
+     */
     public get sourceColumn(): SourceColumnRequestBuilder {
         return new SourceColumnRequestBuilder(this.pathParameters, this.requestAdapter);
     }

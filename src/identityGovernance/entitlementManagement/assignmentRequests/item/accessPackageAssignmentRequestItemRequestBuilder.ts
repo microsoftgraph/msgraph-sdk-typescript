@@ -20,23 +20,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
  */
 export class AccessPackageAssignmentRequestItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentRequest entity. */
+    /**
+     * Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentRequest entity.
+     */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignment property of the microsoft.graph.accessPackageAssignmentRequest entity. */
+    /**
+     * Provides operations to manage the assignment property of the microsoft.graph.accessPackageAssignmentRequest entity.
+     */
     public get assignment(): AssignmentRequestBuilder {
         return new AssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
+    /**
+     * Provides operations to call the cancel method.
+     */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reprocess method. */
+    /**
+     * Provides operations to call the reprocess method.
+     */
     public get reprocess(): ReprocessRequestBuilder {
         return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the requestor property of the microsoft.graph.accessPackageAssignmentRequest entity. */
+    /**
+     * Provides operations to manage the requestor property of the microsoft.graph.accessPackageAssignmentRequest entity.
+     */
     public get requestor(): RequestorRequestBuilder {
         return new RequestorRequestBuilder(this.pathParameters, this.requestAdapter);
     }

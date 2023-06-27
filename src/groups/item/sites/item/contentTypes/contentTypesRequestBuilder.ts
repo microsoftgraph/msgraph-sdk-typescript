@@ -21,19 +21,27 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
  */
 export class ContentTypesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the addCopy method. */
+    /**
+     * Provides operations to call the addCopy method.
+     */
     public get addCopy(): AddCopyRequestBuilder {
         return new AddCopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addCopyFromContentTypeHub method. */
+    /**
+     * Provides operations to call the addCopyFromContentTypeHub method.
+     */
     public get addCopyFromContentTypeHub(): AddCopyFromContentTypeHubRequestBuilder {
         return new AddCopyFromContentTypeHubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getCompatibleHubContentTypes method. */
+    /**
+     * Provides operations to call the getCompatibleHubContentTypes method.
+     */
     public get getCompatibleHubContentTypes(): GetCompatibleHubContentTypesRequestBuilder {
         return new GetCompatibleHubContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

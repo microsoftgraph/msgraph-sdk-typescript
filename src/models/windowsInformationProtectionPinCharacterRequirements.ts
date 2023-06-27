@@ -1,4 +1,6 @@
-/** Pin Character Requirements */
+/**
+ * Pin Character Requirements
+ */
 export enum WindowsInformationProtectionPinCharacterRequirements {
     /** Not allow */
     NotAllow = "notAllow",

@@ -9,38 +9,72 @@ import {SortProperty} from './sortProperty';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SearchRequest extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The aggregationFilters property */
+    /**
+     * The aggregationFilters property
+     */
     aggregationFilters?: string[] | undefined;
-    /** The aggregations property */
+    /**
+     * The aggregations property
+     */
     aggregations?: AggregationOption[] | undefined;
-    /** The collapseProperties property */
+    /**
+     * The collapseProperties property
+     */
     collapseProperties?: CollapseProperty[] | undefined;
-    /** The contentSources property */
+    /**
+     * The contentSources property
+     */
     contentSources?: string[] | undefined;
-    /** The enableTopResults property */
+    /**
+     * The enableTopResults property
+     */
     enableTopResults?: boolean | undefined;
-    /** The entityTypes property */
+    /**
+     * The entityTypes property
+     */
     entityTypes?: EntityType[] | undefined;
-    /** The fields property */
+    /**
+     * The fields property
+     */
     fields?: string[] | undefined;
-    /** The from property */
+    /**
+     * The from property
+     */
     from?: number | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The query property */
+    /**
+     * The query property
+     */
     query?: SearchQuery | undefined;
-    /** The queryAlterationOptions property */
+    /**
+     * The queryAlterationOptions property
+     */
     queryAlterationOptions?: SearchAlterationOptions | undefined;
-    /** The region property */
+    /**
+     * The region property
+     */
     region?: string | undefined;
-    /** The resultTemplateOptions property */
+    /**
+     * The resultTemplateOptions property
+     */
     resultTemplateOptions?: ResultTemplateOption | undefined;
-    /** The sharePointOneDriveOptions property */
+    /**
+     * The sharePointOneDriveOptions property
+     */
     sharePointOneDriveOptions?: SharePointOneDriveOptions | undefined;
-    /** The size property */
+    /**
+     * The size property
+     */
     size?: number | undefined;
-    /** The sortProperties property */
+    /**
+     * The sortProperties property
+     */
     sortProperties?: SortProperty[] | undefined;
 }

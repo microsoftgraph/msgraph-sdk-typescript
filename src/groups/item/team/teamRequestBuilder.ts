@@ -32,71 +32,105 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the team property of the microsoft.graph.group entity.
  */
 export class TeamRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the allChannels property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
+     */
     public get allChannels(): AllChannelsRequestBuilder {
         return new AllChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the archive method. */
+    /**
+     * Provides operations to call the archive method.
+     */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the channels property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the channels property of the microsoft.graph.team entity.
+     */
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clone method. */
+    /**
+     * Provides operations to call the clone method.
+     */
     public get clone(): CloneRequestBuilder {
         return new CloneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the completeMigration method. */
+    /**
+     * Provides operations to call the completeMigration method.
+     */
     public get completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the group property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the group property of the microsoft.graph.team entity.
+     */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the incomingChannels property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.
+     */
     public get incomingChannels(): IncomingChannelsRequestBuilder {
         return new IncomingChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the installedApps property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
+     */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.team entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.team entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the photo property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the photo property of the microsoft.graph.team entity.
+     */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the primaryChannel property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.
+     */
     public get primaryChannel(): PrimaryChannelRequestBuilder {
         return new PrimaryChannelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schedule property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the schedule property of the microsoft.graph.team entity.
+     */
     public get schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendActivityNotification method. */
+    /**
+     * Provides operations to call the sendActivityNotification method.
+     */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tags property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.team entity.
+     */
     public get tags(): TagsRequestBuilder {
         return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the template property of the microsoft.graph.team entity. */
+    /**
+     * Provides operations to manage the template property of the microsoft.graph.team entity.
+     */
     public get template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unarchive method. */
+    /**
+     * Provides operations to call the unarchive method.
+     */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }

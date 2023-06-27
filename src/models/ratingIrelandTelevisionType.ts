@@ -1,4 +1,6 @@
-/** TV content rating labels in Ireland */
+/**
+ * TV content rating labels in Ireland
+ */
 export enum RatingIrelandTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

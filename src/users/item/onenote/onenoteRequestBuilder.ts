@@ -21,27 +21,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the onenote property of the microsoft.graph.user entity.
  */
 export class OnenoteRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the notebooks property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
+     */
     public get notebooks(): NotebooksRequestBuilder {
         return new NotebooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the pages property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
+     */
     public get pages(): PagesRequestBuilder {
         return new PagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the resources property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
+     */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
+     */
     public get sectionGroups(): SectionGroupsRequestBuilder {
         return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sections property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
+     */
     public get sections(): SectionsRequestBuilder {
         return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

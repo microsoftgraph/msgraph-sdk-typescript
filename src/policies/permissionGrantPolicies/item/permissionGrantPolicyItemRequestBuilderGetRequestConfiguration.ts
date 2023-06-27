@@ -2,10 +2,16 @@ import {PermissionGrantPolicyItemRequestBuilderGetQueryParameters} from './permi
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: PermissionGrantPolicyItemRequestBuilderGetQueryParameters | undefined;
 }

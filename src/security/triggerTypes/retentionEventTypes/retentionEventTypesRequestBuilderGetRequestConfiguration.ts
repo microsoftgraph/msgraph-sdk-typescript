@@ -2,10 +2,16 @@ import {RetentionEventTypesRequestBuilderGetQueryParameters} from './retentionEv
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RetentionEventTypesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RetentionEventTypesRequestBuilderGetQueryParameters | undefined;
 }

@@ -23,35 +23,51 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
  */
 export class ListRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the columns property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.list entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contentTypes property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
+     */
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drive property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the drive property of the microsoft.graph.list entity.
+     */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.list entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.list entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the subscriptions property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
+     */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

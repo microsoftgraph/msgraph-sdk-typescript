@@ -2,10 +2,16 @@ import {NotesRequestBuilderGetQueryParameters} from './notesRequestBuilderGetQue
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface NotesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: NotesRequestBuilderGetQueryParameters | undefined;
 }

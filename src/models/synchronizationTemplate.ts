@@ -4,18 +4,32 @@ import {SynchronizationSchema} from './synchronizationSchema';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationTemplate extends Entity, Parsable {
-    /** The applicationId property */
+    /**
+     * The applicationId property
+     */
     applicationId?: string | undefined;
-    /** The default property */
+    /**
+     * The default property
+     */
     defaultEscaped?: boolean | undefined;
-    /** The description property */
+    /**
+     * The description property
+     */
     description?: string | undefined;
-    /** The discoverable property */
+    /**
+     * The discoverable property
+     */
     discoverable?: boolean | undefined;
-    /** The factoryTag property */
+    /**
+     * The factoryTag property
+     */
     factoryTag?: string | undefined;
-    /** The metadata property */
+    /**
+     * The metadata property
+     */
     metadata?: SynchronizationMetadataEntry[] | undefined;
-    /** The schema property */
+    /**
+     * The schema property
+     */
     schema?: SynchronizationSchema | undefined;
 }

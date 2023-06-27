@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.
  */
 export class AxesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity. */
+    /**
+     * Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity.
+     */
     public get categoryAxis(): CategoryAxisRequestBuilder {
         return new CategoryAxisRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the seriesAxis property of the microsoft.graph.workbookChartAxes entity. */
+    /**
+     * Provides operations to manage the seriesAxis property of the microsoft.graph.workbookChartAxes entity.
+     */
     public get seriesAxis(): SeriesAxisRequestBuilder {
         return new SeriesAxisRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity. */
+    /**
+     * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
+     */
     public get valueAxis(): ValueAxisRequestBuilder {
         return new ValueAxisRequestBuilder(this.pathParameters, this.requestAdapter);
     }

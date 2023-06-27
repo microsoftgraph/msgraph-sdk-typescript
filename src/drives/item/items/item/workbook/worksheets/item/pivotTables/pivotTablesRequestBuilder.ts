@@ -19,11 +19,15 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
  */
 export class PivotTablesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the refreshAll method. */
+    /**
+     * Provides operations to call the refreshAll method.
+     */
     public get refreshAll(): RefreshAllRequestBuilder {
         return new RefreshAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }

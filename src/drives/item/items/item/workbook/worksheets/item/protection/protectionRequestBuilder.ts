@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the protection property of the microsoft.graph.workbookWorksheet entity.
  */
 export class ProtectionRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the protect method. */
+    /**
+     * Provides operations to call the protect method.
+     */
     public get protect(): ProtectRequestBuilder {
         return new ProtectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unprotect method. */
+    /**
+     * Provides operations to call the unprotect method.
+     */
     public get unprotect(): UnprotectRequestBuilder {
         return new UnprotectRequestBuilder(this.pathParameters, this.requestAdapter);
     }

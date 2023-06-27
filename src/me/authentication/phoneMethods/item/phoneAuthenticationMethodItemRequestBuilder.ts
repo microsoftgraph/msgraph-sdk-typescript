@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
  */
 export class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the disableSmsSignIn method. */
+    /**
+     * Provides operations to call the disableSmsSignIn method.
+     */
     public get disableSmsSignIn(): DisableSmsSignInRequestBuilder {
         return new DisableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the enableSmsSignIn method. */
+    /**
+     * Provides operations to call the enableSmsSignIn method.
+     */
     public get enableSmsSignIn(): EnableSmsSignInRequestBuilder {
         return new EnableSmsSignInRequestBuilder(this.pathParameters, this.requestAdapter);
     }

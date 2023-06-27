@@ -13,7 +13,9 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
  */
 export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -37,10 +39,11 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/authentication/fido2Methods{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a user's single FIDO2 Security Key Authentication Method object.
+     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Fido2AuthenticationMethodCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/fido2authenticationmethod-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: Fido2MethodsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Fido2AuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,7 +56,7 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<Fido2AuthenticationMethodCollectionResponse>(requestInfo, createFido2AuthenticationMethodCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Retrieve a user's single FIDO2 Security Key Authentication Method object.
+     * Retrieve a list of a user's FIDO2 Security Key Authentication Method objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

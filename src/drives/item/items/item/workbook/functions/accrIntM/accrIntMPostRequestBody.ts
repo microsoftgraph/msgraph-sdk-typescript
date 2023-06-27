@@ -2,16 +2,28 @@ import {Json} from '../../../../../../../models/json';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccrIntMPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The basis property */
+    /**
+     * The basis property
+     */
     basis?: Json | undefined;
-    /** The issue property */
+    /**
+     * The issue property
+     */
     issue?: Json | undefined;
-    /** The par property */
+    /**
+     * The par property
+     */
     par?: Json | undefined;
-    /** The rate property */
+    /**
+     * The rate property
+     */
     rate?: Json | undefined;
-    /** The settlement property */
+    /**
+     * The settlement property
+     */
     settlement?: Json | undefined;
 }

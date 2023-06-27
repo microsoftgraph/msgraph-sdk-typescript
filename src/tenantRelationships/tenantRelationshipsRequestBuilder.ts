@@ -16,11 +16,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tenantRelationship singleton.
  */
 export class TenantRelationshipsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity. */
+    /**
+     * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
+     */
     public get delegatedAdminCustomers(): DelegatedAdminCustomersRequestBuilder {
         return new DelegatedAdminCustomersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity. */
+    /**
+     * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
+     */
     public get delegatedAdminRelationships(): DelegatedAdminRelationshipsRequestBuilder {
         return new DelegatedAdminRelationshipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

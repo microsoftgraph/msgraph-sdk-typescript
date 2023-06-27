@@ -20,23 +20,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
  */
 export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the attachments property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
+     */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
+     */
     public get attachmentSessions(): AttachmentSessionsRequestBuilder {
         return new AttachmentSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+     */
     public get checklistItems(): ChecklistItemsRequestBuilder {
         return new ChecklistItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensions property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.todoTask entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
+     */
     public get linkedResources(): LinkedResourcesRequestBuilder {
         return new LinkedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

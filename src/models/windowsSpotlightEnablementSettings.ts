@@ -1,4 +1,6 @@
-/** Allows IT admind to set a predefined default search engine for MDM-Controlled devices */
+/**
+ * Allows IT admind to set a predefined default search engine for MDM-Controlled devices
+ */
 export enum WindowsSpotlightEnablementSettings {
     /** Spotlight on lock screen is not configured */
     NotConfigured = "notConfigured",

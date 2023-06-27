@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
  */
 export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the definition property of the microsoft.graph.printTaskTrigger entity. */
+    /**
+     * Provides operations to manage the definition property of the microsoft.graph.printTaskTrigger entity.
+     */
     public get definition(): DefinitionRequestBuilder {
         return new DefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }

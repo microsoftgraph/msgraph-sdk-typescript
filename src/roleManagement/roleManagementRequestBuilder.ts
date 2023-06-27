@@ -16,11 +16,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the roleManagement singleton.
  */
 export class RoleManagementRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the directory property of the microsoft.graph.roleManagement entity. */
+    /**
+     * Provides operations to manage the directory property of the microsoft.graph.roleManagement entity.
+     */
     public get directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity. */
+    /**
+     * Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.
+     */
     public get entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }

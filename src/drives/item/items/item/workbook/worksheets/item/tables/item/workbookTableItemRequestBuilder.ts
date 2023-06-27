@@ -26,47 +26,69 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
  */
 export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the clearFilters method. */
+    /**
+     * Provides operations to call the clearFilters method.
+     */
     public get clearFilters(): ClearFiltersRequestBuilder {
         return new ClearFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columns property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the convertToRange method. */
+    /**
+     * Provides operations to call the convertToRange method.
+     */
     public get convertToRange(): ConvertToRangeRequestBuilder {
         return new ConvertToRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dataBodyRange method. */
+    /**
+     * Provides operations to call the dataBodyRange method.
+     */
     public get dataBodyRange(): DataBodyRangeRequestBuilder {
         return new DataBodyRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the headerRowRange method. */
+    /**
+     * Provides operations to call the headerRowRange method.
+     */
     public get headerRowRange(): HeaderRowRangeRequestBuilder {
         return new HeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the range method. */
+    /**
+     * Provides operations to call the range method.
+     */
     public get range(): RangeRequestBuilder {
         return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reapplyFilters method. */
+    /**
+     * Provides operations to call the reapplyFilters method.
+     */
     public get reapplyFilters(): ReapplyFiltersRequestBuilder {
         return new ReapplyFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the rows property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
+     */
     public get rows(): RowsRequestBuilder {
         return new RowsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sort property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
+     */
     public get sort(): SortRequestBuilder {
         return new SortRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the totalRowRange method. */
+    /**
+     * Provides operations to call the totalRowRange method.
+     */
     public get totalRowRange(): TotalRowRangeRequestBuilder {
         return new TotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheet property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookTable entity.
+     */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }

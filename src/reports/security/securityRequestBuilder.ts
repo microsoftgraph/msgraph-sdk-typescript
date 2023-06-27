@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
  */
 export class SecurityRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the getAttackSimulationRepeatOffenders method. */
+    /**
+     * Provides operations to call the getAttackSimulationRepeatOffenders method.
+     */
     public get getAttackSimulationRepeatOffenders(): GetAttackSimulationRepeatOffendersRequestBuilder {
         return new GetAttackSimulationRepeatOffendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getAttackSimulationSimulationUserCoverage method. */
+    /**
+     * Provides operations to call the getAttackSimulationSimulationUserCoverage method.
+     */
     public get getAttackSimulationSimulationUserCoverage(): GetAttackSimulationSimulationUserCoverageRequestBuilder {
         return new GetAttackSimulationSimulationUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getAttackSimulationTrainingUserCoverage method. */
+    /**
+     * Provides operations to call the getAttackSimulationTrainingUserCoverage method.
+     */
     public get getAttackSimulationTrainingUserCoverage(): GetAttackSimulationTrainingUserCoverageRequestBuilder {
         return new GetAttackSimulationTrainingUserCoverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }

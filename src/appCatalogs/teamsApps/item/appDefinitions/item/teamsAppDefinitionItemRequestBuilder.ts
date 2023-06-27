@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
  */
 export class TeamsAppDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity. */
+    /**
+     * Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity.
+     */
     public get bot(): BotRequestBuilder {
         return new BotRequestBuilder(this.pathParameters, this.requestAdapter);
     }

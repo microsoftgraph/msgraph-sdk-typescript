@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.
  */
 export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the targetApps method. */
+    /**
+     * Provides operations to call the targetApps method.
+     */
     public get targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,11 @@ export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Managed app policies.
+     * Read properties and relationships of the managedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedAppPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +97,7 @@ export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Managed app policies.
+     * Read properties and relationships of the managedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

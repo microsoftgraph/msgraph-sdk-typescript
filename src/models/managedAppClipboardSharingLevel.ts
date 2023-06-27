@@ -1,4 +1,6 @@
-/** Represents the level to which the device's clipboard may be shared between apps */
+/**
+ * Represents the level to which the device's clipboard may be shared between apps
+ */
 export enum ManagedAppClipboardSharingLevel {
     /** Sharing is allowed between all apps, managed or not */
     AllApps = "allApps",

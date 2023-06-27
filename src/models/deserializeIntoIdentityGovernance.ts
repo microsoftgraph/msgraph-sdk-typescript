@@ -6,6 +6,9 @@ import {createEntitlementManagementFromDiscriminatorValue} from './createEntitle
 import {createTermsOfUseContainerFromDiscriminatorValue} from './createTermsOfUseContainerFromDiscriminatorValue';
 import {EntitlementManagement} from './entitlementManagement';
 import {IdentityGovernance} from './identityGovernance';
+import {createLifecycleWorkflowsContainerFromDiscriminatorValue} from './identityGovernance/createLifecycleWorkflowsContainerFromDiscriminatorValue';
+import {LifecycleWorkflowsContainer} from './identityGovernance/lifecycleWorkflowsContainer';
+import {serializeLifecycleWorkflowsContainer} from './identityGovernance/serializeLifecycleWorkflowsContainer';
 import {serializeAccessReviewSet} from './serializeAccessReviewSet';
 import {serializeAppConsentApprovalRoute} from './serializeAppConsentApprovalRoute';
 import {serializeEntitlementManagement} from './serializeEntitlementManagement';
@@ -18,6 +21,7 @@ export function deserializeIntoIdentityGovernance(identityGovernance: IdentityGo
         "accessReviews": n => { identityGovernance.accessReviews = n.getObjectValue<AccessReviewSet>(createAccessReviewSetFromDiscriminatorValue); },
         "appConsent": n => { identityGovernance.appConsent = n.getObjectValue<AppConsentApprovalRoute>(createAppConsentApprovalRouteFromDiscriminatorValue); },
         "entitlementManagement": n => { identityGovernance.entitlementManagement = n.getObjectValue<EntitlementManagement>(createEntitlementManagementFromDiscriminatorValue); },
+        "lifecycleWorkflows": n => { identityGovernance.lifecycleWorkflows = n.getObjectValue<LifecycleWorkflowsContainer>(createLifecycleWorkflowsContainerFromDiscriminatorValue); },
         "@odata.type": n => { identityGovernance.odataType = n.getStringValue(); },
         "termsOfUse": n => { identityGovernance.termsOfUse = n.getObjectValue<TermsOfUseContainer>(createTermsOfUseContainerFromDiscriminatorValue); },
     }

@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.
  */
 export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity. */
+    /**
+     * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.
+     */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity. */
+    /**
+     * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+     */
     public get agreements(): AgreementsRequestBuilder {
         return new AgreementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

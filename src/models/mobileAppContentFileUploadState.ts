@@ -1,4 +1,6 @@
-/** Contains properties for upload request states. */
+/**
+ * Contains properties for upload request states.
+ */
 export enum MobileAppContentFileUploadState {
     Success = "success",
     TransientError = "transientError",

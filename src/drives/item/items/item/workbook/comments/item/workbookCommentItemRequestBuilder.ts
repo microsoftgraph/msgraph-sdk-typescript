@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
  */
 export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the replies property of the microsoft.graph.workbookComment entity. */
+    /**
+     * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
+     */
     public get replies(): RepliesRequestBuilder {
         return new RepliesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,7 +46,7 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get comments from drives
+     * Represents a collection of comments in a workbook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookComment
@@ -94,7 +96,7 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get comments from drives
+     * Represents a collection of comments in a workbook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

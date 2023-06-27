@@ -3,6 +3,8 @@ import {SoftwareOathAuthenticationMethod} from './softwareOathAuthenticationMeth
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SoftwareOathAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: SoftwareOathAuthenticationMethod[] | undefined;
 }

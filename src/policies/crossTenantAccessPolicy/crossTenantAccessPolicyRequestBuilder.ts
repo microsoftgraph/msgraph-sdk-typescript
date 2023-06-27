@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
  */
 export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity. */
+    /**
+     * Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
+     */
     public get defaultEscaped(): DefaultRequestBuilder {
         return new DefaultRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity. */
+    /**
+     * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+     */
     public get partners(): PartnersRequestBuilder {
         return new PartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

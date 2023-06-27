@@ -2,10 +2,16 @@ import {RegisteredOwnersRequestBuilderGetQueryParameters} from './registeredOwne
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RegisteredOwnersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RegisteredOwnersRequestBuilderGetQueryParameters | undefined;
 }

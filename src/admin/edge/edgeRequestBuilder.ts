@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the edge property of the microsoft.graph.admin entity.
  */
 export class EdgeRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity. */
+    /**
+     * Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.
+     */
     public get internetExplorerMode(): InternetExplorerModeRequestBuilder {
         return new InternetExplorerModeRequestBuilder(this.pathParameters, this.requestAdapter);
     }

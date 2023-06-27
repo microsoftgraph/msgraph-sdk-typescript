@@ -20,23 +20,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
  */
 export class OnenoteSectionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the copyToNotebook method. */
+    /**
+     * Provides operations to call the copyToNotebook method.
+     */
     public get copyToNotebook(): CopyToNotebookRequestBuilder {
         return new CopyToNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copyToSectionGroup method. */
+    /**
+     * Provides operations to call the copyToSectionGroup method.
+     */
     public get copyToSectionGroup(): CopyToSectionGroupRequestBuilder {
         return new CopyToSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity. */
+    /**
+     * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
+     */
     public get pages(): PagesRequestBuilder {
         return new PagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parentNotebook property of the microsoft.graph.onenoteSection entity. */
+    /**
+     * Provides operations to manage the parentNotebook property of the microsoft.graph.onenoteSection entity.
+     */
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parentSectionGroup property of the microsoft.graph.onenoteSection entity. */
+    /**
+     * Provides operations to manage the parentSectionGroup property of the microsoft.graph.onenoteSection entity.
+     */
     public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
         return new ParentSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }

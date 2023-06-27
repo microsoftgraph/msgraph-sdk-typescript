@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the fill property of the microsoft.graph.workbookChartDataLabelFormat entity.
  */
 export class FillRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the clear method. */
+    /**
+     * Provides operations to call the clear method.
+     */
     public get clear(): ClearRequestBuilder {
         return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setSolidColor method. */
+    /**
+     * Provides operations to call the setSolidColor method.
+     */
     public get setSolidColor(): SetSolidColorRequestBuilder {
         return new SetSolidColorRequestBuilder(this.pathParameters, this.requestAdapter);
     }

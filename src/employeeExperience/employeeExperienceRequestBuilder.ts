@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the employeeExperience singleton.
  */
 export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity. */
+    /**
+     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
+     */
     public get learningProviders(): LearningProvidersRequestBuilder {
         return new LearningProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

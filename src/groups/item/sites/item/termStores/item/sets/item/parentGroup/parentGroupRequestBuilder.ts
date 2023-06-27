@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the parentGroup property of the microsoft.graph.termStore.set entity.
  */
 export class ParentGroupRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the sets property of the microsoft.graph.termStore.group entity. */
+    /**
+     * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
+     */
     public get sets(): SetsRequestBuilder {
         return new SetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

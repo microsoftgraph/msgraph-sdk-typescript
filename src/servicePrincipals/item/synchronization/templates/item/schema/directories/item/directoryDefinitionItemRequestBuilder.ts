@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
  */
 export class DirectoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the discover method. */
+    /**
+     * Provides operations to call the discover method.
+     */
     public get discover(): DiscoverRequestBuilder {
         return new DiscoverRequestBuilder(this.pathParameters, this.requestAdapter);
     }

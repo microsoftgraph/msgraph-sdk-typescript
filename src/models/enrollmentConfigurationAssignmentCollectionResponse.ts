@@ -3,6 +3,8 @@ import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssign
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EnrollmentConfigurationAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: EnrollmentConfigurationAssignment[] | undefined;
 }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
  */
 export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the stages property of the microsoft.graph.approval entity. */
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.approval entity.
+     */
     public get stages(): StagesRequestBuilder {
         return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

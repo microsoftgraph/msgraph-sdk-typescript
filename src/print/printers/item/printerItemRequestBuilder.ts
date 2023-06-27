@@ -20,23 +20,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
  */
 export class PrinterItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the connectors property of the microsoft.graph.printer entity. */
+    /**
+     * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
+     */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the jobs property of the microsoft.graph.printerBase entity. */
+    /**
+     * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
+     */
     public get jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restoreFactoryDefaults method. */
+    /**
+     * Provides operations to call the restoreFactoryDefaults method.
+     */
     public get restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
         return new RestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the shares property of the microsoft.graph.printer entity. */
+    /**
+     * Provides operations to manage the shares property of the microsoft.graph.printer entity.
+     */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity. */
+    /**
+     * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
+     */
     public get taskTriggers(): TaskTriggersRequestBuilder {
         return new TaskTriggersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

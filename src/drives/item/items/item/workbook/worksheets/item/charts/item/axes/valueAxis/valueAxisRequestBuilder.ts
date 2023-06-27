@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
  */
 export class ValueAxisRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the majorGridlines property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the majorGridlines property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get majorGridlines(): MajorGridlinesRequestBuilder {
         return new MajorGridlinesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get minorGridlines(): MinorGridlinesRequestBuilder {
         return new MinorGridlinesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the title property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the title property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get title(): TitleRequestBuilder {
         return new TitleRequestBuilder(this.pathParameters, this.requestAdapter);
     }

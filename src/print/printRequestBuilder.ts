@@ -20,27 +20,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the print singleton.
  */
 export class PrintRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the connectors property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the connectors property of the microsoft.graph.print entity.
+     */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.print entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the printers property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the printers property of the microsoft.graph.print entity.
+     */
     public get printers(): PrintersRequestBuilder {
         return new PrintersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the services property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the services property of the microsoft.graph.print entity.
+     */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the shares property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the shares property of the microsoft.graph.print entity.
+     */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
+     */
     public get taskDefinitions(): TaskDefinitionsRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

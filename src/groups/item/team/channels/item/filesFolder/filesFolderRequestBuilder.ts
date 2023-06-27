@@ -12,7 +12,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
  */
 export class FilesFolderRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the group entity. */
+    /**
+     * Provides operations to manage the media for the group entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.
  */
 export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity. */
+    /**
+     * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+     */
     public get siteLists(): SiteListsRequestBuilder {
         return new SiteListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

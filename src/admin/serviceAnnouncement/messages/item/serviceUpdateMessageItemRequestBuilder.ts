@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
  */
 export class ServiceUpdateMessageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity. */
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
+     */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the admin entity. */
+    /**
+     * Provides operations to manage the media for the admin entity.
+     */
     public get attachmentsArchive(): AttachmentsArchiveRequestBuilder {
         return new AttachmentsArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }

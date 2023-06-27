@@ -3,6 +3,8 @@ import {BaseCollectionPaginationCountResponse} from '../../../../../../../models
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AddResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ActionResultPart[] | undefined;
 }

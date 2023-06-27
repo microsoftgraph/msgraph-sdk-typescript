@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the presence property of the microsoft.graph.user entity.
  */
 export class PresenceRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the clearPresence method. */
+    /**
+     * Provides operations to call the clearPresence method.
+     */
     public get clearPresence(): ClearPresenceRequestBuilder {
         return new ClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clearUserPreferredPresence method. */
+    /**
+     * Provides operations to call the clearUserPreferredPresence method.
+     */
     public get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
         return new ClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setPresence method. */
+    /**
+     * Provides operations to call the setPresence method.
+     */
     public get setPresence(): SetPresenceRequestBuilder {
         return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setUserPreferredPresence method. */
+    /**
+     * Provides operations to call the setUserPreferredPresence method.
+     */
     public get setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
         return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
  */
 export class IdentityUserFlowAttributeAssignmentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the userAttribute property of the microsoft.graph.identityUserFlowAttributeAssignment entity. */
+    /**
+     * Provides operations to manage the userAttribute property of the microsoft.graph.identityUserFlowAttributeAssignment entity.
+     */
     public get userAttribute(): UserAttributeRequestBuilder {
         return new UserAttributeRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -4,22 +4,40 @@ import {TimeConstraint} from '../../../models/timeConstraint';
 import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FindMeetingTimesPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The attendees property */
+    /**
+     * The attendees property
+     */
     attendees?: AttendeeBase[] | undefined;
-    /** The isOrganizerOptional property */
+    /**
+     * The isOrganizerOptional property
+     */
     isOrganizerOptional?: boolean | undefined;
-    /** The locationConstraint property */
+    /**
+     * The locationConstraint property
+     */
     locationConstraint?: LocationConstraint | undefined;
-    /** The maxCandidates property */
+    /**
+     * The maxCandidates property
+     */
     maxCandidates?: number | undefined;
-    /** The meetingDuration property */
+    /**
+     * The meetingDuration property
+     */
     meetingDuration?: Duration | undefined;
-    /** The minimumAttendeePercentage property */
+    /**
+     * The minimumAttendeePercentage property
+     */
     minimumAttendeePercentage?: number | undefined;
-    /** The returnSuggestionReasons property */
+    /**
+     * The returnSuggestionReasons property
+     */
     returnSuggestionReasons?: boolean | undefined;
-    /** The timeConstraint property */
+    /**
+     * The timeConstraint property
+     */
     timeConstraint?: TimeConstraint | undefined;
 }

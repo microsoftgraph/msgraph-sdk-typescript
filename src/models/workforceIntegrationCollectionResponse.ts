@@ -3,6 +3,8 @@ import {WorkforceIntegration} from './workforceIntegration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkforceIntegrationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: WorkforceIntegration[] | undefined;
 }

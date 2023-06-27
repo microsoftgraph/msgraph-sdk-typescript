@@ -381,1467 +381,2199 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the functions property of the microsoft.graph.workbook entity.
  */
 export class FunctionsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the abs method. */
+    /**
+     * Provides operations to call the abs method.
+     */
     public get abs(): AbsRequestBuilder {
         return new AbsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the accrInt method. */
+    /**
+     * Provides operations to call the accrInt method.
+     */
     public get accrInt(): AccrIntRequestBuilder {
         return new AccrIntRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the accrIntM method. */
+    /**
+     * Provides operations to call the accrIntM method.
+     */
     public get accrIntM(): AccrIntMRequestBuilder {
         return new AccrIntMRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the acos method. */
+    /**
+     * Provides operations to call the acos method.
+     */
     public get acos(): AcosRequestBuilder {
         return new AcosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the acosh method. */
+    /**
+     * Provides operations to call the acosh method.
+     */
     public get acosh(): AcoshRequestBuilder {
         return new AcoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the acot method. */
+    /**
+     * Provides operations to call the acot method.
+     */
     public get acot(): AcotRequestBuilder {
         return new AcotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the acoth method. */
+    /**
+     * Provides operations to call the acoth method.
+     */
     public get acoth(): AcothRequestBuilder {
         return new AcothRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the amorDegrc method. */
+    /**
+     * Provides operations to call the amorDegrc method.
+     */
     public get amorDegrc(): AmorDegrcRequestBuilder {
         return new AmorDegrcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the amorLinc method. */
+    /**
+     * Provides operations to call the amorLinc method.
+     */
     public get amorLinc(): AmorLincRequestBuilder {
         return new AmorLincRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the and method. */
+    /**
+     * Provides operations to call the and method.
+     */
     public get and(): AndRequestBuilder {
         return new AndRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the arabic method. */
+    /**
+     * Provides operations to call the arabic method.
+     */
     public get arabic(): ArabicRequestBuilder {
         return new ArabicRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the areas method. */
+    /**
+     * Provides operations to call the areas method.
+     */
     public get areas(): AreasRequestBuilder {
         return new AreasRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the asc method. */
+    /**
+     * Provides operations to call the asc method.
+     */
     public get asc(): AscRequestBuilder {
         return new AscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the asin method. */
+    /**
+     * Provides operations to call the asin method.
+     */
     public get asin(): AsinRequestBuilder {
         return new AsinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the asinh method. */
+    /**
+     * Provides operations to call the asinh method.
+     */
     public get asinh(): AsinhRequestBuilder {
         return new AsinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the atan method. */
+    /**
+     * Provides operations to call the atan method.
+     */
     public get atan(): AtanRequestBuilder {
         return new AtanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the atan2 method. */
+    /**
+     * Provides operations to call the atan2 method.
+     */
     public get atan2(): Atan2RequestBuilder {
         return new Atan2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the atanh method. */
+    /**
+     * Provides operations to call the atanh method.
+     */
     public get atanh(): AtanhRequestBuilder {
         return new AtanhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the aveDev method. */
+    /**
+     * Provides operations to call the aveDev method.
+     */
     public get aveDev(): AveDevRequestBuilder {
         return new AveDevRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the average method. */
+    /**
+     * Provides operations to call the average method.
+     */
     public get average(): AverageRequestBuilder {
         return new AverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the averageA method. */
+    /**
+     * Provides operations to call the averageA method.
+     */
     public get averageA(): AverageARequestBuilder {
         return new AverageARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the averageIf method. */
+    /**
+     * Provides operations to call the averageIf method.
+     */
     public get averageIf(): AverageIfRequestBuilder {
         return new AverageIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the averageIfs method. */
+    /**
+     * Provides operations to call the averageIfs method.
+     */
     public get averageIfs(): AverageIfsRequestBuilder {
         return new AverageIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bahtText method. */
+    /**
+     * Provides operations to call the bahtText method.
+     */
     public get bahtText(): BahtTextRequestBuilder {
         return new BahtTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the base method. */
+    /**
+     * Provides operations to call the base method.
+     */
     public get base(): BaseRequestBuilderEscaped {
         return new BaseRequestBuilderEscaped(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the besselI method. */
+    /**
+     * Provides operations to call the besselI method.
+     */
     public get besselI(): BesselIRequestBuilder {
         return new BesselIRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the besselJ method. */
+    /**
+     * Provides operations to call the besselJ method.
+     */
     public get besselJ(): BesselJRequestBuilder {
         return new BesselJRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the besselK method. */
+    /**
+     * Provides operations to call the besselK method.
+     */
     public get besselK(): BesselKRequestBuilder {
         return new BesselKRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the besselY method. */
+    /**
+     * Provides operations to call the besselY method.
+     */
     public get besselY(): BesselYRequestBuilder {
         return new BesselYRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the beta_Dist method. */
+    /**
+     * Provides operations to call the beta_Dist method.
+     */
     public get beta_Dist(): Beta_DistRequestBuilder {
         return new Beta_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the beta_Inv method. */
+    /**
+     * Provides operations to call the beta_Inv method.
+     */
     public get beta_Inv(): Beta_InvRequestBuilder {
         return new Beta_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bin2Dec method. */
+    /**
+     * Provides operations to call the bin2Dec method.
+     */
     public get bin2Dec(): Bin2DecRequestBuilder {
         return new Bin2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bin2Hex method. */
+    /**
+     * Provides operations to call the bin2Hex method.
+     */
     public get bin2Hex(): Bin2HexRequestBuilder {
         return new Bin2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bin2Oct method. */
+    /**
+     * Provides operations to call the bin2Oct method.
+     */
     public get bin2Oct(): Bin2OctRequestBuilder {
         return new Bin2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the binom_Dist method. */
+    /**
+     * Provides operations to call the binom_Dist method.
+     */
     public get binom_Dist(): Binom_DistRequestBuilder {
         return new Binom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the binom_Dist_Range method. */
+    /**
+     * Provides operations to call the binom_Dist_Range method.
+     */
     public get binom_Dist_Range(): Binom_Dist_RangeRequestBuilder {
         return new Binom_Dist_RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the binom_Inv method. */
+    /**
+     * Provides operations to call the binom_Inv method.
+     */
     public get binom_Inv(): Binom_InvRequestBuilder {
         return new Binom_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bitand method. */
+    /**
+     * Provides operations to call the bitand method.
+     */
     public get bitand(): BitandRequestBuilder {
         return new BitandRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bitlshift method. */
+    /**
+     * Provides operations to call the bitlshift method.
+     */
     public get bitlshift(): BitlshiftRequestBuilder {
         return new BitlshiftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bitor method. */
+    /**
+     * Provides operations to call the bitor method.
+     */
     public get bitor(): BitorRequestBuilder {
         return new BitorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bitrshift method. */
+    /**
+     * Provides operations to call the bitrshift method.
+     */
     public get bitrshift(): BitrshiftRequestBuilder {
         return new BitrshiftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the bitxor method. */
+    /**
+     * Provides operations to call the bitxor method.
+     */
     public get bitxor(): BitxorRequestBuilder {
         return new BitxorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ceiling_Math method. */
+    /**
+     * Provides operations to call the ceiling_Math method.
+     */
     public get ceiling_Math(): Ceiling_MathRequestBuilder {
         return new Ceiling_MathRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ceiling_Precise method. */
+    /**
+     * Provides operations to call the ceiling_Precise method.
+     */
     public get ceiling_Precise(): Ceiling_PreciseRequestBuilder {
         return new Ceiling_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the char method. */
+    /**
+     * Provides operations to call the char method.
+     */
     public get char(): CharRequestBuilder {
         return new CharRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the chiSq_Dist method. */
+    /**
+     * Provides operations to call the chiSq_Dist method.
+     */
     public get chiSq_Dist(): ChiSq_DistRequestBuilder {
         return new ChiSq_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the chiSq_Dist_RT method. */
+    /**
+     * Provides operations to call the chiSq_Dist_RT method.
+     */
     public get chiSq_Dist_RT(): ChiSq_Dist_RTRequestBuilder {
         return new ChiSq_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the chiSq_Inv method. */
+    /**
+     * Provides operations to call the chiSq_Inv method.
+     */
     public get chiSq_Inv(): ChiSq_InvRequestBuilder {
         return new ChiSq_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the chiSq_Inv_RT method. */
+    /**
+     * Provides operations to call the chiSq_Inv_RT method.
+     */
     public get chiSq_Inv_RT(): ChiSq_Inv_RTRequestBuilder {
         return new ChiSq_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the choose method. */
+    /**
+     * Provides operations to call the choose method.
+     */
     public get choose(): ChooseRequestBuilder {
         return new ChooseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clean method. */
+    /**
+     * Provides operations to call the clean method.
+     */
     public get clean(): CleanRequestBuilder {
         return new CleanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the code method. */
+    /**
+     * Provides operations to call the code method.
+     */
     public get code(): CodeRequestBuilder {
         return new CodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the columns method. */
+    /**
+     * Provides operations to call the columns method.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the combin method. */
+    /**
+     * Provides operations to call the combin method.
+     */
     public get combin(): CombinRequestBuilder {
         return new CombinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the combina method. */
+    /**
+     * Provides operations to call the combina method.
+     */
     public get combina(): CombinaRequestBuilder {
         return new CombinaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the complex method. */
+    /**
+     * Provides operations to call the complex method.
+     */
     public get complex(): ComplexRequestBuilder {
         return new ComplexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the concatenate method. */
+    /**
+     * Provides operations to call the concatenate method.
+     */
     public get concatenate(): ConcatenateRequestBuilder {
         return new ConcatenateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the confidence_Norm method. */
+    /**
+     * Provides operations to call the confidence_Norm method.
+     */
     public get confidence_Norm(): Confidence_NormRequestBuilder {
         return new Confidence_NormRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the confidence_T method. */
+    /**
+     * Provides operations to call the confidence_T method.
+     */
     public get confidence_T(): Confidence_TRequestBuilder {
         return new Confidence_TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the convert method. */
+    /**
+     * Provides operations to call the convert method.
+     */
     public get convert(): ConvertRequestBuilder {
         return new ConvertRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cos method. */
+    /**
+     * Provides operations to call the cos method.
+     */
     public get cos(): CosRequestBuilder {
         return new CosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cosh method. */
+    /**
+     * Provides operations to call the cosh method.
+     */
     public get cosh(): CoshRequestBuilder {
         return new CoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cot method. */
+    /**
+     * Provides operations to call the cot method.
+     */
     public get cot(): CotRequestBuilder {
         return new CotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the coth method. */
+    /**
+     * Provides operations to call the coth method.
+     */
     public get coth(): CothRequestBuilder {
         return new CothRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the count method. */
+    /**
+     * Provides operations to call the count method.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the countA method. */
+    /**
+     * Provides operations to call the countA method.
+     */
     public get countA(): CountARequestBuilder {
         return new CountARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the countBlank method. */
+    /**
+     * Provides operations to call the countBlank method.
+     */
     public get countBlank(): CountBlankRequestBuilder {
         return new CountBlankRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the countIf method. */
+    /**
+     * Provides operations to call the countIf method.
+     */
     public get countIf(): CountIfRequestBuilder {
         return new CountIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the countIfs method. */
+    /**
+     * Provides operations to call the countIfs method.
+     */
     public get countIfs(): CountIfsRequestBuilder {
         return new CountIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the coupDayBs method. */
+    /**
+     * Provides operations to call the coupDayBs method.
+     */
     public get coupDayBs(): CoupDayBsRequestBuilder {
         return new CoupDayBsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the coupDays method. */
+    /**
+     * Provides operations to call the coupDays method.
+     */
     public get coupDays(): CoupDaysRequestBuilder {
         return new CoupDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the coupDaysNc method. */
+    /**
+     * Provides operations to call the coupDaysNc method.
+     */
     public get coupDaysNc(): CoupDaysNcRequestBuilder {
         return new CoupDaysNcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the coupNcd method. */
+    /**
+     * Provides operations to call the coupNcd method.
+     */
     public get coupNcd(): CoupNcdRequestBuilder {
         return new CoupNcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the coupNum method. */
+    /**
+     * Provides operations to call the coupNum method.
+     */
     public get coupNum(): CoupNumRequestBuilder {
         return new CoupNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the coupPcd method. */
+    /**
+     * Provides operations to call the coupPcd method.
+     */
     public get coupPcd(): CoupPcdRequestBuilder {
         return new CoupPcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the csc method. */
+    /**
+     * Provides operations to call the csc method.
+     */
     public get csc(): CscRequestBuilder {
         return new CscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the csch method. */
+    /**
+     * Provides operations to call the csch method.
+     */
     public get csch(): CschRequestBuilder {
         return new CschRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cumIPmt method. */
+    /**
+     * Provides operations to call the cumIPmt method.
+     */
     public get cumIPmt(): CumIPmtRequestBuilder {
         return new CumIPmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cumPrinc method. */
+    /**
+     * Provides operations to call the cumPrinc method.
+     */
     public get cumPrinc(): CumPrincRequestBuilder {
         return new CumPrincRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the date method. */
+    /**
+     * Provides operations to call the date method.
+     */
     public get date(): DateRequestBuilder {
         return new DateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the datevalue method. */
+    /**
+     * Provides operations to call the datevalue method.
+     */
     public get datevalue(): DatevalueRequestBuilder {
         return new DatevalueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the daverage method. */
+    /**
+     * Provides operations to call the daverage method.
+     */
     public get daverage(): DaverageRequestBuilder {
         return new DaverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the day method. */
+    /**
+     * Provides operations to call the day method.
+     */
     public get day(): DayRequestBuilder {
         return new DayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the days method. */
+    /**
+     * Provides operations to call the days method.
+     */
     public get days(): DaysRequestBuilder {
         return new DaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the days360 method. */
+    /**
+     * Provides operations to call the days360 method.
+     */
     public get days360(): Days360RequestBuilder {
         return new Days360RequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the db method. */
+    /**
+     * Provides operations to call the db method.
+     */
     public get db(): DbRequestBuilder {
         return new DbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dbcs method. */
+    /**
+     * Provides operations to call the dbcs method.
+     */
     public get dbcs(): DbcsRequestBuilder {
         return new DbcsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dcount method. */
+    /**
+     * Provides operations to call the dcount method.
+     */
     public get dcount(): DcountRequestBuilder {
         return new DcountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dcountA method. */
+    /**
+     * Provides operations to call the dcountA method.
+     */
     public get dcountA(): DcountARequestBuilder {
         return new DcountARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ddb method. */
+    /**
+     * Provides operations to call the ddb method.
+     */
     public get ddb(): DdbRequestBuilder {
         return new DdbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dec2Bin method. */
+    /**
+     * Provides operations to call the dec2Bin method.
+     */
     public get dec2Bin(): Dec2BinRequestBuilder {
         return new Dec2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dec2Hex method. */
+    /**
+     * Provides operations to call the dec2Hex method.
+     */
     public get dec2Hex(): Dec2HexRequestBuilder {
         return new Dec2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dec2Oct method. */
+    /**
+     * Provides operations to call the dec2Oct method.
+     */
     public get dec2Oct(): Dec2OctRequestBuilder {
         return new Dec2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the decimal method. */
+    /**
+     * Provides operations to call the decimal method.
+     */
     public get decimal(): DecimalRequestBuilder {
         return new DecimalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the degrees method. */
+    /**
+     * Provides operations to call the degrees method.
+     */
     public get degrees(): DegreesRequestBuilder {
         return new DegreesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the delta method. */
+    /**
+     * Provides operations to call the delta method.
+     */
     public get delta(): DeltaRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the devSq method. */
+    /**
+     * Provides operations to call the devSq method.
+     */
     public get devSq(): DevSqRequestBuilder {
         return new DevSqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dget method. */
+    /**
+     * Provides operations to call the dget method.
+     */
     public get dget(): DgetRequestBuilder {
         return new DgetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the disc method. */
+    /**
+     * Provides operations to call the disc method.
+     */
     public get disc(): DiscRequestBuilder {
         return new DiscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dmax method. */
+    /**
+     * Provides operations to call the dmax method.
+     */
     public get dmax(): DmaxRequestBuilder {
         return new DmaxRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dmin method. */
+    /**
+     * Provides operations to call the dmin method.
+     */
     public get dmin(): DminRequestBuilder {
         return new DminRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dollar method. */
+    /**
+     * Provides operations to call the dollar method.
+     */
     public get dollar(): DollarRequestBuilder {
         return new DollarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dollarDe method. */
+    /**
+     * Provides operations to call the dollarDe method.
+     */
     public get dollarDe(): DollarDeRequestBuilder {
         return new DollarDeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dollarFr method. */
+    /**
+     * Provides operations to call the dollarFr method.
+     */
     public get dollarFr(): DollarFrRequestBuilder {
         return new DollarFrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dproduct method. */
+    /**
+     * Provides operations to call the dproduct method.
+     */
     public get dproduct(): DproductRequestBuilder {
         return new DproductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dstDev method. */
+    /**
+     * Provides operations to call the dstDev method.
+     */
     public get dstDev(): DstDevRequestBuilder {
         return new DstDevRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dstDevP method. */
+    /**
+     * Provides operations to call the dstDevP method.
+     */
     public get dstDevP(): DstDevPRequestBuilder {
         return new DstDevPRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dsum method. */
+    /**
+     * Provides operations to call the dsum method.
+     */
     public get dsum(): DsumRequestBuilder {
         return new DsumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the duration method. */
+    /**
+     * Provides operations to call the duration method.
+     */
     public get duration(): DurationRequestBuilder {
         return new DurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dvar method. */
+    /**
+     * Provides operations to call the dvar method.
+     */
     public get dvar(): DvarRequestBuilder {
         return new DvarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dvarP method. */
+    /**
+     * Provides operations to call the dvarP method.
+     */
     public get dvarP(): DvarPRequestBuilder {
         return new DvarPRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ecma_Ceiling method. */
+    /**
+     * Provides operations to call the ecma_Ceiling method.
+     */
     public get ecma_Ceiling(): Ecma_CeilingRequestBuilder {
         return new Ecma_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the edate method. */
+    /**
+     * Provides operations to call the edate method.
+     */
     public get edate(): EdateRequestBuilder {
         return new EdateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the effect method. */
+    /**
+     * Provides operations to call the effect method.
+     */
     public get effect(): EffectRequestBuilder {
         return new EffectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the eoMonth method. */
+    /**
+     * Provides operations to call the eoMonth method.
+     */
     public get eoMonth(): EoMonthRequestBuilder {
         return new EoMonthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the erf method. */
+    /**
+     * Provides operations to call the erf method.
+     */
     public get erf(): ErfRequestBuilder {
         return new ErfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the erf_Precise method. */
+    /**
+     * Provides operations to call the erf_Precise method.
+     */
     public get erf_Precise(): Erf_PreciseRequestBuilder {
         return new Erf_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the erfC method. */
+    /**
+     * Provides operations to call the erfC method.
+     */
     public get erfC(): ErfCRequestBuilder {
         return new ErfCRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the erfC_Precise method. */
+    /**
+     * Provides operations to call the erfC_Precise method.
+     */
     public get erfC_Precise(): ErfC_PreciseRequestBuilder {
         return new ErfC_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the error_Type method. */
+    /**
+     * Provides operations to call the error_Type method.
+     */
     public get error_Type(): Error_TypeRequestBuilder {
         return new Error_TypeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the even method. */
+    /**
+     * Provides operations to call the even method.
+     */
     public get even(): EvenRequestBuilder {
         return new EvenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the exact method. */
+    /**
+     * Provides operations to call the exact method.
+     */
     public get exact(): ExactRequestBuilder {
         return new ExactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the exp method. */
+    /**
+     * Provides operations to call the exp method.
+     */
     public get exp(): ExpRequestBuilder {
         return new ExpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the expon_Dist method. */
+    /**
+     * Provides operations to call the expon_Dist method.
+     */
     public get expon_Dist(): Expon_DistRequestBuilder {
         return new Expon_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the f_Dist method. */
+    /**
+     * Provides operations to call the f_Dist method.
+     */
     public get f_Dist(): F_DistRequestBuilder {
         return new F_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the f_Dist_RT method. */
+    /**
+     * Provides operations to call the f_Dist_RT method.
+     */
     public get f_Dist_RT(): F_Dist_RTRequestBuilder {
         return new F_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the f_Inv method. */
+    /**
+     * Provides operations to call the f_Inv method.
+     */
     public get f_Inv(): F_InvRequestBuilder {
         return new F_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the f_Inv_RT method. */
+    /**
+     * Provides operations to call the f_Inv_RT method.
+     */
     public get f_Inv_RT(): F_Inv_RTRequestBuilder {
         return new F_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the fact method. */
+    /**
+     * Provides operations to call the fact method.
+     */
     public get fact(): FactRequestBuilder {
         return new FactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the factDouble method. */
+    /**
+     * Provides operations to call the factDouble method.
+     */
     public get factDouble(): FactDoubleRequestBuilder {
         return new FactDoubleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the false method. */
+    /**
+     * Provides operations to call the false method.
+     */
     public get falseEscaped(): FalseRequestBuilder {
         return new FalseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the find method. */
+    /**
+     * Provides operations to call the find method.
+     */
     public get find(): FindRequestBuilder {
         return new FindRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the findB method. */
+    /**
+     * Provides operations to call the findB method.
+     */
     public get findB(): FindBRequestBuilder {
         return new FindBRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the fisher method. */
+    /**
+     * Provides operations to call the fisher method.
+     */
     public get fisher(): FisherRequestBuilder {
         return new FisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the fisherInv method. */
+    /**
+     * Provides operations to call the fisherInv method.
+     */
     public get fisherInv(): FisherInvRequestBuilder {
         return new FisherInvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the fixed method. */
+    /**
+     * Provides operations to call the fixed method.
+     */
     public get fixed(): FixedRequestBuilder {
         return new FixedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the floor_Math method. */
+    /**
+     * Provides operations to call the floor_Math method.
+     */
     public get floor_Math(): Floor_MathRequestBuilder {
         return new Floor_MathRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the floor_Precise method. */
+    /**
+     * Provides operations to call the floor_Precise method.
+     */
     public get floor_Precise(): Floor_PreciseRequestBuilder {
         return new Floor_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the fv method. */
+    /**
+     * Provides operations to call the fv method.
+     */
     public get fv(): FvRequestBuilder {
         return new FvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the fvschedule method. */
+    /**
+     * Provides operations to call the fvschedule method.
+     */
     public get fvschedule(): FvscheduleRequestBuilder {
         return new FvscheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the gamma method. */
+    /**
+     * Provides operations to call the gamma method.
+     */
     public get gamma(): GammaRequestBuilder {
         return new GammaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the gamma_Dist method. */
+    /**
+     * Provides operations to call the gamma_Dist method.
+     */
     public get gamma_Dist(): Gamma_DistRequestBuilder {
         return new Gamma_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the gamma_Inv method. */
+    /**
+     * Provides operations to call the gamma_Inv method.
+     */
     public get gamma_Inv(): Gamma_InvRequestBuilder {
         return new Gamma_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the gammaLn method. */
+    /**
+     * Provides operations to call the gammaLn method.
+     */
     public get gammaLn(): GammaLnRequestBuilder {
         return new GammaLnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the gammaLn_Precise method. */
+    /**
+     * Provides operations to call the gammaLn_Precise method.
+     */
     public get gammaLn_Precise(): GammaLn_PreciseRequestBuilder {
         return new GammaLn_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the gauss method. */
+    /**
+     * Provides operations to call the gauss method.
+     */
     public get gauss(): GaussRequestBuilder {
         return new GaussRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the gcd method. */
+    /**
+     * Provides operations to call the gcd method.
+     */
     public get gcd(): GcdRequestBuilder {
         return new GcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the geoMean method. */
+    /**
+     * Provides operations to call the geoMean method.
+     */
     public get geoMean(): GeoMeanRequestBuilder {
         return new GeoMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the geStep method. */
+    /**
+     * Provides operations to call the geStep method.
+     */
     public get geStep(): GeStepRequestBuilder {
         return new GeStepRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the harMean method. */
+    /**
+     * Provides operations to call the harMean method.
+     */
     public get harMean(): HarMeanRequestBuilder {
         return new HarMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the hex2Bin method. */
+    /**
+     * Provides operations to call the hex2Bin method.
+     */
     public get hex2Bin(): Hex2BinRequestBuilder {
         return new Hex2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the hex2Dec method. */
+    /**
+     * Provides operations to call the hex2Dec method.
+     */
     public get hex2Dec(): Hex2DecRequestBuilder {
         return new Hex2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the hex2Oct method. */
+    /**
+     * Provides operations to call the hex2Oct method.
+     */
     public get hex2Oct(): Hex2OctRequestBuilder {
         return new Hex2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the hlookup method. */
+    /**
+     * Provides operations to call the hlookup method.
+     */
     public get hlookup(): HlookupRequestBuilder {
         return new HlookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the hour method. */
+    /**
+     * Provides operations to call the hour method.
+     */
     public get hour(): HourRequestBuilder {
         return new HourRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the hyperlink method. */
+    /**
+     * Provides operations to call the hyperlink method.
+     */
     public get hyperlink(): HyperlinkRequestBuilder {
         return new HyperlinkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the hypGeom_Dist method. */
+    /**
+     * Provides operations to call the hypGeom_Dist method.
+     */
     public get hypGeom_Dist(): HypGeom_DistRequestBuilder {
         return new HypGeom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the if method. */
+    /**
+     * Provides operations to call the if method.
+     */
     public get ifEscaped(): IfRequestBuilder {
         return new IfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imAbs method. */
+    /**
+     * Provides operations to call the imAbs method.
+     */
     public get imAbs(): ImAbsRequestBuilder {
         return new ImAbsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imaginary method. */
+    /**
+     * Provides operations to call the imaginary method.
+     */
     public get imaginary(): ImaginaryRequestBuilder {
         return new ImaginaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imArgument method. */
+    /**
+     * Provides operations to call the imArgument method.
+     */
     public get imArgument(): ImArgumentRequestBuilder {
         return new ImArgumentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imConjugate method. */
+    /**
+     * Provides operations to call the imConjugate method.
+     */
     public get imConjugate(): ImConjugateRequestBuilder {
         return new ImConjugateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imCos method. */
+    /**
+     * Provides operations to call the imCos method.
+     */
     public get imCos(): ImCosRequestBuilder {
         return new ImCosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imCosh method. */
+    /**
+     * Provides operations to call the imCosh method.
+     */
     public get imCosh(): ImCoshRequestBuilder {
         return new ImCoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imCot method. */
+    /**
+     * Provides operations to call the imCot method.
+     */
     public get imCot(): ImCotRequestBuilder {
         return new ImCotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imCsc method. */
+    /**
+     * Provides operations to call the imCsc method.
+     */
     public get imCsc(): ImCscRequestBuilder {
         return new ImCscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imCsch method. */
+    /**
+     * Provides operations to call the imCsch method.
+     */
     public get imCsch(): ImCschRequestBuilder {
         return new ImCschRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imDiv method. */
+    /**
+     * Provides operations to call the imDiv method.
+     */
     public get imDiv(): ImDivRequestBuilder {
         return new ImDivRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imExp method. */
+    /**
+     * Provides operations to call the imExp method.
+     */
     public get imExp(): ImExpRequestBuilder {
         return new ImExpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imLn method. */
+    /**
+     * Provides operations to call the imLn method.
+     */
     public get imLn(): ImLnRequestBuilder {
         return new ImLnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imLog10 method. */
+    /**
+     * Provides operations to call the imLog10 method.
+     */
     public get imLog10(): ImLog10RequestBuilder {
         return new ImLog10RequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imLog2 method. */
+    /**
+     * Provides operations to call the imLog2 method.
+     */
     public get imLog2(): ImLog2RequestBuilder {
         return new ImLog2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imPower method. */
+    /**
+     * Provides operations to call the imPower method.
+     */
     public get imPower(): ImPowerRequestBuilder {
         return new ImPowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imProduct method. */
+    /**
+     * Provides operations to call the imProduct method.
+     */
     public get imProduct(): ImProductRequestBuilder {
         return new ImProductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imReal method. */
+    /**
+     * Provides operations to call the imReal method.
+     */
     public get imReal(): ImRealRequestBuilder {
         return new ImRealRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imSec method. */
+    /**
+     * Provides operations to call the imSec method.
+     */
     public get imSec(): ImSecRequestBuilder {
         return new ImSecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imSech method. */
+    /**
+     * Provides operations to call the imSech method.
+     */
     public get imSech(): ImSechRequestBuilder {
         return new ImSechRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imSin method. */
+    /**
+     * Provides operations to call the imSin method.
+     */
     public get imSin(): ImSinRequestBuilder {
         return new ImSinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imSinh method. */
+    /**
+     * Provides operations to call the imSinh method.
+     */
     public get imSinh(): ImSinhRequestBuilder {
         return new ImSinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imSqrt method. */
+    /**
+     * Provides operations to call the imSqrt method.
+     */
     public get imSqrt(): ImSqrtRequestBuilder {
         return new ImSqrtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imSub method. */
+    /**
+     * Provides operations to call the imSub method.
+     */
     public get imSub(): ImSubRequestBuilder {
         return new ImSubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imSum method. */
+    /**
+     * Provides operations to call the imSum method.
+     */
     public get imSum(): ImSumRequestBuilder {
         return new ImSumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the imTan method. */
+    /**
+     * Provides operations to call the imTan method.
+     */
     public get imTan(): ImTanRequestBuilder {
         return new ImTanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the int method. */
+    /**
+     * Provides operations to call the int method.
+     */
     public get int(): IntRequestBuilder {
         return new IntRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the intRate method. */
+    /**
+     * Provides operations to call the intRate method.
+     */
     public get intRate(): IntRateRequestBuilder {
         return new IntRateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ipmt method. */
+    /**
+     * Provides operations to call the ipmt method.
+     */
     public get ipmt(): IpmtRequestBuilder {
         return new IpmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the irr method. */
+    /**
+     * Provides operations to call the irr method.
+     */
     public get irr(): IrrRequestBuilder {
         return new IrrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isErr method. */
+    /**
+     * Provides operations to call the isErr method.
+     */
     public get isErr(): IsErrRequestBuilder {
         return new IsErrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isError method. */
+    /**
+     * Provides operations to call the isError method.
+     */
     public get isError(): IsErrorRequestBuilder {
         return new IsErrorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isEven method. */
+    /**
+     * Provides operations to call the isEven method.
+     */
     public get isEven(): IsEvenRequestBuilder {
         return new IsEvenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isFormula method. */
+    /**
+     * Provides operations to call the isFormula method.
+     */
     public get isFormula(): IsFormulaRequestBuilder {
         return new IsFormulaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isLogical method. */
+    /**
+     * Provides operations to call the isLogical method.
+     */
     public get isLogical(): IsLogicalRequestBuilder {
         return new IsLogicalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isNA method. */
+    /**
+     * Provides operations to call the isNA method.
+     */
     public get isNA(): IsNARequestBuilder {
         return new IsNARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isNonText method. */
+    /**
+     * Provides operations to call the isNonText method.
+     */
     public get isNonText(): IsNonTextRequestBuilder {
         return new IsNonTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isNumber method. */
+    /**
+     * Provides operations to call the isNumber method.
+     */
     public get isNumber(): IsNumberRequestBuilder {
         return new IsNumberRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the iso_Ceiling method. */
+    /**
+     * Provides operations to call the iso_Ceiling method.
+     */
     public get iso_Ceiling(): Iso_CeilingRequestBuilder {
         return new Iso_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isOdd method. */
+    /**
+     * Provides operations to call the isOdd method.
+     */
     public get isOdd(): IsOddRequestBuilder {
         return new IsOddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isoWeekNum method. */
+    /**
+     * Provides operations to call the isoWeekNum method.
+     */
     public get isoWeekNum(): IsoWeekNumRequestBuilder {
         return new IsoWeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ispmt method. */
+    /**
+     * Provides operations to call the ispmt method.
+     */
     public get ispmt(): IspmtRequestBuilder {
         return new IspmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isref method. */
+    /**
+     * Provides operations to call the isref method.
+     */
     public get isref(): IsrefRequestBuilder {
         return new IsrefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isText method. */
+    /**
+     * Provides operations to call the isText method.
+     */
     public get isText(): IsTextRequestBuilder {
         return new IsTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the kurt method. */
+    /**
+     * Provides operations to call the kurt method.
+     */
     public get kurt(): KurtRequestBuilder {
         return new KurtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the large method. */
+    /**
+     * Provides operations to call the large method.
+     */
     public get large(): LargeRequestBuilder {
         return new LargeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the lcm method. */
+    /**
+     * Provides operations to call the lcm method.
+     */
     public get lcm(): LcmRequestBuilder {
         return new LcmRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the left method. */
+    /**
+     * Provides operations to call the left method.
+     */
     public get left(): LeftRequestBuilder {
         return new LeftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the leftb method. */
+    /**
+     * Provides operations to call the leftb method.
+     */
     public get leftb(): LeftbRequestBuilder {
         return new LeftbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the len method. */
+    /**
+     * Provides operations to call the len method.
+     */
     public get len(): LenRequestBuilder {
         return new LenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the lenb method. */
+    /**
+     * Provides operations to call the lenb method.
+     */
     public get lenb(): LenbRequestBuilder {
         return new LenbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ln method. */
+    /**
+     * Provides operations to call the ln method.
+     */
     public get ln(): LnRequestBuilder {
         return new LnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the log method. */
+    /**
+     * Provides operations to call the log method.
+     */
     public get log(): LogRequestBuilder {
         return new LogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the log10 method. */
+    /**
+     * Provides operations to call the log10 method.
+     */
     public get log10(): Log10RequestBuilder {
         return new Log10RequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the logNorm_Dist method. */
+    /**
+     * Provides operations to call the logNorm_Dist method.
+     */
     public get logNorm_Dist(): LogNorm_DistRequestBuilder {
         return new LogNorm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the logNorm_Inv method. */
+    /**
+     * Provides operations to call the logNorm_Inv method.
+     */
     public get logNorm_Inv(): LogNorm_InvRequestBuilder {
         return new LogNorm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the lookup method. */
+    /**
+     * Provides operations to call the lookup method.
+     */
     public get lookup(): LookupRequestBuilder {
         return new LookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the lower method. */
+    /**
+     * Provides operations to call the lower method.
+     */
     public get lower(): LowerRequestBuilder {
         return new LowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the match method. */
+    /**
+     * Provides operations to call the match method.
+     */
     public get match(): MatchRequestBuilder {
         return new MatchRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the max method. */
+    /**
+     * Provides operations to call the max method.
+     */
     public get max(): MaxRequestBuilder {
         return new MaxRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the maxA method. */
+    /**
+     * Provides operations to call the maxA method.
+     */
     public get maxA(): MaxARequestBuilder {
         return new MaxARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the mduration method. */
+    /**
+     * Provides operations to call the mduration method.
+     */
     public get mduration(): MdurationRequestBuilder {
         return new MdurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the median method. */
+    /**
+     * Provides operations to call the median method.
+     */
     public get median(): MedianRequestBuilder {
         return new MedianRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the mid method. */
+    /**
+     * Provides operations to call the mid method.
+     */
     public get mid(): MidRequestBuilder {
         return new MidRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the midb method. */
+    /**
+     * Provides operations to call the midb method.
+     */
     public get midb(): MidbRequestBuilder {
         return new MidbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the min method. */
+    /**
+     * Provides operations to call the min method.
+     */
     public get min(): MinRequestBuilder {
         return new MinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the minA method. */
+    /**
+     * Provides operations to call the minA method.
+     */
     public get minA(): MinARequestBuilder {
         return new MinARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the minute method. */
+    /**
+     * Provides operations to call the minute method.
+     */
     public get minute(): MinuteRequestBuilder {
         return new MinuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the mirr method. */
+    /**
+     * Provides operations to call the mirr method.
+     */
     public get mirr(): MirrRequestBuilder {
         return new MirrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the mod method. */
+    /**
+     * Provides operations to call the mod method.
+     */
     public get mod(): ModRequestBuilder {
         return new ModRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the month method. */
+    /**
+     * Provides operations to call the month method.
+     */
     public get month(): MonthRequestBuilder {
         return new MonthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the mround method. */
+    /**
+     * Provides operations to call the mround method.
+     */
     public get mround(): MroundRequestBuilder {
         return new MroundRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the multiNomial method. */
+    /**
+     * Provides operations to call the multiNomial method.
+     */
     public get multiNomial(): MultiNomialRequestBuilder {
         return new MultiNomialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the n method. */
+    /**
+     * Provides operations to call the n method.
+     */
     public get n(): NRequestBuilder {
         return new NRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the na method. */
+    /**
+     * Provides operations to call the na method.
+     */
     public get na(): NaRequestBuilder {
         return new NaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the negBinom_Dist method. */
+    /**
+     * Provides operations to call the negBinom_Dist method.
+     */
     public get negBinom_Dist(): NegBinom_DistRequestBuilder {
         return new NegBinom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the networkDays method. */
+    /**
+     * Provides operations to call the networkDays method.
+     */
     public get networkDays(): NetworkDaysRequestBuilder {
         return new NetworkDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the networkDays_Intl method. */
+    /**
+     * Provides operations to call the networkDays_Intl method.
+     */
     public get networkDays_Intl(): NetworkDays_IntlRequestBuilder {
         return new NetworkDays_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the nominal method. */
+    /**
+     * Provides operations to call the nominal method.
+     */
     public get nominal(): NominalRequestBuilder {
         return new NominalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the norm_Dist method. */
+    /**
+     * Provides operations to call the norm_Dist method.
+     */
     public get norm_Dist(): Norm_DistRequestBuilder {
         return new Norm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the norm_Inv method. */
+    /**
+     * Provides operations to call the norm_Inv method.
+     */
     public get norm_Inv(): Norm_InvRequestBuilder {
         return new Norm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the norm_S_Dist method. */
+    /**
+     * Provides operations to call the norm_S_Dist method.
+     */
     public get norm_S_Dist(): Norm_S_DistRequestBuilder {
         return new Norm_S_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the norm_S_Inv method. */
+    /**
+     * Provides operations to call the norm_S_Inv method.
+     */
     public get norm_S_Inv(): Norm_S_InvRequestBuilder {
         return new Norm_S_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the not method. */
+    /**
+     * Provides operations to call the not method.
+     */
     public get not(): NotRequestBuilder {
         return new NotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the now method. */
+    /**
+     * Provides operations to call the now method.
+     */
     public get now(): NowRequestBuilder {
         return new NowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the nper method. */
+    /**
+     * Provides operations to call the nper method.
+     */
     public get nper(): NperRequestBuilder {
         return new NperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the npv method. */
+    /**
+     * Provides operations to call the npv method.
+     */
     public get npv(): NpvRequestBuilder {
         return new NpvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the numberValue method. */
+    /**
+     * Provides operations to call the numberValue method.
+     */
     public get numberValue(): NumberValueRequestBuilder {
         return new NumberValueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the oct2Bin method. */
+    /**
+     * Provides operations to call the oct2Bin method.
+     */
     public get oct2Bin(): Oct2BinRequestBuilder {
         return new Oct2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the oct2Dec method. */
+    /**
+     * Provides operations to call the oct2Dec method.
+     */
     public get oct2Dec(): Oct2DecRequestBuilder {
         return new Oct2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the oct2Hex method. */
+    /**
+     * Provides operations to call the oct2Hex method.
+     */
     public get oct2Hex(): Oct2HexRequestBuilder {
         return new Oct2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the odd method. */
+    /**
+     * Provides operations to call the odd method.
+     */
     public get odd(): OddRequestBuilder {
         return new OddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the oddFPrice method. */
+    /**
+     * Provides operations to call the oddFPrice method.
+     */
     public get oddFPrice(): OddFPriceRequestBuilder {
         return new OddFPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the oddFYield method. */
+    /**
+     * Provides operations to call the oddFYield method.
+     */
     public get oddFYield(): OddFYieldRequestBuilder {
         return new OddFYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the oddLPrice method. */
+    /**
+     * Provides operations to call the oddLPrice method.
+     */
     public get oddLPrice(): OddLPriceRequestBuilder {
         return new OddLPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the oddLYield method. */
+    /**
+     * Provides operations to call the oddLYield method.
+     */
     public get oddLYield(): OddLYieldRequestBuilder {
         return new OddLYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the or method. */
+    /**
+     * Provides operations to call the or method.
+     */
     public get or(): OrRequestBuilder {
         return new OrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the pduration method. */
+    /**
+     * Provides operations to call the pduration method.
+     */
     public get pduration(): PdurationRequestBuilder {
         return new PdurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the percentile_Exc method. */
+    /**
+     * Provides operations to call the percentile_Exc method.
+     */
     public get percentile_Exc(): Percentile_ExcRequestBuilder {
         return new Percentile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the percentile_Inc method. */
+    /**
+     * Provides operations to call the percentile_Inc method.
+     */
     public get percentile_Inc(): Percentile_IncRequestBuilder {
         return new Percentile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the percentRank_Exc method. */
+    /**
+     * Provides operations to call the percentRank_Exc method.
+     */
     public get percentRank_Exc(): PercentRank_ExcRequestBuilder {
         return new PercentRank_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the percentRank_Inc method. */
+    /**
+     * Provides operations to call the percentRank_Inc method.
+     */
     public get percentRank_Inc(): PercentRank_IncRequestBuilder {
         return new PercentRank_IncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the permut method. */
+    /**
+     * Provides operations to call the permut method.
+     */
     public get permut(): PermutRequestBuilder {
         return new PermutRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the permutationa method. */
+    /**
+     * Provides operations to call the permutationa method.
+     */
     public get permutationa(): PermutationaRequestBuilder {
         return new PermutationaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the phi method. */
+    /**
+     * Provides operations to call the phi method.
+     */
     public get phi(): PhiRequestBuilder {
         return new PhiRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the pi method. */
+    /**
+     * Provides operations to call the pi method.
+     */
     public get pi(): PiRequestBuilder {
         return new PiRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the pmt method. */
+    /**
+     * Provides operations to call the pmt method.
+     */
     public get pmt(): PmtRequestBuilder {
         return new PmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the poisson_Dist method. */
+    /**
+     * Provides operations to call the poisson_Dist method.
+     */
     public get poisson_Dist(): Poisson_DistRequestBuilder {
         return new Poisson_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the power method. */
+    /**
+     * Provides operations to call the power method.
+     */
     public get power(): PowerRequestBuilder {
         return new PowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the ppmt method. */
+    /**
+     * Provides operations to call the ppmt method.
+     */
     public get ppmt(): PpmtRequestBuilder {
         return new PpmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the price method. */
+    /**
+     * Provides operations to call the price method.
+     */
     public get price(): PriceRequestBuilder {
         return new PriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the priceDisc method. */
+    /**
+     * Provides operations to call the priceDisc method.
+     */
     public get priceDisc(): PriceDiscRequestBuilder {
         return new PriceDiscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the priceMat method. */
+    /**
+     * Provides operations to call the priceMat method.
+     */
     public get priceMat(): PriceMatRequestBuilder {
         return new PriceMatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the product method. */
+    /**
+     * Provides operations to call the product method.
+     */
     public get product(): ProductRequestBuilder {
         return new ProductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the proper method. */
+    /**
+     * Provides operations to call the proper method.
+     */
     public get proper(): ProperRequestBuilder {
         return new ProperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the pv method. */
+    /**
+     * Provides operations to call the pv method.
+     */
     public get pv(): PvRequestBuilder {
         return new PvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the quartile_Exc method. */
+    /**
+     * Provides operations to call the quartile_Exc method.
+     */
     public get quartile_Exc(): Quartile_ExcRequestBuilder {
         return new Quartile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the quartile_Inc method. */
+    /**
+     * Provides operations to call the quartile_Inc method.
+     */
     public get quartile_Inc(): Quartile_IncRequestBuilder {
         return new Quartile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the quotient method. */
+    /**
+     * Provides operations to call the quotient method.
+     */
     public get quotient(): QuotientRequestBuilder {
         return new QuotientRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the radians method. */
+    /**
+     * Provides operations to call the radians method.
+     */
     public get radians(): RadiansRequestBuilder {
         return new RadiansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rand method. */
+    /**
+     * Provides operations to call the rand method.
+     */
     public get rand(): RandRequestBuilder {
         return new RandRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the randBetween method. */
+    /**
+     * Provides operations to call the randBetween method.
+     */
     public get randBetween(): RandBetweenRequestBuilder {
         return new RandBetweenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rank_Avg method. */
+    /**
+     * Provides operations to call the rank_Avg method.
+     */
     public get rank_Avg(): Rank_AvgRequestBuilder {
         return new Rank_AvgRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rank_Eq method. */
+    /**
+     * Provides operations to call the rank_Eq method.
+     */
     public get rank_Eq(): Rank_EqRequestBuilder {
         return new Rank_EqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rate method. */
+    /**
+     * Provides operations to call the rate method.
+     */
     public get rate(): RateRequestBuilder {
         return new RateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the received method. */
+    /**
+     * Provides operations to call the received method.
+     */
     public get received(): ReceivedRequestBuilder {
         return new ReceivedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the replace method. */
+    /**
+     * Provides operations to call the replace method.
+     */
     public get replace(): ReplaceRequestBuilder {
         return new ReplaceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the replaceB method. */
+    /**
+     * Provides operations to call the replaceB method.
+     */
     public get replaceB(): ReplaceBRequestBuilder {
         return new ReplaceBRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rept method. */
+    /**
+     * Provides operations to call the rept method.
+     */
     public get rept(): ReptRequestBuilder {
         return new ReptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the right method. */
+    /**
+     * Provides operations to call the right method.
+     */
     public get right(): RightRequestBuilder {
         return new RightRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rightb method. */
+    /**
+     * Provides operations to call the rightb method.
+     */
     public get rightb(): RightbRequestBuilder {
         return new RightbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the roman method. */
+    /**
+     * Provides operations to call the roman method.
+     */
     public get roman(): RomanRequestBuilder {
         return new RomanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the round method. */
+    /**
+     * Provides operations to call the round method.
+     */
     public get round(): RoundRequestBuilder {
         return new RoundRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the roundDown method. */
+    /**
+     * Provides operations to call the roundDown method.
+     */
     public get roundDown(): RoundDownRequestBuilder {
         return new RoundDownRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the roundUp method. */
+    /**
+     * Provides operations to call the roundUp method.
+     */
     public get roundUp(): RoundUpRequestBuilder {
         return new RoundUpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rows method. */
+    /**
+     * Provides operations to call the rows method.
+     */
     public get rows(): RowsRequestBuilder {
         return new RowsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the rri method. */
+    /**
+     * Provides operations to call the rri method.
+     */
     public get rri(): RriRequestBuilder {
         return new RriRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sec method. */
+    /**
+     * Provides operations to call the sec method.
+     */
     public get sec(): SecRequestBuilder {
         return new SecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sech method. */
+    /**
+     * Provides operations to call the sech method.
+     */
     public get sech(): SechRequestBuilder {
         return new SechRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the second method. */
+    /**
+     * Provides operations to call the second method.
+     */
     public get second(): SecondRequestBuilder {
         return new SecondRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the seriesSum method. */
+    /**
+     * Provides operations to call the seriesSum method.
+     */
     public get seriesSum(): SeriesSumRequestBuilder {
         return new SeriesSumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sheet method. */
+    /**
+     * Provides operations to call the sheet method.
+     */
     public get sheet(): SheetRequestBuilder {
         return new SheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sheets method. */
+    /**
+     * Provides operations to call the sheets method.
+     */
     public get sheets(): SheetsRequestBuilder {
         return new SheetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sign method. */
+    /**
+     * Provides operations to call the sign method.
+     */
     public get sign(): SignRequestBuilder {
         return new SignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sin method. */
+    /**
+     * Provides operations to call the sin method.
+     */
     public get sin(): SinRequestBuilder {
         return new SinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sinh method. */
+    /**
+     * Provides operations to call the sinh method.
+     */
     public get sinh(): SinhRequestBuilder {
         return new SinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the skew method. */
+    /**
+     * Provides operations to call the skew method.
+     */
     public get skew(): SkewRequestBuilder {
         return new SkewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the skew_p method. */
+    /**
+     * Provides operations to call the skew_p method.
+     */
     public get skew_p(): Skew_pRequestBuilder {
         return new Skew_pRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sln method. */
+    /**
+     * Provides operations to call the sln method.
+     */
     public get sln(): SlnRequestBuilder {
         return new SlnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the small method. */
+    /**
+     * Provides operations to call the small method.
+     */
     public get small(): SmallRequestBuilder {
         return new SmallRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sqrt method. */
+    /**
+     * Provides operations to call the sqrt method.
+     */
     public get sqrt(): SqrtRequestBuilder {
         return new SqrtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sqrtPi method. */
+    /**
+     * Provides operations to call the sqrtPi method.
+     */
     public get sqrtPi(): SqrtPiRequestBuilder {
         return new SqrtPiRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the standardize method. */
+    /**
+     * Provides operations to call the standardize method.
+     */
     public get standardize(): StandardizeRequestBuilder {
         return new StandardizeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stDev_P method. */
+    /**
+     * Provides operations to call the stDev_P method.
+     */
     public get stDev_P(): StDev_PRequestBuilder {
         return new StDev_PRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stDev_S method. */
+    /**
+     * Provides operations to call the stDev_S method.
+     */
     public get stDev_S(): StDev_SRequestBuilder {
         return new StDev_SRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stDevA method. */
+    /**
+     * Provides operations to call the stDevA method.
+     */
     public get stDevA(): StDevARequestBuilder {
         return new StDevARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stDevPA method. */
+    /**
+     * Provides operations to call the stDevPA method.
+     */
     public get stDevPA(): StDevPARequestBuilder {
         return new StDevPARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the substitute method. */
+    /**
+     * Provides operations to call the substitute method.
+     */
     public get substitute(): SubstituteRequestBuilder {
         return new SubstituteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the subtotal method. */
+    /**
+     * Provides operations to call the subtotal method.
+     */
     public get subtotal(): SubtotalRequestBuilder {
         return new SubtotalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sum method. */
+    /**
+     * Provides operations to call the sum method.
+     */
     public get sum(): SumRequestBuilder {
         return new SumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sumIf method. */
+    /**
+     * Provides operations to call the sumIf method.
+     */
     public get sumIf(): SumIfRequestBuilder {
         return new SumIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sumIfs method. */
+    /**
+     * Provides operations to call the sumIfs method.
+     */
     public get sumIfs(): SumIfsRequestBuilder {
         return new SumIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sumSq method. */
+    /**
+     * Provides operations to call the sumSq method.
+     */
     public get sumSq(): SumSqRequestBuilder {
         return new SumSqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the syd method. */
+    /**
+     * Provides operations to call the syd method.
+     */
     public get syd(): SydRequestBuilder {
         return new SydRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the t method. */
+    /**
+     * Provides operations to call the t method.
+     */
     public get t(): TRequestBuilder {
         return new TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the t_Dist method. */
+    /**
+     * Provides operations to call the t_Dist method.
+     */
     public get t_Dist(): T_DistRequestBuilder {
         return new T_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the t_Dist_2T method. */
+    /**
+     * Provides operations to call the t_Dist_2T method.
+     */
     public get t_Dist_2T(): T_Dist_2TRequestBuilder {
         return new T_Dist_2TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the t_Dist_RT method. */
+    /**
+     * Provides operations to call the t_Dist_RT method.
+     */
     public get t_Dist_RT(): T_Dist_RTRequestBuilder {
         return new T_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the t_Inv method. */
+    /**
+     * Provides operations to call the t_Inv method.
+     */
     public get t_Inv(): T_InvRequestBuilder {
         return new T_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the t_Inv_2T method. */
+    /**
+     * Provides operations to call the t_Inv_2T method.
+     */
     public get t_Inv_2T(): T_Inv_2TRequestBuilder {
         return new T_Inv_2TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the tan method. */
+    /**
+     * Provides operations to call the tan method.
+     */
     public get tan(): TanRequestBuilder {
         return new TanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the tanh method. */
+    /**
+     * Provides operations to call the tanh method.
+     */
     public get tanh(): TanhRequestBuilder {
         return new TanhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the tbillEq method. */
+    /**
+     * Provides operations to call the tbillEq method.
+     */
     public get tbillEq(): TbillEqRequestBuilder {
         return new TbillEqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the tbillPrice method. */
+    /**
+     * Provides operations to call the tbillPrice method.
+     */
     public get tbillPrice(): TbillPriceRequestBuilder {
         return new TbillPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the tbillYield method. */
+    /**
+     * Provides operations to call the tbillYield method.
+     */
     public get tbillYield(): TbillYieldRequestBuilder {
         return new TbillYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the text method. */
+    /**
+     * Provides operations to call the text method.
+     */
     public get text(): TextRequestBuilder {
         return new TextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the time method. */
+    /**
+     * Provides operations to call the time method.
+     */
     public get time(): TimeRequestBuilder {
         return new TimeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the timevalue method. */
+    /**
+     * Provides operations to call the timevalue method.
+     */
     public get timevalue(): TimevalueRequestBuilder {
         return new TimevalueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the today method. */
+    /**
+     * Provides operations to call the today method.
+     */
     public get today(): TodayRequestBuilder {
         return new TodayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the trim method. */
+    /**
+     * Provides operations to call the trim method.
+     */
     public get trim(): TrimRequestBuilder {
         return new TrimRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the trimMean method. */
+    /**
+     * Provides operations to call the trimMean method.
+     */
     public get trimMean(): TrimMeanRequestBuilder {
         return new TrimMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the true method. */
+    /**
+     * Provides operations to call the true method.
+     */
     public get trueEscaped(): TrueRequestBuilder {
         return new TrueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the trunc method. */
+    /**
+     * Provides operations to call the trunc method.
+     */
     public get trunc(): TruncRequestBuilder {
         return new TruncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the type method. */
+    /**
+     * Provides operations to call the type method.
+     */
     public get type(): TypeRequestBuilder {
         return new TypeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unichar method. */
+    /**
+     * Provides operations to call the unichar method.
+     */
     public get unichar(): UnicharRequestBuilder {
         return new UnicharRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unicode method. */
+    /**
+     * Provides operations to call the unicode method.
+     */
     public get unicode(): UnicodeRequestBuilder {
         return new UnicodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the upper method. */
+    /**
+     * Provides operations to call the upper method.
+     */
     public get upper(): UpperRequestBuilder {
         return new UpperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the usdollar method. */
+    /**
+     * Provides operations to call the usdollar method.
+     */
     public get usdollar(): UsdollarRequestBuilder {
         return new UsdollarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the value method. */
+    /**
+     * Provides operations to call the value method.
+     */
     public get value(): ValueRequestBuilder {
         return new ValueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the var_P method. */
+    /**
+     * Provides operations to call the var_P method.
+     */
     public get var_P(): Var_PRequestBuilder {
         return new Var_PRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the var_S method. */
+    /**
+     * Provides operations to call the var_S method.
+     */
     public get var_S(): Var_SRequestBuilder {
         return new Var_SRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the varA method. */
+    /**
+     * Provides operations to call the varA method.
+     */
     public get varA(): VarARequestBuilder {
         return new VarARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the varPA method. */
+    /**
+     * Provides operations to call the varPA method.
+     */
     public get varPA(): VarPARequestBuilder {
         return new VarPARequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the vdb method. */
+    /**
+     * Provides operations to call the vdb method.
+     */
     public get vdb(): VdbRequestBuilder {
         return new VdbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the vlookup method. */
+    /**
+     * Provides operations to call the vlookup method.
+     */
     public get vlookup(): VlookupRequestBuilder {
         return new VlookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the weekday method. */
+    /**
+     * Provides operations to call the weekday method.
+     */
     public get weekday(): WeekdayRequestBuilder {
         return new WeekdayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the weekNum method. */
+    /**
+     * Provides operations to call the weekNum method.
+     */
     public get weekNum(): WeekNumRequestBuilder {
         return new WeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the weibull_Dist method. */
+    /**
+     * Provides operations to call the weibull_Dist method.
+     */
     public get weibull_Dist(): Weibull_DistRequestBuilder {
         return new Weibull_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the workDay method. */
+    /**
+     * Provides operations to call the workDay method.
+     */
     public get workDay(): WorkDayRequestBuilder {
         return new WorkDayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the workDay_Intl method. */
+    /**
+     * Provides operations to call the workDay_Intl method.
+     */
     public get workDay_Intl(): WorkDay_IntlRequestBuilder {
         return new WorkDay_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the xirr method. */
+    /**
+     * Provides operations to call the xirr method.
+     */
     public get xirr(): XirrRequestBuilder {
         return new XirrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the xnpv method. */
+    /**
+     * Provides operations to call the xnpv method.
+     */
     public get xnpv(): XnpvRequestBuilder {
         return new XnpvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the xor method. */
+    /**
+     * Provides operations to call the xor method.
+     */
     public get xor(): XorRequestBuilder {
         return new XorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the year method. */
+    /**
+     * Provides operations to call the year method.
+     */
     public get year(): YearRequestBuilder {
         return new YearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the yearFrac method. */
+    /**
+     * Provides operations to call the yearFrac method.
+     */
     public get yearFrac(): YearFracRequestBuilder {
         return new YearFracRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the yield method. */
+    /**
+     * Provides operations to call the yield method.
+     */
     public get yield(): YieldRequestBuilder {
         return new YieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the yieldDisc method. */
+    /**
+     * Provides operations to call the yieldDisc method.
+     */
     public get yieldDisc(): YieldDiscRequestBuilder {
         return new YieldDiscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the yieldMat method. */
+    /**
+     * Provides operations to call the yieldMat method.
+     */
     public get yieldMat(): YieldMatRequestBuilder {
         return new YieldMatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the z_Test method. */
+    /**
+     * Provides operations to call the z_Test method.
+     */
     public get z_Test(): Z_TestRequestBuilder {
         return new Z_TestRequestBuilder(this.pathParameters, this.requestAdapter);
     }

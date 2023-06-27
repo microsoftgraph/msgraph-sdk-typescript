@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
  */
 export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity. */
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
+     */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stop method. */
+    /**
+     * Provides operations to call the stop method.
+     */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }

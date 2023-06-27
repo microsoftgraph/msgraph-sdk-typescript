@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
  */
 export class UsedInsightItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the resource property of the microsoft.graph.usedInsight entity. */
+    /**
+     * Provides operations to manage the resource property of the microsoft.graph.usedInsight entity.
+     */
     public get resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder(this.pathParameters, this.requestAdapter);
     }

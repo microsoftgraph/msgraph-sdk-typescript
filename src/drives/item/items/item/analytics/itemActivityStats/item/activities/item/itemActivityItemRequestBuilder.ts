@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
  */
 export class ItemActivityItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the driveItem property of the microsoft.graph.itemActivity entity. */
+    /**
+     * Provides operations to manage the driveItem property of the microsoft.graph.itemActivity entity.
+     */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }

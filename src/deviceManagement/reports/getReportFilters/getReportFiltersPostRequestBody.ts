@@ -1,24 +1,44 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetReportFiltersPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The filter property */
+    /**
+     * The filter property
+     */
     filter?: string | undefined;
-    /** The groupBy property */
+    /**
+     * The groupBy property
+     */
     groupBy?: string[] | undefined;
-    /** The name property */
+    /**
+     * The name property
+     */
     name?: string | undefined;
-    /** The orderBy property */
+    /**
+     * The orderBy property
+     */
     orderBy?: string[] | undefined;
-    /** The search property */
+    /**
+     * The search property
+     */
     search?: string | undefined;
-    /** The select property */
+    /**
+     * The select property
+     */
     select?: string[] | undefined;
-    /** The sessionId property */
+    /**
+     * The sessionId property
+     */
     sessionId?: string | undefined;
-    /** The skip property */
+    /**
+     * The skip property
+     */
     skip?: number | undefined;
-    /** The top property */
+    /**
+     * The top property
+     */
     top?: number | undefined;
 }

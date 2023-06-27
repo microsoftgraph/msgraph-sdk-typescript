@@ -2,10 +2,16 @@ import {ComplianceRequestBuilderGetQueryParameters} from './complianceRequestBui
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ComplianceRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ComplianceRequestBuilderGetQueryParameters | undefined;
 }

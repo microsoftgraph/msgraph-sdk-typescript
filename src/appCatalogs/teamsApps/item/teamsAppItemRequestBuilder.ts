@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
  */
 export class TeamsAppItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity. */
+    /**
+     * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
+     */
     public get appDefinitions(): AppDefinitionsRequestBuilder {
         return new AppDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

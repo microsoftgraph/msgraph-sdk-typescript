@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
 export class SiteSourceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the site property of the microsoft.graph.security.siteSource entity. */
+    /**
+     * Provides operations to manage the site property of the microsoft.graph.security.siteSource entity.
+     */
     public get site(): SiteRequestBuilder {
         return new SiteRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -3,32 +3,60 @@ import {SettingSource} from './settingSource';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceConfigurationSettingState extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** Current value of setting on device */
+    /**
+     * Current value of setting on device
+     */
     currentValue?: string | undefined;
-    /** Error code for the setting */
+    /**
+     * Error code for the setting
+     */
     errorCode?: number | undefined;
-    /** Error description */
+    /**
+     * Error description
+     */
     errorDescription?: string | undefined;
-    /** Name of setting instance that is being reported. */
+    /**
+     * Name of setting instance that is being reported.
+     */
     instanceDisplayName?: string | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The setting that is being reported */
+    /**
+     * The setting that is being reported
+     */
     setting?: string | undefined;
-    /** Localized/user friendly setting name that is being reported */
+    /**
+     * Localized/user friendly setting name that is being reported
+     */
     settingName?: string | undefined;
-    /** Contributing policies */
+    /**
+     * Contributing policies
+     */
     sources?: SettingSource[] | undefined;
-    /** The state property */
+    /**
+     * The state property
+     */
     state?: ComplianceStatus | undefined;
-    /** UserEmail */
+    /**
+     * UserEmail
+     */
     userEmail?: string | undefined;
-    /** UserId */
+    /**
+     * UserId
+     */
     userId?: string | undefined;
-    /** UserName */
+    /**
+     * UserName
+     */
     userName?: string | undefined;
-    /** UserPrincipalName. */
+    /**
+     * UserPrincipalName.
+     */
     userPrincipalName?: string | undefined;
 }

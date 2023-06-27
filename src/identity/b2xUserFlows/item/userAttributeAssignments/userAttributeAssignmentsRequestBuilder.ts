@@ -20,15 +20,21 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
  */
 export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getOrder method. */
+    /**
+     * Provides operations to call the getOrder method.
+     */
     public get getOrder(): GetOrderRequestBuilder {
         return new GetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setOrder method. */
+    /**
+     * Provides operations to call the setOrder method.
+     */
     public get setOrder(): SetOrderRequestBuilder {
         return new SetOrderRequestBuilder(this.pathParameters, this.requestAdapter);
     }

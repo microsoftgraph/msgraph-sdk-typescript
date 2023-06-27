@@ -2,6 +2,8 @@ import {OmaSetting} from './omaSetting';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OmaSettingFloatingPoint extends OmaSetting, Parsable {
-    /** Value. */
+    /**
+     * Value.
+     */
     value?: number | undefined;
 }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
  */
 export class TrendingItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the resource property of the microsoft.graph.trending entity. */
+    /**
+     * Provides operations to manage the resource property of the microsoft.graph.trending entity.
+     */
     public get resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder(this.pathParameters, this.requestAdapter);
     }

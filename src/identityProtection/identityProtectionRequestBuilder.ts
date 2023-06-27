@@ -18,19 +18,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the identityProtectionRoot singleton.
  */
 export class IdentityProtectionRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity. */
+    /**
+     * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
+     */
     public get riskDetections(): RiskDetectionsRequestBuilder {
         return new RiskDetectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity. */
+    /**
+     * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
+     */
     public get riskyServicePrincipals(): RiskyServicePrincipalsRequestBuilder {
         return new RiskyServicePrincipalsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity. */
+    /**
+     * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
+     */
     public get riskyUsers(): RiskyUsersRequestBuilder {
         return new RiskyUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity. */
+    /**
+     * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
+     */
     public get servicePrincipalRiskDetections(): ServicePrincipalRiskDetectionsRequestBuilder {
         return new ServicePrincipalRiskDetectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

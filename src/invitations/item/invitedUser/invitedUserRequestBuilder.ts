@@ -12,7 +12,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity.
  */
 export class InvitedUserRequestBuilder extends BaseRequestBuilder {
-    /** The mailboxSettings property */
+    /**
+     * The mailboxSettings property
+     */
     public get mailboxSettings(): MailboxSettingsRequestBuilder {
         return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

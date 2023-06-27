@@ -15,7 +15,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the searchEntity singleton.
  */
 export class SearchRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the query method. */
+    /**
+     * Provides operations to call the query method.
+     */
     public get query(): QueryRequestBuilder {
         return new QueryRequestBuilder(this.pathParameters, this.requestAdapter);
     }

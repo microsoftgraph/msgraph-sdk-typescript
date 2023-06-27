@@ -12,7 +12,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the user property of the microsoft.graph.educationUser entity.
  */
 export class UserRequestBuilder extends BaseRequestBuilder {
-    /** The mailboxSettings property */
+    /**
+     * The mailboxSettings property
+     */
     public get mailboxSettings(): MailboxSettingsRequestBuilder {
         return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

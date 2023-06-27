@@ -17,7 +17,7 @@ export class GetAllMessagesRequestBuilder extends BaseRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
-        super(pathParameters, requestAdapter, "{+baseurl}/me/chats/getAllMessages(){?%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
+        super(pathParameters, requestAdapter, "{+baseurl}/me/chats/getAllMessages(){?model*,%24top,%24skip,%24search,%24filter,%24count,%24select,%24orderby}");
     };
     /**
      * Invoke function getAllMessages

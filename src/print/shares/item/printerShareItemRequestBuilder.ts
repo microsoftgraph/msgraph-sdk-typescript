@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the shares property of the microsoft.graph.print entity.
  */
 export class PrinterShareItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity. */
+    /**
+     * Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.
+     */
     public get allowedGroups(): AllowedGroupsRequestBuilder {
         return new AllowedGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the allowedUsers property of the microsoft.graph.printerShare entity. */
+    /**
+     * Provides operations to manage the allowedUsers property of the microsoft.graph.printerShare entity.
+     */
     public get allowedUsers(): AllowedUsersRequestBuilder {
         return new AllowedUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the jobs property of the microsoft.graph.printerBase entity. */
+    /**
+     * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
+     */
     public get jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the printer property of the microsoft.graph.printerShare entity. */
+    /**
+     * Provides operations to manage the printer property of the microsoft.graph.printerShare entity.
+     */
     public get printer(): PrinterRequestBuilder {
         return new PrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }

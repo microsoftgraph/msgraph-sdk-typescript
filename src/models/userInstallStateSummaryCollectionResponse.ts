@@ -3,6 +3,8 @@ import {UserInstallStateSummary} from './userInstallStateSummary';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserInstallStateSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: UserInstallStateSummary[] | undefined;
 }

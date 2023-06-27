@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
  */
 export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity. */
+    /**
+     * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
+     */
     public get attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the user entity. */
+    /**
+     * Provides operations to manage the media for the user entity.
+     */
     public get attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getVirtualAppointmentJoinWebUrl method. */
+    /**
+     * Provides operations to call the getVirtualAppointmentJoinWebUrl method.
+     */
     public get getVirtualAppointmentJoinWebUrl(): GetVirtualAppointmentJoinWebUrlRequestBuilder {
         return new GetVirtualAppointmentJoinWebUrlRequestBuilder(this.pathParameters, this.requestAdapter);
     }

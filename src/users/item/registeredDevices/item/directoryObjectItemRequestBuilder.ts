@@ -14,15 +14,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
  */
 export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
-    /** Casts the previous resource to appRoleAssignment. */
+    /**
+     * Casts the previous resource to appRoleAssignment.
+     */
     public get graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
         return new GraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to device. */
+    /**
+     * Casts the previous resource to device.
+     */
     public get graphDevice(): GraphDeviceRequestBuilder {
         return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to endpoint. */
+    /**
+     * Casts the previous resource to endpoint.
+     */
     public get graphEndpoint(): GraphEndpointRequestBuilder {
         return new GraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }

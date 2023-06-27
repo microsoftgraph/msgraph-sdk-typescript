@@ -2,10 +2,16 @@ import {CategoriesRequestBuilderGetQueryParameters} from './categoriesRequestBui
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface CategoriesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: CategoriesRequestBuilderGetQueryParameters | undefined;
 }

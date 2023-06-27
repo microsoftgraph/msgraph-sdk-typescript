@@ -4,16 +4,28 @@ import {ObjectDefinition} from './objectDefinition';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryDefinition extends Entity, Parsable {
-    /** The discoverabilities property */
+    /**
+     * The discoverabilities property
+     */
     discoverabilities?: DirectoryDefinitionDiscoverabilities | undefined;
-    /** The discoveryDateTime property */
+    /**
+     * The discoveryDateTime property
+     */
     discoveryDateTime?: Date | undefined;
-    /** The name property */
+    /**
+     * The name property
+     */
     name?: string | undefined;
-    /** The objects property */
+    /**
+     * The objects property
+     */
     objects?: ObjectDefinition[] | undefined;
-    /** The readOnly property */
+    /**
+     * The readOnly property
+     */
     readOnly?: boolean | undefined;
-    /** The version property */
+    /**
+     * The version property
+     */
     version?: string | undefined;
 }

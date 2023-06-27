@@ -3,6 +3,8 @@ import {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingStaffMemberBaseCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: BookingStaffMemberBase[] | undefined;
 }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the application property of the microsoft.graph.workbook entity.
  */
 export class ApplicationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the calculate method. */
+    /**
+     * Provides operations to call the calculate method.
+     */
     public get calculate(): CalculateRequestBuilder {
         return new CalculateRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the planner property of the microsoft.graph.group entity.
  */
 export class PlannerRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity. */
+    /**
+     * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
+     */
     public get plans(): PlansRequestBuilder {
         return new PlansRequestBuilder(this.pathParameters, this.requestAdapter);
     }

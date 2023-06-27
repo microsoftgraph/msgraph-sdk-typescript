@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
  */
 export class DeletedTeamItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity. */
+    /**
+     * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
+     */
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

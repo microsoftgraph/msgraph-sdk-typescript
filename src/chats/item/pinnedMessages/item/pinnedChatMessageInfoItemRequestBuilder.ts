@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
  */
 export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the message property of the microsoft.graph.pinnedChatMessageInfo entity. */
+    /**
+     * Provides operations to manage the message property of the microsoft.graph.pinnedChatMessageInfo entity.
+     */
     public get message(): MessageRequestBuilder {
         return new MessageRequestBuilder(this.pathParameters, this.requestAdapter);
     }

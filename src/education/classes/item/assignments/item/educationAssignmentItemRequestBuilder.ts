@@ -22,31 +22,45 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
  */
 export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity. */
+    /**
+     * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
+     */
     public get categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the publish method. */
+    /**
+     * Provides operations to call the publish method.
+     */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity. */
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
+     */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the rubric property of the microsoft.graph.educationAssignment entity. */
+    /**
+     * Provides operations to manage the rubric property of the microsoft.graph.educationAssignment entity.
+     */
     public get rubric(): RubricRequestBuilder {
         return new RubricRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setUpFeedbackResourcesFolder method. */
+    /**
+     * Provides operations to call the setUpFeedbackResourcesFolder method.
+     */
     public get setUpFeedbackResourcesFolder(): SetUpFeedbackResourcesFolderRequestBuilder {
         return new SetUpFeedbackResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setUpResourcesFolder method. */
+    /**
+     * Provides operations to call the setUpResourcesFolder method.
+     */
     public get setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
         return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity. */
+    /**
+     * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
+     */
     public get submissions(): SubmissionsRequestBuilder {
         return new SubmissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

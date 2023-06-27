@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
  */
 export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity. */
+    /**
+     * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
+     */
     public get defaultPages(): DefaultPagesRequestBuilder {
         return new DefaultPagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity. */
+    /**
+     * Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
+     */
     public get overridesPages(): OverridesPagesRequestBuilder {
         return new OverridesPagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

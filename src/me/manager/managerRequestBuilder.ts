@@ -13,7 +13,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the manager property of the microsoft.graph.user entity.
  */
 export class ManagerRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of user entities. */
+    /**
+     * Provides operations to manage the collection of user entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

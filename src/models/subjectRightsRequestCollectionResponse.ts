@@ -3,6 +3,8 @@ import {SubjectRightsRequest} from './subjectRightsRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: SubjectRightsRequest[] | undefined;
 }

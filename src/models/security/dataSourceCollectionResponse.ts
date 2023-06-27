@@ -3,6 +3,8 @@ import {DataSource} from './dataSource';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DataSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DataSource[] | undefined;
 }

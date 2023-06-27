@@ -20,15 +20,21 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
  */
 export class NamesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the add method. */
+    /**
+     * Provides operations to call the add method.
+     */
     public get add(): AddRequestBuilder {
         return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addFormulaLocal method. */
+    /**
+     * Provides operations to call the addFormulaLocal method.
+     */
     public get addFormulaLocal(): AddFormulaLocalRequestBuilder {
         return new AddFormulaLocalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }

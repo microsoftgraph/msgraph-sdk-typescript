@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
  */
 export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the beginOnboarding method. */
+    /**
+     * Provides operations to call the beginOnboarding method.
+     */
     public get beginOnboarding(): BeginOnboardingRequestBuilder {
         return new BeginOnboardingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the disconnect method. */
+    /**
+     * Provides operations to call the disconnect method.
+     */
     public get disconnect(): DisconnectRequestBuilder {
         return new DisconnectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -34,9 +38,10 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/remoteAssistancePartners/{remoteAssistancePartner%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property remoteAssistancePartners for deviceManagement
+     * Deletes a remoteAssistancePartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,10 +54,11 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The remote assist partners.
+     * Read properties and relationships of the remoteAssistancePartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RemoteAssistancePartner
+     * @see {@link https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RemoteAssistancePartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,11 +71,12 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter?.sendAsync<RemoteAssistancePartner>(requestInfo, createRemoteAssistancePartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property remoteAssistancePartners in deviceManagement
+     * Update the properties of a remoteAssistancePartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RemoteAssistancePartner
+     * @see {@link https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: RemoteAssistancePartner | undefined, requestConfiguration?: RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RemoteAssistancePartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -83,7 +90,7 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter?.sendAsync<RemoteAssistancePartner>(requestInfo, createRemoteAssistancePartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property remoteAssistancePartners for deviceManagement
+     * Deletes a remoteAssistancePartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -99,7 +106,7 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * The remote assist partners.
+     * Read properties and relationships of the remoteAssistancePartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -117,7 +124,7 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the navigation property remoteAssistancePartners in deviceManagement
+     * Update the properties of a remoteAssistancePartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

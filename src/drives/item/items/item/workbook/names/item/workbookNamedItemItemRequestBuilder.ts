@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the names property of the microsoft.graph.workbook entity.
  */
 export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the range method. */
+    /**
+     * Provides operations to call the range method.
+     */
     public get range(): RangeRequestBuilder {
         return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheet property of the microsoft.graph.workbookNamedItem entity. */
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookNamedItem entity.
+     */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }

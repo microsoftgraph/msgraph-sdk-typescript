@@ -34,71 +34,105 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of site entities.
  */
 export class SiteItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the analytics property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the analytics property of the microsoft.graph.site entity.
+     */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columns property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.site entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contentTypes property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
+     */
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drive property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the drive property of the microsoft.graph.site entity.
+     */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drives property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the drives property of the microsoft.graph.site entity.
+     */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the externalColumns property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
+     */
     public get externalColumns(): ExternalColumnsRequestBuilder {
         return new ExternalColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getActivitiesByInterval method. */
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     */
     public get getActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.site entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lists property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the lists property of the microsoft.graph.site entity.
+     */
     public get lists(): ListsRequestBuilder {
         return new ListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the onenote property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the onenote property of the microsoft.graph.site entity.
+     */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.site entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the permissions property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the permissions property of the microsoft.graph.site entity.
+     */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sites property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the sites property of the microsoft.graph.site entity.
+     */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the termStore property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the termStore property of the microsoft.graph.site entity.
+     */
     public get termStore(): TermStoreRequestBuilder {
         return new TermStoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the termStores property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the termStores property of the microsoft.graph.site entity.
+     */
     public get termStores(): TermStoresRequestBuilder {
         return new TermStoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }

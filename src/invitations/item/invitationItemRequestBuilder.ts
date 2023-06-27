@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of invitation entities.
  */
 export class InvitationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity. */
+    /**
+     * Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity.
+     */
     public get invitedUser(): InvitedUserRequestBuilder {
         return new InvitedUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -1,4 +1,6 @@
-/** Possible values for a weekly schedule. */
+/**
+ * Possible values for a weekly schedule.
+ */
 export enum WeeklySchedule {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
  */
 export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity. */
+    /**
+     * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
+     */
     public get accessAssignments(): AccessAssignmentsRequestBuilder {
         return new AccessAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity. */
+    /**
+     * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
+     */
     public get requests(): RequestsRequestBuilder {
         return new RequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
  */
 export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity. */
+    /**
+     * Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
+     */
     public get schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder(this.pathParameters, this.requestAdapter);
     }

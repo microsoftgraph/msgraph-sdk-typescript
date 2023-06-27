@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
  */
 export class DefaultRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the resetToSystemDefault method. */
+    /**
+     * Provides operations to call the resetToSystemDefault method.
+     */
     public get resetToSystemDefault(): ResetToSystemDefaultRequestBuilder {
         return new ResetToSystemDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
     }

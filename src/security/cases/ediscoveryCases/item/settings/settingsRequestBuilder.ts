@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class SettingsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the resetToDefault method. */
+    /**
+     * Provides operations to call the resetToDefault method.
+     */
     public get microsoftGraphSecurityResetToDefault(): MicrosoftGraphSecurityResetToDefaultRequestBuilder {
         return new MicrosoftGraphSecurityResetToDefaultRequestBuilder(this.pathParameters, this.requestAdapter);
     }

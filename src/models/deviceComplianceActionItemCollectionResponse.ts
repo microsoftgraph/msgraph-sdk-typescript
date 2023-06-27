@@ -3,6 +3,8 @@ import {DeviceComplianceActionItem} from './deviceComplianceActionItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceComplianceActionItemCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DeviceComplianceActionItem[] | undefined;
 }

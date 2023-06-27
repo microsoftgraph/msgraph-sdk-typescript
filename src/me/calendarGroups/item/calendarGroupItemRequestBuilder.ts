@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
  */
 export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity. */
+    /**
+     * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
+     */
     public get calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

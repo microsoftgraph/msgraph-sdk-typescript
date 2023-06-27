@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
  */
 export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the activity property of the microsoft.graph.activityHistoryItem entity. */
+    /**
+     * Provides operations to manage the activity property of the microsoft.graph.activityHistoryItem entity.
+     */
     public get activity(): ActivityRequestBuilder {
         return new ActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -60,12 +62,12 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ActivityHistoryItem>(requestInfo, createActivityHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete an existing history item for an existing user activity.
+     * Create a new or replace an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ActivityHistoryItem
-     * @see {@link https://docs.microsoft.com/graph/api/projectrome-delete-historyitem?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/projectrome-put-historyitem?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ActivityHistoryItem | undefined, requestConfiguration?: ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -113,7 +115,7 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete an existing history item for an existing user activity.
+     * Create a new or replace an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

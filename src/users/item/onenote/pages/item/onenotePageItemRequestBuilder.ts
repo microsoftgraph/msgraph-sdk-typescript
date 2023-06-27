@@ -21,27 +21,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
  */
 export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the user entity. */
+    /**
+     * Provides operations to manage the media for the user entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copyToSection method. */
+    /**
+     * Provides operations to call the copyToSection method.
+     */
     public get copyToSection(): CopyToSectionRequestBuilder {
         return new CopyToSectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the onenotePatchContent method. */
+    /**
+     * Provides operations to call the onenotePatchContent method.
+     */
     public get onenotePatchContent(): OnenotePatchContentRequestBuilder {
         return new OnenotePatchContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parentNotebook property of the microsoft.graph.onenotePage entity. */
+    /**
+     * Provides operations to manage the parentNotebook property of the microsoft.graph.onenotePage entity.
+     */
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity. */
+    /**
+     * Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity.
+     */
     public get parentSection(): ParentSectionRequestBuilder {
         return new ParentSectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the preview method. */
+    /**
+     * Provides operations to call the preview method.
+     */
     public get preview(): PreviewRequestBuilder {
         return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -70,10 +82,11 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Retrieve the properties and relationships of a page object. **Getting page information** Access a page's metadata by page identifier: **Getting page content** You can use the page's `content` endpoint to get the HTML content of a page: The `includeIDs=true` query option is used to update pages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenotePage
+     * @see {@link https://docs.microsoft.com/graph/api/page-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OnenotePageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenotePage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -120,7 +133,7 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
+     * Retrieve the properties and relationships of a page object. **Getting page information** Access a page's metadata by page identifier: **Getting page content** You can use the page's `content` endpoint to get the HTML content of a page: The `includeIDs=true` query option is used to update pages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

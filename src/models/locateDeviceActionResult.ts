@@ -3,6 +3,8 @@ import {DeviceGeoLocation} from './deviceGeoLocation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LocateDeviceActionResult extends DeviceActionResult, Parsable {
-    /** device location */
+    /**
+     * device location
+     */
     deviceLocation?: DeviceGeoLocation | undefined;
 }

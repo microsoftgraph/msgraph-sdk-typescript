@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity.
  */
 export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChartGridlines entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChartGridlines entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }

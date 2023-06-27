@@ -2,10 +2,16 @@ import {BookingAppointmentItemRequestBuilderGetQueryParameters} from './bookingA
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface BookingAppointmentItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: BookingAppointmentItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
  */
 export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChartPoint entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChartPoint entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }

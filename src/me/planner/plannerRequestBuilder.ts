@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the planner property of the microsoft.graph.user entity.
  */
 export class PlannerRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the plans property of the microsoft.graph.plannerUser entity. */
+    /**
+     * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
+     */
     public get plans(): PlansRequestBuilder {
         return new PlansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tasks property of the microsoft.graph.plannerUser entity. */
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.plannerUser entity.
+     */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }

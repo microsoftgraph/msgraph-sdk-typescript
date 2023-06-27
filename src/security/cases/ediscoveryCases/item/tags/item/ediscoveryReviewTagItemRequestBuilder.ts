@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity. */
+    /**
+     * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
+     */
     public get childTags(): ChildTagsRequestBuilder {
         return new ChildTagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parent property of the microsoft.graph.security.ediscoveryReviewTag entity. */
+    /**
+     * Provides operations to manage the parent property of the microsoft.graph.security.ediscoveryReviewTag entity.
+     */
     public get parent(): ParentRequestBuilder {
         return new ParentRequestBuilder(this.pathParameters, this.requestAdapter);
     }

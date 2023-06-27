@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the files property of the microsoft.graph.agreement entity.
  */
 export class AgreementFileLocalizationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity. */
+    /**
+     * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
+     */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

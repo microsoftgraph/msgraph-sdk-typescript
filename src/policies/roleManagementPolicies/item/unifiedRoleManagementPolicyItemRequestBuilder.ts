@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
  */
 export class UnifiedRoleManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the effectiveRules property of the microsoft.graph.unifiedRoleManagementPolicy entity. */
+    /**
+     * Provides operations to manage the effectiveRules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
+     */
     public get effectiveRules(): EffectiveRulesRequestBuilder {
         return new EffectiveRulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity. */
+    /**
+     * Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
+     */
     public get rules(): RulesRequestBuilder {
         return new RulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

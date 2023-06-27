@@ -27,43 +27,63 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
  */
 export class WorkbookRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the application property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the application property of the microsoft.graph.workbook entity.
+     */
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the closeSession method. */
+    /**
+     * Provides operations to call the closeSession method.
+     */
     public get closeSession(): CloseSessionRequestBuilder {
         return new CloseSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the comments property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
+     */
     public get comments(): CommentsRequestBuilder {
         return new CommentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the createSession method. */
+    /**
+     * Provides operations to call the createSession method.
+     */
     public get createSession(): CreateSessionRequestBuilder {
         return new CreateSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the functions property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the functions property of the microsoft.graph.workbook entity.
+     */
     public get functions(): FunctionsRequestBuilder {
         return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the names property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the names property of the microsoft.graph.workbook entity.
+     */
     public get names(): NamesRequestBuilder {
         return new NamesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the refreshSession method. */
+    /**
+     * Provides operations to call the refreshSession method.
+     */
     public get refreshSession(): RefreshSessionRequestBuilder {
         return new RefreshSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tables property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
+     */
     public get tables(): TablesRequestBuilder {
         return new TablesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheets property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
+     */
     public get worksheets(): WorksheetsRequestBuilder {
         return new WorksheetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

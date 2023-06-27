@@ -3,6 +3,8 @@ import {SearchResponse} from '../../models/searchResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface QueryResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: SearchResponse[] | undefined;
 }

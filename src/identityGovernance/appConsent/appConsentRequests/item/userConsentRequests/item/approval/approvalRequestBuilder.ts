@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the approval property of the microsoft.graph.userConsentRequest entity.
  */
 export class ApprovalRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the stages property of the microsoft.graph.approval entity. */
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.approval entity.
+     */
     public get stages(): StagesRequestBuilder {
         return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

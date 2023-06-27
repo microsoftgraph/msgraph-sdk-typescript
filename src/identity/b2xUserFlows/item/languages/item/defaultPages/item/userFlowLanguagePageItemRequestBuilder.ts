@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
  */
 export class UserFlowLanguagePageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the identityContainer entity. */
+    /**
+     * Provides operations to manage the media for the identityContainer entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }

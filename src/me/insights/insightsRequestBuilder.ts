@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the insights property of the microsoft.graph.user entity.
  */
 export class InsightsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity. */
+    /**
+     * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
+     */
     public get shared(): SharedRequestBuilder {
         return new SharedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity. */
+    /**
+     * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
+     */
     public get trending(): TrendingRequestBuilder {
         return new TrendingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity. */
+    /**
+     * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
+     */
     public get used(): UsedRequestBuilder {
         return new UsedRequestBuilder(this.pathParameters, this.requestAdapter);
     }

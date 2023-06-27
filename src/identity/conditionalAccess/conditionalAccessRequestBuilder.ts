@@ -20,23 +20,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
  */
 export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get authenticationContextClassReferences(): AuthenticationContextClassReferencesRequestBuilder {
         return new AuthenticationContextClassReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get authenticationStrength(): AuthenticationStrengthRequestBuilder {
         return new AuthenticationStrengthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get namedLocations(): NamedLocationsRequestBuilder {
         return new NamedLocationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

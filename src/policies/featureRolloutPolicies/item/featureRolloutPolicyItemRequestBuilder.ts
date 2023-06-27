@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
  */
 export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity. */
+    /**
+     * Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity.
+     */
     public get appliesTo(): AppliesToRequestBuilder {
         return new AppliesToRequestBuilder(this.pathParameters, this.requestAdapter);
     }

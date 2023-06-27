@@ -27,51 +27,75 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the filter property of the microsoft.graph.workbookTableColumn entity.
  */
 export class FilterRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the apply method. */
+    /**
+     * Provides operations to call the apply method.
+     */
     public get apply(): ApplyRequestBuilder {
         return new ApplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyBottomItemsFilter method. */
+    /**
+     * Provides operations to call the applyBottomItemsFilter method.
+     */
     public get applyBottomItemsFilter(): ApplyBottomItemsFilterRequestBuilder {
         return new ApplyBottomItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyBottomPercentFilter method. */
+    /**
+     * Provides operations to call the applyBottomPercentFilter method.
+     */
     public get applyBottomPercentFilter(): ApplyBottomPercentFilterRequestBuilder {
         return new ApplyBottomPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyCellColorFilter method. */
+    /**
+     * Provides operations to call the applyCellColorFilter method.
+     */
     public get applyCellColorFilter(): ApplyCellColorFilterRequestBuilder {
         return new ApplyCellColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyCustomFilter method. */
+    /**
+     * Provides operations to call the applyCustomFilter method.
+     */
     public get applyCustomFilter(): ApplyCustomFilterRequestBuilder {
         return new ApplyCustomFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyDynamicFilter method. */
+    /**
+     * Provides operations to call the applyDynamicFilter method.
+     */
     public get applyDynamicFilter(): ApplyDynamicFilterRequestBuilder {
         return new ApplyDynamicFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyFontColorFilter method. */
+    /**
+     * Provides operations to call the applyFontColorFilter method.
+     */
     public get applyFontColorFilter(): ApplyFontColorFilterRequestBuilder {
         return new ApplyFontColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyIconFilter method. */
+    /**
+     * Provides operations to call the applyIconFilter method.
+     */
     public get applyIconFilter(): ApplyIconFilterRequestBuilder {
         return new ApplyIconFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyTopItemsFilter method. */
+    /**
+     * Provides operations to call the applyTopItemsFilter method.
+     */
     public get applyTopItemsFilter(): ApplyTopItemsFilterRequestBuilder {
         return new ApplyTopItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyTopPercentFilter method. */
+    /**
+     * Provides operations to call the applyTopPercentFilter method.
+     */
     public get applyTopPercentFilter(): ApplyTopPercentFilterRequestBuilder {
         return new ApplyTopPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyValuesFilter method. */
+    /**
+     * Provides operations to call the applyValuesFilter method.
+     */
     public get applyValuesFilter(): ApplyValuesFilterRequestBuilder {
         return new ApplyValuesFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clear method. */
+    /**
+     * Provides operations to call the clear method.
+     */
     public get clear(): ClearRequestBuilder {
         return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }

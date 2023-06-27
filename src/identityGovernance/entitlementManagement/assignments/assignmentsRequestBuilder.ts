@@ -21,11 +21,15 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
  */
 export class AssignmentsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the additionalAccess method. */
+    /**
+     * Provides operations to call the additionalAccess method.
+     */
     public get additionalAccess(): AdditionalAccessRequestBuilder {
         return new AdditionalAccessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }

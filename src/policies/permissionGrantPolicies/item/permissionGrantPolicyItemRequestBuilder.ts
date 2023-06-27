@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
  */
 export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity. */
+    /**
+     * Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
+     */
     public get excludes(): ExcludesRequestBuilder {
         return new ExcludesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity. */
+    /**
+     * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
+     */
     public get includes(): IncludesRequestBuilder {
         return new IncludesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
  */
 export class RiskyServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity. */
+    /**
+     * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
+     */
     public get history(): HistoryRequestBuilder {
         return new HistoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }

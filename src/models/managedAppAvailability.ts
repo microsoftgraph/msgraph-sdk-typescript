@@ -1,4 +1,6 @@
-/** A managed (MAM) application's availability. */
+/**
+ * A managed (MAM) application's availability.
+ */
 export enum ManagedAppAvailability {
     /** A globally available app to all tenants. */
     Global = "global",

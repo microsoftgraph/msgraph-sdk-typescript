@@ -19,23 +19,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the identityContainer singleton.
  */
 export class IdentityRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
+     */
     public get apiConnectors(): ApiConnectorsRequestBuilder {
         return new ApiConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
+     */
     public get b2xUserFlows(): B2xUserFlowsRequestBuilder {
         return new B2xUserFlowsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
+     */
     public get conditionalAccess(): ConditionalAccessRequestBuilder {
         return new ConditionalAccessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
+     */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
+     */
     public get userFlowAttributes(): UserFlowAttributesRequestBuilder {
         return new UserFlowAttributesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

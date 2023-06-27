@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
  */
 export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the extensions property of the microsoft.graph.todoTaskList entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.todoTaskList entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity. */
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
+     */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.
  */
 export class RelationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the fromTerm property of the microsoft.graph.termStore.relation entity. */
+    /**
+     * Provides operations to manage the fromTerm property of the microsoft.graph.termStore.relation entity.
+     */
     public get fromTerm(): FromTermRequestBuilder {
         return new FromTermRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the set property of the microsoft.graph.termStore.relation entity. */
+    /**
+     * Provides operations to manage the set property of the microsoft.graph.termStore.relation entity.
+     */
     public get set(): SetRequestBuilder {
         return new SetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the toTerm property of the microsoft.graph.termStore.relation entity. */
+    /**
+     * Provides operations to manage the toTerm property of the microsoft.graph.termStore.relation entity.
+     */
     public get toTerm(): ToTermRequestBuilder {
         return new ToTermRequestBuilder(this.pathParameters, this.requestAdapter);
     }

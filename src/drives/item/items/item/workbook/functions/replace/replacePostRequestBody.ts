@@ -2,14 +2,24 @@ import {Json} from '../../../../../../../models/json';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ReplacePostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The newText property */
+    /**
+     * The newText property
+     */
     newText?: Json | undefined;
-    /** The numChars property */
+    /**
+     * The numChars property
+     */
     numChars?: Json | undefined;
-    /** The oldText property */
+    /**
+     * The oldText property
+     */
     oldText?: Json | undefined;
-    /** The startNum property */
+    /**
+     * The startNum property
+     */
     startNum?: Json | undefined;
 }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.
  */
 export class PermissionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the grant method. */
+    /**
+     * Provides operations to call the grant method.
+     */
     public get grant(): GrantRequestBuilder {
         return new GrantRequestBuilder(this.pathParameters, this.requestAdapter);
     }

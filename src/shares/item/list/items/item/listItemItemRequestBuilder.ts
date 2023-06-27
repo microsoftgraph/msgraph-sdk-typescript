@@ -24,35 +24,51 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the items property of the microsoft.graph.list entity.
  */
 export class ListItemItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the analytics property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the analytics property of the microsoft.graph.listItem entity.
+     */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
+     */
     public get documentSetVersions(): DocumentSetVersionsRequestBuilder {
         return new DocumentSetVersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the driveItem property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the driveItem property of the microsoft.graph.listItem entity.
+     */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the fields property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the fields property of the microsoft.graph.listItem entity.
+     */
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getActivitiesByInterval method. */
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     */
     public get getActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the versions property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
+     */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

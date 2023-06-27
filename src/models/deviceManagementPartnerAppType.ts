@@ -1,4 +1,6 @@
-/** Partner App Type. */
+/**
+ * Partner App Type.
+ */
 export enum DeviceManagementPartnerAppType {
     /** Partner App type is unknown. */
     Unknown = "unknown",

@@ -19,23 +19,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the cloudCommunications singleton.
  */
 export class CommunicationsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+     */
     public get callRecords(): CallRecordsRequestBuilder {
         return new CallRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
+     */
     public get calls(): CallsRequestBuilder {
         return new CallsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getPresencesByUserId method. */
+    /**
+     * Provides operations to call the getPresencesByUserId method.
+     */
     public get getPresencesByUserId(): GetPresencesByUserIdRequestBuilder {
         return new GetPresencesByUserIdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+     */
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
+     */
     public get presences(): PresencesRequestBuilder {
         return new PresencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

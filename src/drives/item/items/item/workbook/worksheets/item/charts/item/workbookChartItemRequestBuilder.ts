@@ -28,43 +28,63 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
  */
 export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the axes property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.
+     */
     public get axes(): AxesRequestBuilder {
         return new AxesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity.
+     */
     public get dataLabels(): DataLabelsRequestBuilder {
         return new DataLabelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChart entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the image method. */
+    /**
+     * Provides operations to call the image method.
+     */
     public get image(): ImageRequestBuilder {
         return new ImageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the legend property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the legend property of the microsoft.graph.workbookChart entity.
+     */
     public get legend(): LegendRequestBuilder {
         return new LegendRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the series property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
+     */
     public get series(): SeriesRequestBuilder {
         return new SeriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setData method. */
+    /**
+     * Provides operations to call the setData method.
+     */
     public get setData(): SetDataRequestBuilder {
         return new SetDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setPosition method. */
+    /**
+     * Provides operations to call the setPosition method.
+     */
     public get setPosition(): SetPositionRequestBuilder {
         return new SetPositionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the title property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the title property of the microsoft.graph.workbookChart entity.
+     */
     public get title(): TitleRequestBuilder {
         return new TitleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheet property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookChart entity.
+     */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }

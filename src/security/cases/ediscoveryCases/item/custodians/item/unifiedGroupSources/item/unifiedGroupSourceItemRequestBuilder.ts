@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
 export class UnifiedGroupSourceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the group property of the microsoft.graph.security.unifiedGroupSource entity. */
+    /**
+     * Provides operations to manage the group property of the microsoft.graph.security.unifiedGroupSource entity.
+     */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }

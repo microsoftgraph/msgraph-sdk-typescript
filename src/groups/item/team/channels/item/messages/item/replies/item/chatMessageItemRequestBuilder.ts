@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
  */
 export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity. */
+    /**
+     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
+     */
     public get hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the softDelete method. */
+    /**
+     * Provides operations to call the softDelete method.
+     */
     public get softDelete(): SoftDeleteRequestBuilder {
         return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the undoSoftDelete method. */
+    /**
+     * Provides operations to call the undoSoftDelete method.
+     */
     public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
         return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }

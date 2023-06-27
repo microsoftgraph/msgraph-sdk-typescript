@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
  */
 export class AgreementItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the acceptances property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
+     */
     public get acceptances(): AcceptancesRequestBuilder {
         return new AcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the file property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the file property of the microsoft.graph.agreement entity.
+     */
     public get file(): FileRequestBuilder {
         return new FileRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the files property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the files property of the microsoft.graph.agreement entity.
+     */
     public get files(): FilesRequestBuilder {
         return new FilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -20,19 +20,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the calendars property of the microsoft.graph.user entity.
  */
 export class CalendarItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity. */
+    /**
+     * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
+     */
     public get calendarPermissions(): CalendarPermissionsRequestBuilder {
         return new CalendarPermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calendarView property of the microsoft.graph.calendar entity. */
+    /**
+     * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
+     */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the events property of the microsoft.graph.calendar entity. */
+    /**
+     * Provides operations to manage the events property of the microsoft.graph.calendar entity.
+     */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getSchedule method. */
+    /**
+     * Provides operations to call the getSchedule method.
+     */
     public get getSchedule(): GetScheduleRequestBuilder {
         return new GetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }

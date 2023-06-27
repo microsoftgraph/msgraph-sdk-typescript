@@ -21,27 +21,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
  */
 export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the group entity. */
+    /**
+     * Provides operations to manage the media for the group entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copyToSection method. */
+    /**
+     * Provides operations to call the copyToSection method.
+     */
     public get copyToSection(): CopyToSectionRequestBuilder {
         return new CopyToSectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the onenotePatchContent method. */
+    /**
+     * Provides operations to call the onenotePatchContent method.
+     */
     public get onenotePatchContent(): OnenotePatchContentRequestBuilder {
         return new OnenotePatchContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parentNotebook property of the microsoft.graph.onenotePage entity. */
+    /**
+     * Provides operations to manage the parentNotebook property of the microsoft.graph.onenotePage entity.
+     */
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity. */
+    /**
+     * Provides operations to manage the parentSection property of the microsoft.graph.onenotePage entity.
+     */
     public get parentSection(): ParentSectionRequestBuilder {
         return new ParentSectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the preview method. */
+    /**
+     * Provides operations to call the preview method.
+     */
     public get preview(): PreviewRequestBuilder {
         return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }

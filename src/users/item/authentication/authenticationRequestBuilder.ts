@@ -25,43 +25,63 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the authentication property of the microsoft.graph.user entity.
  */
 export class AuthenticationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
+     */
     public get emailMethods(): EmailMethodsRequestBuilder {
         return new EmailMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+     */
     public get fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the methods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
+     */
     public get methods(): MethodsRequestBuilder {
         return new MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
+     */
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
+     */
     public get passwordMethods(): PasswordMethodsRequestBuilder {
         return new PasswordMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
+     */
     public get phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
+     */
     public get softwareOathMethods(): SoftwareOathMethodsRequestBuilder {
         return new SoftwareOathMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+     */
     public get temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder {
         return new TemporaryAccessPassMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
+     */
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

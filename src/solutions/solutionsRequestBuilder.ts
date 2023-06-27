@@ -16,11 +16,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the solutionsRoot singleton.
  */
 export class SolutionsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity. */
+    /**
+     * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
+     */
     public get bookingBusinesses(): BookingBusinessesRequestBuilder {
         return new BookingBusinessesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity. */
+    /**
+     * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
+     */
     public get bookingCurrencies(): BookingCurrenciesRequestBuilder {
         return new BookingCurrenciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

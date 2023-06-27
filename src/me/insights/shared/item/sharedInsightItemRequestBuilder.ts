@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
  */
 export class SharedInsightItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the lastSharedMethod property of the microsoft.graph.sharedInsight entity. */
+    /**
+     * Provides operations to manage the lastSharedMethod property of the microsoft.graph.sharedInsight entity.
+     */
     public get lastSharedMethod(): LastSharedMethodRequestBuilder {
         return new LastSharedMethodRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the resource property of the microsoft.graph.sharedInsight entity. */
+    /**
+     * Provides operations to manage the resource property of the microsoft.graph.sharedInsight entity.
+     */
     public get resource(): ResourceRequestBuilder {
         return new ResourceRequestBuilder(this.pathParameters, this.requestAdapter);
     }

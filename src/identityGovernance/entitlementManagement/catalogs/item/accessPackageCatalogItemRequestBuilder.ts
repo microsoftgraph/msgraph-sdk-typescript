@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
  */
 export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity. */
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
+     */
     public get accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
  */
 export class SessionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity. */
+    /**
+     * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
+     */
     public get segments(): SegmentsRequestBuilder {
         return new SegmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

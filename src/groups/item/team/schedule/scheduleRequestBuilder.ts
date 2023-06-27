@@ -25,43 +25,63 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the schedule property of the microsoft.graph.team entity.
  */
 export class ScheduleRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
+     */
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
+     */
     public get openShiftChangeRequests(): OpenShiftChangeRequestsRequestBuilder {
         return new OpenShiftChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the openShifts property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
+     */
     public get openShifts(): OpenShiftsRequestBuilder {
         return new OpenShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
+     */
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the share method. */
+    /**
+     * Provides operations to call the share method.
+     */
     public get share(): ShareRequestBuilder {
         return new ShareRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the shifts property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
+     */
     public get shifts(): ShiftsRequestBuilder {
         return new ShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
+     */
     public get swapShiftsChangeRequests(): SwapShiftsChangeRequestsRequestBuilder {
         return new SwapShiftsChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
+     */
     public get timeOffReasons(): TimeOffReasonsRequestBuilder {
         return new TimeOffReasonsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
+     */
     public get timeOffRequests(): TimeOffRequestsRequestBuilder {
         return new TimeOffRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the timesOff property of the microsoft.graph.schedule entity. */
+    /**
+     * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
+     */
     public get timesOff(): TimesOffRequestBuilder {
         return new TimesOffRequestBuilder(this.pathParameters, this.requestAdapter);
     }

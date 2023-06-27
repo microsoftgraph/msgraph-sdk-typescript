@@ -19,11 +19,15 @@ import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFac
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
  */
 export class PrintersRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the create method. */
+    /**
+     * Provides operations to call the create method.
+     */
     public get create(): CreateRequestBuilder {
         return new CreateRequestBuilder(this.pathParameters, this.requestAdapter);
     }

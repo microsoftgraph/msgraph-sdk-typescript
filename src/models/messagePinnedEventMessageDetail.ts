@@ -3,8 +3,12 @@ import {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MessagePinnedEventMessageDetail extends EventMessageDetail, Parsable {
-    /** Date and time when the event occurred. */
+    /**
+     * Date and time when the event occurred.
+     */
     eventDateTime?: Date | undefined;
-    /** Initiator of the event. */
+    /**
+     * Initiator of the event.
+     */
     initiator?: IdentitySet | undefined;
 }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
  */
 export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the sync method. */
+    /**
+     * Provides operations to call the sync method.
+     */
     public get sync(): SyncRequestBuilder {
         return new SyncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -29,9 +31,10 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/exchangeConnectors/{deviceManagementExchangeConnector%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property exchangeConnectors for deviceManagement
+     * Deletes a deviceManagementExchangeConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,10 +47,11 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * The list of Exchange Connectors configured by the tenant.
+     * Read properties and relationships of the deviceManagementExchangeConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementExchangeConnector
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +64,12 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return this.requestAdapter?.sendAsync<DeviceManagementExchangeConnector>(requestInfo, createDeviceManagementExchangeConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Update the navigation property exchangeConnectors in deviceManagement
+     * Update the properties of a deviceManagementExchangeConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementExchangeConnector
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagementExchangeConnector | undefined, requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +83,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return this.requestAdapter?.sendAsync<DeviceManagementExchangeConnector>(requestInfo, createDeviceManagementExchangeConnectorFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Delete navigation property exchangeConnectors for deviceManagement
+     * Deletes a deviceManagementExchangeConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +99,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * The list of Exchange Connectors configured by the tenant.
+     * Read properties and relationships of the deviceManagementExchangeConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +117,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * Update the navigation property exchangeConnectors in deviceManagement
+     * Update the properties of a deviceManagementExchangeConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

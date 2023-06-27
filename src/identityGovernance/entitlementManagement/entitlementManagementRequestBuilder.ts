@@ -23,35 +23,51 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
  */
 export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
+     */
     public get accessPackageAssignmentApprovals(): AccessPackageAssignmentApprovalsRequestBuilder {
         return new AccessPackageAssignmentApprovalsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
+     */
     public get accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
+     */
     public get assignmentPolicies(): AssignmentPoliciesRequestBuilder {
         return new AssignmentPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
+     */
     public get assignmentRequests(): AssignmentRequestsRequestBuilder {
         return new AssignmentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
+     */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
+     */
     public get catalogs(): CatalogsRequestBuilder {
         return new CatalogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
+     */
     public get connectedOrganizations(): ConnectedOrganizationsRequestBuilder {
         return new ConnectedOrganizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity. */
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity.
+     */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

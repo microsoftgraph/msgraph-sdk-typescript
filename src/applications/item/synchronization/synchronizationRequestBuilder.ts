@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the synchronization property of the microsoft.graph.application entity.
  */
 export class SynchronizationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the acquireAccessToken method. */
+    /**
+     * Provides operations to call the acquireAccessToken method.
+     */
     public get acquireAccessToken(): AcquireAccessTokenRequestBuilder {
         return new AcquireAccessTokenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the jobs property of the microsoft.graph.synchronization entity. */
+    /**
+     * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+     */
     public get jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The secrets property */
+    /**
+     * The secrets property
+     */
     public get secrets(): SecretsRequestBuilder {
         return new SecretsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the templates property of the microsoft.graph.synchronization entity. */
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
+     */
     public get templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }

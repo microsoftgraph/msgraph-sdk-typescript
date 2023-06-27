@@ -1,4 +1,6 @@
-/** Contains all supported Powershell Script output detection type. */
+/**
+ * Contains all supported Powershell Script output detection type.
+ */
 export enum Win32LobAppPowerShellScriptRuleOperationType {
     /** Not configured. */
     NotConfigured = "notConfigured",

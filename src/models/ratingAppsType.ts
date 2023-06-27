@@ -1,4 +1,6 @@
-/** Apps rating as in media content */
+/**
+ * Apps rating as in media content
+ */
 export enum RatingAppsType {
     /** Default value, allow all apps content */
     AllAllowed = "allAllowed",

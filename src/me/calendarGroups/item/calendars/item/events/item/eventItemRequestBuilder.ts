@@ -26,47 +26,69 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the events property of the microsoft.graph.calendar entity.
  */
 export class EventItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the accept method. */
+    /**
+     * Provides operations to call the accept method.
+     */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attachments property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.event entity.
+     */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calendar property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the calendar property of the microsoft.graph.event entity.
+     */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
+    /**
+     * Provides operations to call the cancel method.
+     */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the decline method. */
+    /**
+     * Provides operations to call the decline method.
+     */
     public get decline(): DeclineRequestBuilder {
         return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dismissReminder method. */
+    /**
+     * Provides operations to call the dismissReminder method.
+     */
     public get dismissReminder(): DismissReminderRequestBuilder {
         return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensions property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.event entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the forward method. */
+    /**
+     * Provides operations to call the forward method.
+     */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the instances property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.event entity.
+     */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the snoozeReminder method. */
+    /**
+     * Provides operations to call the snoozeReminder method.
+     */
     public get snoozeReminder(): SnoozeReminderRequestBuilder {
         return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the tentativelyAccept method. */
+    /**
+     * Provides operations to call the tentativelyAccept method.
+     */
     public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }

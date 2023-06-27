@@ -2,10 +2,16 @@ import {ManagedDevicesRequestBuilderGetQueryParameters} from './managedDevicesRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ManagedDevicesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ManagedDevicesRequestBuilderGetQueryParameters | undefined;
 }

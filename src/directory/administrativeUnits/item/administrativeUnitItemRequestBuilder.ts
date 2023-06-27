@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
  */
 export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.administrativeUnit entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.administrativeUnit entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.administrativeUnit entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity. */
+    /**
+     * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
+     */
     public get scopedRoleMembers(): ScopedRoleMembersRequestBuilder {
         return new ScopedRoleMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

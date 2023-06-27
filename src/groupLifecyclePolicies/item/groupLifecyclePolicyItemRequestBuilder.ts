@@ -17,11 +17,15 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the collection of groupLifecyclePolicy entities.
  */
 export class GroupLifecyclePolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the addGroup method. */
+    /**
+     * Provides operations to call the addGroup method.
+     */
     public get addGroup(): AddGroupRequestBuilder {
         return new AddGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removeGroup method. */
+    /**
+     * Provides operations to call the removeGroup method.
+     */
     public get removeGroup(): RemoveGroupRequestBuilder {
         return new RemoveGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }

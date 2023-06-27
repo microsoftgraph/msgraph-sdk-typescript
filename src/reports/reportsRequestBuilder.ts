@@ -120,51 +120,75 @@ import {BaseRequestBuilder, DateOnly, HttpMethod, Parsable, ParsableFactory, Req
  * Provides operations to manage the reportRoot singleton.
  */
 export class ReportsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
+     */
     public get dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
         return new DailyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+     */
     public get dailyPrintUsageByUser(): DailyPrintUsageByUserRequestBuilder {
         return new DailyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the deviceConfigurationDeviceActivity method. */
+    /**
+     * Provides operations to call the deviceConfigurationDeviceActivity method.
+     */
     public get deviceConfigurationDeviceActivity(): DeviceConfigurationDeviceActivityRequestBuilder {
         return new DeviceConfigurationDeviceActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the deviceConfigurationUserActivity method. */
+    /**
+     * Provides operations to call the deviceConfigurationUserActivity method.
+     */
     public get deviceConfigurationUserActivity(): DeviceConfigurationUserActivityRequestBuilder {
         return new DeviceConfigurationUserActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getOffice365ActivationCounts method. */
+    /**
+     * Provides operations to call the getOffice365ActivationCounts method.
+     */
     public get getOffice365ActivationCounts(): GetOffice365ActivationCountsRequestBuilder {
         return new GetOffice365ActivationCountsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getOffice365ActivationsUserCounts method. */
+    /**
+     * Provides operations to call the getOffice365ActivationsUserCounts method.
+     */
     public get getOffice365ActivationsUserCounts(): GetOffice365ActivationsUserCountsRequestBuilder {
         return new GetOffice365ActivationsUserCountsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getOffice365ActivationsUserDetail method. */
+    /**
+     * Provides operations to call the getOffice365ActivationsUserDetail method.
+     */
     public get getOffice365ActivationsUserDetail(): GetOffice365ActivationsUserDetailRequestBuilder {
         return new GetOffice365ActivationsUserDetailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the managedDeviceEnrollmentFailureDetails method. */
+    /**
+     * Provides operations to call the managedDeviceEnrollmentFailureDetails method.
+     */
     public get managedDeviceEnrollmentFailureDetails(): ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
         return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the managedDeviceEnrollmentTopFailures method. */
+    /**
+     * Provides operations to call the managedDeviceEnrollmentTopFailures method.
+     */
     public get managedDeviceEnrollmentTopFailures(): ManagedDeviceEnrollmentTopFailuresRequestBuilder {
         return new ManagedDeviceEnrollmentTopFailuresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
+     */
     public get monthlyPrintUsageByPrinter(): MonthlyPrintUsageByPrinterRequestBuilder {
         return new MonthlyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+     */
     public get monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the security property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
+     */
     public get security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -177,10 +201,11 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/reports{?%24select,%24expand}");
     };
     /**
-     * Get reports
+     * Read properties and relationships of the reportRoot object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ReportRoot
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-reportroot-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -1057,11 +1082,12 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
-     * Update reports
+     * Update the properties of a reportRoot object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ReportRoot
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-reportroot-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ReportRoot | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -1075,7 +1101,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
     };
     /**
-     * Get reports
+     * Read properties and relationships of the reportRoot object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -1093,7 +1119,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update reports
+     * Update the properties of a reportRoot object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

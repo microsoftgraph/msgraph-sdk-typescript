@@ -21,27 +21,39 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
  */
 export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the assignments property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
+     */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the classes property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
+     */
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
+     */
     public get rubrics(): RubricsRequestBuilder {
         return new RubricsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schools property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
+     */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+     */
     public get taughtClasses(): TaughtClassesRequestBuilder {
         return new TaughtClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the user property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the user property of the microsoft.graph.educationUser entity.
+     */
     public get user(): UserRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }

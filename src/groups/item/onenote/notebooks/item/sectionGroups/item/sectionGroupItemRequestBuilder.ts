@@ -19,19 +19,27 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.
  */
 export class SectionGroupItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the parentNotebook property of the microsoft.graph.sectionGroup entity. */
+    /**
+     * Provides operations to manage the parentNotebook property of the microsoft.graph.sectionGroup entity.
+     */
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the parentSectionGroup property of the microsoft.graph.sectionGroup entity. */
+    /**
+     * Provides operations to manage the parentSectionGroup property of the microsoft.graph.sectionGroup entity.
+     */
     public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
         return new ParentSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity. */
+    /**
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
+     */
     public get sectionGroups(): SectionGroupsRequestBuilder {
         return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity. */
+    /**
+     * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
+     */
     public get sections(): SectionsRequestBuilder {
         return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

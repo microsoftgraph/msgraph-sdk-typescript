@@ -3,6 +3,8 @@ import {Event} from './event';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EventCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: Event[] | undefined;
 }

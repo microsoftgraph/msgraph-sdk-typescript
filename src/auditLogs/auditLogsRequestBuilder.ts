@@ -17,15 +17,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the auditLogRoot singleton.
  */
 export class AuditLogsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity. */
+    /**
+     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
+     */
     public get directoryAudits(): DirectoryAuditsRequestBuilder {
         return new DirectoryAuditsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity. */
+    /**
+     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
+     */
     public get provisioning(): ProvisioningRequestBuilder {
         return new ProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity. */
+    /**
+     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
+     */
     public get signIns(): SignInsRequestBuilder {
         return new SignInsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

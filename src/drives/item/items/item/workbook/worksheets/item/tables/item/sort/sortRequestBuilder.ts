@@ -18,15 +18,21 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
  */
 export class SortRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the apply method. */
+    /**
+     * Provides operations to call the apply method.
+     */
     public get apply(): ApplyRequestBuilder {
         return new ApplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clear method. */
+    /**
+     * Provides operations to call the clear method.
+     */
     public get clear(): ClearRequestBuilder {
         return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reapply method. */
+    /**
+     * Provides operations to call the reapply method.
+     */
     public get reapply(): ReapplyRequestBuilder {
         return new ReapplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }

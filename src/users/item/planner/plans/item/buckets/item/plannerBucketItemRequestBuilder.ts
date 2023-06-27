@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
  */
 export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity. */
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity.
+     */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }

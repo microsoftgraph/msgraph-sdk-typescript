@@ -24,39 +24,57 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
  */
 export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the acceptRecommendations method. */
+    /**
+     * Provides operations to call the acceptRecommendations method.
+     */
     public get acceptRecommendations(): AcceptRecommendationsRequestBuilder {
         return new AcceptRecommendationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyDecisions method. */
+    /**
+     * Provides operations to call the applyDecisions method.
+     */
     public get applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the batchRecordDecisions method. */
+    /**
+     * Provides operations to call the batchRecordDecisions method.
+     */
     public get batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
         return new BatchRecordDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity. */
+    /**
+     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
+     */
     public get contactedReviewers(): ContactedReviewersRequestBuilder {
         return new ContactedReviewersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity. */
+    /**
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
+     */
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the resetDecisions method. */
+    /**
+     * Provides operations to call the resetDecisions method.
+     */
     public get resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendReminder method. */
+    /**
+     * Provides operations to call the sendReminder method.
+     */
     public get sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity. */
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
+     */
     public get stages(): StagesRequestBuilder {
         return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stop method. */
+    /**
+     * Provides operations to call the stop method.
+     */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }

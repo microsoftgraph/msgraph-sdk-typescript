@@ -3,6 +3,8 @@ import {OrganizationalBrandingProperties} from './organizationalBrandingProperti
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrganizationalBranding extends OrganizationalBrandingProperties, Parsable {
-    /** Add different branding based on a locale. */
+    /**
+     * Add different branding based on a locale.
+     */
     localizations?: OrganizationalBrandingLocalization[] | undefined;
 }

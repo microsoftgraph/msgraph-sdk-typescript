@@ -12,7 +12,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
  */
 export class BitlockerRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity. */
+    /**
+     * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
+     */
     public get recoveryKeys(): RecoveryKeysRequestBuilder {
         return new RecoveryKeysRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -16,7 +16,9 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
  */
 export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the policy property of the microsoft.graph.unifiedRoleManagementPolicyAssignment entity. */
+    /**
+     * Provides operations to manage the policy property of the microsoft.graph.unifiedRoleManagementPolicyAssignment entity.
+     */
     public get policy(): PolicyRequestBuilder {
         return new PolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }

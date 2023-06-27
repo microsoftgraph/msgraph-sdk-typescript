@@ -2,10 +2,16 @@ import {GetAllSitesRequestBuilderGetQueryParameters} from './getAllSitesRequestB
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GetAllSitesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: GetAllSitesRequestBuilderGetQueryParameters | undefined;
 }

@@ -5,28 +5,52 @@ import {StringKeyStringValuePair} from './stringKeyStringValuePair';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationRule extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The containerFilter property */
+    /**
+     * The containerFilter property
+     */
     containerFilter?: ContainerFilter | undefined;
-    /** The editable property */
+    /**
+     * The editable property
+     */
     editable?: boolean | undefined;
-    /** The groupFilter property */
+    /**
+     * The groupFilter property
+     */
     groupFilter?: GroupFilter | undefined;
-    /** The id property */
+    /**
+     * The id property
+     */
     id?: string | undefined;
-    /** The metadata property */
+    /**
+     * The metadata property
+     */
     metadata?: StringKeyStringValuePair[] | undefined;
-    /** The name property */
+    /**
+     * The name property
+     */
     name?: string | undefined;
-    /** The objectMappings property */
+    /**
+     * The objectMappings property
+     */
     objectMappings?: ObjectMapping[] | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The priority property */
+    /**
+     * The priority property
+     */
     priority?: number | undefined;
-    /** The sourceDirectoryName property */
+    /**
+     * The sourceDirectoryName property
+     */
     sourceDirectoryName?: string | undefined;
-    /** The targetDirectoryName property */
+    /**
+     * The targetDirectoryName property
+     */
     targetDirectoryName?: string | undefined;
 }

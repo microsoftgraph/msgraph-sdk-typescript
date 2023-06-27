@@ -20,23 +20,33 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
  */
 export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the dataBodyRange method. */
+    /**
+     * Provides operations to call the dataBodyRange method.
+     */
     public get dataBodyRange(): DataBodyRangeRequestBuilder {
         return new DataBodyRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the filter property of the microsoft.graph.workbookTableColumn entity. */
+    /**
+     * Provides operations to manage the filter property of the microsoft.graph.workbookTableColumn entity.
+     */
     public get filter(): FilterRequestBuilder {
         return new FilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the headerRowRange method. */
+    /**
+     * Provides operations to call the headerRowRange method.
+     */
     public get headerRowRange(): HeaderRowRangeRequestBuilder {
         return new HeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the range method. */
+    /**
+     * Provides operations to call the range method.
+     */
     public get range(): RangeRequestBuilder {
         return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the totalRowRange method. */
+    /**
+     * Provides operations to call the totalRowRange method.
+     */
     public get totalRowRange(): TotalRowRangeRequestBuilder {
         return new TotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
