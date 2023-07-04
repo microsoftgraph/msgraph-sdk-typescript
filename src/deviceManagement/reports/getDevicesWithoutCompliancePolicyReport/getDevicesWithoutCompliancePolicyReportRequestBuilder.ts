@@ -6,7 +6,7 @@ import {deserializeIntoGetDevicesWithoutCompliancePolicyReportPostRequestBody} f
 import {GetDevicesWithoutCompliancePolicyReportPostRequestBody} from './getDevicesWithoutCompliancePolicyReportPostRequestBody';
 import {GetDevicesWithoutCompliancePolicyReportRequestBuilderPostRequestConfiguration} from './getDevicesWithoutCompliancePolicyReportRequestBuilderPostRequestConfiguration';
 import {serializeGetDevicesWithoutCompliancePolicyReportPostRequestBody} from './serializeGetDevicesWithoutCompliancePolicyReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getDevicesWithoutCompliancePolicyReport method.
@@ -21,13 +21,13 @@ export class GetDevicesWithoutCompliancePolicyReportRequestBuilder extends BaseR
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/reports/getDevicesWithoutCompliancePolicyReport");
     };
     /**
-     * Invoke action getDevicesWithoutCompliancePolicyReport
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdeviceswithoutcompliancepolicyreport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetDevicesWithoutCompliancePolicyReportPostRequestBody | undefined, requestConfiguration?: GetDevicesWithoutCompliancePolicyReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public post(body: GetDevicesWithoutCompliancePolicyReportPostRequestBody | undefined, requestConfiguration?: GetDevicesWithoutCompliancePolicyReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -36,10 +36,10 @@ export class GetDevicesWithoutCompliancePolicyReportRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
-     * Invoke action getDevicesWithoutCompliancePolicyReport
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

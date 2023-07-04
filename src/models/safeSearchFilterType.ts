@@ -1,4 +1,6 @@
-/** Specifies what level of safe search (filtering adult content) is required */
+/**
+ * Specifies what level of safe search (filtering adult content) is required
+ */
 export enum SafeSearchFilterType {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

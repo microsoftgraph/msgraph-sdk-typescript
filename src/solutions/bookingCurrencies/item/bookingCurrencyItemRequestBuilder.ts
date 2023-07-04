@@ -9,7 +9,7 @@ import {serializeBookingCurrency} from '../../../models/serializeBookingCurrency
 import {BookingCurrencyItemRequestBuilderDeleteRequestConfiguration} from './bookingCurrencyItemRequestBuilderDeleteRequestConfiguration';
 import {BookingCurrencyItemRequestBuilderGetRequestConfiguration} from './bookingCurrencyItemRequestBuilderGetRequestConfiguration';
 import {BookingCurrencyItemRequestBuilderPatchRequestConfiguration} from './bookingCurrencyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
@@ -26,9 +26,8 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property bookingCurrencies for solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: BookingCurrencyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: BookingCurrencyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the **id** property, which is the currency code, to specify the currency.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCurrency
      * @see {@link https://docs.microsoft.com/graph/api/bookingcurrency-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BookingCurrencyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingCurrency | undefined> {
+    public get(requestConfiguration?: BookingCurrencyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingCurrency | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property bookingCurrencies in solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCurrency
      */
-    public patch(body: BookingCurrency | undefined, requestConfiguration?: BookingCurrencyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingCurrency | undefined> {
+    public patch(body: BookingCurrency | undefined, requestConfiguration?: BookingCurrencyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingCurrency | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BookingCurrency>(requestInfo, createBookingCurrencyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property bookingCurrencies for solutions

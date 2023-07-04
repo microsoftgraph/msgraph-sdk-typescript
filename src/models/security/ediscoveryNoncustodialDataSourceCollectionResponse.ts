@@ -3,6 +3,8 @@ import {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSour
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryNoncustodialDataSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: EdiscoveryNoncustodialDataSource[] | undefined;
 }

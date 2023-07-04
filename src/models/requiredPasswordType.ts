@@ -1,4 +1,6 @@
-/** Possible values of required passwords. */
+/**
+ * Possible values of required passwords.
+ */
 export enum RequiredPasswordType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

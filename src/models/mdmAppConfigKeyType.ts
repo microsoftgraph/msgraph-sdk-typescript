@@ -1,4 +1,6 @@
-/** App configuration key types. */
+/**
+ * App configuration key types.
+ */
 export enum MdmAppConfigKeyType {
     StringType = "stringType",
     IntegerType = "integerType",

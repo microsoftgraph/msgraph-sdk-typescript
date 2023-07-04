@@ -3,6 +3,8 @@ import {DetectedApp} from './detectedApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DetectedAppCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DetectedApp[] | undefined;
 }

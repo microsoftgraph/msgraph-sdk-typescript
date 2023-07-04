@@ -3,10 +3,16 @@ import {ItemActivityStat} from './itemActivityStat';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ItemAnalytics extends Entity, Parsable {
-    /** The allTime property */
+    /**
+     * The allTime property
+     */
     allTime?: ItemActivityStat | undefined;
-    /** The itemActivityStats property */
+    /**
+     * The itemActivityStats property
+     */
     itemActivityStats?: ItemActivityStat[] | undefined;
-    /** The lastSevenDays property */
+    /**
+     * The lastSevenDays property
+     */
     lastSevenDays?: ItemActivityStat | undefined;
 }

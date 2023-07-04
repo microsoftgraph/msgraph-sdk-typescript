@@ -9,7 +9,7 @@ import {serializeProvisioningObjectSummary} from '../../../models/serializeProvi
 import {ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderGetRequestConfiguration';
 import {ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
@@ -26,9 +26,8 @@ export class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuil
     /**
      * Delete navigation property provisioning for auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get provisioning from auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisioningObjectSummary
      */
-    public get(requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummary | undefined> {
+    public get(requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ProvisioningObjectSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ProvisioningObjectSummary>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ProvisioningObjectSummary>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property provisioning in auditLogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ProvisioningObjectSummary
      */
-    public patch(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ProvisioningObjectSummary | undefined> {
+    public patch(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ProvisioningObjectSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ProvisioningObjectSummary>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ProvisioningObjectSummary>(requestInfo, createProvisioningObjectSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property provisioning for auditLogs

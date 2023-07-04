@@ -9,7 +9,7 @@ import {serializeIdentityUserFlowAttribute} from '../../../models/serializeIdent
 import {IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderGetRequestConfiguration';
 import {IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
@@ -26,10 +26,9 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
     /**
      * Delete an identityUserFlowAttribute. Only custom user flow attributes can be deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a identityUserFlowAttribute object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttribute
      * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
+    public get(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -54,17 +52,16 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<IdentityUserFlowAttribute>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<IdentityUserFlowAttribute>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a identityUserFlowAttribute object. Only custom user flow attributes can be updated.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityUserFlowAttribute
      * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: IdentityUserFlowAttribute | undefined, requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
+    public patch(body: IdentityUserFlowAttribute | undefined, requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -73,7 +70,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<IdentityUserFlowAttribute>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<IdentityUserFlowAttribute>(requestInfo, createIdentityUserFlowAttributeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete an identityUserFlowAttribute. Only custom user flow attributes can be deleted.

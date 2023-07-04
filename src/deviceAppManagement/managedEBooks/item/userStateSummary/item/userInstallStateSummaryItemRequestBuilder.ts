@@ -10,13 +10,15 @@ import {DeviceStatesRequestBuilder} from './deviceStates/deviceStatesRequestBuil
 import {UserInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderGetRequestConfiguration';
 import {UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
  */
 export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity. */
+    /**
+     * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
+     */
     public get deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -29,11 +31,11 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/userStateSummary/{userInstallStateSummary%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property userStateSummary for deviceAppManagement
+     * Deletes a userInstallStateSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: UserInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: UserInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +43,15 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of installation states for this eBook.
+     * Read properties and relationships of the userInstallStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserInstallStateSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserInstallStateSummary | undefined> {
+    public get(requestConfiguration?: UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserInstallStateSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +59,16 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property userStateSummary in deviceAppManagement
+     * Update the properties of a userInstallStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UserInstallStateSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: UserInstallStateSummary | undefined, requestConfiguration?: UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserInstallStateSummary | undefined> {
+    public patch(body: UserInstallStateSummary | undefined, requestConfiguration?: UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserInstallStateSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,10 +77,10 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property userStateSummary for deviceAppManagement
+     * Deletes a userInstallStateSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * The list of installation states for this eBook.
+     * Read properties and relationships of the userInstallStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +114,7 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the navigation property userStateSummary in deviceAppManagement
+     * Update the properties of a userInstallStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

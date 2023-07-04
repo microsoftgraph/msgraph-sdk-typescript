@@ -12,13 +12,15 @@ import {AttributeSetsRequestBuilderGetRequestConfiguration} from './attributeSet
 import {AttributeSetsRequestBuilderPostRequestConfiguration} from './attributeSetsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AttributeSetItemRequestBuilder} from './item/attributeSetItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
  */
 export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get a list of the attributeSet objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeSetCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/directory-list-attributesets?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AttributeSetsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeSetCollectionResponse | undefined> {
+    public get(requestConfiguration?: AttributeSetsRequestBuilderGetRequestConfiguration | undefined) : Promise<AttributeSetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,17 +57,16 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttributeSetCollectionResponse>(requestInfo, createAttributeSetCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttributeSetCollectionResponse>(requestInfo, createAttributeSetCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new attributeSet object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeSet
      * @see {@link https://docs.microsoft.com/graph/api/directory-post-attributesets?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AttributeSet | undefined, requestConfiguration?: AttributeSetsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeSet | undefined> {
+    public post(body: AttributeSet | undefined, requestConfiguration?: AttributeSetsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttributeSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -75,7 +75,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttributeSet>(requestInfo, createAttributeSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttributeSet>(requestInfo, createAttributeSetFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get a list of the attributeSet objects and their properties.

@@ -2,10 +2,16 @@ import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters | undefined;
 }

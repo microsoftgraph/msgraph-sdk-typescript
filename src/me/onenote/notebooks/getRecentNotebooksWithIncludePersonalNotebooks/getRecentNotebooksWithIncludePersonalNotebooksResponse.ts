@@ -3,6 +3,8 @@ import {RecentNotebook} from '../../../../models/recentNotebook';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetRecentNotebooksWithIncludePersonalNotebooksResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: RecentNotebook[] | undefined;
 }

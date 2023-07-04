@@ -52,6 +52,7 @@ import {deserializeIntoAppleManagedIdentityProvider} from './deserializeIntoAppl
 import {deserializeIntoApplePushNotificationCertificate} from './deserializeIntoApplePushNotificationCertificate';
 import {deserializeIntoApplication} from './deserializeIntoApplication';
 import {deserializeIntoApplicationTemplate} from './deserializeIntoApplicationTemplate';
+import {deserializeIntoAppLogCollectionRequest} from './deserializeIntoAppLogCollectionRequest';
 import {deserializeIntoAppManagementPolicy} from './deserializeIntoAppManagementPolicy';
 import {deserializeIntoAppRoleAssignment} from './deserializeIntoAppRoleAssignment';
 import {deserializeIntoApproval} from './deserializeIntoApproval';
@@ -76,6 +77,7 @@ import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticati
 import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
 import {deserializeIntoAuthenticationMethodModeDetail} from './deserializeIntoAuthenticationMethodModeDetail';
 import {deserializeIntoAuthenticationMethodsPolicy} from './deserializeIntoAuthenticationMethodsPolicy';
+import {deserializeIntoAuthenticationMethodsRoot} from './deserializeIntoAuthenticationMethodsRoot';
 import {deserializeIntoAuthenticationMethodTarget} from './deserializeIntoAuthenticationMethodTarget';
 import {deserializeIntoAuthenticationStrengthPolicy} from './deserializeIntoAuthenticationStrengthPolicy';
 import {deserializeIntoAuthenticationStrengthRoot} from './deserializeIntoAuthenticationStrengthRoot';
@@ -134,6 +136,7 @@ import {deserializeIntoConversationThread} from './deserializeIntoConversationTh
 import {deserializeIntoCountryNamedLocation} from './deserializeIntoCountryNamedLocation';
 import {deserializeIntoCrossTenantAccessPolicy} from './deserializeIntoCrossTenantAccessPolicy';
 import {deserializeIntoCrossTenantAccessPolicyConfigurationDefault} from './deserializeIntoCrossTenantAccessPolicyConfigurationDefault';
+import {deserializeIntoCustomCalloutExtension} from './deserializeIntoCustomCalloutExtension';
 import {deserializeIntoCustomSecurityAttributeDefinition} from './deserializeIntoCustomSecurityAttributeDefinition';
 import {deserializeIntoDataPolicyOperation} from './deserializeIntoDataPolicyOperation';
 import {deserializeIntoDefaultManagedAppProtection} from './deserializeIntoDefaultManagedAppProtection';
@@ -144,6 +147,7 @@ import {deserializeIntoDelegatedAdminRelationshipOperation} from './deserializeI
 import {deserializeIntoDelegatedAdminRelationshipRequest} from './deserializeIntoDelegatedAdminRelationshipRequest';
 import {deserializeIntoDelegatedAdminServiceManagementDetail} from './deserializeIntoDelegatedAdminServiceManagementDetail';
 import {deserializeIntoDelegatedPermissionClassification} from './deserializeIntoDelegatedPermissionClassification';
+import {deserializeIntoDeletedItemContainer} from './deserializeIntoDeletedItemContainer';
 import {deserializeIntoDeletedTeam} from './deserializeIntoDeletedTeam';
 import {deserializeIntoDetectedApp} from './deserializeIntoDetectedApp';
 import {deserializeIntoDevice} from './deserializeIntoDevice';
@@ -176,6 +180,7 @@ import {deserializeIntoDeviceEnrollmentLimitConfiguration} from './deserializeIn
 import {deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration} from './deserializeIntoDeviceEnrollmentPlatformRestrictionsConfiguration';
 import {deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration';
 import {deserializeIntoDeviceInstallState} from './deserializeIntoDeviceInstallState';
+import {deserializeIntoDeviceLogCollectionResponse} from './deserializeIntoDeviceLogCollectionResponse';
 import {deserializeIntoDeviceManagement} from './deserializeIntoDeviceManagement';
 import {deserializeIntoDeviceManagementExchangeConnector} from './deserializeIntoDeviceManagementExchangeConnector';
 import {deserializeIntoDeviceManagementExportJob} from './deserializeIntoDeviceManagementExportJob';
@@ -223,6 +228,7 @@ import {deserializeIntoEducationUser} from './deserializeIntoEducationUser';
 import {deserializeIntoEmailAuthenticationMethod} from './deserializeIntoEmailAuthenticationMethod';
 import {deserializeIntoEmailAuthenticationMethodConfiguration} from './deserializeIntoEmailAuthenticationMethodConfiguration';
 import {deserializeIntoEmailFileAssessmentRequest} from './deserializeIntoEmailFileAssessmentRequest';
+import {deserializeIntoEmployeeExperienceUser} from './deserializeIntoEmployeeExperienceUser';
 import {deserializeIntoEndpoint} from './deserializeIntoEndpoint';
 import {deserializeIntoEnrollmentConfigurationAssignment} from './deserializeIntoEnrollmentConfigurationAssignment';
 import {deserializeIntoEnrollmentTroubleshootingEvent} from './deserializeIntoEnrollmentTroubleshootingEvent';
@@ -246,6 +252,7 @@ import {deserializeIntoFieldValueSet} from './deserializeIntoFieldValueSet';
 import {deserializeIntoFileAssessmentRequest} from './deserializeIntoFileAssessmentRequest';
 import {deserializeIntoFileAttachment} from './deserializeIntoFileAttachment';
 import {deserializeIntoFilterOperatorSchema} from './deserializeIntoFilterOperatorSchema';
+import {deserializeIntoGovernanceInsight} from './deserializeIntoGovernanceInsight';
 import {deserializeIntoGroup as I23e16b52d4b109c19ebd3ab2e05b0d3e8411c17b6a4e64b58a4565adab867a21} from './deserializeIntoGroup';
 import {deserializeIntoGroupLifecyclePolicy} from './deserializeIntoGroupLifecyclePolicy';
 import {deserializeIntoGroupSetting} from './deserializeIntoGroupSetting';
@@ -291,8 +298,11 @@ import {deserializeIntoItemActivity} from './deserializeIntoItemActivity';
 import {deserializeIntoItemActivityStat} from './deserializeIntoItemActivityStat';
 import {deserializeIntoItemAnalytics} from './deserializeIntoItemAnalytics';
 import {deserializeIntoItemAttachment} from './deserializeIntoItemAttachment';
+import {deserializeIntoLearningAssignment} from './deserializeIntoLearningAssignment';
 import {deserializeIntoLearningContent} from './deserializeIntoLearningContent';
+import {deserializeIntoLearningCourseActivity} from './deserializeIntoLearningCourseActivity';
 import {deserializeIntoLearningProvider} from './deserializeIntoLearningProvider';
+import {deserializeIntoLearningSelfInitiatedCourse} from './deserializeIntoLearningSelfInitiatedCourse';
 import {deserializeIntoLicenseDetails} from './deserializeIntoLicenseDetails';
 import {deserializeIntoLinkedResource} from './deserializeIntoLinkedResource';
 import {deserializeIntoList} from './deserializeIntoList';
@@ -305,11 +315,13 @@ import {deserializeIntoMacOSCustomConfiguration} from './deserializeIntoMacOSCus
 import {deserializeIntoMacOSDeviceFeaturesConfiguration} from './deserializeIntoMacOSDeviceFeaturesConfiguration';
 import {deserializeIntoMacOSGeneralDeviceConfiguration} from './deserializeIntoMacOSGeneralDeviceConfiguration';
 import {deserializeIntoMacOSLobApp} from './deserializeIntoMacOSLobApp';
+import {deserializeIntoMacOSMicrosoftDefenderApp} from './deserializeIntoMacOSMicrosoftDefenderApp';
 import {deserializeIntoMacOSMicrosoftEdgeApp} from './deserializeIntoMacOSMicrosoftEdgeApp';
 import {deserializeIntoMacOSOfficeSuiteApp} from './deserializeIntoMacOSOfficeSuiteApp';
 import {deserializeIntoMailAssessmentRequest} from './deserializeIntoMailAssessmentRequest';
 import {deserializeIntoMailFolder} from './deserializeIntoMailFolder';
 import {deserializeIntoMailSearchFolder} from './deserializeIntoMailSearchFolder';
+import {deserializeIntoMalwareStateForWindowsDevice} from './deserializeIntoMalwareStateForWindowsDevice';
 import {deserializeIntoManagedAndroidLobApp} from './deserializeIntoManagedAndroidLobApp';
 import {deserializeIntoManagedAndroidStoreApp} from './deserializeIntoManagedAndroidStoreApp';
 import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
@@ -337,6 +349,7 @@ import {deserializeIntoManagedMobileApp} from './deserializeIntoManagedMobileApp
 import {deserializeIntoManagedMobileLobApp} from './deserializeIntoManagedMobileLobApp';
 import {deserializeIntoMdmWindowsInformationProtectionPolicy} from './deserializeIntoMdmWindowsInformationProtectionPolicy';
 import {deserializeIntoMeetingAttendanceReport} from './deserializeIntoMeetingAttendanceReport';
+import {deserializeIntoMembershipOutlierInsight} from './deserializeIntoMembershipOutlierInsight';
 import {deserializeIntoMessage} from './deserializeIntoMessage';
 import {deserializeIntoMessageRule} from './deserializeIntoMessageRule';
 import {deserializeIntoMicrosoftAccountUserConversationMember} from './deserializeIntoMicrosoftAccountUserConversationMember';
@@ -349,6 +362,7 @@ import {deserializeIntoMobileAppAssignment} from './deserializeIntoMobileAppAssi
 import {deserializeIntoMobileAppCategory} from './deserializeIntoMobileAppCategory';
 import {deserializeIntoMobileAppContent} from './deserializeIntoMobileAppContent';
 import {deserializeIntoMobileAppContentFile} from './deserializeIntoMobileAppContentFile';
+import {deserializeIntoMobileAppTroubleshootingEvent} from './deserializeIntoMobileAppTroubleshootingEvent';
 import {deserializeIntoMobileContainedApp} from './deserializeIntoMobileContainedApp';
 import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
 import {deserializeIntoMobileThreatDefenseConnector} from './deserializeIntoMobileThreatDefenseConnector';
@@ -565,12 +579,36 @@ import {deserializeIntoUsedInsight} from './deserializeIntoUsedInsight';
 import {deserializeIntoUser} from './deserializeIntoUser';
 import {deserializeIntoUserActivity} from './deserializeIntoUserActivity';
 import {deserializeIntoUserConsentRequest} from './deserializeIntoUserConsentRequest';
+import {deserializeIntoUserExperienceAnalyticsAppHealthApplicationPerformance} from './deserializeIntoUserExperienceAnalyticsAppHealthApplicationPerformance';
+import {deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails} from './deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails';
+import {deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId} from './deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
+import {deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion} from './deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
+import {deserializeIntoUserExperienceAnalyticsAppHealthDeviceModelPerformance} from './deserializeIntoUserExperienceAnalyticsAppHealthDeviceModelPerformance';
+import {deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance} from './deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance';
+import {deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformanceDetails} from './deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformanceDetails';
+import {deserializeIntoUserExperienceAnalyticsAppHealthOSVersionPerformance} from './deserializeIntoUserExperienceAnalyticsAppHealthOSVersionPerformance';
+import {deserializeIntoUserExperienceAnalyticsBaseline} from './deserializeIntoUserExperienceAnalyticsBaseline';
+import {deserializeIntoUserExperienceAnalyticsCategory} from './deserializeIntoUserExperienceAnalyticsCategory';
 import {deserializeIntoUserExperienceAnalyticsDevicePerformance} from './deserializeIntoUserExperienceAnalyticsDevicePerformance';
+import {deserializeIntoUserExperienceAnalyticsDeviceScores} from './deserializeIntoUserExperienceAnalyticsDeviceScores';
+import {deserializeIntoUserExperienceAnalyticsDeviceStartupHistory} from './deserializeIntoUserExperienceAnalyticsDeviceStartupHistory';
+import {deserializeIntoUserExperienceAnalyticsDeviceStartupProcess} from './deserializeIntoUserExperienceAnalyticsDeviceStartupProcess';
+import {deserializeIntoUserExperienceAnalyticsMetric} from './deserializeIntoUserExperienceAnalyticsMetric';
+import {deserializeIntoUserExperienceAnalyticsMetricHistory} from './deserializeIntoUserExperienceAnalyticsMetricHistory';
+import {deserializeIntoUserExperienceAnalyticsModelScores} from './deserializeIntoUserExperienceAnalyticsModelScores';
+import {deserializeIntoUserExperienceAnalyticsOverview} from './deserializeIntoUserExperienceAnalyticsOverview';
+import {deserializeIntoUserExperienceAnalyticsScoreHistory} from './deserializeIntoUserExperienceAnalyticsScoreHistory';
+import {deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice} from './deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice';
+import {deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from './deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
+import {deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetric} from './deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetric';
+import {deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
 import {deserializeIntoUserFlowLanguageConfiguration} from './deserializeIntoUserFlowLanguageConfiguration';
 import {deserializeIntoUserFlowLanguagePage} from './deserializeIntoUserFlowLanguagePage';
 import {deserializeIntoUserInstallStateSummary} from './deserializeIntoUserInstallStateSummary';
+import {deserializeIntoUserRegistrationDetails} from './deserializeIntoUserRegistrationDetails';
 import {deserializeIntoUserScopeTeamsAppInstallation} from './deserializeIntoUserScopeTeamsAppInstallation';
 import {deserializeIntoUserSettings} from './deserializeIntoUserSettings';
+import {deserializeIntoUserSignInInsight} from './deserializeIntoUserSignInInsight';
 import {deserializeIntoUserTeamwork} from './deserializeIntoUserTeamwork';
 import {deserializeIntoVoiceAuthenticationMethodConfiguration} from './deserializeIntoVoiceAuthenticationMethodConfiguration';
 import {deserializeIntoVppToken} from './deserializeIntoVppToken';
@@ -589,17 +627,20 @@ import {deserializeIntoWindows81GeneralConfiguration} from './deserializeIntoWin
 import {deserializeIntoWindowsAppX} from './deserializeIntoWindowsAppX';
 import {deserializeIntoWindowsAutopilotDeviceIdentity} from './deserializeIntoWindowsAutopilotDeviceIdentity';
 import {deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration} from './deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration';
+import {deserializeIntoWindowsDeviceMalwareState} from './deserializeIntoWindowsDeviceMalwareState';
 import {deserializeIntoWindowsHelloForBusinessAuthenticationMethod} from './deserializeIntoWindowsHelloForBusinessAuthenticationMethod';
 import {deserializeIntoWindowsInformationProtection} from './deserializeIntoWindowsInformationProtection';
 import {deserializeIntoWindowsInformationProtectionAppLearningSummary} from './deserializeIntoWindowsInformationProtectionAppLearningSummary';
 import {deserializeIntoWindowsInformationProtectionAppLockerFile} from './deserializeIntoWindowsInformationProtectionAppLockerFile';
 import {deserializeIntoWindowsInformationProtectionNetworkLearningSummary} from './deserializeIntoWindowsInformationProtectionNetworkLearningSummary';
 import {deserializeIntoWindowsInformationProtectionPolicy} from './deserializeIntoWindowsInformationProtectionPolicy';
+import {deserializeIntoWindowsMalwareInformation} from './deserializeIntoWindowsMalwareInformation';
 import {deserializeIntoWindowsMicrosoftEdgeApp} from './deserializeIntoWindowsMicrosoftEdgeApp';
 import {deserializeIntoWindowsMobileMSI} from './deserializeIntoWindowsMobileMSI';
 import {deserializeIntoWindowsPhone81CompliancePolicy} from './deserializeIntoWindowsPhone81CompliancePolicy';
 import {deserializeIntoWindowsPhone81CustomConfiguration} from './deserializeIntoWindowsPhone81CustomConfiguration';
 import {deserializeIntoWindowsPhone81GeneralConfiguration} from './deserializeIntoWindowsPhone81GeneralConfiguration';
+import {deserializeIntoWindowsProtectionState} from './deserializeIntoWindowsProtectionState';
 import {deserializeIntoWindowsUniversalAppX} from './deserializeIntoWindowsUniversalAppX';
 import {deserializeIntoWindowsUniversalAppXContainedApp} from './deserializeIntoWindowsUniversalAppXContainedApp';
 import {deserializeIntoWindowsUpdateForBusinessConfiguration} from './deserializeIntoWindowsUpdateForBusinessConfiguration';
@@ -661,9 +702,23 @@ import {deserializeIntoExternalGroup} from './externalConnectors/deserializeInto
 import {deserializeIntoExternalItem} from './externalConnectors/deserializeIntoExternalItem';
 import {deserializeIntoIdentity} from './externalConnectors/deserializeIntoIdentity';
 import {deserializeIntoSchema} from './externalConnectors/deserializeIntoSchema';
-import {AadUserConversationMember, AccessPackage, AccessPackageAssignment, AccessPackageAssignmentPolicy, AccessPackageAssignmentRequest, AccessPackageCatalog, AccessPackageMultipleChoiceQuestion, AccessPackageQuestion, AccessPackageSubject, AccessPackageTextInputQuestion, AccessReviewHistoryDefinition, AccessReviewHistoryInstance, AccessReviewInstance, AccessReviewInstanceDecisionItem, AccessReviewReviewer, AccessReviewScheduleDefinition, AccessReviewSet, AccessReviewStage, ActivityBasedTimeoutPolicy, ActivityHistoryItem, AddLargeGalleryViewOperation, AdminConsentRequestPolicy, AdministrativeUnit, Agreement, AgreementAcceptance, AgreementFile, AgreementFileLocalization, AgreementFileProperties, AgreementFileVersion, Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AllowedValue, AndroidCompliancePolicy, AndroidCustomConfiguration, AndroidGeneralDeviceConfiguration, AndroidLobApp, AndroidManagedAppProtection, AndroidManagedAppRegistration, AndroidStoreApp, AndroidWorkProfileCompliancePolicy, AndroidWorkProfileCustomConfiguration, AndroidWorkProfileGeneralDeviceConfiguration, AnonymousGuestConversationMember, AppCatalogs, AppConsentApprovalRoute, AppConsentRequest, AppleDeviceFeaturesConfigurationBase, AppleManagedIdentityProvider, ApplePushNotificationCertificate, Application, ApplicationTemplate, AppManagementPolicy, AppRoleAssignment, Approval, ApprovalStage, AppScope, AssociatedTeamInfo, Attachment, AttachmentBase, AttachmentSession, AttackSimulationRoot, AttendanceRecord, AttributeMappingFunctionSchema, AttributeSet, AudioRoutingGroup, AuditEvent, AuditLogRoot, Authentication, AuthenticationCombinationConfiguration, AuthenticationContextClassReference, AuthenticationFlowsPolicy, AuthenticationMethod, AuthenticationMethodConfiguration, AuthenticationMethodModeDetail, AuthenticationMethodsPolicy, AuthenticationMethodTarget, AuthenticationStrengthPolicy, AuthenticationStrengthRoot, AuthoredNote, AuthorizationPolicy, AzureCommunicationServicesUserConversationMember, B2xIdentityUserFlow, BaseItem, BaseItemVersion, Bitlocker, BitlockerRecoveryKey, BookingAppointment, BookingBusiness, BookingCurrency, BookingCustomer, BookingCustomerBase, BookingCustomQuestion, BookingService, BookingStaffMember, BookingStaffMemberBase, BrowserSharedCookie, BrowserSite, BrowserSiteList, BuiltInIdentityProvider, Calendar, CalendarGroup, CalendarPermission, CalendarSharingMessage, Call, CancelMediaProcessingOperation, CertificateBasedAuthConfiguration, ChangeTrackedEntity, Channel, Chat, ChatMessage, ChatMessageHostedContent, ChatMessageInfo, ChecklistItem, ClaimsMappingPolicy, ColumnDefinition, ColumnLink, CommsOperation, ComplianceManagementPartner, ConditionalAccessPolicy, ConditionalAccessRoot, ConditionalAccessTemplate, ConnectedOrganization, Contact, ContactFolder, ContentSharingSession, ContentType, Contract, Conversation, ConversationMember, ConversationThread, CountryNamedLocation, CrossTenantAccessPolicy, CrossTenantAccessPolicyConfigurationDefault, CustomSecurityAttributeDefinition, DataPolicyOperation, DefaultManagedAppProtection, DelegatedAdminAccessAssignment, DelegatedAdminCustomer, DelegatedAdminRelationship, DelegatedAdminRelationshipOperation, DelegatedAdminRelationshipRequest, DelegatedAdminServiceManagementDetail, DelegatedPermissionClassification, DeletedTeam, DetectedApp, Device, DeviceAndAppManagementRoleAssignment, DeviceAndAppManagementRoleDefinition, DeviceAppManagement, DeviceCategory, DeviceComplianceActionItem, DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicy, DeviceCompliancePolicyAssignment, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceCompliancePolicyState, DeviceComplianceScheduledActionForRule, DeviceComplianceSettingState, DeviceComplianceUserOverview, DeviceComplianceUserStatus, DeviceConfiguration, DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, DeviceConfigurationDeviceStateSummary, DeviceConfigurationDeviceStatus, DeviceConfigurationState, DeviceConfigurationUserOverview, DeviceConfigurationUserStatus, DeviceEnrollmentConfiguration, DeviceEnrollmentLimitConfiguration, DeviceEnrollmentPlatformRestrictionsConfiguration, DeviceEnrollmentWindowsHelloForBusinessConfiguration, DeviceInstallState, DeviceManagement, DeviceManagementExchangeConnector, DeviceManagementExportJob, DeviceManagementPartner, DeviceManagementReports, DeviceManagementTroubleshootingEvent, Directory, DirectoryAudit, DirectoryDefinition, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, DocumentSetVersion, Domain, DomainDnsCnameRecord, DomainDnsMxRecord, DomainDnsRecord, DomainDnsSrvRecord, DomainDnsTxtRecord, DomainDnsUnavailableRecord, Drive, DriveItem, DriveItemVersion, EBookInstallSummary, Edge, EditionUpgradeConfiguration, EducationAssignment, EducationAssignmentDefaults, EducationAssignmentResource, EducationAssignmentSettings, EducationCategory, EducationClass, EducationFeedbackOutcome, EducationFeedbackResourceOutcome, EducationOrganization, EducationOutcome, EducationPointsOutcome, EducationRubric, EducationRubricOutcome, EducationSchool, EducationSubmission, EducationSubmissionResource, EducationUser, EmailAuthenticationMethod, EmailAuthenticationMethodConfiguration, EmailFileAssessmentRequest, Endpoint, EnrollmentConfigurationAssignment, EnrollmentTroubleshootingEvent, EnterpriseCodeSigningCertificate, EntitlementManagement, EntitlementManagementSettings, Entity, Event, EventMessage, EventMessageRequest, EventMessageResponse, Extension, ExtensionProperty, ExternalDomainName, FeatureRolloutPolicy, FederatedIdentityCredential, Fido2AuthenticationMethod, Fido2AuthenticationMethodConfiguration, Fido2CombinationConfiguration, FieldValueSet, FileAssessmentRequest, FileAttachment, FilterOperatorSchema, Group as I3e7b9c76ff5af74e19ec22c86fc8ccaa080b0f7639cb61d00a2dab8100f45b82, GroupLifecyclePolicy, GroupSetting, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentityApiConnector, IdentityBuiltInUserFlowAttribute, IdentityContainer, IdentityCustomUserFlowAttribute, IdentityProvider, IdentityProviderBase, IdentitySecurityDefaultsEnforcementPolicy, IdentityUserFlow, IdentityUserFlowAttribute, IdentityUserFlowAttributeAssignment, ImportedWindowsAutopilotDeviceIdentity, ImportedWindowsAutopilotDeviceIdentityUpload, InferenceClassification, InferenceClassificationOverride, InternalDomainFederation, InternetExplorerMode, Invitation, InviteParticipantsOperation, IosCertificateProfile, IosCompliancePolicy, IosCustomConfiguration, IosDeviceFeaturesConfiguration, IosGeneralDeviceConfiguration, IosiPadOSWebClip, IosLobApp, IosLobAppProvisioningConfigurationAssignment, IosManagedAppProtection, IosManagedAppRegistration, IosMobileAppConfiguration, IosStoreApp, IosUpdateConfiguration, IosUpdateDeviceStatus, IosVppApp, IosVppEBook, IosVppEBookAssignment, IpNamedLocation, ItemActivity, ItemActivityStat, ItemAnalytics, ItemAttachment, LearningContent, LearningProvider, LicenseDetails, LinkedResource, List, ListItem, ListItemVersion, LocalizedNotificationMessage, LongRunningOperation, MacOSCompliancePolicy, MacOSCustomConfiguration, MacOSDeviceFeaturesConfiguration, MacOSGeneralDeviceConfiguration, MacOSLobApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, MailAssessmentRequest, MailFolder, MailSearchFolder, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedAppConfiguration, ManagedAppOperation, ManagedAppPolicy, ManagedAppPolicyDeploymentSummary, ManagedAppProtection, ManagedAppRegistration, ManagedAppStatus, ManagedAppStatusRaw, ManagedDevice, ManagedDeviceMobileAppConfiguration, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobileAppConfigurationDeviceStatus, ManagedDeviceMobileAppConfigurationDeviceSummary, ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserSummary, ManagedDeviceOverview, ManagedEBook, ManagedEBookAssignment, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileApp, ManagedMobileLobApp, MdmWindowsInformationProtectionPolicy, MeetingAttendanceReport, Message, MessageRule, MicrosoftAccountUserConversationMember, MicrosoftAuthenticatorAuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodTarget, MicrosoftStoreForBusinessApp, MobileApp, MobileAppAssignment, MobileAppCategory, MobileAppContent, MobileAppContentFile, MobileContainedApp, MobileLobApp, MobileThreatDefenseConnector, MultiValueLegacyExtendedProperty, MuteParticipantOperation, NamedLocation, Notebook, NotificationMessageTemplate, OAuth2PermissionGrant, OfferShiftRequest, OfficeGraphInsights, Onenote, OnenoteEntityBaseModel, OnenoteEntityHierarchyModel, OnenoteEntitySchemaObjectModel, OnenoteOperation, OnenotePage, OnenoteResource, OnenoteSection, OnlineMeeting, OnPremisesConditionalAccessSettings, OnPremisesDirectorySynchronization, OpenShift, OpenShiftChangeRequest, OpenTypeExtension, Operation, Organization, OrganizationalBranding, OrganizationalBrandingLocalization, OrganizationalBrandingProperties, OrgContact, OutlookCategory, OutlookItem, OutlookUser, Participant, ParticipantJoiningNotification, ParticipantLeftNotification, PasswordAuthenticationMethod, Permission, PermissionGrantConditionSet, PermissionGrantPolicy, Person, PhoneAuthenticationMethod, PinnedChatMessageInfo, Place, Planner, PlannerAssignedToTaskBoardTaskFormat, PlannerBucket, PlannerBucketTaskBoardTaskFormat, PlannerGroup, PlannerPlan, PlannerPlanDetails, PlannerProgressTaskBoardTaskFormat, PlannerTask, PlannerTaskDetails, PlannerUser, PlayPromptOperation, PolicyBase, PolicyRoot, Post, Presence, PrintConnector, PrintDocument, Printer, PrinterBase, PrinterCreateOperation, PrinterShare, PrintJob, PrintOperation, PrintService, PrintServiceEndpoint, PrintTask, PrintTaskDefinition, PrintTaskTrigger, PrintUsage, PrintUsageByPrinter, PrintUsageByUser, ProfilePhoto, ProvisioningObjectSummary, RbacApplication, RecordOperation, ReferenceAttachment, RemoteAssistancePartner, Request, ResourceOperation, ResourceSpecificPermissionGrant, RichLongRunningOperation, RiskDetection, RiskyServicePrincipal, RiskyServicePrincipalHistoryItem, RiskyUser, RiskyUserHistoryItem, RoleAssignment, RoleDefinition, Room, RoomList, SamlOrWsFedExternalDomainFederation, SamlOrWsFedProvider, Schedule, ScheduleChangeRequest, SchedulingGroup, SchemaExtension, ScopedRoleMembership, SearchEntity, SectionGroup, SecureScore, SecureScoreControlProfile, Security, SecurityReportsRoot, ServiceAnnouncement, ServiceAnnouncementAttachment, ServiceAnnouncementBase, ServiceHealth, ServiceHealthIssue, ServicePrincipal, ServicePrincipalRiskDetection, ServiceUpdateMessage, SettingStateDeviceSummary, SharedDriveItem, SharedInsight, SharedPCConfiguration, SharedWithChannelTeamInfo, Sharepoint, SharepointSettings, Shift, ShiftPreferences, SignIn, Simulation, SimulationAutomation, SimulationAutomationRun, SingleValueLegacyExtendedProperty, Site, SkypeForBusinessUserConversationMember, SkypeUserConversationMember, SmsAuthenticationMethodConfiguration, SmsAuthenticationMethodTarget, SocialIdentityProvider, SoftwareOathAuthenticationMethod, SoftwareOathAuthenticationMethodConfiguration, SoftwareUpdateStatusSummary, StartHoldMusicOperation, StopHoldMusicOperation, StsPolicy, SubjectRightsRequest, SubscribedSku, SubscribeToToneOperation, Subscription, SwapShiftsChangeRequest, Synchronization, SynchronizationJob, SynchronizationSchema, SynchronizationTemplate, TargetedManagedAppConfiguration, TargetedManagedAppPolicyAssignment, TargetedManagedAppProtection, TaskFileAttachment, Team, TeamInfo, TeamsApp, TeamsAppDefinition, TeamsAppInstallation, TeamsAsyncOperation, TeamsTab, TeamsTemplate, Teamwork, TeamworkBot, TeamworkHostedContent, TeamworkTag, TeamworkTagMember, TelecomExpenseManagementPartner, TemporaryAccessPassAuthenticationMethod, TemporaryAccessPassAuthenticationMethodConfiguration, TenantAppManagementPolicy, TermsAndConditions, TermsAndConditionsAcceptanceStatus, TermsAndConditionsAssignment, TermsOfUseContainer, ThreatAssessmentRequest, ThreatAssessmentResult, ThumbnailSet, TimeOff, TimeOffReason, TimeOffRequest, Todo, TodoTask, TodoTaskList, TokenIssuancePolicy, TokenLifetimePolicy, Trending, UnifiedRbacResourceAction, UnifiedRbacResourceNamespace, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyApprovalRule, UnifiedRoleManagementPolicyAssignment, UnifiedRoleManagementPolicyAuthenticationContextRule, UnifiedRoleManagementPolicyEnablementRule, UnifiedRoleManagementPolicyExpirationRule, UnifiedRoleManagementPolicyNotificationRule, UnifiedRoleManagementPolicyRule, UnifiedRoleScheduleBase, UnifiedRoleScheduleInstanceBase, UnmuteParticipantOperation, UpdateRecordingStatusOperation, UrlAssessmentRequest, UsedInsight, User, UserActivity, UserConsentRequest, UserExperienceAnalyticsDevicePerformance, UserFlowLanguageConfiguration, UserFlowLanguagePage, UserInstallStateSummary, UserScopeTeamsAppInstallation, UserSettings, UserTeamwork, VoiceAuthenticationMethodConfiguration, VppToken, WebApp, Win32LobApp, Windows10CompliancePolicy, Windows10CustomConfiguration, Windows10EndpointProtectionConfiguration, Windows10EnterpriseModernAppManagementConfiguration, Windows10GeneralConfiguration, Windows10MobileCompliancePolicy, Windows10SecureAssessmentConfiguration, Windows10TeamGeneralConfiguration, Windows81CompliancePolicy, Windows81GeneralConfiguration, WindowsAppX, WindowsAutopilotDeviceIdentity, WindowsDefenderAdvancedThreatProtectionConfiguration, WindowsHelloForBusinessAuthenticationMethod, WindowsInformationProtection, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionAppLockerFile, WindowsInformationProtectionNetworkLearningSummary, WindowsInformationProtectionPolicy, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsPhone81CompliancePolicy, WindowsPhone81CustomConfiguration, WindowsPhone81GeneralConfiguration, WindowsUniversalAppX, WindowsUniversalAppXContainedApp, WindowsUpdateForBusinessConfiguration, WindowsWebApp, Workbook, WorkbookApplication, WorkbookChart, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartAxis, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookChartAxisTitleFormat, WorkbookChartDataLabelFormat, WorkbookChartDataLabels, WorkbookChartFill, WorkbookChartFont, WorkbookChartGridlines, WorkbookChartGridlinesFormat, WorkbookChartLegend, WorkbookChartLegendFormat, WorkbookChartLineFormat, WorkbookChartPoint, WorkbookChartPointFormat, WorkbookChartSeries, WorkbookChartSeriesFormat, WorkbookChartTitle, WorkbookChartTitleFormat, WorkbookComment, WorkbookCommentReply, WorkbookFilter, WorkbookFormatProtection, WorkbookFunctionResult, WorkbookFunctions, WorkbookNamedItem, WorkbookOperation, WorkbookPivotTable, WorkbookRange, WorkbookRangeBorder, WorkbookRangeFill, WorkbookRangeFont, WorkbookRangeFormat, WorkbookRangeSort, WorkbookRangeView, WorkbookTable, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, WorkbookWorksheet, WorkbookWorksheetProtection, WorkforceIntegration, X509CertificateAuthenticationMethodConfiguration} from './index';
-import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, CaseEscaped, CaseOperation, CasesRoot, DataSet, DataSource, DataSourceContainer, EdiscoveryAddToReviewSetOperation, EdiscoveryCase, EdiscoveryCaseSettings, EdiscoveryCustodian, EdiscoveryEstimateOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryNoncustodialDataSource, EdiscoveryPurgeDataOperation, EdiscoveryReviewSet, EdiscoveryReviewSetQuery, EdiscoveryReviewTag, EdiscoverySearch, EdiscoveryTagOperation, Incident, RetentionEvent, RetentionEventType, Search, SiteSource, Tag, TriggersRoot, TriggerTypesRoot, UnifiedGroupSource, UserSource} from './security/';
+import {CustomTaskExtension, LifecycleManagementSettings, LifecycleWorkflowsContainer, Run, Task, TaskDefinition, TaskProcessingResult, TaskReport, UserProcessingResult, WorkflowTemplate} from './identityGovernance/';
+import {deserializeIntoCustomTaskExtension} from './identityGovernance/deserializeIntoCustomTaskExtension';
+import {deserializeIntoLifecycleManagementSettings} from './identityGovernance/deserializeIntoLifecycleManagementSettings';
+import {deserializeIntoLifecycleWorkflowsContainer} from './identityGovernance/deserializeIntoLifecycleWorkflowsContainer';
+import {deserializeIntoRun} from './identityGovernance/deserializeIntoRun';
+import {deserializeIntoTask} from './identityGovernance/deserializeIntoTask';
+import {deserializeIntoTaskDefinition} from './identityGovernance/deserializeIntoTaskDefinition';
+import {deserializeIntoTaskProcessingResult} from './identityGovernance/deserializeIntoTaskProcessingResult';
+import {deserializeIntoTaskReport} from './identityGovernance/deserializeIntoTaskReport';
+import {deserializeIntoUserProcessingResult} from './identityGovernance/deserializeIntoUserProcessingResult';
+import {deserializeIntoWorkflowTemplate} from './identityGovernance/deserializeIntoWorkflowTemplate';
+import {AadUserConversationMember, AccessPackage, AccessPackageAssignment, AccessPackageAssignmentPolicy, AccessPackageAssignmentRequest, AccessPackageCatalog, AccessPackageMultipleChoiceQuestion, AccessPackageQuestion, AccessPackageSubject, AccessPackageTextInputQuestion, AccessReviewHistoryDefinition, AccessReviewHistoryInstance, AccessReviewInstance, AccessReviewInstanceDecisionItem, AccessReviewReviewer, AccessReviewScheduleDefinition, AccessReviewSet, AccessReviewStage, ActivityBasedTimeoutPolicy, ActivityHistoryItem, AddLargeGalleryViewOperation, AdminConsentRequestPolicy, AdministrativeUnit, Agreement, AgreementAcceptance, AgreementFile, AgreementFileLocalization, AgreementFileProperties, AgreementFileVersion, Alert as If0a24da04dcf43493b097a73e5ab580d12996b28095b36551b2c7e6a8420acf3, AllowedValue, AndroidCompliancePolicy, AndroidCustomConfiguration, AndroidGeneralDeviceConfiguration, AndroidLobApp, AndroidManagedAppProtection, AndroidManagedAppRegistration, AndroidStoreApp, AndroidWorkProfileCompliancePolicy, AndroidWorkProfileCustomConfiguration, AndroidWorkProfileGeneralDeviceConfiguration, AnonymousGuestConversationMember, AppCatalogs, AppConsentApprovalRoute, AppConsentRequest, AppleDeviceFeaturesConfigurationBase, AppleManagedIdentityProvider, ApplePushNotificationCertificate, Application, ApplicationTemplate, AppLogCollectionRequest, AppManagementPolicy, AppRoleAssignment, Approval, ApprovalStage, AppScope, AssociatedTeamInfo, Attachment, AttachmentBase, AttachmentSession, AttackSimulationRoot, AttendanceRecord, AttributeMappingFunctionSchema, AttributeSet, AudioRoutingGroup, AuditEvent, AuditLogRoot, Authentication, AuthenticationCombinationConfiguration, AuthenticationContextClassReference, AuthenticationFlowsPolicy, AuthenticationMethod, AuthenticationMethodConfiguration, AuthenticationMethodModeDetail, AuthenticationMethodsPolicy, AuthenticationMethodsRoot, AuthenticationMethodTarget, AuthenticationStrengthPolicy, AuthenticationStrengthRoot, AuthoredNote, AuthorizationPolicy, AzureCommunicationServicesUserConversationMember, B2xIdentityUserFlow, BaseItem, BaseItemVersion, Bitlocker, BitlockerRecoveryKey, BookingAppointment, BookingBusiness, BookingCurrency, BookingCustomer, BookingCustomerBase, BookingCustomQuestion, BookingService, BookingStaffMember, BookingStaffMemberBase, BrowserSharedCookie, BrowserSite, BrowserSiteList, BuiltInIdentityProvider, Calendar, CalendarGroup, CalendarPermission, CalendarSharingMessage, Call, CancelMediaProcessingOperation, CertificateBasedAuthConfiguration, ChangeTrackedEntity, Channel, Chat, ChatMessage, ChatMessageHostedContent, ChatMessageInfo, ChecklistItem, ClaimsMappingPolicy, ColumnDefinition, ColumnLink, CommsOperation, ComplianceManagementPartner, ConditionalAccessPolicy, ConditionalAccessRoot, ConditionalAccessTemplate, ConnectedOrganization, Contact, ContactFolder, ContentSharingSession, ContentType, Contract, Conversation, ConversationMember, ConversationThread, CountryNamedLocation, CrossTenantAccessPolicy, CrossTenantAccessPolicyConfigurationDefault, CustomCalloutExtension, CustomSecurityAttributeDefinition, DataPolicyOperation, DefaultManagedAppProtection, DelegatedAdminAccessAssignment, DelegatedAdminCustomer, DelegatedAdminRelationship, DelegatedAdminRelationshipOperation, DelegatedAdminRelationshipRequest, DelegatedAdminServiceManagementDetail, DelegatedPermissionClassification, DeletedItemContainer, DeletedTeam, DetectedApp, Device, DeviceAndAppManagementRoleAssignment, DeviceAndAppManagementRoleDefinition, DeviceAppManagement, DeviceCategory, DeviceComplianceActionItem, DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceCompliancePolicy, DeviceCompliancePolicyAssignment, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceCompliancePolicyState, DeviceComplianceScheduledActionForRule, DeviceComplianceSettingState, DeviceComplianceUserOverview, DeviceComplianceUserStatus, DeviceConfiguration, DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, DeviceConfigurationDeviceStateSummary, DeviceConfigurationDeviceStatus, DeviceConfigurationState, DeviceConfigurationUserOverview, DeviceConfigurationUserStatus, DeviceEnrollmentConfiguration, DeviceEnrollmentLimitConfiguration, DeviceEnrollmentPlatformRestrictionsConfiguration, DeviceEnrollmentWindowsHelloForBusinessConfiguration, DeviceInstallState, DeviceLogCollectionResponse, DeviceManagement, DeviceManagementExchangeConnector, DeviceManagementExportJob, DeviceManagementPartner, DeviceManagementReports, DeviceManagementTroubleshootingEvent, Directory, DirectoryAudit, DirectoryDefinition, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, DocumentSetVersion, Domain, DomainDnsCnameRecord, DomainDnsMxRecord, DomainDnsRecord, DomainDnsSrvRecord, DomainDnsTxtRecord, DomainDnsUnavailableRecord, Drive, DriveItem, DriveItemVersion, EBookInstallSummary, Edge, EditionUpgradeConfiguration, EducationAssignment, EducationAssignmentDefaults, EducationAssignmentResource, EducationAssignmentSettings, EducationCategory, EducationClass, EducationFeedbackOutcome, EducationFeedbackResourceOutcome, EducationOrganization, EducationOutcome, EducationPointsOutcome, EducationRubric, EducationRubricOutcome, EducationSchool, EducationSubmission, EducationSubmissionResource, EducationUser, EmailAuthenticationMethod, EmailAuthenticationMethodConfiguration, EmailFileAssessmentRequest, EmployeeExperienceUser, Endpoint, EnrollmentConfigurationAssignment, EnrollmentTroubleshootingEvent, EnterpriseCodeSigningCertificate, EntitlementManagement, EntitlementManagementSettings, Entity, Event, EventMessage, EventMessageRequest, EventMessageResponse, Extension, ExtensionProperty, ExternalDomainName, FeatureRolloutPolicy, FederatedIdentityCredential, Fido2AuthenticationMethod, Fido2AuthenticationMethodConfiguration, Fido2CombinationConfiguration, FieldValueSet, FileAssessmentRequest, FileAttachment, FilterOperatorSchema, GovernanceInsight, Group as If81e992e90f78336bbfda54d800c09bc303718f03e7e7b76571b58325dc9adad, GroupLifecyclePolicy, GroupSetting, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentityApiConnector, IdentityBuiltInUserFlowAttribute, IdentityContainer, IdentityCustomUserFlowAttribute, IdentityProvider, IdentityProviderBase, IdentitySecurityDefaultsEnforcementPolicy, IdentityUserFlow, IdentityUserFlowAttribute, IdentityUserFlowAttributeAssignment, ImportedWindowsAutopilotDeviceIdentity, ImportedWindowsAutopilotDeviceIdentityUpload, InferenceClassification, InferenceClassificationOverride, InternalDomainFederation, InternetExplorerMode, Invitation, InviteParticipantsOperation, IosCertificateProfile, IosCompliancePolicy, IosCustomConfiguration, IosDeviceFeaturesConfiguration, IosGeneralDeviceConfiguration, IosiPadOSWebClip, IosLobApp, IosLobAppProvisioningConfigurationAssignment, IosManagedAppProtection, IosManagedAppRegistration, IosMobileAppConfiguration, IosStoreApp, IosUpdateConfiguration, IosUpdateDeviceStatus, IosVppApp, IosVppEBook, IosVppEBookAssignment, IpNamedLocation, ItemActivity, ItemActivityStat, ItemAnalytics, ItemAttachment, LearningAssignment, LearningContent, LearningCourseActivity, LearningProvider, LearningSelfInitiatedCourse, LicenseDetails, LinkedResource, List, ListItem, ListItemVersion, LocalizedNotificationMessage, LongRunningOperation, MacOSCompliancePolicy, MacOSCustomConfiguration, MacOSDeviceFeaturesConfiguration, MacOSGeneralDeviceConfiguration, MacOSLobApp, MacOSMicrosoftDefenderApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, MailAssessmentRequest, MailFolder, MailSearchFolder, MalwareStateForWindowsDevice, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedAppConfiguration, ManagedAppOperation, ManagedAppPolicy, ManagedAppPolicyDeploymentSummary, ManagedAppProtection, ManagedAppRegistration, ManagedAppStatus, ManagedAppStatusRaw, ManagedDevice, ManagedDeviceMobileAppConfiguration, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobileAppConfigurationDeviceStatus, ManagedDeviceMobileAppConfigurationDeviceSummary, ManagedDeviceMobileAppConfigurationUserStatus, ManagedDeviceMobileAppConfigurationUserSummary, ManagedDeviceOverview, ManagedEBook, ManagedEBookAssignment, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileApp, ManagedMobileLobApp, MdmWindowsInformationProtectionPolicy, MeetingAttendanceReport, MembershipOutlierInsight, Message, MessageRule, MicrosoftAccountUserConversationMember, MicrosoftAuthenticatorAuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethodConfiguration, MicrosoftAuthenticatorAuthenticationMethodTarget, MicrosoftStoreForBusinessApp, MobileApp, MobileAppAssignment, MobileAppCategory, MobileAppContent, MobileAppContentFile, MobileAppTroubleshootingEvent, MobileContainedApp, MobileLobApp, MobileThreatDefenseConnector, MultiValueLegacyExtendedProperty, MuteParticipantOperation, NamedLocation, Notebook, NotificationMessageTemplate, OAuth2PermissionGrant, OfferShiftRequest, OfficeGraphInsights, Onenote, OnenoteEntityBaseModel, OnenoteEntityHierarchyModel, OnenoteEntitySchemaObjectModel, OnenoteOperation, OnenotePage, OnenoteResource, OnenoteSection, OnlineMeeting, OnPremisesConditionalAccessSettings, OnPremisesDirectorySynchronization, OpenShift, OpenShiftChangeRequest, OpenTypeExtension, Operation, Organization, OrganizationalBranding, OrganizationalBrandingLocalization, OrganizationalBrandingProperties, OrgContact, OutlookCategory, OutlookItem, OutlookUser, Participant, ParticipantJoiningNotification, ParticipantLeftNotification, PasswordAuthenticationMethod, Permission, PermissionGrantConditionSet, PermissionGrantPolicy, Person, PhoneAuthenticationMethod, PinnedChatMessageInfo, Place, Planner, PlannerAssignedToTaskBoardTaskFormat, PlannerBucket, PlannerBucketTaskBoardTaskFormat, PlannerGroup, PlannerPlan, PlannerPlanDetails, PlannerProgressTaskBoardTaskFormat, PlannerTask, PlannerTaskDetails, PlannerUser, PlayPromptOperation, PolicyBase, PolicyRoot, Post, Presence, PrintConnector, PrintDocument, Printer, PrinterBase, PrinterCreateOperation, PrinterShare, PrintJob, PrintOperation, PrintService, PrintServiceEndpoint, PrintTask, PrintTaskDefinition, PrintTaskTrigger, PrintUsage, PrintUsageByPrinter, PrintUsageByUser, ProfilePhoto, ProvisioningObjectSummary, RbacApplication, RecordOperation, ReferenceAttachment, RemoteAssistancePartner, Request, ResourceOperation, ResourceSpecificPermissionGrant, RichLongRunningOperation, RiskDetection, RiskyServicePrincipal, RiskyServicePrincipalHistoryItem, RiskyUser, RiskyUserHistoryItem, RoleAssignment, RoleDefinition, Room, RoomList, SamlOrWsFedExternalDomainFederation, SamlOrWsFedProvider, Schedule, ScheduleChangeRequest, SchedulingGroup, SchemaExtension, ScopedRoleMembership, SearchEntity, SectionGroup, SecureScore, SecureScoreControlProfile, Security, SecurityReportsRoot, ServiceAnnouncement, ServiceAnnouncementAttachment, ServiceAnnouncementBase, ServiceHealth, ServiceHealthIssue, ServicePrincipal, ServicePrincipalRiskDetection, ServiceUpdateMessage, SettingStateDeviceSummary, SharedDriveItem, SharedInsight, SharedPCConfiguration, SharedWithChannelTeamInfo, Sharepoint, SharepointSettings, Shift, ShiftPreferences, SignIn, Simulation, SimulationAutomation, SimulationAutomationRun, SingleValueLegacyExtendedProperty, Site, SkypeForBusinessUserConversationMember, SkypeUserConversationMember, SmsAuthenticationMethodConfiguration, SmsAuthenticationMethodTarget, SocialIdentityProvider, SoftwareOathAuthenticationMethod, SoftwareOathAuthenticationMethodConfiguration, SoftwareUpdateStatusSummary, StartHoldMusicOperation, StopHoldMusicOperation, StsPolicy, SubjectRightsRequest, SubscribedSku, SubscribeToToneOperation, Subscription, SwapShiftsChangeRequest, Synchronization, SynchronizationJob, SynchronizationSchema, SynchronizationTemplate, TargetedManagedAppConfiguration, TargetedManagedAppPolicyAssignment, TargetedManagedAppProtection, TaskFileAttachment, Team, TeamInfo, TeamsApp, TeamsAppDefinition, TeamsAppInstallation, TeamsAsyncOperation, TeamsTab, TeamsTemplate, Teamwork, TeamworkBot, TeamworkHostedContent, TeamworkTag, TeamworkTagMember, TelecomExpenseManagementPartner, TemporaryAccessPassAuthenticationMethod, TemporaryAccessPassAuthenticationMethodConfiguration, TenantAppManagementPolicy, TermsAndConditions, TermsAndConditionsAcceptanceStatus, TermsAndConditionsAssignment, TermsOfUseContainer, ThreatAssessmentRequest, ThreatAssessmentResult, ThumbnailSet, TimeOff, TimeOffReason, TimeOffRequest, Todo, TodoTask, TodoTaskList, TokenIssuancePolicy, TokenLifetimePolicy, Trending, UnifiedRbacResourceAction, UnifiedRbacResourceNamespace, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyApprovalRule, UnifiedRoleManagementPolicyAssignment, UnifiedRoleManagementPolicyAuthenticationContextRule, UnifiedRoleManagementPolicyEnablementRule, UnifiedRoleManagementPolicyExpirationRule, UnifiedRoleManagementPolicyNotificationRule, UnifiedRoleManagementPolicyRule, UnifiedRoleScheduleBase, UnifiedRoleScheduleInstanceBase, UnmuteParticipantOperation, UpdateRecordingStatusOperation, UrlAssessmentRequest, UsedInsight, User, UserActivity, UserConsentRequest, UserExperienceAnalyticsAppHealthApplicationPerformance, UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails, UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId, UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, UserExperienceAnalyticsAppHealthDeviceModelPerformance, UserExperienceAnalyticsAppHealthDevicePerformance, UserExperienceAnalyticsAppHealthDevicePerformanceDetails, UserExperienceAnalyticsAppHealthOSVersionPerformance, UserExperienceAnalyticsBaseline, UserExperienceAnalyticsCategory, UserExperienceAnalyticsDevicePerformance, UserExperienceAnalyticsDeviceScores, UserExperienceAnalyticsDeviceStartupHistory, UserExperienceAnalyticsDeviceStartupProcess, UserExperienceAnalyticsMetric, UserExperienceAnalyticsMetricHistory, UserExperienceAnalyticsModelScores, UserExperienceAnalyticsOverview, UserExperienceAnalyticsScoreHistory, UserExperienceAnalyticsWorkFromAnywhereDevice, UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric, UserExperienceAnalyticsWorkFromAnywhereMetric, UserExperienceAnalyticsWorkFromAnywhereModelPerformance, UserFlowLanguageConfiguration, UserFlowLanguagePage, UserInstallStateSummary, UserRegistrationDetails, UserScopeTeamsAppInstallation, UserSettings, UserSignInInsight, UserTeamwork, VoiceAuthenticationMethodConfiguration, VppToken, WebApp, Win32LobApp, Windows10CompliancePolicy, Windows10CustomConfiguration, Windows10EndpointProtectionConfiguration, Windows10EnterpriseModernAppManagementConfiguration, Windows10GeneralConfiguration, Windows10MobileCompliancePolicy, Windows10SecureAssessmentConfiguration, Windows10TeamGeneralConfiguration, Windows81CompliancePolicy, Windows81GeneralConfiguration, WindowsAppX, WindowsAutopilotDeviceIdentity, WindowsDefenderAdvancedThreatProtectionConfiguration, WindowsDeviceMalwareState, WindowsHelloForBusinessAuthenticationMethod, WindowsInformationProtection, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionAppLockerFile, WindowsInformationProtectionNetworkLearningSummary, WindowsInformationProtectionPolicy, WindowsMalwareInformation, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsPhone81CompliancePolicy, WindowsPhone81CustomConfiguration, WindowsPhone81GeneralConfiguration, WindowsProtectionState, WindowsUniversalAppX, WindowsUniversalAppXContainedApp, WindowsUpdateForBusinessConfiguration, WindowsWebApp, Workbook, WorkbookApplication, WorkbookChart, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartAxis, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookChartAxisTitleFormat, WorkbookChartDataLabelFormat, WorkbookChartDataLabels, WorkbookChartFill, WorkbookChartFont, WorkbookChartGridlines, WorkbookChartGridlinesFormat, WorkbookChartLegend, WorkbookChartLegendFormat, WorkbookChartLineFormat, WorkbookChartPoint, WorkbookChartPointFormat, WorkbookChartSeries, WorkbookChartSeriesFormat, WorkbookChartTitle, WorkbookChartTitleFormat, WorkbookComment, WorkbookCommentReply, WorkbookFilter, WorkbookFormatProtection, WorkbookFunctionResult, WorkbookFunctions, WorkbookNamedItem, WorkbookOperation, WorkbookPivotTable, WorkbookRange, WorkbookRangeBorder, WorkbookRangeFill, WorkbookRangeFont, WorkbookRangeFormat, WorkbookRangeSort, WorkbookRangeView, WorkbookTable, WorkbookTableColumn, WorkbookTableRow, WorkbookTableSort, WorkbookWorksheet, WorkbookWorksheetProtection, WorkforceIntegration, X509CertificateAuthenticationMethodConfiguration} from './index';
+import {Alert as I6c6ea9cf476c9a2686ab81fd2ae38bdf3364559b2c5107ca7a29ad7bcf95e5a8, Article, ArticleIndicator, Artifact, CaseEscaped, CaseOperation, CasesRoot, DataSet, DataSource, DataSourceContainer, EdiscoveryAddToReviewSetOperation, EdiscoveryCase, EdiscoveryCaseSettings, EdiscoveryCustodian, EdiscoveryEstimateOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryNoncustodialDataSource, EdiscoveryPurgeDataOperation, EdiscoveryReviewSet, EdiscoveryReviewSetQuery, EdiscoveryReviewTag, EdiscoverySearch, EdiscoveryTagOperation, Host, HostComponent, HostCookie, Hostname, HostReputation, HostTracker, Incident, Indicator, IntelligenceProfile, IntelligenceProfileIndicator, IpAddress, PassiveDnsRecord, RetentionEvent, RetentionEventType, Search, SiteSource, Tag, ThreatIntelligence, TriggersRoot, TriggerTypesRoot, UnclassifiedArtifact, UnifiedGroupSource, UserSource, Vulnerability, VulnerabilityComponent} from './security/';
 import {deserializeIntoAlert as I6505bc1c6fce3ff5954d022e7fc93d3127679a577fa33bf9d60b79a6ac991f2c} from './security/deserializeIntoAlert';
+import {deserializeIntoArticle} from './security/deserializeIntoArticle';
+import {deserializeIntoArticleIndicator} from './security/deserializeIntoArticleIndicator';
+import {deserializeIntoArtifact} from './security/deserializeIntoArtifact';
 import {deserializeIntoCaseEscaped} from './security/deserializeIntoCaseEscaped';
 import {deserializeIntoCaseOperation} from './security/deserializeIntoCaseOperation';
 import {deserializeIntoCasesRoot} from './security/deserializeIntoCasesRoot';
@@ -684,16 +739,31 @@ import {deserializeIntoEdiscoveryReviewSetQuery} from './security/deserializeInt
 import {deserializeIntoEdiscoveryReviewTag} from './security/deserializeIntoEdiscoveryReviewTag';
 import {deserializeIntoEdiscoverySearch} from './security/deserializeIntoEdiscoverySearch';
 import {deserializeIntoEdiscoveryTagOperation} from './security/deserializeIntoEdiscoveryTagOperation';
+import {deserializeIntoHost} from './security/deserializeIntoHost';
+import {deserializeIntoHostComponent} from './security/deserializeIntoHostComponent';
+import {deserializeIntoHostCookie} from './security/deserializeIntoHostCookie';
+import {deserializeIntoHostname} from './security/deserializeIntoHostname';
+import {deserializeIntoHostReputation} from './security/deserializeIntoHostReputation';
+import {deserializeIntoHostTracker} from './security/deserializeIntoHostTracker';
 import {deserializeIntoIncident} from './security/deserializeIntoIncident';
+import {deserializeIntoIndicator} from './security/deserializeIntoIndicator';
+import {deserializeIntoIntelligenceProfile} from './security/deserializeIntoIntelligenceProfile';
+import {deserializeIntoIntelligenceProfileIndicator} from './security/deserializeIntoIntelligenceProfileIndicator';
+import {deserializeIntoIpAddress} from './security/deserializeIntoIpAddress';
+import {deserializeIntoPassiveDnsRecord} from './security/deserializeIntoPassiveDnsRecord';
 import {deserializeIntoRetentionEvent} from './security/deserializeIntoRetentionEvent';
 import {deserializeIntoRetentionEventType} from './security/deserializeIntoRetentionEventType';
 import {deserializeIntoSearch} from './security/deserializeIntoSearch';
 import {deserializeIntoSiteSource} from './security/deserializeIntoSiteSource';
 import {deserializeIntoTag} from './security/deserializeIntoTag';
+import {deserializeIntoThreatIntelligence} from './security/deserializeIntoThreatIntelligence';
 import {deserializeIntoTriggersRoot} from './security/deserializeIntoTriggersRoot';
 import {deserializeIntoTriggerTypesRoot} from './security/deserializeIntoTriggerTypesRoot';
+import {deserializeIntoUnclassifiedArtifact} from './security/deserializeIntoUnclassifiedArtifact';
 import {deserializeIntoUnifiedGroupSource} from './security/deserializeIntoUnifiedGroupSource';
 import {deserializeIntoUserSource} from './security/deserializeIntoUserSource';
+import {deserializeIntoVulnerability} from './security/deserializeIntoVulnerability';
+import {deserializeIntoVulnerabilityComponent} from './security/deserializeIntoVulnerabilityComponent';
 import {Group as I4e18a3882f273ff649b31b0adac5448533e694e026e54aa608d86a59539e9206, Relation, Set, Store, Term} from './termStore/';
 import {deserializeIntoGroup as I68b49c30a4e01821ddd2d5b4d80947215a00ae0cb3aba3ad127e906da74c8ed6} from './termStore/deserializeIntoGroup';
 import {deserializeIntoRelation} from './termStore/deserializeIntoRelation';
@@ -809,6 +879,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoApplication;
                 case "#microsoft.graph.applicationTemplate":
                     return deserializeIntoApplicationTemplate;
+                case "#microsoft.graph.appLogCollectionRequest":
+                    return deserializeIntoAppLogCollectionRequest;
                 case "#microsoft.graph.appManagementPolicy":
                     return deserializeIntoAppManagementPolicy;
                 case "#microsoft.graph.appRoleAssignment":
@@ -857,6 +929,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoAuthenticationMethodModeDetail;
                 case "#microsoft.graph.authenticationMethodsPolicy":
                     return deserializeIntoAuthenticationMethodsPolicy;
+                case "#microsoft.graph.authenticationMethodsRoot":
+                    return deserializeIntoAuthenticationMethodsRoot;
                 case "#microsoft.graph.authenticationMethodTarget":
                     return deserializeIntoAuthenticationMethodTarget;
                 case "#microsoft.graph.authenticationStrengthPolicy":
@@ -979,6 +1053,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoCrossTenantAccessPolicy;
                 case "#microsoft.graph.crossTenantAccessPolicyConfigurationDefault":
                     return deserializeIntoCrossTenantAccessPolicyConfigurationDefault;
+                case "#microsoft.graph.customCalloutExtension":
+                    return deserializeIntoCustomCalloutExtension;
                 case "#microsoft.graph.customSecurityAttributeDefinition":
                     return deserializeIntoCustomSecurityAttributeDefinition;
                 case "#microsoft.graph.dataPolicyOperation":
@@ -999,6 +1075,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoDelegatedAdminServiceManagementDetail;
                 case "#microsoft.graph.delegatedPermissionClassification":
                     return deserializeIntoDelegatedPermissionClassification;
+                case "#microsoft.graph.deletedItemContainer":
+                    return deserializeIntoDeletedItemContainer;
                 case "#microsoft.graph.deletedTeam":
                     return deserializeIntoDeletedTeam;
                 case "#microsoft.graph.detectedApp":
@@ -1063,6 +1141,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoDeviceEnrollmentWindowsHelloForBusinessConfiguration;
                 case "#microsoft.graph.deviceInstallState":
                     return deserializeIntoDeviceInstallState;
+                case "#microsoft.graph.deviceLogCollectionResponse":
+                    return deserializeIntoDeviceLogCollectionResponse;
                 case "#microsoft.graph.deviceManagement":
                     return deserializeIntoDeviceManagement;
                 case "#microsoft.graph.deviceManagementExchangeConnector":
@@ -1157,6 +1237,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoEmailAuthenticationMethodConfiguration;
                 case "#microsoft.graph.emailFileAssessmentRequest":
                     return deserializeIntoEmailFileAssessmentRequest;
+                case "#microsoft.graph.employeeExperienceUser":
+                    return deserializeIntoEmployeeExperienceUser;
                 case "#microsoft.graph.endpoint":
                     return deserializeIntoEndpoint;
                 case "#microsoft.graph.enrollmentConfigurationAssignment":
@@ -1217,6 +1299,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoFileAttachment;
                 case "#microsoft.graph.filterOperatorSchema":
                     return deserializeIntoFilterOperatorSchema;
+                case "#microsoft.graph.governanceInsight":
+                    return deserializeIntoGovernanceInsight;
                 case "#microsoft.graph.group":
                     return I23e16b52d4b109c19ebd3ab2e05b0d3e8411c17b6a4e64b58a4565adab867a21;
                 case "#microsoft.graph.groupLifecyclePolicy":
@@ -1235,6 +1319,26 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoIdentityContainer;
                 case "#microsoft.graph.identityCustomUserFlowAttribute":
                     return deserializeIntoIdentityCustomUserFlowAttribute;
+                case "#microsoft.graph.identityGovernance.customTaskExtension":
+                    return deserializeIntoCustomTaskExtension;
+                case "#microsoft.graph.identityGovernance.lifecycleManagementSettings":
+                    return deserializeIntoLifecycleManagementSettings;
+                case "#microsoft.graph.identityGovernance.lifecycleWorkflowsContainer":
+                    return deserializeIntoLifecycleWorkflowsContainer;
+                case "#microsoft.graph.identityGovernance.run":
+                    return deserializeIntoRun;
+                case "#microsoft.graph.identityGovernance.task":
+                    return deserializeIntoTask;
+                case "#microsoft.graph.identityGovernance.taskDefinition":
+                    return deserializeIntoTaskDefinition;
+                case "#microsoft.graph.identityGovernance.taskProcessingResult":
+                    return deserializeIntoTaskProcessingResult;
+                case "#microsoft.graph.identityGovernance.taskReport":
+                    return deserializeIntoTaskReport;
+                case "#microsoft.graph.identityGovernance.userProcessingResult":
+                    return deserializeIntoUserProcessingResult;
+                case "#microsoft.graph.identityGovernance.workflowTemplate":
+                    return deserializeIntoWorkflowTemplate;
                 case "#microsoft.graph.identityProvider":
                     return deserializeIntoIdentityProvider;
                 case "#microsoft.graph.identityProviderBase":
@@ -1307,10 +1411,16 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoItemAnalytics;
                 case "#microsoft.graph.itemAttachment":
                     return deserializeIntoItemAttachment;
+                case "#microsoft.graph.learningAssignment":
+                    return deserializeIntoLearningAssignment;
                 case "#microsoft.graph.learningContent":
                     return deserializeIntoLearningContent;
+                case "#microsoft.graph.learningCourseActivity":
+                    return deserializeIntoLearningCourseActivity;
                 case "#microsoft.graph.learningProvider":
                     return deserializeIntoLearningProvider;
+                case "#microsoft.graph.learningSelfInitiatedCourse":
+                    return deserializeIntoLearningSelfInitiatedCourse;
                 case "#microsoft.graph.licenseDetails":
                     return deserializeIntoLicenseDetails;
                 case "#microsoft.graph.linkedResource":
@@ -1335,6 +1445,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoMacOSGeneralDeviceConfiguration;
                 case "#microsoft.graph.macOSLobApp":
                     return deserializeIntoMacOSLobApp;
+                case "#microsoft.graph.macOSMicrosoftDefenderApp":
+                    return deserializeIntoMacOSMicrosoftDefenderApp;
                 case "#microsoft.graph.macOSMicrosoftEdgeApp":
                     return deserializeIntoMacOSMicrosoftEdgeApp;
                 case "#microsoft.graph.macOSOfficeSuiteApp":
@@ -1345,6 +1457,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoMailFolder;
                 case "#microsoft.graph.mailSearchFolder":
                     return deserializeIntoMailSearchFolder;
+                case "#microsoft.graph.malwareStateForWindowsDevice":
+                    return deserializeIntoMalwareStateForWindowsDevice;
                 case "#microsoft.graph.managedAndroidLobApp":
                     return deserializeIntoManagedAndroidLobApp;
                 case "#microsoft.graph.managedAndroidStoreApp":
@@ -1399,6 +1513,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoMdmWindowsInformationProtectionPolicy;
                 case "#microsoft.graph.meetingAttendanceReport":
                     return deserializeIntoMeetingAttendanceReport;
+                case "#microsoft.graph.membershipOutlierInsight":
+                    return deserializeIntoMembershipOutlierInsight;
                 case "#microsoft.graph.message":
                     return deserializeIntoMessage;
                 case "#microsoft.graph.messageRule":
@@ -1423,6 +1539,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoMobileAppContent;
                 case "#microsoft.graph.mobileAppContentFile":
                     return deserializeIntoMobileAppContentFile;
+                case "#microsoft.graph.mobileAppTroubleshootingEvent":
+                    return deserializeIntoMobileAppTroubleshootingEvent;
                 case "#microsoft.graph.mobileContainedApp":
                     return deserializeIntoMobileContainedApp;
                 case "#microsoft.graph.mobileLobApp":
@@ -1641,6 +1759,12 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoSecurity;
                 case "#microsoft.graph.security.alert":
                     return I31715a026b1ced0f6a88616d35905e458c4d7672e4ac2cfaebeef17eefa762ea;
+                case "#microsoft.graph.security.article":
+                    return deserializeIntoArticle;
+                case "#microsoft.graph.security.articleIndicator":
+                    return deserializeIntoArticleIndicator;
+                case "#microsoft.graph.security.artifact":
+                    return deserializeIntoArtifact;
                 case "#microsoft.graph.security.case":
                     return deserializeIntoCaseEscaped;
                 case "#microsoft.graph.security.caseOperation":
@@ -1681,8 +1805,30 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoEdiscoverySearch;
                 case "#microsoft.graph.security.ediscoveryTagOperation":
                     return deserializeIntoEdiscoveryTagOperation;
+                case "#microsoft.graph.security.host":
+                    return deserializeIntoHost;
+                case "#microsoft.graph.security.hostComponent":
+                    return deserializeIntoHostComponent;
+                case "#microsoft.graph.security.hostCookie":
+                    return deserializeIntoHostCookie;
+                case "#microsoft.graph.security.hostname":
+                    return deserializeIntoHostname;
+                case "#microsoft.graph.security.hostReputation":
+                    return deserializeIntoHostReputation;
+                case "#microsoft.graph.security.hostTracker":
+                    return deserializeIntoHostTracker;
                 case "#microsoft.graph.security.incident":
                     return deserializeIntoIncident;
+                case "#microsoft.graph.security.indicator":
+                    return deserializeIntoIndicator;
+                case "#microsoft.graph.security.intelligenceProfile":
+                    return deserializeIntoIntelligenceProfile;
+                case "#microsoft.graph.security.intelligenceProfileIndicator":
+                    return deserializeIntoIntelligenceProfileIndicator;
+                case "#microsoft.graph.security.ipAddress":
+                    return deserializeIntoIpAddress;
+                case "#microsoft.graph.security.passiveDnsRecord":
+                    return deserializeIntoPassiveDnsRecord;
                 case "#microsoft.graph.security.retentionEvent":
                     return deserializeIntoRetentionEvent;
                 case "#microsoft.graph.security.retentionEventType":
@@ -1693,14 +1839,22 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoSiteSource;
                 case "#microsoft.graph.security.tag":
                     return deserializeIntoTag;
+                case "#microsoft.graph.security.threatIntelligence":
+                    return deserializeIntoThreatIntelligence;
                 case "#microsoft.graph.security.triggersRoot":
                     return deserializeIntoTriggersRoot;
                 case "#microsoft.graph.security.triggerTypesRoot":
                     return deserializeIntoTriggerTypesRoot;
+                case "#microsoft.graph.security.unclassifiedArtifact":
+                    return deserializeIntoUnclassifiedArtifact;
                 case "#microsoft.graph.security.unifiedGroupSource":
                     return deserializeIntoUnifiedGroupSource;
                 case "#microsoft.graph.security.userSource":
                     return deserializeIntoUserSource;
+                case "#microsoft.graph.security.vulnerability":
+                    return deserializeIntoVulnerability;
+                case "#microsoft.graph.security.vulnerabilityComponent":
+                    return deserializeIntoVulnerabilityComponent;
                 case "#microsoft.graph.securityReportsRoot":
                     return deserializeIntoSecurityReportsRoot;
                 case "#microsoft.graph.serviceAnnouncement":
@@ -1927,18 +2081,66 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoUserActivity;
                 case "#microsoft.graph.userConsentRequest":
                     return deserializeIntoUserConsentRequest;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthApplicationPerformance":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthApplicationPerformance;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthAppPerformanceByOSVersion":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthDeviceModelPerformance":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthDeviceModelPerformance;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthDevicePerformance":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthDevicePerformanceDetails":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformanceDetails;
+                case "#microsoft.graph.userExperienceAnalyticsAppHealthOSVersionPerformance":
+                    return deserializeIntoUserExperienceAnalyticsAppHealthOSVersionPerformance;
+                case "#microsoft.graph.userExperienceAnalyticsBaseline":
+                    return deserializeIntoUserExperienceAnalyticsBaseline;
+                case "#microsoft.graph.userExperienceAnalyticsCategory":
+                    return deserializeIntoUserExperienceAnalyticsCategory;
                 case "#microsoft.graph.userExperienceAnalyticsDevicePerformance":
                     return deserializeIntoUserExperienceAnalyticsDevicePerformance;
+                case "#microsoft.graph.userExperienceAnalyticsDeviceScores":
+                    return deserializeIntoUserExperienceAnalyticsDeviceScores;
+                case "#microsoft.graph.userExperienceAnalyticsDeviceStartupHistory":
+                    return deserializeIntoUserExperienceAnalyticsDeviceStartupHistory;
+                case "#microsoft.graph.userExperienceAnalyticsDeviceStartupProcess":
+                    return deserializeIntoUserExperienceAnalyticsDeviceStartupProcess;
+                case "#microsoft.graph.userExperienceAnalyticsMetric":
+                    return deserializeIntoUserExperienceAnalyticsMetric;
+                case "#microsoft.graph.userExperienceAnalyticsMetricHistory":
+                    return deserializeIntoUserExperienceAnalyticsMetricHistory;
+                case "#microsoft.graph.userExperienceAnalyticsModelScores":
+                    return deserializeIntoUserExperienceAnalyticsModelScores;
+                case "#microsoft.graph.userExperienceAnalyticsOverview":
+                    return deserializeIntoUserExperienceAnalyticsOverview;
+                case "#microsoft.graph.userExperienceAnalyticsScoreHistory":
+                    return deserializeIntoUserExperienceAnalyticsScoreHistory;
+                case "#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereDevice":
+                    return deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice;
+                case "#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric":
+                    return deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric;
+                case "#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric":
+                    return deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetric;
+                case "#microsoft.graph.userExperienceAnalyticsWorkFromAnywhereModelPerformance":
+                    return deserializeIntoUserExperienceAnalyticsWorkFromAnywhereModelPerformance;
                 case "#microsoft.graph.userFlowLanguageConfiguration":
                     return deserializeIntoUserFlowLanguageConfiguration;
                 case "#microsoft.graph.userFlowLanguagePage":
                     return deserializeIntoUserFlowLanguagePage;
                 case "#microsoft.graph.userInstallStateSummary":
                     return deserializeIntoUserInstallStateSummary;
+                case "#microsoft.graph.userRegistrationDetails":
+                    return deserializeIntoUserRegistrationDetails;
                 case "#microsoft.graph.userScopeTeamsAppInstallation":
                     return deserializeIntoUserScopeTeamsAppInstallation;
                 case "#microsoft.graph.userSettings":
                     return deserializeIntoUserSettings;
+                case "#microsoft.graph.userSignInInsight":
+                    return deserializeIntoUserSignInInsight;
                 case "#microsoft.graph.userTeamwork":
                     return deserializeIntoUserTeamwork;
                 case "#microsoft.graph.voiceAuthenticationMethodConfiguration":
@@ -1975,6 +2177,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoWindowsAutopilotDeviceIdentity;
                 case "#microsoft.graph.windowsDefenderAdvancedThreatProtectionConfiguration":
                     return deserializeIntoWindowsDefenderAdvancedThreatProtectionConfiguration;
+                case "#microsoft.graph.windowsDeviceMalwareState":
+                    return deserializeIntoWindowsDeviceMalwareState;
                 case "#microsoft.graph.windowsHelloForBusinessAuthenticationMethod":
                     return deserializeIntoWindowsHelloForBusinessAuthenticationMethod;
                 case "#microsoft.graph.windowsInformationProtection":
@@ -1987,6 +2191,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoWindowsInformationProtectionNetworkLearningSummary;
                 case "#microsoft.graph.windowsInformationProtectionPolicy":
                     return deserializeIntoWindowsInformationProtectionPolicy;
+                case "#microsoft.graph.windowsMalwareInformation":
+                    return deserializeIntoWindowsMalwareInformation;
                 case "#microsoft.graph.windowsMicrosoftEdgeApp":
                     return deserializeIntoWindowsMicrosoftEdgeApp;
                 case "#microsoft.graph.windowsMobileMSI":
@@ -1997,6 +2203,8 @@ export function createEntityFromDiscriminatorValue(parseNode: ParseNode | undefi
                     return deserializeIntoWindowsPhone81CustomConfiguration;
                 case "#microsoft.graph.windowsPhone81GeneralConfiguration":
                     return deserializeIntoWindowsPhone81GeneralConfiguration;
+                case "#microsoft.graph.windowsProtectionState":
+                    return deserializeIntoWindowsProtectionState;
                 case "#microsoft.graph.windowsUniversalAppX":
                     return deserializeIntoWindowsUniversalAppX;
                 case "#microsoft.graph.windowsUniversalAppXContainedApp":

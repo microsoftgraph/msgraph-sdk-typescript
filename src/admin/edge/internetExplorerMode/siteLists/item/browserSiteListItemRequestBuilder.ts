@@ -12,21 +12,27 @@ import {BrowserSiteListItemRequestBuilderPatchRequestConfiguration} from './brow
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {SharedCookiesRequestBuilder} from './sharedCookies/sharedCookiesRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
  */
 export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the publish method. */
+    /**
+     * Provides operations to call the publish method.
+     */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity. */
+    /**
+     * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
+     */
     public get sharedCookies(): SharedCookiesRequestBuilder {
         return new SharedCookiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity. */
+    /**
+     * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
+     */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,10 +47,9 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: BrowserSiteListItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: BrowserSiteListItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -52,16 +57,15 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteList
      * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BrowserSiteListItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSiteList | undefined> {
+    public get(requestConfiguration?: BrowserSiteListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -69,17 +73,16 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a browserSiteList object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BrowserSiteList
      * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BrowserSiteList | undefined, requestConfiguration?: BrowserSiteListItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BrowserSiteList | undefined> {
+    public patch(body: BrowserSiteList | undefined, requestConfiguration?: BrowserSiteListItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -88,7 +91,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BrowserSiteList>(requestInfo, createBrowserSiteListFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a browserSiteList object.

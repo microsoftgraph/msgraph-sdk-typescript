@@ -3,6 +3,8 @@ import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroublesho
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementTroubleshootingEventCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DeviceManagementTroubleshootingEvent[] | undefined;
 }

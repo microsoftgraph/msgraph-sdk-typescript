@@ -1,0 +1,13 @@
+import {createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsFromDiscriminatorValue} from './createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsFromDiscriminatorValue';
+import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
+import {serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails} from './serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails';
+import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails} from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails';
+import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse} from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse(userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse: UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse | undefined = {} as UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse) : Record<string, (node: ParseNode) => void> {
+    return {
+        ...deserializeIntoBaseCollectionPaginationCountResponse(userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse),
+        "value": n => { userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsCollectionResponse.value = n.getCollectionOfObjectValues<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails>(createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsFromDiscriminatorValue); },
+    }
+}

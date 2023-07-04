@@ -1,4 +1,6 @@
-/** Movies rating labels in New Zealand */
+/**
+ * Movies rating labels in New Zealand
+ */
 export enum RatingNewZealandMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

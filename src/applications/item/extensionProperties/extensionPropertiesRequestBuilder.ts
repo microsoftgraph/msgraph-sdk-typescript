@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExtensionPropertiesRequestBuilderGetRequestConfiguration} from './extensionPropertiesRequestBuilderGetRequestConfiguration';
 import {ExtensionPropertiesRequestBuilderPostRequestConfiguration} from './extensionPropertiesRequestBuilderPostRequestConfiguration';
 import {ExtensionPropertyItemRequestBuilder} from './item/extensionPropertyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
  */
 export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionPropertyCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/application-list-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ExtensionPropertiesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionPropertyCollectionResponse | undefined> {
+    public get(requestConfiguration?: ExtensionPropertiesRequestBuilderGetRequestConfiguration | undefined) : Promise<ExtensionPropertyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,17 +57,16 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ExtensionPropertyCollectionResponse>(requestInfo, createExtensionPropertyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ExtensionPropertyCollectionResponse>(requestInfo, createExtensionPropertyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new directory extension definition, represented by an extensionProperty object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionProperty
      * @see {@link https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ExtensionProperty | undefined, requestConfiguration?: ExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionProperty | undefined> {
+    public post(body: ExtensionProperty | undefined, requestConfiguration?: ExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<ExtensionProperty | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -75,7 +75,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.

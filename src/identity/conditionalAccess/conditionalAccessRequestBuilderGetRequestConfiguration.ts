@@ -2,10 +2,16 @@ import {ConditionalAccessRequestBuilderGetQueryParameters} from './conditionalAc
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ConditionalAccessRequestBuilderGetQueryParameters | undefined;
 }

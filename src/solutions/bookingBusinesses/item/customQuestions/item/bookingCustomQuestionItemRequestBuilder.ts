@@ -9,7 +9,7 @@ import {serializeBookingCustomQuestion} from '../../../../../models/serializeBoo
 import {BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration';
 import {BookingCustomQuestionItemRequestBuilderGetRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderGetRequestConfiguration';
 import {BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
@@ -26,10 +26,9 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
     /**
      * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCustomQuestion
      * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BookingCustomQuestionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingCustomQuestion | undefined> {
+    public get(requestConfiguration?: BookingCustomQuestionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingCustomQuestion | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -54,17 +52,16 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a bookingCustomQuestion object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingCustomQuestion
      * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BookingCustomQuestion | undefined, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingCustomQuestion | undefined> {
+    public patch(body: BookingCustomQuestion | undefined, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingCustomQuestion | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -73,7 +70,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BookingCustomQuestion>(requestInfo, createBookingCustomQuestionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a bookingCustomQuestion object.

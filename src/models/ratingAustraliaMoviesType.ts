@@ -1,4 +1,6 @@
-/** Movies rating labels in Australia */
+/**
+ * Movies rating labels in Australia
+ */
 export enum RatingAustraliaMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

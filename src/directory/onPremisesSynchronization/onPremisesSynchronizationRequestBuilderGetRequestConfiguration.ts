@@ -2,10 +2,16 @@ import {OnPremisesSynchronizationRequestBuilderGetQueryParameters} from './onPre
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesSynchronizationRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: OnPremisesSynchronizationRequestBuilderGetQueryParameters | undefined;
 }

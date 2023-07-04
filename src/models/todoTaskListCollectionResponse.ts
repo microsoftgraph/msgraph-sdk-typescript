@@ -3,6 +3,8 @@ import {TodoTaskList} from './todoTaskList';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TodoTaskListCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: TodoTaskList[] | undefined;
 }

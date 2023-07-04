@@ -11,17 +11,21 @@ import {CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration} from './cr
 import {CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration} from './crossTenantAccessPolicyRequestBuilderPatchRequestConfiguration';
 import {DefaultRequestBuilder} from './defaultEscaped/defaultRequestBuilder';
 import {PartnersRequestBuilder} from './partners/partnersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.
  */
 export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity. */
+    /**
+     * Provides operations to manage the default property of the microsoft.graph.crossTenantAccessPolicy entity.
+     */
     public get defaultEscaped(): DefaultRequestBuilder {
         return new DefaultRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity. */
+    /**
+     * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
+     */
     public get partners(): PartnersRequestBuilder {
         return new PartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property crossTenantAccessPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a crossTenantAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicy
      * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
+    public get(requestConfiguration?: CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +65,16 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a cross-tenant access policy.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantAccessPolicy
      * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CrossTenantAccessPolicy | undefined, requestConfiguration?: CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
+    public patch(body: CrossTenantAccessPolicy | undefined, requestConfiguration?: CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -82,7 +83,7 @@ export class CrossTenantAccessPolicyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CrossTenantAccessPolicy>(requestInfo, createCrossTenantAccessPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property crossTenantAccessPolicy for policies

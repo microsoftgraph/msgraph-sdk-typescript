@@ -13,13 +13,15 @@ import {AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration} 
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {ApprovalItemRequestBuilder} from './item/approvalItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
  */
 export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -54,10 +56,9 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
     /**
      * In Azure AD entitlement management, retrieve the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalCollectionResponse
      */
-    public get(requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalCollectionResponse | undefined> {
+    public get(requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration | undefined) : Promise<ApprovalCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -65,16 +66,15 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ApprovalCollectionResponse>(requestInfo, createApprovalCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ApprovalCollectionResponse>(requestInfo, createApprovalCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to accessPackageAssignmentApprovals for identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval
      */
-    public post(body: Approval | undefined, requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Approval | undefined> {
+    public post(body: Approval | undefined, requestConfiguration?: AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration | undefined) : Promise<Approval | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -83,7 +83,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, errorMapping);
     };
     /**
      * In Azure AD entitlement management, retrieve the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.

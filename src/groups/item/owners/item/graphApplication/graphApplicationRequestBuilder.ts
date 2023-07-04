@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {GraphApplicationRequestBuilderGetRequestConfiguration} from './graphApplicationRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Casts the previous resource to application.
@@ -22,10 +22,9 @@ export class GraphApplicationRequestBuilder extends BaseRequestBuilder {
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.application
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Application
      */
-    public get(requestConfiguration?: GraphApplicationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Application | undefined> {
+    public get(requestConfiguration?: GraphApplicationRequestBuilderGetRequestConfiguration | undefined) : Promise<Application | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class GraphApplicationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the item of type microsoft.graph.directoryObject as microsoft.graph.application

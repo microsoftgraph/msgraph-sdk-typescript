@@ -10,7 +10,7 @@ import {deserializeIntoEcma_CeilingPostRequestBody} from './deserializeIntoEcma_
 import {Ecma_CeilingPostRequestBody} from './ecma_CeilingPostRequestBody';
 import {Ecma_CeilingRequestBuilderPostRequestConfiguration} from './ecma_CeilingRequestBuilderPostRequestConfiguration';
 import {serializeEcma_CeilingPostRequestBody} from './serializeEcma_CeilingPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the ecma_Ceiling method.
@@ -28,10 +28,9 @@ export class Ecma_CeilingRequestBuilder extends BaseRequestBuilder {
      * Invoke action ecma_Ceiling
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Ecma_CeilingPostRequestBody | undefined, requestConfiguration?: Ecma_CeilingRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
+    public post(body: Ecma_CeilingPostRequestBody | undefined, requestConfiguration?: Ecma_CeilingRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class Ecma_CeilingRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action ecma_Ceiling

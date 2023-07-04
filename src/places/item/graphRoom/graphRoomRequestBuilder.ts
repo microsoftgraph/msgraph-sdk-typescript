@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {GraphRoomRequestBuilderGetRequestConfiguration} from './graphRoomRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Casts the previous resource to room.
@@ -22,10 +22,9 @@ export class GraphRoomRequestBuilder extends BaseRequestBuilder {
     /**
      * Get the item of type microsoft.graph.place as microsoft.graph.room
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Room
      */
-    public get(requestConfiguration?: GraphRoomRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Room | undefined> {
+    public get(requestConfiguration?: GraphRoomRequestBuilderGetRequestConfiguration | undefined) : Promise<Room | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class GraphRoomRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Room>(requestInfo, createRoomFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Room>(requestInfo, createRoomFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the item of type microsoft.graph.place as microsoft.graph.room

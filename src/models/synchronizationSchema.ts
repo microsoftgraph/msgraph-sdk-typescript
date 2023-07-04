@@ -4,10 +4,16 @@ import {SynchronizationRule} from './synchronizationRule';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationSchema extends Entity, Parsable {
-    /** The directories property */
+    /**
+     * The directories property
+     */
     directories?: DirectoryDefinition[] | undefined;
-    /** The synchronizationRules property */
+    /**
+     * The synchronizationRules property
+     */
     synchronizationRules?: SynchronizationRule[] | undefined;
-    /** The version property */
+    /**
+     * The version property
+     */
     version?: string | undefined;
 }

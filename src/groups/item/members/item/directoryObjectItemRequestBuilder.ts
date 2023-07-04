@@ -11,31 +11,45 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /groups/{group-id}/members/{directoryObject-id}
  */
 export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
-    /** Casts the previous resource to application. */
+    /**
+     * Casts the previous resource to application.
+     */
     public get graphApplication(): GraphApplicationRequestBuilder {
         return new GraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to device. */
+    /**
+     * Casts the previous resource to device.
+     */
     public get graphDevice(): GraphDeviceRequestBuilder {
         return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to group. */
+    /**
+     * Casts the previous resource to group.
+     */
     public get graphGroup(): GraphGroupRequestBuilder {
         return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to orgContact. */
+    /**
+     * Casts the previous resource to orgContact.
+     */
     public get graphOrgContact(): GraphOrgContactRequestBuilder {
         return new GraphOrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to servicePrincipal. */
+    /**
+     * Casts the previous resource to servicePrincipal.
+     */
     public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
         return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to user. */
+    /**
+     * Casts the previous resource to user.
+     */
     public get graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of group entities. */
+    /**
+     * Provides operations to manage the collection of group entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

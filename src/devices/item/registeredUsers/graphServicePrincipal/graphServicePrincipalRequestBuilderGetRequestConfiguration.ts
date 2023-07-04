@@ -2,10 +2,16 @@ import {GraphServicePrincipalRequestBuilderGetQueryParameters} from './graphServ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GraphServicePrincipalRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: GraphServicePrincipalRequestBuilderGetQueryParameters | undefined;
 }

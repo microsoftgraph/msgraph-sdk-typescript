@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {EdiscoveryIndexOperation} from '../../../../../../../models/security/';
 import {createEdiscoveryIndexOperationFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryIndexOperationFromDiscriminatorValue';
 import {LastIndexOperationRequestBuilderGetRequestConfiguration} from './lastIndexOperationRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity.
@@ -22,10 +22,9 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
     /**
      * Operation entity that represents the latest indexing for the non-custodial data source.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryIndexOperation
      */
-    public get(requestConfiguration?: LastIndexOperationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryIndexOperation | undefined> {
+    public get(requestConfiguration?: LastIndexOperationRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryIndexOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class LastIndexOperationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoveryIndexOperation>(requestInfo, createEdiscoveryIndexOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoveryIndexOperation>(requestInfo, createEdiscoveryIndexOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Operation entity that represents the latest indexing for the non-custodial data source.

@@ -1,4 +1,6 @@
-/** The current status of the Exchange Connector. */
+/**
+ * The current status of the Exchange Connector.
+ */
 export enum DeviceManagementExchangeConnectorStatus {
     /** No Connector exists. */
     None = "none",

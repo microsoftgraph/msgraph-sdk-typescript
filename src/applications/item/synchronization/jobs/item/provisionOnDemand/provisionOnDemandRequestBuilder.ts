@@ -10,7 +10,7 @@ import {deserializeIntoProvisionOnDemandPostRequestBody} from './deserializeInto
 import {ProvisionOnDemandPostRequestBody} from './provisionOnDemandPostRequestBody';
 import {ProvisionOnDemandRequestBuilderPostRequestConfiguration} from './provisionOnDemandRequestBuilderPostRequestConfiguration';
 import {serializeProvisionOnDemandPostRequestBody} from './serializeProvisionOnDemandPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the provisionOnDemand method.
@@ -28,10 +28,9 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
      * Invoke action provisionOnDemand
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StringKeyStringValuePair
      */
-    public post(body: ProvisionOnDemandPostRequestBody | undefined, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StringKeyStringValuePair | undefined> {
+    public post(body: ProvisionOnDemandPostRequestBody | undefined, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : Promise<StringKeyStringValuePair | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<StringKeyStringValuePair>(requestInfo, createStringKeyStringValuePairFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<StringKeyStringValuePair>(requestInfo, createStringKeyStringValuePairFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action provisionOnDemand

@@ -18,45 +18,63 @@ import {OrgContactItemRequestBuilderGetRequestConfiguration} from './orgContactI
 import {OrgContactItemRequestBuilderPatchRequestConfiguration} from './orgContactItemRequestBuilderPatchRequestConfiguration';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of orgContact entities.
  */
 export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the checkMemberGroups method. */
+    /**
+     * Provides operations to call the checkMemberGroups method.
+     */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkMemberObjects method. */
+    /**
+     * Provides operations to call the checkMemberObjects method.
+     */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the directReports property of the microsoft.graph.orgContact entity. */
+    /**
+     * Provides operations to manage the directReports property of the microsoft.graph.orgContact entity.
+     */
     public get directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberGroups method. */
+    /**
+     * Provides operations to call the getMemberGroups method.
+     */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberObjects method. */
+    /**
+     * Provides operations to call the getMemberObjects method.
+     */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the manager property of the microsoft.graph.orgContact entity. */
+    /**
+     * Provides operations to manage the manager property of the microsoft.graph.orgContact entity.
+     */
     public get manager(): ManagerRequestBuilder {
         return new ManagerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the memberOf property of the microsoft.graph.orgContact entity. */
+    /**
+     * Provides operations to manage the memberOf property of the microsoft.graph.orgContact entity.
+     */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restore method. */
+    /**
+     * Provides operations to call the restore method.
+     */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity. */
+    /**
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity.
+     */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,9 +89,8 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from contacts
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: OrgContactItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: OrgContactItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,16 +98,15 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the properties and relationships of an organizational contact.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrgContact
      * @see {@link https://docs.microsoft.com/graph/api/orgcontact-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: OrgContactItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrgContact | undefined> {
+    public get(requestConfiguration?: OrgContactItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OrgContact | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -98,16 +114,15 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<OrgContact>(requestInfo, createOrgContactFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<OrgContact>(requestInfo, createOrgContactFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in contacts
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrgContact
      */
-    public patch(body: OrgContact | undefined, requestConfiguration?: OrgContactItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrgContact | undefined> {
+    public patch(body: OrgContact | undefined, requestConfiguration?: OrgContactItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OrgContact | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -116,7 +131,7 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<OrgContact>(requestInfo, createOrgContactFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<OrgContact>(requestInfo, createOrgContactFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from contacts

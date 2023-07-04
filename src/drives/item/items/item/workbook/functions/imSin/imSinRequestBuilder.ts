@@ -10,7 +10,7 @@ import {deserializeIntoImSinPostRequestBody} from './deserializeIntoImSinPostReq
 import {ImSinPostRequestBody} from './imSinPostRequestBody';
 import {ImSinRequestBuilderPostRequestConfiguration} from './imSinRequestBuilderPostRequestConfiguration';
 import {serializeImSinPostRequestBody} from './serializeImSinPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imSin method.
@@ -28,10 +28,9 @@ export class ImSinRequestBuilder extends BaseRequestBuilder {
      * Invoke action imSin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: ImSinPostRequestBody | undefined, requestConfiguration?: ImSinRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
+    public post(body: ImSinPostRequestBody | undefined, requestConfiguration?: ImSinRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class ImSinRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action imSin

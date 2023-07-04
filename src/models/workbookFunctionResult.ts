@@ -3,8 +3,12 @@ import {Json} from './json';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookFunctionResult extends Entity, Parsable {
-    /** The error property */
+    /**
+     * The error property
+     */
     errorEscaped?: string | undefined;
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: Json | undefined;
 }

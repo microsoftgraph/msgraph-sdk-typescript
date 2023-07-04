@@ -19,49 +19,69 @@ import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwner
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.
  */
 export class DeviceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the checkMemberGroups method. */
+    /**
+     * Provides operations to call the checkMemberGroups method.
+     */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkMemberObjects method. */
+    /**
+     * Provides operations to call the checkMemberObjects method.
+     */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensions property of the microsoft.graph.device entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.device entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberGroups method. */
+    /**
+     * Provides operations to call the getMemberGroups method.
+     */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberObjects method. */
+    /**
+     * Provides operations to call the getMemberObjects method.
+     */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the memberOf property of the microsoft.graph.device entity. */
+    /**
+     * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
+     */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the registeredOwners property of the microsoft.graph.device entity. */
+    /**
+     * Provides operations to manage the registeredOwners property of the microsoft.graph.device entity.
+     */
     public get registeredOwners(): RegisteredOwnersRequestBuilder {
         return new RegisteredOwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the registeredUsers property of the microsoft.graph.device entity. */
+    /**
+     * Provides operations to manage the registeredUsers property of the microsoft.graph.device entity.
+     */
     public get registeredUsers(): RegisteredUsersRequestBuilder {
         return new RegisteredUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restore method. */
+    /**
+     * Provides operations to call the restore method.
+     */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity. */
+    /**
+     * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
+     */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -76,10 +96,9 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a registered device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/device-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DeviceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DeviceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -87,16 +106,15 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the properties and relationships of a device object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Device
      * @see {@link https://docs.microsoft.com/graph/api/device-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Device | undefined> {
+    public get(requestConfiguration?: DeviceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Device | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -104,17 +122,16 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a registered device. Only certain properties of a device can be updated through approved Mobile Device Managment (MDM) apps.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Device
      * @see {@link https://docs.microsoft.com/graph/api/device-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Device | undefined> {
+    public patch(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Device | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -123,7 +140,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a registered device.

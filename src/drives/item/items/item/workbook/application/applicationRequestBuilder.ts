@@ -10,13 +10,15 @@ import {ApplicationRequestBuilderDeleteRequestConfiguration} from './application
 import {ApplicationRequestBuilderGetRequestConfiguration} from './applicationRequestBuilderGetRequestConfiguration';
 import {ApplicationRequestBuilderPatchRequestConfiguration} from './applicationRequestBuilderPatchRequestConfiguration';
 import {CalculateRequestBuilder} from './calculate/calculateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the application property of the microsoft.graph.workbook entity.
  */
 export class ApplicationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the calculate method. */
+    /**
+     * Provides operations to call the calculate method.
+     */
     public get calculate(): CalculateRequestBuilder {
         return new CalculateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property application for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ApplicationRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ApplicationRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a workbookApplication object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookApplication
      * @see {@link https://docs.microsoft.com/graph/api/workbookapplication-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ApplicationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookApplication | undefined> {
+    public get(requestConfiguration?: ApplicationRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookApplication | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -58,16 +58,15 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookApplication>(requestInfo, createWorkbookApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookApplication>(requestInfo, createWorkbookApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property application in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookApplication
      */
-    public patch(body: WorkbookApplication | undefined, requestConfiguration?: ApplicationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookApplication | undefined> {
+    public patch(body: WorkbookApplication | undefined, requestConfiguration?: ApplicationRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookApplication | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -76,7 +75,7 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookApplication>(requestInfo, createWorkbookApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookApplication>(requestInfo, createWorkbookApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property application for drives

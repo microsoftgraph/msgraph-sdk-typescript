@@ -5,10 +5,16 @@ import {PlannerTask} from './plannerTask';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Planner extends Entity, Parsable {
-    /** Read-only. Nullable. Returns a collection of the specified buckets */
+    /**
+     * Read-only. Nullable. Returns a collection of the specified buckets
+     */
     buckets?: PlannerBucket[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified plans */
+    /**
+     * Read-only. Nullable. Returns a collection of the specified plans
+     */
     plans?: PlannerPlan[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified tasks */
+    /**
+     * Read-only. Nullable. Returns a collection of the specified tasks
+     */
     tasks?: PlannerTask[] | undefined;
 }

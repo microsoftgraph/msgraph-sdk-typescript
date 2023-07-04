@@ -9,7 +9,7 @@ import {serializePrintServiceEndpoint} from '../../../../../models/serializePrin
 import {PrintServiceEndpointItemRequestBuilderDeleteRequestConfiguration} from './printServiceEndpointItemRequestBuilderDeleteRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderGetRequestConfiguration} from './printServiceEndpointItemRequestBuilderGetRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderPatchRequestConfiguration} from './printServiceEndpointItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
@@ -26,9 +26,8 @@ export class PrintServiceEndpointItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property endpoints for print
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: PrintServiceEndpointItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PrintServiceEndpointItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class PrintServiceEndpointItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a print service endpoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintServiceEndpoint
      * @see {@link https://docs.microsoft.com/graph/api/printserviceendpoint-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PrintServiceEndpointItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintServiceEndpoint | undefined> {
+    public get(requestConfiguration?: PrintServiceEndpointItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintServiceEndpoint | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class PrintServiceEndpointItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintServiceEndpoint>(requestInfo, createPrintServiceEndpointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintServiceEndpoint>(requestInfo, createPrintServiceEndpointFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property endpoints in print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintServiceEndpoint
      */
-    public patch(body: PrintServiceEndpoint | undefined, requestConfiguration?: PrintServiceEndpointItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintServiceEndpoint | undefined> {
+    public patch(body: PrintServiceEndpoint | undefined, requestConfiguration?: PrintServiceEndpointItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintServiceEndpoint | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class PrintServiceEndpointItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintServiceEndpoint>(requestInfo, createPrintServiceEndpointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintServiceEndpoint>(requestInfo, createPrintServiceEndpointFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property endpoints for print

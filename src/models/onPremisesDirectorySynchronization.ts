@@ -4,8 +4,12 @@ import {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySy
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesDirectorySynchronization extends Entity, Parsable {
-    /** Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant. */
+    /**
+     * Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant.
+     */
     configuration?: OnPremisesDirectorySynchronizationConfiguration | undefined;
-    /** The features property */
+    /**
+     * The features property
+     */
     features?: OnPremisesDirectorySynchronizationFeature | undefined;
 }

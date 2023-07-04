@@ -1,4 +1,6 @@
-/** Indicates the package type of an MSI Win32LobApp. */
+/**
+ * Indicates the package type of an MSI Win32LobApp.
+ */
 export enum Win32LobAppMsiPackageType {
     /** Indicates a per-machine app package. */
     PerMachine = "perMachine",

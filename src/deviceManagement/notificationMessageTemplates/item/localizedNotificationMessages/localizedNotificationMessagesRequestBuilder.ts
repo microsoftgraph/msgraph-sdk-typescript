@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LocalizedNotificationMessageItemRequestBuilder} from './item/localizedNotificationMessageItemRequestBuilder';
 import {LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration} from './localizedNotificationMessagesRequestBuilderGetRequestConfiguration';
 import {LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration} from './localizedNotificationMessagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
  */
 export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -42,12 +44,12 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The list of localized messages for this Notification Message Template.
+     * List properties and relationships of the localizedNotificationMessage objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LocalizedNotificationMessageCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LocalizedNotificationMessageCollectionResponse | undefined> {
+    public get(requestConfiguration?: LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration | undefined) : Promise<LocalizedNotificationMessageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +57,16 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LocalizedNotificationMessageCollectionResponse>(requestInfo, createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LocalizedNotificationMessageCollectionResponse>(requestInfo, createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to localizedNotificationMessages for deviceManagement
+     * Create a new localizedNotificationMessage object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LocalizedNotificationMessage
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: LocalizedNotificationMessage | undefined, requestConfiguration?: LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LocalizedNotificationMessage | undefined> {
+    public post(body: LocalizedNotificationMessage | undefined, requestConfiguration?: LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration | undefined) : Promise<LocalizedNotificationMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,10 +75,10 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LocalizedNotificationMessage>(requestInfo, createLocalizedNotificationMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LocalizedNotificationMessage>(requestInfo, createLocalizedNotificationMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The list of localized messages for this Notification Message Template.
+     * List properties and relationships of the localizedNotificationMessage objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Create new navigation property to localizedNotificationMessages for deviceManagement
+     * Create a new localizedNotificationMessage object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

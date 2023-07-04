@@ -3,6 +3,8 @@ import {User} from './user';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: User[] | undefined;
 }

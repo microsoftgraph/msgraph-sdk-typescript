@@ -9,7 +9,7 @@ import {serializeFilterOperatorSchema} from '../../models/serializeFilterOperato
 import {FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration';
 import {FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderGetRequestConfiguration';
 import {FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of filterOperatorSchema entities.
@@ -26,9 +26,8 @@ export class FilterOperatorSchemaItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from filterOperators
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class FilterOperatorSchemaItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get entity from filterOperators by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FilterOperatorSchema
      */
-    public get(requestConfiguration?: FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FilterOperatorSchema | undefined> {
+    public get(requestConfiguration?: FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration | undefined) : Promise<FilterOperatorSchema | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class FilterOperatorSchemaItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<FilterOperatorSchema>(requestInfo, createFilterOperatorSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<FilterOperatorSchema>(requestInfo, createFilterOperatorSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in filterOperators
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FilterOperatorSchema
      */
-    public patch(body: FilterOperatorSchema | undefined, requestConfiguration?: FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FilterOperatorSchema | undefined> {
+    public patch(body: FilterOperatorSchema | undefined, requestConfiguration?: FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<FilterOperatorSchema | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class FilterOperatorSchemaItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<FilterOperatorSchema>(requestInfo, createFilterOperatorSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<FilterOperatorSchema>(requestInfo, createFilterOperatorSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from filterOperators

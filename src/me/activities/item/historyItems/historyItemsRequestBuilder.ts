@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryItemsRequestBuilderGetRequestConfiguration} from './historyItemsRequestBuilderGetRequestConfiguration';
 import {HistoryItemsRequestBuilderPostRequestConfiguration} from './historyItemsRequestBuilderPostRequestConfiguration';
 import {ActivityHistoryItemItemRequestBuilder} from './item/activityHistoryItemItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
  */
 export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,9 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
     /**
      * Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ActivityHistoryItemCollectionResponse
      */
-    public get(requestConfiguration?: HistoryItemsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItemCollectionResponse | undefined> {
+    public get(requestConfiguration?: HistoryItemsRequestBuilderGetRequestConfiguration | undefined) : Promise<ActivityHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +56,15 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ActivityHistoryItemCollectionResponse>(requestInfo, createActivityHistoryItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ActivityHistoryItemCollectionResponse>(requestInfo, createActivityHistoryItemCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to historyItems for me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ActivityHistoryItem
      */
-    public post(body: ActivityHistoryItem | undefined, requestConfiguration?: HistoryItemsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivityHistoryItem | undefined> {
+    public post(body: ActivityHistoryItem | undefined, requestConfiguration?: HistoryItemsRequestBuilderPostRequestConfiguration | undefined) : Promise<ActivityHistoryItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,7 +73,7 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ActivityHistoryItem>(requestInfo, createActivityHistoryItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ActivityHistoryItem>(requestInfo, createActivityHistoryItemFromDiscriminatorValue, errorMapping);
     };
     /**
      * Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.

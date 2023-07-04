@@ -28,85 +28,123 @@ import {GetSettingNonComplianceReportRequestBuilder} from './getSettingNonCompli
 import {ReportsRequestBuilderDeleteRequestConfiguration} from './reportsRequestBuilderDeleteRequestConfiguration';
 import {ReportsRequestBuilderGetRequestConfiguration} from './reportsRequestBuilderGetRequestConfiguration';
 import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.
  */
 export class ReportsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity. */
+    /**
+     * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
+     */
     public get exportJobs(): ExportJobsRequestBuilder {
         return new ExportJobsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getCachedReport method. */
+    /**
+     * Provides operations to call the getCachedReport method.
+     */
     public get getCachedReport(): GetCachedReportRequestBuilder {
         return new GetCachedReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getCompliancePolicyNonComplianceReport method. */
+    /**
+     * Provides operations to call the getCompliancePolicyNonComplianceReport method.
+     */
     public get getCompliancePolicyNonComplianceReport(): GetCompliancePolicyNonComplianceReportRequestBuilder {
         return new GetCompliancePolicyNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getCompliancePolicyNonComplianceSummaryReport method. */
+    /**
+     * Provides operations to call the getCompliancePolicyNonComplianceSummaryReport method.
+     */
     public get getCompliancePolicyNonComplianceSummaryReport(): GetCompliancePolicyNonComplianceSummaryReportRequestBuilder {
         return new GetCompliancePolicyNonComplianceSummaryReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getComplianceSettingNonComplianceReport method. */
+    /**
+     * Provides operations to call the getComplianceSettingNonComplianceReport method.
+     */
     public get getComplianceSettingNonComplianceReport(): GetComplianceSettingNonComplianceReportRequestBuilder {
         return new GetComplianceSettingNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getConfigurationPolicyNonComplianceReport method. */
+    /**
+     * Provides operations to call the getConfigurationPolicyNonComplianceReport method.
+     */
     public get getConfigurationPolicyNonComplianceReport(): GetConfigurationPolicyNonComplianceReportRequestBuilder {
         return new GetConfigurationPolicyNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method. */
+    /**
+     * Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method.
+     */
     public get getConfigurationPolicyNonComplianceSummaryReport(): GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder {
         return new GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getConfigurationSettingNonComplianceReport method. */
+    /**
+     * Provides operations to call the getConfigurationSettingNonComplianceReport method.
+     */
     public get getConfigurationSettingNonComplianceReport(): GetConfigurationSettingNonComplianceReportRequestBuilder {
         return new GetConfigurationSettingNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method. */
+    /**
+     * Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method.
+     */
     public get getDeviceManagementIntentPerSettingContributingProfiles(): GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder {
         return new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getDeviceManagementIntentSettingsReport method. */
+    /**
+     * Provides operations to call the getDeviceManagementIntentSettingsReport method.
+     */
     public get getDeviceManagementIntentSettingsReport(): GetDeviceManagementIntentSettingsReportRequestBuilder {
         return new GetDeviceManagementIntentSettingsReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getDeviceNonComplianceReport method. */
+    /**
+     * Provides operations to call the getDeviceNonComplianceReport method.
+     */
     public get getDeviceNonComplianceReport(): GetDeviceNonComplianceReportRequestBuilder {
         return new GetDeviceNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getDevicesWithoutCompliancePolicyReport method. */
+    /**
+     * Provides operations to call the getDevicesWithoutCompliancePolicyReport method.
+     */
     public get getDevicesWithoutCompliancePolicyReport(): GetDevicesWithoutCompliancePolicyReportRequestBuilder {
         return new GetDevicesWithoutCompliancePolicyReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getHistoricalReport method. */
+    /**
+     * Provides operations to call the getHistoricalReport method.
+     */
     public get getHistoricalReport(): GetHistoricalReportRequestBuilder {
         return new GetHistoricalReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getNoncompliantDevicesAndSettingsReport method. */
+    /**
+     * Provides operations to call the getNoncompliantDevicesAndSettingsReport method.
+     */
     public get getNoncompliantDevicesAndSettingsReport(): GetNoncompliantDevicesAndSettingsReportRequestBuilder {
         return new GetNoncompliantDevicesAndSettingsReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getPolicyNonComplianceMetadata method. */
+    /**
+     * Provides operations to call the getPolicyNonComplianceMetadata method.
+     */
     public get getPolicyNonComplianceMetadata(): GetPolicyNonComplianceMetadataRequestBuilder {
         return new GetPolicyNonComplianceMetadataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getPolicyNonComplianceReport method. */
+    /**
+     * Provides operations to call the getPolicyNonComplianceReport method.
+     */
     public get getPolicyNonComplianceReport(): GetPolicyNonComplianceReportRequestBuilder {
         return new GetPolicyNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getPolicyNonComplianceSummaryReport method. */
+    /**
+     * Provides operations to call the getPolicyNonComplianceSummaryReport method.
+     */
     public get getPolicyNonComplianceSummaryReport(): GetPolicyNonComplianceSummaryReportRequestBuilder {
         return new GetPolicyNonComplianceSummaryReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getReportFilters method. */
+    /**
+     * Provides operations to call the getReportFilters method.
+     */
     public get getReportFilters(): GetReportFiltersRequestBuilder {
         return new GetReportFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getSettingNonComplianceReport method. */
+    /**
+     * Provides operations to call the getSettingNonComplianceReport method.
+     */
     public get getSettingNonComplianceReport(): GetSettingNonComplianceReportRequestBuilder {
         return new GetSettingNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -121,9 +159,8 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property reports for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ReportsRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ReportsRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -131,15 +168,15 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Reports singleton
+     * Read properties and relationships of the deviceManagementReports object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementReports
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementReports | undefined> {
+    public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementReports | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -147,16 +184,16 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceManagementReports>(requestInfo, createDeviceManagementReportsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceManagementReports>(requestInfo, createDeviceManagementReportsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property reports in deviceManagement
+     * Update the properties of a deviceManagementReports object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagementReports
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceManagementReports | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagementReports | undefined> {
+    public patch(body: DeviceManagementReports | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementReports | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -165,7 +202,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceManagementReports>(requestInfo, createDeviceManagementReportsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceManagementReports>(requestInfo, createDeviceManagementReportsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property reports for deviceManagement
@@ -184,7 +221,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Reports singleton
+     * Read properties and relationships of the deviceManagementReports object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -202,7 +239,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property reports in deviceManagement
+     * Update the properties of a deviceManagementReports object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

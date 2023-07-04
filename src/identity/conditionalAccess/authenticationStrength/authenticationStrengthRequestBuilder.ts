@@ -11,17 +11,21 @@ import {AuthenticationStrengthRequestBuilderDeleteRequestConfiguration} from './
 import {AuthenticationStrengthRequestBuilderGetRequestConfiguration} from './authenticationStrengthRequestBuilderGetRequestConfiguration';
 import {AuthenticationStrengthRequestBuilderPatchRequestConfiguration} from './authenticationStrengthRequestBuilderPatchRequestConfiguration';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.
  */
 export class AuthenticationStrengthRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity. */
+    /**
+     * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
+     */
     public get authenticationMethodModes(): AuthenticationMethodModesRequestBuilder {
         return new AuthenticationMethodModesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity. */
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.
+     */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class AuthenticationStrengthRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property authenticationStrength for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AuthenticationStrengthRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AuthenticationStrengthRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,15 +49,14 @@ export class AuthenticationStrengthRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get authenticationStrength from identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationStrengthRoot
      */
-    public get(requestConfiguration?: AuthenticationStrengthRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationStrengthRoot | undefined> {
+    public get(requestConfiguration?: AuthenticationStrengthRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationStrengthRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,16 +64,15 @@ export class AuthenticationStrengthRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationStrengthRoot>(requestInfo, createAuthenticationStrengthRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationStrengthRoot>(requestInfo, createAuthenticationStrengthRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property authenticationStrength in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationStrengthRoot
      */
-    public patch(body: AuthenticationStrengthRoot | undefined, requestConfiguration?: AuthenticationStrengthRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationStrengthRoot | undefined> {
+    public patch(body: AuthenticationStrengthRoot | undefined, requestConfiguration?: AuthenticationStrengthRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationStrengthRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -80,7 +81,7 @@ export class AuthenticationStrengthRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationStrengthRoot>(requestInfo, createAuthenticationStrengthRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationStrengthRoot>(requestInfo, createAuthenticationStrengthRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property authenticationStrength for identity

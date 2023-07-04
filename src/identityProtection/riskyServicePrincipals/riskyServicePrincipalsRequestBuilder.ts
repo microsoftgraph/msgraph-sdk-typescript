@@ -14,21 +14,27 @@ import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
 import {RiskyServicePrincipalItemRequestBuilder} from './item/riskyServicePrincipalItemRequestBuilder';
 import {RiskyServicePrincipalsRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalsRequestBuilderPostRequestConfiguration} from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
  */
 export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the confirmCompromised method. */
+    /**
+     * Provides operations to call the confirmCompromised method.
+     */
     public get confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dismiss method. */
+    /**
+     * Provides operations to call the dismiss method.
+     */
     public get dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -54,11 +60,10 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve the properties and relationships of riskyServicePrincipal objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyServicePrincipalCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/identityprotectionroot-list-riskyserviceprincipals?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RiskyServicePrincipalsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyServicePrincipalCollectionResponse | undefined> {
+    public get(requestConfiguration?: RiskyServicePrincipalsRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyServicePrincipalCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -66,16 +71,15 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RiskyServicePrincipalCollectionResponse>(requestInfo, createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RiskyServicePrincipalCollectionResponse>(requestInfo, createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to riskyServicePrincipals for identityProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyServicePrincipal
      */
-    public post(body: RiskyServicePrincipal | undefined, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyServicePrincipal | undefined> {
+    public post(body: RiskyServicePrincipal | undefined, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : Promise<RiskyServicePrincipal | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -84,7 +88,7 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RiskyServicePrincipal>(requestInfo, createRiskyServicePrincipalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RiskyServicePrincipal>(requestInfo, createRiskyServicePrincipalFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of riskyServicePrincipal objects.

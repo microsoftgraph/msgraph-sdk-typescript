@@ -8,17 +8,21 @@ import {AllowedGroupsRequestBuilderGetRequestConfiguration} from './allowedGroup
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.
  */
 export class AllowedGroupsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of print entities. */
+    /**
+     * Provides operations to manage the collection of print entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +48,10 @@ export class AllowedGroupsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AllowedGroupsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GroupCollectionResponse | undefined> {
+    public get(requestConfiguration?: AllowedGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,7 +59,7 @@ export class AllowedGroupsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<GroupCollectionResponse>(requestInfo, createGroupCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<GroupCollectionResponse>(requestInfo, createGroupCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.

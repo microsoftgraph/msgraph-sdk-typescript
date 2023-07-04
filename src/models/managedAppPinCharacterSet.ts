@@ -1,4 +1,6 @@
-/** Character set which is to be used for a user's app PIN */
+/**
+ * Character set which is to be used for a user's app PIN
+ */
 export enum ManagedAppPinCharacterSet {
     /** Numeric characters */
     Numeric = "numeric",

@@ -9,7 +9,7 @@ import {serializeManagedEBookAssignment} from '../../../../../models/serializeMa
 import {ManagedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderGetRequestConfiguration';
 import {ManagedEBookAssignmentItemRequestBuilderPatchRequestConfiguration} from './managedEBookAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
@@ -24,11 +24,11 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/assignments/{managedEBookAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a iosVppEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebookassignment-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +36,15 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of assignments for this eBook.
+     * Read properties and relationships of the iosVppEBookAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedEBookAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebookassignment-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedEBookAssignment | undefined> {
+    public get(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedEBookAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +52,16 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedEBookAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebookassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedEBookAssignment | undefined, requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedEBookAssignment | undefined> {
+    public patch(body: ManagedEBookAssignment | undefined, requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedEBookAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,10 +70,10 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a iosVppEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * The list of assignments for this eBook.
+     * Read properties and relationships of the iosVppEBookAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

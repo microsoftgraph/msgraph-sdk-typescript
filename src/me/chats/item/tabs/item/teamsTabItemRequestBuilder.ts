@@ -10,13 +10,15 @@ import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
 import {TeamsTabItemRequestBuilderDeleteRequestConfiguration} from './teamsTabItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsTabItemRequestBuilderGetRequestConfiguration} from './teamsTabItemRequestBuilderGetRequestConfiguration';
 import {TeamsTabItemRequestBuilderPatchRequestConfiguration} from './teamsTabItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
  */
 export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the teamsApp property of the microsoft.graph.teamsTab entity. */
+    /**
+     * Provides operations to manage the teamsApp property of the microsoft.graph.teamsTab entity.
+     */
     public get teamsApp(): TeamsAppRequestBuilder {
         return new TeamsAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,10 +33,9 @@ export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove (unpin) a tab from the specified chat. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: TeamsTabItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: TeamsTabItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -42,16 +43,15 @@ export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of the specified tab in a chat. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTab
      * @see {@link https://docs.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TeamsTabItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTab | undefined> {
+    public get(requestConfiguration?: TeamsTabItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -59,17 +59,16 @@ export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TeamsTab>(requestInfo, createTeamsTabFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TeamsTab>(requestInfo, createTeamsTabFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of the specified tab in a chat. This can be used to configure the content of the tab.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamsTab
      * @see {@link https://docs.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TeamsTab | undefined, requestConfiguration?: TeamsTabItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsTab | undefined> {
+    public patch(body: TeamsTab | undefined, requestConfiguration?: TeamsTabItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -78,7 +77,7 @@ export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TeamsTab>(requestInfo, createTeamsTabFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TeamsTab>(requestInfo, createTeamsTabFromDiscriminatorValue, errorMapping);
     };
     /**
      * Remove (unpin) a tab from the specified chat. 

@@ -9,7 +9,7 @@ import {serializeFieldValueSet} from '../../../../../../../../../../../models/se
 import {FieldsRequestBuilderDeleteRequestConfiguration} from './fieldsRequestBuilderDeleteRequestConfiguration';
 import {FieldsRequestBuilderGetRequestConfiguration} from './fieldsRequestBuilderGetRequestConfiguration';
 import {FieldsRequestBuilderPatchRequestConfiguration} from './fieldsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fields property of the microsoft.graph.listItemVersion entity.
@@ -26,9 +26,8 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property fields for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: FieldsRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: FieldsRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * A collection of the fields and values for this version of the list item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FieldValueSet
      */
-    public get(requestConfiguration?: FieldsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FieldValueSet | undefined> {
+    public get(requestConfiguration?: FieldsRequestBuilderGetRequestConfiguration | undefined) : Promise<FieldValueSet | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<FieldValueSet>(requestInfo, createFieldValueSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<FieldValueSet>(requestInfo, createFieldValueSetFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property fields in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FieldValueSet
      */
-    public patch(body: FieldValueSet | undefined, requestConfiguration?: FieldsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FieldValueSet | undefined> {
+    public patch(body: FieldValueSet | undefined, requestConfiguration?: FieldsRequestBuilderPatchRequestConfiguration | undefined) : Promise<FieldValueSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<FieldValueSet>(requestInfo, createFieldValueSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<FieldValueSet>(requestInfo, createFieldValueSetFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property fields for groups

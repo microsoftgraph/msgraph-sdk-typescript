@@ -11,7 +11,11 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoParticipantEndpoint(participantEndpoint: ParticipantEndpoint | undefined = {} as ParticipantEndpoint) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEndpoint(participantEndpoint),
+        "cpuCoresCount": n => { participantEndpoint.cpuCoresCount = n.getNumberValue(); },
+        "cpuName": n => { participantEndpoint.cpuName = n.getStringValue(); },
+        "cpuProcessorSpeedInMhz": n => { participantEndpoint.cpuProcessorSpeedInMhz = n.getNumberValue(); },
         "feedback": n => { participantEndpoint.feedback = n.getObjectValue<UserFeedback>(createUserFeedbackFromDiscriminatorValue); },
         "identity": n => { participantEndpoint.identity = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+        "name": n => { participantEndpoint.name = n.getStringValue(); },
     }
 }

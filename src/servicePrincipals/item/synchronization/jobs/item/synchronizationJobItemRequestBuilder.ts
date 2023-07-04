@@ -15,33 +15,45 @@ import {SynchronizationJobItemRequestBuilderDeleteRequestConfiguration} from './
 import {SynchronizationJobItemRequestBuilderGetRequestConfiguration} from './synchronizationJobItemRequestBuilderGetRequestConfiguration';
 import {SynchronizationJobItemRequestBuilderPatchRequestConfiguration} from './synchronizationJobItemRequestBuilderPatchRequestConfiguration';
 import {ValidateCredentialsRequestBuilder} from './validateCredentials/validateCredentialsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
  */
 export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the pause method. */
+    /**
+     * Provides operations to call the pause method.
+     */
     public get pause(): PauseRequestBuilder {
         return new PauseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the provisionOnDemand method. */
+    /**
+     * Provides operations to call the provisionOnDemand method.
+     */
     public get provisionOnDemand(): ProvisionOnDemandRequestBuilder {
         return new ProvisionOnDemandRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restart method. */
+    /**
+     * Provides operations to call the restart method.
+     */
     public get restart(): RestartRequestBuilder {
         return new RestartRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity. */
+    /**
+     * Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
+     */
     public get schema(): SchemaRequestBuilder {
         return new SchemaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the start method. */
+    /**
+     * Provides operations to call the start method.
+     */
     public get start(): StartRequestBuilder {
         return new StartRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the validateCredentials method. */
+    /**
+     * Provides operations to call the validateCredentials method.
+     */
     public get validateCredentials(): ValidateCredentialsRequestBuilder {
         return new ValidateCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -56,9 +68,8 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property jobs for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: SynchronizationJobItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: SynchronizationJobItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -66,15 +77,14 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get jobs from servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SynchronizationJob
      */
-    public get(requestConfiguration?: SynchronizationJobItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SynchronizationJob | undefined> {
+    public get(requestConfiguration?: SynchronizationJobItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -82,16 +92,15 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SynchronizationJob>(requestInfo, createSynchronizationJobFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SynchronizationJob>(requestInfo, createSynchronizationJobFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property jobs in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SynchronizationJob
      */
-    public patch(body: SynchronizationJob | undefined, requestConfiguration?: SynchronizationJobItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SynchronizationJob | undefined> {
+    public patch(body: SynchronizationJob | undefined, requestConfiguration?: SynchronizationJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -100,7 +109,7 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SynchronizationJob>(requestInfo, createSynchronizationJobFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SynchronizationJob>(requestInfo, createSynchronizationJobFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property jobs for servicePrincipals

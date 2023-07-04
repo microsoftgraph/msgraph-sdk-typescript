@@ -1,4 +1,6 @@
-/** Device threat protection levels for the Device Threat Protection API. */
+/**
+ * Device threat protection levels for the Device Threat Protection API.
+ */
 export enum DeviceThreatProtectionLevel {
     /** Default Value. Do not use. */
     Unavailable = "unavailable",

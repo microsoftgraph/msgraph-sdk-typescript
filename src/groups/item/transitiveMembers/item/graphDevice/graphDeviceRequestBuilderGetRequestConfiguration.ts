@@ -2,10 +2,16 @@ import {GraphDeviceRequestBuilderGetQueryParameters} from './graphDeviceRequestB
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GraphDeviceRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: GraphDeviceRequestBuilderGetQueryParameters | undefined;
 }

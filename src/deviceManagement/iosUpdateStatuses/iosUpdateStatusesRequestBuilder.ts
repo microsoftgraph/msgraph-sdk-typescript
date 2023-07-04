@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IosUpdateStatusesRequestBuilderGetRequestConfiguration} from './iosUpdateStatusesRequestBuilderGetRequestConfiguration';
 import {IosUpdateStatusesRequestBuilderPostRequestConfiguration} from './iosUpdateStatusesRequestBuilderPostRequestConfiguration';
 import {IosUpdateDeviceStatusItemRequestBuilder} from './item/iosUpdateDeviceStatusItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
  */
 export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -42,12 +44,12 @@ export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/iosUpdateStatuses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The IOS software update installation statuses for this account.
+     * List properties and relationships of the iosUpdateDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IosUpdateDeviceStatusCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: IosUpdateStatusesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatusCollectionResponse | undefined> {
+    public get(requestConfiguration?: IosUpdateStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +57,16 @@ export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<IosUpdateDeviceStatusCollectionResponse>(requestInfo, createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<IosUpdateDeviceStatusCollectionResponse>(requestInfo, createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to iosUpdateStatuses for deviceManagement
+     * Create a new iosUpdateDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IosUpdateDeviceStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: IosUpdateDeviceStatus | undefined, requestConfiguration?: IosUpdateStatusesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
+    public post(body: IosUpdateDeviceStatus | undefined, requestConfiguration?: IosUpdateStatusesRequestBuilderPostRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,10 +75,10 @@ export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<IosUpdateDeviceStatus>(requestInfo, createIosUpdateDeviceStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<IosUpdateDeviceStatus>(requestInfo, createIosUpdateDeviceStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The IOS software update installation statuses for this account.
+     * List properties and relationships of the iosUpdateDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to iosUpdateStatuses for deviceManagement
+     * Create a new iosUpdateDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

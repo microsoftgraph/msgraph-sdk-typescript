@@ -10,17 +10,21 @@ import {DirectoryRequestBuilder} from './directory/directoryRequestBuilder';
 import {EntitlementManagementRequestBuilder} from './entitlementManagement/entitlementManagementRequestBuilder';
 import {RoleManagementRequestBuilderGetRequestConfiguration} from './roleManagementRequestBuilderGetRequestConfiguration';
 import {RoleManagementRequestBuilderPatchRequestConfiguration} from './roleManagementRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagement singleton.
  */
 export class RoleManagementRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the directory property of the microsoft.graph.roleManagement entity. */
+    /**
+     * Provides operations to manage the directory property of the microsoft.graph.roleManagement entity.
+     */
     public get directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity. */
+    /**
+     * Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.
+     */
     public get entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -35,10 +39,9 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
     /**
      * Get roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RoleManagement
      */
-    public get(requestConfiguration?: RoleManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RoleManagement | undefined> {
+    public get(requestConfiguration?: RoleManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<RoleManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update roleManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RoleManagement
      */
-    public patch(body: RoleManagement | undefined, requestConfiguration?: RoleManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RoleManagement | undefined> {
+    public patch(body: RoleManagement | undefined, requestConfiguration?: RoleManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<RoleManagement | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -64,7 +66,7 @@ export class RoleManagementRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RoleManagement>(requestInfo, createRoleManagementFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get roleManagement

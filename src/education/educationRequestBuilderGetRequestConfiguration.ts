@@ -2,10 +2,16 @@ import {EducationRequestBuilderGetQueryParameters} from './educationRequestBuild
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface EducationRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: EducationRequestBuilderGetQueryParameters | undefined;
 }

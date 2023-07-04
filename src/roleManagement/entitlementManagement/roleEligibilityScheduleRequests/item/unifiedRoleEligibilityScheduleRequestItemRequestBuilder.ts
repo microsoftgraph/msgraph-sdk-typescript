@@ -15,33 +15,45 @@ import {TargetScheduleRequestBuilder} from './targetSchedule/targetScheduleReque
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
  */
 export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
+    /**
+     * Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity.
+     */
     public get appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
+    /**
+     * Provides operations to call the cancel method.
+     */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
+    /**
+     * Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity.
+     */
     public get directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the principal property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
+    /**
+     * Provides operations to manage the principal property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity.
+     */
     public get principal(): PrincipalRequestBuilder {
         return new PrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
+    /**
+     * Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity.
+     */
     public get roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the targetSchedule property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
+    /**
+     * Provides operations to manage the targetSchedule property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity.
+     */
     public get targetSchedule(): TargetScheduleRequestBuilder {
         return new TargetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -56,9 +68,8 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends Bas
     /**
      * Delete navigation property roleEligibilityScheduleRequests for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -66,16 +77,15 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends Bas
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * In PIM, read the details of a request for for a role eligibility request made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
      * @see {@link https://docs.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined> {
+    public get(requestConfiguration?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -83,16 +93,15 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends Bas
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleRequest>(requestInfo, createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UnifiedRoleEligibilityScheduleRequest>(requestInfo, createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property roleEligibilityScheduleRequests in roleManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
      */
-    public patch(body: UnifiedRoleEligibilityScheduleRequest | undefined, requestConfiguration?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined> {
+    public patch(body: UnifiedRoleEligibilityScheduleRequest | undefined, requestConfiguration?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -101,7 +110,7 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends Bas
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UnifiedRoleEligibilityScheduleRequest>(requestInfo, createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UnifiedRoleEligibilityScheduleRequest>(requestInfo, createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property roleEligibilityScheduleRequests for roleManagement

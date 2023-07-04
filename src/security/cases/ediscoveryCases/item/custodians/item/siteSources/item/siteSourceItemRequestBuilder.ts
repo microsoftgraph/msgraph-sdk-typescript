@@ -10,13 +10,15 @@ import {SiteRequestBuilder} from './site/siteRequestBuilder';
 import {SiteSourceItemRequestBuilderDeleteRequestConfiguration} from './siteSourceItemRequestBuilderDeleteRequestConfiguration';
 import {SiteSourceItemRequestBuilderGetRequestConfiguration} from './siteSourceItemRequestBuilderGetRequestConfiguration';
 import {SiteSourceItemRequestBuilderPatchRequestConfiguration} from './siteSourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
  */
 export class SiteSourceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the site property of the microsoft.graph.security.siteSource entity. */
+    /**
+     * Provides operations to manage the site property of the microsoft.graph.security.siteSource entity.
+     */
     public get site(): SiteRequestBuilder {
         return new SiteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class SiteSourceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property siteSources for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: SiteSourceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: SiteSourceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class SiteSourceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Data source entity for SharePoint sites associated with the custodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SiteSource
      */
-    public get(requestConfiguration?: SiteSourceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SiteSource | undefined> {
+    public get(requestConfiguration?: SiteSourceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SiteSource | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class SiteSourceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SiteSource>(requestInfo, createSiteSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SiteSource>(requestInfo, createSiteSourceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property siteSources in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SiteSource
      */
-    public patch(body: SiteSource | undefined, requestConfiguration?: SiteSourceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SiteSource | undefined> {
+    public patch(body: SiteSource | undefined, requestConfiguration?: SiteSourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SiteSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class SiteSourceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SiteSource>(requestInfo, createSiteSourceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SiteSource>(requestInfo, createSiteSourceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property siteSources for security

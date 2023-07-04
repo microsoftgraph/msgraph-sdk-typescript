@@ -20,53 +20,75 @@ import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
 import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderRequestBuilder';
 import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the events property of the microsoft.graph.user entity.
  */
 export class EventItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the accept method. */
+    /**
+     * Provides operations to call the accept method.
+     */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attachments property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.event entity.
+     */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calendar property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the calendar property of the microsoft.graph.event entity.
+     */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
+    /**
+     * Provides operations to call the cancel method.
+     */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the decline method. */
+    /**
+     * Provides operations to call the decline method.
+     */
     public get decline(): DeclineRequestBuilder {
         return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dismissReminder method. */
+    /**
+     * Provides operations to call the dismissReminder method.
+     */
     public get dismissReminder(): DismissReminderRequestBuilder {
         return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensions property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.event entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the forward method. */
+    /**
+     * Provides operations to call the forward method.
+     */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the instances property of the microsoft.graph.event entity. */
+    /**
+     * Provides operations to manage the instances property of the microsoft.graph.event entity.
+     */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the snoozeReminder method. */
+    /**
+     * Provides operations to call the snoozeReminder method.
+     */
     public get snoozeReminder(): SnoozeReminderRequestBuilder {
         return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the tentativelyAccept method. */
+    /**
+     * Provides operations to call the tentativelyAccept method.
+     */
     public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -81,10 +103,9 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/event-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EventItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EventItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -92,16 +113,15 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the properties and relationships of the specified event object. Currently, this operation returns event bodies in only HTML format. There are two scenarios where an app can get an event in another user's calendar: Since the **event** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **event** instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
      * @see {@link https://docs.microsoft.com/graph/api/event-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
+    public get(requestConfiguration?: EventItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Event | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -109,17 +129,16 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of the event object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
      * @see {@link https://docs.microsoft.com/graph/api/event-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Event | undefined, requestConfiguration?: EventItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
+    public patch(body: Event | undefined, requestConfiguration?: EventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Event | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -128,7 +147,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Event>(requestInfo, createEventFromDiscriminatorValue, errorMapping);
     };
     /**
      * Removes the specified event from the containing calendar.  If the event is a meeting, deleting the event on the organizer's calendar sends a cancellation message to the meeting attendees.

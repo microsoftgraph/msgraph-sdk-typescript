@@ -9,7 +9,7 @@ import {serializeDeviceConfigurationAssignment} from '../../../../../models/seri
 import {DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
@@ -24,11 +24,11 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments/{deviceConfigurationAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a deviceConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +36,15 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of assignments for the device configuration profile.
+     * Read properties and relationships of the deviceConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
+    public get(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +52,16 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceConfigurationAssignment>(requestInfo, createDeviceConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceConfigurationAssignment>(requestInfo, createDeviceConfigurationAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a deviceConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceConfigurationAssignment | undefined, requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
+    public patch(body: DeviceConfigurationAssignment | undefined, requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,10 +70,10 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceConfigurationAssignment>(requestInfo, createDeviceConfigurationAssignmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceConfigurationAssignment>(requestInfo, createDeviceConfigurationAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a deviceConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * The list of assignments for the device configuration profile.
+     * Read properties and relationships of the deviceConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a deviceConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

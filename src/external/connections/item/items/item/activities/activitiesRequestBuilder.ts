@@ -12,13 +12,15 @@ import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesReque
 import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExternalActivityItemRequestBuilder} from './item/externalActivityItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
  */
 export class ActivitiesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,9 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
     /**
      * Returns a list of activities performed on the item. Write-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalActivityCollectionResponse
      */
-    public get(requestConfiguration?: ActivitiesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalActivityCollectionResponse | undefined> {
+    public get(requestConfiguration?: ActivitiesRequestBuilderGetRequestConfiguration | undefined) : Promise<ExternalActivityCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +56,15 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ExternalActivityCollectionResponse>(requestInfo, createExternalActivityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ExternalActivityCollectionResponse>(requestInfo, createExternalActivityCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to activities for external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExternalActivity
      */
-    public post(body: ExternalActivity | undefined, requestConfiguration?: ActivitiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExternalActivity | undefined> {
+    public post(body: ExternalActivity | undefined, requestConfiguration?: ActivitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<ExternalActivity | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,7 +73,7 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ExternalActivity>(requestInfo, createExternalActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ExternalActivity>(requestInfo, createExternalActivityFromDiscriminatorValue, errorMapping);
     };
     /**
      * Returns a list of activities performed on the item. Write-only.

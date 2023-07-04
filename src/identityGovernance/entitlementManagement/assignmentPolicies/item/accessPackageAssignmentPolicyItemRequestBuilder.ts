@@ -12,21 +12,27 @@ import {AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration} 
 import {AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration} from './accessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {QuestionsRequestBuilder} from './questions/questionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.
  */
 export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
+    /**
+     * Provides operations to manage the accessPackage property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the catalog property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
+    /**
+     * Provides operations to manage the catalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     */
     public get catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity. */
+    /**
+     * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
+     */
     public get questions(): QuestionsRequestBuilder {
         return new QuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,10 +47,9 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
     /**
      * In Azure AD entitlement management, delete an accessPackageAssignmentPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -52,16 +57,15 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentPolicy
      * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
+    public get(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -69,16 +73,15 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property assignmentPolicies in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentPolicy
      */
-    public put(body: AccessPackageAssignmentPolicy | undefined, requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
+    public put(body: AccessPackageAssignmentPolicy | undefined, requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
@@ -87,7 +90,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * In Azure AD entitlement management, delete an accessPackageAssignmentPolicy.

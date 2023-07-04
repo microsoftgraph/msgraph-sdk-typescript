@@ -1,11 +1,14 @@
 import {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
 import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
 import {createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue} from './createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue';
+import {createGovernanceInsightFromDiscriminatorValue} from './createGovernanceInsightFromDiscriminatorValue';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
 import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
+import {GovernanceInsight} from './governanceInsight';
 import {Identity} from './identity';
 import {serializeAccessReviewInstanceDecisionItemResource} from './serializeAccessReviewInstanceDecisionItemResource';
+import {serializeGovernanceInsight} from './serializeGovernanceInsight';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import {UserIdentity} from './userIdentity';
@@ -19,6 +22,7 @@ export function deserializeIntoAccessReviewInstanceDecisionItem(accessReviewInst
         "appliedDateTime": n => { accessReviewInstanceDecisionItem.appliedDateTime = n.getDateValue(); },
         "applyResult": n => { accessReviewInstanceDecisionItem.applyResult = n.getStringValue(); },
         "decision": n => { accessReviewInstanceDecisionItem.decision = n.getStringValue(); },
+        "insights": n => { accessReviewInstanceDecisionItem.insights = n.getCollectionOfObjectValues<GovernanceInsight>(createGovernanceInsightFromDiscriminatorValue); },
         "justification": n => { accessReviewInstanceDecisionItem.justification = n.getStringValue(); },
         "principal": n => { accessReviewInstanceDecisionItem.principal = n.getObjectValue<Identity>(createIdentityFromDiscriminatorValue); },
         "principalLink": n => { accessReviewInstanceDecisionItem.principalLink = n.getStringValue(); },

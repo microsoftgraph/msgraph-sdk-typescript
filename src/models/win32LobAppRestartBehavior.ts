@@ -1,4 +1,6 @@
-/** Indicates the type of restart action. */
+/**
+ * Indicates the type of restart action.
+ */
 export enum Win32LobAppRestartBehavior {
     /** Intune will restart the device after running the app installation if the operation returns a reboot code. */
     BasedOnReturnCode = "basedOnReturnCode",

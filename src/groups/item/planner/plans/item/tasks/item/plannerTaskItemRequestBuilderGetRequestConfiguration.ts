@@ -2,10 +2,16 @@ import {PlannerTaskItemRequestBuilderGetQueryParameters} from './plannerTaskItem
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface PlannerTaskItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: PlannerTaskItemRequestBuilderGetQueryParameters | undefined;
 }

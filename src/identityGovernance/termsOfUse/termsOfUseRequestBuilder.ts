@@ -11,17 +11,21 @@ import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
 import {TermsOfUseRequestBuilderDeleteRequestConfiguration} from './termsOfUseRequestBuilderDeleteRequestConfiguration';
 import {TermsOfUseRequestBuilderGetRequestConfiguration} from './termsOfUseRequestBuilderGetRequestConfiguration';
 import {TermsOfUseRequestBuilderPatchRequestConfiguration} from './termsOfUseRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.
  */
 export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity. */
+    /**
+     * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.
+     */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity. */
+    /**
+     * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
+     */
     public get agreements(): AgreementsRequestBuilder {
         return new AgreementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property termsOfUse for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: TermsOfUseRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: TermsOfUseRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,15 +49,14 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get termsOfUse from identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsOfUseContainer
      */
-    public get(requestConfiguration?: TermsOfUseRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsOfUseContainer | undefined> {
+    public get(requestConfiguration?: TermsOfUseRequestBuilderGetRequestConfiguration | undefined) : Promise<TermsOfUseContainer | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,16 +64,15 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TermsOfUseContainer>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TermsOfUseContainer>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property termsOfUse in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsOfUseContainer
      */
-    public patch(body: TermsOfUseContainer | undefined, requestConfiguration?: TermsOfUseRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsOfUseContainer | undefined> {
+    public patch(body: TermsOfUseContainer | undefined, requestConfiguration?: TermsOfUseRequestBuilderPatchRequestConfiguration | undefined) : Promise<TermsOfUseContainer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -80,7 +81,7 @@ export class TermsOfUseRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TermsOfUseContainer>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TermsOfUseContainer>(requestInfo, createTermsOfUseContainerFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property termsOfUse for identityGovernance

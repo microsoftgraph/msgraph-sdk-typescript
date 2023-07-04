@@ -30,93 +30,135 @@ import {SynchronizationRequestBuilder} from './synchronization/synchronizationRe
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {UnsetVerifiedPublisherRequestBuilder} from './unsetVerifiedPublisher/unsetVerifiedPublisherRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.
  */
 export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the addKey method. */
+    /**
+     * Provides operations to call the addKey method.
+     */
     public get addKey(): AddKeyRequestBuilder {
         return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addPassword method. */
+    /**
+     * Provides operations to call the addPassword method.
+     */
     public get addPassword(): AddPasswordRequestBuilder {
         return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the appManagementPolicies property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the appManagementPolicies property of the microsoft.graph.application entity.
+     */
     public get appManagementPolicies(): AppManagementPoliciesRequestBuilder {
         return new AppManagementPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkMemberGroups method. */
+    /**
+     * Provides operations to call the checkMemberGroups method.
+     */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the checkMemberObjects method. */
+    /**
+     * Provides operations to call the checkMemberObjects method.
+     */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.application entity.
+     */
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
         return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensionProperties property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
+     */
     public get extensionProperties(): ExtensionPropertiesRequestBuilder {
         return new ExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
+     */
     public get federatedIdentityCredentials(): FederatedIdentityCredentialsRequestBuilder {
         return new FederatedIdentityCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberGroups method. */
+    /**
+     * Provides operations to call the getMemberGroups method.
+     */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getMemberObjects method. */
+    /**
+     * Provides operations to call the getMemberObjects method.
+     */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
+     */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the application entity. */
+    /**
+     * Provides operations to manage the media for the application entity.
+     */
     public get logo(): LogoRequestBuilder {
         return new LogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the owners property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the owners property of the microsoft.graph.application entity.
+     */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removeKey method. */
+    /**
+     * Provides operations to call the removeKey method.
+     */
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removePassword method. */
+    /**
+     * Provides operations to call the removePassword method.
+     */
     public get removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restore method. */
+    /**
+     * Provides operations to call the restore method.
+     */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setVerifiedPublisher method. */
+    /**
+     * Provides operations to call the setVerifiedPublisher method.
+     */
     public get setVerifiedPublisher(): SetVerifiedPublisherRequestBuilder {
         return new SetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the synchronization property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the synchronization property of the microsoft.graph.application entity.
+     */
     public get synchronization(): SynchronizationRequestBuilder {
         return new SynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity.
+     */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.application entity. */
+    /**
+     * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.application entity.
+     */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unsetVerifiedPublisher method. */
+    /**
+     * Provides operations to call the unsetVerifiedPublisher method.
+     */
     public get unsetVerifiedPublisher(): UnsetVerifiedPublisherRequestBuilder {
         return new UnsetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -131,10 +173,9 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/application-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ApplicationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ApplicationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -142,16 +183,15 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the properties and relationships of an application object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Application
      * @see {@link https://docs.microsoft.com/graph/api/application-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ApplicationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Application | undefined> {
+    public get(requestConfiguration?: ApplicationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Application | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -159,17 +199,16 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an application object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Application
      * @see {@link https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Application | undefined> {
+    public patch(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Application | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -178,7 +217,7 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Application>(requestInfo, createApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.

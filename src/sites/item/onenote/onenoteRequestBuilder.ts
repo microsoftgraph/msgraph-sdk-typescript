@@ -15,33 +15,45 @@ import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onenote property of the microsoft.graph.site entity.
  */
 export class OnenoteRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the notebooks property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
+     */
     public get notebooks(): NotebooksRequestBuilder {
         return new NotebooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the pages property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
+     */
     public get pages(): PagesRequestBuilder {
         return new PagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the resources property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
+     */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
+     */
     public get sectionGroups(): SectionGroupsRequestBuilder {
         return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sections property of the microsoft.graph.onenote entity. */
+    /**
+     * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
+     */
     public get sections(): SectionsRequestBuilder {
         return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -56,9 +68,8 @@ export class OnenoteRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property onenote for sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: OnenoteRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: OnenoteRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -66,15 +77,14 @@ export class OnenoteRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Calls the OneNote service for notebook related operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Onenote
      */
-    public get(requestConfiguration?: OnenoteRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Onenote | undefined> {
+    public get(requestConfiguration?: OnenoteRequestBuilderGetRequestConfiguration | undefined) : Promise<Onenote | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -82,16 +92,15 @@ export class OnenoteRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property onenote in sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Onenote
      */
-    public patch(body: Onenote | undefined, requestConfiguration?: OnenoteRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Onenote | undefined> {
+    public patch(body: Onenote | undefined, requestConfiguration?: OnenoteRequestBuilderPatchRequestConfiguration | undefined) : Promise<Onenote | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -100,7 +109,7 @@ export class OnenoteRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Onenote>(requestInfo, createOnenoteFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property onenote for sites

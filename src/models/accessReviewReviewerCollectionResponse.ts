@@ -3,6 +3,8 @@ import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationC
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewReviewerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: AccessReviewReviewer[] | undefined;
 }

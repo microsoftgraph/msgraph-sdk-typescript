@@ -3,6 +3,8 @@ import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptance
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TermsAndConditionsAcceptanceStatusCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: TermsAndConditionsAcceptanceStatus[] | undefined;
 }

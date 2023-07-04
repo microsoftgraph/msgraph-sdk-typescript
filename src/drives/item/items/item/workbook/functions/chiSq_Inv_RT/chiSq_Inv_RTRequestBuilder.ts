@@ -10,7 +10,7 @@ import {ChiSq_Inv_RTPostRequestBody} from './chiSq_Inv_RTPostRequestBody';
 import {ChiSq_Inv_RTRequestBuilderPostRequestConfiguration} from './chiSq_Inv_RTRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChiSq_Inv_RTPostRequestBody} from './deserializeIntoChiSq_Inv_RTPostRequestBody';
 import {serializeChiSq_Inv_RTPostRequestBody} from './serializeChiSq_Inv_RTPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the chiSq_Inv_RT method.
@@ -28,10 +28,9 @@ export class ChiSq_Inv_RTRequestBuilder extends BaseRequestBuilder {
      * Invoke action chiSq_Inv_RT
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: ChiSq_Inv_RTPostRequestBody | undefined, requestConfiguration?: ChiSq_Inv_RTRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
+    public post(body: ChiSq_Inv_RTPostRequestBody | undefined, requestConfiguration?: ChiSq_Inv_RTRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class ChiSq_Inv_RTRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action chiSq_Inv_RT

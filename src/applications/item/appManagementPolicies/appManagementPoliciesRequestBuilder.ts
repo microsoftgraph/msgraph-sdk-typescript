@@ -8,17 +8,21 @@ import {AppManagementPoliciesRequestBuilderGetRequestConfiguration} from './appM
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppManagementPolicyItemRequestBuilder} from './item/appManagementPolicyItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.application entity.
  */
 export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of application entities. */
+    /**
+     * Provides operations to manage the collection of application entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +48,9 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
     /**
      * The appManagementPolicy applied to this application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppManagementPolicyCollectionResponse
      */
-    public get(requestConfiguration?: AppManagementPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppManagementPolicyCollectionResponse | undefined> {
+    public get(requestConfiguration?: AppManagementPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<AppManagementPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,7 +58,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AppManagementPolicyCollectionResponse>(requestInfo, createAppManagementPolicyCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AppManagementPolicyCollectionResponse>(requestInfo, createAppManagementPolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * The appManagementPolicy applied to this application.

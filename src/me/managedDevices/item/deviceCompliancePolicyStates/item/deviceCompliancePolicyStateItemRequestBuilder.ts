@@ -9,7 +9,7 @@ import {serializeDeviceCompliancePolicyState} from '../../../../../models/serial
 import {DeviceCompliancePolicyStateItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceCompliancePolicyStateItemRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyStateItemRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyStateItemRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicyStateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.
@@ -26,9 +26,8 @@ export class DeviceCompliancePolicyStateItemRequestBuilder extends BaseRequestBu
     /**
      * Delete navigation property deviceCompliancePolicyStates for me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: DeviceCompliancePolicyStateItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DeviceCompliancePolicyStateItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class DeviceCompliancePolicyStateItemRequestBuilder extends BaseRequestBu
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Device compliance policy states for this device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCompliancePolicyState
      */
-    public get(requestConfiguration?: DeviceCompliancePolicyStateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicyState | undefined> {
+    public get(requestConfiguration?: DeviceCompliancePolicyStateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyState | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class DeviceCompliancePolicyStateItemRequestBuilder extends BaseRequestBu
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceCompliancePolicyState>(requestInfo, createDeviceCompliancePolicyStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceCompliancePolicyState>(requestInfo, createDeviceCompliancePolicyStateFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property deviceCompliancePolicyStates in me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCompliancePolicyState
      */
-    public patch(body: DeviceCompliancePolicyState | undefined, requestConfiguration?: DeviceCompliancePolicyStateItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicyState | undefined> {
+    public patch(body: DeviceCompliancePolicyState | undefined, requestConfiguration?: DeviceCompliancePolicyStateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyState | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class DeviceCompliancePolicyStateItemRequestBuilder extends BaseRequestBu
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceCompliancePolicyState>(requestInfo, createDeviceCompliancePolicyStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceCompliancePolicyState>(requestInfo, createDeviceCompliancePolicyStateFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property deviceCompliancePolicyStates for me

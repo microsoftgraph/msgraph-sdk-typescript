@@ -9,7 +9,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {ConnectionOperationItemRequestBuilderDeleteRequestConfiguration} from './connectionOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ConnectionOperationItemRequestBuilderGetRequestConfiguration} from './connectionOperationItemRequestBuilderGetRequestConfiguration';
 import {ConnectionOperationItemRequestBuilderPatchRequestConfiguration} from './connectionOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -26,9 +26,8 @@ export class ConnectionOperationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property operations for connections
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ConnectionOperationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ConnectionOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class ConnectionOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a connectionOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectionOperation
      * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-connectionoperation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ConnectionOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectionOperation | undefined> {
+    public get(requestConfiguration?: ConnectionOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConnectionOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class ConnectionOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ConnectionOperation>(requestInfo, createConnectionOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ConnectionOperation>(requestInfo, createConnectionOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property operations in connections
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectionOperation
      */
-    public patch(body: ConnectionOperation | undefined, requestConfiguration?: ConnectionOperationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectionOperation | undefined> {
+    public patch(body: ConnectionOperation | undefined, requestConfiguration?: ConnectionOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConnectionOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class ConnectionOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ConnectionOperation>(requestInfo, createConnectionOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ConnectionOperation>(requestInfo, createConnectionOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property operations for connections

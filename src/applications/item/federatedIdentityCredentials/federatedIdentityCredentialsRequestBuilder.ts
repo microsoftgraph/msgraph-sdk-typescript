@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
 import {FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
 import {FederatedIdentityCredentialItemRequestBuilder} from './item/federatedIdentityCredentialItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
  */
 export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
     /**
      * Get a list of the federatedIdentityCredential objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FederatedIdentityCredentialCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/application-list-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FederatedIdentityCredentialCollectionResponse | undefined> {
+    public get(requestConfiguration?: FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration | undefined) : Promise<FederatedIdentityCredentialCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,17 +57,16 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<FederatedIdentityCredentialCollectionResponse>(requestInfo, createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<FederatedIdentityCredentialCollectionResponse>(requestInfo, createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new federatedIdentityCredential object for an application. By configuring a trust relationship between your Azure AD application registration and the identity provider for your compute platform, you can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Maximum of 20 objects can be added to an application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FederatedIdentityCredential
      * @see {@link https://docs.microsoft.com/graph/api/application-post-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: FederatedIdentityCredential | undefined, requestConfiguration?: FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FederatedIdentityCredential | undefined> {
+    public post(body: FederatedIdentityCredential | undefined, requestConfiguration?: FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration | undefined) : Promise<FederatedIdentityCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -75,7 +75,7 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<FederatedIdentityCredential>(requestInfo, createFederatedIdentityCredentialFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<FederatedIdentityCredential>(requestInfo, createFederatedIdentityCredentialFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get a list of the federatedIdentityCredential objects and their properties.

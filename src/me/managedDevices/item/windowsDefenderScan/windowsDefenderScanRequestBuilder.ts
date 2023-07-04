@@ -6,7 +6,7 @@ import {deserializeIntoWindowsDefenderScanPostRequestBody} from './deserializeIn
 import {serializeWindowsDefenderScanPostRequestBody} from './serializeWindowsDefenderScanPostRequestBody';
 import {WindowsDefenderScanPostRequestBody} from './windowsDefenderScanPostRequestBody';
 import {WindowsDefenderScanRequestBuilderPostRequestConfiguration} from './windowsDefenderScanRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the windowsDefenderScan method.
@@ -21,12 +21,12 @@ export class WindowsDefenderScanRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/managedDevices/{managedDevice%2Did}/windowsDefenderScan");
     };
     /**
-     * Invoke action windowsDefenderScan
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-windowsdefenderscan?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WindowsDefenderScanPostRequestBody | undefined, requestConfiguration?: WindowsDefenderScanRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: WindowsDefenderScanPostRequestBody | undefined, requestConfiguration?: WindowsDefenderScanRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -35,10 +35,10 @@ export class WindowsDefenderScanRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Invoke action windowsDefenderScan
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -2,10 +2,16 @@ import {AccessAssignmentsRequestBuilderGetQueryParameters} from './accessAssignm
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AccessAssignmentsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AccessAssignmentsRequestBuilderGetQueryParameters | undefined;
 }

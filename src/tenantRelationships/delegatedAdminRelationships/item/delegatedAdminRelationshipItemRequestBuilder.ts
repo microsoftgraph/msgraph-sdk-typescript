@@ -12,21 +12,27 @@ import {DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration} fro
 import {DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {RequestsRequestBuilder} from './requests/requestsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
  */
 export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity. */
+    /**
+     * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
+     */
     public get accessAssignments(): AccessAssignmentsRequestBuilder {
         return new AccessAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity. */
+    /**
+     * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
+     */
     public get requests(): RequestsRequestBuilder {
         return new RequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,10 +47,9 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
     /**
      * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -52,16 +57,15 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationship
      * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationship | undefined> {
+    public get(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -69,17 +73,16 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the `created` **status**.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationship
      * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DelegatedAdminRelationship | undefined, requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationship | undefined> {
+    public patch(body: DelegatedAdminRelationship | undefined, requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -88,7 +91,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 

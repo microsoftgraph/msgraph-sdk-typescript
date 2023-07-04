@@ -10,13 +10,15 @@ import {CasesRequestBuilderDeleteRequestConfiguration} from './casesRequestBuild
 import {CasesRequestBuilderGetRequestConfiguration} from './casesRequestBuilderGetRequestConfiguration';
 import {CasesRequestBuilderPatchRequestConfiguration} from './casesRequestBuilderPatchRequestConfiguration';
 import {EdiscoveryCasesRequestBuilder} from './ediscoveryCases/ediscoveryCasesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cases property of the microsoft.graph.security entity.
  */
 export class CasesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity. */
+    /**
+     * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
+     */
     public get ediscoveryCases(): EdiscoveryCasesRequestBuilder {
         return new EdiscoveryCasesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property cases for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: CasesRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: CasesRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get cases from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CasesRoot
      */
-    public get(requestConfiguration?: CasesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CasesRoot | undefined> {
+    public get(requestConfiguration?: CasesRequestBuilderGetRequestConfiguration | undefined) : Promise<CasesRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CasesRoot>(requestInfo, createCasesRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CasesRoot>(requestInfo, createCasesRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property cases in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CasesRoot
      */
-    public patch(body: CasesRoot | undefined, requestConfiguration?: CasesRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CasesRoot | undefined> {
+    public patch(body: CasesRoot | undefined, requestConfiguration?: CasesRequestBuilderPatchRequestConfiguration | undefined) : Promise<CasesRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CasesRoot>(requestInfo, createCasesRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CasesRoot>(requestInfo, createCasesRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property cases for security

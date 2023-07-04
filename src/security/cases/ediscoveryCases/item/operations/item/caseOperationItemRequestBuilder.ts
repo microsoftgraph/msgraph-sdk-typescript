@@ -9,7 +9,7 @@ import {serializeCaseOperation} from '../../../../../../models/security/serializ
 import {CaseOperationItemRequestBuilderDeleteRequestConfiguration} from './caseOperationItemRequestBuilderDeleteRequestConfiguration';
 import {CaseOperationItemRequestBuilderGetRequestConfiguration} from './caseOperationItemRequestBuilderGetRequestConfiguration';
 import {CaseOperationItemRequestBuilderPatchRequestConfiguration} from './caseOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
@@ -26,9 +26,8 @@ export class CaseOperationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property operations for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: CaseOperationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: CaseOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class CaseOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a caseOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CaseOperation
      * @see {@link https://docs.microsoft.com/graph/api/security-caseoperation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CaseOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CaseOperation | undefined> {
+    public get(requestConfiguration?: CaseOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CaseOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class CaseOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CaseOperation>(requestInfo, createCaseOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CaseOperation>(requestInfo, createCaseOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property operations in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CaseOperation
      */
-    public patch(body: CaseOperation | undefined, requestConfiguration?: CaseOperationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CaseOperation | undefined> {
+    public patch(body: CaseOperation | undefined, requestConfiguration?: CaseOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CaseOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class CaseOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CaseOperation>(requestInfo, createCaseOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CaseOperation>(requestInfo, createCaseOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property operations for security

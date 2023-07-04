@@ -2,10 +2,16 @@ import {AuditEventItemRequestBuilderGetQueryParameters} from './auditEventItemRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AuditEventItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AuditEventItemRequestBuilderGetQueryParameters | undefined;
 }

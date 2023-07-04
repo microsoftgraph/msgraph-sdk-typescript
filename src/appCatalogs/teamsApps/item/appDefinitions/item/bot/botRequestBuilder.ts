@@ -9,7 +9,7 @@ import {TeamworkBot} from '../../../../../../models/teamworkBot';
 import {BotRequestBuilderDeleteRequestConfiguration} from './botRequestBuilderDeleteRequestConfiguration';
 import {BotRequestBuilderGetRequestConfiguration} from './botRequestBuilderGetRequestConfiguration';
 import {BotRequestBuilderPatchRequestConfiguration} from './botRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity.
@@ -26,9 +26,8 @@ export class BotRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property bot for appCatalogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: BotRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: BotRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class BotRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the bot associated with a specific definition of the  TeamsApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkBot
      * @see {@link https://docs.microsoft.com/graph/api/teamworkbot-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BotRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkBot | undefined> {
+    public get(requestConfiguration?: BotRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamworkBot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class BotRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TeamworkBot>(requestInfo, createTeamworkBotFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TeamworkBot>(requestInfo, createTeamworkBotFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property bot in appCatalogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamworkBot
      */
-    public patch(body: TeamworkBot | undefined, requestConfiguration?: BotRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamworkBot | undefined> {
+    public patch(body: TeamworkBot | undefined, requestConfiguration?: BotRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamworkBot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class BotRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TeamworkBot>(requestInfo, createTeamworkBotFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TeamworkBot>(requestInfo, createTeamworkBotFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property bot for appCatalogs

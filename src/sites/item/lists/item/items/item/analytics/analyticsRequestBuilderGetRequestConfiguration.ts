@@ -2,10 +2,16 @@ import {AnalyticsRequestBuilderGetQueryParameters} from './analyticsRequestBuild
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AnalyticsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AnalyticsRequestBuilderGetQueryParameters | undefined;
 }

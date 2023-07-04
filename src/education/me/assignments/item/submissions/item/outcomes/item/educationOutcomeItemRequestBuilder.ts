@@ -9,7 +9,7 @@ import {serializeEducationOutcome} from '../../../../../../../../models/serializ
 import {EducationOutcomeItemRequestBuilderDeleteRequestConfiguration} from './educationOutcomeItemRequestBuilderDeleteRequestConfiguration';
 import {EducationOutcomeItemRequestBuilderGetRequestConfiguration} from './educationOutcomeItemRequestBuilderGetRequestConfiguration';
 import {EducationOutcomeItemRequestBuilderPatchRequestConfiguration} from './educationOutcomeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
@@ -26,10 +26,9 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a feedback resource from a submission. This can only be done by a teacher.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/educationfeedbackresourceoutcome-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EducationOutcomeItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EducationOutcomeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,15 +36,14 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get outcomes from education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationOutcome
      */
-    public get(requestConfiguration?: EducationOutcomeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcome | undefined> {
+    public get(requestConfiguration?: EducationOutcomeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationOutcome | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,17 +51,16 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an educationOutcome object. Only teachers can perform this operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationOutcome
      * @see {@link https://docs.microsoft.com/graph/api/educationoutcome-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationOutcome | undefined, requestConfiguration?: EducationOutcomeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationOutcome | undefined> {
+    public patch(body: EducationOutcome | undefined, requestConfiguration?: EducationOutcomeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationOutcome | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationOutcome>(requestInfo, createEducationOutcomeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a feedback resource from a submission. This can only be done by a teacher.

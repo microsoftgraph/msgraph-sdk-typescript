@@ -1,9 +1,15 @@
 
 export interface DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilderGetQueryParameters {
-    /** Usage: tenantId='@tenantId' */
+    /**
+     * Usage: tenantId='@tenantId'
+     */
     tenantId?: string | undefined;
-    /** Usage: userId='@userId' */
+    /**
+     * Usage: userId='@userId'
+     */
     userId?: string | undefined;
-    /** Usage: userPrincipalName='@userPrincipalName' */
+    /**
+     * Usage: userPrincipalName='@userPrincipalName'
+     */
     userPrincipalName?: string | undefined;
 }

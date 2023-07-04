@@ -2,10 +2,16 @@ import {IdentitySynchronizationRequestBuilderGetQueryParameters} from './identit
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface IdentitySynchronizationRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: IdentitySynchronizationRequestBuilderGetQueryParameters | undefined;
 }

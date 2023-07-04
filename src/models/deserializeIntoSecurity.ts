@@ -13,14 +13,17 @@ import {CasesRoot} from './security/casesRoot';
 import {createAlertFromDiscriminatorValue as Ic3df26bb503216c70f1b1537fb1cb7605d034f17f11b693448013e01824d59a7} from './security/createAlertFromDiscriminatorValue';
 import {createCasesRootFromDiscriminatorValue} from './security/createCasesRootFromDiscriminatorValue';
 import {createIncidentFromDiscriminatorValue} from './security/createIncidentFromDiscriminatorValue';
+import {createThreatIntelligenceFromDiscriminatorValue} from './security/createThreatIntelligenceFromDiscriminatorValue';
 import {createTriggersRootFromDiscriminatorValue} from './security/createTriggersRootFromDiscriminatorValue';
 import {createTriggerTypesRootFromDiscriminatorValue} from './security/createTriggerTypesRootFromDiscriminatorValue';
 import {Incident} from './security/incident';
 import {serializeAlert as I0f6f1640bad114888c183d249a1463b82216dae028f69d31b9f11cc554a90f84} from './security/serializeAlert';
 import {serializeCasesRoot} from './security/serializeCasesRoot';
 import {serializeIncident} from './security/serializeIncident';
+import {serializeThreatIntelligence} from './security/serializeThreatIntelligence';
 import {serializeTriggersRoot} from './security/serializeTriggersRoot';
 import {serializeTriggerTypesRoot} from './security/serializeTriggerTypesRoot';
+import {ThreatIntelligence} from './security/threatIntelligence';
 import {TriggersRoot} from './security/triggersRoot';
 import {TriggerTypesRoot} from './security/triggerTypesRoot';
 import {serializeAlert as I158b11783bd5d0b71051c264728d2a6f353dbcaf1e7fa436fae43a16aeb39163} from './serializeAlert';
@@ -39,6 +42,7 @@ export function deserializeIntoSecurity(security: Security | undefined = {} as S
         "incidents": n => { security.incidents = n.getCollectionOfObjectValues<Incident>(createIncidentFromDiscriminatorValue); },
         "secureScoreControlProfiles": n => { security.secureScoreControlProfiles = n.getCollectionOfObjectValues<SecureScoreControlProfile>(createSecureScoreControlProfileFromDiscriminatorValue); },
         "secureScores": n => { security.secureScores = n.getCollectionOfObjectValues<SecureScore>(createSecureScoreFromDiscriminatorValue); },
+        "threatIntelligence": n => { security.threatIntelligence = n.getObjectValue<ThreatIntelligence>(createThreatIntelligenceFromDiscriminatorValue); },
         "triggers": n => { security.triggers = n.getObjectValue<TriggersRoot>(createTriggersRootFromDiscriminatorValue); },
         "triggerTypes": n => { security.triggerTypes = n.getObjectValue<TriggerTypesRoot>(createTriggerTypesRootFromDiscriminatorValue); },
     }

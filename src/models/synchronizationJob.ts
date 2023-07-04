@@ -6,14 +6,24 @@ import {SynchronizationStatus} from './synchronizationStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationJob extends Entity, Parsable {
-    /** The schedule property */
+    /**
+     * The schedule property
+     */
     schedule?: SynchronizationSchedule | undefined;
-    /** The schema property */
+    /**
+     * The schema property
+     */
     schema?: SynchronizationSchema | undefined;
-    /** The status property */
+    /**
+     * The status property
+     */
     status?: SynchronizationStatus | undefined;
-    /** The synchronizationJobSettings property */
+    /**
+     * The synchronizationJobSettings property
+     */
     synchronizationJobSettings?: KeyValuePair[] | undefined;
-    /** The templateId property */
+    /**
+     * The templateId property
+     */
     templateId?: string | undefined;
 }

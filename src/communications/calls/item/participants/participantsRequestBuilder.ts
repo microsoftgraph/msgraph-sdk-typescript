@@ -13,17 +13,21 @@ import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ParticipantItemRequestBuilder} from './item/participantItemRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
 import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
  */
 export class ParticipantsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the invite method. */
+    /**
+     * Provides operations to call the invite method.
+     */
     public get invite(): InviteRequestBuilder {
         return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,11 +53,10 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of participant objects in the call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ParticipantCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/call-list-participants?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ParticipantsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ParticipantCollectionResponse | undefined> {
+    public get(requestConfiguration?: ParticipantsRequestBuilderGetRequestConfiguration | undefined) : Promise<ParticipantCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,16 +64,15 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ParticipantCollectionResponse>(requestInfo, createParticipantCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ParticipantCollectionResponse>(requestInfo, createParticipantCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to participants for communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Participant
      */
-    public post(body: Participant | undefined, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Participant | undefined> {
+    public post(body: Participant | undefined, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined) : Promise<Participant | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -79,7 +81,7 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Participant>(requestInfo, createParticipantFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Participant>(requestInfo, createParticipantFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of participant objects in the call.

@@ -6,13 +6,15 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {DriveItemRequestBuilderGetRequestConfiguration} from './driveItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.
  */
 export class DriveItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the media for the sharedDriveItem entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,11 +29,10 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
      * @see {@link https://docs.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
+    public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -39,7 +40,7 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, errorMapping);
     };
     /**
      * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.

@@ -1,4 +1,6 @@
-/** Windows Hello for Business pin usage options */
+/**
+ * Windows Hello for Business pin usage options
+ */
 export enum WindowsHelloForBusinessPinUsage {
     /** Allowed the usage of certain pin rule */
     Allowed = "allowed",

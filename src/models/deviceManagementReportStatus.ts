@@ -1,4 +1,6 @@
-/** Possible statuses associated with a generated report */
+/**
+ * Possible statuses associated with a generated report
+ */
 export enum DeviceManagementReportStatus {
     /** Report generation status is unknown */
     Unknown = "unknown",

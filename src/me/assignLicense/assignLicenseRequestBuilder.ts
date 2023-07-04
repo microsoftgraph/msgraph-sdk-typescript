@@ -10,7 +10,7 @@ import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AssignLicenseRequestBuilderPostRequestConfiguration} from './assignLicenseRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssignLicensePostRequestBody} from './deserializeIntoAssignLicensePostRequestBody';
 import {serializeAssignLicensePostRequestBody} from './serializeAssignLicensePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the assignLicense method.
@@ -28,11 +28,10 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
      * Add or remove subscriptions for the user. You can also enable and disable specific plans associated with a subscription.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
      * @see {@link https://docs.microsoft.com/graph/api/user-assignlicense?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AssignLicensePostRequestBody | undefined, requestConfiguration?: AssignLicenseRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
+    public post(body: AssignLicensePostRequestBody | undefined, requestConfiguration?: AssignLicenseRequestBuilderPostRequestConfiguration | undefined) : Promise<User | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -41,7 +40,7 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, errorMapping);
     };
     /**
      * Add or remove subscriptions for the user. You can also enable and disable specific plans associated with a subscription.

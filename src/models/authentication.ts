@@ -12,24 +12,44 @@ import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusi
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Authentication extends Entity, Parsable {
-    /** The email address registered to a user for authentication. */
+    /**
+     * The email address registered to a user for authentication.
+     */
     emailMethods?: EmailAuthenticationMethod[] | undefined;
-    /** Represents the FIDO2 security keys registered to a user for authentication. */
+    /**
+     * Represents the FIDO2 security keys registered to a user for authentication.
+     */
     fido2Methods?: Fido2AuthenticationMethod[] | undefined;
-    /** Represents all authentication methods registered to a user. */
+    /**
+     * Represents all authentication methods registered to a user.
+     */
     methods?: AuthenticationMethod[] | undefined;
-    /** The details of the Microsoft Authenticator app registered to a user for authentication. */
+    /**
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
+     */
     microsoftAuthenticatorMethods?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
-    /** Represents the status of a long-running operation. */
+    /**
+     * Represents the status of a long-running operation.
+     */
     operations?: LongRunningOperation[] | undefined;
-    /** Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password. */
+    /**
+     * Represents the password that's registered to a user for authentication. For security, the password itself will never be returned in the object, but action can be taken to reset a password.
+     */
     passwordMethods?: PasswordAuthenticationMethod[] | undefined;
-    /** The phone numbers registered to a user for authentication. */
+    /**
+     * The phone numbers registered to a user for authentication.
+     */
     phoneMethods?: PhoneAuthenticationMethod[] | undefined;
-    /** The software OATH TOTP applications registered to a user for authentication. */
+    /**
+     * The software OATH TOTP applications registered to a user for authentication.
+     */
     softwareOathMethods?: SoftwareOathAuthenticationMethod[] | undefined;
-    /** Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes. */
+    /**
+     * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+     */
     temporaryAccessPassMethods?: TemporaryAccessPassAuthenticationMethod[] | undefined;
-    /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
+    /**
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
+     */
     windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
 }

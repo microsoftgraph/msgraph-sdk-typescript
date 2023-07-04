@@ -10,7 +10,7 @@ import {deserializeIntoAddActivitiesResponse} from './deserializeIntoAddActiviti
 import {MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration} from './microsoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration';
 import {serializeAddActivitiesPostRequestBody} from './serializeAddActivitiesPostRequestBody';
 import {serializeAddActivitiesResponse} from './serializeAddActivitiesResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addActivities method.
@@ -28,10 +28,9 @@ export class MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends
      * Invoke action addActivities
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AddActivitiesResponse
      */
-    public post(body: AddActivitiesPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddActivitiesResponse | undefined> {
+    public post(body: AddActivitiesPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<AddActivitiesResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AddActivitiesResponse>(requestInfo, createAddActivitiesResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AddActivitiesResponse>(requestInfo, createAddActivitiesResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action addActivities

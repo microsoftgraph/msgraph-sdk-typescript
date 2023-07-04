@@ -9,7 +9,7 @@ import {serializeManagedMobileApp} from '../../../../../models/serializeManagedM
 import {ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration} from './managedMobileAppItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedMobileAppItemRequestBuilderGetRequestConfiguration} from './managedMobileAppItemRequestBuilderGetRequestConfiguration';
 import {ManagedMobileAppItemRequestBuilderPatchRequestConfiguration} from './managedMobileAppItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apps property of the microsoft.graph.iosManagedAppProtection entity.
@@ -24,11 +24,11 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/apps/{managedMobileApp%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property apps for deviceAppManagement
+     * Deletes a managedMobileApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +36,15 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * List of apps to which the policy is deployed.
+     * Read properties and relationships of the managedMobileApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedMobileApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ManagedMobileAppItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedMobileApp | undefined> {
+    public get(requestConfiguration?: ManagedMobileAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedMobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +52,16 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property apps in deviceAppManagement
+     * Update the properties of a managedMobileApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedMobileApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedMobileApp | undefined, requestConfiguration?: ManagedMobileAppItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedMobileApp | undefined> {
+    public patch(body: ManagedMobileApp | undefined, requestConfiguration?: ManagedMobileAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedMobileApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,10 +70,10 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property apps for deviceAppManagement
+     * Deletes a managedMobileApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * List of apps to which the policy is deployed.
+     * Read properties and relationships of the managedMobileApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property apps in deviceAppManagement
+     * Update the properties of a managedMobileApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

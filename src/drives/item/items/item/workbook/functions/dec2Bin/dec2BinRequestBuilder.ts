@@ -10,7 +10,7 @@ import {Dec2BinPostRequestBody} from './dec2BinPostRequestBody';
 import {Dec2BinRequestBuilderPostRequestConfiguration} from './dec2BinRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDec2BinPostRequestBody} from './deserializeIntoDec2BinPostRequestBody';
 import {serializeDec2BinPostRequestBody} from './serializeDec2BinPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dec2Bin method.
@@ -28,10 +28,9 @@ export class Dec2BinRequestBuilder extends BaseRequestBuilder {
      * Invoke action dec2Bin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Dec2BinPostRequestBody | undefined, requestConfiguration?: Dec2BinRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
+    public post(body: Dec2BinPostRequestBody | undefined, requestConfiguration?: Dec2BinRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class Dec2BinRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action dec2Bin

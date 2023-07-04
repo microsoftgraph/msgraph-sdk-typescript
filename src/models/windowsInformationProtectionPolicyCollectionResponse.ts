@@ -3,6 +3,8 @@ import {WindowsInformationProtectionPolicy} from './windowsInformationProtection
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionPolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: WindowsInformationProtectionPolicy[] | undefined;
 }

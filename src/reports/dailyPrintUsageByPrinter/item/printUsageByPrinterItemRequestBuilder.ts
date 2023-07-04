@@ -9,7 +9,7 @@ import {serializePrintUsageByPrinter} from '../../../models/serializePrintUsageB
 import {PrintUsageByPrinterItemRequestBuilderDeleteRequestConfiguration} from './printUsageByPrinterItemRequestBuilderDeleteRequestConfiguration';
 import {PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration} from './printUsageByPrinterItemRequestBuilderGetRequestConfiguration';
 import {PrintUsageByPrinterItemRequestBuilderPatchRequestConfiguration} from './printUsageByPrinterItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
@@ -26,9 +26,8 @@ export class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property dailyPrintUsageByPrinter for reports
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: PrintUsageByPrinterItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PrintUsageByPrinterItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve a usage summary for a printer for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByPrinter
      * @see {@link https://docs.microsoft.com/graph/api/printusagebyprinter-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByPrinter | undefined> {
+    public get(requestConfiguration?: PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintUsageByPrinter | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintUsageByPrinter>(requestInfo, createPrintUsageByPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintUsageByPrinter>(requestInfo, createPrintUsageByPrinterFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property dailyPrintUsageByPrinter in reports
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByPrinter
      */
-    public patch(body: PrintUsageByPrinter | undefined, requestConfiguration?: PrintUsageByPrinterItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByPrinter | undefined> {
+    public patch(body: PrintUsageByPrinter | undefined, requestConfiguration?: PrintUsageByPrinterItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintUsageByPrinter | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintUsageByPrinter>(requestInfo, createPrintUsageByPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintUsageByPrinter>(requestInfo, createPrintUsageByPrinterFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property dailyPrintUsageByPrinter for reports

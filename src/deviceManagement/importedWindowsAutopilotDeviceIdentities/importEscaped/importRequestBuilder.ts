@@ -10,7 +10,7 @@ import {ImportRequestBuilderPostRequestConfiguration} from './importRequestBuild
 import {ImportResponse} from './importResponse';
 import {serializeImportPostRequestBody} from './serializeImportPostRequestBody';
 import {serializeImportResponse} from './serializeImportResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the import method.
@@ -25,13 +25,13 @@ export class ImportRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/importedWindowsAutopilotDeviceIdentities/import");
     };
     /**
-     * Invoke action import
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ImportResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-import?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ImportPostRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ImportResponse | undefined> {
+    public post(body: ImportPostRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined) : Promise<ImportResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,10 +40,10 @@ export class ImportRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ImportResponse>(requestInfo, createImportResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ImportResponse>(requestInfo, createImportResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Invoke action import
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

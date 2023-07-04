@@ -13,17 +13,21 @@ import {SynchronizationJobItemRequestBuilder} from './item/synchronizationJobIte
 import {JobsRequestBuilderGetRequestConfiguration} from './jobsRequestBuilderGetRequestConfiguration';
 import {JobsRequestBuilderPostRequestConfiguration} from './jobsRequestBuilderPostRequestConfiguration';
 import {ValidateCredentialsRequestBuilder} from './validateCredentials/validateCredentialsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
  */
 export class JobsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the validateCredentials method. */
+    /**
+     * Provides operations to call the validateCredentials method.
+     */
     public get validateCredentials(): ValidateCredentialsRequestBuilder {
         return new ValidateCredentialsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,10 +53,9 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get jobs from applications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SynchronizationJobCollectionResponse
      */
-    public get(requestConfiguration?: JobsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SynchronizationJobCollectionResponse | undefined> {
+    public get(requestConfiguration?: JobsRequestBuilderGetRequestConfiguration | undefined) : Promise<SynchronizationJobCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -60,16 +63,15 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SynchronizationJobCollectionResponse>(requestInfo, createSynchronizationJobCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SynchronizationJobCollectionResponse>(requestInfo, createSynchronizationJobCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to jobs for applications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SynchronizationJob
      */
-    public post(body: SynchronizationJob | undefined, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SynchronizationJob | undefined> {
+    public post(body: SynchronizationJob | undefined, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -78,7 +80,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SynchronizationJob>(requestInfo, createSynchronizationJobFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SynchronizationJob>(requestInfo, createSynchronizationJobFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get jobs from applications

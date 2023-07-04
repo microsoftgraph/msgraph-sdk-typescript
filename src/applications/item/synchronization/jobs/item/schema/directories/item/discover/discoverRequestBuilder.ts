@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
 import {DiscoverRequestBuilderPostRequestConfiguration} from './discoverRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the discover method.
@@ -22,10 +22,9 @@ export class DiscoverRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke action discover
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryDefinition
      */
-    public post(requestConfiguration?: DiscoverRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryDefinition | undefined> {
+    public post(requestConfiguration?: DiscoverRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class DiscoverRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DirectoryDefinition>(requestInfo, createDirectoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DirectoryDefinition>(requestInfo, createDirectoryDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action discover

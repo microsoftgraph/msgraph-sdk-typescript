@@ -18,45 +18,63 @@ import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
 import {StaffMembersRequestBuilder} from './staffMembers/staffMembersRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
  */
 export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity. */
+    /**
+     * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
+     */
     public get appointments(): AppointmentsRequestBuilder {
         return new AppointmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity. */
+    /**
+     * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
+     */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity. */
+    /**
+     * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
+     */
     public get customers(): CustomersRequestBuilder {
         return new CustomersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity. */
+    /**
+     * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
+     */
     public get customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getStaffAvailability method. */
+    /**
+     * Provides operations to call the getStaffAvailability method.
+     */
     public get getStaffAvailability(): GetStaffAvailabilityRequestBuilder {
         return new GetStaffAvailabilityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the publish method. */
+    /**
+     * Provides operations to call the publish method.
+     */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity. */
+    /**
+     * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
+     */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity. */
+    /**
+     * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
+     */
     public get staffMembers(): StaffMembersRequestBuilder {
         return new StaffMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unpublish method. */
+    /**
+     * Provides operations to call the unpublish method.
+     */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,10 +89,9 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: BookingBusinessItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: BookingBusinessItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -82,16 +99,15 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the properties and relationships of a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingBusiness
      * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: BookingBusinessItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
+    public get(requestConfiguration?: BookingBusinessItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -99,17 +115,16 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a bookingBusiness object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingBusiness
      * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
+    public patch(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -118,7 +133,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<BookingBusiness>(requestInfo, createBookingBusinessFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a bookingBusiness object.

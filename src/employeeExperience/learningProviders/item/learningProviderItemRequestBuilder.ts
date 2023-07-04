@@ -7,18 +7,27 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeLearningProvider} from '../../../models/serializeLearningProvider';
 import {LearningContentsRequestBuilder} from './learningContents/learningContentsRequestBuilder';
+import {LearningCourseActivitiesRequestBuilder} from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
 import {LearningProviderItemRequestBuilderDeleteRequestConfiguration} from './learningProviderItemRequestBuilderDeleteRequestConfiguration';
 import {LearningProviderItemRequestBuilderGetRequestConfiguration} from './learningProviderItemRequestBuilderGetRequestConfiguration';
 import {LearningProviderItemRequestBuilderPatchRequestConfiguration} from './learningProviderItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
  */
 export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity. */
+    /**
+     * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
+     */
     public get learningContents(): LearningContentsRequestBuilder {
         return new LearningContentsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
+     */
+    public get learningCourseActivities(): LearningCourseActivitiesRequestBuilder {
+        return new LearningCourseActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new LearningProviderItemRequestBuilder and sets the default values.
@@ -31,10 +40,9 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: LearningProviderItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: LearningProviderItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -42,16 +50,15 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a learningProvider object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LearningProvider
      * @see {@link https://docs.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: LearningProviderItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LearningProvider | undefined> {
+    public get(requestConfiguration?: LearningProviderItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningProvider | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -59,17 +66,16 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a learningProvider object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LearningProvider
      * @see {@link https://docs.microsoft.com/graph/api/learningprovider-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: LearningProvider | undefined, requestConfiguration?: LearningProviderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LearningProvider | undefined> {
+    public patch(body: LearningProvider | undefined, requestConfiguration?: LearningProviderItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LearningProvider | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -78,7 +84,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LearningProvider>(requestInfo, createLearningProviderFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.

@@ -2,10 +2,16 @@ import {TrendingRequestBuilderGetQueryParameters} from './trendingRequestBuilder
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface TrendingRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: TrendingRequestBuilderGetQueryParameters | undefined;
 }

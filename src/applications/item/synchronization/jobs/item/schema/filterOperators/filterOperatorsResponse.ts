@@ -3,6 +3,8 @@ import {FilterOperatorSchema} from '../../../../../../../models/filterOperatorSc
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FilterOperatorsResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: FilterOperatorSchema[] | undefined;
 }

@@ -1,4 +1,6 @@
-/** Scheduled Action Type Enum */
+/**
+ * Scheduled Action Type Enum
+ */
 export enum DeviceComplianceActionType {
     /** No Action */
     NoAction = "noAction",

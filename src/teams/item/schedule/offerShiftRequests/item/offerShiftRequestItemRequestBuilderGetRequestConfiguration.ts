@@ -2,10 +2,16 @@ import {OfferShiftRequestItemRequestBuilderGetQueryParameters} from './offerShif
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface OfferShiftRequestItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: OfferShiftRequestItemRequestBuilderGetQueryParameters | undefined;
 }

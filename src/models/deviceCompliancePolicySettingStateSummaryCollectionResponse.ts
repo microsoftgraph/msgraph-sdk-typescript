@@ -3,6 +3,8 @@ import {DeviceCompliancePolicySettingStateSummary} from './deviceCompliancePolic
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceCompliancePolicySettingStateSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DeviceCompliancePolicySettingStateSummary[] | undefined;
 }

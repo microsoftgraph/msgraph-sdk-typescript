@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {PersonItemRequestBuilderGetRequestConfiguration} from './personItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the people property of the microsoft.graph.user entity.
@@ -22,10 +22,9 @@ export class PersonItemRequestBuilder extends BaseRequestBuilder {
     /**
      * People that are relevant to the user. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Person
      */
-    public get(requestConfiguration?: PersonItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Person | undefined> {
+    public get(requestConfiguration?: PersonItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Person | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class PersonItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Person>(requestInfo, createPersonFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Person>(requestInfo, createPersonFromDiscriminatorValue, errorMapping);
     };
     /**
      * People that are relevant to the user. Read-only. Nullable.

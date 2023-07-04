@@ -1,4 +1,6 @@
-/** Notification Settings Alert Type. */
+/**
+ * Notification Settings Alert Type.
+ */
 export enum IosNotificationAlertType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

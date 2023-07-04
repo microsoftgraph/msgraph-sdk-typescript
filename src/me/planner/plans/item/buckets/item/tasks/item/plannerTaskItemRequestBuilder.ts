@@ -13,25 +13,33 @@ import {PlannerTaskItemRequestBuilderDeleteRequestConfiguration} from './planner
 import {PlannerTaskItemRequestBuilderGetRequestConfiguration} from './plannerTaskItemRequestBuilderGetRequestConfiguration';
 import {PlannerTaskItemRequestBuilderPatchRequestConfiguration} from './plannerTaskItemRequestBuilderPatchRequestConfiguration';
 import {ProgressTaskBoardFormatRequestBuilder} from './progressTaskBoardFormat/progressTaskBoardFormatRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.plannerBucket entity.
  */
 export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+     */
     public get assignedToTaskBoardFormat(): AssignedToTaskBoardFormatRequestBuilder {
         return new AssignedToTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+     */
     public get bucketTaskBoardFormat(): BucketTaskBoardFormatRequestBuilder {
         return new BucketTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the details property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the details property of the microsoft.graph.plannerTask entity.
+     */
     public get details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity. */
+    /**
+     * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
+     */
     public get progressTaskBoardFormat(): ProgressTaskBoardFormatRequestBuilder {
         return new ProgressTaskBoardFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,9 +54,8 @@ export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property tasks for me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: PlannerTaskItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PlannerTaskItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -56,15 +63,14 @@ export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read-only. Nullable. The collection of tasks in the bucket.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerTask
      */
-    public get(requestConfiguration?: PlannerTaskItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerTask | undefined> {
+    public get(requestConfiguration?: PlannerTaskItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerTask | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -72,16 +78,15 @@ export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PlannerTask>(requestInfo, createPlannerTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PlannerTask>(requestInfo, createPlannerTaskFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property tasks in me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PlannerTask
      */
-    public patch(body: PlannerTask | undefined, requestConfiguration?: PlannerTaskItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerTask | undefined> {
+    public patch(body: PlannerTask | undefined, requestConfiguration?: PlannerTaskItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerTask | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -90,7 +95,7 @@ export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PlannerTask>(requestInfo, createPlannerTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PlannerTask>(requestInfo, createPlannerTaskFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property tasks for me

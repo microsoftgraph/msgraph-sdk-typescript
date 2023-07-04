@@ -1,11 +1,22 @@
+import {LearningCourseActivity} from './learningCourseActivity';
 import {LearningProvider} from './learningProvider';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EmployeeExperience extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** A collection of learning providers. */
+    /**
+     * The learningCourseActivities property
+     */
+    learningCourseActivities?: LearningCourseActivity[] | undefined;
+    /**
+     * A collection of learning providers.
+     */
     learningProviders?: LearningProvider[] | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
 }

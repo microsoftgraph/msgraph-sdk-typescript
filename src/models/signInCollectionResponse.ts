@@ -3,6 +3,8 @@ import {SignIn} from './signIn';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SignInCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: SignIn[] | undefined;
 }

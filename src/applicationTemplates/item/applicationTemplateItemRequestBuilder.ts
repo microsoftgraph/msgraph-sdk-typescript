@@ -6,13 +6,15 @@ import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeInt
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {ApplicationTemplateItemRequestBuilderGetRequestConfiguration} from './applicationTemplateItemRequestBuilderGetRequestConfiguration';
 import {InstantiateRequestBuilder} from './instantiate/instantiateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of applicationTemplate entities.
  */
 export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the instantiate method. */
+    /**
+     * Provides operations to call the instantiate method.
+     */
     public get instantiate(): InstantiateRequestBuilder {
         return new InstantiateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,11 +29,10 @@ export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve the properties of an applicationTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationTemplate
      * @see {@link https://docs.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ApplicationTemplateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplicationTemplate | undefined> {
+    public get(requestConfiguration?: ApplicationTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ApplicationTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -39,7 +40,7 @@ export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ApplicationTemplate>(requestInfo, createApplicationTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ApplicationTemplate>(requestInfo, createApplicationTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve the properties of an applicationTemplate object.

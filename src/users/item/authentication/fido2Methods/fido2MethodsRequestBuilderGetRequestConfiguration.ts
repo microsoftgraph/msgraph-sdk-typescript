@@ -2,10 +2,16 @@ import {Fido2MethodsRequestBuilderGetQueryParameters} from './fido2MethodsReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface Fido2MethodsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: Fido2MethodsRequestBuilderGetQueryParameters | undefined;
 }

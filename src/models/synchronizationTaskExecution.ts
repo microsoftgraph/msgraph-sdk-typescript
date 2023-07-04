@@ -3,36 +3,68 @@ import {SynchronizationTaskExecutionResult} from './synchronizationTaskExecution
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationTaskExecution extends AdditionalDataHolder, Parsable {
-    /** The activityIdentifier property */
+    /**
+     * The activityIdentifier property
+     */
     activityIdentifier?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The countEntitled property */
+    /**
+     * The countEntitled property
+     */
     countEntitled?: number | undefined;
-    /** The countEntitledForProvisioning property */
+    /**
+     * The countEntitledForProvisioning property
+     */
     countEntitledForProvisioning?: number | undefined;
-    /** The countEscrowed property */
+    /**
+     * The countEscrowed property
+     */
     countEscrowed?: number | undefined;
-    /** The countEscrowedRaw property */
+    /**
+     * The countEscrowedRaw property
+     */
     countEscrowedRaw?: number | undefined;
-    /** The countExported property */
+    /**
+     * The countExported property
+     */
     countExported?: number | undefined;
-    /** The countExports property */
+    /**
+     * The countExports property
+     */
     countExports?: number | undefined;
-    /** The countImported property */
+    /**
+     * The countImported property
+     */
     countImported?: number | undefined;
-    /** The countImportedDeltas property */
+    /**
+     * The countImportedDeltas property
+     */
     countImportedDeltas?: number | undefined;
-    /** The countImportedReferenceDeltas property */
+    /**
+     * The countImportedReferenceDeltas property
+     */
     countImportedReferenceDeltas?: number | undefined;
-    /** The error property */
+    /**
+     * The error property
+     */
     errorEscaped?: SynchronizationError | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The state property */
+    /**
+     * The state property
+     */
     state?: SynchronizationTaskExecutionResult | undefined;
-    /** The timeBegan property */
+    /**
+     * The timeBegan property
+     */
     timeBegan?: Date | undefined;
-    /** The timeEnded property */
+    /**
+     * The timeEnded property
+     */
     timeEnded?: Date | undefined;
 }

@@ -1,4 +1,6 @@
-/** Possible values for pre-release features. */
+/**
+ * Possible values for pre-release features.
+ */
 export enum PrereleaseFeatures {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

@@ -9,7 +9,7 @@ import {serializeDeviceCategory} from '../../../models/serializeDeviceCategory';
 import {DeviceCategoryItemRequestBuilderDeleteRequestConfiguration} from './deviceCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceCategoryItemRequestBuilderGetRequestConfiguration} from './deviceCategoryItemRequestBuilderGetRequestConfiguration';
 import {DeviceCategoryItemRequestBuilderPatchRequestConfiguration} from './deviceCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
@@ -24,11 +24,11 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceCategories/{deviceCategory%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property deviceCategories for deviceManagement
+     * Deletes a deviceCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DeviceCategoryItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DeviceCategoryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +36,15 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of device categories with the tenant.
+     * Read properties and relationships of the deviceCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCategory
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCategory | undefined> {
+    public get(requestConfiguration?: DeviceCategoryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +52,16 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceCategory>(requestInfo, createDeviceCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceCategory>(requestInfo, createDeviceCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property deviceCategories in deviceManagement
+     * Update the properties of a deviceCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceCategory
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceCategory | undefined, requestConfiguration?: DeviceCategoryItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCategory | undefined> {
+    public patch(body: DeviceCategory | undefined, requestConfiguration?: DeviceCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,10 +70,10 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceCategory>(requestInfo, createDeviceCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceCategory>(requestInfo, createDeviceCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property deviceCategories for deviceManagement
+     * Deletes a deviceCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The list of device categories with the tenant.
+     * Read properties and relationships of the deviceCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property deviceCategories in deviceManagement
+     * Update the properties of a deviceCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

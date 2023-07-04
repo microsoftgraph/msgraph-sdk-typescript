@@ -3,6 +3,8 @@ import {DefaultManagedAppProtection} from './defaultManagedAppProtection';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DefaultManagedAppProtectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DefaultManagedAppProtection[] | undefined;
 }

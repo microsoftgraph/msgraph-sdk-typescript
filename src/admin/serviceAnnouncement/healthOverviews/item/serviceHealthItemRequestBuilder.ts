@@ -10,13 +10,15 @@ import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
 import {ServiceHealthItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceHealthItemRequestBuilderGetRequestConfiguration} from './serviceHealthItemRequestBuilderGetRequestConfiguration';
 import {ServiceHealthItemRequestBuilderPatchRequestConfiguration} from './serviceHealthItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
  */
 export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity. */
+    /**
+     * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
+     */
     public get issues(): IssuesRequestBuilder {
         return new IssuesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property healthOverviews for admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ServiceHealthItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ServiceHealthItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceHealth
      * @see {@link https://docs.microsoft.com/graph/api/servicehealth-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ServiceHealthItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceHealth | undefined> {
+    public get(requestConfiguration?: ServiceHealthItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ServiceHealth | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -58,16 +58,15 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property healthOverviews in admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceHealth
      */
-    public patch(body: ServiceHealth | undefined, requestConfiguration?: ServiceHealthItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceHealth | undefined> {
+    public patch(body: ServiceHealth | undefined, requestConfiguration?: ServiceHealthItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceHealth | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -76,7 +75,7 @@ export class ServiceHealthItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ServiceHealth>(requestInfo, createServiceHealthFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property healthOverviews for admin

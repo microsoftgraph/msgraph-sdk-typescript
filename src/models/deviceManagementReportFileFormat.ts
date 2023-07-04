@@ -1,4 +1,6 @@
-/** Possible values for the file format of a report */
+/**
+ * Possible values for the file format of a report
+ */
 export enum DeviceManagementReportFileFormat {
     /** CSV Format */
     Csv = "csv",

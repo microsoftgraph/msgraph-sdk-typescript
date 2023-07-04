@@ -2,10 +2,16 @@ import {TaughtClassesRequestBuilderGetQueryParameters} from './taughtClassesRequ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface TaughtClassesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: TaughtClassesRequestBuilderGetQueryParameters | undefined;
 }

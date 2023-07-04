@@ -9,7 +9,7 @@ import {serializeLearningContent} from '../../../../../models/serializeLearningC
 import {LearningContentItemRequestBuilderDeleteRequestConfiguration} from './learningContentItemRequestBuilderDeleteRequestConfiguration';
 import {LearningContentItemRequestBuilderGetRequestConfiguration} from './learningContentItemRequestBuilderGetRequestConfiguration';
 import {LearningContentItemRequestBuilderPatchRequestConfiguration} from './learningContentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
@@ -26,10 +26,9 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: LearningContentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: LearningContentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LearningContent
      * @see {@link https://docs.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: LearningContentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LearningContent | undefined> {
+    public get(requestConfiguration?: LearningContentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningContent | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -54,16 +52,15 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LearningContent>(requestInfo, createLearningContentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LearningContent>(requestInfo, createLearningContentFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property learningContents in employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LearningContent
      */
-    public patch(body: LearningContent | undefined, requestConfiguration?: LearningContentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LearningContent | undefined> {
+    public patch(body: LearningContent | undefined, requestConfiguration?: LearningContentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LearningContent | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LearningContent>(requestInfo, createLearningContentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LearningContent>(requestInfo, createLearningContentFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.

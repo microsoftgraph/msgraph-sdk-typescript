@@ -2,10 +2,16 @@ import {PermissionsRequestBuilderGetQueryParameters} from './permissionsRequestB
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface PermissionsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: PermissionsRequestBuilderGetQueryParameters | undefined;
 }

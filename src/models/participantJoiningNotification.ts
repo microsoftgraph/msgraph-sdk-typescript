@@ -3,6 +3,8 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ParticipantJoiningNotification extends Entity, Parsable {
-    /** The call property */
+    /**
+     * The call property
+     */
     call?: Call | undefined;
 }

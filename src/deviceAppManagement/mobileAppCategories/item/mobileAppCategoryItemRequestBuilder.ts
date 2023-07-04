@@ -9,7 +9,7 @@ import {serializeMobileAppCategory} from '../../../models/serializeMobileAppCate
 import {MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration} from './mobileAppCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppCategoryItemRequestBuilderGetRequestConfiguration} from './mobileAppCategoryItemRequestBuilderGetRequestConfiguration';
 import {MobileAppCategoryItemRequestBuilderPatchRequestConfiguration} from './mobileAppCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
@@ -24,11 +24,11 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileAppCategories/{mobileAppCategory%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property mobileAppCategories for deviceAppManagement
+     * Deletes a mobileAppCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +36,15 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The mobile app categories.
+     * Read properties and relationships of the mobileAppCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MobileAppCategory
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: MobileAppCategoryItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileAppCategory | undefined> {
+    public get(requestConfiguration?: MobileAppCategoryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +52,16 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<MobileAppCategory>(requestInfo, createMobileAppCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<MobileAppCategory>(requestInfo, createMobileAppCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property mobileAppCategories in deviceAppManagement
+     * Update the properties of a mobileAppCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MobileAppCategory
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: MobileAppCategory | undefined, requestConfiguration?: MobileAppCategoryItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileAppCategory | undefined> {
+    public patch(body: MobileAppCategory | undefined, requestConfiguration?: MobileAppCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,10 +70,10 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<MobileAppCategory>(requestInfo, createMobileAppCategoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<MobileAppCategory>(requestInfo, createMobileAppCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property mobileAppCategories for deviceAppManagement
+     * Deletes a mobileAppCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The mobile app categories.
+     * Read properties and relationships of the mobileAppCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property mobileAppCategories in deviceAppManagement
+     * Update the properties of a mobileAppCategory object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

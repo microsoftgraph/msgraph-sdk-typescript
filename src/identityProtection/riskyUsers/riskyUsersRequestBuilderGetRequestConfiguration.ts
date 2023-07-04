@@ -2,10 +2,16 @@ import {RiskyUsersRequestBuilderGetQueryParameters} from './riskyUsersRequestBui
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RiskyUsersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RiskyUsersRequestBuilderGetQueryParameters | undefined;
 }

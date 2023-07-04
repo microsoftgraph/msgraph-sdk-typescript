@@ -9,7 +9,7 @@ import {serializeManagedDeviceMobileAppConfigurationDeviceSummary} from '../../.
 import {DeviceStatusSummaryRequestBuilderDeleteRequestConfiguration} from './deviceStatusSummaryRequestBuilderDeleteRequestConfiguration';
 import {DeviceStatusSummaryRequestBuilderGetRequestConfiguration} from './deviceStatusSummaryRequestBuilderGetRequestConfiguration';
 import {DeviceStatusSummaryRequestBuilderPatchRequestConfiguration} from './deviceStatusSummaryRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStatusSummary property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -26,9 +26,8 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property deviceStatusSummary for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: DeviceStatusSummaryRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DeviceStatusSummaryRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,15 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * App configuration device status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicesummary-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceStatusSummaryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
+    public get(requestConfiguration?: DeviceStatusSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +51,16 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationDeviceSummary>(requestInfo, createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfigurationDeviceSummary>(requestInfo, createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property deviceStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicesummary-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined, requestConfiguration?: DeviceStatusSummaryRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
+    public patch(body: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined, requestConfiguration?: DeviceStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +69,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationDeviceSummary>(requestInfo, createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfigurationDeviceSummary>(requestInfo, createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property deviceStatusSummary for deviceAppManagement
@@ -89,7 +88,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * App configuration device status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +106,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property deviceStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

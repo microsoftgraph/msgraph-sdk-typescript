@@ -3,6 +3,8 @@ import {DataSource} from './dataSource';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SiteSource extends DataSource, Parsable {
-    /** The site property */
+    /**
+     * The site property
+     */
     site?: Site | undefined;
 }

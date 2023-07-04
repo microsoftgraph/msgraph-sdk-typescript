@@ -2,10 +2,16 @@ import {SupportedTimeZonesRequestBuilderGetQueryParameters} from './supportedTim
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SupportedTimeZonesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SupportedTimeZonesRequestBuilderGetQueryParameters | undefined;
 }

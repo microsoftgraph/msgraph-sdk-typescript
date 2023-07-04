@@ -9,7 +9,7 @@ import {serializeExtensionProperty} from '../../../../models/serializeExtensionP
 import {ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration} from './extensionPropertyItemRequestBuilderDeleteRequestConfiguration';
 import {ExtensionPropertyItemRequestBuilderGetRequestConfiguration} from './extensionPropertyItemRequestBuilderGetRequestConfiguration';
 import {ExtensionPropertyItemRequestBuilderPatchRequestConfiguration} from './extensionPropertyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
@@ -26,10 +26,9 @@ export class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/extensionproperty-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read a directory extension definition represented by an extensionProperty object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionProperty
      * @see {@link https://docs.microsoft.com/graph/api/extensionproperty-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ExtensionPropertyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionProperty | undefined> {
+    public get(requestConfiguration?: ExtensionPropertyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ExtensionProperty | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -54,16 +52,15 @@ export class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property extensionProperties in applications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ExtensionProperty
      */
-    public patch(body: ExtensionProperty | undefined, requestConfiguration?: ExtensionPropertyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionProperty | undefined> {
+    public patch(body: ExtensionProperty | undefined, requestConfiguration?: ExtensionPropertyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ExtensionProperty | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ExtensionProperty>(requestInfo, createExtensionPropertyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).

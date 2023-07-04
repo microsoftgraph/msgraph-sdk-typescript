@@ -1,12 +1,20 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ReferencedObject extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The referencedObjectName property */
+    /**
+     * The referencedObjectName property
+     */
     referencedObjectName?: string | undefined;
-    /** The referencedProperty property */
+    /**
+     * The referencedProperty property
+     */
     referencedProperty?: string | undefined;
 }

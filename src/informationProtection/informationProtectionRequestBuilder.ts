@@ -10,17 +10,21 @@ import {BitlockerRequestBuilder} from './bitlocker/bitlockerRequestBuilder';
 import {InformationProtectionRequestBuilderGetRequestConfiguration} from './informationProtectionRequestBuilderGetRequestConfiguration';
 import {InformationProtectionRequestBuilderPatchRequestConfiguration} from './informationProtectionRequestBuilderPatchRequestConfiguration';
 import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the informationProtection singleton.
  */
 export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity. */
+    /**
+     * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
+     */
     public get bitlocker(): BitlockerRequestBuilder {
         return new BitlockerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity. */
+    /**
+     * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
+     */
     public get threatAssessmentRequests(): ThreatAssessmentRequestsRequestBuilder {
         return new ThreatAssessmentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -35,10 +39,9 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
     /**
      * Get informationProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InformationProtection
      */
-    public get(requestConfiguration?: InformationProtectionRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InformationProtection | undefined> {
+    public get(requestConfiguration?: InformationProtectionRequestBuilderGetRequestConfiguration | undefined) : Promise<InformationProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update informationProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InformationProtection
      */
-    public patch(body: InformationProtection | undefined, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InformationProtection | undefined> {
+    public patch(body: InformationProtection | undefined, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined) : Promise<InformationProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -64,7 +66,7 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<InformationProtection>(requestInfo, createInformationProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get informationProtection

@@ -9,7 +9,7 @@ import {serializeAuditEvent} from '../../../models/serializeAuditEvent';
 import {AuditEventItemRequestBuilderDeleteRequestConfiguration} from './auditEventItemRequestBuilderDeleteRequestConfiguration';
 import {AuditEventItemRequestBuilderGetRequestConfiguration} from './auditEventItemRequestBuilderGetRequestConfiguration';
 import {AuditEventItemRequestBuilderPatchRequestConfiguration} from './auditEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
@@ -24,11 +24,11 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/auditEvents/{auditEvent%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property auditEvents for deviceManagement
+     * Deletes a auditEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AuditEventItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AuditEventItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +36,15 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The Audit Events
+     * Read properties and relationships of the auditEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditEvent
+     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AuditEventItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditEvent | undefined> {
+    public get(requestConfiguration?: AuditEventItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +52,16 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property auditEvents in deviceManagement
+     * Update the properties of a auditEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditEvent
+     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AuditEvent | undefined, requestConfiguration?: AuditEventItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditEvent | undefined> {
+    public patch(body: AuditEvent | undefined, requestConfiguration?: AuditEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,10 +70,10 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property auditEvents for deviceManagement
+     * Deletes a auditEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The Audit Events
+     * Read properties and relationships of the auditEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property auditEvents in deviceManagement
+     * Update the properties of a auditEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

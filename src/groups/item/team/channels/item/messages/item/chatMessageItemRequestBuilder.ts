@@ -13,25 +13,33 @@ import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsReque
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
 import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.
  */
 export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity. */
+    /**
+     * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
+     */
     public get hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the replies property of the microsoft.graph.chatMessage entity. */
+    /**
+     * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
+     */
     public get replies(): RepliesRequestBuilder {
         return new RepliesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the softDelete method. */
+    /**
+     * Provides operations to call the softDelete method.
+     */
     public get softDelete(): SoftDeleteRequestBuilder {
         return new SoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the undoSoftDelete method. */
+    /**
+     * Provides operations to call the undoSoftDelete method.
+     */
     public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
         return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,9 +54,8 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property messages for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ChatMessageItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ChatMessageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -56,16 +63,15 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve a single message or a message reply in a channel or a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
      * @see {@link https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ChatMessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
+    public get(requestConfiguration?: ChatMessageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -73,17 +79,16 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update a chatMessage object. With the exception of the **policyViolation** property, all properties of a **chatMessage** can be updated in delegated permissions scenarios.Only the **policyViolation** property of a **chatMessage** can be updated in application permissions scenarios. The update only works for chats where members are Microsoft Teams users. If one of the participants is using Skype, the operation will fail. This method does not support federation. Only the user in the tenant who sent the message can perform data loss prevention (DLP) updates on the specified chat message.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
      * @see {@link https://docs.microsoft.com/graph/api/chatmessage-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ChatMessage | undefined, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
+    public patch(body: ChatMessage | undefined, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -92,7 +97,7 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ChatMessage>(requestInfo, createChatMessageFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property messages for groups

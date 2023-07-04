@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {ManagedDeviceOverviewRequestBuilderGetRequestConfiguration} from './managedDeviceOverviewRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDeviceOverview property of the microsoft.graph.deviceManagement entity.
@@ -20,12 +20,12 @@ export class ManagedDeviceOverviewRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/managedDeviceOverview{?%24select,%24expand}");
     };
     /**
-     * Device overview
+     * Read properties and relationships of the managedDeviceOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceOverview
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddeviceoverview-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ManagedDeviceOverviewRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceOverview | undefined> {
+    public get(requestConfiguration?: ManagedDeviceOverviewRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceOverview | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,10 +33,10 @@ export class ManagedDeviceOverviewRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedDeviceOverview>(requestInfo, createManagedDeviceOverviewFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedDeviceOverview>(requestInfo, createManagedDeviceOverviewFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Device overview
+     * Read properties and relationships of the managedDeviceOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

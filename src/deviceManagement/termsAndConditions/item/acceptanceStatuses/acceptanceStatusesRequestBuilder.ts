@@ -12,13 +12,15 @@ import {AcceptanceStatusesRequestBuilderGetRequestConfiguration} from './accepta
 import {AcceptanceStatusesRequestBuilderPostRequestConfiguration} from './acceptanceStatusesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilder} from './item/termsAndConditionsAcceptanceStatusItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
  */
 export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -42,12 +44,12 @@ export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/acceptanceStatuses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The list of acceptance statuses for this T&C policy.
+     * List properties and relationships of the termsAndConditionsAcceptanceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsAndConditionsAcceptanceStatusCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AcceptanceStatusesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAcceptanceStatusCollectionResponse | undefined> {
+    public get(requestConfiguration?: AcceptanceStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +57,16 @@ export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TermsAndConditionsAcceptanceStatusCollectionResponse>(requestInfo, createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TermsAndConditionsAcceptanceStatusCollectionResponse>(requestInfo, createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to acceptanceStatuses for deviceManagement
+     * Create a new termsAndConditionsAcceptanceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsAndConditionsAcceptanceStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: AcceptanceStatusesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
+    public post(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: AcceptanceStatusesRequestBuilderPostRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,10 +75,10 @@ export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TermsAndConditionsAcceptanceStatus>(requestInfo, createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TermsAndConditionsAcceptanceStatus>(requestInfo, createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The list of acceptance statuses for this T&C policy.
+     * List properties and relationships of the termsAndConditionsAcceptanceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to acceptanceStatuses for deviceManagement
+     * Create a new termsAndConditionsAcceptanceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

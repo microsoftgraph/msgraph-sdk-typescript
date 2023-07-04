@@ -1,4 +1,6 @@
-/** Possible states associated with an Apple Volume Purchase Program token. */
+/**
+ * Possible states associated with an Apple Volume Purchase Program token.
+ */
 export enum VppTokenState {
     /** Default state. */
     Unknown = "unknown",

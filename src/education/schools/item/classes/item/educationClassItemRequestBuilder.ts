@@ -5,7 +5,9 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /education/schools/{educationSchool-id}/classes/{educationClass-id}
  */
 export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of educationRoot entities. */
+    /**
+     * Provides operations to manage the collection of educationRoot entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

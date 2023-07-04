@@ -10,13 +10,15 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
  */
 export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the admin entity. */
+    /**
+     * Provides operations to manage the media for the admin entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
     /**
      * Delete navigation property attachments for admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a serviceAnnouncementAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceAnnouncementAttachment
      * @see {@link https://docs.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
+    public get(requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -58,16 +58,15 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property attachments in admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServiceAnnouncementAttachment
      */
-    public patch(body: ServiceAnnouncementAttachment | undefined, requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
+    public patch(body: ServiceAnnouncementAttachment | undefined, requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -76,7 +75,7 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property attachments for admin

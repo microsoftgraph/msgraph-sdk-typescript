@@ -9,7 +9,7 @@ import {serializeAuthenticationMethodModeDetail} from '../../../../../models/ser
 import {AuthenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
@@ -26,9 +26,8 @@ export class AuthenticationMethodModeDetailItemRequestBuilder extends BaseReques
     /**
      * Delete navigation property authenticationMethodModes for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class AuthenticationMethodModeDetailItemRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Names and descriptions of all valid authentication method modes in the system.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodModeDetail
      */
-    public get(requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
+    public get(requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class AuthenticationMethodModeDetailItemRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationMethodModeDetail>(requestInfo, createAuthenticationMethodModeDetailFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationMethodModeDetail>(requestInfo, createAuthenticationMethodModeDetailFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property authenticationMethodModes in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodModeDetail
      */
-    public patch(body: AuthenticationMethodModeDetail | undefined, requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
+    public patch(body: AuthenticationMethodModeDetail | undefined, requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class AuthenticationMethodModeDetailItemRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationMethodModeDetail>(requestInfo, createAuthenticationMethodModeDetailFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationMethodModeDetail>(requestInfo, createAuthenticationMethodModeDetailFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property authenticationMethodModes for identity

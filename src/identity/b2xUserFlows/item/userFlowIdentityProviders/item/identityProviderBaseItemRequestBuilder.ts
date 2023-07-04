@@ -5,7 +5,9 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/userFlowIdentityProviders/{identityProviderBase-id}
  */
 export class IdentityProviderBaseItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of identityContainer entities. */
+    /**
+     * Provides operations to manage the collection of identityContainer entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -6,7 +6,7 @@ import {ConfirmCompromisedPostRequestBody} from './confirmCompromisedPostRequest
 import {ConfirmCompromisedRequestBuilderPostRequestConfiguration} from './confirmCompromisedRequestBuilderPostRequestConfiguration';
 import {deserializeIntoConfirmCompromisedPostRequestBody} from './deserializeIntoConfirmCompromisedPostRequestBody';
 import {serializeConfirmCompromisedPostRequestBody} from './serializeConfirmCompromisedPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the confirmCompromised method.
@@ -24,10 +24,9 @@ export class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder {
      * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to `high`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/riskyserviceprincipal-confirmcompromised?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ConfirmCompromisedPostRequestBody | undefined, requestConfiguration?: ConfirmCompromisedRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: ConfirmCompromisedPostRequestBody | undefined, requestConfiguration?: ConfirmCompromisedRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -36,7 +35,7 @@ export class ConfirmCompromisedRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Confirm one or more riskyServicePrincipal objects as compromised. This action sets the targeted service principal account's risk level to `high`.

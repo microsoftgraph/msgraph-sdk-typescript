@@ -3,6 +3,8 @@ import {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPoli
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicyAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: UnifiedRoleManagementPolicyAssignment[] | undefined;
 }

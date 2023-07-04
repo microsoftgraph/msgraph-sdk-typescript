@@ -3,6 +3,8 @@ import {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobi
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
 }

@@ -9,7 +9,7 @@ import {serializeDeviceComplianceSettingState} from '../../../../../models/seria
 import {DeviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration} from './deviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration} from './deviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration';
 import {DeviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration} from './deviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
@@ -24,11 +24,11 @@ export class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestB
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummary%2Did}/deviceComplianceSettingStates/{deviceComplianceSettingState%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property deviceComplianceSettingStates for deviceManagement
+     * Deletes a deviceComplianceSettingState.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DeviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DeviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +36,15 @@ export class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Not yet documented
+     * Read properties and relationships of the deviceComplianceSettingState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceSettingState
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceSettingState | undefined> {
+    public get(requestConfiguration?: DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceSettingState | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +52,16 @@ export class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceComplianceSettingState>(requestInfo, createDeviceComplianceSettingStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceComplianceSettingState>(requestInfo, createDeviceComplianceSettingStateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property deviceComplianceSettingStates in deviceManagement
+     * Update the properties of a deviceComplianceSettingState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceSettingState
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceComplianceSettingState | undefined, requestConfiguration?: DeviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceSettingState | undefined> {
+    public patch(body: DeviceComplianceSettingState | undefined, requestConfiguration?: DeviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceComplianceSettingState | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,10 +70,10 @@ export class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceComplianceSettingState>(requestInfo, createDeviceComplianceSettingStateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceComplianceSettingState>(requestInfo, createDeviceComplianceSettingStateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property deviceComplianceSettingStates for deviceManagement
+     * Deletes a deviceComplianceSettingState.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Not yet documented
+     * Read properties and relationships of the deviceComplianceSettingState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class DeviceComplianceSettingStateItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Update the navigation property deviceComplianceSettingStates in deviceManagement
+     * Update the properties of a deviceComplianceSettingState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

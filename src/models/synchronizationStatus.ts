@@ -6,32 +6,60 @@ import {SynchronizationTaskExecution} from './synchronizationTaskExecution';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationStatus extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The code property */
+    /**
+     * The code property
+     */
     code?: SynchronizationStatusCode | undefined;
-    /** The countSuccessiveCompleteFailures property */
+    /**
+     * The countSuccessiveCompleteFailures property
+     */
     countSuccessiveCompleteFailures?: number | undefined;
-    /** The escrowsPruned property */
+    /**
+     * The escrowsPruned property
+     */
     escrowsPruned?: boolean | undefined;
-    /** The lastExecution property */
+    /**
+     * The lastExecution property
+     */
     lastExecution?: SynchronizationTaskExecution | undefined;
-    /** The lastSuccessfulExecution property */
+    /**
+     * The lastSuccessfulExecution property
+     */
     lastSuccessfulExecution?: SynchronizationTaskExecution | undefined;
-    /** The lastSuccessfulExecutionWithExports property */
+    /**
+     * The lastSuccessfulExecutionWithExports property
+     */
     lastSuccessfulExecutionWithExports?: SynchronizationTaskExecution | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The progress property */
+    /**
+     * The progress property
+     */
     progress?: SynchronizationProgress[] | undefined;
-    /** The quarantine property */
+    /**
+     * The quarantine property
+     */
     quarantine?: SynchronizationQuarantine | undefined;
-    /** The steadyStateFirstAchievedTime property */
+    /**
+     * The steadyStateFirstAchievedTime property
+     */
     steadyStateFirstAchievedTime?: Date | undefined;
-    /** The steadyStateLastAchievedTime property */
+    /**
+     * The steadyStateLastAchievedTime property
+     */
     steadyStateLastAchievedTime?: Date | undefined;
-    /** The synchronizedEntryCountByType property */
+    /**
+     * The synchronizedEntryCountByType property
+     */
     synchronizedEntryCountByType?: StringKeyLongValuePair[] | undefined;
-    /** The troubleshootingUrl property */
+    /**
+     * The troubleshootingUrl property
+     */
     troubleshootingUrl?: string | undefined;
 }

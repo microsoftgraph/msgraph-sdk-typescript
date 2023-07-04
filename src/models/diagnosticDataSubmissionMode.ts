@@ -1,4 +1,6 @@
-/** Allow the device to send diagnostic and usage telemetry data, such as Watson. */
+/**
+ * Allow the device to send diagnostic and usage telemetry data, such as Watson.
+ */
 export enum DiagnosticDataSubmissionMode {
     /** Allow the user to set. */
     UserDefined = "userDefined",

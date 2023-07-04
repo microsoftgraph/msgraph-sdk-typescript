@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {SquareLogoDarkRequestBuilderGetRequestConfiguration} from './squareLogoDarkRequestBuilderGetRequestConfiguration';
 import {SquareLogoDarkRequestBuilderPutRequestConfiguration} from './squareLogoDarkRequestBuilderPutRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the media for the organizationalBrandingLocalization entity.
@@ -21,10 +21,9 @@ export class SquareLogoDarkRequestBuilder extends BaseRequestBuilder {
     /**
      * Get squareLogoDark for organizationalBrandingLocalization from localizations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
      */
-    public get(requestConfiguration?: SquareLogoDarkRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public get(requestConfiguration?: SquareLogoDarkRequestBuilderGetRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -32,16 +31,15 @@ export class SquareLogoDarkRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
      * Update squareLogoDark for organizationalBrandingLocalization in localizations
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
      */
-    public put(body: ArrayBuffer | undefined, requestConfiguration?: SquareLogoDarkRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public put(body: ArrayBuffer | undefined, requestConfiguration?: SquareLogoDarkRequestBuilderPutRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
@@ -50,7 +48,7 @@ export class SquareLogoDarkRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
      * Get squareLogoDark for organizationalBrandingLocalization from localizations

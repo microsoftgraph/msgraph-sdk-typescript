@@ -8,7 +8,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {serializeAdministrativeUnit} from '../../../../models/serializeAdministrativeUnit';
 import {AdministrativeUnitRequestBuilderGetRequestConfiguration} from './administrativeUnitRequestBuilderGetRequestConfiguration';
 import {AdministrativeUnitRequestBuilderPatchRequestConfiguration} from './administrativeUnitRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity.
@@ -25,11 +25,10 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
     /**
      * Get a list of **administrativeUnits** associated with an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdministrativeUnit
      * @see {@link https://docs.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
+    public get(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property administrativeUnit in education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AdministrativeUnit
      */
-    public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnit | undefined> {
+    public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -55,7 +53,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get a list of **administrativeUnits** associated with an educationSchool object.

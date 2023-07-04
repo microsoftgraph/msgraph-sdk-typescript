@@ -11,7 +11,7 @@ export function deserializeIntoMainError(mainError: MainError | undefined = {} a
     return {
         "code": n => { mainError.code = n.getStringValue(); },
         "details": n => { mainError.details = n.getCollectionOfObjectValues<ErrorDetails>(createErrorDetailsFromDiscriminatorValue); },
-        "innererror": n => { mainError.innererror = n.getObjectValue<InnerError>(createInnerErrorFromDiscriminatorValue); },
+        "innerError": n => { mainError.innerError = n.getObjectValue<InnerError>(createInnerErrorFromDiscriminatorValue); },
         "message": n => { mainError.message = n.getStringValue(); },
         "target": n => { mainError.target = n.getStringValue(); },
     }

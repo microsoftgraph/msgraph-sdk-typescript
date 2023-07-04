@@ -1,4 +1,6 @@
-/** Indicates the type of return code. */
+/**
+ * Indicates the type of return code.
+ */
 export enum Win32LobAppReturnCodeType {
     /** Failed. */
     Failed = "failed",

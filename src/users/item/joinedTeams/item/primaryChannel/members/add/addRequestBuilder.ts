@@ -10,7 +10,7 @@ import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequest
 import {deserializeIntoAddResponse} from './deserializeIntoAddResponse';
 import {serializeAddPostRequestBody} from './serializeAddPostRequestBody';
 import {serializeAddResponse} from './serializeAddResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the add method.
@@ -28,11 +28,10 @@ export class AddRequestBuilder extends BaseRequestBuilder {
      * Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AddResponse
      * @see {@link https://docs.microsoft.com/graph/api/conversationmembers-add?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddPostRequestBody | undefined, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddResponse | undefined> {
+    public post(body: AddPostRequestBody | undefined, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined) : Promise<AddResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -41,7 +40,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AddResponse>(requestInfo, createAddResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AddResponse>(requestInfo, createAddResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Add multiple members in a single request to a team. The response provides details about which memberships could and couldn't be created.

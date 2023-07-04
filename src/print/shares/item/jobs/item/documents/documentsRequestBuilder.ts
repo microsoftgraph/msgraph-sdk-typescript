@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentsRequestBuilderGetRequestConfiguration} from './documentsRequestBuilderGetRequestConfiguration';
 import {DocumentsRequestBuilderPostRequestConfiguration} from './documentsRequestBuilderPostRequestConfiguration';
 import {PrintDocumentItemRequestBuilder} from './item/printDocumentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
  */
 export class DocumentsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,9 @@ export class DocumentsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get documents from print
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintDocumentCollectionResponse
      */
-    public get(requestConfiguration?: DocumentsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintDocumentCollectionResponse | undefined> {
+    public get(requestConfiguration?: DocumentsRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintDocumentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +56,15 @@ export class DocumentsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintDocumentCollectionResponse>(requestInfo, createPrintDocumentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintDocumentCollectionResponse>(requestInfo, createPrintDocumentCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to documents for print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintDocument
      */
-    public post(body: PrintDocument | undefined, requestConfiguration?: DocumentsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintDocument | undefined> {
+    public post(body: PrintDocument | undefined, requestConfiguration?: DocumentsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintDocument | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,7 +73,7 @@ export class DocumentsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintDocument>(requestInfo, createPrintDocumentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintDocument>(requestInfo, createPrintDocumentFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get documents from print

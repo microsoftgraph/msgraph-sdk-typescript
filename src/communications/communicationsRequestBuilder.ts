@@ -13,29 +13,39 @@ import {CommunicationsRequestBuilderPatchRequestConfiguration} from './communica
 import {GetPresencesByUserIdRequestBuilder} from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
 import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cloudCommunications singleton.
  */
 export class CommunicationsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
+     */
     public get callRecords(): CallRecordsRequestBuilder {
         return new CallRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
+     */
     public get calls(): CallsRequestBuilder {
         return new CallsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getPresencesByUserId method. */
+    /**
+     * Provides operations to call the getPresencesByUserId method.
+     */
     public get getPresencesByUserId(): GetPresencesByUserIdRequestBuilder {
         return new GetPresencesByUserIdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
+     */
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity. */
+    /**
+     * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
+     */
     public get presences(): PresencesRequestBuilder {
         return new PresencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -50,10 +60,9 @@ export class CommunicationsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get communications
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CloudCommunications
      */
-    public get(requestConfiguration?: CommunicationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CloudCommunications | undefined> {
+    public get(requestConfiguration?: CommunicationsRequestBuilderGetRequestConfiguration | undefined) : Promise<CloudCommunications | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,16 +70,15 @@ export class CommunicationsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CloudCommunications
      */
-    public patch(body: CloudCommunications | undefined, requestConfiguration?: CommunicationsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CloudCommunications | undefined> {
+    public patch(body: CloudCommunications | undefined, requestConfiguration?: CommunicationsRequestBuilderPatchRequestConfiguration | undefined) : Promise<CloudCommunications | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -79,7 +87,7 @@ export class CommunicationsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get communications

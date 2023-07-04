@@ -9,7 +9,7 @@ import {WorkbookChartFont} from '../../../../../../../../../../../../../models/w
 import {FontRequestBuilderDeleteRequestConfiguration} from './fontRequestBuilderDeleteRequestConfiguration';
 import {FontRequestBuilderGetRequestConfiguration} from './fontRequestBuilderGetRequestConfiguration';
 import {FontRequestBuilderPatchRequestConfiguration} from './fontRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the font property of the microsoft.graph.workbookChartAxisFormat entity.
@@ -26,9 +26,8 @@ export class FontRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property font for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: FontRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: FontRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class FontRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of chartfont object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartFont
      * @see {@link https://docs.microsoft.com/graph/api/chartfont-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: FontRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartFont | undefined> {
+    public get(requestConfiguration?: FontRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartFont | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,17 +51,16 @@ export class FontRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartFont>(requestInfo, createWorkbookChartFontFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartFont>(requestInfo, createWorkbookChartFontFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of chartfont object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartFont
      * @see {@link https://docs.microsoft.com/graph/api/chartfont-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChartFont | undefined, requestConfiguration?: FontRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartFont | undefined> {
+    public patch(body: WorkbookChartFont | undefined, requestConfiguration?: FontRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartFont | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class FontRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartFont>(requestInfo, createWorkbookChartFontFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartFont>(requestInfo, createWorkbookChartFontFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property font for drives

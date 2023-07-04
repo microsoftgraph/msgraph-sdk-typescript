@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration} from './conditionalAccessTemplateItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
@@ -22,11 +22,10 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
     /**
      * Read the properties and relationships of a conditionalAccessTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConditionalAccessTemplate
      * @see {@link https://docs.microsoft.com/graph/api/conditionalaccesstemplate-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessTemplate | undefined> {
+    public get(requestConfiguration?: ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConditionalAccessTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -34,7 +33,7 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ConditionalAccessTemplate>(requestInfo, createConditionalAccessTemplateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ConditionalAccessTemplate>(requestInfo, createConditionalAccessTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
      * Read the properties and relationships of a conditionalAccessTemplate object.

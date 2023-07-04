@@ -2,10 +2,16 @@ import {ContractItemRequestBuilderGetQueryParameters} from './contractItemReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ContractItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ContractItemRequestBuilderGetQueryParameters | undefined;
 }

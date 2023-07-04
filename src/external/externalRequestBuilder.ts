@@ -9,13 +9,15 @@ import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {ConnectionsRequestBuilder} from './connections/connectionsRequestBuilder';
 import {ExternalRequestBuilderGetRequestConfiguration} from './externalRequestBuilderGetRequestConfiguration';
 import {ExternalRequestBuilderPatchRequestConfiguration} from './externalRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the external singleton.
  */
 export class ExternalRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity. */
+    /**
+     * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
+     */
     public get connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -30,10 +32,9 @@ export class ExternalRequestBuilder extends BaseRequestBuilder {
     /**
      * Get external
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of External
      */
-    public get(requestConfiguration?: ExternalRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<External | undefined> {
+    public get(requestConfiguration?: ExternalRequestBuilderGetRequestConfiguration | undefined) : Promise<External | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class ExternalRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<External>(requestInfo, createExternalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<External>(requestInfo, createExternalFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update external
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of External
      */
-    public patch(body: External | undefined, requestConfiguration?: ExternalRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<External | undefined> {
+    public patch(body: External | undefined, requestConfiguration?: ExternalRequestBuilderPatchRequestConfiguration | undefined) : Promise<External | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -59,7 +59,7 @@ export class ExternalRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<External>(requestInfo, createExternalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<External>(requestInfo, createExternalFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get external

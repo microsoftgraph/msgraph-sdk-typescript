@@ -1,0 +1,10 @@
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import {UserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse} from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse: UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse)
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsWorkFromAnywhereModelPerformance>("value", userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse.value, serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance);
+}

@@ -10,13 +10,15 @@ import {DetectedAppItemRequestBuilderDeleteRequestConfiguration} from './detecte
 import {DetectedAppItemRequestBuilderGetRequestConfiguration} from './detectedAppItemRequestBuilderGetRequestConfiguration';
 import {DetectedAppItemRequestBuilderPatchRequestConfiguration} from './detectedAppItemRequestBuilderPatchRequestConfiguration';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
  */
 export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity. */
+    /**
+     * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
+     */
     public get managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -29,11 +31,11 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/detectedApps/{detectedApp%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property detectedApps for deviceManagement
+     * Deletes a detectedApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DetectedAppItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DetectedAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +43,15 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of detected apps associated with a device.
+     * Read properties and relationships of the detectedApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DetectedApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DetectedAppItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DetectedApp | undefined> {
+    public get(requestConfiguration?: DetectedAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +59,16 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DetectedApp>(requestInfo, createDetectedAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DetectedApp>(requestInfo, createDetectedAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property detectedApps in deviceManagement
+     * Update the properties of a detectedApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DetectedApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DetectedApp | undefined, requestConfiguration?: DetectedAppItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DetectedApp | undefined> {
+    public patch(body: DetectedApp | undefined, requestConfiguration?: DetectedAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,10 +77,10 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DetectedApp>(requestInfo, createDetectedAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DetectedApp>(requestInfo, createDetectedAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property detectedApps for deviceManagement
+     * Deletes a detectedApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The list of detected apps associated with a device.
+     * Read properties and relationships of the detectedApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -112,7 +114,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property detectedApps in deviceManagement
+     * Update the properties of a detectedApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

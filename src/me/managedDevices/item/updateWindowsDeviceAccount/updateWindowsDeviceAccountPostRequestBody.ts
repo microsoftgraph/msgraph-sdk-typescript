@@ -2,8 +2,12 @@ import {UpdateWindowsDeviceAccountActionParameter} from '../../../../models/upda
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UpdateWindowsDeviceAccountPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The updateWindowsDeviceAccountActionParameter property */
+    /**
+     * The updateWindowsDeviceAccountActionParameter property
+     */
     updateWindowsDeviceAccountActionParameter?: UpdateWindowsDeviceAccountActionParameter | undefined;
 }

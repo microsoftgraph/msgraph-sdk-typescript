@@ -10,13 +10,15 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration} from './workbookChartPointItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookChartPointItemRequestBuilderGetRequestConfiguration} from './workbookChartPointItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartPointItemRequestBuilderPatchRequestConfiguration} from './workbookChartPointItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
  */
 export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChartPoint entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChartPoint entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property points for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of chartpoint object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartPoint
      * @see {@link https://docs.microsoft.com/graph/api/chartpoint-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookChartPointItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartPoint | undefined> {
+    public get(requestConfiguration?: WorkbookChartPointItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartPoint | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -58,16 +58,15 @@ export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property points in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartPoint
      */
-    public patch(body: WorkbookChartPoint | undefined, requestConfiguration?: WorkbookChartPointItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartPoint | undefined> {
+    public patch(body: WorkbookChartPoint | undefined, requestConfiguration?: WorkbookChartPointItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartPoint | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -76,7 +75,7 @@ export class WorkbookChartPointItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property points for drives

@@ -2,10 +2,16 @@ import {ReviewSetsRequestBuilderGetQueryParameters} from './reviewSetsRequestBui
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ReviewSetsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ReviewSetsRequestBuilderGetQueryParameters | undefined;
 }

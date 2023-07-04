@@ -9,7 +9,7 @@ import {ThumbnailSet} from '../../../../../../models/thumbnailSet';
 import {ThumbnailSetItemRequestBuilderDeleteRequestConfiguration} from './thumbnailSetItemRequestBuilderDeleteRequestConfiguration';
 import {ThumbnailSetItemRequestBuilderGetRequestConfiguration} from './thumbnailSetItemRequestBuilderGetRequestConfiguration';
 import {ThumbnailSetItemRequestBuilderPatchRequestConfiguration} from './thumbnailSetItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.
@@ -26,9 +26,8 @@ export class ThumbnailSetItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property thumbnails for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ThumbnailSetItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ThumbnailSetItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class ThumbnailSetItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThumbnailSet
      */
-    public get(requestConfiguration?: ThumbnailSetItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSet | undefined> {
+    public get(requestConfiguration?: ThumbnailSetItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ThumbnailSet | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class ThumbnailSetItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ThumbnailSet>(requestInfo, createThumbnailSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ThumbnailSet>(requestInfo, createThumbnailSetFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property thumbnails in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ThumbnailSet
      */
-    public patch(body: ThumbnailSet | undefined, requestConfiguration?: ThumbnailSetItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ThumbnailSet | undefined> {
+    public patch(body: ThumbnailSet | undefined, requestConfiguration?: ThumbnailSetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ThumbnailSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class ThumbnailSetItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ThumbnailSet>(requestInfo, createThumbnailSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ThumbnailSet>(requestInfo, createThumbnailSetFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property thumbnails for drives

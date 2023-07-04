@@ -10,13 +10,15 @@ import {RetentionEventTypesRequestBuilder} from './retentionEventTypes/retention
 import {TriggerTypesRequestBuilderDeleteRequestConfiguration} from './triggerTypesRequestBuilderDeleteRequestConfiguration';
 import {TriggerTypesRequestBuilderGetRequestConfiguration} from './triggerTypesRequestBuilderGetRequestConfiguration';
 import {TriggerTypesRequestBuilderPatchRequestConfiguration} from './triggerTypesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
  */
 export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity. */
+    /**
+     * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
+     */
     public get retentionEventTypes(): RetentionEventTypesRequestBuilder {
         return new RetentionEventTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property triggerTypes for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: TriggerTypesRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: TriggerTypesRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get triggerTypes from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TriggerTypesRoot
      */
-    public get(requestConfiguration?: TriggerTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TriggerTypesRoot | undefined> {
+    public get(requestConfiguration?: TriggerTypesRequestBuilderGetRequestConfiguration | undefined) : Promise<TriggerTypesRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TriggerTypesRoot>(requestInfo, createTriggerTypesRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TriggerTypesRoot>(requestInfo, createTriggerTypesRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property triggerTypes in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TriggerTypesRoot
      */
-    public patch(body: TriggerTypesRoot | undefined, requestConfiguration?: TriggerTypesRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TriggerTypesRoot | undefined> {
+    public patch(body: TriggerTypesRoot | undefined, requestConfiguration?: TriggerTypesRequestBuilderPatchRequestConfiguration | undefined) : Promise<TriggerTypesRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TriggerTypesRoot>(requestInfo, createTriggerTypesRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TriggerTypesRoot>(requestInfo, createTriggerTypesRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property triggerTypes for security

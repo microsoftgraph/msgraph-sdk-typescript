@@ -2,20 +2,36 @@ import {ManagedEBook} from './managedEBook';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosVppEBook extends ManagedEBook, Parsable {
-    /** The Apple ID associated with Vpp token. */
+    /**
+     * The Apple ID associated with Vpp token.
+     */
     appleId?: string | undefined;
-    /** Genres. */
+    /**
+     * Genres.
+     */
     genres?: string[] | undefined;
-    /** Language. */
+    /**
+     * Language.
+     */
     language?: string | undefined;
-    /** Seller. */
+    /**
+     * Seller.
+     */
     seller?: string | undefined;
-    /** Total license count. */
+    /**
+     * Total license count.
+     */
     totalLicenseCount?: number | undefined;
-    /** Used license count. */
+    /**
+     * Used license count.
+     */
     usedLicenseCount?: number | undefined;
-    /** The Vpp token's organization name. */
+    /**
+     * The Vpp token's organization name.
+     */
     vppOrganizationName?: string | undefined;
-    /** The Vpp token ID. */
+    /**
+     * The Vpp token ID.
+     */
     vppTokenId?: string | undefined;
 }

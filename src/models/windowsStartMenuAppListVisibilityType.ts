@@ -1,4 +1,6 @@
-/** Type of start menu app list visibility. */
+/**
+ * Type of start menu app list visibility.
+ */
 export enum WindowsStartMenuAppListVisibilityType {
     /** User defined. Default value. */
     UserDefined = "userDefined",

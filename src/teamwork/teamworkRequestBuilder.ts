@@ -11,21 +11,27 @@ import {SendActivityNotificationToRecipientsRequestBuilder} from './sendActivity
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
 import {WorkforceIntegrationsRequestBuilder} from './workforceIntegrations/workforceIntegrationsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamwork singleton.
  */
 export class TeamworkRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity. */
+    /**
+     * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
+     */
     public get deletedTeams(): DeletedTeamsRequestBuilder {
         return new DeletedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendActivityNotificationToRecipients method. */
+    /**
+     * Provides operations to call the sendActivityNotificationToRecipients method.
+     */
     public get sendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
         return new SendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity. */
+    /**
+     * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
+     */
     public get workforceIntegrations(): WorkforceIntegrationsRequestBuilder {
         return new WorkforceIntegrationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -40,10 +46,9 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
     /**
      * Get teamwork
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Teamwork
      */
-    public get(requestConfiguration?: TeamworkRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Teamwork | undefined> {
+    public get(requestConfiguration?: TeamworkRequestBuilderGetRequestConfiguration | undefined) : Promise<Teamwork | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -51,16 +56,15 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Teamwork>(requestInfo, createTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Teamwork>(requestInfo, createTeamworkFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Teamwork
      */
-    public patch(body: Teamwork | undefined, requestConfiguration?: TeamworkRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Teamwork | undefined> {
+    public patch(body: Teamwork | undefined, requestConfiguration?: TeamworkRequestBuilderPatchRequestConfiguration | undefined) : Promise<Teamwork | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -69,7 +73,7 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Teamwork>(requestInfo, createTeamworkFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Teamwork>(requestInfo, createTeamworkFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get teamwork

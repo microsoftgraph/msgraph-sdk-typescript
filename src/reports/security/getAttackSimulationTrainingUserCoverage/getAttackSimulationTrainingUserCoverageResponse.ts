@@ -3,6 +3,8 @@ import {BaseCollectionPaginationCountResponse} from '../../../models/baseCollect
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetAttackSimulationTrainingUserCoverageResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: AttackSimulationTrainingUserCoverage[] | undefined;
 }
