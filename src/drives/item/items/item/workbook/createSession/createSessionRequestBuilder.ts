@@ -10,7 +10,7 @@ import {CreateSessionPostRequestBody} from './createSessionPostRequestBody';
 import {CreateSessionRequestBuilderPostRequestConfiguration} from './createSessionRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateSessionPostRequestBody} from './deserializeIntoCreateSessionPostRequestBody';
 import {serializeCreateSessionPostRequestBody} from './serializeCreateSessionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createSession method.
@@ -28,11 +28,10 @@ export class CreateSessionRequestBuilder extends BaseRequestBuilder {
      * Create a new workbook session.  Excel APIs can be called in one of two modes:  To represent the session in the API, use the `workbook-session-id: {session-id}` header.  In some cases, creating a new session requires an indeterminate time to complete. Microsoft Graph also provides a long running operations pattern. This pattern provides a way to poll for creation status updates, without waiting for the creation to complete. The following are the steps:
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookSessionInfo
      * @see {@link https://docs.microsoft.com/graph/api/workbook-createsession?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CreateSessionPostRequestBody | undefined, requestConfiguration?: CreateSessionRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookSessionInfo | undefined> {
+    public post(body: CreateSessionPostRequestBody | undefined, requestConfiguration?: CreateSessionRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookSessionInfo | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -41,7 +40,7 @@ export class CreateSessionRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookSessionInfo>(requestInfo, createWorkbookSessionInfoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookSessionInfo>(requestInfo, createWorkbookSessionInfoFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new workbook session.  Excel APIs can be called in one of two modes:  To represent the session in the API, use the `workbook-session-id: {session-id}` header.  In some cases, creating a new session requires an indeterminate time to complete. Microsoft Graph also provides a long running operations pattern. This pattern provides a way to poll for creation status updates, without waiting for the creation to complete. The following are the steps:

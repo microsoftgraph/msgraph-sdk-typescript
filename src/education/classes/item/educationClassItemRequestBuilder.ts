@@ -17,41 +17,57 @@ import {GroupRequestBuilder} from './group/groupRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {TeachersRequestBuilder} from './teachers/teachersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
  */
 export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
+     */
     public get assignmentCategories(): AssignmentCategoriesRequestBuilder {
         return new AssignmentCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity.
+     */
     public get assignmentDefaults(): AssignmentDefaultsRequestBuilder {
         return new AssignmentDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignments property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.educationClass entity.
+     */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity.
+     */
     public get assignmentSettings(): AssignmentSettingsRequestBuilder {
         return new AssignmentSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the group property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the group property of the microsoft.graph.educationClass entity.
+     */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.educationClass entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schools property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
+     */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the teachers property of the microsoft.graph.educationClass entity. */
+    /**
+     * Provides operations to manage the teachers property of the microsoft.graph.educationClass entity.
+     */
     public get teachers(): TeachersRequestBuilder {
         return new TeachersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -66,10 +82,9 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/educationclass-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EducationClassItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EducationClassItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -77,16 +92,15 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationClass
      * @see {@link https://docs.microsoft.com/graph/api/educationclass-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EducationClassItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationClass | undefined> {
+    public get(requestConfiguration?: EducationClassItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationClass | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -94,17 +108,16 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an educationClass object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationClass
      * @see {@link https://docs.microsoft.com/graph/api/educationclass-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationClass | undefined, requestConfiguration?: EducationClassItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationClass | undefined> {
+    public patch(body: EducationClass | undefined, requestConfiguration?: EducationClassItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationClass | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -113,7 +126,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationClass>(requestInfo, createEducationClassFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.

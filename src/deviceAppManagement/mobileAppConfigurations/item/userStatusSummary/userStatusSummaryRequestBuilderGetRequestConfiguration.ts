@@ -2,10 +2,16 @@ import {UserStatusSummaryRequestBuilderGetQueryParameters} from './userStatusSum
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface UserStatusSummaryRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: UserStatusSummaryRequestBuilderGetQueryParameters | undefined;
 }

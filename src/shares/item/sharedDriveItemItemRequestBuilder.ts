@@ -18,45 +18,63 @@ import {SharedDriveItemItemRequestBuilderDeleteRequestConfiguration} from './sha
 import {SharedDriveItemItemRequestBuilderGetRequestConfiguration} from './sharedDriveItemItemRequestBuilderGetRequestConfiguration';
 import {SharedDriveItemItemRequestBuilderPatchRequestConfiguration} from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration';
 import {SiteRequestBuilder} from './site/siteRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.
  */
 export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the permission property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get permission(): PermissionRequestBuilder {
         return new PermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the root property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the site property of the microsoft.graph.sharedDriveItem entity. */
+    /**
+     * Provides operations to manage the site property of the microsoft.graph.sharedDriveItem entity.
+     */
     public get site(): SiteRequestBuilder {
         return new SiteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,9 +89,8 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: SharedDriveItemItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: SharedDriveItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,16 +98,15 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SharedDriveItem
      * @see {@link https://docs.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SharedDriveItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedDriveItem | undefined> {
+    public get(requestConfiguration?: SharedDriveItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SharedDriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -98,16 +114,15 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SharedDriveItem
      */
-    public patch(body: SharedDriveItem | undefined, requestConfiguration?: SharedDriveItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedDriveItem | undefined> {
+    public patch(body: SharedDriveItem | undefined, requestConfiguration?: SharedDriveItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SharedDriveItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -116,7 +131,7 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SharedDriveItem>(requestInfo, createSharedDriveItemFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from shares

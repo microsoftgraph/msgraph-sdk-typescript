@@ -18,45 +18,63 @@ import {MicrosoftGraphSecurityUpdateIndexRequestBuilder} from './microsoftGraphS
 import {SiteSourcesRequestBuilder} from './siteSources/siteSourcesRequestBuilder';
 import {UnifiedGroupSourcesRequestBuilder} from './unifiedGroupSources/unifiedGroupSourcesRequestBuilder';
 import {UserSourcesRequestBuilder} from './userSources/userSourcesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity. */
+    /**
+     * Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity.
+     */
     public get lastIndexOperation(): LastIndexOperationRequestBuilder {
         return new LastIndexOperationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the activate method. */
+    /**
+     * Provides operations to call the activate method.
+     */
     public get microsoftGraphSecurityActivate(): MicrosoftGraphSecurityActivateRequestBuilder {
         return new MicrosoftGraphSecurityActivateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyHold method. */
+    /**
+     * Provides operations to call the applyHold method.
+     */
     public get microsoftGraphSecurityApplyHold(): MicrosoftGraphSecurityApplyHoldRequestBuilder {
         return new MicrosoftGraphSecurityApplyHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the release method. */
+    /**
+     * Provides operations to call the release method.
+     */
     public get microsoftGraphSecurityRelease(): MicrosoftGraphSecurityReleaseRequestBuilder {
         return new MicrosoftGraphSecurityReleaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removeHold method. */
+    /**
+     * Provides operations to call the removeHold method.
+     */
     public get microsoftGraphSecurityRemoveHold(): MicrosoftGraphSecurityRemoveHoldRequestBuilder {
         return new MicrosoftGraphSecurityRemoveHoldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the updateIndex method. */
+    /**
+     * Provides operations to call the updateIndex method.
+     */
     public get microsoftGraphSecurityUpdateIndex(): MicrosoftGraphSecurityUpdateIndexRequestBuilder {
         return new MicrosoftGraphSecurityUpdateIndexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
+    /**
+     * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
+     */
     public get siteSources(): SiteSourcesRequestBuilder {
         return new SiteSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
+    /**
+     * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
+     */
     public get unifiedGroupSources(): UnifiedGroupSourcesRequestBuilder {
         return new UnifiedGroupSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity. */
+    /**
+     * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
+     */
     public get userSources(): UserSourcesRequestBuilder {
         return new UserSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,9 +89,8 @@ export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property custodians for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: EdiscoveryCustodianItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EdiscoveryCustodianItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,16 +98,15 @@ export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of an ediscoveryCustodian object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCustodian
      * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCustodian | undefined> {
+    public get(requestConfiguration?: EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryCustodian | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -98,16 +114,15 @@ export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property custodians in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCustodian
      */
-    public patch(body: EdiscoveryCustodian | undefined, requestConfiguration?: EdiscoveryCustodianItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCustodian | undefined> {
+    public patch(body: EdiscoveryCustodian | undefined, requestConfiguration?: EdiscoveryCustodianItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoveryCustodian | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -116,7 +131,7 @@ export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoveryCustodian>(requestInfo, createEdiscoveryCustodianFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property custodians for security

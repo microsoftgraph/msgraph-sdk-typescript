@@ -4,16 +4,28 @@ import {CaseStatus} from './caseStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CaseEscaped extends Entity, Parsable {
-    /** The createdDateTime property */
+    /**
+     * The createdDateTime property
+     */
     createdDateTime?: Date | undefined;
-    /** The description property */
+    /**
+     * The description property
+     */
     description?: string | undefined;
-    /** The displayName property */
+    /**
+     * The displayName property
+     */
     displayName?: string | undefined;
-    /** The lastModifiedBy property */
+    /**
+     * The lastModifiedBy property
+     */
     lastModifiedBy?: IdentitySet | undefined;
-    /** The lastModifiedDateTime property */
+    /**
+     * The lastModifiedDateTime property
+     */
     lastModifiedDateTime?: Date | undefined;
-    /** The status property */
+    /**
+     * The status property
+     */
     status?: CaseStatus | undefined;
 }

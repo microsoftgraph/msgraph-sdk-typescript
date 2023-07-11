@@ -9,7 +9,7 @@ import {serializeLicenseDetails} from '../../../../models/serializeLicenseDetail
 import {LicenseDetailsItemRequestBuilderDeleteRequestConfiguration} from './licenseDetailsItemRequestBuilderDeleteRequestConfiguration';
 import {LicenseDetailsItemRequestBuilderGetRequestConfiguration} from './licenseDetailsItemRequestBuilderGetRequestConfiguration';
 import {LicenseDetailsItemRequestBuilderPatchRequestConfiguration} from './licenseDetailsItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
@@ -26,9 +26,8 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property licenseDetails for users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: LicenseDetailsItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: LicenseDetailsItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * A collection of this user's license details. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LicenseDetails
      */
-    public get(requestConfiguration?: LicenseDetailsItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LicenseDetails | undefined> {
+    public get(requestConfiguration?: LicenseDetailsItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LicenseDetails | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LicenseDetails>(requestInfo, createLicenseDetailsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LicenseDetails>(requestInfo, createLicenseDetailsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property licenseDetails in users
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of LicenseDetails
      */
-    public patch(body: LicenseDetails | undefined, requestConfiguration?: LicenseDetailsItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<LicenseDetails | undefined> {
+    public patch(body: LicenseDetails | undefined, requestConfiguration?: LicenseDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LicenseDetails | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<LicenseDetails>(requestInfo, createLicenseDetailsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<LicenseDetails>(requestInfo, createLicenseDetailsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property licenseDetails for users

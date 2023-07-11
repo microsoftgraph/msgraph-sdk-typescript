@@ -1,4 +1,6 @@
-/** The type of Exchange Connector. */
+/**
+ * The type of Exchange Connector.
+ */
 export enum DeviceManagementExchangeConnectorType {
     /** Connects to on-premises Exchange Environment. */
     OnPremises = "onPremises",

@@ -11,17 +11,21 @@ import {AccessReviewsRequestBuilderGetRequestConfiguration} from './accessReview
 import {AccessReviewsRequestBuilderPatchRequestConfiguration} from './accessReviewsRequestBuilderPatchRequestConfiguration';
 import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder';
 import {HistoryDefinitionsRequestBuilder} from './historyDefinitions/historyDefinitionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.
  */
 export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity. */
+    /**
+     * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
+     */
     public get definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity. */
+    /**
+     * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
+     */
     public get historyDefinitions(): HistoryDefinitionsRequestBuilder {
         return new HistoryDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property accessReviews for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AccessReviewsRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AccessReviewsRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,15 +49,14 @@ export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get accessReviews from identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewSet
      */
-    public get(requestConfiguration?: AccessReviewsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewSet | undefined> {
+    public get(requestConfiguration?: AccessReviewsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewSet | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,16 +64,15 @@ export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessReviewSet>(requestInfo, createAccessReviewSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessReviewSet>(requestInfo, createAccessReviewSetFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property accessReviews in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewSet
      */
-    public patch(body: AccessReviewSet | undefined, requestConfiguration?: AccessReviewsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewSet | undefined> {
+    public patch(body: AccessReviewSet | undefined, requestConfiguration?: AccessReviewsRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessReviewSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -80,7 +81,7 @@ export class AccessReviewsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessReviewSet>(requestInfo, createAccessReviewSetFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessReviewSet>(requestInfo, createAccessReviewSetFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property accessReviews for identityGovernance

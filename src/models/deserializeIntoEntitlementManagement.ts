@@ -3,6 +3,10 @@ import {AccessPackageAssignment} from './accessPackageAssignment';
 import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
 import {AccessPackageAssignmentRequest} from './accessPackageAssignmentRequest';
 import {AccessPackageCatalog} from './accessPackageCatalog';
+import {AccessPackageResource} from './accessPackageResource';
+import {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
+import {AccessPackageResourceRequest} from './accessPackageResourceRequest';
+import {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
 import {Approval} from './approval';
 import {ConnectedOrganization} from './connectedOrganization';
 import {createAccessPackageAssignmentFromDiscriminatorValue} from './createAccessPackageAssignmentFromDiscriminatorValue';
@@ -10,6 +14,10 @@ import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './creat
 import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from './createAccessPackageAssignmentRequestFromDiscriminatorValue';
 import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
+import {createAccessPackageResourceEnvironmentFromDiscriminatorValue} from './createAccessPackageResourceEnvironmentFromDiscriminatorValue';
+import {createAccessPackageResourceFromDiscriminatorValue} from './createAccessPackageResourceFromDiscriminatorValue';
+import {createAccessPackageResourceRequestFromDiscriminatorValue} from './createAccessPackageResourceRequestFromDiscriminatorValue';
+import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from './createAccessPackageResourceRoleScopeFromDiscriminatorValue';
 import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
 import {createConnectedOrganizationFromDiscriminatorValue} from './createConnectedOrganizationFromDiscriminatorValue';
 import {createEntitlementManagementSettingsFromDiscriminatorValue} from './createEntitlementManagementSettingsFromDiscriminatorValue';
@@ -21,6 +29,10 @@ import {serializeAccessPackageAssignment} from './serializeAccessPackageAssignme
 import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';
 import {serializeAccessPackageAssignmentRequest} from './serializeAccessPackageAssignmentRequest';
 import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
+import {serializeAccessPackageResource} from './serializeAccessPackageResource';
+import {serializeAccessPackageResourceEnvironment} from './serializeAccessPackageResourceEnvironment';
+import {serializeAccessPackageResourceRequest} from './serializeAccessPackageResourceRequest';
+import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageResourceRoleScope';
 import {serializeApproval} from './serializeApproval';
 import {serializeConnectedOrganization} from './serializeConnectedOrganization';
 import {serializeEntitlementManagementSettings} from './serializeEntitlementManagementSettings';
@@ -36,6 +48,10 @@ export function deserializeIntoEntitlementManagement(entitlementManagement: Enti
         "assignments": n => { entitlementManagement.assignments = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); },
         "catalogs": n => { entitlementManagement.catalogs = n.getCollectionOfObjectValues<AccessPackageCatalog>(createAccessPackageCatalogFromDiscriminatorValue); },
         "connectedOrganizations": n => { entitlementManagement.connectedOrganizations = n.getCollectionOfObjectValues<ConnectedOrganization>(createConnectedOrganizationFromDiscriminatorValue); },
+        "resourceEnvironments": n => { entitlementManagement.resourceEnvironments = n.getCollectionOfObjectValues<AccessPackageResourceEnvironment>(createAccessPackageResourceEnvironmentFromDiscriminatorValue); },
+        "resourceRequests": n => { entitlementManagement.resourceRequests = n.getCollectionOfObjectValues<AccessPackageResourceRequest>(createAccessPackageResourceRequestFromDiscriminatorValue); },
+        "resourceRoleScopes": n => { entitlementManagement.resourceRoleScopes = n.getCollectionOfObjectValues<AccessPackageResourceRoleScope>(createAccessPackageResourceRoleScopeFromDiscriminatorValue); },
+        "resources": n => { entitlementManagement.resources = n.getCollectionOfObjectValues<AccessPackageResource>(createAccessPackageResourceFromDiscriminatorValue); },
         "settings": n => { entitlementManagement.settings = n.getObjectValue<EntitlementManagementSettings>(createEntitlementManagementSettingsFromDiscriminatorValue); },
     }
 }

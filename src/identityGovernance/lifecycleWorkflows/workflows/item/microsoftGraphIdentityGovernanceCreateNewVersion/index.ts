@@ -1,0 +1,5 @@
+export * from './createCreateNewVersionPostRequestBodyFromDiscriminatorValue'
+export * from './createNewVersionPostRequestBody'
+export * from './deserializeIntoCreateNewVersionPostRequestBody'
+export * from './microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration'
+export * from './serializeCreateNewVersionPostRequestBody'

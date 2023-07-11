@@ -1,4 +1,6 @@
-/** Device registration status. */
+/**
+ * Device registration status.
+ */
 export enum DeviceRegistrationState {
     /** The device is not registered. */
     NotRegistered = "notRegistered",

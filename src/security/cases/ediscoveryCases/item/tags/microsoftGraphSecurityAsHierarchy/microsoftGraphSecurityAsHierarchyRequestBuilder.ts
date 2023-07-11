@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {createAsHierarchyResponseFromDiscriminatorValue} from './createAsHierarchyResponseFromDiscriminatorValue';
 import {AsHierarchyResponse} from './index';
 import {MicrosoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration} from './microsoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the asHierarchy method.
@@ -22,10 +22,9 @@ export class MicrosoftGraphSecurityAsHierarchyRequestBuilder extends BaseRequest
     /**
      * Invoke function asHierarchy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AsHierarchyResponse
      */
-    public get(requestConfiguration?: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AsHierarchyResponse | undefined> {
+    public get(requestConfiguration?: MicrosoftGraphSecurityAsHierarchyRequestBuilderGetRequestConfiguration | undefined) : Promise<AsHierarchyResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class MicrosoftGraphSecurityAsHierarchyRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AsHierarchyResponse>(requestInfo, createAsHierarchyResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AsHierarchyResponse>(requestInfo, createAsHierarchyResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function asHierarchy

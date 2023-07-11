@@ -2,10 +2,16 @@ import {SubscriptionItemRequestBuilderGetQueryParameters} from './subscriptionIt
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SubscriptionItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SubscriptionItemRequestBuilderGetQueryParameters | undefined;
 }

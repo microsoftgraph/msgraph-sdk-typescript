@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoverySearchItemRequestBuilder} from './item/ediscoverySearchItemRequestBuilder';
 import {SearchesRequestBuilderGetRequestConfiguration} from './searchesRequestBuilderGetRequestConfiguration';
 import {SearchesRequestBuilderPostRequestConfiguration} from './searchesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
  */
 export class SearchesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
     /**
      * Get the list of ediscoverySearch resources from an eDiscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoverySearchCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-searches?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SearchesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoverySearchCollectionResponse | undefined> {
+    public get(requestConfiguration?: SearchesRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoverySearchCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,17 +57,16 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoverySearchCollectionResponse>(requestInfo, createEdiscoverySearchCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoverySearchCollectionResponse>(requestInfo, createEdiscoverySearchCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new ediscoverySearch object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoverySearch
      * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EdiscoverySearch | undefined, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoverySearch | undefined> {
+    public post(body: EdiscoverySearch | undefined, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoverySearch | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -75,7 +75,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoverySearch>(requestInfo, createEdiscoverySearchFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the list of ediscoverySearch resources from an eDiscoveryCase object.

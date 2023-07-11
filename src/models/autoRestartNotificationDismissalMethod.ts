@@ -1,4 +1,6 @@
-/** Auto restart required notification dismissal method */
+/**
+ * Auto restart required notification dismissal method
+ */
 export enum AutoRestartNotificationDismissalMethod {
     /** Not configured */
     NotConfigured = "notConfigured",

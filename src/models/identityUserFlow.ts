@@ -3,8 +3,12 @@ import {UserFlowType} from './userFlowType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityUserFlow extends Entity, Parsable {
-    /** The userFlowType property */
+    /**
+     * The userFlowType property
+     */
     userFlowType?: UserFlowType | undefined;
-    /** The userFlowTypeVersion property */
+    /**
+     * The userFlowTypeVersion property
+     */
     userFlowTypeVersion?: number | undefined;
 }

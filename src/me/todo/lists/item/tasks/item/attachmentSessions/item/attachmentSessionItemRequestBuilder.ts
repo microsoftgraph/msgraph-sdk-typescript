@@ -10,13 +10,15 @@ import {AttachmentSessionItemRequestBuilderDeleteRequestConfiguration} from './a
 import {AttachmentSessionItemRequestBuilderGetRequestConfiguration} from './attachmentSessionItemRequestBuilderGetRequestConfiguration';
 import {AttachmentSessionItemRequestBuilderPatchRequestConfiguration} from './attachmentSessionItemRequestBuilderPatchRequestConfiguration';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
  */
 export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the user entity. */
+    /**
+     * Provides operations to manage the media for the user entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property attachmentSessions for me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AttachmentSessionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AttachmentSessionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get attachmentSessions from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentSession
      */
-    public get(requestConfiguration?: AttachmentSessionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentSession | undefined> {
+    public get(requestConfiguration?: AttachmentSessionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AttachmentSession | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttachmentSession>(requestInfo, createAttachmentSessionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttachmentSession>(requestInfo, createAttachmentSessionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property attachmentSessions in me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttachmentSession
      */
-    public patch(body: AttachmentSession | undefined, requestConfiguration?: AttachmentSessionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentSession | undefined> {
+    public patch(body: AttachmentSession | undefined, requestConfiguration?: AttachmentSessionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttachmentSession | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttachmentSession>(requestInfo, createAttachmentSessionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttachmentSession>(requestInfo, createAttachmentSessionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property attachmentSessions for me

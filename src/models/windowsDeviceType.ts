@@ -1,4 +1,6 @@
-/** Contains properties for Windows device type. */
+/**
+ * Contains properties for Windows device type.
+ */
 export enum WindowsDeviceType {
     /** No flags set. */
     None = "none",

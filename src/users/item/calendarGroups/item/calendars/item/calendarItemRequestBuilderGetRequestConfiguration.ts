@@ -2,10 +2,16 @@ import {CalendarItemRequestBuilderGetQueryParameters} from './calendarItemReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface CalendarItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: CalendarItemRequestBuilderGetQueryParameters | undefined;
 }

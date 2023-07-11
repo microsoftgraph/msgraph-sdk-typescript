@@ -3,8 +3,12 @@ import {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleTy
 import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export interface WindowsUpdateScheduledInstall extends Parsable, WindowsUpdateInstallScheduleType {
-    /** Possible values for a weekly schedule. */
+    /**
+     * Possible values for a weekly schedule.
+     */
     scheduledInstallDay?: WeeklySchedule | undefined;
-    /** Scheduled Install Time during day */
+    /**
+     * Scheduled Install Time during day
+     */
     scheduledInstallTime?: TimeOnly | undefined;
 }

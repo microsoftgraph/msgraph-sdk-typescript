@@ -14,33 +14,45 @@ import {PrintRequestBuilderPatchRequestConfiguration} from './printRequestBuilde
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the print singleton.
  */
 export class PrintRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the connectors property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the connectors property of the microsoft.graph.print entity.
+     */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.print entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the printers property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the printers property of the microsoft.graph.print entity.
+     */
     public get printers(): PrintersRequestBuilder {
         return new PrintersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the services property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the services property of the microsoft.graph.print entity.
+     */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the shares property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the shares property of the microsoft.graph.print entity.
+     */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity. */
+    /**
+     * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
+     */
     public get taskDefinitions(): TaskDefinitionsRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -55,10 +67,9 @@ export class PrintRequestBuilder extends BaseRequestBuilder {
     /**
      * Get print
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Print
      */
-    public get(requestConfiguration?: PrintRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
+    public get(requestConfiguration?: PrintRequestBuilderGetRequestConfiguration | undefined) : Promise<Print | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -66,16 +77,15 @@ export class PrintRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Print>(requestInfo, createPrintFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Print>(requestInfo, createPrintFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Print
      */
-    public patch(body: Print | undefined, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
+    public patch(body: Print | undefined, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined) : Promise<Print | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -84,7 +94,7 @@ export class PrintRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Print>(requestInfo, createPrintFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Print>(requestInfo, createPrintFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get print

@@ -1,4 +1,6 @@
-/** Defender’s default action to take on detected Malware threats. */
+/**
+ * Defender’s default action to take on detected Malware threats.
+ */
 export enum DefenderThreatAction {
     /** Apply action based on the update definition. */
     DeviceDefault = "deviceDefault",

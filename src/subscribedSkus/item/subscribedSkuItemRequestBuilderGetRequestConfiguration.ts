@@ -2,10 +2,16 @@ import {SubscribedSkuItemRequestBuilderGetQueryParameters} from './subscribedSku
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SubscribedSkuItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SubscribedSkuItemRequestBuilderGetQueryParameters | undefined;
 }

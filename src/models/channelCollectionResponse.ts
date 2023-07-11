@@ -3,6 +3,8 @@ import {Channel} from './channel';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChannelCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: Channel[] | undefined;
 }

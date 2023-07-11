@@ -14,29 +14,39 @@ import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionReque
 import {UnifiedRoleAssignmentScheduleItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleAssignmentScheduleItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration} from './unifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleAssignmentScheduleItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
  */
 export class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the activatedUsing property of the microsoft.graph.unifiedRoleAssignmentSchedule entity. */
+    /**
+     * Provides operations to manage the activatedUsing property of the microsoft.graph.unifiedRoleAssignmentSchedule entity.
+     */
     public get activatedUsing(): ActivatedUsingRequestBuilder {
         return new ActivatedUsingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleScheduleBase entity. */
+    /**
+     * Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleScheduleBase entity.
+     */
     public get appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleScheduleBase entity. */
+    /**
+     * Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleScheduleBase entity.
+     */
     public get directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the principal property of the microsoft.graph.unifiedRoleScheduleBase entity. */
+    /**
+     * Provides operations to manage the principal property of the microsoft.graph.unifiedRoleScheduleBase entity.
+     */
     public get principal(): PrincipalRequestBuilder {
         return new PrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleScheduleBase entity. */
+    /**
+     * Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleScheduleBase entity.
+     */
     public get roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -51,9 +61,8 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequest
     /**
      * Delete navigation property roleAssignmentSchedules for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -61,16 +70,15 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the schedule for an active role assignment operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentSchedule
      * @see {@link https://docs.microsoft.com/graph/api/unifiedroleassignmentschedule-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
+    public get(requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -78,16 +86,15 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property roleAssignmentSchedules in roleManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentSchedule
      */
-    public patch(body: UnifiedRoleAssignmentSchedule | undefined, requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
+    public patch(body: UnifiedRoleAssignmentSchedule | undefined, requestConfiguration?: UnifiedRoleAssignmentScheduleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -96,7 +103,7 @@ export class UnifiedRoleAssignmentScheduleItemRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property roleAssignmentSchedules for roleManagement

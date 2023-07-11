@@ -2,10 +2,16 @@ import {DeviceSettingStateSummariesRequestBuilderGetQueryParameters} from './dev
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DeviceSettingStateSummariesRequestBuilderGetQueryParameters | undefined;
 }

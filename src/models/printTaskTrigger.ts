@@ -4,8 +4,12 @@ import {PrintTaskDefinition} from './printTaskDefinition';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintTaskTrigger extends Entity, Parsable {
-    /** The definition property */
+    /**
+     * The definition property
+     */
     definition?: PrintTaskDefinition | undefined;
-    /** The event property */
+    /**
+     * The event property
+     */
     event?: PrintEvent | undefined;
 }

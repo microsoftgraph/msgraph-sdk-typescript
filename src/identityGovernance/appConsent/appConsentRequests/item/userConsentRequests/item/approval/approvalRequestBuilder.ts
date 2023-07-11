@@ -10,13 +10,15 @@ import {ApprovalRequestBuilderDeleteRequestConfiguration} from './approvalReques
 import {ApprovalRequestBuilderGetRequestConfiguration} from './approvalRequestBuilderGetRequestConfiguration';
 import {ApprovalRequestBuilderPatchRequestConfiguration} from './approvalRequestBuilderPatchRequestConfiguration';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the approval property of the microsoft.graph.userConsentRequest entity.
  */
 export class ApprovalRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the stages property of the microsoft.graph.approval entity. */
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.approval entity.
+     */
     public get stages(): StagesRequestBuilder {
         return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class ApprovalRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property approval for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ApprovalRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ApprovalRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class ApprovalRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Approval decisions associated with a request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval
      */
-    public get(requestConfiguration?: ApprovalRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Approval | undefined> {
+    public get(requestConfiguration?: ApprovalRequestBuilderGetRequestConfiguration | undefined) : Promise<Approval | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class ApprovalRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property approval in identityGovernance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Approval
      */
-    public patch(body: Approval | undefined, requestConfiguration?: ApprovalRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Approval | undefined> {
+    public patch(body: Approval | undefined, requestConfiguration?: ApprovalRequestBuilderPatchRequestConfiguration | undefined) : Promise<Approval | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class ApprovalRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Approval>(requestInfo, createApprovalFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property approval for identityGovernance

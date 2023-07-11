@@ -2,10 +2,16 @@ import {RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters} from '.
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters | undefined;
 }

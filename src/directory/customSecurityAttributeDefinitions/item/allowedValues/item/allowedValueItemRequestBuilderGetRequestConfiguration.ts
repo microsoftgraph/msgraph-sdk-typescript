@@ -2,10 +2,16 @@ import {AllowedValueItemRequestBuilderGetQueryParameters} from './allowedValueIt
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AllowedValueItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AllowedValueItemRequestBuilderGetQueryParameters | undefined;
 }

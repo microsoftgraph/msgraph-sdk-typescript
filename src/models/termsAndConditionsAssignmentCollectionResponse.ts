@@ -3,6 +3,8 @@ import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TermsAndConditionsAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: TermsAndConditionsAssignment[] | undefined;
 }

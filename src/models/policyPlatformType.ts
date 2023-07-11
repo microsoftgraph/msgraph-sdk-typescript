@@ -1,4 +1,6 @@
-/** Supported platform types for policies. */
+/**
+ * Supported platform types for policies.
+ */
 export enum PolicyPlatformType {
     /** Android. */
     Android = "android",

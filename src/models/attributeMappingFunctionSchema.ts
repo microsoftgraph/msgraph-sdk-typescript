@@ -3,6 +3,8 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttributeMappingFunctionSchema extends Entity, Parsable {
-    /** The parameters property */
+    /**
+     * Collection of function parameters.
+     */
     parameters?: AttributeMappingParameterSchema[] | undefined;
 }

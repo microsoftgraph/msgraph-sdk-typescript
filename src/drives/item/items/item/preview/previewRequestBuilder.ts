@@ -10,7 +10,7 @@ import {deserializeIntoPreviewPostRequestBody} from './deserializeIntoPreviewPos
 import {PreviewPostRequestBody} from './previewPostRequestBody';
 import {PreviewRequestBuilderPostRequestConfiguration} from './previewRequestBuilderPostRequestConfiguration';
 import {serializePreviewPostRequestBody} from './serializePreviewPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the preview method.
@@ -28,10 +28,9 @@ export class PreviewRequestBuilder extends BaseRequestBuilder {
      * Invoke action preview
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ItemPreviewInfo
      */
-    public post(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemPreviewInfo | undefined> {
+    public post(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined) : Promise<ItemPreviewInfo | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class PreviewRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ItemPreviewInfo>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ItemPreviewInfo>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action preview

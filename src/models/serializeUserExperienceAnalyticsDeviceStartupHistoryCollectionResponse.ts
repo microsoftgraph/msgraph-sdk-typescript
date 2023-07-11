@@ -1,0 +1,10 @@
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeUserExperienceAnalyticsDeviceStartupHistory} from './serializeUserExperienceAnalyticsDeviceStartupHistory';
+import {UserExperienceAnalyticsDeviceStartupHistory} from './userExperienceAnalyticsDeviceStartupHistory';
+import {UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse} from './userExperienceAnalyticsDeviceStartupHistoryCollectionResponse';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeUserExperienceAnalyticsDeviceStartupHistoryCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsDeviceStartupHistoryCollectionResponse: UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse | undefined = {} as UserExperienceAnalyticsDeviceStartupHistoryCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsDeviceStartupHistoryCollectionResponse)
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsDeviceStartupHistory>("value", userExperienceAnalyticsDeviceStartupHistoryCollectionResponse.value, serializeUserExperienceAnalyticsDeviceStartupHistory);
+}

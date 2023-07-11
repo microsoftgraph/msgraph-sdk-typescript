@@ -13,37 +13,51 @@ import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graph
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration} from './membersWithLicenseErrorsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity.
  */
 export class MembersWithLicenseErrorsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to application. */
+    /**
+     * Casts the previous resource to application.
+     */
     public get graphApplication(): GraphApplicationRequestBuilder {
         return new GraphApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to device. */
+    /**
+     * Casts the previous resource to device.
+     */
     public get graphDevice(): GraphDeviceRequestBuilder {
         return new GraphDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to group. */
+    /**
+     * Casts the previous resource to group.
+     */
     public get graphGroup(): GraphGroupRequestBuilder {
         return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to orgContact. */
+    /**
+     * Casts the previous resource to orgContact.
+     */
     public get graphOrgContact(): GraphOrgContactRequestBuilder {
         return new GraphOrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to servicePrincipal. */
+    /**
+     * Casts the previous resource to servicePrincipal.
+     */
     public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
         return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to user. */
+    /**
+     * Casts the previous resource to user.
+     */
     public get graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -69,10 +83,9 @@ export class MembersWithLicenseErrorsRequestBuilder extends BaseRequestBuilder {
     /**
      * A list of group members with license errors from this group-based license assignment. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
      */
-    public get(requestConfiguration?: MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
+    public get(requestConfiguration?: MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -80,7 +93,7 @@ export class MembersWithLicenseErrorsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DirectoryObjectCollectionResponse>(requestInfo, createDirectoryObjectCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DirectoryObjectCollectionResponse>(requestInfo, createDirectoryObjectCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * A list of group members with license errors from this group-based license assignment. Read-only.

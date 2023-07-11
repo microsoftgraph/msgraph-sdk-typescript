@@ -9,7 +9,7 @@ import {serializeRetentionEventType} from '../../../../models/security/serialize
 import {RetentionEventTypeItemRequestBuilderDeleteRequestConfiguration} from './retentionEventTypeItemRequestBuilderDeleteRequestConfiguration';
 import {RetentionEventTypeItemRequestBuilderGetRequestConfiguration} from './retentionEventTypeItemRequestBuilderGetRequestConfiguration';
 import {RetentionEventTypeItemRequestBuilderPatchRequestConfiguration} from './retentionEventTypeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
@@ -26,10 +26,9 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: RetentionEventTypeItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RetentionEventTypeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a retentionEventType object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RetentionEventType
      * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RetentionEventTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RetentionEventType | undefined> {
+    public get(requestConfiguration?: RetentionEventTypeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RetentionEventType | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -54,16 +52,15 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property retentionEventTypes in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RetentionEventType
      */
-    public patch(body: RetentionEventType | undefined, requestConfiguration?: RetentionEventTypeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RetentionEventType | undefined> {
+    public patch(body: RetentionEventType | undefined, requestConfiguration?: RetentionEventTypeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RetentionEventType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class RetentionEventTypeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a retentionEventType object.

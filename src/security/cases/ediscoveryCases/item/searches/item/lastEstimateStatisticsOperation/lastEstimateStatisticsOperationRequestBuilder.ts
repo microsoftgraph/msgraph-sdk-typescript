@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {EdiscoveryEstimateOperation} from '../../../../../../../models/security/';
 import {createEdiscoveryEstimateOperationFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryEstimateOperationFromDiscriminatorValue';
 import {LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration} from './lastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity.
@@ -22,11 +22,10 @@ export class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBu
     /**
      * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryEstimateOperation
      * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-list-lastestimatestatisticsoperation?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryEstimateOperation | undefined> {
+    public get(requestConfiguration?: LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryEstimateOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -34,7 +33,7 @@ export class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBu
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoveryEstimateOperation>(requestInfo, createEdiscoveryEstimateOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoveryEstimateOperation>(requestInfo, createEdiscoveryEstimateOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the last  ediscoveryEstimateOperation objects and their properties.

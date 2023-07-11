@@ -2,10 +2,16 @@ import {CatalogsRequestBuilderGetQueryParameters} from './catalogsRequestBuilder
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface CatalogsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: CatalogsRequestBuilderGetQueryParameters | undefined;
 }

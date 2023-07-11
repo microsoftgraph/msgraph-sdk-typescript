@@ -3,6 +3,8 @@ import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharedWithChannelTeamInfoCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: SharedWithChannelTeamInfo[] | undefined;
 }

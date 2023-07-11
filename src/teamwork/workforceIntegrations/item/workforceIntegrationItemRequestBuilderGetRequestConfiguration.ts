@@ -2,10 +2,16 @@ import {WorkforceIntegrationItemRequestBuilderGetQueryParameters} from './workfo
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface WorkforceIntegrationItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: WorkforceIntegrationItemRequestBuilderGetQueryParameters | undefined;
 }

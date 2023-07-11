@@ -9,7 +9,7 @@ import {serializeApprovalStage} from '../../../../../../../../../models/serializ
 import {ApprovalStageItemRequestBuilderDeleteRequestConfiguration} from './approvalStageItemRequestBuilderDeleteRequestConfiguration';
 import {ApprovalStageItemRequestBuilderGetRequestConfiguration} from './approvalStageItemRequestBuilderGetRequestConfiguration';
 import {ApprovalStageItemRequestBuilderPatchRequestConfiguration} from './approvalStageItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
@@ -26,9 +26,8 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property stages for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ApprovalStageItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ApprovalStageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalStage
      * @see {@link https://docs.microsoft.com/graph/api/approvalstage-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ApprovalStageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStage | undefined> {
+    public get(requestConfiguration?: ApprovalStageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ApprovalStage | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,17 +51,16 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ApprovalStage>(requestInfo, createApprovalStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ApprovalStage>(requestInfo, createApprovalStageFromDiscriminatorValue, errorMapping);
     };
     /**
      * In Azure AD entitlement management, approve or deny an approvalStage object in an approval.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApprovalStage
      * @see {@link https://docs.microsoft.com/graph/api/approvalstage-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ApprovalStage | undefined, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApprovalStage | undefined> {
+    public patch(body: ApprovalStage | undefined, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ApprovalStage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ApprovalStage>(requestInfo, createApprovalStageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ApprovalStage>(requestInfo, createApprovalStageFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property stages for identityGovernance

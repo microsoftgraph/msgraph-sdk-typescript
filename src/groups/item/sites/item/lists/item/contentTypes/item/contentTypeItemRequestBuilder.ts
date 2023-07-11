@@ -19,49 +19,69 @@ import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContent
 import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
  */
 export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the associateWithHubSites method. */
+    /**
+     * Provides operations to call the associateWithHubSites method.
+     */
     public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
         return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the base property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the base property of the microsoft.graph.contentType entity.
+     */
     public get base(): BaseRequestBuilderEscaped {
         return new BaseRequestBuilderEscaped(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
+     */
     public get baseTypes(): BaseTypesRequestBuilder {
         return new BaseTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
+     */
     public get columnLinks(): ColumnLinksRequestBuilder {
         return new ColumnLinksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the columnPositions property of the microsoft.graph.contentType entity.
+     */
     public get columnPositions(): ColumnPositionsRequestBuilder {
         return new ColumnPositionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columns property of the microsoft.graph.contentType entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copyToDefaultContentLocation method. */
+    /**
+     * Provides operations to call the copyToDefaultContentLocation method.
+     */
     public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
         return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the isPublished method. */
+    /**
+     * Provides operations to call the isPublished method.
+     */
     public get isPublished(): IsPublishedRequestBuilder {
         return new IsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the publish method. */
+    /**
+     * Provides operations to call the publish method.
+     */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unpublish method. */
+    /**
+     * Provides operations to call the unpublish method.
+     */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -76,9 +96,8 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property contentTypes for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ContentTypeItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ContentTypeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -86,15 +105,14 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * The collection of content types present in this list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -102,16 +120,15 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property contentTypes in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public patch(body: ContentType | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public patch(body: ContentType | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -120,7 +137,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property contentTypes for groups

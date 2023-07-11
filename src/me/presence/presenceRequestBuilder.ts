@@ -13,25 +13,33 @@ import {PresenceRequestBuilderGetRequestConfiguration} from './presenceRequestBu
 import {PresenceRequestBuilderPatchRequestConfiguration} from './presenceRequestBuilderPatchRequestConfiguration';
 import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
 import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the presence property of the microsoft.graph.user entity.
  */
 export class PresenceRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the clearPresence method. */
+    /**
+     * Provides operations to call the clearPresence method.
+     */
     public get clearPresence(): ClearPresenceRequestBuilder {
         return new ClearPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clearUserPreferredPresence method. */
+    /**
+     * Provides operations to call the clearUserPreferredPresence method.
+     */
     public get clearUserPreferredPresence(): ClearUserPreferredPresenceRequestBuilder {
         return new ClearUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setPresence method. */
+    /**
+     * Provides operations to call the setPresence method.
+     */
     public get setPresence(): SetPresenceRequestBuilder {
         return new SetPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setUserPreferredPresence method. */
+    /**
+     * Provides operations to call the setUserPreferredPresence method.
+     */
     public get setUserPreferredPresence(): SetUserPreferredPresenceRequestBuilder {
         return new SetUserPreferredPresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,9 +54,8 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property presence for me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: PresenceRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PresenceRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -56,16 +63,15 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get a user's presence information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Presence
      * @see {@link https://docs.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PresenceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Presence | undefined> {
+    public get(requestConfiguration?: PresenceRequestBuilderGetRequestConfiguration | undefined) : Promise<Presence | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -73,16 +79,15 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Presence>(requestInfo, createPresenceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Presence>(requestInfo, createPresenceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property presence in me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Presence
      */
-    public patch(body: Presence | undefined, requestConfiguration?: PresenceRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Presence | undefined> {
+    public patch(body: Presence | undefined, requestConfiguration?: PresenceRequestBuilderPatchRequestConfiguration | undefined) : Promise<Presence | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -91,7 +96,7 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Presence>(requestInfo, createPresenceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Presence>(requestInfo, createPresenceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property presence for me

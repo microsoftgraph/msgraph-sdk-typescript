@@ -1,4 +1,6 @@
-/** Top level failure categories for enrollment. */
+/**
+ * Top level failure categories for enrollment.
+ */
 export enum DeviceEnrollmentFailureReason {
     /** Default value, failure reason is unknown. */
     Unknown = "unknown",

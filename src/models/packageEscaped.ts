@@ -1,58 +1,16 @@
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
-export class PackageEscaped implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
-    private _additionalData: Record<string, unknown>;
-    /** The OdataType property */
-    private _odataType?: string | undefined;
-    /** A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly. */
-    private _type?: string | undefined;
+export interface PackageEscaped extends AdditionalDataHolder, Parsable {
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Record<string, unknown>
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
-    public get additionalData() {
-        return this._additionalData;
-    };
+    additionalData?: Record<string, unknown>;
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * The OdataType property
      */
-    public set additionalData(value: Record<string, unknown>) {
-        this._additionalData = value;
-    };
+    odataType?: string | undefined;
     /**
-     * Instantiates a new packageEscaped and sets the default values.
+     * A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
      */
-    public constructor() {
-        this._additionalData = {};
-    };
-    /**
-     * Gets the @odata.type property value. The OdataType property
-     * @returns a string
-     */
-    public get odataType() {
-        return this._odataType;
-    };
-    /**
-     * Sets the @odata.type property value. The OdataType property
-     * @param value Value to set for the OdataType property.
-     */
-    public set odataType(value: string | undefined) {
-        this._odataType = value;
-    };
-    /**
-     * Gets the type property value. A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
-     * @returns a string
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Sets the type property value. A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
-     * @param value Value to set for the type property.
-     */
-    public set type(value: string | undefined) {
-        this._type = value;
-    };
+    type?: string | undefined;
 }

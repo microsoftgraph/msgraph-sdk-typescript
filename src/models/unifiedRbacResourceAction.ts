@@ -2,16 +2,28 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRbacResourceAction extends Entity, Parsable {
-    /** The actionVerb property */
+    /**
+     * The actionVerb property
+     */
     actionVerb?: string | undefined;
-    /** The authenticationContextId property */
+    /**
+     * The authenticationContextId property
+     */
     authenticationContextId?: string | undefined;
-    /** The description property */
+    /**
+     * The description property
+     */
     description?: string | undefined;
-    /** The isAuthenticationContextSettable property */
+    /**
+     * The isAuthenticationContextSettable property
+     */
     isAuthenticationContextSettable?: boolean | undefined;
-    /** The name property */
+    /**
+     * The name property
+     */
     name?: string | undefined;
-    /** The resourceScopeId property */
+    /**
+     * The resourceScopeId property
+     */
     resourceScopeId?: string | undefined;
 }

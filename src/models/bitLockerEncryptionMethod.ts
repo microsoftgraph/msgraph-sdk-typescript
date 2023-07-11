@@ -1,4 +1,6 @@
-/** BitLockerEncryptionMethod types */
+/**
+ * BitLockerEncryptionMethod types
+ */
 export enum BitLockerEncryptionMethod {
     /** AES-CBC 128-bit. */
     AesCbc128 = "aesCbc128",

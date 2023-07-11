@@ -1,4 +1,6 @@
-/** Indicates the publishing state of an app. */
+/**
+ * Indicates the publishing state of an app.
+ */
 export enum MobileAppPublishingState {
     /** The app is not yet published. */
     NotPublished = "notPublished",

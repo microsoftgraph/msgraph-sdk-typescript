@@ -1,4 +1,6 @@
-/** Movies rating labels in Germany */
+/**
+ * Movies rating labels in Germany
+ */
 export enum RatingGermanyMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

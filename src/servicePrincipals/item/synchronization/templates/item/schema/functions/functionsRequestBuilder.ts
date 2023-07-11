@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {createFunctionsResponseFromDiscriminatorValue} from './createFunctionsResponseFromDiscriminatorValue';
 import {FunctionsRequestBuilderGetRequestConfiguration} from './functionsRequestBuilderGetRequestConfiguration';
 import {FunctionsResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the functions method.
@@ -22,10 +22,9 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function functions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of FunctionsResponse
      */
-    public get(requestConfiguration?: FunctionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<FunctionsResponse | undefined> {
+    public get(requestConfiguration?: FunctionsRequestBuilderGetRequestConfiguration | undefined) : Promise<FunctionsResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<FunctionsResponse>(requestInfo, createFunctionsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<FunctionsResponse>(requestInfo, createFunctionsResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function functions

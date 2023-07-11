@@ -1,0 +1,4 @@
+export * from './accessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration'
+export * from './accessPackageResourceRoleScopeItemRequestBuilderGetQueryParameters'
+export * from './accessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration'
+export * from './accessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration'

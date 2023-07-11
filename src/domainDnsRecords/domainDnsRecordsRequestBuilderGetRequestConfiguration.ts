@@ -2,10 +2,16 @@ import {DomainDnsRecordsRequestBuilderGetQueryParameters} from './domainDnsRecor
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DomainDnsRecordsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DomainDnsRecordsRequestBuilderGetQueryParameters | undefined;
 }

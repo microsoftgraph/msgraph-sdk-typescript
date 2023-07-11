@@ -9,7 +9,7 @@ import {serializeCrossTenantIdentitySyncPolicyPartner} from '../../../../../mode
 import {IdentitySynchronizationRequestBuilderDeleteRequestConfiguration} from './identitySynchronizationRequestBuilderDeleteRequestConfiguration';
 import {IdentitySynchronizationRequestBuilderGetRequestConfiguration} from './identitySynchronizationRequestBuilderGetRequestConfiguration';
 import {IdentitySynchronizationRequestBuilderPatchRequestConfiguration} from './identitySynchronizationRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identitySynchronization property of the microsoft.graph.crossTenantAccessPolicyConfigurationPartner entity.
@@ -26,10 +26,9 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete the user synchronization policy for a partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: IdentitySynchronizationRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: IdentitySynchronizationRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get the user synchronization policy of a partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantIdentitySyncPolicyPartner
      * @see {@link https://docs.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: IdentitySynchronizationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
+    public get(requestConfiguration?: IdentitySynchronizationRequestBuilderGetRequestConfiguration | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -54,17 +52,16 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CrossTenantIdentitySyncPolicyPartner>(requestInfo, createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CrossTenantIdentitySyncPolicyPartner>(requestInfo, createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a cross-tenant user synchronization policy for a partner-specific configuration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CrossTenantIdentitySyncPolicyPartner
      * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CrossTenantIdentitySyncPolicyPartner | undefined, requestConfiguration?: IdentitySynchronizationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
+    public patch(body: CrossTenantIdentitySyncPolicyPartner | undefined, requestConfiguration?: IdentitySynchronizationRequestBuilderPatchRequestConfiguration | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -73,7 +70,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CrossTenantIdentitySyncPolicyPartner>(requestInfo, createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CrossTenantIdentitySyncPolicyPartner>(requestInfo, createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete the user synchronization policy for a partner-specific configuration.

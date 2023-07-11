@@ -3,24 +3,44 @@ import {WorkbookIcon} from './workbookIcon';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookFilterCriteria extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The color property */
+    /**
+     * The color property
+     */
     color?: string | undefined;
-    /** The criterion1 property */
+    /**
+     * The criterion1 property
+     */
     criterion1?: string | undefined;
-    /** The criterion2 property */
+    /**
+     * The criterion2 property
+     */
     criterion2?: string | undefined;
-    /** The dynamicCriteria property */
+    /**
+     * The dynamicCriteria property
+     */
     dynamicCriteria?: string | undefined;
-    /** The filterOn property */
+    /**
+     * The filterOn property
+     */
     filterOn?: string | undefined;
-    /** The icon property */
+    /**
+     * The icon property
+     */
     icon?: WorkbookIcon | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The operator property */
+    /**
+     * The operator property
+     */
     operator?: string | undefined;
-    /** The values property */
+    /**
+     * The values property
+     */
     values?: Json | undefined;
 }

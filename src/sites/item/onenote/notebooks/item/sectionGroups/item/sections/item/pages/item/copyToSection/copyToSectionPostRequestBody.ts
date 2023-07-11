@@ -1,14 +1,24 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CopyToSectionPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The groupId property */
+    /**
+     * The groupId property
+     */
     groupId?: string | undefined;
-    /** The id property */
+    /**
+     * The id property
+     */
     id?: string | undefined;
-    /** The siteCollectionId property */
+    /**
+     * The siteCollectionId property
+     */
     siteCollectionId?: string | undefined;
-    /** The siteId property */
+    /**
+     * The siteId property
+     */
     siteId?: string | undefined;
 }

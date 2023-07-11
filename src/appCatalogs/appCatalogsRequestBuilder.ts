@@ -9,13 +9,15 @@ import {serializeAppCatalogs} from '../models/serializeAppCatalogs';
 import {AppCatalogsRequestBuilderGetRequestConfiguration} from './appCatalogsRequestBuilderGetRequestConfiguration';
 import {AppCatalogsRequestBuilderPatchRequestConfiguration} from './appCatalogsRequestBuilderPatchRequestConfiguration';
 import {TeamsAppsRequestBuilder} from './teamsApps/teamsAppsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appCatalogs singleton.
  */
 export class AppCatalogsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity. */
+    /**
+     * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
+     */
     public get teamsApps(): TeamsAppsRequestBuilder {
         return new TeamsAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -30,10 +32,9 @@ export class AppCatalogsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get appCatalogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppCatalogs
      */
-    public get(requestConfiguration?: AppCatalogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppCatalogs | undefined> {
+    public get(requestConfiguration?: AppCatalogsRequestBuilderGetRequestConfiguration | undefined) : Promise<AppCatalogs | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class AppCatalogsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AppCatalogs>(requestInfo, createAppCatalogsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AppCatalogs>(requestInfo, createAppCatalogsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update appCatalogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AppCatalogs
      */
-    public patch(body: AppCatalogs | undefined, requestConfiguration?: AppCatalogsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AppCatalogs | undefined> {
+    public patch(body: AppCatalogs | undefined, requestConfiguration?: AppCatalogsRequestBuilderPatchRequestConfiguration | undefined) : Promise<AppCatalogs | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -59,7 +59,7 @@ export class AppCatalogsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AppCatalogs>(requestInfo, createAppCatalogsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AppCatalogs>(requestInfo, createAppCatalogsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get appCatalogs

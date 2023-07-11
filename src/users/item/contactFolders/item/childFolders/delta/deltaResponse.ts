@@ -3,6 +3,8 @@ import {ContactFolder} from '../../../../../../models/contactFolder';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ContactFolder[] | undefined;
 }

@@ -3,6 +3,8 @@ import {StaffAvailabilityItem} from '../../../../models/staffAvailabilityItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetStaffAvailabilityResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: StaffAvailabilityItem[] | undefined;
 }

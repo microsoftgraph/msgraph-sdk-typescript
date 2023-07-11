@@ -10,7 +10,7 @@ import {deserializeIntoPoisson_DistPostRequestBody} from './deserializeIntoPoiss
 import {Poisson_DistPostRequestBody} from './poisson_DistPostRequestBody';
 import {Poisson_DistRequestBuilderPostRequestConfiguration} from './poisson_DistRequestBuilderPostRequestConfiguration';
 import {serializePoisson_DistPostRequestBody} from './serializePoisson_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the poisson_Dist method.
@@ -28,10 +28,9 @@ export class Poisson_DistRequestBuilder extends BaseRequestBuilder {
      * Invoke action poisson_Dist
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Poisson_DistPostRequestBody | undefined, requestConfiguration?: Poisson_DistRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
+    public post(body: Poisson_DistPostRequestBody | undefined, requestConfiguration?: Poisson_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -40,7 +39,7 @@ export class Poisson_DistRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookFunctionResult>(requestInfo, createWorkbookFunctionResultFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke action poisson_Dist

@@ -2,10 +2,16 @@ import {AccessPackageQuestionItemRequestBuilderGetQueryParameters} from './acces
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageQuestionItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AccessPackageQuestionItemRequestBuilderGetQueryParameters | undefined;
 }

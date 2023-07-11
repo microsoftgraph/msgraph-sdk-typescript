@@ -3,6 +3,8 @@ import {MicrosoftAuthenticatorAuthenticationMode} from './microsoftAuthenticator
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMethodTarget, Parsable {
-    /** The authenticationMode property */
+    /**
+     * The authenticationMode property
+     */
     authenticationMode?: MicrosoftAuthenticatorAuthenticationMode | undefined;
 }

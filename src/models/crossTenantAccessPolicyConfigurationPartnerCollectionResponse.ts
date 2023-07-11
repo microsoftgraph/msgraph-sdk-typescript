@@ -3,6 +3,8 @@ import {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPo
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantAccessPolicyConfigurationPartnerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: CrossTenantAccessPolicyConfigurationPartner[] | undefined;
 }

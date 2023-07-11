@@ -8,24 +8,44 @@ import {PatternedRecurrence} from './patternedRecurrence';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EventMessage extends Message, Parsable {
-    /** The endDateTime property */
+    /**
+     * The endDateTime property
+     */
     endDateTime?: DateTimeTimeZone | undefined;
-    /** The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only. */
+    /**
+     * The event associated with the event message. The assumption for attendees or room resources is that the Calendar Attendant is set to automatically update the calendar with an event when meeting request event messages arrive. Navigation property.  Read-only.
+     */
     event?: Event | undefined;
-    /** The isAllDay property */
+    /**
+     * The isAllDay property
+     */
     isAllDay?: boolean | undefined;
-    /** The isDelegated property */
+    /**
+     * The isDelegated property
+     */
     isDelegated?: boolean | undefined;
-    /** The isOutOfDate property */
+    /**
+     * The isOutOfDate property
+     */
     isOutOfDate?: boolean | undefined;
-    /** The location property */
+    /**
+     * The location property
+     */
     location?: Location | undefined;
-    /** The meetingMessageType property */
+    /**
+     * The meetingMessageType property
+     */
     meetingMessageType?: MeetingMessageType | undefined;
-    /** The recurrence property */
+    /**
+     * The recurrence property
+     */
     recurrence?: PatternedRecurrence | undefined;
-    /** The startDateTime property */
+    /**
+     * The startDateTime property
+     */
     startDateTime?: DateTimeTimeZone | undefined;
-    /** The type property */
+    /**
+     * The type property
+     */
     type?: EventType | undefined;
 }

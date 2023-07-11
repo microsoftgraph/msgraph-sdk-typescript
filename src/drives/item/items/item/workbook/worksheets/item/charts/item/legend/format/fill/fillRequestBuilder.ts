@@ -11,17 +11,21 @@ import {FillRequestBuilderDeleteRequestConfiguration} from './fillRequestBuilder
 import {FillRequestBuilderGetRequestConfiguration} from './fillRequestBuilderGetRequestConfiguration';
 import {FillRequestBuilderPatchRequestConfiguration} from './fillRequestBuilderPatchRequestConfiguration';
 import {SetSolidColorRequestBuilder} from './setSolidColor/setSolidColorRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fill property of the microsoft.graph.workbookChartLegendFormat entity.
  */
 export class FillRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the clear method. */
+    /**
+     * Provides operations to call the clear method.
+     */
     public get clear(): ClearRequestBuilder {
         return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setSolidColor method. */
+    /**
+     * Provides operations to call the setSolidColor method.
+     */
     public get setSolidColor(): SetSolidColorRequestBuilder {
         return new SetSolidColorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class FillRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property fill for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: FillRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: FillRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,15 +49,14 @@ export class FillRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Represents the fill format of an object, which includes background formating information. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartFill
      */
-    public get(requestConfiguration?: FillRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartFill | undefined> {
+    public get(requestConfiguration?: FillRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartFill | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,16 +64,15 @@ export class FillRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartFill>(requestInfo, createWorkbookChartFillFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartFill>(requestInfo, createWorkbookChartFillFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property fill in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartFill
      */
-    public patch(body: WorkbookChartFill | undefined, requestConfiguration?: FillRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartFill | undefined> {
+    public patch(body: WorkbookChartFill | undefined, requestConfiguration?: FillRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartFill | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -80,7 +81,7 @@ export class FillRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartFill>(requestInfo, createWorkbookChartFillFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartFill>(requestInfo, createWorkbookChartFillFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property fill for drives

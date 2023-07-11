@@ -1,4 +1,6 @@
-/** Possible values for when accounts are deleted on a shared PC. */
+/**
+ * Possible values for when accounts are deleted on a shared PC.
+ */
 export enum SharedPCAccountDeletionPolicyType {
     /** Delete immediately. */
     Immediate = "immediate",

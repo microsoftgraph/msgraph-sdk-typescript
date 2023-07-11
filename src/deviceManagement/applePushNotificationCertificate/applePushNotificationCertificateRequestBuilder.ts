@@ -10,13 +10,15 @@ import {ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration
 import {ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration} from './applePushNotificationCertificateRequestBuilderGetRequestConfiguration';
 import {ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration} from './applePushNotificationCertificateRequestBuilderPatchRequestConfiguration';
 import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilder} from './downloadApplePushNotificationCertificateSigningRequest/downloadApplePushNotificationCertificateSigningRequestRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.
  */
 export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method. */
+    /**
+     * Provides operations to call the downloadApplePushNotificationCertificateSigningRequest method.
+     */
     public get downloadApplePushNotificationCertificateSigningRequest(): DownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
         return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
     /**
      * Delete navigation property applePushNotificationCertificate for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Apple push notification certificate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplePushNotificationCertificate
      */
-    public get(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
+    public get(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property applePushNotificationCertificate in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplePushNotificationCertificate
      */
-    public patch(body: ApplePushNotificationCertificate | undefined, requestConfiguration?: ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
+    public patch(body: ApplePushNotificationCertificate | undefined, requestConfiguration?: ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ApplePushNotificationCertificate>(requestInfo, createApplePushNotificationCertificateFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property applePushNotificationCertificate for deviceManagement

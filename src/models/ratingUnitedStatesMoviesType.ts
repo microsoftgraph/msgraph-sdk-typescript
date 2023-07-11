@@ -1,4 +1,6 @@
-/** Movies rating labels in United States */
+/**
+ * Movies rating labels in United States
+ */
 export enum RatingUnitedStatesMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

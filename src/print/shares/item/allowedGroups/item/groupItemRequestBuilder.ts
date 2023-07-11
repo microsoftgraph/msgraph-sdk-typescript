@@ -5,7 +5,9 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /print/shares/{printerShare-id}/allowedGroups/{group-id}
  */
 export class GroupItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of print entities. */
+    /**
+     * Provides operations to manage the collection of print entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -2,10 +2,16 @@ import {RiskyServicePrincipalItemRequestBuilderGetQueryParameters} from './risky
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RiskyServicePrincipalItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RiskyServicePrincipalItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -3,6 +3,8 @@ import {EdiscoveryReviewTag} from '../../../../../../models/security/ediscoveryR
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AsHierarchyResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: EdiscoveryReviewTag[] | undefined;
 }

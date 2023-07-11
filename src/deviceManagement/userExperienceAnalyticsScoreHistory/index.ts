@@ -1,0 +1,3 @@
+export * from './userExperienceAnalyticsScoreHistoryRequestBuilderGetQueryParameters'
+export * from './userExperienceAnalyticsScoreHistoryRequestBuilderGetRequestConfiguration'
+export * from './userExperienceAnalyticsScoreHistoryRequestBuilderPostRequestConfiguration'

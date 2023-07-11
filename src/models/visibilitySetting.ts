@@ -1,4 +1,6 @@
-/** Generic visibility state. */
+/**
+ * Generic visibility state.
+ */
 export enum VisibilitySetting {
     /** Not configured. */
     NotConfigured = "notConfigured",

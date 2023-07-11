@@ -3,16 +3,28 @@ import {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ObjectDefinition extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The attributes property */
+    /**
+     * Defines attributes of the object.
+     */
     attributes?: AttributeDefinition[] | undefined;
-    /** The metadata property */
+    /**
+     * Metadata for the given object.
+     */
     metadata?: ObjectDefinitionMetadataEntry[] | undefined;
-    /** The name property */
+    /**
+     * Name of the object. Must be unique within a directory definition. Not nullable.
+     */
     name?: string | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The supportedApis property */
+    /**
+     * The API that the provisioning service queries to retrieve data for synchronization.
+     */
     supportedApis?: string[] | undefined;
 }

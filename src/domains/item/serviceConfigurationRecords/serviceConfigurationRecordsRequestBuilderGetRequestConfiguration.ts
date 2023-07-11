@@ -2,10 +2,16 @@ import {ServiceConfigurationRecordsRequestBuilderGetQueryParameters} from './ser
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ServiceConfigurationRecordsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ServiceConfigurationRecordsRequestBuilderGetQueryParameters | undefined;
 }

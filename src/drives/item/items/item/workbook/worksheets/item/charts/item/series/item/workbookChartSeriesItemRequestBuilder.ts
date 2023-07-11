@@ -11,17 +11,21 @@ import {PointsRequestBuilder} from './points/pointsRequestBuilder';
 import {WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration} from './workbookChartSeriesItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration} from './workbookChartSeriesItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration} from './workbookChartSeriesItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
  */
 export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChartSeries entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChartSeries entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity. */
+    /**
+     * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
+     */
     public get points(): PointsRequestBuilder {
         return new PointsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property series for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of chartseries object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartSeries
      * @see {@link https://docs.microsoft.com/graph/api/chartseries-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartSeries | undefined> {
+    public get(requestConfiguration?: WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartSeries | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,17 +65,16 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartSeries>(requestInfo, createWorkbookChartSeriesFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartSeries>(requestInfo, createWorkbookChartSeriesFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of chartseries object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartSeries
      * @see {@link https://docs.microsoft.com/graph/api/chartseries-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChartSeries | undefined, requestConfiguration?: WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartSeries | undefined> {
+    public patch(body: WorkbookChartSeries | undefined, requestConfiguration?: WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartSeries | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -82,7 +83,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartSeries>(requestInfo, createWorkbookChartSeriesFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartSeries>(requestInfo, createWorkbookChartSeriesFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property series for drives

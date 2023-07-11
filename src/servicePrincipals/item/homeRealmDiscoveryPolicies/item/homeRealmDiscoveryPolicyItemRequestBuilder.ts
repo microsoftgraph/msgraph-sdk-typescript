@@ -5,7 +5,9 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/homeRealmDiscoveryPolicies/{homeRealmDiscoveryPolicy-id}
  */
 export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of servicePrincipal entities. */
+    /**
+     * Provides operations to manage the collection of servicePrincipal entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

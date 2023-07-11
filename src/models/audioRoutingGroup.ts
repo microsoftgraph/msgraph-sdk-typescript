@@ -3,10 +3,16 @@ import {RoutingMode} from './routingMode';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AudioRoutingGroup extends Entity, Parsable {
-    /** The receivers property */
+    /**
+     * The receivers property
+     */
     receivers?: string[] | undefined;
-    /** The routingMode property */
+    /**
+     * The routingMode property
+     */
     routingMode?: RoutingMode | undefined;
-    /** The sources property */
+    /**
+     * The sources property
+     */
     sources?: string[] | undefined;
 }

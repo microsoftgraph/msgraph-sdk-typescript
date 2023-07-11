@@ -8,7 +8,7 @@ import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeCompliance} from '../models/serializeCompliance';
 import {ComplianceRequestBuilderGetRequestConfiguration} from './complianceRequestBuilderGetRequestConfiguration';
 import {ComplianceRequestBuilderPatchRequestConfiguration} from './complianceRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the compliance singleton.
@@ -25,10 +25,9 @@ export class ComplianceRequestBuilder extends BaseRequestBuilder {
     /**
      * Get compliance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Compliance
      */
-    public get(requestConfiguration?: ComplianceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Compliance | undefined> {
+    public get(requestConfiguration?: ComplianceRequestBuilderGetRequestConfiguration | undefined) : Promise<Compliance | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class ComplianceRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Compliance>(requestInfo, createComplianceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Compliance>(requestInfo, createComplianceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update compliance
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Compliance
      */
-    public patch(body: Compliance | undefined, requestConfiguration?: ComplianceRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Compliance | undefined> {
+    public patch(body: Compliance | undefined, requestConfiguration?: ComplianceRequestBuilderPatchRequestConfiguration | undefined) : Promise<Compliance | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -54,7 +52,7 @@ export class ComplianceRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Compliance>(requestInfo, createComplianceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Compliance>(requestInfo, createComplianceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get compliance

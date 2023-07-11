@@ -1,0 +1,5 @@
+export * from './createResumePostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoResumePostRequestBody'
+export * from './microsoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration'
+export * from './resumePostRequestBody'
+export * from './serializeResumePostRequestBody'

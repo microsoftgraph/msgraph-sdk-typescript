@@ -18,45 +18,63 @@ import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailReque
 import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
 import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
  */
 export class ChannelItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the completeMigration method. */
+    /**
+     * Provides operations to call the completeMigration method.
+     */
     public get completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the doesUserHaveAccess method. */
+    /**
+     * Provides operations to call the doesUserHaveAccess method.
+     */
     public get doesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalName(): DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder {
         return new DoesUserHaveAccessuserIdUserIdTenantIdTenantIdUserPrincipalNameUserPrincipalNameRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the filesFolder property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the filesFolder property of the microsoft.graph.channel entity.
+     */
     public get filesFolder(): FilesFolderRequestBuilder {
         return new FilesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.channel entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the messages property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.channel entity.
+     */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the provisionEmail method. */
+    /**
+     * Provides operations to call the provisionEmail method.
+     */
     public get provisionEmail(): ProvisionEmailRequestBuilder {
         return new ProvisionEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the removeEmail method. */
+    /**
+     * Provides operations to call the removeEmail method.
+     */
     public get removeEmail(): RemoveEmailRequestBuilder {
         return new RemoveEmailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
+     */
     public get sharedWithTeams(): SharedWithTeamsRequestBuilder {
         return new SharedWithTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tabs property of the microsoft.graph.channel entity. */
+    /**
+     * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
+     */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,10 +89,9 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ChannelItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ChannelItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -82,16 +99,15 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
      * @see {@link https://docs.microsoft.com/graph/api/channel-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ChannelItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
+    public get(requestConfiguration?: ChannelItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Channel | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -99,17 +115,16 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of the specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Channel
      * @see {@link https://docs.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Channel | undefined, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
+    public patch(body: Channel | undefined, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Channel | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -118,7 +133,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete the channel.

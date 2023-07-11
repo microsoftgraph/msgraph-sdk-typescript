@@ -5,7 +5,9 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /identityGovernance/entitlementManagement/connectedOrganizations/{connectedOrganization-id}/externalSponsors/{directoryObject-id}
  */
 export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of identityGovernance entities. */
+    /**
+     * Provides operations to manage the collection of identityGovernance entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

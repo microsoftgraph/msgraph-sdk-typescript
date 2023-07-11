@@ -12,21 +12,27 @@ import {AgreementItemRequestBuilderGetRequestConfiguration} from './agreementIte
 import {AgreementItemRequestBuilderPatchRequestConfiguration} from './agreementItemRequestBuilderPatchRequestConfiguration';
 import {FileRequestBuilder} from './file/fileRequestBuilder';
 import {FilesRequestBuilder} from './files/filesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
  */
 export class AgreementItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the acceptances property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
+     */
     public get acceptances(): AcceptancesRequestBuilder {
         return new AcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the file property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the file property of the microsoft.graph.agreement entity.
+     */
     public get file(): FileRequestBuilder {
         return new FileRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the files property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the files property of the microsoft.graph.agreement entity.
+     */
     public get files(): FilesRequestBuilder {
         return new FilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,10 +47,9 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an agreement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/agreement-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AgreementItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AgreementItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -52,16 +57,15 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an agreement object.
+     * Retrieve all localized files related to an agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
-     * @see {@link https://docs.microsoft.com/graph/api/agreement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/agreement-list-files?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AgreementItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Agreement | undefined> {
+    public get(requestConfiguration?: AgreementItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Agreement | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -69,17 +73,16 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an agreement object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
      * @see {@link https://docs.microsoft.com/graph/api/agreement-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Agreement | undefined, requestConfiguration?: AgreementItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Agreement | undefined> {
+    public patch(body: Agreement | undefined, requestConfiguration?: AgreementItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Agreement | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -88,7 +91,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete an agreement object.
@@ -107,7 +110,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an agreement object.
+     * Retrieve all localized files related to an agreement.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

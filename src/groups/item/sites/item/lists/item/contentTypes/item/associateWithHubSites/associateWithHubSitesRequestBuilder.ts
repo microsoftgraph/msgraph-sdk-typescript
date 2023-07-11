@@ -6,7 +6,7 @@ import {AssociateWithHubSitesPostRequestBody} from './associateWithHubSitesPostR
 import {AssociateWithHubSitesRequestBuilderPostRequestConfiguration} from './associateWithHubSitesRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssociateWithHubSitesPostRequestBody} from './deserializeIntoAssociateWithHubSitesPostRequestBody';
 import {serializeAssociateWithHubSitesPostRequestBody} from './serializeAssociateWithHubSitesPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the associateWithHubSites method.
@@ -24,10 +24,9 @@ export class AssociateWithHubSitesRequestBuilder extends BaseRequestBuilder {
      * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AssociateWithHubSitesPostRequestBody | undefined, requestConfiguration?: AssociateWithHubSitesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: AssociateWithHubSitesPostRequestBody | undefined, requestConfiguration?: AssociateWithHubSitesRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -36,7 +35,7 @@ export class AssociateWithHubSitesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.

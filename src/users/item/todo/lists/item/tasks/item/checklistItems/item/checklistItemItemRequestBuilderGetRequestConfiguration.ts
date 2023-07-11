@@ -2,10 +2,16 @@ import {ChecklistItemItemRequestBuilderGetQueryParameters} from './checklistItem
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ChecklistItemItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ChecklistItemItemRequestBuilderGetQueryParameters | undefined;
 }

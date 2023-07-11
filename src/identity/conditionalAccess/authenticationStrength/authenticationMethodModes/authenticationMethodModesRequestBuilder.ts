@@ -12,13 +12,15 @@ import {AuthenticationMethodModesRequestBuilderGetRequestConfiguration} from './
 import {AuthenticationMethodModesRequestBuilderPostRequestConfiguration} from './authenticationMethodModesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationMethodModeDetailItemRequestBuilder} from './item/authenticationMethodModeDetailItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
  */
 export class AuthenticationMethodModesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class AuthenticationMethodModesRequestBuilder extends BaseRequestBuilder 
     /**
      * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of **authenticationMethodModes** objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodModeDetailCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AuthenticationMethodModesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodModeDetailCollectionResponse | undefined> {
+    public get(requestConfiguration?: AuthenticationMethodModesRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationMethodModeDetailCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,16 +57,15 @@ export class AuthenticationMethodModesRequestBuilder extends BaseRequestBuilder 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationMethodModeDetailCollectionResponse>(requestInfo, createAuthenticationMethodModeDetailCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationMethodModeDetailCollectionResponse>(requestInfo, createAuthenticationMethodModeDetailCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to authenticationMethodModes for identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationMethodModeDetail
      */
-    public post(body: AuthenticationMethodModeDetail | undefined, requestConfiguration?: AuthenticationMethodModesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
+    public post(body: AuthenticationMethodModeDetail | undefined, requestConfiguration?: AuthenticationMethodModesRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -74,7 +74,7 @@ export class AuthenticationMethodModesRequestBuilder extends BaseRequestBuilder 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationMethodModeDetail>(requestInfo, createAuthenticationMethodModeDetailFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationMethodModeDetail>(requestInfo, createAuthenticationMethodModeDetailFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of **authenticationMethodModes** objects and their properties.

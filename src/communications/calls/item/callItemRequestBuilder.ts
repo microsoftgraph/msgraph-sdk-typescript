@@ -27,81 +27,117 @@ import {SubscribeToToneRequestBuilder} from './subscribeToTone/subscribeToToneRe
 import {TransferRequestBuilder} from './transfer/transferRequestBuilder';
 import {UnmuteRequestBuilder} from './unmute/unmuteRequestBuilder';
 import {UpdateRecordingStatusRequestBuilder} from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
  */
 export class CallItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the addLargeGalleryView method. */
+    /**
+     * Provides operations to call the addLargeGalleryView method.
+     */
     public get addLargeGalleryView(): AddLargeGalleryViewRequestBuilder {
         return new AddLargeGalleryViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the answer method. */
+    /**
+     * Provides operations to call the answer method.
+     */
     public get answer(): AnswerRequestBuilder {
         return new AnswerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
+     */
     public get audioRoutingGroups(): AudioRoutingGroupsRequestBuilder {
         return new AudioRoutingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancelMediaProcessing method. */
+    /**
+     * Provides operations to call the cancelMediaProcessing method.
+     */
     public get cancelMediaProcessing(): CancelMediaProcessingRequestBuilder {
         return new CancelMediaProcessingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the changeScreenSharingRole method. */
+    /**
+     * Provides operations to call the changeScreenSharingRole method.
+     */
     public get changeScreenSharingRole(): ChangeScreenSharingRoleRequestBuilder {
         return new ChangeScreenSharingRoleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
+     */
     public get contentSharingSessions(): ContentSharingSessionsRequestBuilder {
         return new ContentSharingSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the keepAlive method. */
+    /**
+     * Provides operations to call the keepAlive method.
+     */
     public get keepAlive(): KeepAliveRequestBuilder {
         return new KeepAliveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the mute method. */
+    /**
+     * Provides operations to call the mute method.
+     */
     public get mute(): MuteRequestBuilder {
         return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.call entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the participants property of the microsoft.graph.call entity. */
+    /**
+     * Provides operations to manage the participants property of the microsoft.graph.call entity.
+     */
     public get participants(): ParticipantsRequestBuilder {
         return new ParticipantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the playPrompt method. */
+    /**
+     * Provides operations to call the playPrompt method.
+     */
     public get playPrompt(): PlayPromptRequestBuilder {
         return new PlayPromptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the recordResponse method. */
+    /**
+     * Provides operations to call the recordResponse method.
+     */
     public get recordResponse(): RecordResponseRequestBuilder {
         return new RecordResponseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the redirect method. */
+    /**
+     * Provides operations to call the redirect method.
+     */
     public get redirect(): RedirectRequestBuilder {
         return new RedirectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reject method. */
+    /**
+     * Provides operations to call the reject method.
+     */
     public get reject(): RejectRequestBuilder {
         return new RejectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the subscribeToTone method. */
+    /**
+     * Provides operations to call the subscribeToTone method.
+     */
     public get subscribeToTone(): SubscribeToToneRequestBuilder {
         return new SubscribeToToneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the transfer method. */
+    /**
+     * Provides operations to call the transfer method.
+     */
     public get transfer(): TransferRequestBuilder {
         return new TransferRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unmute method. */
+    /**
+     * Provides operations to call the unmute method.
+     */
     public get unmute(): UnmuteRequestBuilder {
         return new UnmuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the updateRecordingStatus method. */
+    /**
+     * Provides operations to call the updateRecordingStatus method.
+     */
     public get updateRecordingStatus(): UpdateRecordingStatusRequestBuilder {
         return new UpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -116,10 +152,9 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/call-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: CallItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: CallItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -127,16 +162,15 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a call object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Call
      * @see {@link https://docs.microsoft.com/graph/api/call-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CallItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Call | undefined> {
+    public get(requestConfiguration?: CallItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Call | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -144,16 +178,15 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property calls in communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Call
      */
-    public patch(body: Call | undefined, requestConfiguration?: CallItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Call | undefined> {
+    public patch(body: Call | undefined, requestConfiguration?: CallItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Call | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -162,7 +195,7 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Call>(requestInfo, createCallFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.

@@ -2,10 +2,16 @@ import {AppConsentRequestsRequestBuilderGetQueryParameters} from './appConsentRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AppConsentRequestsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AppConsentRequestsRequestBuilderGetQueryParameters | undefined;
 }

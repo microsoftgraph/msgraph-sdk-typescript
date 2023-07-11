@@ -1,4 +1,6 @@
-/** Contains properties for detection operator. */
+/**
+ * Contains properties for detection operator.
+ */
 export enum Win32LobAppRuleOperator {
     /** Not configured. */
     NotConfigured = "notConfigured",

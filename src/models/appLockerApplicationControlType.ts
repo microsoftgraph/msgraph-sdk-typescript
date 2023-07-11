@@ -1,4 +1,6 @@
-/** Possible values of AppLocker Application Control Types */
+/**
+ * Possible values of AppLocker Application Control Types
+ */
 export enum AppLockerApplicationControlType {
     /** Device default value, no Application Control type selected. */
     NotConfigured = "notConfigured",

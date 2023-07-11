@@ -1,4 +1,6 @@
-/** Web Browser Cookie Settings. */
+/**
+ * Web Browser Cookie Settings.
+ */
 export enum WebBrowserCookieSettings {
     /** Browser default value, no intent. */
     BrowserDefault = "browserDefault",

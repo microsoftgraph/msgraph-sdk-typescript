@@ -2,10 +2,16 @@ import {NamedLocationsRequestBuilderGetQueryParameters} from './namedLocationsRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface NamedLocationsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: NamedLocationsRequestBuilderGetQueryParameters | undefined;
 }

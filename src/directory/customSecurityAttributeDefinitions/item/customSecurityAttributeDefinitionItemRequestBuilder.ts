@@ -10,13 +10,15 @@ import {AllowedValuesRequestBuilder} from './allowedValues/allowedValuesRequestB
 import {CustomSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration} from './customSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration} from './customSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration';
 import {CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration} from './customSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
  */
 export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity. */
+    /**
+     * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
+     */
     public get allowedValues(): AllowedValuesRequestBuilder {
         return new AllowedValuesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
     /**
      * Delete navigation property customSecurityAttributeDefinitions for directory
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a customSecurityAttributeDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CustomSecurityAttributeDefinition
      * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
+    public get(requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -58,17 +58,16 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CustomSecurityAttributeDefinition>(requestInfo, createCustomSecurityAttributeDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CustomSecurityAttributeDefinition>(requestInfo, createCustomSecurityAttributeDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a customSecurityAttributeDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CustomSecurityAttributeDefinition
      * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
+    public patch(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -77,7 +76,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CustomSecurityAttributeDefinition>(requestInfo, createCustomSecurityAttributeDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CustomSecurityAttributeDefinition>(requestInfo, createCustomSecurityAttributeDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property customSecurityAttributeDefinitions for directory

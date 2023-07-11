@@ -10,13 +10,15 @@ import {InvitationItemRequestBuilderDeleteRequestConfiguration} from './invitati
 import {InvitationItemRequestBuilderGetRequestConfiguration} from './invitationItemRequestBuilderGetRequestConfiguration';
 import {InvitationItemRequestBuilderPatchRequestConfiguration} from './invitationItemRequestBuilderPatchRequestConfiguration';
 import {InvitedUserRequestBuilder} from './invitedUser/invitedUserRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of invitation entities.
  */
 export class InvitationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity. */
+    /**
+     * Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity.
+     */
     public get invitedUser(): InvitedUserRequestBuilder {
         return new InvitedUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class InvitationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from invitations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: InvitationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: InvitationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class InvitationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get entity from invitations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Invitation
      */
-    public get(requestConfiguration?: InvitationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Invitation | undefined> {
+    public get(requestConfiguration?: InvitationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Invitation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class InvitationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in invitations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Invitation
      */
-    public patch(body: Invitation | undefined, requestConfiguration?: InvitationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Invitation | undefined> {
+    public patch(body: Invitation | undefined, requestConfiguration?: InvitationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Invitation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class InvitationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Invitation>(requestInfo, createInvitationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from invitations

@@ -3,6 +3,8 @@ import {ItemActivityStat} from '../../../../../../../../../models/itemActivitySt
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetActivitiesByIntervalResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ItemActivityStat[] | undefined;
 }

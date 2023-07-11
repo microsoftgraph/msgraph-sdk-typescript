@@ -1,4 +1,6 @@
-/** Which branch devices will receive their updates from */
+/**
+ * Which branch devices will receive their updates from
+ */
 export enum WindowsUpdateType {
     /** Allow the user to set. */
     UserDefined = "userDefined",

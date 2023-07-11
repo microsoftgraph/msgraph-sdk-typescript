@@ -1,4 +1,6 @@
-/** Possible values for system scan type. */
+/**
+ * Possible values for system scan type.
+ */
 export enum DefenderScanType {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

@@ -2,10 +2,16 @@ import {BitlockerRequestBuilderGetQueryParameters} from './bitlockerRequestBuild
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface BitlockerRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: BitlockerRequestBuilderGetQueryParameters | undefined;
 }

@@ -9,7 +9,7 @@ import {WindowsInformationProtectionAppLockerFile} from '../../../../../models/w
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exemptAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
@@ -26,9 +26,8 @@ export class WindowsInformationProtectionAppLockerFileItemRequestBuilder extends
     /**
      * Delete navigation property exemptAppLockerFiles for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class WindowsInformationProtectionAppLockerFileItemRequestBuilder extends
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Another way to input exempt apps through xml files
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsInformationProtectionAppLockerFile
      */
-    public get(requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
+    public get(requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class WindowsInformationProtectionAppLockerFileItemRequestBuilder extends
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLockerFile>(requestInfo, createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WindowsInformationProtectionAppLockerFile>(requestInfo, createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property exemptAppLockerFiles in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsInformationProtectionAppLockerFile
      */
-    public patch(body: WindowsInformationProtectionAppLockerFile | undefined, requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
+    public patch(body: WindowsInformationProtectionAppLockerFile | undefined, requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class WindowsInformationProtectionAppLockerFileItemRequestBuilder extends
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLockerFile>(requestInfo, createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WindowsInformationProtectionAppLockerFile>(requestInfo, createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property exemptAppLockerFiles for deviceAppManagement

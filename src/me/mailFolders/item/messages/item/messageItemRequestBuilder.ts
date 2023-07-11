@@ -21,57 +21,81 @@ import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {ReplyAllRequestBuilder} from './replyAll/replyAllRequestBuilder';
 import {SendRequestBuilder} from './send/sendRequestBuilder';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
  */
 export class MessageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the attachments property of the microsoft.graph.message entity. */
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.message entity.
+     */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the user entity. */
+    /**
+     * Provides operations to manage the media for the user entity.
+     */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the copy method. */
+    /**
+     * Provides operations to call the copy method.
+     */
     public get copy(): CopyRequestBuilder {
         return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the createForward method. */
+    /**
+     * Provides operations to call the createForward method.
+     */
     public get createForward(): CreateForwardRequestBuilder {
         return new CreateForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the createReply method. */
+    /**
+     * Provides operations to call the createReply method.
+     */
     public get createReply(): CreateReplyRequestBuilder {
         return new CreateReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the createReplyAll method. */
+    /**
+     * Provides operations to call the createReplyAll method.
+     */
     public get createReplyAll(): CreateReplyAllRequestBuilder {
         return new CreateReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensions property of the microsoft.graph.message entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.message entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the forward method. */
+    /**
+     * Provides operations to call the forward method.
+     */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the move method. */
+    /**
+     * Provides operations to call the move method.
+     */
     public get move(): MoveRequestBuilder {
         return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reply method. */
+    /**
+     * Provides operations to call the reply method.
+     */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the replyAll method. */
+    /**
+     * Provides operations to call the replyAll method.
+     */
     public get replyAll(): ReplyAllRequestBuilder {
         return new ReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the send method. */
+    /**
+     * Provides operations to call the send method.
+     */
     public get send(): SendRequestBuilder {
         return new SendRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -86,9 +110,8 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property messages for me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: MessageItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: MessageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -96,15 +119,14 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * The collection of messages in the mailFolder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Message
      */
-    public get(requestConfiguration?: MessageItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Message | undefined> {
+    public get(requestConfiguration?: MessageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Message | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -112,16 +134,15 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property messages in me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Message
      */
-    public patch(body: Message | undefined, requestConfiguration?: MessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Message | undefined> {
+    public patch(body: Message | undefined, requestConfiguration?: MessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Message | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -130,7 +151,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property messages for me

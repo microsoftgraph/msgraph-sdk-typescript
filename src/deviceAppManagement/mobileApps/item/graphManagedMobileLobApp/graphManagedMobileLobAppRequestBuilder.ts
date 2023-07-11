@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {GraphManagedMobileLobAppRequestBuilderGetRequestConfiguration} from './graphManagedMobileLobAppRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Casts the previous resource to managedMobileLobApp.
@@ -22,10 +22,9 @@ export class GraphManagedMobileLobAppRequestBuilder extends BaseRequestBuilder {
     /**
      * Get the item of type microsoft.graph.mobileApp as microsoft.graph.managedMobileLobApp
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedMobileLobApp
      */
-    public get(requestConfiguration?: GraphManagedMobileLobAppRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedMobileLobApp | undefined> {
+    public get(requestConfiguration?: GraphManagedMobileLobAppRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedMobileLobApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class GraphManagedMobileLobAppRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedMobileLobApp>(requestInfo, createManagedMobileLobAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedMobileLobApp>(requestInfo, createManagedMobileLobAppFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the item of type microsoft.graph.mobileApp as microsoft.graph.managedMobileLobApp

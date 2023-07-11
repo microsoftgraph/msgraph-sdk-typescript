@@ -10,13 +10,15 @@ import {InternetExplorerModeRequestBuilderDeleteRequestConfiguration} from './in
 import {InternetExplorerModeRequestBuilderGetRequestConfiguration} from './internetExplorerModeRequestBuilderGetRequestConfiguration';
 import {InternetExplorerModeRequestBuilderPatchRequestConfiguration} from './internetExplorerModeRequestBuilderPatchRequestConfiguration';
 import {SiteListsRequestBuilder} from './siteLists/siteListsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.
  */
 export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity. */
+    /**
+     * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
+     */
     public get siteLists(): SiteListsRequestBuilder {
         return new SiteListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property internetExplorerMode for admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: InternetExplorerModeRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: InternetExplorerModeRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * A container for Internet Explorer mode resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternetExplorerMode
      */
-    public get(requestConfiguration?: InternetExplorerModeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternetExplorerMode | undefined> {
+    public get(requestConfiguration?: InternetExplorerModeRequestBuilderGetRequestConfiguration | undefined) : Promise<InternetExplorerMode | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<InternetExplorerMode>(requestInfo, createInternetExplorerModeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<InternetExplorerMode>(requestInfo, createInternetExplorerModeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property internetExplorerMode in admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of InternetExplorerMode
      */
-    public patch(body: InternetExplorerMode | undefined, requestConfiguration?: InternetExplorerModeRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InternetExplorerMode | undefined> {
+    public patch(body: InternetExplorerMode | undefined, requestConfiguration?: InternetExplorerModeRequestBuilderPatchRequestConfiguration | undefined) : Promise<InternetExplorerMode | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class InternetExplorerModeRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<InternetExplorerMode>(requestInfo, createInternetExplorerModeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<InternetExplorerMode>(requestInfo, createInternetExplorerModeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property internetExplorerMode for admin

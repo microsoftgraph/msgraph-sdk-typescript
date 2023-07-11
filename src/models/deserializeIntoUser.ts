@@ -23,6 +23,7 @@ import {createContactFromDiscriminatorValue} from './createContactFromDiscrimina
 import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from './createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createDriveFromDiscriminatorValue} from './createDriveFromDiscriminatorValue';
+import {createEmployeeExperienceUserFromDiscriminatorValue} from './createEmployeeExperienceUserFromDiscriminatorValue';
 import {createEmployeeOrgDataFromDiscriminatorValue} from './createEmployeeOrgDataFromDiscriminatorValue';
 import {createEventFromDiscriminatorValue} from './createEventFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
@@ -54,12 +55,14 @@ import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorVal
 import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
 import {createTodoFromDiscriminatorValue} from './createTodoFromDiscriminatorValue';
 import {createUserActivityFromDiscriminatorValue} from './createUserActivityFromDiscriminatorValue';
+import {createUserPrintFromDiscriminatorValue} from './createUserPrintFromDiscriminatorValue';
 import {createUserSettingsFromDiscriminatorValue} from './createUserSettingsFromDiscriminatorValue';
 import {createUserTeamworkFromDiscriminatorValue} from './createUserTeamworkFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
 import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
 import {DirectoryObject} from './directoryObject';
 import {Drive} from './drive';
+import {EmployeeExperienceUser} from './employeeExperienceUser';
 import {EmployeeOrgData} from './employeeOrgData';
 import {Event} from './event';
 import {Extension} from './extension';
@@ -100,6 +103,7 @@ import {serializeContactFolder} from './serializeContactFolder';
 import {serializeDeviceManagementTroubleshootingEvent} from './serializeDeviceManagementTroubleshootingEvent';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeDrive} from './serializeDrive';
+import {serializeEmployeeExperienceUser} from './serializeEmployeeExperienceUser';
 import {serializeEmployeeOrgData} from './serializeEmployeeOrgData';
 import {serializeEvent} from './serializeEvent';
 import {serializeExtension} from './serializeExtension';
@@ -131,6 +135,7 @@ import {serializeSite} from './serializeSite';
 import {serializeTeam} from './serializeTeam';
 import {serializeTodo} from './serializeTodo';
 import {serializeUserActivity} from './serializeUserActivity';
+import {serializeUserPrint} from './serializeUserPrint';
 import {serializeUserSettings} from './serializeUserSettings';
 import {serializeUserTeamwork} from './serializeUserTeamwork';
 import {SignInActivity} from './signInActivity';
@@ -139,6 +144,7 @@ import {Team} from './team';
 import {Todo} from './todo';
 import {User} from './user';
 import {UserActivity} from './userActivity';
+import {UserPrint} from './userPrint';
 import {UserSettings} from './userSettings';
 import {UserTeamwork} from './userTeamwork';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -179,6 +185,7 @@ export function deserializeIntoUser(user: User | undefined = {} as User) : Recor
         "displayName": n => { user.displayName = n.getStringValue(); },
         "drive": n => { user.drive = n.getObjectValue<Drive>(createDriveFromDiscriminatorValue); },
         "drives": n => { user.drives = n.getCollectionOfObjectValues<Drive>(createDriveFromDiscriminatorValue); },
+        "employeeExperience": n => { user.employeeExperience = n.getObjectValue<EmployeeExperienceUser>(createEmployeeExperienceUserFromDiscriminatorValue); },
         "employeeHireDate": n => { user.employeeHireDate = n.getDateValue(); },
         "employeeId": n => { user.employeeId = n.getStringValue(); },
         "employeeLeaveDateTime": n => { user.employeeLeaveDateTime = n.getDateValue(); },
@@ -245,6 +252,7 @@ export function deserializeIntoUser(user: User | undefined = {} as User) : Recor
         "preferredLanguage": n => { user.preferredLanguage = n.getStringValue(); },
         "preferredName": n => { user.preferredName = n.getStringValue(); },
         "presence": n => { user.presence = n.getObjectValue<Presence>(createPresenceFromDiscriminatorValue); },
+        "print": n => { user.print = n.getObjectValue<UserPrint>(createUserPrintFromDiscriminatorValue); },
         "provisionedPlans": n => { user.provisionedPlans = n.getCollectionOfObjectValues<ProvisionedPlan>(createProvisionedPlanFromDiscriminatorValue); },
         "proxyAddresses": n => { user.proxyAddresses = n.getCollectionOfPrimitiveValues<string>(); },
         "registeredDevices": n => { user.registeredDevices = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },

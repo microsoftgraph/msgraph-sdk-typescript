@@ -1,0 +1,10 @@
+import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
+import {serializeUserExperienceAnalyticsAppHealthOSVersionPerformance} from './serializeUserExperienceAnalyticsAppHealthOSVersionPerformance';
+import {UserExperienceAnalyticsAppHealthOSVersionPerformance} from './userExperienceAnalyticsAppHealthOSVersionPerformance';
+import {UserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse} from './userExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export function serializeUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse: UserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse | undefined = {} as UserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse) : void {
+        serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse)
+        writer.writeCollectionOfObjectValues<UserExperienceAnalyticsAppHealthOSVersionPerformance>("value", userExperienceAnalyticsAppHealthOSVersionPerformanceCollectionResponse.value, serializeUserExperienceAnalyticsAppHealthOSVersionPerformance);
+}

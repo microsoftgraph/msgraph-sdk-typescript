@@ -2,10 +2,16 @@ import {TaskTriggersRequestBuilderGetQueryParameters} from './taskTriggersReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface TaskTriggersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: TaskTriggersRequestBuilderGetQueryParameters | undefined;
 }

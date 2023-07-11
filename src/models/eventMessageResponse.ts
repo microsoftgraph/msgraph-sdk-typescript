@@ -4,8 +4,12 @@ import {TimeSlot} from './timeSlot';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EventMessageResponse extends EventMessage, Parsable {
-    /** The proposedNewTime property */
+    /**
+     * The proposedNewTime property
+     */
     proposedNewTime?: TimeSlot | undefined;
-    /** The responseType property */
+    /**
+     * The responseType property
+     */
     responseType?: ResponseType | undefined;
 }

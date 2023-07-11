@@ -15,25 +15,33 @@ import {ContentTypesRequestBuilderPostRequestConfiguration} from './contentTypes
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
  */
 export class ContentTypesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the addCopy method. */
+    /**
+     * Provides operations to call the addCopy method.
+     */
     public get addCopy(): AddCopyRequestBuilder {
         return new AddCopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the addCopyFromContentTypeHub method. */
+    /**
+     * Provides operations to call the addCopyFromContentTypeHub method.
+     */
     public get addCopyFromContentTypeHub(): AddCopyFromContentTypeHubRequestBuilder {
         return new AddCopyFromContentTypeHubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getCompatibleHubContentTypes method. */
+    /**
+     * Provides operations to call the getCompatibleHubContentTypes method.
+     */
     public get getCompatibleHubContentTypes(): GetCompatibleHubContentTypesRequestBuilder {
         return new GetCompatibleHubContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -59,11 +67,10 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
     /**
      * Get the collection of [contentType][contentType] resources in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentTypeCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/list-list-contenttypes?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ContentTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentTypeCollectionResponse | undefined> {
+    public get(requestConfiguration?: ContentTypesRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentTypeCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -71,16 +78,15 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ContentTypeCollectionResponse>(requestInfo, createContentTypeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ContentTypeCollectionResponse>(requestInfo, createContentTypeCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to contentTypes for sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public post(body: ContentType | undefined, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public post(body: ContentType | undefined, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -89,7 +95,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the collection of [contentType][contentType] resources in a [list][].

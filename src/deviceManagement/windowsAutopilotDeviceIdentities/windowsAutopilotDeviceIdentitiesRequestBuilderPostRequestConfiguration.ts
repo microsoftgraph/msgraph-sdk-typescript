@@ -1,8 +1,12 @@
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
 }

@@ -14,33 +14,45 @@ import {DirectoryRequestBuilderGetRequestConfiguration} from './directoryRequest
 import {DirectoryRequestBuilderPatchRequestConfiguration} from './directoryRequestBuilderPatchRequestConfiguration';
 import {FederationConfigurationsRequestBuilder} from './federationConfigurations/federationConfigurationsRequestBuilder';
 import {OnPremisesSynchronizationRequestBuilder} from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directory singleton.
  */
 export class DirectoryRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
+     */
     public get administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attributeSets property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
+     */
     public get attributeSets(): AttributeSetsRequestBuilder {
         return new AttributeSetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
+     */
     public get customSecurityAttributeDefinitions(): CustomSecurityAttributeDefinitionsRequestBuilder {
         return new CustomSecurityAttributeDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deletedItems property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
+     */
     public get deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
+     */
     public get federationConfigurations(): FederationConfigurationsRequestBuilder {
         return new FederationConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity. */
+    /**
+     * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
+     */
     public get onPremisesSynchronization(): OnPremisesSynchronizationRequestBuilder {
         return new OnPremisesSynchronizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -55,10 +67,9 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
     /**
      * Get directory
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Directory
      */
-    public get(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Directory | undefined> {
+    public get(requestConfiguration?: DirectoryRequestBuilderGetRequestConfiguration | undefined) : Promise<Directory | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -66,16 +77,15 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Directory
      */
-    public patch(body: Directory | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Directory | undefined> {
+    public patch(body: Directory | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined) : Promise<Directory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -84,7 +94,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Directory>(requestInfo, createDirectoryFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get directory

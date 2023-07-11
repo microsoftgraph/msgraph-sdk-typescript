@@ -14,21 +14,27 @@ import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
 import {RiskyUserItemRequestBuilder} from './item/riskyUserItemRequestBuilder';
 import {RiskyUsersRequestBuilderGetRequestConfiguration} from './riskyUsersRequestBuilderGetRequestConfiguration';
 import {RiskyUsersRequestBuilderPostRequestConfiguration} from './riskyUsersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
  */
 export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the confirmCompromised method. */
+    /**
+     * Provides operations to call the confirmCompromised method.
+     */
     public get confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dismiss method. */
+    /**
+     * Provides operations to call the dismiss method.
+     */
     public get dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -54,11 +60,10 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
     /**
      * Get a list of the riskyUser objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUserCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/riskyuser-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RiskyUsersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUserCollectionResponse | undefined> {
+    public get(requestConfiguration?: RiskyUsersRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -66,16 +71,15 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RiskyUserCollectionResponse>(requestInfo, createRiskyUserCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RiskyUserCollectionResponse>(requestInfo, createRiskyUserCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to riskyUsers for identityProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskyUser
      */
-    public post(body: RiskyUser | undefined, requestConfiguration?: RiskyUsersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskyUser | undefined> {
+    public post(body: RiskyUser | undefined, requestConfiguration?: RiskyUsersRequestBuilderPostRequestConfiguration | undefined) : Promise<RiskyUser | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -84,7 +88,7 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RiskyUser>(requestInfo, createRiskyUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RiskyUser>(requestInfo, createRiskyUserFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get a list of the riskyUser objects and their properties.

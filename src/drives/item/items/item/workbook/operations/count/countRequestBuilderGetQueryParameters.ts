@@ -1,5 +1,7 @@
 
 export interface CountRequestBuilderGetQueryParameters {
-    /** Search items by search phrases */
+    /**
+     * Search items by search phrases
+     */
     search?: string | undefined;
 }

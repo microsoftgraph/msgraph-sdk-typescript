@@ -2,10 +2,16 @@ import {DirectoryRolesRequestBuilderGetQueryParameters} from './directoryRolesRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryRolesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DirectoryRolesRequestBuilderGetQueryParameters | undefined;
 }

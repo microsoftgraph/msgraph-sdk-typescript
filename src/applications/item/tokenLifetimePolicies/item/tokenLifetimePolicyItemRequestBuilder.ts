@@ -5,7 +5,9 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /applications/{application-id}/tokenLifetimePolicies/{tokenLifetimePolicy-id}
  */
 export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of application entities. */
+    /**
+     * Provides operations to manage the collection of application entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

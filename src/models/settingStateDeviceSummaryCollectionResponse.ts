@@ -3,6 +3,8 @@ import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SettingStateDeviceSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: SettingStateDeviceSummary[] | undefined;
 }

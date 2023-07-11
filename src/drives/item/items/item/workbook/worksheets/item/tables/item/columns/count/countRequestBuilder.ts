@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../../../../../models/oData
 import {CountRequestBuilderGetRequestConfiguration} from './countRequestBuilderGetRequestConfiguration';
 import {createCountResponseFromDiscriminatorValue} from './createCountResponseFromDiscriminatorValue';
 import {CountResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the count method.
@@ -22,10 +22,9 @@ export class CountRequestBuilder extends BaseRequestBuilder {
     /**
      * Invoke function count
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CountResponse
      */
-    public get(requestConfiguration?: CountRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CountResponse | undefined> {
+    public get(requestConfiguration?: CountRequestBuilderGetRequestConfiguration | undefined) : Promise<CountResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class CountRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CountResponse>(requestInfo, createCountResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CountResponse>(requestInfo, createCountResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function count

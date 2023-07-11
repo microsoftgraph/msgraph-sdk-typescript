@@ -20,49 +20,69 @@ import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of drive entities.
  */
 export class DriveItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the bundles property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
+     */
     public get bundles(): BundlesRequestBuilder {
         return new BundlesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the following property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the following property of the microsoft.graph.drive entity.
+     */
     public get following(): FollowingRequestBuilder {
         return new FollowingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.drive entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the list property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the list property of the microsoft.graph.drive entity.
+     */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the recent method. */
+    /**
+     * Provides operations to call the recent method.
+     */
     public get recent(): RecentRequestBuilder {
         return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the root property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the root property of the microsoft.graph.drive entity.
+     */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sharedWithMe method. */
+    /**
+     * Provides operations to call the sharedWithMe method.
+     */
     public get sharedWithMe(): SharedWithMeRequestBuilder {
         return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the special property of the microsoft.graph.drive entity. */
+    /**
+     * Provides operations to manage the special property of the microsoft.graph.drive entity.
+     */
     public get special(): SpecialRequestBuilder {
         return new SpecialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -77,9 +97,8 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: DriveItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DriveItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -87,15 +106,14 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get entity from drives by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
      */
-    public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+    public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -103,16 +121,15 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
      */
-    public patch(body: Drive | undefined, requestConfiguration?: DriveItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+    public patch(body: Drive | undefined, requestConfiguration?: DriveItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Drive | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -121,7 +138,7 @@ export class DriveItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the search method.

@@ -6,7 +6,9 @@ import {createDeviceCategoryFromDiscriminatorValue} from './createDeviceCategory
 import {createDeviceCompliancePolicyStateFromDiscriminatorValue} from './createDeviceCompliancePolicyStateFromDiscriminatorValue';
 import {createDeviceConfigurationStateFromDiscriminatorValue} from './createDeviceConfigurationStateFromDiscriminatorValue';
 import {createDeviceHealthAttestationStateFromDiscriminatorValue} from './createDeviceHealthAttestationStateFromDiscriminatorValue';
+import {createDeviceLogCollectionResponseFromDiscriminatorValue} from './createDeviceLogCollectionResponseFromDiscriminatorValue';
 import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
+import {createWindowsProtectionStateFromDiscriminatorValue} from './createWindowsProtectionStateFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {DeviceActionResult} from './deviceActionResult';
 import {DeviceCategory} from './deviceCategory';
@@ -14,6 +16,7 @@ import {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
 import {DeviceConfigurationState} from './deviceConfigurationState';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
 import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
+import {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
 import {DeviceManagementExchangeAccessState} from './deviceManagementExchangeAccessState';
 import {DeviceManagementExchangeAccessStateReason} from './deviceManagementExchangeAccessStateReason';
 import {DeviceRegistrationState} from './deviceRegistrationState';
@@ -27,8 +30,11 @@ import {serializeDeviceCategory} from './serializeDeviceCategory';
 import {serializeDeviceCompliancePolicyState} from './serializeDeviceCompliancePolicyState';
 import {serializeDeviceConfigurationState} from './serializeDeviceConfigurationState';
 import {serializeDeviceHealthAttestationState} from './serializeDeviceHealthAttestationState';
+import {serializeDeviceLogCollectionResponse} from './serializeDeviceLogCollectionResponse';
 import {serializeUser} from './serializeUser';
+import {serializeWindowsProtectionState} from './serializeWindowsProtectionState';
 import {User} from './user';
+import {WindowsProtectionState} from './windowsProtectionState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedDevice(managedDevice: ManagedDevice | undefined = {} as ManagedDevice) : Record<string, (node: ParseNode) => void> {
@@ -66,6 +72,7 @@ export function deserializeIntoManagedDevice(managedDevice: ManagedDevice | unde
         "isSupervised": n => { managedDevice.isSupervised = n.getBooleanValue(); },
         "jailBroken": n => { managedDevice.jailBroken = n.getStringValue(); },
         "lastSyncDateTime": n => { managedDevice.lastSyncDateTime = n.getDateValue(); },
+        "logCollectionRequests": n => { managedDevice.logCollectionRequests = n.getCollectionOfObjectValues<DeviceLogCollectionResponse>(createDeviceLogCollectionResponseFromDiscriminatorValue); },
         "managedDeviceName": n => { managedDevice.managedDeviceName = n.getStringValue(); },
         "managedDeviceOwnerType": n => { managedDevice.managedDeviceOwnerType = n.getEnumValue<ManagedDeviceOwnerType>(ManagedDeviceOwnerType); },
         "managementAgent": n => { managedDevice.managementAgent = n.getEnumValue<ManagementAgentType>(ManagementAgentType); },
@@ -91,5 +98,6 @@ export function deserializeIntoManagedDevice(managedDevice: ManagedDevice | unde
         "userPrincipalName": n => { managedDevice.userPrincipalName = n.getStringValue(); },
         "users": n => { managedDevice.users = n.getCollectionOfObjectValues<User>(createUserFromDiscriminatorValue); },
         "wiFiMacAddress": n => { managedDevice.wiFiMacAddress = n.getStringValue(); },
+        "windowsProtectionState": n => { managedDevice.windowsProtectionState = n.getObjectValue<WindowsProtectionState>(createWindowsProtectionStateFromDiscriminatorValue); },
     }
 }

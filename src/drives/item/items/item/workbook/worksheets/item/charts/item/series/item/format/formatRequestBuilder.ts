@@ -11,17 +11,21 @@ import {FormatRequestBuilderDeleteRequestConfiguration} from './formatRequestBui
 import {FormatRequestBuilderGetRequestConfiguration} from './formatRequestBuilderGetRequestConfiguration';
 import {FormatRequestBuilderPatchRequestConfiguration} from './formatRequestBuilderPatchRequestConfiguration';
 import {LineRequestBuilder} from './line/lineRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the format property of the microsoft.graph.workbookChartSeries entity.
  */
 export class FormatRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the fill property of the microsoft.graph.workbookChartSeriesFormat entity. */
+    /**
+     * Provides operations to manage the fill property of the microsoft.graph.workbookChartSeriesFormat entity.
+     */
     public get fill(): FillRequestBuilder {
         return new FillRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the line property of the microsoft.graph.workbookChartSeriesFormat entity. */
+    /**
+     * Provides operations to manage the line property of the microsoft.graph.workbookChartSeriesFormat entity.
+     */
     public get line(): LineRequestBuilder {
         return new LineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class FormatRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property format for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: FormatRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: FormatRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,15 +49,14 @@ export class FormatRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Represents the formatting of a chart series, which includes fill and line formatting. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartSeriesFormat
      */
-    public get(requestConfiguration?: FormatRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartSeriesFormat | undefined> {
+    public get(requestConfiguration?: FormatRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartSeriesFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,16 +64,15 @@ export class FormatRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartSeriesFormat>(requestInfo, createWorkbookChartSeriesFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartSeriesFormat>(requestInfo, createWorkbookChartSeriesFormatFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property format in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartSeriesFormat
      */
-    public patch(body: WorkbookChartSeriesFormat | undefined, requestConfiguration?: FormatRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartSeriesFormat | undefined> {
+    public patch(body: WorkbookChartSeriesFormat | undefined, requestConfiguration?: FormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartSeriesFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -80,7 +81,7 @@ export class FormatRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartSeriesFormat>(requestInfo, createWorkbookChartSeriesFormatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartSeriesFormat>(requestInfo, createWorkbookChartSeriesFormatFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property format for drives

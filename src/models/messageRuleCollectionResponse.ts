@@ -3,6 +3,8 @@ import {MessageRule} from './messageRule';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MessageRuleCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: MessageRule[] | undefined;
 }

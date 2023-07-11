@@ -3,6 +3,8 @@ import {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchroni
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesDirectorySynchronizationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: OnPremisesDirectorySynchronization[] | undefined;
 }

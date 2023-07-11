@@ -5,10 +5,16 @@ import {ScopeOperatorType} from './scopeOperatorType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FilterOperatorSchema extends Entity, Parsable {
-    /** The arity property */
+    /**
+     * The arity property
+     */
     arity?: ScopeOperatorType | undefined;
-    /** The multivaluedComparisonType property */
+    /**
+     * The multivaluedComparisonType property
+     */
     multivaluedComparisonType?: ScopeOperatorMultiValuedComparisonType | undefined;
-    /** The supportedAttributeTypes property */
+    /**
+     * Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
+     */
     supportedAttributeTypes?: AttributeType[] | undefined;
 }

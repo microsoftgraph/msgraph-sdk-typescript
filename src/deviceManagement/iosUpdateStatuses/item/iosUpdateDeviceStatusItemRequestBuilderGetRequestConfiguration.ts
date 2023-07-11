@@ -2,10 +2,16 @@ import {IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters} from './iosUp
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters | undefined;
 }

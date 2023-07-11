@@ -1,4 +1,6 @@
-/** TV content rating labels in United States */
+/**
+ * TV content rating labels in United States
+ */
 export enum RatingUnitedStatesTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

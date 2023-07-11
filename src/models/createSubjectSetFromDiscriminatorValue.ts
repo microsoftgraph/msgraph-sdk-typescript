@@ -9,6 +9,8 @@ import {deserializeIntoSingleUser} from './deserializeIntoSingleUser';
 import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
 import {deserializeIntoTargetApplicationOwners} from './deserializeIntoTargetApplicationOwners';
 import {deserializeIntoTargetManager} from './deserializeIntoTargetManager';
+import {RuleBasedSubjectSet} from './identityGovernance/';
+import {deserializeIntoRuleBasedSubjectSet} from './identityGovernance/deserializeIntoRuleBasedSubjectSet';
 import {AttributeRuleMembers, ConnectedOrganizationMembers, ExternalSponsors, GroupMembers, InternalSponsors, RequestorManager, SingleServicePrincipal, SingleUser, SubjectSet, TargetApplicationOwners, TargetManager} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
@@ -27,6 +29,8 @@ export function createSubjectSetFromDiscriminatorValue(parseNode: ParseNode | un
                     return deserializeIntoExternalSponsors;
                 case "#microsoft.graph.groupMembers":
                     return deserializeIntoGroupMembers;
+                case "#microsoft.graph.identityGovernance.ruleBasedSubjectSet":
+                    return deserializeIntoRuleBasedSubjectSet;
                 case "#microsoft.graph.internalSponsors":
                     return deserializeIntoInternalSponsors;
                 case "#microsoft.graph.requestorManager":

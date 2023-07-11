@@ -12,21 +12,27 @@ import {AgreementItemRequestBuilderGetRequestConfiguration} from './agreementIte
 import {AgreementItemRequestBuilderPatchRequestConfiguration} from './agreementItemRequestBuilderPatchRequestConfiguration';
 import {FileRequestBuilder} from './file/fileRequestBuilder';
 import {FilesRequestBuilder} from './files/filesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of agreement entities.
  */
 export class AgreementItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the acceptances property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
+     */
     public get acceptances(): AcceptancesRequestBuilder {
         return new AcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the file property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the file property of the microsoft.graph.agreement entity.
+     */
     public get file(): FileRequestBuilder {
         return new FileRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the files property of the microsoft.graph.agreement entity. */
+    /**
+     * Provides operations to manage the files property of the microsoft.graph.agreement entity.
+     */
     public get files(): FilesRequestBuilder {
         return new FilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,9 +47,8 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from agreements
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AgreementItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AgreementItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -51,15 +56,14 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get entity from agreements by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
      */
-    public get(requestConfiguration?: AgreementItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Agreement | undefined> {
+    public get(requestConfiguration?: AgreementItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Agreement | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -67,16 +71,15 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in agreements
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Agreement
      */
-    public patch(body: Agreement | undefined, requestConfiguration?: AgreementItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Agreement | undefined> {
+    public patch(body: Agreement | undefined, requestConfiguration?: AgreementItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Agreement | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -85,7 +88,7 @@ export class AgreementItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Agreement>(requestInfo, createAgreementFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from agreements

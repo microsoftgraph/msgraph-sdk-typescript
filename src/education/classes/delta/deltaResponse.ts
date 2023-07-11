@@ -3,6 +3,8 @@ import {EducationClass} from '../../../models/educationClass';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: EducationClass[] | undefined;
 }

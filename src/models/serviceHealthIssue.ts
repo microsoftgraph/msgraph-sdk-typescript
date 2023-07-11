@@ -6,22 +6,40 @@ import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceHealthIssue extends Parsable, ServiceAnnouncementBase {
-    /** The classification property */
+    /**
+     * The classification property
+     */
     classification?: ServiceHealthClassificationType | undefined;
-    /** The feature name of the service issue. */
+    /**
+     * The feature name of the service issue.
+     */
     feature?: string | undefined;
-    /** The feature group name of the service issue. */
+    /**
+     * The feature group name of the service issue.
+     */
     featureGroup?: string | undefined;
-    /** The description of the service issue impact. */
+    /**
+     * The description of the service issue impact.
+     */
     impactDescription?: string | undefined;
-    /** Indicates whether the issue is resolved. */
+    /**
+     * Indicates whether the issue is resolved.
+     */
     isResolved?: boolean | undefined;
-    /** The origin property */
+    /**
+     * The origin property
+     */
     origin?: ServiceHealthOrigin | undefined;
-    /** Collection of historical posts for the service issue. */
+    /**
+     * Collection of historical posts for the service issue.
+     */
     posts?: ServiceHealthIssuePost[] | undefined;
-    /** Indicates the service affected by the issue. */
+    /**
+     * Indicates the service affected by the issue.
+     */
     service?: string | undefined;
-    /** The status property */
+    /**
+     * The status property
+     */
     status?: ServiceHealthStatus | undefined;
 }

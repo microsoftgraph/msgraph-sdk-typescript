@@ -1,4 +1,6 @@
-/** Represents the level to which app data is encrypted for managed apps */
+/**
+ * Represents the level to which app data is encrypted for managed apps
+ */
 export enum ManagedAppDataEncryptionType {
     /** App data is encrypted based on the default settings on the device. */
     UseDeviceSettings = "useDeviceSettings",

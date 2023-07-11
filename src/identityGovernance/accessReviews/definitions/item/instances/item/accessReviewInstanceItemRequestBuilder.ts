@@ -18,45 +18,63 @@ import {ResetDecisionsRequestBuilder} from './resetDecisions/resetDecisionsReque
 import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
  */
 export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the acceptRecommendations method. */
+    /**
+     * Provides operations to call the acceptRecommendations method.
+     */
     public get acceptRecommendations(): AcceptRecommendationsRequestBuilder {
         return new AcceptRecommendationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyDecisions method. */
+    /**
+     * Provides operations to call the applyDecisions method.
+     */
     public get applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the batchRecordDecisions method. */
+    /**
+     * Provides operations to call the batchRecordDecisions method.
+     */
     public get batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
         return new BatchRecordDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity. */
+    /**
+     * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
+     */
     public get contactedReviewers(): ContactedReviewersRequestBuilder {
         return new ContactedReviewersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity. */
+    /**
+     * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
+     */
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the resetDecisions method. */
+    /**
+     * Provides operations to call the resetDecisions method.
+     */
     public get resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendReminder method. */
+    /**
+     * Provides operations to call the sendReminder method.
+     */
     public get sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity. */
+    /**
+     * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
+     */
     public get stages(): StagesRequestBuilder {
         return new StagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the stop method. */
+    /**
+     * Provides operations to call the stop method.
+     */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,9 +89,8 @@ export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property instances for identityGovernance
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AccessReviewInstanceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,16 +98,15 @@ export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of an accessReviewInstance object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewInstance
      * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AccessReviewInstanceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstance | undefined> {
+    public get(requestConfiguration?: AccessReviewInstanceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewInstance | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -98,17 +114,16 @@ export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an accessReviewInstance object. Only the **reviewers** and **fallbackReviewers** properties can be updated but the **scope** property is also required in the request body. You can only add reviewers to the **fallbackReviewers** property but can't remove existing **fallbackReviewers**. To update an **accessReviewInstance**, it's **status** must be `InProgress`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewInstance
      * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AccessReviewInstance | undefined, requestConfiguration?: AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstance | undefined> {
+    public patch(body: AccessReviewInstance | undefined, requestConfiguration?: AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessReviewInstance | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -117,7 +132,7 @@ export class AccessReviewInstanceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessReviewInstance>(requestInfo, createAccessReviewInstanceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property instances for identityGovernance

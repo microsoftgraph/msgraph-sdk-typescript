@@ -2,10 +2,16 @@ import {DirectoryDefinitionItemRequestBuilderGetQueryParameters} from './directo
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryDefinitionItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DirectoryDefinitionItemRequestBuilderGetQueryParameters | undefined;
 }

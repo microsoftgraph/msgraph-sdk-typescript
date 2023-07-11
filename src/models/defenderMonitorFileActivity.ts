@@ -1,4 +1,6 @@
-/** Possible values for monitoring file activity. */
+/**
+ * Possible values for monitoring file activity.
+ */
 export enum DefenderMonitorFileActivity {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

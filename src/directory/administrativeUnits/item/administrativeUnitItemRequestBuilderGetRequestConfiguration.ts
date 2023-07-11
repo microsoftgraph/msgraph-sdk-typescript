@@ -2,10 +2,16 @@ import {AdministrativeUnitItemRequestBuilderGetQueryParameters} from './administ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AdministrativeUnitItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AdministrativeUnitItemRequestBuilderGetQueryParameters | undefined;
 }

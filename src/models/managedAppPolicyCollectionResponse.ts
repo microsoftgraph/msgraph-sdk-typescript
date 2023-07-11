@@ -3,6 +3,8 @@ import {ManagedAppPolicy} from './managedAppPolicy';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppPolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ManagedAppPolicy[] | undefined;
 }
