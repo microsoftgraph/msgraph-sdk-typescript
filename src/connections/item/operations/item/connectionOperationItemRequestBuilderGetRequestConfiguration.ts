@@ -2,10 +2,16 @@ import {ConnectionOperationItemRequestBuilderGetQueryParameters} from './connect
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ConnectionOperationItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ConnectionOperationItemRequestBuilderGetQueryParameters | undefined;
 }

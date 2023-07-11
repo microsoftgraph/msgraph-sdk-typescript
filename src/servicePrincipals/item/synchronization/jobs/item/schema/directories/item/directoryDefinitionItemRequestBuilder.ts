@@ -10,13 +10,15 @@ import {DirectoryDefinitionItemRequestBuilderDeleteRequestConfiguration} from '.
 import {DirectoryDefinitionItemRequestBuilderGetRequestConfiguration} from './directoryDefinitionItemRequestBuilderGetRequestConfiguration';
 import {DirectoryDefinitionItemRequestBuilderPatchRequestConfiguration} from './directoryDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {DiscoverRequestBuilder} from './discover/discoverRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
  */
 export class DirectoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the discover method. */
+    /**
+     * Provides operations to call the discover method.
+     */
     public get discover(): DiscoverRequestBuilder {
         return new DiscoverRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class DirectoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property directories for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: DirectoryDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DirectoryDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class DirectoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get directories from servicePrincipals
+     * Contains the collection of directories and all of their objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryDefinition
      */
-    public get(requestConfiguration?: DirectoryDefinitionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryDefinition | undefined> {
+    public get(requestConfiguration?: DirectoryDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class DirectoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DirectoryDefinition>(requestInfo, createDirectoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DirectoryDefinition>(requestInfo, createDirectoryDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property directories in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryDefinition
      */
-    public patch(body: DirectoryDefinition | undefined, requestConfiguration?: DirectoryDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryDefinition | undefined> {
+    public patch(body: DirectoryDefinition | undefined, requestConfiguration?: DirectoryDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DirectoryDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class DirectoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DirectoryDefinition>(requestInfo, createDirectoryDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DirectoryDefinition>(requestInfo, createDirectoryDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property directories for servicePrincipals
@@ -94,7 +93,7 @@ export class DirectoryDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get directories from servicePrincipals
+     * Contains the collection of directories and all of their objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -6,24 +6,37 @@ import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeInt
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GraphAdministrativeUnitRequestBuilder} from './graphAdministrativeUnit/graphAdministrativeUnitRequestBuilder';
+import {GraphDirectoryRoleRequestBuilder} from './graphDirectoryRole/graphDirectoryRoleRequestBuilder';
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilderGetRequestConfiguration} from './transitiveMemberOfRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.user entity.
  */
 export class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to administrativeUnit. */
+    /**
+     * Casts the previous resource to administrativeUnit.
+     */
     public get graphAdministrativeUnit(): GraphAdministrativeUnitRequestBuilder {
         return new GraphAdministrativeUnitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to group. */
+    /**
+     * Casts the previous resource to directoryRole.
+     */
+    public get graphDirectoryRole(): GraphDirectoryRoleRequestBuilder {
+        return new GraphDirectoryRoleRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to group.
+     */
     public get graphGroup(): GraphGroupRequestBuilder {
         return new GraphGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,11 +62,10 @@ export class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder {
     /**
      * The groups, including nested groups, and directory roles that a user is a member of. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/user-list-transitivememberof?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TransitiveMemberOfRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
+    public get(requestConfiguration?: TransitiveMemberOfRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,7 +73,7 @@ export class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DirectoryObjectCollectionResponse>(requestInfo, createDirectoryObjectCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DirectoryObjectCollectionResponse>(requestInfo, createDirectoryObjectCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * The groups, including nested groups, and directory roles that a user is a member of. Nullable.

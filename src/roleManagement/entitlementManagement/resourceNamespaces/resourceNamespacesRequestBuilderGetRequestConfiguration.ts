@@ -2,10 +2,16 @@ import {ResourceNamespacesRequestBuilderGetQueryParameters} from './resourceName
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ResourceNamespacesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ResourceNamespacesRequestBuilderGetQueryParameters | undefined;
 }

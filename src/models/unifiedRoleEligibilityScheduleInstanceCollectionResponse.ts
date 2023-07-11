@@ -3,6 +3,8 @@ import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilitySc
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleEligibilityScheduleInstanceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: UnifiedRoleEligibilityScheduleInstance[] | undefined;
 }

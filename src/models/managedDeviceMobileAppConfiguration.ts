@@ -7,26 +7,48 @@ import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMob
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedDeviceMobileAppConfiguration extends Entity, Parsable {
-    /** The list of group assignemenets for app configration. */
+    /**
+     * The list of group assignemenets for app configration.
+     */
     assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
-    /** DateTime the object was created. */
+    /**
+     * DateTime the object was created.
+     */
     createdDateTime?: Date | undefined;
-    /** Admin provided description of the Device Configuration. */
+    /**
+     * Admin provided description of the Device Configuration.
+     */
     description?: string | undefined;
-    /** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
+    /**
+     * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+     */
     deviceStatuses?: ManagedDeviceMobileAppConfigurationDeviceStatus[] | undefined;
-    /** App configuration device status summary. */
+    /**
+     * App configuration device status summary.
+     */
     deviceStatusSummary?: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined;
-    /** Admin provided name of the device configuration. */
+    /**
+     * Admin provided name of the device configuration.
+     */
     displayName?: string | undefined;
-    /** DateTime the object was last modified. */
+    /**
+     * DateTime the object was last modified.
+     */
     lastModifiedDateTime?: Date | undefined;
-    /** the associated app. */
+    /**
+     * the associated app.
+     */
     targetedMobileApps?: string[] | undefined;
-    /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
+    /**
+     * List of ManagedDeviceMobileAppConfigurationUserStatus.
+     */
     userStatuses?: ManagedDeviceMobileAppConfigurationUserStatus[] | undefined;
-    /** App configuration user status summary. */
+    /**
+     * App configuration user status summary.
+     */
     userStatusSummary?: ManagedDeviceMobileAppConfigurationUserSummary | undefined;
-    /** Version of the device configuration. */
+    /**
+     * Version of the device configuration.
+     */
     version?: number | undefined;
 }

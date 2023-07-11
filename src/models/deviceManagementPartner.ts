@@ -5,22 +5,40 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementPartner extends Entity, Parsable {
-    /** Partner display name */
+    /**
+     * Partner display name
+     */
     displayName?: string | undefined;
-    /** User groups that specifies whether enrollment is through partner. */
+    /**
+     * User groups that specifies whether enrollment is through partner.
+     */
     groupsRequiringPartnerEnrollment?: DeviceManagementPartnerAssignment[] | undefined;
-    /** Whether device management partner is configured or not */
+    /**
+     * Whether device management partner is configured or not
+     */
     isConfigured?: boolean | undefined;
-    /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
+    /**
+     * Timestamp of last heartbeat after admin enabled option Connect to Device management Partner
+     */
     lastHeartbeatDateTime?: Date | undefined;
-    /** Partner App Type. */
+    /**
+     * Partner App Type.
+     */
     partnerAppType?: DeviceManagementPartnerAppType | undefined;
-    /** Partner state of this tenant. */
+    /**
+     * Partner state of this tenant.
+     */
     partnerState?: DeviceManagementPartnerTenantState | undefined;
-    /** Partner Single tenant App id */
+    /**
+     * Partner Single tenant App id
+     */
     singleTenantAppId?: string | undefined;
-    /** DateTime in UTC when PartnerDevices will be marked as NonCompliant */
+    /**
+     * DateTime in UTC when PartnerDevices will be marked as NonCompliant
+     */
     whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime?: Date | undefined;
-    /** DateTime in UTC when PartnerDevices will be removed */
+    /**
+     * DateTime in UTC when PartnerDevices will be removed
+     */
     whenPartnerDevicesWillBeRemovedDateTime?: Date | undefined;
 }

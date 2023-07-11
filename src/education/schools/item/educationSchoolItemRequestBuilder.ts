@@ -12,21 +12,27 @@ import {EducationSchoolItemRequestBuilderDeleteRequestConfiguration} from './edu
 import {EducationSchoolItemRequestBuilderGetRequestConfiguration} from './educationSchoolItemRequestBuilderGetRequestConfiguration';
 import {EducationSchoolItemRequestBuilderPatchRequestConfiguration} from './educationSchoolItemRequestBuilderPatchRequestConfiguration';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
  */
 export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity. */
+    /**
+     * Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity.
+     */
     public get administrativeUnit(): AdministrativeUnitRequestBuilder {
         return new AdministrativeUnitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the classes property of the microsoft.graph.educationSchool entity. */
+    /**
+     * Provides operations to manage the classes property of the microsoft.graph.educationSchool entity.
+     */
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the users property of the microsoft.graph.educationSchool entity. */
+    /**
+     * Provides operations to manage the users property of the microsoft.graph.educationSchool entity.
+     */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,10 +47,9 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a school.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/educationschool-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EducationSchoolItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EducationSchoolItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -52,16 +57,15 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSchool
      * @see {@link https://docs.microsoft.com/graph/api/educationschool-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EducationSchoolItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchool | undefined> {
+    public get(requestConfiguration?: EducationSchoolItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -69,17 +73,16 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationSchool>(requestInfo, createEducationSchoolFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationSchool>(requestInfo, createEducationSchoolFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an educationSchool object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSchool
      * @see {@link https://docs.microsoft.com/graph/api/educationschool-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationSchool | undefined, requestConfiguration?: EducationSchoolItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSchool | undefined> {
+    public patch(body: EducationSchool | undefined, requestConfiguration?: EducationSchoolItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -88,7 +91,7 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationSchool>(requestInfo, createEducationSchoolFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationSchool>(requestInfo, createEducationSchoolFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a school.

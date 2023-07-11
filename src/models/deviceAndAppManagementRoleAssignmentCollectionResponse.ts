@@ -3,6 +3,8 @@ import {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRole
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceAndAppManagementRoleAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DeviceAndAppManagementRoleAssignment[] | undefined;
 }

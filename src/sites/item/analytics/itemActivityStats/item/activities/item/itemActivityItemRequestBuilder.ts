@@ -10,13 +10,15 @@ import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
 import {ItemActivityItemRequestBuilderDeleteRequestConfiguration} from './itemActivityItemRequestBuilderDeleteRequestConfiguration';
 import {ItemActivityItemRequestBuilderGetRequestConfiguration} from './itemActivityItemRequestBuilderGetRequestConfiguration';
 import {ItemActivityItemRequestBuilderPatchRequestConfiguration} from './itemActivityItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
  */
 export class ItemActivityItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the driveItem property of the microsoft.graph.itemActivity entity. */
+    /**
+     * Provides operations to manage the driveItem property of the microsoft.graph.itemActivity entity.
+     */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,9 +33,8 @@ export class ItemActivityItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property activities for sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ItemActivityItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ItemActivityItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -41,15 +42,14 @@ export class ItemActivityItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Exposes the itemActivities represented in this itemActivityStat resource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ItemActivity
      */
-    public get(requestConfiguration?: ItemActivityItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemActivity | undefined> {
+    public get(requestConfiguration?: ItemActivityItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ItemActivity | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -57,16 +57,15 @@ export class ItemActivityItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ItemActivity>(requestInfo, createItemActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ItemActivity>(requestInfo, createItemActivityFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property activities in sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ItemActivity
      */
-    public patch(body: ItemActivity | undefined, requestConfiguration?: ItemActivityItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemActivity | undefined> {
+    public patch(body: ItemActivity | undefined, requestConfiguration?: ItemActivityItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ItemActivity | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -75,7 +74,7 @@ export class ItemActivityItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ItemActivity>(requestInfo, createItemActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ItemActivity>(requestInfo, createItemActivityFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property activities for sites

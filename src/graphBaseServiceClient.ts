@@ -76,279 +76,417 @@ import {TextParseNodeFactory, TextSerializationWriterFactory} from '@microsoft/k
  * The main entry point of the SDK, exposes the configuration and the fluent API.
  */
 export class GraphBaseServiceClient extends BaseRequestBuilder {
-    /** Provides operations to manage the admin singleton. */
+    /**
+     * Provides operations to manage the admin singleton.
+     */
     public get admin(): AdminRequestBuilder {
         return new AdminRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of agreementAcceptance entities. */
+    /**
+     * Provides operations to manage the collection of agreementAcceptance entities.
+     */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of agreement entities. */
+    /**
+     * Provides operations to manage the collection of agreement entities.
+     */
     public get agreements(): AgreementsRequestBuilder {
         return new AgreementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the appCatalogs singleton. */
+    /**
+     * Provides operations to manage the appCatalogs singleton.
+     */
     public get appCatalogs(): AppCatalogsRequestBuilder {
         return new AppCatalogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of application entities. */
+    /**
+     * Provides operations to manage the collection of application entities.
+     */
     public get applications(): ApplicationsRequestBuilder {
         return new ApplicationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of applicationTemplate entities. */
+    /**
+     * Provides operations to manage the collection of applicationTemplate entities.
+     */
     public get applicationTemplates(): ApplicationTemplatesRequestBuilder {
         return new ApplicationTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the auditLogRoot singleton. */
+    /**
+     * Provides operations to manage the auditLogRoot singleton.
+     */
     public get auditLogs(): AuditLogsRequestBuilder {
         return new AuditLogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of authenticationMethodConfiguration entities. */
+    /**
+     * Provides operations to manage the collection of authenticationMethodConfiguration entities.
+     */
     public get authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
         return new AuthenticationMethodConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the authenticationMethodsPolicy singleton. */
+    /**
+     * Provides operations to manage the authenticationMethodsPolicy singleton.
+     */
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of certificateBasedAuthConfiguration entities. */
+    /**
+     * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
+     */
     public get certificateBasedAuthConfiguration(): CertificateBasedAuthConfigurationRequestBuilder {
         return new CertificateBasedAuthConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of chat entities. */
+    /**
+     * Provides operations to manage the collection of chat entities.
+     */
     public get chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the cloudCommunications singleton. */
+    /**
+     * Provides operations to manage the cloudCommunications singleton.
+     */
     public get communications(): CommunicationsRequestBuilder {
         return new CommunicationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the compliance singleton. */
+    /**
+     * Provides operations to manage the compliance singleton.
+     */
     public get compliance(): ComplianceRequestBuilder {
         return new ComplianceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of externalConnection entities. */
+    /**
+     * Provides operations to manage the collection of externalConnection entities.
+     */
     public get connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of orgContact entities. */
+    /**
+     * Provides operations to manage the collection of orgContact entities.
+     */
     public get contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of contract entities. */
+    /**
+     * Provides operations to manage the collection of contract entities.
+     */
     public get contracts(): ContractsRequestBuilder {
         return new ContractsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of dataPolicyOperation entities. */
+    /**
+     * Provides operations to manage the collection of dataPolicyOperation entities.
+     */
     public get dataPolicyOperations(): DataPolicyOperationsRequestBuilder {
         return new DataPolicyOperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceAppManagement singleton. */
+    /**
+     * Provides operations to manage the deviceAppManagement singleton.
+     */
     public get deviceAppManagement(): DeviceAppManagementRequestBuilder {
         return new DeviceAppManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceManagement singleton. */
+    /**
+     * Provides operations to manage the deviceManagement singleton.
+     */
     public get deviceManagement(): DeviceManagementRequestBuilder {
         return new DeviceManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of device entities. */
+    /**
+     * Provides operations to manage the collection of device entities.
+     */
     public get devices(): DevicesRequestBuilder {
         return new DevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the directory singleton. */
+    /**
+     * Provides operations to manage the directory singleton.
+     */
     public get directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of directoryObject entities. */
+    /**
+     * Provides operations to manage the collection of directoryObject entities.
+     */
     public get directoryObjects(): DirectoryObjectsRequestBuilder {
         return new DirectoryObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of directoryRole entities. */
+    /**
+     * Provides operations to manage the collection of directoryRole entities.
+     */
     public get directoryRoles(): DirectoryRolesRequestBuilder {
         return new DirectoryRolesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of directoryRoleTemplate entities. */
+    /**
+     * Provides operations to manage the collection of directoryRoleTemplate entities.
+     */
     public get directoryRoleTemplates(): DirectoryRoleTemplatesRequestBuilder {
         return new DirectoryRoleTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of domainDnsRecord entities. */
+    /**
+     * Provides operations to manage the collection of domainDnsRecord entities.
+     */
     public get domainDnsRecords(): DomainDnsRecordsRequestBuilder {
         return new DomainDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of domain entities. */
+    /**
+     * Provides operations to manage the collection of domain entities.
+     */
     public get domains(): DomainsRequestBuilder {
         return new DomainsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of drive entities. */
+    /**
+     * Provides operations to manage the collection of drive entities.
+     */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the educationRoot singleton. */
+    /**
+     * Provides operations to manage the educationRoot singleton.
+     */
     public get education(): EducationRequestBuilder {
         return new EducationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the employeeExperience singleton. */
+    /**
+     * Provides operations to manage the employeeExperience singleton.
+     */
     public get employeeExperience(): EmployeeExperienceRequestBuilder {
         return new EmployeeExperienceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the external singleton. */
+    /**
+     * Provides operations to manage the external singleton.
+     */
     public get external(): ExternalRequestBuilder {
         return new ExternalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of filterOperatorSchema entities. */
+    /**
+     * Provides operations to manage the collection of filterOperatorSchema entities.
+     */
     public get filterOperators(): FilterOperatorsRequestBuilder {
         return new FilterOperatorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of attributeMappingFunctionSchema entities. */
+    /**
+     * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
+     */
     public get functions(): FunctionsRequestBuilder {
         return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of groupLifecyclePolicy entities. */
+    /**
+     * Provides operations to manage the collection of groupLifecyclePolicy entities.
+     */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of group entities. */
+    /**
+     * Provides operations to manage the collection of group entities.
+     */
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of groupSetting entities. */
+    /**
+     * Provides operations to manage the collection of groupSetting entities.
+     */
     public get groupSettings(): GroupSettingsRequestBuilder {
         return new GroupSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of groupSettingTemplate entities. */
+    /**
+     * Provides operations to manage the collection of groupSettingTemplate entities.
+     */
     public get groupSettingTemplates(): GroupSettingTemplatesRequestBuilder {
         return new GroupSettingTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the identityContainer singleton. */
+    /**
+     * Provides operations to manage the identityContainer singleton.
+     */
     public get identity(): IdentityRequestBuilder {
         return new IdentityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the identityGovernance singleton. */
+    /**
+     * Provides operations to manage the identityGovernance singleton.
+     */
     public get identityGovernance(): IdentityGovernanceRequestBuilder {
         return new IdentityGovernanceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the identityProtectionRoot singleton. */
+    /**
+     * Provides operations to manage the identityProtectionRoot singleton.
+     */
     public get identityProtection(): IdentityProtectionRequestBuilder {
         return new IdentityProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of identityProvider entities. */
+    /**
+     * Provides operations to manage the collection of identityProvider entities.
+     */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the informationProtection singleton. */
+    /**
+     * Provides operations to manage the informationProtection singleton.
+     */
     public get informationProtection(): InformationProtectionRequestBuilder {
         return new InformationProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of invitation entities. */
+    /**
+     * Provides operations to manage the collection of invitation entities.
+     */
     public get invitations(): InvitationsRequestBuilder {
         return new InvitationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of organizationalBrandingLocalization entities. */
+    /**
+     * Provides operations to manage the collection of organizationalBrandingLocalization entities.
+     */
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the user singleton. */
+    /**
+     * Provides operations to manage the user singleton.
+     */
     public get me(): MeRequestBuilder {
         return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of oAuth2PermissionGrant entities. */
+    /**
+     * Provides operations to manage the collection of oAuth2PermissionGrant entities.
+     */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of organization entities. */
+    /**
+     * Provides operations to manage the collection of organization entities.
+     */
     public get organization(): OrganizationRequestBuilder {
         return new OrganizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of resourceSpecificPermissionGrant entities. */
+    /**
+     * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
+     */
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The places property */
+    /**
+     * The places property
+     */
     public get places(): PlacesRequestBuilder {
         return new PlacesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the planner singleton. */
+    /**
+     * Provides operations to manage the planner singleton.
+     */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the policyRoot singleton. */
+    /**
+     * Provides operations to manage the policyRoot singleton.
+     */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the print singleton. */
+    /**
+     * Provides operations to manage the print singleton.
+     */
     public get print(): PrintRequestBuilder {
         return new PrintRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the privacy singleton. */
+    /**
+     * Provides operations to manage the privacy singleton.
+     */
     public get privacy(): PrivacyRequestBuilder {
         return new PrivacyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the reportRoot singleton. */
+    /**
+     * Provides operations to manage the reportRoot singleton.
+     */
     public get reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleManagement singleton. */
+    /**
+     * Provides operations to manage the roleManagement singleton.
+     */
     public get roleManagement(): RoleManagementRequestBuilder {
         return new RoleManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of schemaExtension entities. */
+    /**
+     * Provides operations to manage the collection of schemaExtension entities.
+     */
     public get schemaExtensions(): SchemaExtensionsRequestBuilder {
         return new SchemaExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of scopedRoleMembership entities. */
+    /**
+     * Provides operations to manage the collection of scopedRoleMembership entities.
+     */
     public get scopedRoleMemberships(): ScopedRoleMembershipsRequestBuilder {
         return new ScopedRoleMembershipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the searchEntity singleton. */
+    /**
+     * Provides operations to manage the searchEntity singleton.
+     */
     public get search(): SearchRequestBuilder {
         return new SearchRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the security singleton. */
+    /**
+     * Provides operations to manage the security singleton.
+     */
     public get security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of servicePrincipal entities. */
+    /**
+     * Provides operations to manage the collection of servicePrincipal entities.
+     */
     public get servicePrincipals(): ServicePrincipalsRequestBuilder {
         return new ServicePrincipalsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of sharedDriveItem entities. */
+    /**
+     * Provides operations to manage the collection of sharedDriveItem entities.
+     */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of site entities. */
+    /**
+     * Provides operations to manage the collection of site entities.
+     */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the solutionsRoot singleton. */
+    /**
+     * Provides operations to manage the solutionsRoot singleton.
+     */
     public get solutions(): SolutionsRequestBuilder {
         return new SolutionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of subscribedSku entities. */
+    /**
+     * Provides operations to manage the collection of subscribedSku entities.
+     */
     public get subscribedSkus(): SubscribedSkusRequestBuilder {
         return new SubscribedSkusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of subscription entities. */
+    /**
+     * Provides operations to manage the collection of subscription entities.
+     */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of team entities. */
+    /**
+     * Provides operations to manage the collection of team entities.
+     */
     public get teams(): TeamsRequestBuilder {
         return new TeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of teamsTemplate entities. */
+    /**
+     * Provides operations to manage the collection of teamsTemplate entities.
+     */
     public get teamsTemplates(): TeamsTemplatesRequestBuilder {
         return new TeamsTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the teamwork singleton. */
+    /**
+     * Provides operations to manage the teamwork singleton.
+     */
     public get teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tenantRelationship singleton. */
+    /**
+     * Provides operations to manage the tenantRelationship singleton.
+     */
     public get tenantRelationships(): TenantRelationshipsRequestBuilder {
         return new TenantRelationshipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of user entities. */
+    /**
+     * Provides operations to manage the collection of user entities.
+     */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }

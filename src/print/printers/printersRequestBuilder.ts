@@ -13,17 +13,21 @@ import {CreateRequestBuilder} from './create/createRequestBuilder';
 import {PrinterItemRequestBuilder} from './item/printerItemRequestBuilder';
 import {PrintersRequestBuilderGetRequestConfiguration} from './printersRequestBuilderGetRequestConfiguration';
 import {PrintersRequestBuilderPostRequestConfiguration} from './printersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
  */
 export class PrintersRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the create method. */
+    /**
+     * Provides operations to call the create method.
+     */
     public get create(): CreateRequestBuilder {
         return new CreateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,11 +53,10 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve the list of **printers** that are registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrinterCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/print-list-printers?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PrintersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrinterCollectionResponse | undefined> {
+    public get(requestConfiguration?: PrintersRequestBuilderGetRequestConfiguration | undefined) : Promise<PrinterCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,16 +64,15 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrinterCollectionResponse>(requestInfo, createPrinterCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrinterCollectionResponse>(requestInfo, createPrinterCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to printers for print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Printer
      */
-    public post(body: Printer | undefined, requestConfiguration?: PrintersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Printer | undefined> {
+    public post(body: Printer | undefined, requestConfiguration?: PrintersRequestBuilderPostRequestConfiguration | undefined) : Promise<Printer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -79,7 +81,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve the list of **printers** that are registered in the tenant.

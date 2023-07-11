@@ -3,6 +3,8 @@ import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationC
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface B2xIdentityUserFlowCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: B2xIdentityUserFlow[] | undefined;
 }

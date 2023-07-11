@@ -21,57 +21,81 @@ import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {FilterRequestBuilderDeleteRequestConfiguration} from './filterRequestBuilderDeleteRequestConfiguration';
 import {FilterRequestBuilderGetRequestConfiguration} from './filterRequestBuilderGetRequestConfiguration';
 import {FilterRequestBuilderPatchRequestConfiguration} from './filterRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the filter property of the microsoft.graph.workbookTableColumn entity.
  */
 export class FilterRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the apply method. */
+    /**
+     * Provides operations to call the apply method.
+     */
     public get apply(): ApplyRequestBuilder {
         return new ApplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyBottomItemsFilter method. */
+    /**
+     * Provides operations to call the applyBottomItemsFilter method.
+     */
     public get applyBottomItemsFilter(): ApplyBottomItemsFilterRequestBuilder {
         return new ApplyBottomItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyBottomPercentFilter method. */
+    /**
+     * Provides operations to call the applyBottomPercentFilter method.
+     */
     public get applyBottomPercentFilter(): ApplyBottomPercentFilterRequestBuilder {
         return new ApplyBottomPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyCellColorFilter method. */
+    /**
+     * Provides operations to call the applyCellColorFilter method.
+     */
     public get applyCellColorFilter(): ApplyCellColorFilterRequestBuilder {
         return new ApplyCellColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyCustomFilter method. */
+    /**
+     * Provides operations to call the applyCustomFilter method.
+     */
     public get applyCustomFilter(): ApplyCustomFilterRequestBuilder {
         return new ApplyCustomFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyDynamicFilter method. */
+    /**
+     * Provides operations to call the applyDynamicFilter method.
+     */
     public get applyDynamicFilter(): ApplyDynamicFilterRequestBuilder {
         return new ApplyDynamicFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyFontColorFilter method. */
+    /**
+     * Provides operations to call the applyFontColorFilter method.
+     */
     public get applyFontColorFilter(): ApplyFontColorFilterRequestBuilder {
         return new ApplyFontColorFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyIconFilter method. */
+    /**
+     * Provides operations to call the applyIconFilter method.
+     */
     public get applyIconFilter(): ApplyIconFilterRequestBuilder {
         return new ApplyIconFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyTopItemsFilter method. */
+    /**
+     * Provides operations to call the applyTopItemsFilter method.
+     */
     public get applyTopItemsFilter(): ApplyTopItemsFilterRequestBuilder {
         return new ApplyTopItemsFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyTopPercentFilter method. */
+    /**
+     * Provides operations to call the applyTopPercentFilter method.
+     */
     public get applyTopPercentFilter(): ApplyTopPercentFilterRequestBuilder {
         return new ApplyTopPercentFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the applyValuesFilter method. */
+    /**
+     * Provides operations to call the applyValuesFilter method.
+     */
     public get applyValuesFilter(): ApplyValuesFilterRequestBuilder {
         return new ApplyValuesFilterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clear method. */
+    /**
+     * Provides operations to call the clear method.
+     */
     public get clear(): ClearRequestBuilder {
         return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -86,9 +110,8 @@ export class FilterRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property filter for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: FilterRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: FilterRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -96,15 +119,14 @@ export class FilterRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the filter applied to the column. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFilter
      */
-    public get(requestConfiguration?: FilterRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFilter | undefined> {
+    public get(requestConfiguration?: FilterRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookFilter | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -112,16 +134,15 @@ export class FilterRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookFilter>(requestInfo, createWorkbookFilterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookFilter>(requestInfo, createWorkbookFilterFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property filter in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFilter
      */
-    public patch(body: WorkbookFilter | undefined, requestConfiguration?: FilterRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFilter | undefined> {
+    public patch(body: WorkbookFilter | undefined, requestConfiguration?: FilterRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookFilter | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -130,7 +151,7 @@ export class FilterRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookFilter>(requestInfo, createWorkbookFilterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookFilter>(requestInfo, createWorkbookFilterFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property filter for drives

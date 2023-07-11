@@ -2,10 +2,16 @@ import {ThreatAssessmentRequestsRequestBuilderGetQueryParameters} from './threat
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ThreatAssessmentRequestsRequestBuilderGetQueryParameters | undefined;
 }

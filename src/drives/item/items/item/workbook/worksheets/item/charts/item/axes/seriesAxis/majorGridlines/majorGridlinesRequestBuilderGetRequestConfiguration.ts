@@ -2,10 +2,16 @@ import {MajorGridlinesRequestBuilderGetQueryParameters} from './majorGridlinesRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface MajorGridlinesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: MajorGridlinesRequestBuilderGetQueryParameters | undefined;
 }

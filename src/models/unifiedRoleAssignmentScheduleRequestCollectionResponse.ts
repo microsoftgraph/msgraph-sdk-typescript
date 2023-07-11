@@ -3,6 +3,8 @@ import {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentSched
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleAssignmentScheduleRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: UnifiedRoleAssignmentScheduleRequest[] | undefined;
 }

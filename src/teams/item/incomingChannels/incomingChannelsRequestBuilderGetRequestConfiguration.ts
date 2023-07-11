@@ -2,10 +2,16 @@ import {IncomingChannelsRequestBuilderGetQueryParameters} from './incomingChanne
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface IncomingChannelsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: IncomingChannelsRequestBuilderGetQueryParameters | undefined;
 }

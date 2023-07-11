@@ -6,13 +6,15 @@ import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeInt
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {BitlockerRequestBuilderGetRequestConfiguration} from './bitlockerRequestBuilderGetRequestConfiguration';
 import {RecoveryKeysRequestBuilder} from './recoveryKeys/recoveryKeysRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.
  */
 export class BitlockerRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity. */
+    /**
+     * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
+     */
     public get recoveryKeys(): RecoveryKeysRequestBuilder {
         return new RecoveryKeysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,10 +29,9 @@ export class BitlockerRequestBuilder extends BaseRequestBuilder {
     /**
      * Get bitlocker from informationProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Bitlocker
      */
-    public get(requestConfiguration?: BitlockerRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Bitlocker | undefined> {
+    public get(requestConfiguration?: BitlockerRequestBuilderGetRequestConfiguration | undefined) : Promise<Bitlocker | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -38,7 +39,7 @@ export class BitlockerRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Bitlocker>(requestInfo, createBitlockerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Bitlocker>(requestInfo, createBitlockerFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get bitlocker from informationProtection

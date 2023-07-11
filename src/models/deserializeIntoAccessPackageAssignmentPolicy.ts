@@ -14,8 +14,10 @@ import {createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue} from 
 import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
 import {createAccessPackageQuestionFromDiscriminatorValue} from './createAccessPackageQuestionFromDiscriminatorValue';
+import {createCustomExtensionStageSettingFromDiscriminatorValue} from './createCustomExtensionStageSettingFromDiscriminatorValue';
 import {createExpirationPatternFromDiscriminatorValue} from './createExpirationPatternFromDiscriminatorValue';
 import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
+import {CustomExtensionStageSetting} from './customExtensionStageSetting';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {ExpirationPattern} from './expirationPattern';
 import {serializeAccessPackage} from './serializeAccessPackage';
@@ -25,6 +27,7 @@ import {serializeAccessPackageAssignmentReviewSettings} from './serializeAccessP
 import {serializeAccessPackageAutomaticRequestSettings} from './serializeAccessPackageAutomaticRequestSettings';
 import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
+import {serializeCustomExtensionStageSetting} from './serializeCustomExtensionStageSetting';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializeSubjectSet} from './serializeSubjectSet';
 import {SubjectSet} from './subjectSet';
@@ -38,6 +41,7 @@ export function deserializeIntoAccessPackageAssignmentPolicy(accessPackageAssign
         "automaticRequestSettings": n => { accessPackageAssignmentPolicy.automaticRequestSettings = n.getObjectValue<AccessPackageAutomaticRequestSettings>(createAccessPackageAutomaticRequestSettingsFromDiscriminatorValue); },
         "catalog": n => { accessPackageAssignmentPolicy.catalog = n.getObjectValue<AccessPackageCatalog>(createAccessPackageCatalogFromDiscriminatorValue); },
         "createdDateTime": n => { accessPackageAssignmentPolicy.createdDateTime = n.getDateValue(); },
+        "customExtensionStageSettings": n => { accessPackageAssignmentPolicy.customExtensionStageSettings = n.getCollectionOfObjectValues<CustomExtensionStageSetting>(createCustomExtensionStageSettingFromDiscriminatorValue); },
         "description": n => { accessPackageAssignmentPolicy.description = n.getStringValue(); },
         "displayName": n => { accessPackageAssignmentPolicy.displayName = n.getStringValue(); },
         "expiration": n => { accessPackageAssignmentPolicy.expiration = n.getObjectValue<ExpirationPattern>(createExpirationPatternFromDiscriminatorValue); },

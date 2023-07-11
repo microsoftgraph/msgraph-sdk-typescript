@@ -2,8 +2,12 @@ import {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleTy
 import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export interface WindowsUpdateActiveHoursInstall extends Parsable, WindowsUpdateInstallScheduleType {
-    /** Active Hours End */
+    /**
+     * Active Hours End
+     */
     activeHoursEnd?: TimeOnly | undefined;
-    /** Active Hours Start */
+    /**
+     * Active Hours Start
+     */
     activeHoursStart?: TimeOnly | undefined;
 }

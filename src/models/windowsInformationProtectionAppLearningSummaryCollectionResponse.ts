@@ -3,6 +3,8 @@ import {WindowsInformationProtectionAppLearningSummary} from './windowsInformati
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionAppLearningSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: WindowsInformationProtectionAppLearningSummary[] | undefined;
 }

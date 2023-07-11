@@ -14,17 +14,21 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAuditActivityTypesWithCategoryRequestBuilder} from './getAuditActivityTypesWithCategory/getAuditActivityTypesWithCategoryRequestBuilder';
 import {GetAuditCategoriesRequestBuilder} from './getAuditCategories/getAuditCategoriesRequestBuilder';
 import {AuditEventItemRequestBuilder} from './item/auditEventItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
  */
 export class AuditEventsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getAuditCategories method. */
+    /**
+     * Provides operations to call the getAuditCategories method.
+     */
     public get getAuditCategories(): GetAuditCategoriesRequestBuilder {
         return new GetAuditCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -50,10 +54,9 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
     /**
      * The Audit Events
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditEventCollectionResponse
      */
-    public get(requestConfiguration?: AuditEventsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditEventCollectionResponse | undefined> {
+    public get(requestConfiguration?: AuditEventsRequestBuilderGetRequestConfiguration | undefined) : Promise<AuditEventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,7 +64,7 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuditEventCollectionResponse>(requestInfo, createAuditEventCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuditEventCollectionResponse>(requestInfo, createAuditEventCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the getAuditActivityTypes method.
@@ -76,10 +79,9 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
      * Create new navigation property to auditEvents for deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditEvent
      */
-    public post(body: AuditEvent | undefined, requestConfiguration?: AuditEventsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditEvent | undefined> {
+    public post(body: AuditEvent | undefined, requestConfiguration?: AuditEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -88,7 +90,7 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, errorMapping);
     };
     /**
      * The Audit Events

@@ -3,6 +3,8 @@ import {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefini
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomSecurityAttributeDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: CustomSecurityAttributeDefinition[] | undefined;
 }

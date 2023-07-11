@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExemptAppLockerFilesRequestBuilderGetRequestConfiguration} from './exemptAppLockerFilesRequestBuilderGetRequestConfiguration';
 import {ExemptAppLockerFilesRequestBuilderPostRequestConfiguration} from './exemptAppLockerFilesRequestBuilderPostRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilder} from './item/windowsInformationProtectionAppLockerFileItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exemptAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
  */
 export class ExemptAppLockerFilesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,9 @@ export class ExemptAppLockerFilesRequestBuilder extends BaseRequestBuilder {
     /**
      * Another way to input exempt apps through xml files
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsInformationProtectionAppLockerFileCollectionResponse
      */
-    public get(requestConfiguration?: ExemptAppLockerFilesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionAppLockerFileCollectionResponse | undefined> {
+    public get(requestConfiguration?: ExemptAppLockerFilesRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLockerFileCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +56,15 @@ export class ExemptAppLockerFilesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLockerFileCollectionResponse>(requestInfo, createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WindowsInformationProtectionAppLockerFileCollectionResponse>(requestInfo, createWindowsInformationProtectionAppLockerFileCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to exemptAppLockerFiles for deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsInformationProtectionAppLockerFile
      */
-    public post(body: WindowsInformationProtectionAppLockerFile | undefined, requestConfiguration?: ExemptAppLockerFilesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
+    public post(body: WindowsInformationProtectionAppLockerFile | undefined, requestConfiguration?: ExemptAppLockerFilesRequestBuilderPostRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,7 +73,7 @@ export class ExemptAppLockerFilesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WindowsInformationProtectionAppLockerFile>(requestInfo, createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WindowsInformationProtectionAppLockerFile>(requestInfo, createWindowsInformationProtectionAppLockerFileFromDiscriminatorValue, errorMapping);
     };
     /**
      * Another way to input exempt apps through xml files

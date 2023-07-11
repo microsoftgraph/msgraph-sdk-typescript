@@ -1,4 +1,6 @@
-/** Storage locations where managed apps can potentially store their data */
+/**
+ * Storage locations where managed apps can potentially store their data
+ */
 export enum ManagedAppDataStorageLocation {
     /** OneDrive for business */
     OneDriveForBusiness = "oneDriveForBusiness",

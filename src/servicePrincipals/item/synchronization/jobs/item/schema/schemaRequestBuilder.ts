@@ -13,25 +13,33 @@ import {ParseExpressionRequestBuilder} from './parseExpression/parseExpressionRe
 import {SchemaRequestBuilderDeleteRequestConfiguration} from './schemaRequestBuilderDeleteRequestConfiguration';
 import {SchemaRequestBuilderGetRequestConfiguration} from './schemaRequestBuilderGetRequestConfiguration';
 import {SchemaRequestBuilderPatchRequestConfiguration} from './schemaRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
  */
 export class SchemaRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity. */
+    /**
+     * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
+     */
     public get directories(): DirectoriesRequestBuilder {
         return new DirectoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the filterOperators method. */
+    /**
+     * Provides operations to call the filterOperators method.
+     */
     public get filterOperators(): FilterOperatorsRequestBuilder {
         return new FilterOperatorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the functions method. */
+    /**
+     * Provides operations to call the functions method.
+     */
     public get functions(): FunctionsRequestBuilder {
         return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the parseExpression method. */
+    /**
+     * Provides operations to call the parseExpression method.
+     */
     public get parseExpression(): ParseExpressionRequestBuilder {
         return new ParseExpressionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,9 +54,8 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property schema for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: SchemaRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: SchemaRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -56,15 +63,15 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get schema from servicePrincipals
+     * Retrieve the schema for a given synchronization job or template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SynchronizationSchema
+     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronizationschema-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SchemaRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SynchronizationSchema | undefined> {
+    public get(requestConfiguration?: SchemaRequestBuilderGetRequestConfiguration | undefined) : Promise<SynchronizationSchema | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -72,16 +79,16 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SynchronizationSchema>(requestInfo, createSynchronizationSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SynchronizationSchema>(requestInfo, createSynchronizationSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property schema in servicePrincipals
+     * Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SynchronizationSchema
+     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronizationschema-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: SynchronizationSchema | undefined, requestConfiguration?: SchemaRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SynchronizationSchema | undefined> {
+    public patch(body: SynchronizationSchema | undefined, requestConfiguration?: SchemaRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationSchema | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -90,7 +97,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SynchronizationSchema>(requestInfo, createSynchronizationSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SynchronizationSchema>(requestInfo, createSynchronizationSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property schema for servicePrincipals
@@ -109,7 +116,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get schema from servicePrincipals
+     * Retrieve the schema for a given synchronization job or template.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -127,7 +134,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property schema in servicePrincipals
+     * Update the synchronization schema for a given job or template. This method fully replaces the current schema with the one provided in the request. To update the schema of a template, make the call on the application object. You must be the owner of the application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

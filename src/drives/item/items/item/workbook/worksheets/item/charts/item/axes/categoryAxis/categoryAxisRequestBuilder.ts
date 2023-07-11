@@ -13,25 +13,33 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';
 import {TitleRequestBuilder} from './title/titleRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the categoryAxis property of the microsoft.graph.workbookChartAxes entity.
  */
 export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the majorGridlines property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the majorGridlines property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get majorGridlines(): MajorGridlinesRequestBuilder {
         return new MajorGridlinesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the minorGridlines property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get minorGridlines(): MinorGridlinesRequestBuilder {
         return new MinorGridlinesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the title property of the microsoft.graph.workbookChartAxis entity. */
+    /**
+     * Provides operations to manage the title property of the microsoft.graph.workbookChartAxis entity.
+     */
     public get title(): TitleRequestBuilder {
         return new TitleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,9 +54,8 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property categoryAxis for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: CategoryAxisRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: CategoryAxisRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -56,15 +63,14 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Represents the category axis in a chart. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartAxis
      */
-    public get(requestConfiguration?: CategoryAxisRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartAxis | undefined> {
+    public get(requestConfiguration?: CategoryAxisRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -72,16 +78,15 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property categoryAxis in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartAxis
      */
-    public patch(body: WorkbookChartAxis | undefined, requestConfiguration?: CategoryAxisRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartAxis | undefined> {
+    public patch(body: WorkbookChartAxis | undefined, requestConfiguration?: CategoryAxisRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -90,7 +95,7 @@ export class CategoryAxisRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartAxis>(requestInfo, createWorkbookChartAxisFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property categoryAxis for drives

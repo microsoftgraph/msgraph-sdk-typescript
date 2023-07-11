@@ -12,13 +12,15 @@ import {CatalogsRequestBuilderGetRequestConfiguration} from './catalogsRequestBu
 import {CatalogsRequestBuilderPostRequestConfiguration} from './catalogsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageCatalogItemRequestBuilder} from './item/accessPackageCatalogItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
  */
 export class CatalogsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of accessPackageCatalog objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalogCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-catalogs?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CatalogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalogCollectionResponse | undefined> {
+    public get(requestConfiguration?: CatalogsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageCatalogCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,17 +57,16 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessPackageCatalogCollectionResponse>(requestInfo, createAccessPackageCatalogCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessPackageCatalogCollectionResponse>(requestInfo, createAccessPackageCatalogCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new accessPackageCatalog object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalog
      * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-catalogs?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AccessPackageCatalog | undefined, requestConfiguration?: CatalogsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalog | undefined> {
+    public post(body: AccessPackageCatalog | undefined, requestConfiguration?: CatalogsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -75,7 +75,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of accessPackageCatalog objects.

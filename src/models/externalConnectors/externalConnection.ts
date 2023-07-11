@@ -10,24 +10,44 @@ import {SearchSettings} from './searchSettings';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExternalConnection extends Entity, Parsable {
-    /** Collects configurable settings related to activities involving connector content. */
+    /**
+     * Collects configurable settings related to activities involving connector content.
+     */
     activitySettings?: ActivitySettings | undefined;
-    /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */
+    /**
+     * Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
+     */
     configuration?: Configuration | undefined;
-    /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
+    /**
+     * Description of the connection displayed in the Microsoft 365 admin center. Optional.
+     */
     description?: string | undefined;
-    /** The groups property */
+    /**
+     * The groups property
+     */
     groups?: ExternalGroup[] | undefined;
-    /** The items property */
+    /**
+     * The items property
+     */
     items?: ExternalItem[] | undefined;
-    /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
+    /**
+     * The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.
+     */
     name?: string | undefined;
-    /** The operations property */
+    /**
+     * The operations property
+     */
     operations?: ConnectionOperation[] | undefined;
-    /** The schema property */
+    /**
+     * The schema property
+     */
     schema?: Schema | undefined;
-    /** The settings configuring the search experience for content in this connection, such as the display templates for search results. */
+    /**
+     * The settings configuring the search experience for content in this connection, such as the display templates for search results.
+     */
     searchSettings?: SearchSettings | undefined;
-    /** Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue. */
+    /**
+     * Indicates the current state of the connection. Possible values are: draft, ready, obsolete, limitExceeded, unknownFutureValue.
+     */
     state?: ConnectionState | undefined;
 }

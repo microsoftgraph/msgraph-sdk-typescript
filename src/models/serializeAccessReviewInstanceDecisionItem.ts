@@ -1,8 +1,10 @@
 import {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
 import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
+import {GovernanceInsight} from './governanceInsight';
 import {Identity} from './identity';
 import {serializeAccessReviewInstanceDecisionItemResource} from './serializeAccessReviewInstanceDecisionItemResource';
 import {serializeEntity} from './serializeEntity';
+import {serializeGovernanceInsight} from './serializeGovernanceInsight';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import {UserIdentity} from './userIdentity';
@@ -15,6 +17,7 @@ export function serializeAccessReviewInstanceDecisionItem(writer: SerializationW
         writer.writeDateValue("appliedDateTime", accessReviewInstanceDecisionItem.appliedDateTime);
         writer.writeStringValue("applyResult", accessReviewInstanceDecisionItem.applyResult);
         writer.writeStringValue("decision", accessReviewInstanceDecisionItem.decision);
+        writer.writeCollectionOfObjectValues<GovernanceInsight>("insights", accessReviewInstanceDecisionItem.insights, serializeGovernanceInsight);
         writer.writeStringValue("justification", accessReviewInstanceDecisionItem.justification);
         writer.writeObjectValue<Identity>("principal", accessReviewInstanceDecisionItem.principal, serializeIdentity);
         writer.writeStringValue("principalLink", accessReviewInstanceDecisionItem.principalLink);

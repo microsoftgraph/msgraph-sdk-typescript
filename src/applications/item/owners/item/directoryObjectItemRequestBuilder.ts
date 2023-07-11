@@ -9,23 +9,33 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /applications/{application-id}/owners/{directoryObject-id}
  */
 export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
-    /** Casts the previous resource to appRoleAssignment. */
+    /**
+     * Casts the previous resource to appRoleAssignment.
+     */
     public get graphAppRoleAssignment(): GraphAppRoleAssignmentRequestBuilder {
         return new GraphAppRoleAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to endpoint. */
+    /**
+     * Casts the previous resource to endpoint.
+     */
     public get graphEndpoint(): GraphEndpointRequestBuilder {
         return new GraphEndpointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to servicePrincipal. */
+    /**
+     * Casts the previous resource to servicePrincipal.
+     */
     public get graphServicePrincipal(): GraphServicePrincipalRequestBuilder {
         return new GraphServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to user. */
+    /**
+     * Casts the previous resource to user.
+     */
     public get graphUser(): GraphUserRequestBuilder {
         return new GraphUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the collection of application entities. */
+    /**
+     * Provides operations to manage the collection of application entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -1,4 +1,6 @@
-/** Device Exchange Access State Reason. */
+/**
+ * Device Exchange Access State Reason.
+ */
 export enum DeviceManagementExchangeAccessStateReason {
     /** No access state reason discovered from Exchange */
     None = "none",

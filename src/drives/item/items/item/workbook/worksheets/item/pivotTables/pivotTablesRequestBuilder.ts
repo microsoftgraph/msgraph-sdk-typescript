@@ -13,17 +13,21 @@ import {WorkbookPivotTableItemRequestBuilder} from './item/workbookPivotTableIte
 import {PivotTablesRequestBuilderGetRequestConfiguration} from './pivotTablesRequestBuilderGetRequestConfiguration';
 import {PivotTablesRequestBuilderPostRequestConfiguration} from './pivotTablesRequestBuilderPostRequestConfiguration';
 import {RefreshAllRequestBuilder} from './refreshAll/refreshAllRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
  */
 export class PivotTablesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the refreshAll method. */
+    /**
+     * Provides operations to call the refreshAll method.
+     */
     public get refreshAll(): RefreshAllRequestBuilder {
         return new RefreshAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,11 +53,10 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of workbookpivottable objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookPivotTableCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/workbookworksheet-list-pivottables?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PivotTablesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookPivotTableCollectionResponse | undefined> {
+    public get(requestConfiguration?: PivotTablesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookPivotTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,16 +64,15 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookPivotTableCollectionResponse>(requestInfo, createWorkbookPivotTableCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookPivotTableCollectionResponse>(requestInfo, createWorkbookPivotTableCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to pivotTables for drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookPivotTable
      */
-    public post(body: WorkbookPivotTable | undefined, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookPivotTable | undefined> {
+    public post(body: WorkbookPivotTable | undefined, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -79,7 +81,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of workbookpivottable objects.

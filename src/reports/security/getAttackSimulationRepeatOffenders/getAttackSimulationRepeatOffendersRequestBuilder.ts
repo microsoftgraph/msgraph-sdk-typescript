@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue} from './createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue';
 import {GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration} from './getAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration';
 import {GetAttackSimulationRepeatOffendersResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getAttackSimulationRepeatOffenders method.
@@ -22,10 +22,9 @@ export class GetAttackSimulationRepeatOffendersRequestBuilder extends BaseReques
     /**
      * Invoke function getAttackSimulationRepeatOffenders
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetAttackSimulationRepeatOffendersResponse
      */
-    public get(requestConfiguration?: GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetAttackSimulationRepeatOffendersResponse | undefined> {
+    public get(requestConfiguration?: GetAttackSimulationRepeatOffendersRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAttackSimulationRepeatOffendersResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class GetAttackSimulationRepeatOffendersRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<GetAttackSimulationRepeatOffendersResponse>(requestInfo, createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<GetAttackSimulationRepeatOffendersResponse>(requestInfo, createGetAttackSimulationRepeatOffendersResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function getAttackSimulationRepeatOffenders

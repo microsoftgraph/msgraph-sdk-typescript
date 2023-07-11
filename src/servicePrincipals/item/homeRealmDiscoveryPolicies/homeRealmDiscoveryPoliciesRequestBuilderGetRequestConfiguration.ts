@@ -2,10 +2,16 @@ import {HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters} from './home
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters | undefined;
 }

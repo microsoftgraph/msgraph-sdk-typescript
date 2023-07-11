@@ -3,6 +3,8 @@ import {PrintTask} from './printTask';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintTaskCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: PrintTask[] | undefined;
 }

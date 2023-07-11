@@ -11,17 +11,21 @@ import {AttackSimulationRequestBuilderGetRequestConfiguration} from './attackSim
 import {AttackSimulationRequestBuilderPatchRequestConfiguration} from './attackSimulationRequestBuilderPatchRequestConfiguration';
 import {SimulationAutomationsRequestBuilder} from './simulationAutomations/simulationAutomationsRequestBuilder';
 import {SimulationsRequestBuilder} from './simulations/simulationsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
  */
 export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity. */
+    /**
+     * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
+     */
     public get simulationAutomations(): SimulationAutomationsRequestBuilder {
         return new SimulationAutomationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity. */
+    /**
+     * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
+     */
     public get simulations(): SimulationsRequestBuilder {
         return new SimulationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property attackSimulation for security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AttackSimulationRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AttackSimulationRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,15 +49,14 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get attackSimulation from security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttackSimulationRoot
      */
-    public get(requestConfiguration?: AttackSimulationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttackSimulationRoot | undefined> {
+    public get(requestConfiguration?: AttackSimulationRequestBuilderGetRequestConfiguration | undefined) : Promise<AttackSimulationRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,16 +64,15 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttackSimulationRoot>(requestInfo, createAttackSimulationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttackSimulationRoot>(requestInfo, createAttackSimulationRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property attackSimulation in security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttackSimulationRoot
      */
-    public patch(body: AttackSimulationRoot | undefined, requestConfiguration?: AttackSimulationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttackSimulationRoot | undefined> {
+    public patch(body: AttackSimulationRoot | undefined, requestConfiguration?: AttackSimulationRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttackSimulationRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -80,7 +81,7 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttackSimulationRoot>(requestInfo, createAttackSimulationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttackSimulationRoot>(requestInfo, createAttackSimulationRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property attackSimulation for security

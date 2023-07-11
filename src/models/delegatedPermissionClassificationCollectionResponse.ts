@@ -3,6 +3,8 @@ import {DelegatedPermissionClassification} from './delegatedPermissionClassifica
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedPermissionClassificationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DelegatedPermissionClassification[] | undefined;
 }

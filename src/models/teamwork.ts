@@ -4,8 +4,12 @@ import {WorkforceIntegration} from './workforceIntegration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Teamwork extends Entity, Parsable {
-    /** The deleted team. */
+    /**
+     * The deleted team.
+     */
     deletedTeams?: DeletedTeam[] | undefined;
-    /** The workforceIntegrations property */
+    /**
+     * The workforceIntegrations property
+     */
     workforceIntegrations?: WorkforceIntegration[] | undefined;
 }

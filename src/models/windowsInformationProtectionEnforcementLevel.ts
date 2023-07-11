@@ -1,4 +1,6 @@
-/** Possible values for WIP Protection enforcement levels */
+/**
+ * Possible values for WIP Protection enforcement levels
+ */
 export enum WindowsInformationProtectionEnforcementLevel {
     /** No protection enforcement */
     NoProtection = "noProtection",

@@ -1,4 +1,6 @@
-/** Possible types of Application */
+/**
+ * Possible types of Application
+ */
 export enum ApplicationType {
     /** The windows universal application */
     Universal = "universal",

@@ -18,45 +18,63 @@ import {ReviewSetsRequestBuilder} from './reviewSets/reviewSetsRequestBuilder';
 import {SearchesRequestBuilder} from './searches/searchesRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {TagsRequestBuilder} from './tags/tagsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
  */
 export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get custodians(): CustodiansRequestBuilder {
         return new CustodiansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the close method. */
+    /**
+     * Provides operations to call the close method.
+     */
     public get microsoftGraphSecurityClose(): MicrosoftGraphSecurityCloseRequestBuilder {
         return new MicrosoftGraphSecurityCloseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reopen method. */
+    /**
+     * Provides operations to call the reopen method.
+     */
     public get microsoftGraphSecurityReopen(): MicrosoftGraphSecurityReopenRequestBuilder {
         return new MicrosoftGraphSecurityReopenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get noncustodialDataSources(): NoncustodialDataSourcesRequestBuilder {
         return new NoncustodialDataSourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get reviewSets(): ReviewSetsRequestBuilder {
         return new ReviewSetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get searches(): SearchesRequestBuilder {
         return new SearchesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the settings property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity. */
+    /**
+     * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
+     */
     public get tags(): TagsRequestBuilder {
         return new TagsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,10 +89,9 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-delete-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EdiscoveryCaseItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -82,16 +99,15 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of an ediscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCase
      * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EdiscoveryCaseItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCase | undefined> {
+    public get(requestConfiguration?: EdiscoveryCaseItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryCase | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -99,17 +115,16 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an ediscoveryCase object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryCase
      * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryCase | undefined> {
+    public patch(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCaseItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoveryCase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -118,7 +133,7 @@ export class EdiscoveryCaseItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoveryCase>(requestInfo, createEdiscoveryCaseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete an ediscoveryCase object.

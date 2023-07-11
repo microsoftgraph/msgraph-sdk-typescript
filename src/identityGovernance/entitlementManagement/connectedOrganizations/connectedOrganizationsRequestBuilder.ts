@@ -12,13 +12,15 @@ import {ConnectedOrganizationsRequestBuilderGetRequestConfiguration} from './con
 import {ConnectedOrganizationsRequestBuilderPostRequestConfiguration} from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConnectedOrganizationItemRequestBuilder} from './item/connectedOrganizationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
  */
 export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of connectedOrganization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectedOrganizationCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-connectedorganizations?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ConnectedOrganizationsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganizationCollectionResponse | undefined> {
+    public get(requestConfiguration?: ConnectedOrganizationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ConnectedOrganizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,16 +57,16 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ConnectedOrganizationCollectionResponse>(requestInfo, createConnectedOrganizationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ConnectedOrganizationCollectionResponse>(requestInfo, createConnectedOrganizationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to connectedOrganizations for identityGovernance
+     * Create a new connectedOrganization object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConnectedOrganization
+     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-connectedorganizations?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConnectedOrganization | undefined> {
+    public post(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ConnectedOrganization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -74,7 +75,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ConnectedOrganization>(requestInfo, createConnectedOrganizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ConnectedOrganization>(requestInfo, createConnectedOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of connectedOrganization objects.
@@ -95,7 +96,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to connectedOrganizations for identityGovernance
+     * Create a new connectedOrganization object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

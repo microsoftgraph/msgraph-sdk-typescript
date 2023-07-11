@@ -9,7 +9,7 @@ import {UnifiedRbacResourceAction} from '../../../../../../models/unifiedRbacRes
 import {UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
@@ -26,9 +26,8 @@ export class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuil
     /**
      * Delete navigation property resourceActions for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get resourceActions from roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRbacResourceAction
      */
-    public get(requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRbacResourceAction | undefined> {
+    public get(requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRbacResourceAction | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UnifiedRbacResourceAction>(requestInfo, createUnifiedRbacResourceActionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UnifiedRbacResourceAction>(requestInfo, createUnifiedRbacResourceActionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property resourceActions in roleManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRbacResourceAction
      */
-    public patch(body: UnifiedRbacResourceAction | undefined, requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRbacResourceAction | undefined> {
+    public patch(body: UnifiedRbacResourceAction | undefined, requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRbacResourceAction | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuil
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UnifiedRbacResourceAction>(requestInfo, createUnifiedRbacResourceActionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UnifiedRbacResourceAction>(requestInfo, createUnifiedRbacResourceActionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property resourceActions for roleManagement

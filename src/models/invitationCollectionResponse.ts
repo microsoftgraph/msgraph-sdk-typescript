@@ -3,6 +3,8 @@ import {Invitation} from './invitation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InvitationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: Invitation[] | undefined;
 }

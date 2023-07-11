@@ -3,36 +3,68 @@ import {SynchronizationTaskExecutionResult} from './synchronizationTaskExecution
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationTaskExecution extends AdditionalDataHolder, Parsable {
-    /** The activityIdentifier property */
+    /**
+     * Identifier of the job run.
+     */
     activityIdentifier?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The countEntitled property */
+    /**
+     * Count of processed entries that were assigned for this application.
+     */
     countEntitled?: number | undefined;
-    /** The countEntitledForProvisioning property */
+    /**
+     * Count of processed entries that were assigned for provisioning.
+     */
     countEntitledForProvisioning?: number | undefined;
-    /** The countEscrowed property */
+    /**
+     * Count of entries that were escrowed (errors).
+     */
     countEscrowed?: number | undefined;
-    /** The countEscrowedRaw property */
+    /**
+     * Count of entries that were escrowed, including system-generated escrows.
+     */
     countEscrowedRaw?: number | undefined;
-    /** The countExported property */
+    /**
+     * Count of exported entries.
+     */
     countExported?: number | undefined;
-    /** The countExports property */
+    /**
+     * Count of entries that were expected to be exported.
+     */
     countExports?: number | undefined;
-    /** The countImported property */
+    /**
+     * Count of imported entries.
+     */
     countImported?: number | undefined;
-    /** The countImportedDeltas property */
+    /**
+     * Count of imported delta-changes.
+     */
     countImportedDeltas?: number | undefined;
-    /** The countImportedReferenceDeltas property */
+    /**
+     * Count of imported delta-changes pertaining to reference changes.
+     */
     countImportedReferenceDeltas?: number | undefined;
-    /** The error property */
+    /**
+     * If an error was encountered, contains a synchronizationError object with details.
+     */
     errorEscaped?: SynchronizationError | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The state property */
+    /**
+     * The state property
+     */
     state?: SynchronizationTaskExecutionResult | undefined;
-    /** The timeBegan property */
+    /**
+     * Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     */
     timeBegan?: Date | undefined;
-    /** The timeEnded property */
+    /**
+     * Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     */
     timeEnded?: Date | undefined;
 }

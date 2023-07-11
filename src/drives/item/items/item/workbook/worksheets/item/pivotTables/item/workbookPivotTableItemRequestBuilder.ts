@@ -11,17 +11,21 @@ import {WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration} from './
 import {WorkbookPivotTableItemRequestBuilderGetRequestConfiguration} from './workbookPivotTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration} from './workbookPivotTableItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
  */
 export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the refresh method. */
+    /**
+     * Provides operations to call the refresh method.
+     */
     public get refresh(): RefreshRequestBuilder {
         return new RefreshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheet property of the microsoft.graph.workbookPivotTable entity. */
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookPivotTable entity.
+     */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property pivotTables for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of workbookPivotTable object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookPivotTable
      * @see {@link https://docs.microsoft.com/graph/api/workbookpivottable-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookPivotTableItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookPivotTable | undefined> {
+    public get(requestConfiguration?: WorkbookPivotTableItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,16 +65,15 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property pivotTables in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookPivotTable
      */
-    public patch(body: WorkbookPivotTable | undefined, requestConfiguration?: WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookPivotTable | undefined> {
+    public patch(body: WorkbookPivotTable | undefined, requestConfiguration?: WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -81,7 +82,7 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookPivotTable>(requestInfo, createWorkbookPivotTableFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property pivotTables for drives

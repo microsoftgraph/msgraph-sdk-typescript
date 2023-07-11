@@ -1,4 +1,6 @@
-/** Possible values to specify which cookies are allowed in Microsoft Edge. */
+/**
+ * Possible values to specify which cookies are allowed in Microsoft Edge.
+ */
 export enum EdgeCookiePolicy {
     /** Allow the user to set. */
     UserDefined = "userDefined",

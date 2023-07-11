@@ -2,10 +2,16 @@ import {TeamworkTagMemberItemRequestBuilderGetQueryParameters} from './teamworkT
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface TeamworkTagMemberItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: TeamworkTagMemberItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -4,12 +4,20 @@ import {TemplateScenarios} from './templateScenarios';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessTemplate extends Entity, Parsable {
-    /** The user-friendly name of the template. */
+    /**
+     * The user-friendly name of the template.
+     */
     description?: string | undefined;
-    /** The details property */
+    /**
+     * The details property
+     */
     details?: ConditionalAccessPolicyDetail | undefined;
-    /** The user-friendly name of the template. */
+    /**
+     * The user-friendly name of the template.
+     */
     name?: string | undefined;
-    /** The scenarios property */
+    /**
+     * The scenarios property
+     */
     scenarios?: TemplateScenarios | undefined;
 }

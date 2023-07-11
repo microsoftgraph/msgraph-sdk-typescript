@@ -7,17 +7,26 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {Place} from '../../models/place';
 import {serializePlace} from '../../models/serializePlace';
 import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
+import {GraphRoomListRequestBuilder} from './graphRoomList/graphRoomListRequestBuilder';
 import {PlaceItemRequestBuilderDeleteRequestConfiguration} from './placeItemRequestBuilderDeleteRequestConfiguration';
 import {PlaceItemRequestBuilderPatchRequestConfiguration} from './placeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of place entities.
  */
 export class PlaceItemRequestBuilder extends BaseRequestBuilder {
-    /** Casts the previous resource to room. */
+    /**
+     * Casts the previous resource to room.
+     */
     public get graphRoom(): GraphRoomRequestBuilder {
         return new GraphRoomRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to roomList.
+     */
+    public get graphRoomList(): GraphRoomListRequestBuilder {
+        return new GraphRoomListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new PlaceItemRequestBuilder and sets the default values.
@@ -30,9 +39,8 @@ export class PlaceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from places
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: PlaceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PlaceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -40,17 +48,16 @@ export class PlaceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Update the properties of place object, which can be a room or roomList. You can identify the **room** or **roomList** by specifying the **id** or **emailAddress** property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Place
      * @see {@link https://docs.microsoft.com/graph/api/place-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Place | undefined, requestConfiguration?: PlaceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Place | undefined> {
+    public patch(body: Place | undefined, requestConfiguration?: PlaceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Place | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -59,7 +66,7 @@ export class PlaceItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Place>(requestInfo, createPlaceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Place>(requestInfo, createPlaceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from places

@@ -1,4 +1,6 @@
-/** Possible values for applicationGuardBlockFileTransfer */
+/**
+ * Possible values for applicationGuardBlockFileTransfer
+ */
 export enum ApplicationGuardBlockFileTransferType {
     /** Not Configured */
     NotConfigured = "notConfigured",

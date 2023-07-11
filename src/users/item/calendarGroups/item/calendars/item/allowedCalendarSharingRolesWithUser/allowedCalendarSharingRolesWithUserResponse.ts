@@ -3,6 +3,8 @@ import {CalendarRoleType} from '../../../../../../../models/calendarRoleType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AllowedCalendarSharingRolesWithUserResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: CalendarRoleType[] | undefined;
 }

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderGetRequestConfiguration} from './exportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the exportDeviceAndAppManagementData method.
@@ -26,10 +26,9 @@ export class ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder exten
     /**
      * Invoke function exportDeviceAndAppManagementData
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceAndAppManagementData
      */
-    public get(requestConfiguration?: ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAndAppManagementData | undefined> {
+    public get(requestConfiguration?: ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceAndAppManagementData | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -37,7 +36,7 @@ export class ExportDeviceAndAppManagementDataWithSkipWithTopRequestBuilder exten
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceAndAppManagementData>(requestInfo, createDeviceAndAppManagementDataFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceAndAppManagementData>(requestInfo, createDeviceAndAppManagementDataFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function exportDeviceAndAppManagementData

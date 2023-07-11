@@ -11,21 +11,27 @@ import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilde
 import {EdgeRequestBuilder} from './edge/edgeRequestBuilder';
 import {ServiceAnnouncementRequestBuilder} from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
 import {SharepointRequestBuilder} from './sharepoint/sharepointRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the admin singleton.
  */
 export class AdminRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the edge property of the microsoft.graph.admin entity. */
+    /**
+     * Provides operations to manage the edge property of the microsoft.graph.admin entity.
+     */
     public get edge(): EdgeRequestBuilder {
         return new EdgeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity. */
+    /**
+     * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
+     */
     public get serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sharepoint property of the microsoft.graph.admin entity. */
+    /**
+     * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
+     */
     public get sharepoint(): SharepointRequestBuilder {
         return new SharepointRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -40,10 +46,9 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
     /**
      * Get admin
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Admin
      */
-    public get(requestConfiguration?: AdminRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Admin | undefined> {
+    public get(requestConfiguration?: AdminRequestBuilderGetRequestConfiguration | undefined) : Promise<Admin | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -51,16 +56,15 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Admin>(requestInfo, createAdminFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Admin>(requestInfo, createAdminFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update admin
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Admin
      */
-    public patch(body: Admin | undefined, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Admin | undefined> {
+    public patch(body: Admin | undefined, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined) : Promise<Admin | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -69,7 +73,7 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Admin>(requestInfo, createAdminFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Admin>(requestInfo, createAdminFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get admin

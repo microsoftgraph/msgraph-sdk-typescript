@@ -1,4 +1,6 @@
-/** Contains properties for Windows architecture. */
+/**
+ * Contains properties for Windows architecture.
+ */
 export enum WindowsArchitecture {
     /** No flags set. */
     None = "none",

@@ -2,10 +2,16 @@ import {SpecialRequestBuilderGetQueryParameters} from './specialRequestBuilderGe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SpecialRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SpecialRequestBuilderGetQueryParameters | undefined;
 }

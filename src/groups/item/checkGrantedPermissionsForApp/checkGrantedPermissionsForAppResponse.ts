@@ -3,6 +3,8 @@ import {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificP
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CheckGrantedPermissionsForAppResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ResourceSpecificPermissionGrant[] | undefined;
 }

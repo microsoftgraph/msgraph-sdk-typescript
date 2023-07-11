@@ -2,10 +2,16 @@ import {Json} from '../../../../../../../models/json';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Hex2OctPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The number property */
+    /**
+     * The number property
+     */
     number?: Json | undefined;
-    /** The places property */
+    /**
+     * The places property
+     */
     places?: Json | undefined;
 }

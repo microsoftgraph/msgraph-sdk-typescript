@@ -8,14 +8,23 @@ import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeEmployeeExperience} from '../models/serializeEmployeeExperience';
 import {EmployeeExperienceRequestBuilderGetRequestConfiguration} from './employeeExperienceRequestBuilderGetRequestConfiguration';
 import {EmployeeExperienceRequestBuilderPatchRequestConfiguration} from './employeeExperienceRequestBuilderPatchRequestConfiguration';
+import {LearningCourseActivitiesRequestBuilder} from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
 import {LearningProvidersRequestBuilder} from './learningProviders/learningProvidersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the employeeExperience singleton.
  */
 export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity. */
+    /**
+     * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
+     */
+    public get learningCourseActivities(): LearningCourseActivitiesRequestBuilder {
+        return new LearningCourseActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
+     */
     public get learningProviders(): LearningProvidersRequestBuilder {
         return new LearningProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -30,10 +39,9 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
     /**
      * Get employeeExperience
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EmployeeExperience
      */
-    public get(requestConfiguration?: EmployeeExperienceRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EmployeeExperience | undefined> {
+    public get(requestConfiguration?: EmployeeExperienceRequestBuilderGetRequestConfiguration | undefined) : Promise<EmployeeExperience | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -41,16 +49,15 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update employeeExperience
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EmployeeExperience
      */
-    public patch(body: EmployeeExperience | undefined, requestConfiguration?: EmployeeExperienceRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EmployeeExperience | undefined> {
+    public patch(body: EmployeeExperience | undefined, requestConfiguration?: EmployeeExperienceRequestBuilderPatchRequestConfiguration | undefined) : Promise<EmployeeExperience | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -59,7 +66,7 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EmployeeExperience>(requestInfo, createEmployeeExperienceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get employeeExperience

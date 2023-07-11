@@ -1,23 +1,43 @@
 
 export interface CalendarViewRequestBuilderGetQueryParameters {
-    /** Include count of items */
+    /**
+     * Include count of items
+     */
     count?: boolean | undefined;
-    /** The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00 */
+    /**
+     * The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00
+     */
     end?: string | undefined;
-    /** Expand related entities */
+    /**
+     * Expand related entities
+     */
     expand?: string[] | undefined;
-    /** Filter items by property values */
+    /**
+     * Filter items by property values
+     */
     filter?: string | undefined;
-    /** Order items by property values */
+    /**
+     * Order items by property values
+     */
     orderby?: string[] | undefined;
-    /** Search items by search phrases */
+    /**
+     * Search items by search phrases
+     */
     search?: string | undefined;
-    /** Select properties to be returned */
+    /**
+     * Select properties to be returned
+     */
     select?: string[] | undefined;
-    /** Skip the first n items */
+    /**
+     * Skip the first n items
+     */
     skip?: number | undefined;
-    /** The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00 */
+    /**
+     * The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00
+     */
     start?: string | undefined;
-    /** Show only the first n items */
+    /**
+     * Show only the first n items
+     */
     top?: number | undefined;
 }

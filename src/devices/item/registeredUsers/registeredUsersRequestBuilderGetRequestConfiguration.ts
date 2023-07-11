@@ -2,10 +2,16 @@ import {RegisteredUsersRequestBuilderGetQueryParameters} from './registeredUsers
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RegisteredUsersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RegisteredUsersRequestBuilderGetQueryParameters | undefined;
 }

@@ -1,26 +1,48 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MessageSecurityState extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The connectingIP property */
+    /**
+     * The connectingIP property
+     */
     connectingIP?: string | undefined;
-    /** The deliveryAction property */
+    /**
+     * The deliveryAction property
+     */
     deliveryAction?: string | undefined;
-    /** The deliveryLocation property */
+    /**
+     * The deliveryLocation property
+     */
     deliveryLocation?: string | undefined;
-    /** The directionality property */
+    /**
+     * The directionality property
+     */
     directionality?: string | undefined;
-    /** The internetMessageId property */
+    /**
+     * The internetMessageId property
+     */
     internetMessageId?: string | undefined;
-    /** The messageFingerprint property */
+    /**
+     * The messageFingerprint property
+     */
     messageFingerprint?: string | undefined;
-    /** The messageReceivedDateTime property */
+    /**
+     * The messageReceivedDateTime property
+     */
     messageReceivedDateTime?: Date | undefined;
-    /** The messageSubject property */
+    /**
+     * The messageSubject property
+     */
     messageSubject?: string | undefined;
-    /** The networkMessageId property */
+    /**
+     * The networkMessageId property
+     */
     networkMessageId?: string | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
 }

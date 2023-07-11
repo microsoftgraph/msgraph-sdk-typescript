@@ -2,10 +2,16 @@ import {GroupLifecyclePolicyItemRequestBuilderGetQueryParameters} from './groupL
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: GroupLifecyclePolicyItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -3,6 +3,8 @@ import {EducationSchool} from './educationSchool';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationSchoolCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: EducationSchool[] | undefined;
 }

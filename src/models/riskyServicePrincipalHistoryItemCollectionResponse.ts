@@ -3,6 +3,8 @@ import {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryIt
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RiskyServicePrincipalHistoryItemCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: RiskyServicePrincipalHistoryItem[] | undefined;
 }

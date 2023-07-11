@@ -11,17 +11,21 @@ import {ListItemVersionItemRequestBuilderDeleteRequestConfiguration} from './lis
 import {ListItemVersionItemRequestBuilderGetRequestConfiguration} from './listItemVersionItemRequestBuilderGetRequestConfiguration';
 import {ListItemVersionItemRequestBuilderPatchRequestConfiguration} from './listItemVersionItemRequestBuilderPatchRequestConfiguration';
 import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
  */
 export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the fields property of the microsoft.graph.listItemVersion entity. */
+    /**
+     * Provides operations to manage the fields property of the microsoft.graph.listItemVersion entity.
+     */
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the restoreVersion method. */
+    /**
+     * Provides operations to call the restoreVersion method.
+     */
     public get restoreVersion(): RestoreVersionRequestBuilder {
         return new RestoreVersionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property versions for shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ListItemVersionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ListItemVersionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the metadata for a specific version of a ListItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItemVersion
      * @see {@link https://docs.microsoft.com/graph/api/listitemversion-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ListItemVersionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItemVersion | undefined> {
+    public get(requestConfiguration?: ListItemVersionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ListItemVersion | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,16 +65,15 @@ export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ListItemVersion>(requestInfo, createListItemVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ListItemVersion>(requestInfo, createListItemVersionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property versions in shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItemVersion
      */
-    public patch(body: ListItemVersion | undefined, requestConfiguration?: ListItemVersionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItemVersion | undefined> {
+    public patch(body: ListItemVersion | undefined, requestConfiguration?: ListItemVersionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ListItemVersion | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -81,7 +82,7 @@ export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ListItemVersion>(requestInfo, createListItemVersionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ListItemVersion>(requestInfo, createListItemVersionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property versions for shares

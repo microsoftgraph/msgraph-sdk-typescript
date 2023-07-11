@@ -2,10 +2,16 @@ import {GroupItemRequestBuilderGetQueryParameters} from './groupItemRequestBuild
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GroupItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: GroupItemRequestBuilderGetQueryParameters | undefined;
 }

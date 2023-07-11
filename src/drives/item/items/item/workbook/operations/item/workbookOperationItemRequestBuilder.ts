@@ -9,7 +9,7 @@ import {WorkbookOperation} from '../../../../../../../models/workbookOperation';
 import {WorkbookOperationItemRequestBuilderDeleteRequestConfiguration} from './workbookOperationItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookOperationItemRequestBuilderGetRequestConfiguration} from './workbookOperationItemRequestBuilderGetRequestConfiguration';
 import {WorkbookOperationItemRequestBuilderPatchRequestConfiguration} from './workbookOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
@@ -26,9 +26,8 @@ export class WorkbookOperationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property operations for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: WorkbookOperationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class WorkbookOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Meaningless if this url is called independently. This request is part of all async requests for excel. This is used to retrieve the status of a workbookOperation object. Currently not all requests support async. Take Create session request as an example. Issue an async Create session request, follow the documentation and you may get status code `202 Accepted`, async operation starts from here and you can find the url this document required from the response header, from the **location** part.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookOperation
      * @see {@link https://docs.microsoft.com/graph/api/workbookoperation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookOperation | undefined> {
+    public get(requestConfiguration?: WorkbookOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class WorkbookOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookOperation>(requestInfo, createWorkbookOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookOperation>(requestInfo, createWorkbookOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property operations in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookOperation
      */
-    public patch(body: WorkbookOperation | undefined, requestConfiguration?: WorkbookOperationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookOperation | undefined> {
+    public patch(body: WorkbookOperation | undefined, requestConfiguration?: WorkbookOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class WorkbookOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookOperation>(requestInfo, createWorkbookOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookOperation>(requestInfo, createWorkbookOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property operations for drives

@@ -1,4 +1,6 @@
-/** Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0). */
+/**
+ * Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0).
+ */
 export enum DetectedAppPlatformType {
     /** Default. Set to unknown when platform cannot be determined. */
     Unknown = "unknown",
@@ -22,4 +24,6 @@ export enum DetectedAppPlatformType {
     AndroidWorkProfile = "androidWorkProfile",
     /** Indicates that the platform of the detected application is Android dedicated and fully managed. */
     AndroidDedicatedAndFullyManaged = "androidDedicatedAndFullyManaged",
+    /** Evolvable enumeration sentinel value. Do not use. */
+    UnknownFutureValue = "unknownFutureValue",
 }

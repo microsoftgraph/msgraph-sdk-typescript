@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {StartRequestBuilderPostRequestConfiguration} from './startRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the start method.
@@ -22,11 +22,10 @@ export class StartRequestBuilder extends BaseRequestBuilder {
     /**
      * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending **jobs** are completed, aborted, or canceled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintJobStatus
      * @see {@link https://docs.microsoft.com/graph/api/printjob-start?view=graph-rest-1.0|Find more info here}
      */
-    public post(requestConfiguration?: StartRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintJobStatus | undefined> {
+    public post(requestConfiguration?: StartRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintJobStatus | undefined> {
         const requestInfo = this.toPostRequestInformation(
             requestConfiguration
         );
@@ -34,7 +33,7 @@ export class StartRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintJobStatus>(requestInfo, createPrintJobStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintJobStatus>(requestInfo, createPrintJobStatusFromDiscriminatorValue, errorMapping);
     };
     /**
      * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending **jobs** are completed, aborted, or canceled.

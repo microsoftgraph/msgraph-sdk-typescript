@@ -3,6 +3,8 @@ import {BaseCollectionPaginationCountResponse} from '../../../../../../../models
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FunctionsResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: AttributeMappingFunctionSchema[] | undefined;
 }

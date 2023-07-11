@@ -18,45 +18,63 @@ import {RoleDefinitionsRequestBuilder} from './roleDefinitions/roleDefinitionsRe
 import {RoleEligibilityScheduleInstancesRequestBuilder} from './roleEligibilityScheduleInstances/roleEligibilityScheduleInstancesRequestBuilder';
 import {RoleEligibilityScheduleRequestsRequestBuilder} from './roleEligibilityScheduleRequests/roleEligibilityScheduleRequestsRequestBuilder';
 import {RoleEligibilitySchedulesRequestBuilder} from './roleEligibilitySchedules/roleEligibilitySchedulesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.
  */
 export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
+     */
     public get resourceNamespaces(): ResourceNamespacesRequestBuilder {
         return new ResourceNamespacesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleAssignmentScheduleInstances property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleAssignmentScheduleInstances(): RoleAssignmentScheduleInstancesRequestBuilder {
         return new RoleAssignmentScheduleInstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleAssignmentScheduleRequests(): RoleAssignmentScheduleRequestsRequestBuilder {
         return new RoleAssignmentScheduleRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleAssignmentSchedules(): RoleAssignmentSchedulesRequestBuilder {
         return new RoleAssignmentSchedulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleEligibilityScheduleInstances(): RoleEligibilityScheduleInstancesRequestBuilder {
         return new RoleEligibilityScheduleInstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleEligibilityScheduleRequests(): RoleEligibilityScheduleRequestsRequestBuilder {
         return new RoleEligibilityScheduleRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity. */
+    /**
+     * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
+     */
     public get roleEligibilitySchedules(): RoleEligibilitySchedulesRequestBuilder {
         return new RoleEligibilitySchedulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -71,9 +89,8 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property entitlementManagement for roleManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: EntitlementManagementRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EntitlementManagementRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -81,15 +98,14 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Container for roles and assignments for entitlement management resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RbacApplication
      */
-    public get(requestConfiguration?: EntitlementManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RbacApplication | undefined> {
+    public get(requestConfiguration?: EntitlementManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<RbacApplication | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -97,16 +113,15 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property entitlementManagement in roleManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RbacApplication
      */
-    public patch(body: RbacApplication | undefined, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RbacApplication | undefined> {
+    public patch(body: RbacApplication | undefined, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<RbacApplication | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -115,7 +130,7 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property entitlementManagement for roleManagement

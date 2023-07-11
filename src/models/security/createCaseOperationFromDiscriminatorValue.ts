@@ -1,11 +1,12 @@
 import {deserializeIntoCaseOperation} from './deserializeIntoCaseOperation';
 import {deserializeIntoEdiscoveryAddToReviewSetOperation} from './deserializeIntoEdiscoveryAddToReviewSetOperation';
 import {deserializeIntoEdiscoveryEstimateOperation} from './deserializeIntoEdiscoveryEstimateOperation';
+import {deserializeIntoEdiscoveryExportOperation} from './deserializeIntoEdiscoveryExportOperation';
 import {deserializeIntoEdiscoveryHoldOperation} from './deserializeIntoEdiscoveryHoldOperation';
 import {deserializeIntoEdiscoveryIndexOperation} from './deserializeIntoEdiscoveryIndexOperation';
 import {deserializeIntoEdiscoveryPurgeDataOperation} from './deserializeIntoEdiscoveryPurgeDataOperation';
 import {deserializeIntoEdiscoveryTagOperation} from './deserializeIntoEdiscoveryTagOperation';
-import {CaseOperation, EdiscoveryAddToReviewSetOperation, EdiscoveryEstimateOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryPurgeDataOperation, EdiscoveryTagOperation} from './index';
+import {CaseOperation, EdiscoveryAddToReviewSetOperation, EdiscoveryEstimateOperation, EdiscoveryExportOperation, EdiscoveryHoldOperation, EdiscoveryIndexOperation, EdiscoveryPurgeDataOperation, EdiscoveryTagOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -19,6 +20,8 @@ export function createCaseOperationFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoEdiscoveryAddToReviewSetOperation;
                 case "#microsoft.graph.security.ediscoveryEstimateOperation":
                     return deserializeIntoEdiscoveryEstimateOperation;
+                case "#microsoft.graph.security.ediscoveryExportOperation":
+                    return deserializeIntoEdiscoveryExportOperation;
                 case "#microsoft.graph.security.ediscoveryHoldOperation":
                     return deserializeIntoEdiscoveryHoldOperation;
                 case "#microsoft.graph.security.ediscoveryIndexOperation":

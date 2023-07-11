@@ -2,18 +2,32 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceConfigurationUserOverview extends Entity, Parsable {
-    /** Version of the policy for that overview */
+    /**
+     * Version of the policy for that overview
+     */
     configurationVersion?: number | undefined;
-    /** Number of error Users */
+    /**
+     * Number of error Users
+     */
     errorCount?: number | undefined;
-    /** Number of failed Users */
+    /**
+     * Number of failed Users
+     */
     failedCount?: number | undefined;
-    /** Last update time */
+    /**
+     * Last update time
+     */
     lastUpdateDateTime?: Date | undefined;
-    /** Number of not applicable users */
+    /**
+     * Number of not applicable users
+     */
     notApplicableCount?: number | undefined;
-    /** Number of pending Users */
+    /**
+     * Number of pending Users
+     */
     pendingCount?: number | undefined;
-    /** Number of succeeded Users */
+    /**
+     * Number of succeeded Users
+     */
     successCount?: number | undefined;
 }

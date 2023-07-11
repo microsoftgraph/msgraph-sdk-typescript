@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue} from './createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue';
 import {SupportedTimeZonesWithTimeZoneStandardResponse} from './index';
 import {SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration} from './supportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the supportedTimeZones method.
@@ -24,10 +24,9 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends BaseRe
     /**
      * Invoke function supportedTimeZones
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SupportedTimeZonesWithTimeZoneStandardResponse
      */
-    public get(requestConfiguration?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardResponse | undefined> {
+    public get(requestConfiguration?: SupportedTimeZonesWithTimeZoneStandardRequestBuilderGetRequestConfiguration | undefined) : Promise<SupportedTimeZonesWithTimeZoneStandardResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -35,7 +34,7 @@ export class SupportedTimeZonesWithTimeZoneStandardRequestBuilder extends BaseRe
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SupportedTimeZonesWithTimeZoneStandardResponse>(requestInfo, createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SupportedTimeZonesWithTimeZoneStandardResponse>(requestInfo, createSupportedTimeZonesWithTimeZoneStandardResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function supportedTimeZones

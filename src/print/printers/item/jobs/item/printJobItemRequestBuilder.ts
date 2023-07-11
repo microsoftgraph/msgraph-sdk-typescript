@@ -15,33 +15,45 @@ import {PrintJobItemRequestBuilderPatchRequestConfiguration} from './printJobIte
 import {RedirectRequestBuilder} from './redirect/redirectRequestBuilder';
 import {StartRequestBuilder} from './start/startRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
  */
 export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the abort method. */
+    /**
+     * Provides operations to call the abort method.
+     */
     public get abort(): AbortRequestBuilder {
         return new AbortRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the cancel method. */
+    /**
+     * Provides operations to call the cancel method.
+     */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the documents property of the microsoft.graph.printJob entity. */
+    /**
+     * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
+     */
     public get documents(): DocumentsRequestBuilder {
         return new DocumentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the redirect method. */
+    /**
+     * Provides operations to call the redirect method.
+     */
     public get redirect(): RedirectRequestBuilder {
         return new RedirectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the start method. */
+    /**
+     * Provides operations to call the start method.
+     */
     public get start(): StartRequestBuilder {
         return new StartRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tasks property of the microsoft.graph.printJob entity. */
+    /**
+     * Provides operations to manage the tasks property of the microsoft.graph.printJob entity.
+     */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -56,9 +68,8 @@ export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property jobs for print
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: PrintJobItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PrintJobItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -66,15 +77,14 @@ export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * The list of jobs that are queued for printing by the printer/printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintJob
      */
-    public get(requestConfiguration?: PrintJobItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintJob | undefined> {
+    public get(requestConfiguration?: PrintJobItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintJob | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -82,16 +92,15 @@ export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintJob>(requestInfo, createPrintJobFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintJob>(requestInfo, createPrintJobFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property jobs in print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintJob
      */
-    public patch(body: PrintJob | undefined, requestConfiguration?: PrintJobItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintJob | undefined> {
+    public patch(body: PrintJob | undefined, requestConfiguration?: PrintJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintJob | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -100,7 +109,7 @@ export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintJob>(requestInfo, createPrintJobFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintJob>(requestInfo, createPrintJobFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property jobs for print

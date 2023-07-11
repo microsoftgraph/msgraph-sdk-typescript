@@ -1,4 +1,6 @@
-/** TV content rating labels in Australia */
+/**
+ * TV content rating labels in Australia
+ */
 export enum RatingAustraliaTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

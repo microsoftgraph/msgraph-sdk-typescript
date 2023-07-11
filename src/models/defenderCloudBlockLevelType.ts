@@ -1,4 +1,6 @@
-/** Possible values of Cloud Block Level */
+/**
+ * Possible values of Cloud Block Level
+ */
 export enum DefenderCloudBlockLevelType {
     /** Default value, uses the default Windows Defender Antivirus blocking level and provides strong detection without increasing the risk of detecting legitimate files */
     NotConfigured = "notConfigured",

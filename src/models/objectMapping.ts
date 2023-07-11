@@ -5,24 +5,44 @@ import {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ObjectMapping extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The attributeMappings property */
+    /**
+     * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
+     */
     attributeMappings?: AttributeMapping[] | undefined;
-    /** The enabled property */
+    /**
+     * When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
+     */
     enabled?: boolean | undefined;
-    /** The flowTypes property */
+    /**
+     * The flowTypes property
+     */
     flowTypes?: ObjectFlowTypes | undefined;
-    /** The metadata property */
+    /**
+     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+     */
     metadata?: ObjectMappingMetadataEntry[] | undefined;
-    /** The name property */
+    /**
+     * Human-friendly name of the object mapping.
+     */
     name?: string | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The scope property */
+    /**
+     * Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
+     */
     scope?: Filter | undefined;
-    /** The sourceObjectName property */
+    /**
+     * Name of the object in the source directory. Must match the object name from the source directory definition.
+     */
     sourceObjectName?: string | undefined;
-    /** The targetObjectName property */
+    /**
+     * Name of the object in target directory. Must match the object name from the target directory definition.
+     */
     targetObjectName?: string | undefined;
 }

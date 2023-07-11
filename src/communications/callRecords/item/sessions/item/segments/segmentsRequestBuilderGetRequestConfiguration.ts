@@ -2,10 +2,16 @@ import {SegmentsRequestBuilderGetQueryParameters} from './segmentsRequestBuilder
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SegmentsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SegmentsRequestBuilderGetQueryParameters | undefined;
 }

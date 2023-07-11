@@ -9,7 +9,7 @@ import {serializeRiskDetection} from '../../../models/serializeRiskDetection';
 import {RiskDetectionItemRequestBuilderDeleteRequestConfiguration} from './riskDetectionItemRequestBuilderDeleteRequestConfiguration';
 import {RiskDetectionItemRequestBuilderGetRequestConfiguration} from './riskDetectionItemRequestBuilderGetRequestConfiguration';
 import {RiskDetectionItemRequestBuilderPatchRequestConfiguration} from './riskDetectionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -26,9 +26,8 @@ export class RiskDetectionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property riskDetections for identityProtection
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: RiskDetectionItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: RiskDetectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class RiskDetectionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a riskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskDetection
      * @see {@link https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: RiskDetectionItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskDetection | undefined> {
+    public get(requestConfiguration?: RiskDetectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskDetection | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class RiskDetectionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RiskDetection>(requestInfo, createRiskDetectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RiskDetection>(requestInfo, createRiskDetectionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property riskDetections in identityProtection
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RiskDetection
      */
-    public patch(body: RiskDetection | undefined, requestConfiguration?: RiskDetectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RiskDetection | undefined> {
+    public patch(body: RiskDetection | undefined, requestConfiguration?: RiskDetectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RiskDetection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class RiskDetectionItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RiskDetection>(requestInfo, createRiskDetectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RiskDetection>(requestInfo, createRiskDetectionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property riskDetections for identityProtection

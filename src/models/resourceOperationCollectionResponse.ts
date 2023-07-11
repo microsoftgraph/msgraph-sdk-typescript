@@ -3,6 +3,8 @@ import {ResourceOperation} from './resourceOperation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ResourceOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ResourceOperation[] | undefined;
 }

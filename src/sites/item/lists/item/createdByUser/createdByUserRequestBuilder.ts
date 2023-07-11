@@ -6,13 +6,15 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {CreatedByUserRequestBuilderGetRequestConfiguration} from './createdByUserRequestBuilderGetRequestConfiguration';
 import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
  */
 export class CreatedByUserRequestBuilder extends BaseRequestBuilder {
-    /** The mailboxSettings property */
+    /**
+     * The mailboxSettings property
+     */
     public get mailboxSettings(): MailboxSettingsRequestBuilder {
         return new MailboxSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,10 +29,9 @@ export class CreatedByUserRequestBuilder extends BaseRequestBuilder {
     /**
      * Identity of the user who created the item. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
      */
-    public get(requestConfiguration?: CreatedByUserRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
+    public get(requestConfiguration?: CreatedByUserRequestBuilderGetRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -38,7 +39,7 @@ export class CreatedByUserRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, errorMapping);
     };
     /**
      * Identity of the user who created the item. Read-only.

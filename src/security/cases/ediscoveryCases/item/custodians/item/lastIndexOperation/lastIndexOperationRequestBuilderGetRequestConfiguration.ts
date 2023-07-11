@@ -2,10 +2,16 @@ import {LastIndexOperationRequestBuilderGetQueryParameters} from './lastIndexOpe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface LastIndexOperationRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: LastIndexOperationRequestBuilderGetQueryParameters | undefined;
 }

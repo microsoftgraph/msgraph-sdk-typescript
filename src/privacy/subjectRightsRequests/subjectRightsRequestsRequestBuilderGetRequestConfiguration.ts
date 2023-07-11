@@ -2,10 +2,16 @@ import {SubjectRightsRequestsRequestBuilderGetQueryParameters} from './subjectRi
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequestsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: SubjectRightsRequestsRequestBuilderGetQueryParameters | undefined;
 }

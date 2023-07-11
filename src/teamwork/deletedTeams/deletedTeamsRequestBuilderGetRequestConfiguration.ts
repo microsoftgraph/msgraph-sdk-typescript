@@ -2,10 +2,16 @@ import {DeletedTeamsRequestBuilderGetQueryParameters} from './deletedTeamsReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DeletedTeamsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DeletedTeamsRequestBuilderGetQueryParameters | undefined;
 }

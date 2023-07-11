@@ -14,29 +14,39 @@ import {ConditionalAccessRequestBuilderPatchRequestConfiguration} from './condit
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
  */
 export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get authenticationContextClassReferences(): AuthenticationContextClassReferencesRequestBuilder {
         return new AuthenticationContextClassReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get authenticationStrength(): AuthenticationStrengthRequestBuilder {
         return new AuthenticationStrengthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get namedLocations(): NamedLocationsRequestBuilder {
         return new NamedLocationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity. */
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
+     */
     public get templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -51,9 +61,8 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property conditionalAccess for identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ConditionalAccessRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ConditionalAccessRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -61,15 +70,14 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * the entry point for the Conditional Access (CA) object model.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConditionalAccessRoot
      */
-    public get(requestConfiguration?: ConditionalAccessRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessRoot | undefined> {
+    public get(requestConfiguration?: ConditionalAccessRequestBuilderGetRequestConfiguration | undefined) : Promise<ConditionalAccessRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -77,16 +85,15 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property conditionalAccess in identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ConditionalAccessRoot
      */
-    public patch(body: ConditionalAccessRoot | undefined, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConditionalAccessRoot | undefined> {
+    public patch(body: ConditionalAccessRoot | undefined, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConditionalAccessRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -95,7 +102,7 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property conditionalAccess for identity

@@ -3,18 +3,32 @@ import {PublicError} from './publicError';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ParseExpressionResponse extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The error property */
+    /**
+     * Error details, if expression evaluation resulted in an error.
+     */
     errorEscaped?: PublicError | undefined;
-    /** The evaluationResult property */
+    /**
+     * A collection of values produced by the evaluation of the expression.
+     */
     evaluationResult?: string[] | undefined;
-    /** The evaluationSucceeded property */
+    /**
+     * true if the evaluation was successful.
+     */
     evaluationSucceeded?: boolean | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The parsedExpression property */
+    /**
+     * An attributeMappingSource object representing the parsed expression.
+     */
     parsedExpression?: AttributeMappingSource | undefined;
-    /** The parsingSucceeded property */
+    /**
+     * true if the expression was parsed successfully.
+     */
     parsingSucceeded?: boolean | undefined;
 }

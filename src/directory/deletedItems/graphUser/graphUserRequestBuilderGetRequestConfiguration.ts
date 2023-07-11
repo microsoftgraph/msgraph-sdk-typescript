@@ -2,10 +2,16 @@ import {GraphUserRequestBuilderGetQueryParameters} from './graphUserRequestBuild
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GraphUserRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: GraphUserRequestBuilderGetQueryParameters | undefined;
 }

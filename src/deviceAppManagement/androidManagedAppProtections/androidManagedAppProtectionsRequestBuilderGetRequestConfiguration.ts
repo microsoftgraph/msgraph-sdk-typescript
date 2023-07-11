@@ -2,10 +2,16 @@ import {AndroidManagedAppProtectionsRequestBuilderGetQueryParameters} from './an
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AndroidManagedAppProtectionsRequestBuilderGetQueryParameters | undefined;
 }

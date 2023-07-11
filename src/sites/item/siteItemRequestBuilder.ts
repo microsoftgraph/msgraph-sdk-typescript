@@ -28,77 +28,111 @@ import {SiteItemRequestBuilderPatchRequestConfiguration} from './siteItemRequest
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {TermStoreRequestBuilder} from './termStore/termStoreRequestBuilder';
 import {TermStoresRequestBuilder} from './termStores/termStoresRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of site entities.
  */
 export class SiteItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the analytics property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the analytics property of the microsoft.graph.site entity.
+     */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columns property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.site entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contentTypes property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
+     */
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drive property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the drive property of the microsoft.graph.site entity.
+     */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drives property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the drives property of the microsoft.graph.site entity.
+     */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the externalColumns property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
+     */
     public get externalColumns(): ExternalColumnsRequestBuilder {
         return new ExternalColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getActivitiesByInterval method. */
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     */
     public get getActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.site entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lists property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the lists property of the microsoft.graph.site entity.
+     */
     public get lists(): ListsRequestBuilder {
         return new ListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the onenote property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the onenote property of the microsoft.graph.site entity.
+     */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.site entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the permissions property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the permissions property of the microsoft.graph.site entity.
+     */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sites property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the sites property of the microsoft.graph.site entity.
+     */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the termStore property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the termStore property of the microsoft.graph.site entity.
+     */
     public get termStore(): TermStoreRequestBuilder {
         return new TermStoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the termStores property of the microsoft.graph.site entity. */
+    /**
+     * Provides operations to manage the termStores property of the microsoft.graph.site entity.
+     */
     public get termStores(): TermStoresRequestBuilder {
         return new TermStoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -113,11 +147,10 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
      * @see {@link https://docs.microsoft.com/graph/api/site-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
+    public get(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Site | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -125,7 +158,7 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
@@ -162,10 +195,9 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
      * Update entity in sites
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
      */
-    public patch(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
+    public patch(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Site | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -174,7 +206,7 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.

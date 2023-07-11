@@ -3,6 +3,8 @@ import {Permission} from '../../../../models/permission';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GrantResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: Permission[] | undefined;
 }

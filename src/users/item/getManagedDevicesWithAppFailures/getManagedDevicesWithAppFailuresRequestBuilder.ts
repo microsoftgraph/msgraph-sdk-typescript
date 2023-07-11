@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetManagedDevicesWithAppFailuresResponseFromDiscriminatorValue} from './createGetManagedDevicesWithAppFailuresResponseFromDiscriminatorValue';
 import {GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration} from './getManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration';
 import {GetManagedDevicesWithAppFailuresResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getManagedDevicesWithAppFailures method.
@@ -22,10 +22,9 @@ export class GetManagedDevicesWithAppFailuresRequestBuilder extends BaseRequestB
     /**
      * Retrieves the list of devices with failed apps
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetManagedDevicesWithAppFailuresResponse
      */
-    public get(requestConfiguration?: GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetManagedDevicesWithAppFailuresResponse | undefined> {
+    public get(requestConfiguration?: GetManagedDevicesWithAppFailuresRequestBuilderGetRequestConfiguration | undefined) : Promise<GetManagedDevicesWithAppFailuresResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class GetManagedDevicesWithAppFailuresRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<GetManagedDevicesWithAppFailuresResponse>(requestInfo, createGetManagedDevicesWithAppFailuresResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<GetManagedDevicesWithAppFailuresResponse>(requestInfo, createGetManagedDevicesWithAppFailuresResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieves the list of devices with failed apps

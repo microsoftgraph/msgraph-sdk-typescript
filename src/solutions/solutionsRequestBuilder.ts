@@ -10,17 +10,21 @@ import {BookingBusinessesRequestBuilder} from './bookingBusinesses/bookingBusine
 import {BookingCurrenciesRequestBuilder} from './bookingCurrencies/bookingCurrenciesRequestBuilder';
 import {SolutionsRequestBuilderGetRequestConfiguration} from './solutionsRequestBuilderGetRequestConfiguration';
 import {SolutionsRequestBuilderPatchRequestConfiguration} from './solutionsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the solutionsRoot singleton.
  */
 export class SolutionsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity. */
+    /**
+     * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
+     */
     public get bookingBusinesses(): BookingBusinessesRequestBuilder {
         return new BookingBusinessesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity. */
+    /**
+     * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
+     */
     public get bookingCurrencies(): BookingCurrenciesRequestBuilder {
         return new BookingCurrenciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -35,10 +39,9 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get solutions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SolutionsRoot
      */
-    public get(requestConfiguration?: SolutionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SolutionsRoot | undefined> {
+    public get(requestConfiguration?: SolutionsRequestBuilderGetRequestConfiguration | undefined) : Promise<SolutionsRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SolutionsRoot>(requestInfo, createSolutionsRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SolutionsRoot>(requestInfo, createSolutionsRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update solutions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SolutionsRoot
      */
-    public patch(body: SolutionsRoot | undefined, requestConfiguration?: SolutionsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SolutionsRoot | undefined> {
+    public patch(body: SolutionsRoot | undefined, requestConfiguration?: SolutionsRequestBuilderPatchRequestConfiguration | undefined) : Promise<SolutionsRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -64,7 +66,7 @@ export class SolutionsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<SolutionsRoot>(requestInfo, createSolutionsRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<SolutionsRoot>(requestInfo, createSolutionsRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get solutions

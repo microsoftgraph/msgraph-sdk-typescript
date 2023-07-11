@@ -6,7 +6,7 @@ import {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBody';
 import {deserializeIntoAddToReviewSetPostRequestBody} from './deserializeIntoAddToReviewSetPostRequestBody';
 import {MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration';
 import {serializeAddToReviewSetPostRequestBody} from './serializeAddToReviewSetPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addToReviewSet method.
@@ -24,10 +24,9 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
      * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the `Location` parameter from the response headers. The location provides a URL that will return a Add to review set operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewset-addtoreviewset?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddToReviewSetPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: AddToReviewSetPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -36,7 +35,7 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the `Location` parameter from the response headers. The location provides a URL that will return a Add to review set operation.

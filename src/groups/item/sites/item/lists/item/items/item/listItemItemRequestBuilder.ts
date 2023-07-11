@@ -18,41 +18,57 @@ import {ListItemItemRequestBuilderDeleteRequestConfiguration} from './listItemIt
 import {ListItemItemRequestBuilderGetRequestConfiguration} from './listItemItemRequestBuilderGetRequestConfiguration';
 import {ListItemItemRequestBuilderPatchRequestConfiguration} from './listItemItemRequestBuilderPatchRequestConfiguration';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
  */
 export class ListItemItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the analytics property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the analytics property of the microsoft.graph.listItem entity.
+     */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
+     */
     public get documentSetVersions(): DocumentSetVersionsRequestBuilder {
         return new DocumentSetVersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the driveItem property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the driveItem property of the microsoft.graph.listItem entity.
+     */
     public get driveItem(): DriveItemRequestBuilder {
         return new DriveItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the fields property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the fields property of the microsoft.graph.listItem entity.
+     */
     public get fields(): FieldsRequestBuilder {
         return new FieldsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getActivitiesByInterval method. */
+    /**
+     * Provides operations to call the getActivitiesByInterval method.
+     */
     public get getActivitiesByInterval(): GetActivitiesByIntervalRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the versions property of the microsoft.graph.listItem entity. */
+    /**
+     * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
+     */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -67,10 +83,9 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Removes an item from a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: ListItemItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ListItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -78,16 +93,15 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Returns the metadata for an [item][] in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItem
      * @see {@link https://docs.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ListItemItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItem | undefined> {
+    public get(requestConfiguration?: ListItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ListItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -95,7 +109,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the getActivitiesByInterval method.
@@ -114,10 +128,9 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
      * Update the navigation property items in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ListItem
      */
-    public patch(body: ListItem | undefined, requestConfiguration?: ListItemItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ListItem | undefined> {
+    public patch(body: ListItem | undefined, requestConfiguration?: ListItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ListItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -126,7 +139,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ListItem>(requestInfo, createListItemFromDiscriminatorValue, errorMapping);
     };
     /**
      * Removes an item from a [list][].

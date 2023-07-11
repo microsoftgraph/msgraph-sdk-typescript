@@ -3,22 +3,40 @@ import {AlertStatus} from './alertStatus';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AlertHistoryState extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The appId property */
+    /**
+     * The appId property
+     */
     appId?: string | undefined;
-    /** The assignedTo property */
+    /**
+     * The assignedTo property
+     */
     assignedTo?: string | undefined;
-    /** The comments property */
+    /**
+     * The comments property
+     */
     comments?: string[] | undefined;
-    /** The feedback property */
+    /**
+     * The feedback property
+     */
     feedback?: AlertFeedback | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The status property */
+    /**
+     * The status property
+     */
     status?: AlertStatus | undefined;
-    /** The updatedDateTime property */
+    /**
+     * The updatedDateTime property
+     */
     updatedDateTime?: Date | undefined;
-    /** The user property */
+    /**
+     * The user property
+     */
     user?: string | undefined;
 }

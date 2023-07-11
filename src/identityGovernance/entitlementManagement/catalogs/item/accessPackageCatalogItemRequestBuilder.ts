@@ -10,15 +10,45 @@ import {AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration} from '
 import {AccessPackageCatalogItemRequestBuilderGetRequestConfiguration} from './accessPackageCatalogItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration} from './accessPackageCatalogItemRequestBuilderPatchRequestConfiguration';
 import {AccessPackagesRequestBuilder} from './accessPackages/accessPackagesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CustomWorkflowExtensionsRequestBuilder} from './customWorkflowExtensions/customWorkflowExtensionsRequestBuilder';
+import {ResourceRolesRequestBuilder} from './resourceRoles/resourceRolesRequestBuilder';
+import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
+import {ResourceScopesRequestBuilder} from './resourceScopes/resourceScopesRequestBuilder';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
  */
 export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity. */
+    /**
+     * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
+     */
     public get accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
+     */
+    public get customWorkflowExtensions(): CustomWorkflowExtensionsRequestBuilder {
+        return new CustomWorkflowExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the resourceRoles property of the microsoft.graph.accessPackageCatalog entity.
+     */
+    public get resourceRoles(): ResourceRolesRequestBuilder {
+        return new ResourceRolesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the resources property of the microsoft.graph.accessPackageCatalog entity.
+     */
+    public get resources(): ResourcesRequestBuilder {
+        return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the resourceScopes property of the microsoft.graph.accessPackageCatalog entity.
+     */
+    public get resourceScopes(): ResourceScopesRequestBuilder {
+        return new ResourceScopesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new AccessPackageCatalogItemRequestBuilder and sets the default values.
@@ -31,10 +61,9 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an accessPackageCatalog.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -42,16 +71,15 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of an accessPackageCatalog object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalog
      * @see {@link https://docs.microsoft.com/graph/api/accesspackagecatalog-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AccessPackageCatalogItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalog | undefined> {
+    public get(requestConfiguration?: AccessPackageCatalogItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -59,17 +87,16 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update an existing accessPackageCatalog object to change one or more of its properties, such as the display name or description.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageCatalog
      * @see {@link https://docs.microsoft.com/graph/api/accesspackagecatalog-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AccessPackageCatalog | undefined, requestConfiguration?: AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageCatalog | undefined> {
+    public patch(body: AccessPackageCatalog | undefined, requestConfiguration?: AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -78,7 +105,7 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete an accessPackageCatalog.

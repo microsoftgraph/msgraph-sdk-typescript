@@ -3,6 +3,8 @@ import {DeviceConfigurationAssignment} from '../../../../models/deviceConfigurat
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AssignResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DeviceConfigurationAssignment[] | undefined;
 }

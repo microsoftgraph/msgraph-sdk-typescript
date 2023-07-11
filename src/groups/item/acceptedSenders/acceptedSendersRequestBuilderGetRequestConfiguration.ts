@@ -2,10 +2,16 @@ import {AcceptedSendersRequestBuilderGetQueryParameters} from './acceptedSenders
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AcceptedSendersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AcceptedSendersRequestBuilderGetQueryParameters | undefined;
 }

@@ -5,6 +5,7 @@ import {deserializeIntoIosLobApp} from './deserializeIntoIosLobApp';
 import {deserializeIntoIosStoreApp} from './deserializeIntoIosStoreApp';
 import {deserializeIntoIosVppApp} from './deserializeIntoIosVppApp';
 import {deserializeIntoMacOSLobApp} from './deserializeIntoMacOSLobApp';
+import {deserializeIntoMacOSMicrosoftDefenderApp} from './deserializeIntoMacOSMicrosoftDefenderApp';
 import {deserializeIntoMacOSMicrosoftEdgeApp} from './deserializeIntoMacOSMicrosoftEdgeApp';
 import {deserializeIntoMacOSOfficeSuiteApp} from './deserializeIntoMacOSOfficeSuiteApp';
 import {deserializeIntoManagedAndroidLobApp} from './deserializeIntoManagedAndroidLobApp';
@@ -23,7 +24,7 @@ import {deserializeIntoWindowsMicrosoftEdgeApp} from './deserializeIntoWindowsMi
 import {deserializeIntoWindowsMobileMSI} from './deserializeIntoWindowsMobileMSI';
 import {deserializeIntoWindowsUniversalAppX} from './deserializeIntoWindowsUniversalAppX';
 import {deserializeIntoWindowsWebApp} from './deserializeIntoWindowsWebApp';
-import {AndroidLobApp, AndroidStoreApp, IosiPadOSWebClip, IosLobApp, IosStoreApp, IosVppApp, MacOSLobApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp, MicrosoftStoreForBusinessApp, MobileApp, MobileLobApp, WebApp, Win32LobApp, WindowsAppX, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsUniversalAppX, WindowsWebApp} from './index';
+import {AndroidLobApp, AndroidStoreApp, IosiPadOSWebClip, IosLobApp, IosStoreApp, IosVppApp, MacOSLobApp, MacOSMicrosoftDefenderApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp, MicrosoftStoreForBusinessApp, MobileApp, MobileLobApp, WebApp, Win32LobApp, WindowsAppX, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsUniversalAppX, WindowsWebApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -47,6 +48,8 @@ export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | und
                     return deserializeIntoIosVppApp;
                 case "#microsoft.graph.macOSLobApp":
                     return deserializeIntoMacOSLobApp;
+                case "#microsoft.graph.macOSMicrosoftDefenderApp":
+                    return deserializeIntoMacOSMicrosoftDefenderApp;
                 case "#microsoft.graph.macOSMicrosoftEdgeApp":
                     return deserializeIntoMacOSMicrosoftEdgeApp;
                 case "#microsoft.graph.macOSOfficeSuiteApp":

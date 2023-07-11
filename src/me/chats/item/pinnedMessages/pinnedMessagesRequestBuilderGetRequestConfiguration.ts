@@ -2,10 +2,16 @@ import {PinnedMessagesRequestBuilderGetQueryParameters} from './pinnedMessagesRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface PinnedMessagesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: PinnedMessagesRequestBuilderGetQueryParameters | undefined;
 }

@@ -3,6 +3,8 @@ import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfigura
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CertificateBasedAuthConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: CertificateBasedAuthConfiguration[] | undefined;
 }

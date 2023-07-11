@@ -2,10 +2,16 @@ import {AttachmentSessionItemRequestBuilderGetQueryParameters} from './attachmen
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AttachmentSessionItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AttachmentSessionItemRequestBuilderGetQueryParameters | undefined;
 }

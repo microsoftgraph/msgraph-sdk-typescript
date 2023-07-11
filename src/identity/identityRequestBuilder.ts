@@ -13,29 +13,39 @@ import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvi
 import {IdentityRequestBuilderGetRequestConfiguration} from './identityRequestBuilderGetRequestConfiguration';
 import {IdentityRequestBuilderPatchRequestConfiguration} from './identityRequestBuilderPatchRequestConfiguration';
 import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityContainer singleton.
  */
 export class IdentityRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
+     */
     public get apiConnectors(): ApiConnectorsRequestBuilder {
         return new ApiConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
+     */
     public get b2xUserFlows(): B2xUserFlowsRequestBuilder {
         return new B2xUserFlowsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
+     */
     public get conditionalAccess(): ConditionalAccessRequestBuilder {
         return new ConditionalAccessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
+     */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity. */
+    /**
+     * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
+     */
     public get userFlowAttributes(): UserFlowAttributesRequestBuilder {
         return new UserFlowAttributesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -50,10 +60,9 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
     /**
      * Get identity
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityContainer
      */
-    public get(requestConfiguration?: IdentityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityContainer | undefined> {
+    public get(requestConfiguration?: IdentityRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityContainer | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,16 +70,15 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update identity
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityContainer
      */
-    public patch(body: IdentityContainer | undefined, requestConfiguration?: IdentityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityContainer | undefined> {
+    public patch(body: IdentityContainer | undefined, requestConfiguration?: IdentityRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityContainer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -79,7 +87,7 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get identity

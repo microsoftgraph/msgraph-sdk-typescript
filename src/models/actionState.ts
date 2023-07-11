@@ -1,4 +1,6 @@
-/** State of the action on the device */
+/**
+ * State of the action on the device
+ */
 export enum ActionState {
     /** Not a valid action state */
     None = "none",

@@ -9,21 +9,27 @@ import {OutlookRequestBuilderGetRequestConfiguration} from './outlookRequestBuil
 import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
 import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';
 import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outlook property of the microsoft.graph.user entity.
  */
 export class OutlookRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity. */
+    /**
+     * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
+     */
     public get masterCategories(): MasterCategoriesRequestBuilder {
         return new MasterCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the supportedLanguages method. */
+    /**
+     * Provides operations to call the supportedLanguages method.
+     */
     public get supportedLanguages(): SupportedLanguagesRequestBuilder {
         return new SupportedLanguagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the supportedTimeZones method. */
+    /**
+     * Provides operations to call the supportedTimeZones method.
+     */
     public get supportedTimeZones(): SupportedTimeZonesRequestBuilder {
         return new SupportedTimeZonesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -38,10 +44,9 @@ export class OutlookRequestBuilder extends BaseRequestBuilder {
     /**
      * Get outlook from me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OutlookUser
      */
-    public get(requestConfiguration?: OutlookRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OutlookUser | undefined> {
+    public get(requestConfiguration?: OutlookRequestBuilderGetRequestConfiguration | undefined) : Promise<OutlookUser | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -49,7 +54,7 @@ export class OutlookRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<OutlookUser>(requestInfo, createOutlookUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<OutlookUser>(requestInfo, createOutlookUserFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the supportedTimeZones method.

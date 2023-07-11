@@ -2,10 +2,16 @@ import {EventsRequestBuilderGetQueryParameters} from './eventsRequestBuilderGetQ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface EventsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: EventsRequestBuilderGetQueryParameters | undefined;
 }

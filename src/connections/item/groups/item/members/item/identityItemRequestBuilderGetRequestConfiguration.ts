@@ -2,10 +2,16 @@ import {IdentityItemRequestBuilderGetQueryParameters} from './identityItemReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface IdentityItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: IdentityItemRequestBuilderGetQueryParameters | undefined;
 }

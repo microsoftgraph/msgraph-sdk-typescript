@@ -12,21 +12,27 @@ import {AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration}
 import {CombinationConfigurationsRequestBuilder} from './combinationConfigurations/combinationConfigurationsRequestBuilder';
 import {UpdateAllowedCombinationsRequestBuilder} from './updateAllowedCombinations/updateAllowedCombinationsRequestBuilder';
 import {UsageRequestBuilder} from './usage/usageRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
  */
 export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity. */
+    /**
+     * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
+     */
     public get combinationConfigurations(): CombinationConfigurationsRequestBuilder {
         return new CombinationConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the updateAllowedCombinations method. */
+    /**
+     * Provides operations to call the updateAllowedCombinations method.
+     */
     public get updateAllowedCombinations(): UpdateAllowedCombinationsRequestBuilder {
         return new UpdateAllowedCombinationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the usage method. */
+    /**
+     * Provides operations to call the usage method.
+     */
     public get usage(): UsageRequestBuilder {
         return new UsageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,10 +47,9 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
     /**
      * Delete a custom authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -52,16 +57,15 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of an authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationStrengthPolicy
      * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
+    public get(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -69,17 +73,16 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationStrengthPolicy>(requestInfo, createAuthenticationStrengthPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationStrengthPolicy>(requestInfo, createAuthenticationStrengthPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationStrengthPolicy
      * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AuthenticationStrengthPolicy | undefined, requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
+    public patch(body: AuthenticationStrengthPolicy | undefined, requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -88,7 +91,7 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationStrengthPolicy>(requestInfo, createAuthenticationStrengthPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationStrengthPolicy>(requestInfo, createAuthenticationStrengthPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a custom authenticationStrengthPolicy object.

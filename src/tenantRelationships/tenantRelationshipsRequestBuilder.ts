@@ -10,17 +10,21 @@ import {DelegatedAdminCustomersRequestBuilder} from './delegatedAdminCustomers/d
 import {DelegatedAdminRelationshipsRequestBuilder} from './delegatedAdminRelationships/delegatedAdminRelationshipsRequestBuilder';
 import {TenantRelationshipsRequestBuilderGetRequestConfiguration} from './tenantRelationshipsRequestBuilderGetRequestConfiguration';
 import {TenantRelationshipsRequestBuilderPatchRequestConfiguration} from './tenantRelationshipsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tenantRelationship singleton.
  */
 export class TenantRelationshipsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity. */
+    /**
+     * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
+     */
     public get delegatedAdminCustomers(): DelegatedAdminCustomersRequestBuilder {
         return new DelegatedAdminCustomersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity. */
+    /**
+     * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
+     */
     public get delegatedAdminRelationships(): DelegatedAdminRelationshipsRequestBuilder {
         return new DelegatedAdminRelationshipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -35,10 +39,9 @@ export class TenantRelationshipsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TenantRelationship
      */
-    public get(requestConfiguration?: TenantRelationshipsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TenantRelationship | undefined> {
+    public get(requestConfiguration?: TenantRelationshipsRequestBuilderGetRequestConfiguration | undefined) : Promise<TenantRelationship | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class TenantRelationshipsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TenantRelationship>(requestInfo, createTenantRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TenantRelationship>(requestInfo, createTenantRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TenantRelationship
      */
-    public patch(body: TenantRelationship | undefined, requestConfiguration?: TenantRelationshipsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TenantRelationship | undefined> {
+    public patch(body: TenantRelationship | undefined, requestConfiguration?: TenantRelationshipsRequestBuilderPatchRequestConfiguration | undefined) : Promise<TenantRelationship | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -64,7 +66,7 @@ export class TenantRelationshipsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TenantRelationship>(requestInfo, createTenantRelationshipFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TenantRelationship>(requestInfo, createTenantRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get tenantRelationships

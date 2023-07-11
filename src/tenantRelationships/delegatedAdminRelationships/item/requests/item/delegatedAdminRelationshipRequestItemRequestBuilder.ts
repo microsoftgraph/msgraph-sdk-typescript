@@ -9,7 +9,7 @@ import {serializeDelegatedAdminRelationshipRequest} from '../../../../../models/
 import {DelegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -26,9 +26,8 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
     /**
      * Delete navigation property requests for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a delegatedAdminRelationshipRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipRequest
      * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationshiprequest-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
+    public get(requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipRequest>(requestInfo, createDelegatedAdminRelationshipRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DelegatedAdminRelationshipRequest>(requestInfo, createDelegatedAdminRelationshipRequestFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property requests in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipRequest
      */
-    public patch(body: DelegatedAdminRelationshipRequest | undefined, requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
+    public patch(body: DelegatedAdminRelationshipRequest | undefined, requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipRequest>(requestInfo, createDelegatedAdminRelationshipRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DelegatedAdminRelationshipRequest>(requestInfo, createDelegatedAdminRelationshipRequestFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property requests for tenantRelationships

@@ -12,21 +12,27 @@ import {AnalyticsRequestBuilderGetRequestConfiguration} from './analyticsRequest
 import {AnalyticsRequestBuilderPatchRequestConfiguration} from './analyticsRequestBuilderPatchRequestConfiguration';
 import {ItemActivityStatsRequestBuilder} from './itemActivityStats/itemActivityStatsRequestBuilder';
 import {LastSevenDaysRequestBuilder} from './lastSevenDays/lastSevenDaysRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the analytics property of the microsoft.graph.site entity.
  */
 export class AnalyticsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity. */
+    /**
+     * Provides operations to manage the allTime property of the microsoft.graph.itemAnalytics entity.
+     */
     public get allTime(): AllTimeRequestBuilder {
         return new AllTimeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity. */
+    /**
+     * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
+     */
     public get itemActivityStats(): ItemActivityStatsRequestBuilder {
         return new ItemActivityStatsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity. */
+    /**
+     * Provides operations to manage the lastSevenDays property of the microsoft.graph.itemAnalytics entity.
+     */
     public get lastSevenDays(): LastSevenDaysRequestBuilder {
         return new LastSevenDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,9 +47,8 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property analytics for groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AnalyticsRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AnalyticsRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -51,15 +56,14 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Analytics about the view activities that took place in this site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ItemAnalytics
      */
-    public get(requestConfiguration?: AnalyticsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemAnalytics | undefined> {
+    public get(requestConfiguration?: AnalyticsRequestBuilderGetRequestConfiguration | undefined) : Promise<ItemAnalytics | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -67,16 +71,15 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property analytics in groups
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ItemAnalytics
      */
-    public patch(body: ItemAnalytics | undefined, requestConfiguration?: AnalyticsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemAnalytics | undefined> {
+    public patch(body: ItemAnalytics | undefined, requestConfiguration?: AnalyticsRequestBuilderPatchRequestConfiguration | undefined) : Promise<ItemAnalytics | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -85,7 +88,7 @@ export class AnalyticsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ItemAnalytics>(requestInfo, createItemAnalyticsFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property analytics for groups

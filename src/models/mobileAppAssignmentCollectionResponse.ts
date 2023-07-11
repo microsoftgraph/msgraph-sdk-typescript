@@ -3,6 +3,8 @@ import {MobileAppAssignment} from './mobileAppAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: MobileAppAssignment[] | undefined;
 }

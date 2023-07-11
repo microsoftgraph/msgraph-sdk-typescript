@@ -27,6 +27,7 @@ import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder} from './imported
 import {IosUpdateStatusesRequestBuilder} from './iosUpdateStatuses/iosUpdateStatusesRequestBuilder';
 import {ManagedDeviceOverviewRequestBuilder} from './managedDeviceOverview/managedDeviceOverviewRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
+import {MobileAppTroubleshootingEventsRequestBuilder} from './mobileAppTroubleshootingEvents/mobileAppTroubleshootingEventsRequestBuilder';
 import {MobileThreatDefenseConnectorsRequestBuilder} from './mobileThreatDefenseConnectors/mobileThreatDefenseConnectorsRequestBuilder';
 import {NotificationMessageTemplatesRequestBuilder} from './notificationMessageTemplates/notificationMessageTemplatesRequestBuilder';
 import {RemoteAssistancePartnersRequestBuilder} from './remoteAssistancePartners/remoteAssistancePartnersRequestBuilder';
@@ -38,143 +39,381 @@ import {SoftwareUpdateStatusSummaryRequestBuilder} from './softwareUpdateStatusS
 import {TelecomExpenseManagementPartnersRequestBuilder} from './telecomExpenseManagementPartners/telecomExpenseManagementPartnersRequestBuilder';
 import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndConditionsRequestBuilder';
 import {TroubleshootingEventsRequestBuilder} from './troubleshootingEvents/troubleshootingEventsRequestBuilder';
+import {UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformance/userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder';
+import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails/userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder';
+import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId/userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder';
+import {UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder} from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion/userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder';
+import {UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthDeviceModelPerformance/userExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder';
+import {UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthDevicePerformance/userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder';
+import {UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder} from './userExperienceAnalyticsAppHealthDevicePerformanceDetails/userExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder';
+import {UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder} from './userExperienceAnalyticsAppHealthOSVersionPerformance/userExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder';
+import {UserExperienceAnalyticsAppHealthOverviewRequestBuilder} from './userExperienceAnalyticsAppHealthOverview/userExperienceAnalyticsAppHealthOverviewRequestBuilder';
+import {UserExperienceAnalyticsBaselinesRequestBuilder} from './userExperienceAnalyticsBaselines/userExperienceAnalyticsBaselinesRequestBuilder';
+import {UserExperienceAnalyticsCategoriesRequestBuilder} from './userExperienceAnalyticsCategories/userExperienceAnalyticsCategoriesRequestBuilder';
+import {UserExperienceAnalyticsDevicePerformanceRequestBuilder} from './userExperienceAnalyticsDevicePerformance/userExperienceAnalyticsDevicePerformanceRequestBuilder';
+import {UserExperienceAnalyticsDeviceScoresRequestBuilder} from './userExperienceAnalyticsDeviceScores/userExperienceAnalyticsDeviceScoresRequestBuilder';
+import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder} from './userExperienceAnalyticsDeviceStartupHistory/userExperienceAnalyticsDeviceStartupHistoryRequestBuilder';
+import {UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder} from './userExperienceAnalyticsDeviceStartupProcesses/userExperienceAnalyticsDeviceStartupProcessesRequestBuilder';
+import {UserExperienceAnalyticsMetricHistoryRequestBuilder} from './userExperienceAnalyticsMetricHistory/userExperienceAnalyticsMetricHistoryRequestBuilder';
+import {UserExperienceAnalyticsModelScoresRequestBuilder} from './userExperienceAnalyticsModelScores/userExperienceAnalyticsModelScoresRequestBuilder';
+import {UserExperienceAnalyticsOverviewRequestBuilder} from './userExperienceAnalyticsOverview/userExperienceAnalyticsOverviewRequestBuilder';
+import {UserExperienceAnalyticsScoreHistoryRequestBuilder} from './userExperienceAnalyticsScoreHistory/userExperienceAnalyticsScoreHistoryRequestBuilder';
+import {UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder} from './userExperienceAnalyticsSummarizeWorkFromAnywhereDevices/userExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder';
+import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder';
+import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder} from './userExperienceAnalyticsWorkFromAnywhereMetrics/userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder';
+import {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance/userExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder';
 import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder} from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilder} from './windowsAutopilotDeviceIdentities/windowsAutopilotDeviceIdentitiesRequestBuilder';
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {WindowsMalwareInformationRequestBuilder} from './windowsMalwareInformation/windowsMalwareInformationRequestBuilder';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagement singleton.
  */
 export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the applePushNotificationCertificate property of the microsoft.graph.deviceManagement entity.
+     */
     public get applePushNotificationCertificate(): ApplePushNotificationCertificateRequestBuilder {
         return new ApplePushNotificationCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
+     */
     public get auditEvents(): AuditEventsRequestBuilder {
         return new AuditEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
+     */
     public get complianceManagementPartners(): ComplianceManagementPartnersRequestBuilder {
         return new ComplianceManagementPartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagement entity.
+     */
     public get conditionalAccessSettings(): ConditionalAccessSettingsRequestBuilder {
         return new ConditionalAccessSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
+     */
     public get detectedApps(): DetectedAppsRequestBuilder {
         return new DetectedAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceCategories(): DeviceCategoriesRequestBuilder {
         return new DeviceCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceCompliancePolicies property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceCompliancePolicies(): DeviceCompliancePoliciesRequestBuilder {
         return new DeviceCompliancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceCompliancePolicyDeviceStateSummary property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceCompliancePolicyDeviceStateSummary property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceCompliancePolicyDeviceStateSummary(): DeviceCompliancePolicyDeviceStateSummaryRequestBuilder {
         return new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceCompliancePolicySettingStateSummaries(): DeviceCompliancePolicySettingStateSummariesRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceConfigurationDeviceStateSummaries property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceConfigurationDeviceStateSummaries property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceConfigurationDeviceStateSummaries(): DeviceConfigurationDeviceStateSummariesRequestBuilder {
         return new DeviceConfigurationDeviceStateSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceConfigurations(): DeviceConfigurationsRequestBuilder {
         return new DeviceConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceEnrollmentConfigurations(): DeviceEnrollmentConfigurationsRequestBuilder {
         return new DeviceEnrollmentConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
+     */
     public get deviceManagementPartners(): DeviceManagementPartnersRequestBuilder {
         return new DeviceManagementPartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
+     */
     public get exchangeConnectors(): ExchangeConnectorsRequestBuilder {
         return new ExchangeConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
+     */
     public get importedWindowsAutopilotDeviceIdentities(): ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
+     */
     public get iosUpdateStatuses(): IosUpdateStatusesRequestBuilder {
         return new IosUpdateStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the managedDeviceOverview property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the managedDeviceOverview property of the microsoft.graph.deviceManagement entity.
+     */
     public get managedDeviceOverview(): ManagedDeviceOverviewRequestBuilder {
         return new ManagedDeviceOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
+     */
     public get managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
+     */
+    public get mobileAppTroubleshootingEvents(): MobileAppTroubleshootingEventsRequestBuilder {
+        return new MobileAppTroubleshootingEventsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
+     */
     public get mobileThreatDefenseConnectors(): MobileThreatDefenseConnectorsRequestBuilder {
         return new MobileThreatDefenseConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
+     */
     public get notificationMessageTemplates(): NotificationMessageTemplatesRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
+     */
     public get remoteAssistancePartners(): RemoteAssistancePartnersRequestBuilder {
         return new RemoteAssistancePartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.
+     */
     public get reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
+     */
     public get resourceOperations(): ResourceOperationsRequestBuilder {
         return new ResourceOperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
+     */
     public get roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
+     */
     public get roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the softwareUpdateStatusSummary property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the softwareUpdateStatusSummary property of the microsoft.graph.deviceManagement entity.
+     */
     public get softwareUpdateStatusSummary(): SoftwareUpdateStatusSummaryRequestBuilder {
         return new SoftwareUpdateStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
+     */
     public get telecomExpenseManagementPartners(): TelecomExpenseManagementPartnersRequestBuilder {
         return new TelecomExpenseManagementPartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
+     */
     public get termsAndConditions(): TermsAndConditionsRequestBuilder {
         return new TermsAndConditionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
+     */
     public get troubleshootingEvents(): TroubleshootingEventsRequestBuilder {
         return new TroubleshootingEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthApplicationPerformance(): UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId(): UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceIdRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion(): UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDeviceModelPerformance property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthDeviceModelPerformance(): UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthDevicePerformance(): UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformanceDetails property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthDevicePerformanceDetails(): UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthOSVersionPerformance property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthOSVersionPerformance(): UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsAppHealthOverview property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsAppHealthOverview(): UserExperienceAnalyticsAppHealthOverviewRequestBuilder {
+        return new UserExperienceAnalyticsAppHealthOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsBaselines(): UserExperienceAnalyticsBaselinesRequestBuilder {
+        return new UserExperienceAnalyticsBaselinesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsCategories property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsCategories(): UserExperienceAnalyticsCategoriesRequestBuilder {
+        return new UserExperienceAnalyticsCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsDevicePerformance(): UserExperienceAnalyticsDevicePerformanceRequestBuilder {
+        return new UserExperienceAnalyticsDevicePerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsDeviceScores(): UserExperienceAnalyticsDeviceScoresRequestBuilder {
+        return new UserExperienceAnalyticsDeviceScoresRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsDeviceStartupHistory(): UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder {
+        return new UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsDeviceStartupProcesses(): UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder {
+        return new UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsMetricHistory(): UserExperienceAnalyticsMetricHistoryRequestBuilder {
+        return new UserExperienceAnalyticsMetricHistoryRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsModelScores property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsModelScores(): UserExperienceAnalyticsModelScoresRequestBuilder {
+        return new UserExperienceAnalyticsModelScoresRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsOverview property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsOverview(): UserExperienceAnalyticsOverviewRequestBuilder {
+        return new UserExperienceAnalyticsOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsScoreHistory property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsScoreHistory(): UserExperienceAnalyticsScoreHistoryRequestBuilder {
+        return new UserExperienceAnalyticsScoreHistoryRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the userExperienceAnalyticsSummarizeWorkFromAnywhereDevices method.
+     */
+    public get userExperienceAnalyticsSummarizeWorkFromAnywhereDevices(): UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder {
+        return new UserExperienceAnalyticsSummarizeWorkFromAnywhereDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(): UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder {
+        return new UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsWorkFromAnywhereMetrics(): UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder {
+        return new UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
+     */
+    public get userExperienceAnalyticsWorkFromAnywhereModelPerformance(): UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder {
+        return new UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
+     */
     public get windowsAutopilotDeviceIdentities(): WindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new WindowsAutopilotDeviceIdentitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity.
+     */
     public get windowsInformationProtectionAppLearningSummaries(): WindowsInformationProtectionAppLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionAppLearningSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity. */
+    /**
+     * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.
+     */
     public get windowsInformationProtectionNetworkLearningSummaries(): WindowsInformationProtectionNetworkLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the windowsMalwareInformation property of the microsoft.graph.deviceManagement entity.
+     */
+    public get windowsMalwareInformation(): WindowsMalwareInformationRequestBuilder {
+        return new WindowsMalwareInformationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new DeviceManagementRequestBuilder and sets the default values.
@@ -185,12 +424,12 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement{?%24select,%24expand}");
     };
     /**
-     * Get deviceManagement
+     * Read properties and relationships of the deviceManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagement
+     * @see {@link https://docs.microsoft.com/graph/api/intune-gpanalyticsservice-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeviceManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagement | undefined> {
+    public get(requestConfiguration?: DeviceManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -198,7 +437,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceManagement>(requestInfo, createDeviceManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceManagement>(requestInfo, createDeviceManagementFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the getEffectivePermissions method.
@@ -210,13 +449,13 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
         return new GetEffectivePermissionsWithScopeRequestBuilder(this.pathParameters, this.requestAdapter, scope);
     };
     /**
-     * Update deviceManagement
+     * Update the properties of a deviceManagement object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagement
+     * @see {@link https://docs.microsoft.com/graph/api/intune-gpanalyticsservice-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceManagement | undefined, requestConfiguration?: DeviceManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagement | undefined> {
+    public patch(body: DeviceManagement | undefined, requestConfiguration?: DeviceManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -225,10 +464,10 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceManagement>(requestInfo, createDeviceManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceManagement>(requestInfo, createDeviceManagementFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get deviceManagement
+     * Read properties and relationships of the deviceManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -246,7 +485,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update deviceManagement
+     * Update the properties of a deviceManagement object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

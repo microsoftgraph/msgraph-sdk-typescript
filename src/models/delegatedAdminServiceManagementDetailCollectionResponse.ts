@@ -3,6 +3,8 @@ import {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceMana
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminServiceManagementDetailCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DelegatedAdminServiceManagementDetail[] | undefined;
 }

@@ -1,4 +1,6 @@
-/** TV content rating labels in Germany */
+/**
+ * TV content rating labels in Germany
+ */
 export enum RatingGermanyTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

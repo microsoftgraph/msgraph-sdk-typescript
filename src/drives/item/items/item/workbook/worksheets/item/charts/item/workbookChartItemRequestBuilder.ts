@@ -22,49 +22,69 @@ import {WorkbookChartItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookChartItemRequestBuilderGetRequestConfiguration} from './workbookChartItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartItemRequestBuilderPatchRequestConfiguration} from './workbookChartItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
  */
 export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the axes property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.
+     */
     public get axes(): AxesRequestBuilder {
         return new AxesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the dataLabels property of the microsoft.graph.workbookChart entity.
+     */
     public get dataLabels(): DataLabelsRequestBuilder {
         return new DataLabelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the format property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the format property of the microsoft.graph.workbookChart entity.
+     */
     public get format(): FormatRequestBuilder {
         return new FormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the image method. */
+    /**
+     * Provides operations to call the image method.
+     */
     public get image(): ImageRequestBuilder {
         return new ImageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the legend property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the legend property of the microsoft.graph.workbookChart entity.
+     */
     public get legend(): LegendRequestBuilder {
         return new LegendRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the series property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
+     */
     public get series(): SeriesRequestBuilder {
         return new SeriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setData method. */
+    /**
+     * Provides operations to call the setData method.
+     */
     public get setData(): SetDataRequestBuilder {
         return new SetDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the setPosition method. */
+    /**
+     * Provides operations to call the setPosition method.
+     */
     public get setPosition(): SetPositionRequestBuilder {
         return new SetPositionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the title property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the title property of the microsoft.graph.workbookChart entity.
+     */
     public get title(): TitleRequestBuilder {
         return new TitleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheet property of the microsoft.graph.workbookChart entity. */
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookChart entity.
+     */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -79,10 +99,9 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/chart-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: WorkbookChartItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookChartItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -90,16 +109,15 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChart
      * @see {@link https://docs.microsoft.com/graph/api/chart-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookChartItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChart | undefined> {
+    public get(requestConfiguration?: WorkbookChartItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -107,7 +125,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the image method.
@@ -146,11 +164,10 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * Update the properties of chart object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChart
      * @see {@link https://docs.microsoft.com/graph/api/chart-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChart | undefined, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChart | undefined> {
+    public patch(body: WorkbookChart | undefined, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -159,7 +176,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, errorMapping);
     };
     /**
      * Deletes the chart object.

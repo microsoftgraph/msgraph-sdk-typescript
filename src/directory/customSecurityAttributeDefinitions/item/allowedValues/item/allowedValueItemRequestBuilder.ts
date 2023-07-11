@@ -9,7 +9,7 @@ import {serializeAllowedValue} from '../../../../../models/serializeAllowedValue
 import {AllowedValueItemRequestBuilderDeleteRequestConfiguration} from './allowedValueItemRequestBuilderDeleteRequestConfiguration';
 import {AllowedValueItemRequestBuilderGetRequestConfiguration} from './allowedValueItemRequestBuilderGetRequestConfiguration';
 import {AllowedValueItemRequestBuilderPatchRequestConfiguration} from './allowedValueItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
@@ -26,9 +26,8 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property allowedValues for directory
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AllowedValueItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AllowedValueItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of an allowedValue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AllowedValue
      * @see {@link https://docs.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AllowedValueItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AllowedValue | undefined> {
+    public get(requestConfiguration?: AllowedValueItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,17 +51,16 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AllowedValue>(requestInfo, createAllowedValueFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AllowedValue>(requestInfo, createAllowedValueFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an allowedValue object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AllowedValue
      * @see {@link https://docs.microsoft.com/graph/api/allowedvalue-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AllowedValue | undefined, requestConfiguration?: AllowedValueItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AllowedValue | undefined> {
+    public patch(body: AllowedValue | undefined, requestConfiguration?: AllowedValueItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AllowedValue>(requestInfo, createAllowedValueFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AllowedValue>(requestInfo, createAllowedValueFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property allowedValues for directory
