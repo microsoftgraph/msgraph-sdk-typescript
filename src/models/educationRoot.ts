@@ -4,16 +4,28 @@ import {EducationUser} from './educationUser';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationRoot extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The classes property */
+    /**
+     * The classes property
+     */
     classes?: EducationClass[] | undefined;
-    /** The me property */
+    /**
+     * The me property
+     */
     me?: EducationUser | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The schools property */
+    /**
+     * The schools property
+     */
     schools?: EducationSchool[] | undefined;
-    /** The users property */
+    /**
+     * The users property
+     */
     users?: EducationUser[] | undefined;
 }

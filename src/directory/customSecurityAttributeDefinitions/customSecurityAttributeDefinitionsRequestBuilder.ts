@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration} from './customSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration';
 import {CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration} from './customSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration';
 import {CustomSecurityAttributeDefinitionItemRequestBuilder} from './item/customSecurityAttributeDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
  */
 export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
     /**
      * Get a list of the customSecurityAttributeDefinition objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CustomSecurityAttributeDefinitionCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/directory-list-customsecurityattributedefinitions?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CustomSecurityAttributeDefinitionCollectionResponse | undefined> {
+    public get(requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,17 +57,16 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CustomSecurityAttributeDefinitionCollectionResponse>(requestInfo, createCustomSecurityAttributeDefinitionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CustomSecurityAttributeDefinitionCollectionResponse>(requestInfo, createCustomSecurityAttributeDefinitionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new customSecurityAttributeDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of CustomSecurityAttributeDefinition
      * @see {@link https://docs.microsoft.com/graph/api/directory-post-customsecurityattributedefinitions?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
+    public post(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -75,7 +75,7 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<CustomSecurityAttributeDefinition>(requestInfo, createCustomSecurityAttributeDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<CustomSecurityAttributeDefinition>(requestInfo, createCustomSecurityAttributeDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get a list of the customSecurityAttributeDefinition objects and their properties.

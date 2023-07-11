@@ -11,17 +11,21 @@ import {ProtectionRequestBuilderDeleteRequestConfiguration} from './protectionRe
 import {ProtectionRequestBuilderGetRequestConfiguration} from './protectionRequestBuilderGetRequestConfiguration';
 import {ProtectionRequestBuilderPatchRequestConfiguration} from './protectionRequestBuilderPatchRequestConfiguration';
 import {UnprotectRequestBuilder} from './unprotect/unprotectRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protection property of the microsoft.graph.workbookWorksheet entity.
  */
 export class ProtectionRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the protect method. */
+    /**
+     * Provides operations to call the protect method.
+     */
     public get protect(): ProtectRequestBuilder {
         return new ProtectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unprotect method. */
+    /**
+     * Provides operations to call the unprotect method.
+     */
     public get unprotect(): UnprotectRequestBuilder {
         return new UnprotectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -36,9 +40,8 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property protection for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ProtectionRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ProtectionRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -46,16 +49,15 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of worksheetprotection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookWorksheetProtection
      * @see {@link https://docs.microsoft.com/graph/api/worksheetprotection-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ProtectionRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
+    public get(requestConfiguration?: ProtectionRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,16 +65,15 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookWorksheetProtection>(requestInfo, createWorkbookWorksheetProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookWorksheetProtection>(requestInfo, createWorkbookWorksheetProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property protection in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookWorksheetProtection
      */
-    public patch(body: WorkbookWorksheetProtection | undefined, requestConfiguration?: ProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
+    public patch(body: WorkbookWorksheetProtection | undefined, requestConfiguration?: ProtectionRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -81,7 +82,7 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookWorksheetProtection>(requestInfo, createWorkbookWorksheetProtectionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookWorksheetProtection>(requestInfo, createWorkbookWorksheetProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property protection for drives

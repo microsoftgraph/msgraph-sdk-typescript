@@ -12,21 +12,27 @@ import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';
 import {SortRequestBuilderDeleteRequestConfiguration} from './sortRequestBuilderDeleteRequestConfiguration';
 import {SortRequestBuilderGetRequestConfiguration} from './sortRequestBuilderGetRequestConfiguration';
 import {SortRequestBuilderPatchRequestConfiguration} from './sortRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
  */
 export class SortRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the apply method. */
+    /**
+     * Provides operations to call the apply method.
+     */
     public get apply(): ApplyRequestBuilder {
         return new ApplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the clear method. */
+    /**
+     * Provides operations to call the clear method.
+     */
     public get clear(): ClearRequestBuilder {
         return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reapply method. */
+    /**
+     * Provides operations to call the reapply method.
+     */
     public get reapply(): ReapplyRequestBuilder {
         return new ReapplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -41,9 +47,8 @@ export class SortRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property sort for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: SortRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: SortRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -51,16 +56,15 @@ export class SortRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of tablesort object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableSort
      * @see {@link https://docs.microsoft.com/graph/api/tablesort-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: SortRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableSort | undefined> {
+    public get(requestConfiguration?: SortRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableSort | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -68,16 +72,15 @@ export class SortRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTableSort>(requestInfo, createWorkbookTableSortFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTableSort>(requestInfo, createWorkbookTableSortFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property sort in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableSort
      */
-    public patch(body: WorkbookTableSort | undefined, requestConfiguration?: SortRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableSort | undefined> {
+    public patch(body: WorkbookTableSort | undefined, requestConfiguration?: SortRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTableSort | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -86,7 +89,7 @@ export class SortRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTableSort>(requestInfo, createWorkbookTableSortFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTableSort>(requestInfo, createWorkbookTableSortFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property sort for drives

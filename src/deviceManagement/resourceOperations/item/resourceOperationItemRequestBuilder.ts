@@ -9,7 +9,7 @@ import {serializeResourceOperation} from '../../../models/serializeResourceOpera
 import {ResourceOperationItemRequestBuilderDeleteRequestConfiguration} from './resourceOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ResourceOperationItemRequestBuilderGetRequestConfiguration} from './resourceOperationItemRequestBuilderGetRequestConfiguration';
 import {ResourceOperationItemRequestBuilderPatchRequestConfiguration} from './resourceOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
@@ -26,9 +26,8 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property resourceOperations for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ResourceOperationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ResourceOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * The Resource Operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ResourceOperation
      */
-    public get(requestConfiguration?: ResourceOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceOperation | undefined> {
+    public get(requestConfiguration?: ResourceOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property resourceOperations in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ResourceOperation
      */
-    public patch(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceOperation | undefined> {
+    public patch(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property resourceOperations for deviceManagement

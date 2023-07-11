@@ -3,6 +3,8 @@ import {LicenseDetails} from './licenseDetails';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LicenseDetailsCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: LicenseDetails[] | undefined;
 }

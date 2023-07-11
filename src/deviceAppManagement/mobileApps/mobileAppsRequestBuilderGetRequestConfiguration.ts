@@ -2,10 +2,16 @@ import {MobileAppsRequestBuilderGetQueryParameters} from './mobileAppsRequestBui
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: MobileAppsRequestBuilderGetQueryParameters | undefined;
 }

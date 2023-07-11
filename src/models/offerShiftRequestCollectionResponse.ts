@@ -3,6 +3,8 @@ import {OfferShiftRequest} from './offerShiftRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OfferShiftRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: OfferShiftRequest[] | undefined;
 }

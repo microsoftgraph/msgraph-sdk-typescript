@@ -3,6 +3,8 @@ import {OnenoteSection} from './onenoteSection';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenoteSectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: OnenoteSection[] | undefined;
 }

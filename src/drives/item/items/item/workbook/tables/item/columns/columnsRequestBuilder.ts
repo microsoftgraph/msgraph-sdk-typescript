@@ -14,17 +14,21 @@ import {ColumnsRequestBuilderPostRequestConfiguration} from './columnsRequestBui
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookTableColumnItemRequestBuilder} from './item/workbookTableColumnItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
  */
 export class ColumnsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the add method. */
+    /**
+     * Provides operations to call the add method.
+     */
     public get add(): AddRequestBuilder {
         return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the count method. */
+    /**
+     * Provides operations to call the count method.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -50,11 +54,10 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumnCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
+    public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -62,7 +65,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTableColumnCollectionResponse>(requestInfo, createWorkbookTableColumnCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTableColumnCollectionResponse>(requestInfo, createWorkbookTableColumnCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the itemAt method.
@@ -77,11 +80,10 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * Use this API to create a new TableColumn.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableColumn
      * @see {@link https://docs.microsoft.com/graph/api/table-post-columns?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WorkbookTableColumn | undefined, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableColumn | undefined> {
+    public post(body: WorkbookTableColumn | undefined, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTableColumn | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -90,7 +92,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTableColumn>(requestInfo, createWorkbookTableColumnFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTableColumn>(requestInfo, createWorkbookTableColumnFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of tablecolumn objects.

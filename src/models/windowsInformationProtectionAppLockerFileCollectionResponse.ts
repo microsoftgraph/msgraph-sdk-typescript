@@ -3,6 +3,8 @@ import {WindowsInformationProtectionAppLockerFile} from './windowsInformationPro
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionAppLockerFileCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: WindowsInformationProtectionAppLockerFile[] | undefined;
 }

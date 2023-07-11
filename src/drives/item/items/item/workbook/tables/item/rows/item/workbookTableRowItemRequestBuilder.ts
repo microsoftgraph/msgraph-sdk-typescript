@@ -10,13 +10,15 @@ import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration} from './workbookTableRowItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableRowItemRequestBuilderGetRequestConfiguration} from './workbookTableRowItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableRowItemRequestBuilderPatchRequestConfiguration} from './workbookTableRowItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
  */
 export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the range method. */
+    /**
+     * Provides operations to call the range method.
+     */
     public get range(): RangeRequestBuilder {
         return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -31,10 +33,9 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the row from the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/tablerow-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -42,16 +43,15 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of tablerow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableRow
      * @see {@link https://docs.microsoft.com/graph/api/tablerow-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookTableRowItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableRow | undefined> {
+    public get(requestConfiguration?: WorkbookTableRowItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableRow | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -59,17 +59,16 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTableRow>(requestInfo, createWorkbookTableRowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTableRow>(requestInfo, createWorkbookTableRowFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of tablerow object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTableRow
      * @see {@link https://docs.microsoft.com/graph/api/tablerow-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookTableRow | undefined, requestConfiguration?: WorkbookTableRowItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTableRow | undefined> {
+    public patch(body: WorkbookTableRow | undefined, requestConfiguration?: WorkbookTableRowItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTableRow | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -78,7 +77,7 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTableRow>(requestInfo, createWorkbookTableRowFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTableRow>(requestInfo, createWorkbookTableRowFromDiscriminatorValue, errorMapping);
     };
     /**
      * Deletes the row from the table.

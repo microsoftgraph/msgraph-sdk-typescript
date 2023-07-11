@@ -16,51 +16,78 @@ import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProf
 import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuilder';
 import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
+import {ThreatIntelligenceRequestBuilder} from './threatIntelligence/threatIntelligenceRequestBuilder';
 import {TriggersRequestBuilder} from './triggers/triggersRequestBuilder';
 import {TriggerTypesRequestBuilder} from './triggerTypes/triggerTypesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the security singleton.
  */
 export class SecurityRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the alerts property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the alerts property of the microsoft.graph.security entity.
+     */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
+     */
     public get alerts_v2(): Alerts_v2RequestBuilder {
         return new Alerts_v2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attackSimulation property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the attackSimulation property of the microsoft.graph.security entity.
+     */
     public get attackSimulation(): AttackSimulationRequestBuilder {
         return new AttackSimulationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the cases property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the cases property of the microsoft.graph.security entity.
+     */
     public get cases(): CasesRequestBuilder {
         return new CasesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the incidents property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the incidents property of the microsoft.graph.security entity.
+     */
     public get incidents(): IncidentsRequestBuilder {
         return new IncidentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the runHuntingQuery method. */
+    /**
+     * Provides operations to call the runHuntingQuery method.
+     */
     public get microsoftGraphSecurityRunHuntingQuery(): MicrosoftGraphSecurityRunHuntingQueryRequestBuilder {
         return new MicrosoftGraphSecurityRunHuntingQueryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
+     */
     public get secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the secureScores property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
+     */
     public get secureScores(): SecureScoresRequestBuilder {
         return new SecureScoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the triggers property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.
+     */
+    public get threatIntelligence(): ThreatIntelligenceRequestBuilder {
+        return new ThreatIntelligenceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the triggers property of the microsoft.graph.security entity.
+     */
     public get triggers(): TriggersRequestBuilder {
         return new TriggersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the triggerTypes property of the microsoft.graph.security entity. */
+    /**
+     * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
+     */
     public get triggerTypes(): TriggerTypesRequestBuilder {
         return new TriggerTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -75,10 +102,9 @@ export class SecurityRequestBuilder extends BaseRequestBuilder {
     /**
      * Get security
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security
      */
-    public get(requestConfiguration?: SecurityRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Security | undefined> {
+    public get(requestConfiguration?: SecurityRequestBuilderGetRequestConfiguration | undefined) : Promise<Security | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -86,16 +112,15 @@ export class SecurityRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update security
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security
      */
-    public patch(body: Security | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Security | undefined> {
+    public patch(body: Security | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined) : Promise<Security | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -104,7 +129,7 @@ export class SecurityRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Security>(requestInfo, createSecurityFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get security

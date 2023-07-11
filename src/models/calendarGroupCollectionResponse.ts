@@ -3,6 +3,8 @@ import {CalendarGroup} from './calendarGroup';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CalendarGroupCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: CalendarGroup[] | undefined;
 }

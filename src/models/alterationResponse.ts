@@ -3,14 +3,24 @@ import {SearchAlterationType} from './searchAlterationType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AlterationResponse extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** Defines the original user query string. */
+    /**
+     * Defines the original user query string.
+     */
     originalQueryString?: string | undefined;
-    /** Defines the details of the alteration information for the spelling correction. */
+    /**
+     * Defines the details of the alteration information for the spelling correction.
+     */
     queryAlteration?: SearchAlteration | undefined;
-    /** Defines the type of the spelling correction. Possible values are: suggestion, modification. */
+    /**
+     * Defines the type of the spelling correction. Possible values are: suggestion, modification.
+     */
     queryAlterationType?: SearchAlterationType | undefined;
 }

@@ -11,21 +11,27 @@ import {AuditLogsRequestBuilderPatchRequestConfiguration} from './auditLogsReque
 import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
 import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditLogRoot singleton.
  */
 export class AuditLogsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity. */
+    /**
+     * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
+     */
     public get directoryAudits(): DirectoryAuditsRequestBuilder {
         return new DirectoryAuditsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity. */
+    /**
+     * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
+     */
     public get provisioning(): ProvisioningRequestBuilder {
         return new ProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity. */
+    /**
+     * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
+     */
     public get signIns(): SignInsRequestBuilder {
         return new SignInsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -40,10 +46,9 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get auditLogs
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
      */
-    public get(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
+    public get(requestConfiguration?: AuditLogsRequestBuilderGetRequestConfiguration | undefined) : Promise<AuditLogRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -51,16 +56,15 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update auditLogs
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
      */
-    public patch(body: AuditLogRoot | undefined, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
+    public patch(body: AuditLogRoot | undefined, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuditLogRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -69,7 +73,7 @@ export class AuditLogsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuditLogRoot>(requestInfo, createAuditLogRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get auditLogs

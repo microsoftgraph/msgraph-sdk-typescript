@@ -9,13 +9,15 @@ import {serializePrivacy} from '../models/serializePrivacy';
 import {PrivacyRequestBuilderGetRequestConfiguration} from './privacyRequestBuilderGetRequestConfiguration';
 import {PrivacyRequestBuilderPatchRequestConfiguration} from './privacyRequestBuilderPatchRequestConfiguration';
 import {SubjectRightsRequestsRequestBuilder} from './subjectRightsRequests/subjectRightsRequestsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the privacy singleton.
  */
 export class PrivacyRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity. */
+    /**
+     * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
+     */
     public get subjectRightsRequests(): SubjectRightsRequestsRequestBuilder {
         return new SubjectRightsRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -30,10 +32,9 @@ export class PrivacyRequestBuilder extends BaseRequestBuilder {
     /**
      * Get privacy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Privacy
      */
-    public get(requestConfiguration?: PrivacyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Privacy | undefined> {
+    public get(requestConfiguration?: PrivacyRequestBuilderGetRequestConfiguration | undefined) : Promise<Privacy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -41,16 +42,15 @@ export class PrivacyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update privacy
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Privacy
      */
-    public patch(body: Privacy | undefined, requestConfiguration?: PrivacyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Privacy | undefined> {
+    public patch(body: Privacy | undefined, requestConfiguration?: PrivacyRequestBuilderPatchRequestConfiguration | undefined) : Promise<Privacy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -59,7 +59,7 @@ export class PrivacyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get privacy

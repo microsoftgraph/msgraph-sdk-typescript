@@ -3,6 +3,8 @@ import {PrintTaskTrigger} from './printTaskTrigger';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintTaskTriggerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: PrintTaskTrigger[] | undefined;
 }

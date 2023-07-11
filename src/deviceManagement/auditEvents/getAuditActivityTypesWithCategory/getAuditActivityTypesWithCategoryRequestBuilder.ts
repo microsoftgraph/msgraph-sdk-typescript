@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue} from './createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue';
 import {GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration} from './getAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration';
 import {GetAuditActivityTypesWithCategoryResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getAuditActivityTypes method.
@@ -24,10 +24,9 @@ export class GetAuditActivityTypesWithCategoryRequestBuilder extends BaseRequest
     /**
      * Invoke function getAuditActivityTypes
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetAuditActivityTypesWithCategoryResponse
      */
-    public get(requestConfiguration?: GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetAuditActivityTypesWithCategoryResponse | undefined> {
+    public get(requestConfiguration?: GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAuditActivityTypesWithCategoryResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -35,7 +34,7 @@ export class GetAuditActivityTypesWithCategoryRequestBuilder extends BaseRequest
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<GetAuditActivityTypesWithCategoryResponse>(requestInfo, createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<GetAuditActivityTypesWithCategoryResponse>(requestInfo, createGetAuditActivityTypesWithCategoryResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function getAuditActivityTypes

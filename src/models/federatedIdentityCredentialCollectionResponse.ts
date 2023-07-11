@@ -3,6 +3,8 @@ import {FederatedIdentityCredential} from './federatedIdentityCredential';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FederatedIdentityCredentialCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: FederatedIdentityCredential[] | undefined;
 }

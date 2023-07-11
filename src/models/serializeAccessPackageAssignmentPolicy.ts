@@ -7,6 +7,7 @@ import {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticReq
 import {AccessPackageCatalog} from './accessPackageCatalog';
 import {AccessPackageQuestion} from './accessPackageQuestion';
 import {AllowedTargetScope} from './allowedTargetScope';
+import {CustomExtensionStageSetting} from './customExtensionStageSetting';
 import {ExpirationPattern} from './expirationPattern';
 import {serializeAccessPackage} from './serializeAccessPackage';
 import {serializeAccessPackageAssignmentApprovalSettings} from './serializeAccessPackageAssignmentApprovalSettings';
@@ -15,6 +16,7 @@ import {serializeAccessPackageAssignmentReviewSettings} from './serializeAccessP
 import {serializeAccessPackageAutomaticRequestSettings} from './serializeAccessPackageAutomaticRequestSettings';
 import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
+import {serializeCustomExtensionStageSetting} from './serializeCustomExtensionStageSetting';
 import {serializeEntity} from './serializeEntity';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializeSubjectSet} from './serializeSubjectSet';
@@ -28,6 +30,7 @@ export function serializeAccessPackageAssignmentPolicy(writer: SerializationWrit
         writer.writeObjectValue<AccessPackageAutomaticRequestSettings>("automaticRequestSettings", accessPackageAssignmentPolicy.automaticRequestSettings, serializeAccessPackageAutomaticRequestSettings);
         writer.writeObjectValue<AccessPackageCatalog>("catalog", accessPackageAssignmentPolicy.catalog, serializeAccessPackageCatalog);
         writer.writeDateValue("createdDateTime", accessPackageAssignmentPolicy.createdDateTime);
+        writer.writeCollectionOfObjectValues<CustomExtensionStageSetting>("customExtensionStageSettings", accessPackageAssignmentPolicy.customExtensionStageSettings, serializeCustomExtensionStageSetting);
         writer.writeStringValue("description", accessPackageAssignmentPolicy.description);
         writer.writeStringValue("displayName", accessPackageAssignmentPolicy.displayName);
         writer.writeObjectValue<ExpirationPattern>("expiration", accessPackageAssignmentPolicy.expiration, serializeExpirationPattern);

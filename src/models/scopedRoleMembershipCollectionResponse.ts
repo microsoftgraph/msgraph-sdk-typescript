@@ -3,6 +3,8 @@ import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ScopedRoleMembershipCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ScopedRoleMembership[] | undefined;
 }

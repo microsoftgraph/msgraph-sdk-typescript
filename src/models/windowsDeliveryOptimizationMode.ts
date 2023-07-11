@@ -1,4 +1,6 @@
-/** Delivery optimization mode for peer distribution */
+/**
+ * Delivery optimization mode for peer distribution
+ */
 export enum WindowsDeliveryOptimizationMode {
     /** Allow the user to set. */
     UserDefined = "userDefined",

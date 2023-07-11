@@ -6,7 +6,7 @@ import {deserializeIntoValidateCredentialsPostRequestBody} from './deserializeIn
 import {serializeValidateCredentialsPostRequestBody} from './serializeValidateCredentialsPostRequestBody';
 import {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
 import {ValidateCredentialsRequestBuilderPostRequestConfiguration} from './validateCredentialsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the validateCredentials method.
@@ -21,12 +21,12 @@ export class ValidateCredentialsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applications/{application%2Did}/synchronization/jobs/{synchronizationJob%2Did}/validateCredentials");
     };
     /**
-     * Invoke action validateCredentials
+     * Validate that the credentials are valid in the tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ValidateCredentialsPostRequestBody | undefined, requestConfiguration?: ValidateCredentialsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: ValidateCredentialsPostRequestBody | undefined, requestConfiguration?: ValidateCredentialsRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -35,10 +35,10 @@ export class ValidateCredentialsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Invoke action validateCredentials
+     * Validate that the credentials are valid in the tenant.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

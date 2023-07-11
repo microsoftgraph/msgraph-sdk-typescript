@@ -3,10 +3,16 @@ import {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChannelAddedEventMessageDetail extends EventMessageDetail, Parsable {
-    /** Display name of the channel. */
+    /**
+     * Display name of the channel.
+     */
     channelDisplayName?: string | undefined;
-    /** Unique identifier of the channel. */
+    /**
+     * Unique identifier of the channel.
+     */
     channelId?: string | undefined;
-    /** Initiator of the event. */
+    /**
+     * Initiator of the event.
+     */
     initiator?: IdentitySet | undefined;
 }

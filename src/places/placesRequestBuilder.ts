@@ -1,5 +1,6 @@
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
+import {GraphRoomListRequestBuilder} from './graphRoomList/graphRoomListRequestBuilder';
 import {PlaceItemRequestBuilder} from './item/placeItemRequestBuilder';
 import {BaseRequestBuilder, getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
@@ -7,13 +8,23 @@ import {BaseRequestBuilder, getPathParameters, RequestAdapter} from '@microsoft/
  * Builds and executes requests for operations under /places
  */
 export class PlacesRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Casts the previous resource to room. */
+    /**
+     * Casts the previous resource to room.
+     */
     public get graphRoom(): GraphRoomRequestBuilder {
         return new GraphRoomRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Casts the previous resource to roomList.
+     */
+    public get graphRoomList(): GraphRoomListRequestBuilder {
+        return new GraphRoomListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the collection of place entities.

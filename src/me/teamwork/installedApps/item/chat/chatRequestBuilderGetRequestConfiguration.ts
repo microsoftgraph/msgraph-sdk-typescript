@@ -2,10 +2,16 @@ import {ChatRequestBuilderGetQueryParameters} from './chatRequestBuilderGetQuery
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ChatRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ChatRequestBuilderGetQueryParameters | undefined;
 }

@@ -3,6 +3,8 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TokenIssuancePolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: TokenIssuancePolicy[] | undefined;
 }

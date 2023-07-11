@@ -2,10 +2,16 @@ import {LearningProvidersRequestBuilderGetQueryParameters} from './learningProvi
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface LearningProvidersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: LearningProvidersRequestBuilderGetQueryParameters | undefined;
 }

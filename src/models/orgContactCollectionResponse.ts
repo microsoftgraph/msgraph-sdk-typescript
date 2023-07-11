@@ -3,6 +3,8 @@ import {OrgContact} from './orgContact';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrgContactCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: OrgContact[] | undefined;
 }

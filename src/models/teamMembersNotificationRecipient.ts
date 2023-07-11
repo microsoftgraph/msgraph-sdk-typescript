@@ -2,6 +2,8 @@ import {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamMembersNotificationRecipient extends Parsable, TeamworkNotificationRecipient {
-    /** The unique identifier for the team whose members should receive the notification. */
+    /**
+     * The unique identifier for the team whose members should receive the notification.
+     */
     teamId?: string | undefined;
 }

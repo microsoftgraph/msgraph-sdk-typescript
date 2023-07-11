@@ -2,10 +2,16 @@ import {ApplicationItemRequestBuilderGetQueryParameters} from './applicationItem
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ApplicationItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ApplicationItemRequestBuilderGetQueryParameters | undefined;
 }

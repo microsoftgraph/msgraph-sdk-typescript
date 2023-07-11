@@ -15,6 +15,7 @@ export function serializeSession(writer: SerializationWriter, session: Session |
         writer.writeObjectValue<Endpoint>("caller", session.caller, serializeEndpoint);
         writer.writeDateValue("endDateTime", session.endDateTime);
         writer.writeObjectValue<FailureInfo>("failureInfo", session.failureInfo, serializeFailureInfo);
+        writer.writeBooleanValue("isTest", session.isTest);
         if(session.modalities)
         writer.writeEnumValue<Modality>("modalities", ...session.modalities);
         writer.writeCollectionOfObjectValues<Segment>("segments", session.segments, serializeSegment);

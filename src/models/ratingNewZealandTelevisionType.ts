@@ -1,4 +1,6 @@
-/** TV content rating labels in New Zealand */
+/**
+ * TV content rating labels in New Zealand
+ */
 export enum RatingNewZealandTelevisionType {
     /** Default value, allow all TV shows content */
     AllAllowed = "allAllowed",

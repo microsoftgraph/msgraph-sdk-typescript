@@ -1,4 +1,6 @@
-/** Mobile device management authority. */
+/**
+ * Mobile device management authority.
+ */
 export enum MdmAuthority {
     /** Unknown */
     Unknown = "unknown",

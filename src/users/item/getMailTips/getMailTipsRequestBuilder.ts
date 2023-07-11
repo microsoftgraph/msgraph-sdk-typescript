@@ -10,7 +10,7 @@ import {GetMailTipsRequestBuilderPostRequestConfiguration} from './getMailTipsRe
 import {GetMailTipsResponse} from './getMailTipsResponse';
 import {serializeGetMailTipsPostRequestBody} from './serializeGetMailTipsPostRequestBody';
 import {serializeGetMailTipsResponse} from './serializeGetMailTipsResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getMailTips method.
@@ -28,11 +28,10 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
      * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a `POST` call to the `getMailTips` action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetMailTipsResponse
      * @see {@link https://docs.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetMailTipsPostRequestBody | undefined, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailTipsResponse | undefined> {
+    public post(body: GetMailTipsPostRequestBody | undefined, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMailTipsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -41,7 +40,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<GetMailTipsResponse>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<GetMailTipsResponse>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a `POST` call to the `getMailTips` action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.

@@ -2,10 +2,16 @@ import {WorkbookPivotTableItemRequestBuilderGetQueryParameters} from './workbook
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookPivotTableItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: WorkbookPivotTableItemRequestBuilderGetQueryParameters | undefined;
 }

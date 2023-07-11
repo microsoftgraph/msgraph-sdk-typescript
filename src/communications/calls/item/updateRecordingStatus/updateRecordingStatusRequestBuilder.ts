@@ -10,7 +10,7 @@ import {deserializeIntoUpdateRecordingStatusPostRequestBody} from './deserialize
 import {serializeUpdateRecordingStatusPostRequestBody} from './serializeUpdateRecordingStatusPostRequestBody';
 import {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
 import {UpdateRecordingStatusRequestBuilderPostRequestConfiguration} from './updateRecordingStatusRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the updateRecordingStatus method.
@@ -28,11 +28,10 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
      * Update the application's recording status associated with a call. This requires the use of the Teams policy-based recording solution.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UpdateRecordingStatusOperation
      * @see {@link https://docs.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UpdateRecordingStatusOperation | undefined> {
+    public post(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined) : Promise<UpdateRecordingStatusOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -41,7 +40,7 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperation>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<UpdateRecordingStatusOperation>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the application's recording status associated with a call. This requires the use of the Teams policy-based recording solution.

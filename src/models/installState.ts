@@ -1,4 +1,6 @@
-/** Possible values for install state. */
+/**
+ * Possible values for install state.
+ */
 export enum InstallState {
     /** Not Applicable. */
     NotApplicable = "notApplicable",

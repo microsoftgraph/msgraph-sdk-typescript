@@ -1,4 +1,6 @@
-/** Windows Update Notification Display Options */
+/**
+ * Windows Update Notification Display Options
+ */
 export enum WindowsUpdateNotificationDisplayOption {
     /** Not configured */
     NotConfigured = "notConfigured",

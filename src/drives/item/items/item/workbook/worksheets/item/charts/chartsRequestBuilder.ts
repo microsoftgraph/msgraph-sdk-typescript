@@ -15,17 +15,21 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookChartItemRequestBuilder} from './item/workbookChartItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
  */
 export class ChartsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the add method. */
+    /**
+     * Provides operations to call the add method.
+     */
     public get add(): AddRequestBuilder {
         return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the count method. */
+    /**
+     * Provides operations to call the count method.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -51,11 +55,10 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of chart objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChartCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
+    public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -63,7 +66,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChartCollectionResponse>(requestInfo, createWorkbookChartCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChartCollectionResponse>(requestInfo, createWorkbookChartCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the itemAt method.
@@ -87,11 +90,10 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * Use this API to create a new Chart.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookChart
      * @see {@link https://docs.microsoft.com/graph/api/worksheet-post-charts?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WorkbookChart | undefined, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChart | undefined> {
+    public post(body: WorkbookChart | undefined, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -100,7 +102,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookChart>(requestInfo, createWorkbookChartFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of chart objects.

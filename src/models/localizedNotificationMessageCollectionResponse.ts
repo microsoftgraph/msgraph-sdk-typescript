@@ -3,6 +3,8 @@ import {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LocalizedNotificationMessageCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: LocalizedNotificationMessage[] | undefined;
 }

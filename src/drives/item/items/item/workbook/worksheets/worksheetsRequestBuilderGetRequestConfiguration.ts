@@ -2,10 +2,16 @@ import {WorksheetsRequestBuilderGetQueryParameters} from './worksheetsRequestBui
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface WorksheetsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: WorksheetsRequestBuilderGetQueryParameters | undefined;
 }

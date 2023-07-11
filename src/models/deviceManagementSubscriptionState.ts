@@ -1,4 +1,6 @@
-/** Tenant mobile device management subscription state. */
+/**
+ * Tenant mobile device management subscription state.
+ */
 export enum DeviceManagementSubscriptionState {
     /** Pending */
     Pending = "pending",

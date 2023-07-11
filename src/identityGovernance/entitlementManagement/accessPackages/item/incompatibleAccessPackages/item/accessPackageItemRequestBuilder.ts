@@ -5,7 +5,9 @@ import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions'
  * Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackages/{accessPackage-id}/incompatibleAccessPackages/{accessPackage-id1}
  */
 export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the collection of identityGovernance entities. */
+    /**
+     * Provides operations to manage the collection of identityGovernance entities.
+     */
     public get ref(): RefRequestBuilder {
         return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
     }

@@ -1,4 +1,6 @@
-/** Possible values for firewallPreSharedKeyEncodingMethod */
+/**
+ * Possible values for firewallPreSharedKeyEncodingMethod
+ */
 export enum FirewallPreSharedKeyEncodingMethodType {
     /** No value configured by Intune, do not override the user-configured device default value */
     DeviceDefault = "deviceDefault",

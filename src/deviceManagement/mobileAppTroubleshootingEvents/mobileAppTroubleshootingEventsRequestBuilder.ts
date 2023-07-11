@@ -1,0 +1,116 @@
+import {MobileAppTroubleshootingEventCollectionResponse} from '../../models/';
+import {createMobileAppTroubleshootingEventCollectionResponseFromDiscriminatorValue} from '../../models/createMobileAppTroubleshootingEventCollectionResponseFromDiscriminatorValue';
+import {createMobileAppTroubleshootingEventFromDiscriminatorValue} from '../../models/createMobileAppTroubleshootingEventFromDiscriminatorValue';
+import {deserializeIntoMobileAppTroubleshootingEvent} from '../../models/deserializeIntoMobileAppTroubleshootingEvent';
+import {MobileAppTroubleshootingEvent} from '../../models/mobileAppTroubleshootingEvent';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
+import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
+import {serializeMobileAppTroubleshootingEvent} from '../../models/serializeMobileAppTroubleshootingEvent';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {MobileAppTroubleshootingEventItemRequestBuilder} from './item/mobileAppTroubleshootingEventItemRequestBuilder';
+import {MobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration} from './mobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration';
+import {MobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration} from './mobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+
+/**
+ * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
+ */
+export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBuilder {
+    /**
+     * Provides operations to count the resources in the collection.
+     */
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
+     * @param mobileAppTroubleshootingEventId Unique identifier of the item
+     * @returns a MobileAppTroubleshootingEventItemRequestBuilder
+     */
+    public byMobileAppTroubleshootingEventId(mobileAppTroubleshootingEventId: string) : MobileAppTroubleshootingEventItemRequestBuilder {
+        if(!mobileAppTroubleshootingEventId) throw new Error("mobileAppTroubleshootingEventId cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["mobileAppTroubleshootingEvent%2Did"] = mobileAppTroubleshootingEventId
+        return new MobileAppTroubleshootingEventItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Instantiates a new MobileAppTroubleshootingEventsRequestBuilder and sets the default values.
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
+     */
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
+    };
+    /**
+     * The collection property of MobileAppTroubleshootingEvent.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a Promise of MobileAppTroubleshootingEventCollectionResponse
+     */
+    public get(requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEventCollectionResponse | undefined> {
+        const requestInfo = this.toGetRequestInformation(
+            requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter.sendAsync<MobileAppTroubleshootingEventCollectionResponse>(requestInfo, createMobileAppTroubleshootingEventCollectionResponseFromDiscriminatorValue, errorMapping);
+    };
+    /**
+     * Create new navigation property to mobileAppTroubleshootingEvents for deviceManagement
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a Promise of MobileAppTroubleshootingEvent
+     */
+    public post(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = this.toPostRequestInformation(
+            body, requestConfiguration
+        );
+        const errorMapping = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        } as Record<string, ParsableFactory<Parsable>>;
+        return this.requestAdapter.sendAsync<MobileAppTroubleshootingEvent>(requestInfo, createMobileAppTroubleshootingEventFromDiscriminatorValue, errorMapping);
+    };
+    /**
+     * The collection property of MobileAppTroubleshootingEvent.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toGetRequestInformation(requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.GET;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        return requestInfo;
+    };
+    /**
+     * Create new navigation property to mobileAppTroubleshootingEvents for deviceManagement
+     * @param body The request body
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @returns a RequestInformation
+     */
+    public toPostRequestInformation(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
+        requestInfo.httpMethod = HttpMethod.POST;
+        requestInfo.headers["Accept"] = ["application/json"];
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMobileAppTroubleshootingEvent);
+        return requestInfo;
+    };
+}

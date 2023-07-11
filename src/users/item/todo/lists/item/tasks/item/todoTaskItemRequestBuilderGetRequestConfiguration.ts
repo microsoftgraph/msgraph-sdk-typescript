@@ -2,10 +2,16 @@ import {TodoTaskItemRequestBuilderGetQueryParameters} from './todoTaskItemReques
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface TodoTaskItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: TodoTaskItemRequestBuilderGetQueryParameters | undefined;
 }

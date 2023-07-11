@@ -3,6 +3,8 @@ import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/importedWi
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ImportResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
 }

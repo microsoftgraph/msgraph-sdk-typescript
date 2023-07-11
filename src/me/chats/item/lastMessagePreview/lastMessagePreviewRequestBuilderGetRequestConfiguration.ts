@@ -2,10 +2,16 @@ import {LastMessagePreviewRequestBuilderGetQueryParameters} from './lastMessageP
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface LastMessagePreviewRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: LastMessagePreviewRequestBuilderGetQueryParameters | undefined;
 }

@@ -2,10 +2,16 @@ import {WorkbookTableItemRequestBuilderGetQueryParameters} from './workbookTable
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookTableItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: WorkbookTableItemRequestBuilderGetQueryParameters | undefined;
 }

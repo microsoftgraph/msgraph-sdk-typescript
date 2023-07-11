@@ -3,10 +3,16 @@ import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionAppLearningSummary extends Entity, Parsable {
-    /** Application Name */
+    /**
+     * Application Name
+     */
     applicationName?: string | undefined;
-    /** Possible types of Application */
+    /**
+     * Possible types of Application
+     */
     applicationType?: ApplicationType | undefined;
-    /** Device Count */
+    /**
+     * Device Count
+     */
     deviceCount?: number | undefined;
 }

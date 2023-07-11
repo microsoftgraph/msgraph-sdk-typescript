@@ -20,53 +20,75 @@ import {WorkbookTableItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookTableItemRequestBuilderGetRequestConfiguration} from './workbookTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableItemRequestBuilderPatchRequestConfiguration} from './workbookTableItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
  */
 export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the clearFilters method. */
+    /**
+     * Provides operations to call the clearFilters method.
+     */
     public get clearFilters(): ClearFiltersRequestBuilder {
         return new ClearFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the columns property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the convertToRange method. */
+    /**
+     * Provides operations to call the convertToRange method.
+     */
     public get convertToRange(): ConvertToRangeRequestBuilder {
         return new ConvertToRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the dataBodyRange method. */
+    /**
+     * Provides operations to call the dataBodyRange method.
+     */
     public get dataBodyRange(): DataBodyRangeRequestBuilder {
         return new DataBodyRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the headerRowRange method. */
+    /**
+     * Provides operations to call the headerRowRange method.
+     */
     public get headerRowRange(): HeaderRowRangeRequestBuilder {
         return new HeaderRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the range method. */
+    /**
+     * Provides operations to call the range method.
+     */
     public get range(): RangeRequestBuilder {
         return new RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the reapplyFilters method. */
+    /**
+     * Provides operations to call the reapplyFilters method.
+     */
     public get reapplyFilters(): ReapplyFiltersRequestBuilder {
         return new ReapplyFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the rows property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
+     */
     public get rows(): RowsRequestBuilder {
         return new RowsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the sort property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
+     */
     public get sort(): SortRequestBuilder {
         return new SortRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the totalRowRange method. */
+    /**
+     * Provides operations to call the totalRowRange method.
+     */
     public get totalRowRange(): TotalRowRangeRequestBuilder {
         return new TotalRowRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheet property of the microsoft.graph.workbookTable entity. */
+    /**
+     * Provides operations to manage the worksheet property of the microsoft.graph.workbookTable entity.
+     */
     public get worksheet(): WorksheetRequestBuilder {
         return new WorksheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -81,10 +103,9 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/table-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: WorkbookTableItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookTableItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -92,16 +113,15 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of table object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTable
      * @see {@link https://docs.microsoft.com/graph/api/table-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: WorkbookTableItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTable | undefined> {
+    public get(requestConfiguration?: WorkbookTableItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -109,17 +129,16 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of table object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookTable
      * @see {@link https://docs.microsoft.com/graph/api/table-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookTable | undefined, requestConfiguration?: WorkbookTableItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTable | undefined> {
+    public patch(body: WorkbookTable | undefined, requestConfiguration?: WorkbookTableItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -128,7 +147,7 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<WorkbookTable>(requestInfo, createWorkbookTableFromDiscriminatorValue, errorMapping);
     };
     /**
      * Deletes the table.

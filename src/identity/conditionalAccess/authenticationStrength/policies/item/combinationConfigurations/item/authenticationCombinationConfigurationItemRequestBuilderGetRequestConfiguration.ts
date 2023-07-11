@@ -2,10 +2,16 @@ import {AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParamete
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: AuthenticationCombinationConfigurationItemRequestBuilderGetQueryParameters | undefined;
 }

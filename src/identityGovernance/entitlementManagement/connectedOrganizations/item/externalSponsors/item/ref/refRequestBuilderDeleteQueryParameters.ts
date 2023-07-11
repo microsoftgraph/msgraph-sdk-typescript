@@ -1,5 +1,7 @@
 
 export interface RefRequestBuilderDeleteQueryParameters {
-    /** Delete Uri */
+    /**
+     * Delete Uri
+     */
     id?: string | undefined;
 }

@@ -3,16 +3,28 @@ import {InnerError} from './innerError';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MainError extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The code property */
+    /**
+     * The code property
+     */
     code?: string | undefined;
-    /** The details property */
+    /**
+     * The details property
+     */
     details?: ErrorDetails[] | undefined;
-    /** The innererror property */
-    innererror?: InnerError | undefined;
-    /** The message property */
+    /**
+     * The innerError property
+     */
+    innerError?: InnerError | undefined;
+    /**
+     * The message property
+     */
     message?: string | undefined;
-    /** The target property */
+    /**
+     * The target property
+     */
     target?: string | undefined;
 }

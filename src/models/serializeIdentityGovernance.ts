@@ -2,6 +2,8 @@ import {AccessReviewSet} from './accessReviewSet';
 import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
 import {EntitlementManagement} from './entitlementManagement';
 import {IdentityGovernance} from './identityGovernance';
+import {LifecycleWorkflowsContainer} from './identityGovernance/lifecycleWorkflowsContainer';
+import {serializeLifecycleWorkflowsContainer} from './identityGovernance/serializeLifecycleWorkflowsContainer';
 import {serializeAccessReviewSet} from './serializeAccessReviewSet';
 import {serializeAppConsentApprovalRoute} from './serializeAppConsentApprovalRoute';
 import {serializeEntitlementManagement} from './serializeEntitlementManagement';
@@ -13,6 +15,7 @@ export function serializeIdentityGovernance(writer: SerializationWriter, identit
         writer.writeObjectValue<AccessReviewSet>("accessReviews", identityGovernance.accessReviews, serializeAccessReviewSet);
         writer.writeObjectValue<AppConsentApprovalRoute>("appConsent", identityGovernance.appConsent, serializeAppConsentApprovalRoute);
         writer.writeObjectValue<EntitlementManagement>("entitlementManagement", identityGovernance.entitlementManagement, serializeEntitlementManagement);
+        writer.writeObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", identityGovernance.lifecycleWorkflows, serializeLifecycleWorkflowsContainer);
         writer.writeStringValue("@odata.type", identityGovernance.odataType);
         writer.writeObjectValue<TermsOfUseContainer>("termsOfUse", identityGovernance.termsOfUse, serializeTermsOfUseContainer);
         writer.writeAdditionalData(identityGovernance.additionalData);

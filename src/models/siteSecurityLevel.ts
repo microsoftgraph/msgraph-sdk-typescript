@@ -1,4 +1,6 @@
-/** Possible values for site security level. */
+/**
+ * Possible values for site security level.
+ */
 export enum SiteSecurityLevel {
     /** User Defined, default value, no intent. */
     UserDefined = "userDefined",

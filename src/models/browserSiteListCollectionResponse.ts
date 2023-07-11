@@ -3,6 +3,8 @@ import {BrowserSiteList} from './browserSiteList';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSiteListCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: BrowserSiteList[] | undefined;
 }

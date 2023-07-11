@@ -3,6 +3,8 @@ import {TeamsAppInstallation} from './teamsAppInstallation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppInstallationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: TeamsAppInstallation[] | undefined;
 }

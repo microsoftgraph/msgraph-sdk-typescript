@@ -3,6 +3,8 @@ import {DeviceCompliancePolicyAssignment} from '../../../../models/deviceComplia
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AssignResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DeviceCompliancePolicyAssignment[] | undefined;
 }

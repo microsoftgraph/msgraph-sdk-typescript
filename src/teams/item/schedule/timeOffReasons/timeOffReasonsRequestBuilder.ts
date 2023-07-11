@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TimeOffReasonItemRequestBuilder} from './item/timeOffReasonItemRequestBuilder';
 import {TimeOffReasonsRequestBuilderGetRequestConfiguration} from './timeOffReasonsRequestBuilderGetRequestConfiguration';
 import {TimeOffReasonsRequestBuilderPostRequestConfiguration} from './timeOffReasonsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
  */
 export class TimeOffReasonsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class TimeOffReasonsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get the list of timeOffReasons in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffReasonCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TimeOffReasonsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffReasonCollectionResponse | undefined> {
+    public get(requestConfiguration?: TimeOffReasonsRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOffReasonCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,17 +57,16 @@ export class TimeOffReasonsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TimeOffReasonCollectionResponse>(requestInfo, createTimeOffReasonCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TimeOffReasonCollectionResponse>(requestInfo, createTimeOffReasonCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create a new timeOffReason.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TimeOffReason
      * @see {@link https://docs.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TimeOffReason | undefined, requestConfiguration?: TimeOffReasonsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeOffReason | undefined> {
+    public post(body: TimeOffReason | undefined, requestConfiguration?: TimeOffReasonsRequestBuilderPostRequestConfiguration | undefined) : Promise<TimeOffReason | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -75,7 +75,7 @@ export class TimeOffReasonsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TimeOffReason>(requestInfo, createTimeOffReasonFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TimeOffReason>(requestInfo, createTimeOffReasonFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get the list of timeOffReasons in a schedule.

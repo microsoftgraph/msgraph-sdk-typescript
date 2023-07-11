@@ -2,10 +2,16 @@ import {DailyPrintUsageByUserRequestBuilderGetQueryParameters} from './dailyPrin
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DailyPrintUsageByUserRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DailyPrintUsageByUserRequestBuilderGetQueryParameters | undefined;
 }

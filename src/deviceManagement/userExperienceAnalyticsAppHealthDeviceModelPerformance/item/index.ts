@@ -1,0 +1,4 @@
+export * from './userExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderDeleteRequestConfiguration'
+export * from './userExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderGetQueryParameters'
+export * from './userExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderGetRequestConfiguration'
+export * from './userExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderPatchRequestConfiguration'

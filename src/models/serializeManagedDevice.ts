@@ -6,6 +6,7 @@ import {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
 import {DeviceConfigurationState} from './deviceConfigurationState';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
 import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
+import {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
 import {DeviceManagementExchangeAccessState} from './deviceManagementExchangeAccessState';
 import {DeviceManagementExchangeAccessStateReason} from './deviceManagementExchangeAccessStateReason';
 import {DeviceRegistrationState} from './deviceRegistrationState';
@@ -19,9 +20,12 @@ import {serializeDeviceCategory} from './serializeDeviceCategory';
 import {serializeDeviceCompliancePolicyState} from './serializeDeviceCompliancePolicyState';
 import {serializeDeviceConfigurationState} from './serializeDeviceConfigurationState';
 import {serializeDeviceHealthAttestationState} from './serializeDeviceHealthAttestationState';
+import {serializeDeviceLogCollectionResponse} from './serializeDeviceLogCollectionResponse';
 import {serializeEntity} from './serializeEntity';
 import {serializeUser} from './serializeUser';
+import {serializeWindowsProtectionState} from './serializeWindowsProtectionState';
 import {User} from './user';
+import {WindowsProtectionState} from './windowsProtectionState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedDevice(writer: SerializationWriter, managedDevice: ManagedDevice | undefined = {} as ManagedDevice) : void {
@@ -34,10 +38,12 @@ export function serializeManagedDevice(writer: SerializationWriter, managedDevic
         writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", managedDevice.deviceRegistrationState);
         writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", managedDevice.exchangeAccessState);
         writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", managedDevice.exchangeAccessStateReason);
+        writer.writeCollectionOfObjectValues<DeviceLogCollectionResponse>("logCollectionRequests", managedDevice.logCollectionRequests, serializeDeviceLogCollectionResponse);
         writer.writeStringValue("managedDeviceName", managedDevice.managedDeviceName);
         writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", managedDevice.managedDeviceOwnerType);
         writer.writeEnumValue<ManagementAgentType>("managementAgent", managedDevice.managementAgent);
         writer.writeStringValue("notes", managedDevice.notes);
         writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", managedDevice.partnerReportedThreatState);
         writer.writeCollectionOfObjectValues<User>("users", managedDevice.users, serializeUser);
+        writer.writeObjectValue<WindowsProtectionState>("windowsProtectionState", managedDevice.windowsProtectionState, serializeWindowsProtectionState);
 }

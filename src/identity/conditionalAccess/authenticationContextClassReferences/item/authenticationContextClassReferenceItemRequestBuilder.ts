@@ -9,7 +9,7 @@ import {serializeAuthenticationContextClassReference} from '../../../../models/s
 import {AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration} from './authenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration} from './authenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration} from './authenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
@@ -26,10 +26,9 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
     /**
      * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -37,16 +36,15 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a authenticationContextClassReference object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationContextClassReference
      * @see {@link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationContextClassReference | undefined> {
+    public get(requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationContextClassReference | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -54,17 +52,16 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create an authenticationContextClassReference object, if the ID has not been used. If ID has been used, this call updates the authenticationContextClassReference object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthenticationContextClassReference
      * @see {@link https://docs.microsoft.com/graph/api/authenticationcontextclassreference-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AuthenticationContextClassReference | undefined, requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationContextClassReference | undefined> {
+    public patch(body: AuthenticationContextClassReference | undefined, requestConfiguration?: AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationContextClassReference | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -73,7 +70,7 @@ export class AuthenticationContextClassReferenceItemRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthenticationContextClassReference>(requestInfo, createAuthenticationContextClassReferenceFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete an authenticationContextClassReference object that's not published or used by a conditional access policy.

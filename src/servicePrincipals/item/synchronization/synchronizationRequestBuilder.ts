@@ -13,25 +13,33 @@ import {SynchronizationRequestBuilderDeleteRequestConfiguration} from './synchro
 import {SynchronizationRequestBuilderGetRequestConfiguration} from './synchronizationRequestBuilderGetRequestConfiguration';
 import {SynchronizationRequestBuilderPutRequestConfiguration} from './synchronizationRequestBuilderPutRequestConfiguration';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the synchronization property of the microsoft.graph.servicePrincipal entity.
  */
 export class SynchronizationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the acquireAccessToken method. */
+    /**
+     * Provides operations to call the acquireAccessToken method.
+     */
     public get acquireAccessToken(): AcquireAccessTokenRequestBuilder {
         return new AcquireAccessTokenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the jobs property of the microsoft.graph.synchronization entity. */
+    /**
+     * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
+     */
     public get jobs(): JobsRequestBuilder {
         return new JobsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The secrets property */
+    /**
+     * The secrets property
+     */
     public get secrets(): SecretsRequestBuilder {
         return new SecretsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the templates property of the microsoft.graph.synchronization entity. */
+    /**
+     * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
+     */
     public get templates(): TemplatesRequestBuilder {
         return new TemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,9 +54,8 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property synchronization for servicePrincipals
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: SynchronizationRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: SynchronizationRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -56,15 +63,14 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get synchronization from servicePrincipals
+     * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Synchronization
      */
-    public get(requestConfiguration?: SynchronizationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Synchronization | undefined> {
+    public get(requestConfiguration?: SynchronizationRequestBuilderGetRequestConfiguration | undefined) : Promise<Synchronization | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -72,16 +78,15 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Synchronization>(requestInfo, createSynchronizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Synchronization>(requestInfo, createSynchronizationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property synchronization in servicePrincipals
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Synchronization
      */
-    public put(body: Synchronization | undefined, requestConfiguration?: SynchronizationRequestBuilderPutRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Synchronization | undefined> {
+    public put(body: Synchronization | undefined, requestConfiguration?: SynchronizationRequestBuilderPutRequestConfiguration | undefined) : Promise<Synchronization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
@@ -90,7 +95,7 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Synchronization>(requestInfo, createSynchronizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Synchronization>(requestInfo, createSynchronizationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property synchronization for servicePrincipals
@@ -109,7 +114,7 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get synchronization from servicePrincipals
+     * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

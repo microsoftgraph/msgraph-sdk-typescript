@@ -2,14 +2,24 @@ import {Json} from '../../../../../../../models/json';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Binom_DistPostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The cumulative property */
+    /**
+     * The cumulative property
+     */
     cumulative?: Json | undefined;
-    /** The numberS property */
+    /**
+     * The numberS property
+     */
     numberS?: Json | undefined;
-    /** The probabilityS property */
+    /**
+     * The probabilityS property
+     */
     probabilityS?: Json | undefined;
-    /** The trials property */
+    /**
+     * The trials property
+     */
     trials?: Json | undefined;
 }

@@ -5,16 +5,28 @@ import {Presence} from './presence';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CloudCommunications extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The callRecords property */
+    /**
+     * The callRecords property
+     */
     callRecords?: CallRecord[] | undefined;
-    /** The calls property */
+    /**
+     * The calls property
+     */
     calls?: Call[] | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The onlineMeetings property */
+    /**
+     * The onlineMeetings property
+     */
     onlineMeetings?: OnlineMeeting[] | undefined;
-    /** The presences property */
+    /**
+     * The presences property
+     */
     presences?: Presence[] | undefined;
 }

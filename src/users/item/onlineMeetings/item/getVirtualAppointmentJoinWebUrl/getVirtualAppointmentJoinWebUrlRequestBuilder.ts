@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {createGetVirtualAppointmentJoinWebUrlResponseFromDiscriminatorValue} from './createGetVirtualAppointmentJoinWebUrlResponseFromDiscriminatorValue';
 import {GetVirtualAppointmentJoinWebUrlRequestBuilderGetRequestConfiguration} from './getVirtualAppointmentJoinWebUrlRequestBuilderGetRequestConfiguration';
 import {GetVirtualAppointmentJoinWebUrlResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getVirtualAppointmentJoinWebUrl method.
@@ -22,10 +22,9 @@ export class GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseRequestBu
     /**
      * Invoke function getVirtualAppointmentJoinWebUrl
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetVirtualAppointmentJoinWebUrlResponse
      */
-    public get(requestConfiguration?: GetVirtualAppointmentJoinWebUrlRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetVirtualAppointmentJoinWebUrlResponse | undefined> {
+    public get(requestConfiguration?: GetVirtualAppointmentJoinWebUrlRequestBuilderGetRequestConfiguration | undefined) : Promise<GetVirtualAppointmentJoinWebUrlResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class GetVirtualAppointmentJoinWebUrlRequestBuilder extends BaseRequestBu
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<GetVirtualAppointmentJoinWebUrlResponse>(requestInfo, createGetVirtualAppointmentJoinWebUrlResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<GetVirtualAppointmentJoinWebUrlResponse>(requestInfo, createGetVirtualAppointmentJoinWebUrlResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function getVirtualAppointmentJoinWebUrl

@@ -9,7 +9,7 @@ import {serializeManagedDeviceMobileAppConfigurationUserStatus} from '../../../.
 import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration} from './managedDeviceMobileAppConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -26,9 +26,8 @@ export class ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder ext
     /**
      * Delete navigation property userStatuses for deviceAppManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder ext
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * List of ManagedDeviceMobileAppConfigurationUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserStatus
      */
-    public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined> {
+    public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder ext
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property userStatuses in deviceAppManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserStatus
      */
-    public patch(body: ManagedDeviceMobileAppConfigurationUserStatus | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined> {
+    public patch(body: ManagedDeviceMobileAppConfigurationUserStatus | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder ext
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfigurationUserStatus>(requestInfo, createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property userStatuses for deviceAppManagement

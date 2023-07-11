@@ -2,10 +2,16 @@ import {RoleDefinitionsRequestBuilderGetQueryParameters} from './roleDefinitions
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RoleDefinitionsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: RoleDefinitionsRequestBuilderGetQueryParameters | undefined;
 }

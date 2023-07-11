@@ -3,6 +3,8 @@ import {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipReq
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminRelationshipRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DelegatedAdminRelationshipRequest[] | undefined;
 }

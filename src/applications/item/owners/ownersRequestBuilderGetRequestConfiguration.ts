@@ -2,10 +2,16 @@ import {OwnersRequestBuilderGetQueryParameters} from './ownersRequestBuilderGetQ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface OwnersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: OwnersRequestBuilderGetQueryParameters | undefined;
 }

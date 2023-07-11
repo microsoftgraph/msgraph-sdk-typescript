@@ -14,29 +14,39 @@ import {LinkedResourcesRequestBuilder} from './linkedResources/linkedResourcesRe
 import {TodoTaskItemRequestBuilderDeleteRequestConfiguration} from './todoTaskItemRequestBuilderDeleteRequestConfiguration';
 import {TodoTaskItemRequestBuilderGetRequestConfiguration} from './todoTaskItemRequestBuilderGetRequestConfiguration';
 import {TodoTaskItemRequestBuilderPatchRequestConfiguration} from './todoTaskItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
  */
 export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the attachments property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
+     */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
+     */
     public get attachmentSessions(): AttachmentSessionsRequestBuilder {
         return new AttachmentSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
+     */
     public get checklistItems(): ChecklistItemsRequestBuilder {
         return new ChecklistItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the extensions property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the extensions property of the microsoft.graph.todoTask entity.
+     */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity. */
+    /**
+     * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
+     */
     public get linkedResources(): LinkedResourcesRequestBuilder {
         return new LinkedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -51,10 +61,9 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a todoTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/todotask-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: TodoTaskItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: TodoTaskItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -62,16 +71,15 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of a todoTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTask
      * @see {@link https://docs.microsoft.com/graph/api/todotask-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: TodoTaskItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTask | undefined> {
+    public get(requestConfiguration?: TodoTaskItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TodoTask | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -79,17 +87,16 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a todoTask object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TodoTask
      * @see {@link https://docs.microsoft.com/graph/api/todotask-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TodoTask | undefined, requestConfiguration?: TodoTaskItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TodoTask | undefined> {
+    public patch(body: TodoTask | undefined, requestConfiguration?: TodoTaskItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TodoTask | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -98,7 +105,7 @@ export class TodoTaskItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<TodoTask>(requestInfo, createTodoTaskFromDiscriminatorValue, errorMapping);
     };
     /**
      * Deletes a todoTask object.

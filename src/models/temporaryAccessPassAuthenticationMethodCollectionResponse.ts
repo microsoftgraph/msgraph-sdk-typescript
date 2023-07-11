@@ -3,6 +3,8 @@ import {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuth
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TemporaryAccessPassAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: TemporaryAccessPassAuthenticationMethod[] | undefined;
 }

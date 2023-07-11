@@ -1,4 +1,6 @@
-/** Android Work Profile required password type. */
+/**
+ * Android Work Profile required password type.
+ */
 export enum AndroidWorkProfileRequiredPasswordType {
     /** Device default value, no intent. */
     DeviceDefault = "deviceDefault",

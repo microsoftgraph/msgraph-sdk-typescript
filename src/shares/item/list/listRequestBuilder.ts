@@ -17,41 +17,57 @@ import {ListRequestBuilderGetRequestConfiguration} from './listRequestBuilderGet
 import {ListRequestBuilderPatchRequestConfiguration} from './listRequestBuilderPatchRequestConfiguration';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
  */
 export class ListRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the columns property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the columns property of the microsoft.graph.list entity.
+     */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the contentTypes property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
+     */
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
+     */
     public get createdByUser(): CreatedByUserRequestBuilder {
         return new CreatedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the drive property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the drive property of the microsoft.graph.list entity.
+     */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the items property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the items property of the microsoft.graph.list entity.
+     */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity. */
+    /**
+     * Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
+     */
     public get lastModifiedByUser(): LastModifiedByUserRequestBuilder {
         return new LastModifiedByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.list entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the subscriptions property of the microsoft.graph.list entity. */
+    /**
+     * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
+     */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -66,9 +82,8 @@ export class ListRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property list for shares
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ListRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ListRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -76,15 +91,14 @@ export class ListRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Used to access the underlying list
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of List
      */
-    public get(requestConfiguration?: ListRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<List | undefined> {
+    public get(requestConfiguration?: ListRequestBuilderGetRequestConfiguration | undefined) : Promise<List | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -92,16 +106,15 @@ export class ListRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property list in shares
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of List
      */
-    public patch(body: List | undefined, requestConfiguration?: ListRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<List | undefined> {
+    public patch(body: List | undefined, requestConfiguration?: ListRequestBuilderPatchRequestConfiguration | undefined) : Promise<List | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -110,7 +123,7 @@ export class ListRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<List>(requestInfo, createListFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property list for shares

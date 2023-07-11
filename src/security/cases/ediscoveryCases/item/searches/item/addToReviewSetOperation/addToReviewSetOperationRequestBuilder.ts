@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {EdiscoveryAddToReviewSetOperation} from '../../../../../../../models/security/';
 import {createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue';
 import {AddToReviewSetOperationRequestBuilderGetRequestConfiguration} from './addToReviewSetOperationRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.security.ediscoverySearch entity.
@@ -22,10 +22,9 @@ export class AddToReviewSetOperationRequestBuilder extends BaseRequestBuilder {
     /**
      * Adds the results of the eDiscovery search to the specified reviewSet.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EdiscoveryAddToReviewSetOperation
      */
-    public get(requestConfiguration?: AddToReviewSetOperationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EdiscoveryAddToReviewSetOperation | undefined> {
+    public get(requestConfiguration?: AddToReviewSetOperationRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryAddToReviewSetOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class AddToReviewSetOperationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EdiscoveryAddToReviewSetOperation>(requestInfo, createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EdiscoveryAddToReviewSetOperation>(requestInfo, createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Adds the results of the eDiscovery search to the specified reviewSet.

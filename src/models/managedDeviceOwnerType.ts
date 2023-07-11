@@ -1,4 +1,6 @@
-/** Owner type of device. */
+/**
+ * Owner type of device.
+ */
 export enum ManagedDeviceOwnerType {
     /** Unknown. */
     Unknown = "unknown",

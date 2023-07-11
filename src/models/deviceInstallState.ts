@@ -3,20 +3,36 @@ import {InstallState} from './installState';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceInstallState extends Entity, Parsable {
-    /** Device Id. */
+    /**
+     * Device Id.
+     */
     deviceId?: string | undefined;
-    /** Device name. */
+    /**
+     * Device name.
+     */
     deviceName?: string | undefined;
-    /** The error code for install failures. */
+    /**
+     * The error code for install failures.
+     */
     errorCode?: string | undefined;
-    /** Possible values for install state. */
+    /**
+     * Possible values for install state.
+     */
     installState?: InstallState | undefined;
-    /** Last sync date and time. */
+    /**
+     * Last sync date and time.
+     */
     lastSyncDateTime?: Date | undefined;
-    /** OS Description. */
+    /**
+     * OS Description.
+     */
     osDescription?: string | undefined;
-    /** OS Version. */
+    /**
+     * OS Version.
+     */
     osVersion?: string | undefined;
-    /** Device User Name. */
+    /**
+     * Device User Name.
+     */
     userName?: string | undefined;
 }

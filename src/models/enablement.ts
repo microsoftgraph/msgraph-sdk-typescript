@@ -1,4 +1,6 @@
-/** Possible values of a property */
+/**
+ * Possible values of a property
+ */
 export enum Enablement {
     /** Device default value, no intent. */
     NotConfigured = "notConfigured",

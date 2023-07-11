@@ -3,6 +3,8 @@ import {ServicePrincipal} from './servicePrincipal';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ServicePrincipal[] | undefined;
 }

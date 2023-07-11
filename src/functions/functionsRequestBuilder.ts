@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FunctionsRequestBuilderGetRequestConfiguration} from './functionsRequestBuilderGetRequestConfiguration';
 import {FunctionsRequestBuilderPostRequestConfiguration} from './functionsRequestBuilderPostRequestConfiguration';
 import {AttributeMappingFunctionSchemaItemRequestBuilder} from './item/attributeMappingFunctionSchemaItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
  */
 export class FunctionsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,9 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get entities from functions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeMappingFunctionSchemaCollectionResponse
      */
-    public get(requestConfiguration?: FunctionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeMappingFunctionSchemaCollectionResponse | undefined> {
+    public get(requestConfiguration?: FunctionsRequestBuilderGetRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchemaCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +56,15 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttributeMappingFunctionSchemaCollectionResponse>(requestInfo, createAttributeMappingFunctionSchemaCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttributeMappingFunctionSchemaCollectionResponse>(requestInfo, createAttributeMappingFunctionSchemaCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Add new entity to functions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeMappingFunctionSchema
      */
-    public post(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: FunctionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
+    public post(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: FunctionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,7 +73,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttributeMappingFunctionSchema>(requestInfo, createAttributeMappingFunctionSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttributeMappingFunctionSchema>(requestInfo, createAttributeMappingFunctionSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get entities from functions

@@ -3,6 +3,8 @@ import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticat
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftAuthenticatorAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
 }

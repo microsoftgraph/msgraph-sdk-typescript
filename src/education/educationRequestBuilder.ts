@@ -12,25 +12,33 @@ import {EducationRequestBuilderPatchRequestConfiguration} from './educationReque
 import {MeRequestBuilder} from './me/meRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the educationRoot singleton.
  */
 export class EducationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the classes property of the microsoft.graph.educationRoot entity. */
+    /**
+     * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
+     */
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the me property of the microsoft.graph.educationRoot entity. */
+    /**
+     * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.
+     */
     public get me(): MeRequestBuilder {
         return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schools property of the microsoft.graph.educationRoot entity. */
+    /**
+     * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
+     */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the users property of the microsoft.graph.educationRoot entity. */
+    /**
+     * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
+     */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -45,10 +53,9 @@ export class EducationRequestBuilder extends BaseRequestBuilder {
     /**
      * Get education
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationRoot
      */
-    public get(requestConfiguration?: EducationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRoot | undefined> {
+    public get(requestConfiguration?: EducationRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,16 +63,15 @@ export class EducationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update education
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationRoot
      */
-    public patch(body: EducationRoot | undefined, requestConfiguration?: EducationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRoot | undefined> {
+    public patch(body: EducationRoot | undefined, requestConfiguration?: EducationRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -74,7 +80,7 @@ export class EducationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get education

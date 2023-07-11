@@ -1,11 +1,14 @@
 import {AccessReviewApplyAction} from './accessReviewApplyAction';
+import {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
 import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
 import {createAccessReviewApplyActionFromDiscriminatorValue} from './createAccessReviewApplyActionFromDiscriminatorValue';
+import {createAccessReviewRecommendationInsightSettingFromDiscriminatorValue} from './createAccessReviewRecommendationInsightSettingFromDiscriminatorValue';
 import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
 import {PatternedRecurrence} from './patternedRecurrence';
 import {serializeAccessReviewApplyAction} from './serializeAccessReviewApplyAction';
+import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewScheduleSettings(accessReviewScheduleSettings: AccessReviewScheduleSettings | undefined = {} as AccessReviewScheduleSettings) : Record<string, (node: ParseNode) => void> {
     return {
@@ -18,6 +21,8 @@ export function deserializeIntoAccessReviewScheduleSettings(accessReviewSchedule
         "justificationRequiredOnApproval": n => { accessReviewScheduleSettings.justificationRequiredOnApproval = n.getBooleanValue(); },
         "mailNotificationsEnabled": n => { accessReviewScheduleSettings.mailNotificationsEnabled = n.getBooleanValue(); },
         "@odata.type": n => { accessReviewScheduleSettings.odataType = n.getStringValue(); },
+        "recommendationInsightSettings": n => { accessReviewScheduleSettings.recommendationInsightSettings = n.getCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>(createAccessReviewRecommendationInsightSettingFromDiscriminatorValue); },
+        "recommendationLookBackDuration": n => { accessReviewScheduleSettings.recommendationLookBackDuration = n.getDurationValue(); },
         "recommendationsEnabled": n => { accessReviewScheduleSettings.recommendationsEnabled = n.getBooleanValue(); },
         "recurrence": n => { accessReviewScheduleSettings.recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
         "reminderNotificationsEnabled": n => { accessReviewScheduleSettings.reminderNotificationsEnabled = n.getBooleanValue(); },

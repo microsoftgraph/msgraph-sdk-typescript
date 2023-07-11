@@ -2,10 +2,16 @@ import {BundlesRequestBuilderGetQueryParameters} from './bundlesRequestBuilderGe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface BundlesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: BundlesRequestBuilderGetQueryParameters | undefined;
 }

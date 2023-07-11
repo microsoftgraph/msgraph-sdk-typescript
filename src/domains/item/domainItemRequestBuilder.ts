@@ -16,37 +16,51 @@ import {PromoteRequestBuilder} from './promote/promoteRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domain entities.
  */
 export class DomainItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity.
+     */
     public get domainNameReferences(): DomainNameReferencesRequestBuilder {
         return new DomainNameReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
+     */
     public get federationConfiguration(): FederationConfigurationRequestBuilder {
         return new FederationConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the forceDelete method. */
+    /**
+     * Provides operations to call the forceDelete method.
+     */
     public get forceDelete(): ForceDeleteRequestBuilder {
         return new ForceDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the promote method. */
+    /**
+     * Provides operations to call the promote method.
+     */
     public get promote(): PromoteRequestBuilder {
         return new PromoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
+     */
     public get serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
         return new ServiceConfigurationRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity. */
+    /**
+     * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
+     */
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the verify method. */
+    /**
+     * Provides operations to call the verify method.
+     */
     public get verify(): VerifyRequestBuilder {
         return new VerifyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -61,10 +75,9 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a domain from a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/domain-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: DomainItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DomainItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -72,16 +85,15 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of domain object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
      * @see {@link https://docs.microsoft.com/graph/api/domain-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DomainItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
+    public get(requestConfiguration?: DomainItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Domain | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -89,17 +101,16 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of domain object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
      * @see {@link https://docs.microsoft.com/graph/api/domain-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
+    public patch(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Domain | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -108,7 +119,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Domain>(requestInfo, createDomainFromDiscriminatorValue, errorMapping);
     };
     /**
      * Deletes a domain from a tenant.

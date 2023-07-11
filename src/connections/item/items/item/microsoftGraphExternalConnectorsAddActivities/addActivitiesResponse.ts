@@ -3,6 +3,8 @@ import {ExternalActivityResult} from '../../../../../models/externalConnectors/e
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AddActivitiesResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ExternalActivityResult[] | undefined;
 }

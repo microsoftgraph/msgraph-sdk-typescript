@@ -3,8 +3,12 @@ import {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRbacResourceNamespace extends Entity, Parsable {
-    /** The name property */
+    /**
+     * The name property
+     */
     name?: string | undefined;
-    /** The resourceActions property */
+    /**
+     * The resourceActions property
+     */
     resourceActions?: UnifiedRbacResourceAction[] | undefined;
 }

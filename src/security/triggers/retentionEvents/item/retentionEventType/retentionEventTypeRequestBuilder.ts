@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {RetentionEventType} from '../../../../../models/security/';
 import {createRetentionEventTypeFromDiscriminatorValue} from '../../../../../models/security/createRetentionEventTypeFromDiscriminatorValue';
 import {RetentionEventTypeRequestBuilderGetRequestConfiguration} from './retentionEventTypeRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEventType property of the microsoft.graph.security.retentionEvent entity.
@@ -22,10 +22,9 @@ export class RetentionEventTypeRequestBuilder extends BaseRequestBuilder {
     /**
      * Specifies the event that will start the retention period for labels that use this event type when an event is created.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of RetentionEventType
      */
-    public get(requestConfiguration?: RetentionEventTypeRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RetentionEventType | undefined> {
+    public get(requestConfiguration?: RetentionEventTypeRequestBuilderGetRequestConfiguration | undefined) : Promise<RetentionEventType | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class RetentionEventTypeRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<RetentionEventType>(requestInfo, createRetentionEventTypeFromDiscriminatorValue, errorMapping);
     };
     /**
      * Specifies the event that will start the retention period for labels that use this event type when an event is created.

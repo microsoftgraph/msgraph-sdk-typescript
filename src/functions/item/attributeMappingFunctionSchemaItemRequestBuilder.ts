@@ -9,7 +9,7 @@ import {serializeAttributeMappingFunctionSchema} from '../../models/serializeAtt
 import {AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration';
 import {AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration';
 import {AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
@@ -26,9 +26,8 @@ export class AttributeMappingFunctionSchemaItemRequestBuilder extends BaseReques
     /**
      * Delete entity from functions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class AttributeMappingFunctionSchemaItemRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get entity from functions by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeMappingFunctionSchema
      */
-    public get(requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
+    public get(requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class AttributeMappingFunctionSchemaItemRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttributeMappingFunctionSchema>(requestInfo, createAttributeMappingFunctionSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttributeMappingFunctionSchema>(requestInfo, createAttributeMappingFunctionSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in functions
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AttributeMappingFunctionSchema
      */
-    public patch(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
+    public patch(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class AttributeMappingFunctionSchemaItemRequestBuilder extends BaseReques
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AttributeMappingFunctionSchema>(requestInfo, createAttributeMappingFunctionSchemaFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AttributeMappingFunctionSchema>(requestInfo, createAttributeMappingFunctionSchemaFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from functions

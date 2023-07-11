@@ -15,33 +15,45 @@ import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
  */
 export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the assignments property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.
+     */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the classes property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
+     */
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
+     */
     public get rubrics(): RubricsRequestBuilder {
         return new RubricsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the schools property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the schools property of the microsoft.graph.educationUser entity.
+     */
     public get schools(): SchoolsRequestBuilder {
         return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.
+     */
     public get taughtClasses(): TaughtClassesRequestBuilder {
         return new TaughtClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the user property of the microsoft.graph.educationUser entity. */
+    /**
+     * Provides operations to manage the user property of the microsoft.graph.educationUser entity.
+     */
     public get user(): UserRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -56,10 +68,9 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @see {@link https://docs.microsoft.com/graph/api/educationuser-delete?view=graph-rest-1.0|Find more info here}
      */
-    public delete(requestConfiguration?: EducationUserItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EducationUserItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -67,16 +78,15 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties and relationships of an educationUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationUser
      * @see {@link https://docs.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: EducationUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
+    public get(requestConfiguration?: EducationUserItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -84,17 +94,16 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an educationUser object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationUser
      * @see {@link https://docs.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationUser | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
+    public patch(body: EducationUser | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -103,7 +112,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete a user.

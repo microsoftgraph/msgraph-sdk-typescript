@@ -3,6 +3,8 @@ import {DirectoryRoleTemplate} from './directoryRoleTemplate';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryRoleTemplateCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: DirectoryRoleTemplate[] | undefined;
 }

@@ -9,7 +9,7 @@ import {serializeDeviceConfigurationDeviceStateSummary} from '../../models/seria
 import {DeviceConfigurationDeviceStateSummariesRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationDeviceStateSummariesRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration} from './deviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration} from './deviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurationDeviceStateSummaries property of the microsoft.graph.deviceManagement entity.
@@ -26,9 +26,8 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
     /**
      * Delete navigation property deviceConfigurationDeviceStateSummaries for deviceManagement
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,15 +35,14 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * The device configuration device state summary for this account.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationDeviceStateSummary
      */
-    public get(requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
+    public get(requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -52,16 +50,15 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceConfigurationDeviceStateSummary>(requestInfo, createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceConfigurationDeviceStateSummary>(requestInfo, createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property deviceConfigurationDeviceStateSummaries in deviceManagement
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationDeviceStateSummary
      */
-    public patch(body: DeviceConfigurationDeviceStateSummary | undefined, requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
+    public patch(body: DeviceConfigurationDeviceStateSummary | undefined, requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -70,7 +67,7 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeviceConfigurationDeviceStateSummary>(requestInfo, createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeviceConfigurationDeviceStateSummary>(requestInfo, createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property deviceConfigurationDeviceStateSummaries for deviceManagement

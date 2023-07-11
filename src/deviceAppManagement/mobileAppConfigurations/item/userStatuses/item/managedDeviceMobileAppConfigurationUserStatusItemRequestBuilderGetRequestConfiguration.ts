@@ -2,10 +2,16 @@ import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetQueryP
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilderGetQueryParameters | undefined;
 }

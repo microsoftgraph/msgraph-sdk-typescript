@@ -9,7 +9,7 @@ import {serializeAuthorizationPolicy} from '../../models/serializeAuthorizationP
 import {AuthorizationPolicyRequestBuilderDeleteRequestConfiguration} from './authorizationPolicyRequestBuilderDeleteRequestConfiguration';
 import {AuthorizationPolicyRequestBuilderGetRequestConfiguration} from './authorizationPolicyRequestBuilderGetRequestConfiguration';
 import {AuthorizationPolicyRequestBuilderPatchRequestConfiguration} from './authorizationPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.
@@ -26,9 +26,8 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property authorizationPolicy for policies
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AuthorizationPolicyRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AuthorizationPolicyRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties of an authorizationPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthorizationPolicy
      * @see {@link https://docs.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: AuthorizationPolicyRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthorizationPolicy | undefined> {
+    public get(requestConfiguration?: AuthorizationPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthorizationPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,17 +51,16 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of an authorizationPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuthorizationPolicy
      * @see {@link https://docs.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AuthorizationPolicy | undefined, requestConfiguration?: AuthorizationPolicyRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthorizationPolicy | undefined> {
+    public patch(body: AuthorizationPolicy | undefined, requestConfiguration?: AuthorizationPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthorizationPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -72,7 +69,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<AuthorizationPolicy>(requestInfo, createAuthorizationPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property authorizationPolicy for policies

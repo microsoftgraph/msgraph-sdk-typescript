@@ -12,13 +12,15 @@ import {ContentSharingSessionsRequestBuilderGetRequestConfiguration} from './con
 import {ContentSharingSessionsRequestBuilderPostRequestConfiguration} from './contentSharingSessionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ContentSharingSessionItemRequestBuilder} from './item/contentSharingSessionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
  */
 export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,11 +46,10 @@ export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
     /**
      * Retrieve a list of contentSharingSession objects in a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentSharingSessionCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ContentSharingSessionsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentSharingSessionCollectionResponse | undefined> {
+    public get(requestConfiguration?: ContentSharingSessionsRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentSharingSessionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -56,16 +57,15 @@ export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ContentSharingSessionCollectionResponse>(requestInfo, createContentSharingSessionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ContentSharingSessionCollectionResponse>(requestInfo, createContentSharingSessionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to contentSharingSessions for communications
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentSharingSession
      */
-    public post(body: ContentSharingSession | undefined, requestConfiguration?: ContentSharingSessionsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentSharingSession | undefined> {
+    public post(body: ContentSharingSession | undefined, requestConfiguration?: ContentSharingSessionsRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentSharingSession | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -74,7 +74,7 @@ export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ContentSharingSession>(requestInfo, createContentSharingSessionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ContentSharingSession>(requestInfo, createContentSharingSessionFromDiscriminatorValue, errorMapping);
     };
     /**
      * Retrieve a list of contentSharingSession objects in a call.

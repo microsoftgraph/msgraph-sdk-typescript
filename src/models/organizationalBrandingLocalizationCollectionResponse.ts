@@ -3,6 +3,8 @@ import {OrganizationalBrandingLocalization} from './organizationalBrandingLocali
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrganizationalBrandingLocalizationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: OrganizationalBrandingLocalization[] | undefined;
 }

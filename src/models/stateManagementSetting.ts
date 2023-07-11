@@ -1,4 +1,6 @@
-/** State Management Setting. */
+/**
+ * State Management Setting.
+ */
 export enum StateManagementSetting {
     /** Not configured. */
     NotConfigured = "notConfigured",

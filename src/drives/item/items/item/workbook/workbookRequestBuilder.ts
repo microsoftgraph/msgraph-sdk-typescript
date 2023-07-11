@@ -21,49 +21,69 @@ import {WorkbookRequestBuilderDeleteRequestConfiguration} from './workbookReques
 import {WorkbookRequestBuilderGetRequestConfiguration} from './workbookRequestBuilderGetRequestConfiguration';
 import {WorkbookRequestBuilderPatchRequestConfiguration} from './workbookRequestBuilderPatchRequestConfiguration';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
  */
 export class WorkbookRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the application property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the application property of the microsoft.graph.workbook entity.
+     */
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the closeSession method. */
+    /**
+     * Provides operations to call the closeSession method.
+     */
     public get closeSession(): CloseSessionRequestBuilder {
         return new CloseSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the comments property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
+     */
     public get comments(): CommentsRequestBuilder {
         return new CommentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the createSession method. */
+    /**
+     * Provides operations to call the createSession method.
+     */
     public get createSession(): CreateSessionRequestBuilder {
         return new CreateSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the functions property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the functions property of the microsoft.graph.workbook entity.
+     */
     public get functions(): FunctionsRequestBuilder {
         return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the names property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the names property of the microsoft.graph.workbook entity.
+     */
     public get names(): NamesRequestBuilder {
         return new NamesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.workbook entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the refreshSession method. */
+    /**
+     * Provides operations to call the refreshSession method.
+     */
     public get refreshSession(): RefreshSessionRequestBuilder {
         return new RefreshSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tables property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
+     */
     public get tables(): TablesRequestBuilder {
         return new TablesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the worksheets property of the microsoft.graph.workbook entity. */
+    /**
+     * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
+     */
     public get worksheets(): WorksheetsRequestBuilder {
         return new WorksheetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -78,9 +98,8 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property workbook for drives
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: WorkbookRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: WorkbookRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -88,15 +107,14 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Workbook
      */
-    public get(requestConfiguration?: WorkbookRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Workbook | undefined> {
+    public get(requestConfiguration?: WorkbookRequestBuilderGetRequestConfiguration | undefined) : Promise<Workbook | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -104,16 +122,15 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property workbook in drives
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Workbook
      */
-    public patch(body: Workbook | undefined, requestConfiguration?: WorkbookRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Workbook | undefined> {
+    public patch(body: Workbook | undefined, requestConfiguration?: WorkbookRequestBuilderPatchRequestConfiguration | undefined) : Promise<Workbook | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -122,7 +139,7 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Workbook>(requestInfo, createWorkbookFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the sessionInfoResource method.

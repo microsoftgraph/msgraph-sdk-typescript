@@ -1,4 +1,6 @@
-/** Contains value for notification status. */
+/**
+ * Contains value for notification status.
+ */
 export enum Win32LobAppNotification {
     /** Show all notifications. */
     ShowAll = "showAll",

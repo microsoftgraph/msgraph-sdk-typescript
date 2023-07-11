@@ -19,49 +19,69 @@ import {PhoneMethodsRequestBuilder} from './phoneMethods/phoneMethodsRequestBuil
 import {SoftwareOathMethodsRequestBuilder} from './softwareOathMethods/softwareOathMethodsRequestBuilder';
 import {TemporaryAccessPassMethodsRequestBuilder} from './temporaryAccessPassMethods/temporaryAccessPassMethodsRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authentication property of the microsoft.graph.user entity.
  */
 export class AuthenticationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
+     */
     public get emailMethods(): EmailMethodsRequestBuilder {
         return new EmailMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
+     */
     public get fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the methods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
+     */
     public get methods(): MethodsRequestBuilder {
         return new MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
+     */
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the operations property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
+     */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
+     */
     public get passwordMethods(): PasswordMethodsRequestBuilder {
         return new PasswordMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
+     */
     public get phoneMethods(): PhoneMethodsRequestBuilder {
         return new PhoneMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
+     */
     public get softwareOathMethods(): SoftwareOathMethodsRequestBuilder {
         return new SoftwareOathMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
+     */
     public get temporaryAccessPassMethods(): TemporaryAccessPassMethodsRequestBuilder {
         return new TemporaryAccessPassMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity. */
+    /**
+     * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
+     */
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -76,9 +96,8 @@ export class AuthenticationRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property authentication for me
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: AuthenticationRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: AuthenticationRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -86,15 +105,14 @@ export class AuthenticationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * The authentication methods that are supported for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Authentication
      */
-    public get(requestConfiguration?: AuthenticationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
+    public get(requestConfiguration?: AuthenticationRequestBuilderGetRequestConfiguration | undefined) : Promise<Authentication | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -102,16 +120,15 @@ export class AuthenticationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property authentication in me
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Authentication
      */
-    public patch(body: Authentication | undefined, requestConfiguration?: AuthenticationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
+    public patch(body: Authentication | undefined, requestConfiguration?: AuthenticationRequestBuilderPatchRequestConfiguration | undefined) : Promise<Authentication | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -120,7 +137,7 @@ export class AuthenticationRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property authentication for me

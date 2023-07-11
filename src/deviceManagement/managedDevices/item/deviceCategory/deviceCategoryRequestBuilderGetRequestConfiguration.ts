@@ -2,10 +2,16 @@ import {DeviceCategoryRequestBuilderGetQueryParameters} from './deviceCategoryRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DeviceCategoryRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: DeviceCategoryRequestBuilderGetQueryParameters | undefined;
 }

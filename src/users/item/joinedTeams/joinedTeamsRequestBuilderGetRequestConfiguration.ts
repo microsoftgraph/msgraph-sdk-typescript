@@ -2,10 +2,16 @@ import {JoinedTeamsRequestBuilderGetQueryParameters} from './joinedTeamsRequestB
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface JoinedTeamsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: JoinedTeamsRequestBuilderGetQueryParameters | undefined;
 }

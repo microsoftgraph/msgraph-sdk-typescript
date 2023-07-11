@@ -6,7 +6,7 @@ import {deserializeIntoTargetAppsPostRequestBody} from './deserializeIntoTargetA
 import {serializeTargetAppsPostRequestBody} from './serializeTargetAppsPostRequestBody';
 import {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
 import {TargetAppsRequestBuilderPostRequestConfiguration} from './targetAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the targetApps method.
@@ -24,9 +24,8 @@ export class TargetAppsRequestBuilder extends BaseRequestBuilder {
      * Invoke action targetApps
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: TargetAppsPostRequestBody | undefined, requestConfiguration?: TargetAppsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: TargetAppsPostRequestBody | undefined, requestConfiguration?: TargetAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -35,7 +34,7 @@ export class TargetAppsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Invoke action targetApps

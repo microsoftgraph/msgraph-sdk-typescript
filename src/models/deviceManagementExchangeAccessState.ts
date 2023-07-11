@@ -1,4 +1,6 @@
-/** Device Exchange Access State. */
+/**
+ * Device Exchange Access State.
+ */
 export enum DeviceManagementExchangeAccessState {
     /** No access state discovered from Exchange */
     None = "none",

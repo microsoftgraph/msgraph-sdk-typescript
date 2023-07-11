@@ -2,10 +2,16 @@ import {ShiftsRequestBuilderGetQueryParameters} from './shiftsRequestBuilderGetQ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ShiftsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ShiftsRequestBuilderGetQueryParameters | undefined;
 }

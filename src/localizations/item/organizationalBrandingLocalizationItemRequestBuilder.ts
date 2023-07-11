@@ -16,37 +16,51 @@ import {OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfigurat
 import {OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration} from './organizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
 import {SquareLogoDarkRequestBuilder} from './squareLogoDark/squareLogoDarkRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organizationalBrandingLocalization entities.
  */
 export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get customCSS(): CustomCSSRequestBuilder {
         return new CustomCSSRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get favicon(): FaviconRequestBuilder {
         return new FaviconRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get headerLogo(): HeaderLogoRequestBuilder {
         return new HeaderLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the media for the organizationalBrandingLocalization entity. */
+    /**
+     * Provides operations to manage the media for the organizationalBrandingLocalization entity.
+     */
     public get squareLogoDark(): SquareLogoDarkRequestBuilder {
         return new SquareLogoDarkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -61,9 +75,8 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
     /**
      * Delete entity from localizations
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -71,15 +84,14 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Get entity from localizations by key
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBrandingLocalization
      */
-    public get(requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBrandingLocalization | undefined> {
+    public get(requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OrganizationalBrandingLocalization | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -87,16 +99,15 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update entity in localizations
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OrganizationalBrandingLocalization
      */
-    public patch(body: OrganizationalBrandingLocalization | undefined, requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OrganizationalBrandingLocalization | undefined> {
+    public patch(body: OrganizationalBrandingLocalization | undefined, requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OrganizationalBrandingLocalization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -105,7 +116,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<OrganizationalBrandingLocalization>(requestInfo, createOrganizationalBrandingLocalizationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from localizations

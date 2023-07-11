@@ -3,6 +3,8 @@ import {ManagedMobileApp} from './managedMobileApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedMobileAppCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: ManagedMobileApp[] | undefined;
 }

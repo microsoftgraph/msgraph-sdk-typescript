@@ -2,20 +2,36 @@ import {PrintCertificateSigningRequest} from '../../../models/printCertificateSi
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CreatePostRequestBody extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The certificateSigningRequest property */
+    /**
+     * The certificateSigningRequest property
+     */
     certificateSigningRequest?: PrintCertificateSigningRequest | undefined;
-    /** The connectorId property */
+    /**
+     * The connectorId property
+     */
     connectorId?: string | undefined;
-    /** The displayName property */
+    /**
+     * The displayName property
+     */
     displayName?: string | undefined;
-    /** The hasPhysicalDevice property */
+    /**
+     * The hasPhysicalDevice property
+     */
     hasPhysicalDevice?: boolean | undefined;
-    /** The manufacturer property */
+    /**
+     * The manufacturer property
+     */
     manufacturer?: string | undefined;
-    /** The model property */
+    /**
+     * The model property
+     */
     model?: string | undefined;
-    /** The physicalDeviceId property */
+    /**
+     * The physicalDeviceId property
+     */
     physicalDeviceId?: string | undefined;
 }

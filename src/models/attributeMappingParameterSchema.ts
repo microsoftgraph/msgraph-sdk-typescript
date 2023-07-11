@@ -2,16 +2,28 @@ import {AttributeType} from './attributeType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttributeMappingParameterSchema extends AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
+    /**
+     * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     */
     additionalData?: Record<string, unknown>;
-    /** The allowMultipleOccurrences property */
+    /**
+     * The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function).
+     */
     allowMultipleOccurrences?: boolean | undefined;
-    /** The name property */
+    /**
+     * Parameter name.
+     */
     name?: string | undefined;
-    /** The OdataType property */
+    /**
+     * The OdataType property
+     */
     odataType?: string | undefined;
-    /** The required property */
+    /**
+     * true if the parameter is required; otherwise false.
+     */
     required?: boolean | undefined;
-    /** The type property */
+    /**
+     * The type property
+     */
     type?: AttributeType | undefined;
 }

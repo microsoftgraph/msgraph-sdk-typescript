@@ -2,10 +2,16 @@ import {TimeOffItemRequestBuilderGetQueryParameters} from './timeOffItemRequestB
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface TimeOffItemRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: TimeOffItemRequestBuilderGetQueryParameters | undefined;
 }

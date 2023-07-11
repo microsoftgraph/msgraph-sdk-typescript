@@ -20,53 +20,75 @@ import {PinnedMessagesRequestBuilder} from './pinnedMessages/pinnedMessagesReque
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {UnhideForUserRequestBuilder} from './unhideForUser/unhideForUserRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of chat entities.
  */
 export class ChatItemRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to call the hideForUser method. */
+    /**
+     * Provides operations to call the hideForUser method.
+     */
     public get hideForUser(): HideForUserRequestBuilder {
         return new HideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the installedApps property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
+     */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.
+     */
     public get lastMessagePreview(): LastMessagePreviewRequestBuilder {
         return new LastMessagePreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the markChatReadForUser method. */
+    /**
+     * Provides operations to call the markChatReadForUser method.
+     */
     public get markChatReadForUser(): MarkChatReadForUserRequestBuilder {
         return new MarkChatReadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the markChatUnreadForUser method. */
+    /**
+     * Provides operations to call the markChatUnreadForUser method.
+     */
     public get markChatUnreadForUser(): MarkChatUnreadForUserRequestBuilder {
         return new MarkChatUnreadForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the members property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the members property of the microsoft.graph.chat entity.
+     */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the messages property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the messages property of the microsoft.graph.chat entity.
+     */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
+     */
     public get pinnedMessages(): PinnedMessagesRequestBuilder {
         return new PinnedMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the sendActivityNotification method. */
+    /**
+     * Provides operations to call the sendActivityNotification method.
+     */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the tabs property of the microsoft.graph.chat entity. */
+    /**
+     * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
+     */
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the unhideForUser method. */
+    /**
+     * Provides operations to call the unhideForUser method.
+     */
     public get unhideForUser(): UnhideForUserRequestBuilder {
         return new UnhideForUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -81,9 +103,8 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete entity from chats
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: ChatItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ChatItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -91,16 +112,15 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
      * @see {@link https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: ChatItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
+    public get(requestConfiguration?: ChatItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Chat | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -108,17 +128,16 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the properties of a chat object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Chat
      * @see {@link https://docs.microsoft.com/graph/api/chat-patch?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Chat | undefined, requestConfiguration?: ChatItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
+    public patch(body: Chat | undefined, requestConfiguration?: ChatItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Chat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -127,7 +146,7 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<Chat>(requestInfo, createChatFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete entity from chats

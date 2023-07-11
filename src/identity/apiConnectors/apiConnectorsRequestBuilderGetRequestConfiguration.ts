@@ -2,10 +2,16 @@ import {ApiConnectorsRequestBuilderGetQueryParameters} from './apiConnectorsRequ
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ApiConnectorsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ApiConnectorsRequestBuilderGetQueryParameters | undefined;
 }

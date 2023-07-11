@@ -13,17 +13,21 @@ import {DeletedTeamsRequestBuilderGetRequestConfiguration} from './deletedTeamsR
 import {DeletedTeamsRequestBuilderPostRequestConfiguration} from './deletedTeamsRequestBuilderPostRequestConfiguration';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {DeletedTeamItemRequestBuilder} from './item/deletedTeamItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
  */
 export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getAllMessages method. */
+    /**
+     * Provides operations to call the getAllMessages method.
+     */
     public get getAllMessages(): GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -49,11 +53,10 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeletedTeamCollectionResponse
      * @see {@link https://docs.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DeletedTeamsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeletedTeamCollectionResponse | undefined> {
+    public get(requestConfiguration?: DeletedTeamsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeletedTeamCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -61,16 +64,15 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeletedTeamCollectionResponse>(requestInfo, createDeletedTeamCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeletedTeamCollectionResponse>(requestInfo, createDeletedTeamCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to deletedTeams for teamwork
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeletedTeam
      */
-    public post(body: DeletedTeam | undefined, requestConfiguration?: DeletedTeamsRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeletedTeam | undefined> {
+    public post(body: DeletedTeam | undefined, requestConfiguration?: DeletedTeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeletedTeam | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -79,7 +81,7 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DeletedTeam>(requestInfo, createDeletedTeamFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DeletedTeam>(requestInfo, createDeletedTeamFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get a list of the deletedTeam objects and their properties.

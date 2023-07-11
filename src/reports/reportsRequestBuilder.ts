@@ -6,6 +6,7 @@ import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoOD
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {ReportRoot} from '../models/reportRoot';
 import {serializeReportRoot} from '../models/serializeReportRoot';
+import {AuthenticationMethodsRequestBuilder} from './authenticationMethods/authenticationMethodsRequestBuilder';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
 import {DeviceConfigurationDeviceActivityRequestBuilder} from './deviceConfigurationDeviceActivity/deviceConfigurationDeviceActivityRequestBuilder';
@@ -114,57 +115,87 @@ import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/m
 import {ReportsRequestBuilderGetRequestConfiguration} from './reportsRequestBuilderGetRequestConfiguration';
 import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBuilderPatchRequestConfiguration';
 import {SecurityRequestBuilder} from './security/securityRequestBuilder';
-import {BaseRequestBuilder, DateOnly, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, DateOnly, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reportRoot singleton.
  */
 export class ReportsRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.
+     */
+    public get authenticationMethods(): AuthenticationMethodsRequestBuilder {
+        return new AuthenticationMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
+     */
     public get dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
         return new DailyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+     */
     public get dailyPrintUsageByUser(): DailyPrintUsageByUserRequestBuilder {
         return new DailyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the deviceConfigurationDeviceActivity method. */
+    /**
+     * Provides operations to call the deviceConfigurationDeviceActivity method.
+     */
     public get deviceConfigurationDeviceActivity(): DeviceConfigurationDeviceActivityRequestBuilder {
         return new DeviceConfigurationDeviceActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the deviceConfigurationUserActivity method. */
+    /**
+     * Provides operations to call the deviceConfigurationUserActivity method.
+     */
     public get deviceConfigurationUserActivity(): DeviceConfigurationUserActivityRequestBuilder {
         return new DeviceConfigurationUserActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getOffice365ActivationCounts method. */
+    /**
+     * Provides operations to call the getOffice365ActivationCounts method.
+     */
     public get getOffice365ActivationCounts(): GetOffice365ActivationCountsRequestBuilder {
         return new GetOffice365ActivationCountsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getOffice365ActivationsUserCounts method. */
+    /**
+     * Provides operations to call the getOffice365ActivationsUserCounts method.
+     */
     public get getOffice365ActivationsUserCounts(): GetOffice365ActivationsUserCountsRequestBuilder {
         return new GetOffice365ActivationsUserCountsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the getOffice365ActivationsUserDetail method. */
+    /**
+     * Provides operations to call the getOffice365ActivationsUserDetail method.
+     */
     public get getOffice365ActivationsUserDetail(): GetOffice365ActivationsUserDetailRequestBuilder {
         return new GetOffice365ActivationsUserDetailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the managedDeviceEnrollmentFailureDetails method. */
+    /**
+     * Provides operations to call the managedDeviceEnrollmentFailureDetails method.
+     */
     public get managedDeviceEnrollmentFailureDetails(): ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
         return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to call the managedDeviceEnrollmentTopFailures method. */
+    /**
+     * Provides operations to call the managedDeviceEnrollmentTopFailures method.
+     */
     public get managedDeviceEnrollmentTopFailures(): ManagedDeviceEnrollmentTopFailuresRequestBuilder {
         return new ManagedDeviceEnrollmentTopFailuresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
+     */
     public get monthlyPrintUsageByPrinter(): MonthlyPrintUsageByPrinterRequestBuilder {
         return new MonthlyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
+     */
     public get monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Provides operations to manage the security property of the microsoft.graph.reportRoot entity. */
+    /**
+     * Provides operations to manage the security property of the microsoft.graph.reportRoot entity.
+     */
     public get security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -179,10 +210,9 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
     /**
      * Get reports
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ReportRoot
      */
-    public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
+    public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<ReportRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -190,7 +220,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Provides operations to call the getEmailActivityCounts method.
@@ -1060,10 +1090,9 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
      * Update reports
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ReportRoot
      */
-    public patch(body: ReportRoot | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
+    public patch(body: ReportRoot | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined) : Promise<ReportRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -1072,7 +1101,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, errorMapping);
     };
     /**
      * Get reports

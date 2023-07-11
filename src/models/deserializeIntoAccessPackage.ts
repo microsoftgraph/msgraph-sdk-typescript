@@ -1,15 +1,18 @@
 import {AccessPackage} from './accessPackage';
 import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
 import {AccessPackageCatalog} from './accessPackageCatalog';
+import {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
 import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
+import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from './createAccessPackageResourceRoleScopeFromDiscriminatorValue';
 import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Group} from './group';
 import {serializeAccessPackage} from './serializeAccessPackage';
 import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';
 import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
+import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageResourceRoleScope';
 import {serializeGroup} from './serializeGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -26,5 +29,6 @@ export function deserializeIntoAccessPackage(accessPackage: AccessPackage | unde
         "incompatibleGroups": n => { accessPackage.incompatibleGroups = n.getCollectionOfObjectValues<Group>(createGroupFromDiscriminatorValue); },
         "isHidden": n => { accessPackage.isHidden = n.getBooleanValue(); },
         "modifiedDateTime": n => { accessPackage.modifiedDateTime = n.getDateValue(); },
+        "resourceRoleScopes": n => { accessPackage.resourceRoleScopes = n.getCollectionOfObjectValues<AccessPackageResourceRoleScope>(createAccessPackageResourceRoleScopeFromDiscriminatorValue); },
     }
 }

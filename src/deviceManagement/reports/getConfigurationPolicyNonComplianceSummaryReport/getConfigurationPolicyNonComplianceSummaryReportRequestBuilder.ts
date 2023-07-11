@@ -6,7 +6,7 @@ import {deserializeIntoGetConfigurationPolicyNonComplianceSummaryReportPostReque
 import {GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody} from './getConfigurationPolicyNonComplianceSummaryReportPostRequestBody';
 import {GetConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration} from './getConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration';
 import {serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody} from './serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method.
@@ -24,10 +24,9 @@ export class GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder exte
      * Invoke action getConfigurationPolicyNonComplianceSummaryReport
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public post(body: GetConfigurationPolicyNonComplianceSummaryReportPostRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -36,7 +35,7 @@ export class GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder exte
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
      * Invoke action getConfigurationPolicyNonComplianceSummaryReport

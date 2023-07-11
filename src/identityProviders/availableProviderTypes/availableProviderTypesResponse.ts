@@ -2,6 +2,8 @@ import {BaseCollectionPaginationCountResponse} from '../../models/baseCollection
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AvailableProviderTypesResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: string[] | undefined;
 }

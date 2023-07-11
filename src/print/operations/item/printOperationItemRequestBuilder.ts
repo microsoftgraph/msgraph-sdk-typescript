@@ -9,7 +9,7 @@ import {serializePrintOperation} from '../../../models/serializePrintOperation';
 import {PrintOperationItemRequestBuilderDeleteRequestConfiguration} from './printOperationItemRequestBuilderDeleteRequestConfiguration';
 import {PrintOperationItemRequestBuilderGetRequestConfiguration} from './printOperationItemRequestBuilderGetRequestConfiguration';
 import {PrintOperationItemRequestBuilderPatchRequestConfiguration} from './printOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.print entity.
@@ -26,9 +26,8 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete navigation property operations for print
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: PrintOperationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: PrintOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Retrieve the properties and relationships of a printOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintOperation
      * @see {@link https://docs.microsoft.com/graph/api/printoperation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: PrintOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintOperation | undefined> {
+    public get(requestConfiguration?: PrintOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintOperation>(requestInfo, createPrintOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintOperation>(requestInfo, createPrintOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property operations in print
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintOperation
      */
-    public patch(body: PrintOperation | undefined, requestConfiguration?: PrintOperationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintOperation | undefined> {
+    public patch(body: PrintOperation | undefined, requestConfiguration?: PrintOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<PrintOperation>(requestInfo, createPrintOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<PrintOperation>(requestInfo, createPrintOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property operations for print

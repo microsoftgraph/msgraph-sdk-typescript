@@ -9,7 +9,7 @@ import {serializeDelegatedAdminRelationshipOperation} from '../../../../../model
 import {DelegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -26,9 +26,8 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
     /**
      * Delete navigation property operations for tenantRelationships
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(requestConfiguration?: DelegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DelegatedAdminRelationshipOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
             requestConfiguration
         );
@@ -36,16 +35,15 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
      * Read the properties of a delegatedAdminRelationshipOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipOperation
      * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-1.0|Find more info here}
      */
-    public get(requestConfiguration?: DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipOperation | undefined> {
+    public get(requestConfiguration?: DelegatedAdminRelationshipOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -53,16 +51,15 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipOperation>(requestInfo, createDelegatedAdminRelationshipOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DelegatedAdminRelationshipOperation>(requestInfo, createDelegatedAdminRelationshipOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Update the navigation property operations in tenantRelationships
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DelegatedAdminRelationshipOperation
      */
-    public patch(body: DelegatedAdminRelationshipOperation | undefined, requestConfiguration?: DelegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DelegatedAdminRelationshipOperation | undefined> {
+    public patch(body: DelegatedAdminRelationshipOperation | undefined, requestConfiguration?: DelegatedAdminRelationshipOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
@@ -71,7 +68,7 @@ export class DelegatedAdminRelationshipOperationItemRequestBuilder extends BaseR
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<DelegatedAdminRelationshipOperation>(requestInfo, createDelegatedAdminRelationshipOperationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<DelegatedAdminRelationshipOperation>(requestInfo, createDelegatedAdminRelationshipOperationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Delete navigation property operations for tenantRelationships

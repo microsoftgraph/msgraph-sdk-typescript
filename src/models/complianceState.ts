@@ -1,4 +1,6 @@
-/** Compliance state. */
+/**
+ * Compliance state.
+ */
 export enum ComplianceState {
     /** Unknown. */
     Unknown = "unknown",

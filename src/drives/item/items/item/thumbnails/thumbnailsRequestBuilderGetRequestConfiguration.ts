@@ -2,10 +2,16 @@ import {ThumbnailsRequestBuilderGetQueryParameters} from './thumbnailsRequestBui
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ThumbnailsRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ThumbnailsRequestBuilderGetQueryParameters | undefined;
 }

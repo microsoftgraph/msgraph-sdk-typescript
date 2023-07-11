@@ -3,6 +3,8 @@ import {Subscription} from './subscription';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SubscriptionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
-    /** The value property */
+    /**
+     * The value property
+     */
     value?: Subscription[] | undefined;
 }

@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetAttackSimulationSimulationUserCoverageResponseFromDiscriminatorValue} from './createGetAttackSimulationSimulationUserCoverageResponseFromDiscriminatorValue';
 import {GetAttackSimulationSimulationUserCoverageRequestBuilderGetRequestConfiguration} from './getAttackSimulationSimulationUserCoverageRequestBuilderGetRequestConfiguration';
 import {GetAttackSimulationSimulationUserCoverageResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getAttackSimulationSimulationUserCoverage method.
@@ -22,10 +22,9 @@ export class GetAttackSimulationSimulationUserCoverageRequestBuilder extends Bas
     /**
      * Invoke function getAttackSimulationSimulationUserCoverage
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetAttackSimulationSimulationUserCoverageResponse
      */
-    public get(requestConfiguration?: GetAttackSimulationSimulationUserCoverageRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetAttackSimulationSimulationUserCoverageResponse | undefined> {
+    public get(requestConfiguration?: GetAttackSimulationSimulationUserCoverageRequestBuilderGetRequestConfiguration | undefined) : Promise<GetAttackSimulationSimulationUserCoverageResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -33,7 +32,7 @@ export class GetAttackSimulationSimulationUserCoverageRequestBuilder extends Bas
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<GetAttackSimulationSimulationUserCoverageResponse>(requestInfo, createGetAttackSimulationSimulationUserCoverageResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<GetAttackSimulationSimulationUserCoverageResponse>(requestInfo, createGetAttackSimulationSimulationUserCoverageResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Invoke function getAttackSimulationSimulationUserCoverage

@@ -12,13 +12,15 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnPremisesDirectorySynchronizationItemRequestBuilder} from './item/onPremisesDirectorySynchronizationItemRequestBuilder';
 import {OnPremisesSynchronizationRequestBuilderGetRequestConfiguration} from './onPremisesSynchronizationRequestBuilderGetRequestConfiguration';
 import {OnPremisesSynchronizationRequestBuilderPostRequestConfiguration} from './onPremisesSynchronizationRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.
  */
 export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder {
-    /** Provides operations to count the resources in the collection. */
+    /**
+     * Provides operations to count the resources in the collection.
+     */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -44,10 +46,9 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
     /**
      * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnPremisesDirectorySynchronizationCollectionResponse
      */
-    public get(requestConfiguration?: OnPremisesSynchronizationRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnPremisesDirectorySynchronizationCollectionResponse | undefined> {
+    public get(requestConfiguration?: OnPremisesSynchronizationRequestBuilderGetRequestConfiguration | undefined) : Promise<OnPremisesDirectorySynchronizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
             requestConfiguration
         );
@@ -55,16 +56,15 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<OnPremisesDirectorySynchronizationCollectionResponse>(requestInfo, createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<OnPremisesDirectorySynchronizationCollectionResponse>(requestInfo, createOnPremisesDirectorySynchronizationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
      * Create new navigation property to onPremisesSynchronization for directory
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnPremisesDirectorySynchronization
      */
-    public post(body: OnPremisesDirectorySynchronization | undefined, requestConfiguration?: OnPremisesSynchronizationRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
+    public post(body: OnPremisesDirectorySynchronization | undefined, requestConfiguration?: OnPremisesSynchronizationRequestBuilderPostRequestConfiguration | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
@@ -73,7 +73,7 @@ export class OnPremisesSynchronizationRequestBuilder extends BaseRequestBuilder 
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         } as Record<string, ParsableFactory<Parsable>>;
-        return this.requestAdapter?.sendAsync<OnPremisesDirectorySynchronization>(requestInfo, createOnPremisesDirectorySynchronizationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('request adapter is null'));
+        return this.requestAdapter.sendAsync<OnPremisesDirectorySynchronization>(requestInfo, createOnPremisesDirectorySynchronizationFromDiscriminatorValue, errorMapping);
     };
     /**
      * Read the properties and relationships of an onPremisesDirectorySynchronization object.

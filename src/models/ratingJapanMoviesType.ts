@@ -1,4 +1,6 @@
-/** Movies rating labels in Japan */
+/**
+ * Movies rating labels in Japan
+ */
 export enum RatingJapanMoviesType {
     /** Default value, allow all movies content */
     AllAllowed = "allAllowed",

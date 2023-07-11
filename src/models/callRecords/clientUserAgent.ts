@@ -4,12 +4,20 @@ import {UserAgent} from './userAgent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ClientUserAgent extends Parsable, UserAgent {
-    /** The unique identifier of the Azure AD application used by this endpoint. */
+    /**
+     * The unique identifier of the Azure AD application used by this endpoint.
+     */
     azureADAppId?: string | undefined;
-    /** Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs. */
+    /**
+     * Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs.
+     */
     communicationServiceId?: string | undefined;
-    /** The platform property */
+    /**
+     * The platform property
+     */
     platform?: ClientPlatform | undefined;
-    /** The productFamily property */
+    /**
+     * The productFamily property
+     */
     productFamily?: ProductFamily | undefined;
 }

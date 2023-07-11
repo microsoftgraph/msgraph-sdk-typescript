@@ -2,10 +2,16 @@ import {ContactFoldersRequestBuilderGetQueryParameters} from './contactFoldersRe
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ContactFoldersRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: ContactFoldersRequestBuilderGetQueryParameters | undefined;
 }

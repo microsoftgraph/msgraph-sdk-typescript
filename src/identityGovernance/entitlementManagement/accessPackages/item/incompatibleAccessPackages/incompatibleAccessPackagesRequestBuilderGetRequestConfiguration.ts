@@ -2,10 +2,16 @@ import {IncompatibleAccessPackagesRequestBuilderGetQueryParameters} from './inco
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface IncompatibleAccessPackagesRequestBuilderGetRequestConfiguration {
-    /** Request headers */
+    /**
+     * Request headers
+     */
     headers?: Record<string, string[]> | undefined;
-    /** Request options */
+    /**
+     * Request options
+     */
     options?: RequestOption[] | undefined;
-    /** Request query parameters */
+    /**
+     * Request query parameters
+     */
     queryParameters?: IncompatibleAccessPackagesRequestBuilderGetQueryParameters | undefined;
 }
