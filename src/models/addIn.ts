@@ -1,5 +1,6 @@
 import {KeyValue} from './keyValue';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface AddIn extends AdditionalDataHolder, Parsable {
     /**
@@ -9,7 +10,7 @@ export interface AddIn extends AdditionalDataHolder, Parsable {
     /**
      * The id property
      */
-    id?: string | undefined;
+    id?: Guid | undefined;
     /**
      * The OdataType property
      */

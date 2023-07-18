@@ -9,7 +9,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoCalendarPermission(calendarPermission: CalendarPermission | undefined = {} as CalendarPermission) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(calendarPermission),
-        "allowedRoles": n => { calendarPermission.allowedRoles = n.getEnumValues<CalendarRoleType>(CalendarRoleType); },
+        "allowedRoles": n => { calendarPermission.allowedRoles = n.getCollectionOfEnumValues<CalendarRoleType>(CalendarRoleType); },
         "emailAddress": n => { calendarPermission.emailAddress = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
         "isInsideOrganization": n => { calendarPermission.isInsideOrganization = n.getBooleanValue(); },
         "isRemovable": n => { calendarPermission.isRemovable = n.getBooleanValue(); },

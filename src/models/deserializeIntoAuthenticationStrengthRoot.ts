@@ -13,7 +13,7 @@ export function deserializeIntoAuthenticationStrengthRoot(authenticationStrength
     return {
         ...deserializeIntoEntity(authenticationStrengthRoot),
         "authenticationMethodModes": n => { authenticationStrengthRoot.authenticationMethodModes = n.getCollectionOfObjectValues<AuthenticationMethodModeDetail>(createAuthenticationMethodModeDetailFromDiscriminatorValue); },
-        "combinations": n => { authenticationStrengthRoot.combinations = n.getEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
+        "combinations": n => { authenticationStrengthRoot.combinations = n.getCollectionOfEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
         "policies": n => { authenticationStrengthRoot.policies = n.getCollectionOfObjectValues<AuthenticationStrengthPolicy>(createAuthenticationStrengthPolicyFromDiscriminatorValue); },
     }
 }

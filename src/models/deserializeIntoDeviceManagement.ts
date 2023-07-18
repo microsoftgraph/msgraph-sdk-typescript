@@ -182,6 +182,7 @@ import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInfor
 import {WindowsMalwareInformation} from './windowsMalwareInformation';
 import {WindowsMalwareOverview} from './windowsMalwareOverview';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoDeviceManagement(deviceManagement: DeviceManagement | undefined = {} as DeviceManagement) : Record<string, (node: ParseNode) => void> {
     return {
@@ -202,7 +203,7 @@ export function deserializeIntoDeviceManagement(deviceManagement: DeviceManageme
         "deviceProtectionOverview": n => { deviceManagement.deviceProtectionOverview = n.getObjectValue<DeviceProtectionOverview>(createDeviceProtectionOverviewFromDiscriminatorValue); },
         "exchangeConnectors": n => { deviceManagement.exchangeConnectors = n.getCollectionOfObjectValues<DeviceManagementExchangeConnector>(createDeviceManagementExchangeConnectorFromDiscriminatorValue); },
         "importedWindowsAutopilotDeviceIdentities": n => { deviceManagement.importedWindowsAutopilotDeviceIdentities = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
-        "intuneAccountId": n => { deviceManagement.intuneAccountId = n.getStringValue(); },
+        "intuneAccountId": n => { deviceManagement.intuneAccountId = n.getGuidValue(); },
         "intuneBrand": n => { deviceManagement.intuneBrand = n.getObjectValue<IntuneBrand>(createIntuneBrandFromDiscriminatorValue); },
         "iosUpdateStatuses": n => { deviceManagement.iosUpdateStatuses = n.getCollectionOfObjectValues<IosUpdateDeviceStatus>(createIosUpdateDeviceStatusFromDiscriminatorValue); },
         "managedDeviceOverview": n => { deviceManagement.managedDeviceOverview = n.getObjectValue<ManagedDeviceOverview>(createManagedDeviceOverviewFromDiscriminatorValue); },

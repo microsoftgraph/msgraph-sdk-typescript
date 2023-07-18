@@ -7,11 +7,12 @@ import {SharepointSettings} from './sharepointSettings';
 import {SharingCapabilities} from './sharingCapabilities';
 import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoSharepointSettings(sharepointSettings: SharepointSettings | undefined = {} as SharepointSettings) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(sharepointSettings),
-        "allowedDomainGuidsForSyncApp": n => { sharepointSettings.allowedDomainGuidsForSyncApp = n.getCollectionOfPrimitiveValues<string>(); },
+        "allowedDomainGuidsForSyncApp": n => { sharepointSettings.allowedDomainGuidsForSyncApp = n.getCollectionOfPrimitiveValues<Guid>(); },
         "availableManagedPathsForSiteCreation": n => { sharepointSettings.availableManagedPathsForSiteCreation = n.getCollectionOfPrimitiveValues<string>(); },
         "deletedUserPersonalSiteRetentionPeriodInDays": n => { sharepointSettings.deletedUserPersonalSiteRetentionPeriodInDays = n.getNumberValue(); },
         "excludedFileExtensionsForSyncApp": n => { sharepointSettings.excludedFileExtensionsForSyncApp = n.getCollectionOfPrimitiveValues<string>(); },

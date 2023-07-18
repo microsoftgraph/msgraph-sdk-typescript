@@ -23,7 +23,7 @@ export function deserializeIntoPrintJobConfiguration(printJobConfiguration: Prin
         "dpi": n => { printJobConfiguration.dpi = n.getNumberValue(); },
         "duplexMode": n => { printJobConfiguration.duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); },
         "feedOrientation": n => { printJobConfiguration.feedOrientation = n.getEnumValue<PrinterFeedOrientation>(PrinterFeedOrientation); },
-        "finishings": n => { printJobConfiguration.finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); },
+        "finishings": n => { printJobConfiguration.finishings = n.getCollectionOfEnumValues<PrintFinishing>(PrintFinishing); },
         "fitPdfToPage": n => { printJobConfiguration.fitPdfToPage = n.getBooleanValue(); },
         "inputBin": n => { printJobConfiguration.inputBin = n.getStringValue(); },
         "margin": n => { printJobConfiguration.margin = n.getObjectValue<PrintMargin>(createPrintMarginFromDiscriminatorValue); },

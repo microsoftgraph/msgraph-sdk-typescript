@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface LicenseDetails extends Entity, Parsable {
     /**
@@ -10,7 +11,7 @@ export interface LicenseDetails extends Entity, Parsable {
     /**
      * Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
      */
-    skuId?: string | undefined;
+    skuId?: Guid | undefined;
     /**
      * Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
      */

@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface SelfSignedCertificate extends AdditionalDataHolder, Parsable {
     /**
@@ -24,7 +25,7 @@ export interface SelfSignedCertificate extends AdditionalDataHolder, Parsable {
     /**
      * The keyId property
      */
-    keyId?: string | undefined;
+    keyId?: Guid | undefined;
     /**
      * The OdataType property
      */

@@ -1,6 +1,7 @@
 import {IosVppEBook} from './iosVppEBook';
 import {serializeManagedEBook} from './serializeManagedEBook';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeIosVppEBook(writer: SerializationWriter, iosVppEBook: IosVppEBook | undefined = {} as IosVppEBook) : void {
         serializeManagedEBook(writer, iosVppEBook)
@@ -11,5 +12,5 @@ export function serializeIosVppEBook(writer: SerializationWriter, iosVppEBook: I
         writer.writeNumberValue("totalLicenseCount", iosVppEBook.totalLicenseCount);
         writer.writeNumberValue("usedLicenseCount", iosVppEBook.usedLicenseCount);
         writer.writeStringValue("vppOrganizationName", iosVppEBook.vppOrganizationName);
-        writer.writeStringValue("vppTokenId", iosVppEBook.vppTokenId);
+        writer.writeGuidValue("vppTokenId", iosVppEBook.vppTokenId);
 }

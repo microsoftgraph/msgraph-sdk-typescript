@@ -45,9 +45,10 @@ export class IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileIndicator
+     * @see {@link https://docs.microsoft.com/graph/api/security-intelligenceprofileindicator-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IntelligenceProfileIndicator | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -93,7 +94,7 @@ export class IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

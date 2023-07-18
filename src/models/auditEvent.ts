@@ -2,6 +2,7 @@ import {AuditActor} from './auditActor';
 import {AuditResource} from './auditResource';
 import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface AuditEvent extends Entity, Parsable {
     /**
@@ -39,7 +40,7 @@ export interface AuditEvent extends Entity, Parsable {
     /**
      * The client request Id that is used to correlate activity within the system.
      */
-    correlationId?: string | undefined;
+    correlationId?: Guid | undefined;
     /**
      * Event display name.
      */

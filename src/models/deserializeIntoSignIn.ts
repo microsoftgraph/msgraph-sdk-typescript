@@ -36,7 +36,7 @@ export function deserializeIntoSignIn(signIn: SignIn | undefined = {} as SignIn)
         "resourceDisplayName": n => { signIn.resourceDisplayName = n.getStringValue(); },
         "resourceId": n => { signIn.resourceId = n.getStringValue(); },
         "riskDetail": n => { signIn.riskDetail = n.getEnumValue<RiskDetail>(RiskDetail); },
-        "riskEventTypes": n => { signIn.riskEventTypes = n.getEnumValues<RiskEventType>(RiskEventType); },
+        "riskEventTypes": n => { signIn.riskEventTypes = n.getCollectionOfEnumValues<RiskEventType>(RiskEventType); },
         "riskEventTypes_v2": n => { signIn.riskEventTypes_v2 = n.getCollectionOfPrimitiveValues<string>(); },
         "riskLevelAggregated": n => { signIn.riskLevelAggregated = n.getEnumValue<RiskLevel>(RiskLevel); },
         "riskLevelDuringSignIn": n => { signIn.riskLevelDuringSignIn = n.getEnumValue<RiskLevel>(RiskLevel); },

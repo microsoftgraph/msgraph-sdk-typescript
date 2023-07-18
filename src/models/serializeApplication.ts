@@ -46,6 +46,7 @@ import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {WebApplication} from './webApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeApplication(writer: SerializationWriter, application: Application | undefined = {} as Application) : void {
         serializeDirectoryObject(writer, application)
@@ -88,7 +89,7 @@ export function serializeApplication(writer: SerializationWriter, application: A
         writer.writeObjectValue<SpaApplication>("spa", application.spa, serializeSpaApplication);
         writer.writeObjectValue<Synchronization>("synchronization", application.synchronization, serializeSynchronization);
         writer.writeCollectionOfPrimitiveValues<string>("tags", application.tags);
-        writer.writeStringValue("tokenEncryptionKeyId", application.tokenEncryptionKeyId);
+        writer.writeGuidValue("tokenEncryptionKeyId", application.tokenEncryptionKeyId);
         writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", application.tokenIssuancePolicies, serializeTokenIssuancePolicy);
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", application.tokenLifetimePolicies, serializeTokenLifetimePolicy);
         writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", application.verifiedPublisher, serializeVerifiedPublisher);

@@ -1,5 +1,6 @@
 import {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface TeleconferenceDeviceQuality extends AdditionalDataHolder, Parsable {
     /**
@@ -9,7 +10,7 @@ export interface TeleconferenceDeviceQuality extends AdditionalDataHolder, Parsa
     /**
      * A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.
      */
-    callChainId?: string | undefined;
+    callChainId?: Guid | undefined;
     /**
      * A geo-region where the service is deployed, such as ProdNoam.
      */
@@ -37,7 +38,7 @@ export interface TeleconferenceDeviceQuality extends AdditionalDataHolder, Parsa
     /**
      * A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.
      */
-    mediaLegId?: string | undefined;
+    mediaLegId?: Guid | undefined;
     /**
      * The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality.
      */
@@ -49,5 +50,5 @@ export interface TeleconferenceDeviceQuality extends AdditionalDataHolder, Parsa
     /**
      * A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.
      */
-    participantId?: string | undefined;
+    participantId?: Guid | undefined;
 }

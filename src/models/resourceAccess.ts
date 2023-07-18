@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface ResourceAccess extends AdditionalDataHolder, Parsable {
     /**
@@ -8,7 +9,7 @@ export interface ResourceAccess extends AdditionalDataHolder, Parsable {
     /**
      * The unique identifier of an app role or delegated permission exposed by the resource application. For delegated permissions, this should match the id property of one of the delegated permissions in the oauth2PermissionScopes collection of the resource application's service principal. For app roles (application permissions), this should match the id property of an app role in the appRoles collection of the resource application's service principal.
      */
-    id?: string | undefined;
+    id?: Guid | undefined;
     /**
      * The OdataType property
      */

@@ -1,5 +1,6 @@
 import {AssignedLicense} from '../../models/assignedLicense';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface AssignLicensePostRequestBody extends AdditionalDataHolder, Parsable {
     /**
@@ -13,5 +14,5 @@ export interface AssignLicensePostRequestBody extends AdditionalDataHolder, Pars
     /**
      * The removeLicenses property
      */
-    removeLicenses?: string[] | undefined;
+    removeLicenses?: Guid[] | undefined;
 }

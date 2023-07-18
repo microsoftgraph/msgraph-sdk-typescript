@@ -1,6 +1,7 @@
 import {AppLogUploadState} from './appLogUploadState';
 import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface DeviceLogCollectionResponse extends Entity, Parsable {
     /**
@@ -18,7 +19,7 @@ export interface DeviceLogCollectionResponse extends Entity, Parsable {
     /**
      * Indicates Intune device unique identifier.
      */
-    managedDeviceId?: string | undefined;
+    managedDeviceId?: Guid | undefined;
     /**
      * The DateTime the request was received.
      */

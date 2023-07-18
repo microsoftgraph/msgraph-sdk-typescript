@@ -39,10 +39,10 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a namedLocation object.
+     * Retrieve the properties and relationships of an ipNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://docs.microsoft.com/graph/api/namedlocation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamedLocationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +55,11 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an ipNamedLocation object.
+     * Update the properties of a countryNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://docs.microsoft.com/graph/api/ipnamedlocation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/countrynamedlocation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: NamedLocation | undefined, requestConfiguration?: NamedLocationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +89,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a namedLocation object.
+     * Retrieve the properties and relationships of an ipNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an ipNamedLocation object.
+     * Update the properties of a countryNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

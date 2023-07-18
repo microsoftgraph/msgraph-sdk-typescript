@@ -5,6 +5,7 @@ import {serializeAuditActor} from './serializeAuditActor';
 import {serializeAuditResource} from './serializeAuditResource';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeAuditEvent(writer: SerializationWriter, auditEvent: AuditEvent | undefined = {} as AuditEvent) : void {
         serializeEntity(writer, auditEvent)
@@ -16,7 +17,7 @@ export function serializeAuditEvent(writer: SerializationWriter, auditEvent: Aud
         writer.writeObjectValue<AuditActor>("actor", auditEvent.actor, serializeAuditActor);
         writer.writeStringValue("category", auditEvent.category);
         writer.writeStringValue("componentName", auditEvent.componentName);
-        writer.writeStringValue("correlationId", auditEvent.correlationId);
+        writer.writeGuidValue("correlationId", auditEvent.correlationId);
         writer.writeStringValue("displayName", auditEvent.displayName);
         writer.writeCollectionOfObjectValues<AuditResource>("resources", auditEvent.resources, serializeAuditResource);
 }

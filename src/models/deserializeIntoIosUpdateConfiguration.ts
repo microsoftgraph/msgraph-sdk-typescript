@@ -8,7 +8,7 @@ export function deserializeIntoIosUpdateConfiguration(iosUpdateConfiguration: Io
         ...deserializeIntoDeviceConfiguration(iosUpdateConfiguration),
         "activeHoursEnd": n => { iosUpdateConfiguration.activeHoursEnd = n.getTimeOnlyValue(); },
         "activeHoursStart": n => { iosUpdateConfiguration.activeHoursStart = n.getTimeOnlyValue(); },
-        "scheduledInstallDays": n => { iosUpdateConfiguration.scheduledInstallDays = n.getEnumValues<DayOfWeek>(DayOfWeek); },
+        "scheduledInstallDays": n => { iosUpdateConfiguration.scheduledInstallDays = n.getCollectionOfEnumValues<DayOfWeek>(DayOfWeek); },
         "utcTimeOffsetInMinutes": n => { iosUpdateConfiguration.utcTimeOffsetInMinutes = n.getNumberValue(); },
     }
 }

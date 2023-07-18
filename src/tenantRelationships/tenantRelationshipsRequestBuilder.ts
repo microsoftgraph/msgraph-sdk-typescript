@@ -8,6 +8,8 @@ import {serializeTenantRelationship} from '../models/serializeTenantRelationship
 import {TenantRelationship} from '../models/tenantRelationship';
 import {DelegatedAdminCustomersRequestBuilder} from './delegatedAdminCustomers/delegatedAdminCustomersRequestBuilder';
 import {DelegatedAdminRelationshipsRequestBuilder} from './delegatedAdminRelationships/delegatedAdminRelationshipsRequestBuilder';
+import {FindTenantInformationByDomainNameWithDomainNameRequestBuilder} from './findTenantInformationByDomainNameWithDomainName/findTenantInformationByDomainNameWithDomainNameRequestBuilder';
+import {FindTenantInformationByTenantIdWithTenantIdRequestBuilder} from './findTenantInformationByTenantIdWithTenantId/findTenantInformationByTenantIdWithTenantIdRequestBuilder';
 import {TenantRelationshipsRequestBuilderGetRequestConfiguration} from './tenantRelationshipsRequestBuilderGetRequestConfiguration';
 import {TenantRelationshipsRequestBuilderPatchRequestConfiguration} from './tenantRelationshipsRequestBuilderPatchRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -35,6 +37,24 @@ export class TenantRelationshipsRequestBuilder extends BaseRequestBuilder {
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         super(pathParameters, requestAdapter, "{+baseurl}/tenantRelationships{?%24select,%24expand}");
+    };
+    /**
+     * Provides operations to call the findTenantInformationByDomainName method.
+     * @param domainName Usage: domainName='{domainName}'
+     * @returns a findTenantInformationByDomainNameWithDomainNameRequestBuilder
+     */
+    public findTenantInformationByDomainNameWithDomainName(domainName: string | undefined) : FindTenantInformationByDomainNameWithDomainNameRequestBuilder {
+        if(!domainName) throw new Error("domainName cannot be undefined");
+        return new FindTenantInformationByDomainNameWithDomainNameRequestBuilder(this.pathParameters, this.requestAdapter, domainName);
+    };
+    /**
+     * Provides operations to call the findTenantInformationByTenantId method.
+     * @param tenantId Usage: tenantId='{tenantId}'
+     * @returns a findTenantInformationByTenantIdWithTenantIdRequestBuilder
+     */
+    public findTenantInformationByTenantIdWithTenantId(tenantId: string | undefined) : FindTenantInformationByTenantIdWithTenantIdRequestBuilder {
+        if(!tenantId) throw new Error("tenantId cannot be undefined");
+        return new FindTenantInformationByTenantIdWithTenantIdRequestBuilder(this.pathParameters, this.requestAdapter, tenantId);
     };
     /**
      * Get tenantRelationships

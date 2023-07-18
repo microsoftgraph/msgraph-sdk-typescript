@@ -45,7 +45,7 @@ export class FileRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the details of the default file for an agreement, including the language and version information. The file information is specified through the agreementFile object.
+     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the **Accept-Language** header.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementFile
      * @see {@link https://docs.microsoft.com/graph/api/agreementfile-get?view=graph-rest-1.0|Find more info here}
@@ -94,7 +94,7 @@ export class FileRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the details of the default file for an agreement, including the language and version information. The file information is specified through the agreementFile object.
+     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the **Accept-Language** header.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

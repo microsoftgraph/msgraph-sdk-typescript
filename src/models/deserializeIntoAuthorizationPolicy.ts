@@ -5,6 +5,7 @@ import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import {serializeDefaultUserRolePermissions} from './serializeDefaultUserRolePermissions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoAuthorizationPolicy(authorizationPolicy: AuthorizationPolicy | undefined = {} as AuthorizationPolicy) : Record<string, (node: ParseNode) => void> {
     return {
@@ -16,6 +17,6 @@ export function deserializeIntoAuthorizationPolicy(authorizationPolicy: Authoriz
         "allowUserConsentForRiskyApps": n => { authorizationPolicy.allowUserConsentForRiskyApps = n.getBooleanValue(); },
         "blockMsolPowerShell": n => { authorizationPolicy.blockMsolPowerShell = n.getBooleanValue(); },
         "defaultUserRolePermissions": n => { authorizationPolicy.defaultUserRolePermissions = n.getObjectValue<DefaultUserRolePermissions>(createDefaultUserRolePermissionsFromDiscriminatorValue); },
-        "guestUserRoleId": n => { authorizationPolicy.guestUserRoleId = n.getStringValue(); },
+        "guestUserRoleId": n => { authorizationPolicy.guestUserRoleId = n.getGuidValue(); },
     }
 }

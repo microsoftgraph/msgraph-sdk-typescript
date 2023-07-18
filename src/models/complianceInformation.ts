@@ -7,11 +7,11 @@ export interface ComplianceInformation extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * Collection of the certification controls associated with certification
+     * Collection of the certification controls associated with the certification.
      */
     certificationControls?: CertificationControl[] | undefined;
     /**
-     * Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)
+     * The name of the compliance certification, for example, ISO 27018:2014, GDPR, FedRAMP, and NIST 800-171.
      */
     certificationName?: string | undefined;
     /**

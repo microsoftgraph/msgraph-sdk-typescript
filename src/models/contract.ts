@@ -1,5 +1,6 @@
 import {DirectoryObject} from './directoryObject';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface Contract extends DirectoryObject, Parsable {
     /**
@@ -9,7 +10,7 @@ export interface Contract extends DirectoryObject, Parsable {
     /**
      * The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
      */
-    customerId?: string | undefined;
+    customerId?: Guid | undefined;
     /**
      * A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
      */

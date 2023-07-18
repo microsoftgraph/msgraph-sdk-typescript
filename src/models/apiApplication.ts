@@ -1,6 +1,7 @@
 import {PermissionScope} from './permissionScope';
 import {PreAuthorizedApplication} from './preAuthorizedApplication';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface ApiApplication extends AdditionalDataHolder, Parsable {
     /**
@@ -14,7 +15,7 @@ export interface ApiApplication extends AdditionalDataHolder, Parsable {
     /**
      * Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.
      */
-    knownClientApplications?: string[] | undefined;
+    knownClientApplications?: Guid[] | undefined;
     /**
      * The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes.
      */

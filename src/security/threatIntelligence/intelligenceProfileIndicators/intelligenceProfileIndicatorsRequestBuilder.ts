@@ -44,7 +44,7 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/intelligenceProfileIndicators{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileIndicatorCollectionResponse
      */
@@ -76,7 +76,7 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<IntelligenceProfileIndicator>(requestInfo, createIntelligenceProfileIndicatorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get intelligenceProfileIndicators from security
+     * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly
 
 export function deserializeIntoWorkingHours(workingHours: WorkingHours | undefined = {} as WorkingHours) : Record<string, (node: ParseNode) => void> {
     return {
-        "daysOfWeek": n => { workingHours.daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); },
+        "daysOfWeek": n => { workingHours.daysOfWeek = n.getCollectionOfEnumValues<DayOfWeek>(DayOfWeek); },
         "endTime": n => { workingHours.endTime = n.getTimeOnlyValue(); },
         "@odata.type": n => { workingHours.odataType = n.getStringValue(); },
         "startTime": n => { workingHours.startTime = n.getTimeOnlyValue(); },

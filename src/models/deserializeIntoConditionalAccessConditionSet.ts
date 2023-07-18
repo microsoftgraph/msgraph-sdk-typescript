@@ -25,14 +25,14 @@ export function deserializeIntoConditionalAccessConditionSet(conditionalAccessCo
     return {
         "applications": n => { conditionalAccessConditionSet.applications = n.getObjectValue<ConditionalAccessApplications>(createConditionalAccessApplicationsFromDiscriminatorValue); },
         "clientApplications": n => { conditionalAccessConditionSet.clientApplications = n.getObjectValue<ConditionalAccessClientApplications>(createConditionalAccessClientApplicationsFromDiscriminatorValue); },
-        "clientAppTypes": n => { conditionalAccessConditionSet.clientAppTypes = n.getEnumValues<ConditionalAccessClientApp>(ConditionalAccessClientApp); },
+        "clientAppTypes": n => { conditionalAccessConditionSet.clientAppTypes = n.getCollectionOfEnumValues<ConditionalAccessClientApp>(ConditionalAccessClientApp); },
         "devices": n => { conditionalAccessConditionSet.devices = n.getObjectValue<ConditionalAccessDevices>(createConditionalAccessDevicesFromDiscriminatorValue); },
         "locations": n => { conditionalAccessConditionSet.locations = n.getObjectValue<ConditionalAccessLocations>(createConditionalAccessLocationsFromDiscriminatorValue); },
         "@odata.type": n => { conditionalAccessConditionSet.odataType = n.getStringValue(); },
         "platforms": n => { conditionalAccessConditionSet.platforms = n.getObjectValue<ConditionalAccessPlatforms>(createConditionalAccessPlatformsFromDiscriminatorValue); },
-        "servicePrincipalRiskLevels": n => { conditionalAccessConditionSet.servicePrincipalRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); },
-        "signInRiskLevels": n => { conditionalAccessConditionSet.signInRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); },
-        "userRiskLevels": n => { conditionalAccessConditionSet.userRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); },
+        "servicePrincipalRiskLevels": n => { conditionalAccessConditionSet.servicePrincipalRiskLevels = n.getCollectionOfEnumValues<RiskLevel>(RiskLevel); },
+        "signInRiskLevels": n => { conditionalAccessConditionSet.signInRiskLevels = n.getCollectionOfEnumValues<RiskLevel>(RiskLevel); },
+        "userRiskLevels": n => { conditionalAccessConditionSet.userRiskLevels = n.getCollectionOfEnumValues<RiskLevel>(RiskLevel); },
         "users": n => { conditionalAccessConditionSet.users = n.getObjectValue<ConditionalAccessUsers>(createConditionalAccessUsersFromDiscriminatorValue); },
     }
 }

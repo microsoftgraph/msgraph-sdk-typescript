@@ -20,7 +20,7 @@ export function deserializeIntoSession(session: Session | undefined = {} as Sess
         "endDateTime": n => { session.endDateTime = n.getDateValue(); },
         "failureInfo": n => { session.failureInfo = n.getObjectValue<FailureInfo>(createFailureInfoFromDiscriminatorValue); },
         "isTest": n => { session.isTest = n.getBooleanValue(); },
-        "modalities": n => { session.modalities = n.getEnumValues<Modality>(Modality); },
+        "modalities": n => { session.modalities = n.getCollectionOfEnumValues<Modality>(Modality); },
         "segments": n => { session.segments = n.getCollectionOfObjectValues<Segment>(createSegmentFromDiscriminatorValue); },
         "startDateTime": n => { session.startDateTime = n.getDateValue(); },
     }

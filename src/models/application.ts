@@ -22,6 +22,7 @@ import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {WebApplication} from './webApplication';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface Application extends DirectoryObject, Parsable {
     /**
@@ -183,7 +184,7 @@ export interface Application extends DirectoryObject, Parsable {
     /**
      * Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
      */
-    tokenEncryptionKeyId?: string | undefined;
+    tokenEncryptionKeyId?: Guid | undefined;
     /**
      * The tokenIssuancePolicies property
      */

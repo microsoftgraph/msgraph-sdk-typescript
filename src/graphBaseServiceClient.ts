@@ -3,6 +3,7 @@ import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreeme
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
 import {AppCatalogsRequestBuilder} from './appCatalogs/appCatalogsRequestBuilder';
 import {ApplicationsRequestBuilder} from './applications/applicationsRequestBuilder';
+import {ApplicationsWithAppIdRequestBuilder} from './applicationsWithAppId/applicationsWithAppIdRequestBuilder';
 import {ApplicationTemplatesRequestBuilder} from './applicationTemplates/applicationTemplatesRequestBuilder';
 import {AuditLogsRequestBuilder} from './auditLogs/auditLogsRequestBuilder';
 import {AuthenticationMethodConfigurationsRequestBuilder} from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
@@ -18,9 +19,11 @@ import {DataPolicyOperationsRequestBuilder} from './dataPolicyOperations/dataPol
 import {DeviceAppManagementRequestBuilder} from './deviceAppManagement/deviceAppManagementRequestBuilder';
 import {DeviceManagementRequestBuilder} from './deviceManagement/deviceManagementRequestBuilder';
 import {DevicesRequestBuilder} from './devices/devicesRequestBuilder';
+import {DevicesWithDeviceIdRequestBuilder} from './devicesWithDeviceId/devicesWithDeviceIdRequestBuilder';
 import {DirectoryRequestBuilder} from './directory/directoryRequestBuilder';
 import {DirectoryObjectsRequestBuilder} from './directoryObjects/directoryObjectsRequestBuilder';
 import {DirectoryRolesRequestBuilder} from './directoryRoles/directoryRolesRequestBuilder';
+import {DirectoryRolesWithRoleTemplateIdRequestBuilder} from './directoryRolesWithRoleTemplateId/directoryRolesWithRoleTemplateIdRequestBuilder';
 import {DirectoryRoleTemplatesRequestBuilder} from './directoryRoleTemplates/directoryRoleTemplatesRequestBuilder';
 import {DomainDnsRecordsRequestBuilder} from './domainDnsRecords/domainDnsRecordsRequestBuilder';
 import {DomainsRequestBuilder} from './domains/domainsRequestBuilder';
@@ -57,6 +60,7 @@ import {ScopedRoleMembershipsRequestBuilder} from './scopedRoleMemberships/scope
 import {SearchRequestBuilder} from './search/searchRequestBuilder';
 import {SecurityRequestBuilder} from './security/securityRequestBuilder';
 import {ServicePrincipalsRequestBuilder} from './servicePrincipals/servicePrincipalsRequestBuilder';
+import {ServicePrincipalsWithAppIdRequestBuilder} from './servicePrincipalsWithAppId/servicePrincipalsWithAppIdRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {SolutionsRequestBuilder} from './solutions/solutionsRequestBuilder';
@@ -491,6 +495,15 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the collection of application entities.
+     * @param appId Alternate key of application
+     * @returns a applicationsWithAppIdRequestBuilder
+     */
+    public applicationsWithAppId(appId: string | undefined) : ApplicationsWithAppIdRequestBuilder {
+        if(!appId) throw new Error("appId cannot be undefined");
+        return new ApplicationsWithAppIdRequestBuilder(this.pathParameters, this.requestAdapter, appId);
+    };
+    /**
      * Instantiates a new GraphBaseServiceClient and sets the default values.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
@@ -506,5 +519,32 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
             requestAdapter.baseUrl = "https://graph.microsoft.com/v1.0";
         }
         this.pathParameters["baseurl"] = requestAdapter.baseUrl;
+    };
+    /**
+     * Provides operations to manage the collection of device entities.
+     * @param deviceId Alternate key of device
+     * @returns a devicesWithDeviceIdRequestBuilder
+     */
+    public devicesWithDeviceId(deviceId: string | undefined) : DevicesWithDeviceIdRequestBuilder {
+        if(!deviceId) throw new Error("deviceId cannot be undefined");
+        return new DevicesWithDeviceIdRequestBuilder(this.pathParameters, this.requestAdapter, deviceId);
+    };
+    /**
+     * Provides operations to manage the collection of directoryRole entities.
+     * @param roleTemplateId Alternate key of directoryRole
+     * @returns a directoryRolesWithRoleTemplateIdRequestBuilder
+     */
+    public directoryRolesWithRoleTemplateId(roleTemplateId: string | undefined) : DirectoryRolesWithRoleTemplateIdRequestBuilder {
+        if(!roleTemplateId) throw new Error("roleTemplateId cannot be undefined");
+        return new DirectoryRolesWithRoleTemplateIdRequestBuilder(this.pathParameters, this.requestAdapter, roleTemplateId);
+    };
+    /**
+     * Provides operations to manage the collection of servicePrincipal entities.
+     * @param appId Alternate key of servicePrincipal
+     * @returns a servicePrincipalsWithAppIdRequestBuilder
+     */
+    public servicePrincipalsWithAppId(appId: string | undefined) : ServicePrincipalsWithAppIdRequestBuilder {
+        if(!appId) throw new Error("appId cannot be undefined");
+        return new ServicePrincipalsWithAppIdRequestBuilder(this.pathParameters, this.requestAdapter, appId);
     };
 }

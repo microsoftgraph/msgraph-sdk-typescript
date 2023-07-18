@@ -61,6 +61,7 @@ import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInfor
 import {WindowsMalwareInformation} from './windowsMalwareInformation';
 import {WindowsMalwareOverview} from './windowsMalwareOverview';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface DeviceManagement extends Entity, Parsable {
     /**
@@ -130,7 +131,7 @@ export interface DeviceManagement extends Entity, Parsable {
     /**
      * Intune Account Id for given tenant
      */
-    intuneAccountId?: string | undefined;
+    intuneAccountId?: Guid | undefined;
     /**
      * intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
      */

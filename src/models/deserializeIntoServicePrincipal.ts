@@ -64,6 +64,7 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoServicePrincipal(servicePrincipal: ServicePrincipal | undefined = {} as ServicePrincipal) : Record<string, (node: ParseNode) => void> {
     return {
@@ -76,7 +77,7 @@ export function deserializeIntoServicePrincipal(servicePrincipal: ServicePrincip
         "appId": n => { servicePrincipal.appId = n.getStringValue(); },
         "applicationTemplateId": n => { servicePrincipal.applicationTemplateId = n.getStringValue(); },
         "appManagementPolicies": n => { servicePrincipal.appManagementPolicies = n.getCollectionOfObjectValues<AppManagementPolicy>(createAppManagementPolicyFromDiscriminatorValue); },
-        "appOwnerOrganizationId": n => { servicePrincipal.appOwnerOrganizationId = n.getStringValue(); },
+        "appOwnerOrganizationId": n => { servicePrincipal.appOwnerOrganizationId = n.getGuidValue(); },
         "appRoleAssignedTo": n => { servicePrincipal.appRoleAssignedTo = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
         "appRoleAssignmentRequired": n => { servicePrincipal.appRoleAssignmentRequired = n.getBooleanValue(); },
         "appRoleAssignments": n => { servicePrincipal.appRoleAssignments = n.getCollectionOfObjectValues<AppRoleAssignment>(createAppRoleAssignmentFromDiscriminatorValue); },
@@ -113,7 +114,7 @@ export function deserializeIntoServicePrincipal(servicePrincipal: ServicePrincip
         "signInAudience": n => { servicePrincipal.signInAudience = n.getStringValue(); },
         "synchronization": n => { servicePrincipal.synchronization = n.getObjectValue<Synchronization>(createSynchronizationFromDiscriminatorValue); },
         "tags": n => { servicePrincipal.tags = n.getCollectionOfPrimitiveValues<string>(); },
-        "tokenEncryptionKeyId": n => { servicePrincipal.tokenEncryptionKeyId = n.getStringValue(); },
+        "tokenEncryptionKeyId": n => { servicePrincipal.tokenEncryptionKeyId = n.getGuidValue(); },
         "tokenIssuancePolicies": n => { servicePrincipal.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },
         "tokenLifetimePolicies": n => { servicePrincipal.tokenLifetimePolicies = n.getCollectionOfObjectValues<TokenLifetimePolicy>(createTokenLifetimePolicyFromDiscriminatorValue); },
         "transitiveMemberOf": n => { servicePrincipal.transitiveMemberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },

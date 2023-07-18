@@ -11,7 +11,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoAuthenticationStrengthPolicy(authenticationStrengthPolicy: AuthenticationStrengthPolicy | undefined = {} as AuthenticationStrengthPolicy) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(authenticationStrengthPolicy),
-        "allowedCombinations": n => { authenticationStrengthPolicy.allowedCombinations = n.getEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
+        "allowedCombinations": n => { authenticationStrengthPolicy.allowedCombinations = n.getCollectionOfEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
         "combinationConfigurations": n => { authenticationStrengthPolicy.combinationConfigurations = n.getCollectionOfObjectValues<AuthenticationCombinationConfiguration>(createAuthenticationCombinationConfigurationFromDiscriminatorValue); },
         "createdDateTime": n => { authenticationStrengthPolicy.createdDateTime = n.getDateValue(); },
         "description": n => { authenticationStrengthPolicy.description = n.getStringValue(); },

@@ -1,5 +1,6 @@
 import {ManagedEBook} from './managedEBook';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface IosVppEBook extends ManagedEBook, Parsable {
     /**
@@ -33,5 +34,5 @@ export interface IosVppEBook extends ManagedEBook, Parsable {
     /**
      * The Vpp token ID.
      */
-    vppTokenId?: string | undefined;
+    vppTokenId?: Guid | undefined;
 }

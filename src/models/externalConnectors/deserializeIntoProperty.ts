@@ -10,7 +10,7 @@ export function deserializeIntoProperty(property: Property | undefined = {} as P
         "isRefinable": n => { property.isRefinable = n.getBooleanValue(); },
         "isRetrievable": n => { property.isRetrievable = n.getBooleanValue(); },
         "isSearchable": n => { property.isSearchable = n.getBooleanValue(); },
-        "labels": n => { property.labels = n.getEnumValues<Label>(Label); },
+        "labels": n => { property.labels = n.getCollectionOfEnumValues<Label>(Label); },
         "name": n => { property.name = n.getStringValue(); },
         "@odata.type": n => { property.odataType = n.getStringValue(); },
         "type": n => { property.type = n.getEnumValue<PropertyType>(PropertyType); },

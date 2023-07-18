@@ -7,7 +7,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export function deserializeIntoRecurrencePattern(recurrencePattern: RecurrencePattern | undefined = {} as RecurrencePattern) : Record<string, (node: ParseNode) => void> {
     return {
         "dayOfMonth": n => { recurrencePattern.dayOfMonth = n.getNumberValue(); },
-        "daysOfWeek": n => { recurrencePattern.daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); },
+        "daysOfWeek": n => { recurrencePattern.daysOfWeek = n.getCollectionOfEnumValues<DayOfWeek>(DayOfWeek); },
         "firstDayOfWeek": n => { recurrencePattern.firstDayOfWeek = n.getEnumValue<DayOfWeek>(DayOfWeek); },
         "index": n => { recurrencePattern.index = n.getEnumValue<WeekIndex>(WeekIndex); },
         "interval": n => { recurrencePattern.interval = n.getNumberValue(); },

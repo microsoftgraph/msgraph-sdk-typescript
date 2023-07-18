@@ -12,7 +12,7 @@ export function deserializeIntoUnifiedRoleManagementPolicyRuleTarget(unifiedRole
         "inheritableSettings": n => { unifiedRoleManagementPolicyRuleTarget.inheritableSettings = n.getCollectionOfPrimitiveValues<string>(); },
         "level": n => { unifiedRoleManagementPolicyRuleTarget.level = n.getStringValue(); },
         "@odata.type": n => { unifiedRoleManagementPolicyRuleTarget.odataType = n.getStringValue(); },
-        "operations": n => { unifiedRoleManagementPolicyRuleTarget.operations = n.getEnumValues<UnifiedRoleManagementPolicyRuleTargetOperations>(UnifiedRoleManagementPolicyRuleTargetOperations); },
+        "operations": n => { unifiedRoleManagementPolicyRuleTarget.operations = n.getCollectionOfEnumValues<UnifiedRoleManagementPolicyRuleTargetOperations>(UnifiedRoleManagementPolicyRuleTargetOperations); },
         "targetObjects": n => { unifiedRoleManagementPolicyRuleTarget.targetObjects = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
     }
 }

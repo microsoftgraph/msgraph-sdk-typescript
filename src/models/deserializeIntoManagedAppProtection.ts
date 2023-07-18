@@ -10,7 +10,7 @@ import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kio
 export function deserializeIntoManagedAppProtection(managedAppProtection: ManagedAppProtection | undefined = {} as ManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoManagedAppPolicy(managedAppProtection),
-        "allowedDataStorageLocations": n => { managedAppProtection.allowedDataStorageLocations = n.getEnumValues<ManagedAppDataStorageLocation>(ManagedAppDataStorageLocation); },
+        "allowedDataStorageLocations": n => { managedAppProtection.allowedDataStorageLocations = n.getCollectionOfEnumValues<ManagedAppDataStorageLocation>(ManagedAppDataStorageLocation); },
         "allowedInboundDataTransferSources": n => { managedAppProtection.allowedInboundDataTransferSources = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); },
         "allowedOutboundClipboardSharingLevel": n => { managedAppProtection.allowedOutboundClipboardSharingLevel = n.getEnumValue<ManagedAppClipboardSharingLevel>(ManagedAppClipboardSharingLevel); },
         "allowedOutboundDataTransferDestinations": n => { managedAppProtection.allowedOutboundDataTransferDestinations = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); },

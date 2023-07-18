@@ -20,6 +20,7 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface ServicePrincipal extends DirectoryObject, Parsable {
     /**
@@ -57,7 +58,7 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
     /**
      * Contains the tenant id where the application is registered. This is applicable only to service principals backed by applications. Supports $filter (eq, ne, NOT, ge, le).
      */
-    appOwnerOrganizationId?: string | undefined;
+    appOwnerOrganizationId?: Guid | undefined;
     /**
      * App role assignments for this app or service, granted to users, groups, and other service principals. Supports $expand.
      */
@@ -205,7 +206,7 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
     /**
      * Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD issues tokens for this application encrypted using the key specified by this property. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.
      */
-    tokenEncryptionKeyId?: string | undefined;
+    tokenEncryptionKeyId?: Guid | undefined;
     /**
      * The tokenIssuancePolicies assigned to this service principal.
      */

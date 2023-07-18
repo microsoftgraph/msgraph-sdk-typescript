@@ -1,12 +1,13 @@
 import {SelfSignedCertificate} from './selfSignedCertificate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeSelfSignedCertificate(writer: SerializationWriter, selfSignedCertificate: SelfSignedCertificate | undefined = {} as SelfSignedCertificate) : void {
         writer.writeStringValue("customKeyIdentifier", selfSignedCertificate.customKeyIdentifier);
         writer.writeStringValue("displayName", selfSignedCertificate.displayName);
         writer.writeDateValue("endDateTime", selfSignedCertificate.endDateTime);
         writer.writeStringValue("key", selfSignedCertificate.key);
-        writer.writeStringValue("keyId", selfSignedCertificate.keyId);
+        writer.writeGuidValue("keyId", selfSignedCertificate.keyId);
         writer.writeStringValue("@odata.type", selfSignedCertificate.odataType);
         writer.writeDateValue("startDateTime", selfSignedCertificate.startDateTime);
         writer.writeStringValue("thumbprint", selfSignedCertificate.thumbprint);

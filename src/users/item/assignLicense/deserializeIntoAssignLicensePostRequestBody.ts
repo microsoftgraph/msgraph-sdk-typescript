@@ -3,10 +3,11 @@ import {createAssignedLicenseFromDiscriminatorValue} from '../../../models/creat
 import {serializeAssignedLicense} from '../../../models/serializeAssignedLicense';
 import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoAssignLicensePostRequestBody(assignLicensePostRequestBody: AssignLicensePostRequestBody | undefined = {} as AssignLicensePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {
         "addLicenses": n => { assignLicensePostRequestBody.addLicenses = n.getCollectionOfObjectValues<AssignedLicense>(createAssignedLicenseFromDiscriminatorValue); },
-        "removeLicenses": n => { assignLicensePostRequestBody.removeLicenses = n.getCollectionOfPrimitiveValues<string>(); },
+        "removeLicenses": n => { assignLicensePostRequestBody.removeLicenses = n.getCollectionOfPrimitiveValues<Guid>(); },
     }
 }
