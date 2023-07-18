@@ -30,7 +30,7 @@ export function deserializeIntoSearchRequest(searchRequest: SearchRequest | unde
         "collapseProperties": n => { searchRequest.collapseProperties = n.getCollectionOfObjectValues<CollapseProperty>(createCollapsePropertyFromDiscriminatorValue); },
         "contentSources": n => { searchRequest.contentSources = n.getCollectionOfPrimitiveValues<string>(); },
         "enableTopResults": n => { searchRequest.enableTopResults = n.getBooleanValue(); },
-        "entityTypes": n => { searchRequest.entityTypes = n.getEnumValues<EntityType>(EntityType); },
+        "entityTypes": n => { searchRequest.entityTypes = n.getCollectionOfEnumValues<EntityType>(EntityType); },
         "fields": n => { searchRequest.fields = n.getCollectionOfPrimitiveValues<string>(); },
         "from": n => { searchRequest.from = n.getNumberValue(); },
         "@odata.type": n => { searchRequest.odataType = n.getStringValue(); },

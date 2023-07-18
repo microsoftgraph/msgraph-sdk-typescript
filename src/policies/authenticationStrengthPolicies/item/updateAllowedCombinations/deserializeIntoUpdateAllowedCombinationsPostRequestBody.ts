@@ -4,6 +4,6 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export function deserializeIntoUpdateAllowedCombinationsPostRequestBody(updateAllowedCombinationsPostRequestBody: UpdateAllowedCombinationsPostRequestBody | undefined = {} as UpdateAllowedCombinationsPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {
-        "allowedCombinations": n => { updateAllowedCombinationsPostRequestBody.allowedCombinations = n.getEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
+        "allowedCombinations": n => { updateAllowedCombinationsPostRequestBody.allowedCombinations = n.getCollectionOfEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
     }
 }

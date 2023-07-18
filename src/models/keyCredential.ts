@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface KeyCredential extends AdditionalDataHolder, Parsable {
     /**
@@ -24,7 +25,7 @@ export interface KeyCredential extends AdditionalDataHolder, Parsable {
     /**
      * The unique identifier (GUID) for the key.
      */
-    keyId?: string | undefined;
+    keyId?: Guid | undefined;
     /**
      * The OdataType property
      */

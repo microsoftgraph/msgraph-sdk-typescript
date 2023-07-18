@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface LicenseAssignmentState extends AdditionalDataHolder, Parsable {
     /**
@@ -12,7 +13,7 @@ export interface LicenseAssignmentState extends AdditionalDataHolder, Parsable {
     /**
      * The disabledPlans property
      */
-    disabledPlans?: string[] | undefined;
+    disabledPlans?: Guid[] | undefined;
     /**
      * The error property
      */
@@ -28,7 +29,7 @@ export interface LicenseAssignmentState extends AdditionalDataHolder, Parsable {
     /**
      * The skuId property
      */
-    skuId?: string | undefined;
+    skuId?: Guid | undefined;
     /**
      * The state property
      */

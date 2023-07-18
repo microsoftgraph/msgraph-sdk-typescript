@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface ResourceSpecificPermission extends AdditionalDataHolder, Parsable {
     /**
@@ -16,7 +17,7 @@ export interface ResourceSpecificPermission extends AdditionalDataHolder, Parsab
     /**
      * The unique identifier for the resource-specific application permission.
      */
-    id?: string | undefined;
+    id?: Guid | undefined;
     /**
      * Indicates whether the permission is enabled.
      */

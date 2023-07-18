@@ -16,7 +16,7 @@ export function deserializeIntoCallRecord(callRecord: CallRecord | undefined = {
         "endDateTime": n => { callRecord.endDateTime = n.getDateValue(); },
         "joinWebUrl": n => { callRecord.joinWebUrl = n.getStringValue(); },
         "lastModifiedDateTime": n => { callRecord.lastModifiedDateTime = n.getDateValue(); },
-        "modalities": n => { callRecord.modalities = n.getEnumValues<Modality>(Modality); },
+        "modalities": n => { callRecord.modalities = n.getCollectionOfEnumValues<Modality>(Modality); },
         "organizer": n => { callRecord.organizer = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "participants": n => { callRecord.participants = n.getCollectionOfObjectValues<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
         "sessions": n => { callRecord.sessions = n.getCollectionOfObjectValues<Session>(createSessionFromDiscriminatorValue); },

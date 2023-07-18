@@ -1,5 +1,6 @@
 import {DirectoryObject} from './directoryObject';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface DirectoryObjectPartnerReference extends DirectoryObject, Parsable {
     /**
@@ -13,7 +14,7 @@ export interface DirectoryObjectPartnerReference extends DirectoryObject, Parsab
     /**
      * The tenant identifier for the partner tenant. Read-only.
      */
-    externalPartnerTenantId?: string | undefined;
+    externalPartnerTenantId?: Guid | undefined;
     /**
      * The type of the referenced object in the partner tenant. Read-only.
      */

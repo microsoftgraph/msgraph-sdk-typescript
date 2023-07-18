@@ -2,6 +2,7 @@ import {Entity} from './entity';
 import {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface SubscribedSku extends Entity, Parsable {
     /**
@@ -35,7 +36,7 @@ export interface SubscribedSku extends Entity, Parsable {
     /**
      * The unique identifier (GUID) for the service SKU.
      */
-    skuId?: string | undefined;
+    skuId?: Guid | undefined;
     /**
      * The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.
      */

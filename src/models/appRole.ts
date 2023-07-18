@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface AppRole extends AdditionalDataHolder, Parsable {
     /**
@@ -20,7 +21,7 @@ export interface AppRole extends AdditionalDataHolder, Parsable {
     /**
      * Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
      */
-    id?: string | undefined;
+    id?: Guid | undefined;
     /**
      * When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed.
      */

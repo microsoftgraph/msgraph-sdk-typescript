@@ -1,5 +1,6 @@
 import {SelfSignedCertificate} from './selfSignedCertificate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoSelfSignedCertificate(selfSignedCertificate: SelfSignedCertificate | undefined = {} as SelfSignedCertificate) : Record<string, (node: ParseNode) => void> {
     return {
@@ -7,7 +8,7 @@ export function deserializeIntoSelfSignedCertificate(selfSignedCertificate: Self
         "displayName": n => { selfSignedCertificate.displayName = n.getStringValue(); },
         "endDateTime": n => { selfSignedCertificate.endDateTime = n.getDateValue(); },
         "key": n => { selfSignedCertificate.key = n.getStringValue(); },
-        "keyId": n => { selfSignedCertificate.keyId = n.getStringValue(); },
+        "keyId": n => { selfSignedCertificate.keyId = n.getGuidValue(); },
         "@odata.type": n => { selfSignedCertificate.odataType = n.getStringValue(); },
         "startDateTime": n => { selfSignedCertificate.startDateTime = n.getDateValue(); },
         "thumbprint": n => { selfSignedCertificate.thumbprint = n.getStringValue(); },

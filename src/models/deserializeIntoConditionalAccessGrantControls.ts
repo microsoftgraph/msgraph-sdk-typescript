@@ -8,7 +8,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export function deserializeIntoConditionalAccessGrantControls(conditionalAccessGrantControls: ConditionalAccessGrantControls | undefined = {} as ConditionalAccessGrantControls) : Record<string, (node: ParseNode) => void> {
     return {
         "authenticationStrength": n => { conditionalAccessGrantControls.authenticationStrength = n.getObjectValue<AuthenticationStrengthPolicy>(createAuthenticationStrengthPolicyFromDiscriminatorValue); },
-        "builtInControls": n => { conditionalAccessGrantControls.builtInControls = n.getEnumValues<ConditionalAccessGrantControl>(ConditionalAccessGrantControl); },
+        "builtInControls": n => { conditionalAccessGrantControls.builtInControls = n.getCollectionOfEnumValues<ConditionalAccessGrantControl>(ConditionalAccessGrantControl); },
         "customAuthenticationFactors": n => { conditionalAccessGrantControls.customAuthenticationFactors = n.getCollectionOfPrimitiveValues<string>(); },
         "@odata.type": n => { conditionalAccessGrantControls.odataType = n.getStringValue(); },
         "operator": n => { conditionalAccessGrantControls.operator = n.getStringValue(); },

@@ -10,7 +10,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {
-        "acceptedModalities": n => { answerPostRequestBody.acceptedModalities = n.getEnumValues<Modality>(Modality); },
+        "acceptedModalities": n => { answerPostRequestBody.acceptedModalities = n.getCollectionOfEnumValues<Modality>(Modality); },
         "callbackUri": n => { answerPostRequestBody.callbackUri = n.getStringValue(); },
         "callOptions": n => { answerPostRequestBody.callOptions = n.getObjectValue<IncomingCallOptions>(createIncomingCallOptionsFromDiscriminatorValue); },
         "mediaConfig": n => { answerPostRequestBody.mediaConfig = n.getObjectValue<MediaConfig>(createMediaConfigFromDiscriminatorValue); },

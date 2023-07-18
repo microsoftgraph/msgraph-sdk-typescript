@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface RemovePasswordPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
@@ -8,5 +9,5 @@ export interface RemovePasswordPostRequestBody extends AdditionalDataHolder, Par
     /**
      * The keyId property
      */
-    keyId?: string | undefined;
+    keyId?: Guid | undefined;
 }

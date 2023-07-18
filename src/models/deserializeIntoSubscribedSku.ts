@@ -7,6 +7,7 @@ import {serializeServicePlanInfo} from './serializeServicePlanInfo';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {SubscribedSku} from './subscribedSku';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoSubscribedSku(subscribedSku: SubscribedSku | undefined = {} as SubscribedSku) : Record<string, (node: ParseNode) => void> {
     return {
@@ -18,7 +19,7 @@ export function deserializeIntoSubscribedSku(subscribedSku: SubscribedSku | unde
         "consumedUnits": n => { subscribedSku.consumedUnits = n.getNumberValue(); },
         "prepaidUnits": n => { subscribedSku.prepaidUnits = n.getObjectValue<LicenseUnitsDetail>(createLicenseUnitsDetailFromDiscriminatorValue); },
         "servicePlans": n => { subscribedSku.servicePlans = n.getCollectionOfObjectValues<ServicePlanInfo>(createServicePlanInfoFromDiscriminatorValue); },
-        "skuId": n => { subscribedSku.skuId = n.getStringValue(); },
+        "skuId": n => { subscribedSku.skuId = n.getGuidValue(); },
         "skuPartNumber": n => { subscribedSku.skuPartNumber = n.getStringValue(); },
         "subscriptionIds": n => { subscribedSku.subscriptionIds = n.getCollectionOfPrimitiveValues<string>(); },
     }

@@ -10,6 +10,6 @@ export function deserializeIntoFilterOperatorSchema(filterOperatorSchema: Filter
         ...deserializeIntoEntity(filterOperatorSchema),
         "arity": n => { filterOperatorSchema.arity = n.getEnumValue<ScopeOperatorType>(ScopeOperatorType); },
         "multivaluedComparisonType": n => { filterOperatorSchema.multivaluedComparisonType = n.getEnumValue<ScopeOperatorMultiValuedComparisonType>(ScopeOperatorMultiValuedComparisonType); },
-        "supportedAttributeTypes": n => { filterOperatorSchema.supportedAttributeTypes = n.getEnumValues<AttributeType>(AttributeType); },
+        "supportedAttributeTypes": n => { filterOperatorSchema.supportedAttributeTypes = n.getCollectionOfEnumValues<AttributeType>(AttributeType); },
     }
 }

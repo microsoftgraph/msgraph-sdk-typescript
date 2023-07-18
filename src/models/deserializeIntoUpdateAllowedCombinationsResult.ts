@@ -6,8 +6,8 @@ export function deserializeIntoUpdateAllowedCombinationsResult(updateAllowedComb
     return {
         "additionalInformation": n => { updateAllowedCombinationsResult.additionalInformation = n.getStringValue(); },
         "conditionalAccessReferences": n => { updateAllowedCombinationsResult.conditionalAccessReferences = n.getCollectionOfPrimitiveValues<string>(); },
-        "currentCombinations": n => { updateAllowedCombinationsResult.currentCombinations = n.getEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
+        "currentCombinations": n => { updateAllowedCombinationsResult.currentCombinations = n.getCollectionOfEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
         "@odata.type": n => { updateAllowedCombinationsResult.odataType = n.getStringValue(); },
-        "previousCombinations": n => { updateAllowedCombinationsResult.previousCombinations = n.getEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
+        "previousCombinations": n => { updateAllowedCombinationsResult.previousCombinations = n.getCollectionOfEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
     }
 }

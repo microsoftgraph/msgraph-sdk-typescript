@@ -70,6 +70,7 @@ import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {WebApplication} from './webApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoApplication(application: Application | undefined = {} as Application) : Record<string, (node: ParseNode) => void> {
     return {
@@ -113,7 +114,7 @@ export function deserializeIntoApplication(application: Application | undefined 
         "spa": n => { application.spa = n.getObjectValue<SpaApplication>(createSpaApplicationFromDiscriminatorValue); },
         "synchronization": n => { application.synchronization = n.getObjectValue<Synchronization>(createSynchronizationFromDiscriminatorValue); },
         "tags": n => { application.tags = n.getCollectionOfPrimitiveValues<string>(); },
-        "tokenEncryptionKeyId": n => { application.tokenEncryptionKeyId = n.getStringValue(); },
+        "tokenEncryptionKeyId": n => { application.tokenEncryptionKeyId = n.getGuidValue(); },
         "tokenIssuancePolicies": n => { application.tokenIssuancePolicies = n.getCollectionOfObjectValues<TokenIssuancePolicy>(createTokenIssuancePolicyFromDiscriminatorValue); },
         "tokenLifetimePolicies": n => { application.tokenLifetimePolicies = n.getCollectionOfObjectValues<TokenLifetimePolicy>(createTokenLifetimePolicyFromDiscriminatorValue); },
         "verifiedPublisher": n => { application.verifiedPublisher = n.getObjectValue<VerifiedPublisher>(createVerifiedPublisherFromDiscriminatorValue); },

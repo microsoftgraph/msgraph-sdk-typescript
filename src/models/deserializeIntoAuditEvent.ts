@@ -7,6 +7,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAuditActor} from './serializeAuditActor';
 import {serializeAuditResource} from './serializeAuditResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoAuditEvent(auditEvent: AuditEvent | undefined = {} as AuditEvent) : Record<string, (node: ParseNode) => void> {
     return {
@@ -19,7 +20,7 @@ export function deserializeIntoAuditEvent(auditEvent: AuditEvent | undefined = {
         "actor": n => { auditEvent.actor = n.getObjectValue<AuditActor>(createAuditActorFromDiscriminatorValue); },
         "category": n => { auditEvent.category = n.getStringValue(); },
         "componentName": n => { auditEvent.componentName = n.getStringValue(); },
-        "correlationId": n => { auditEvent.correlationId = n.getStringValue(); },
+        "correlationId": n => { auditEvent.correlationId = n.getGuidValue(); },
         "displayName": n => { auditEvent.displayName = n.getStringValue(); },
         "resources": n => { auditEvent.resources = n.getCollectionOfObjectValues<AuditResource>(createAuditResourceFromDiscriminatorValue); },
     }

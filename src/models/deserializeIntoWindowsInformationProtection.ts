@@ -23,6 +23,7 @@ import {WindowsInformationProtectionIPRangeCollection} from './windowsInformatio
 import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function deserializeIntoWindowsInformationProtection(windowsInformationProtection: WindowsInformationProtection | undefined = {} as WindowsInformationProtection) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,7 +51,7 @@ export function deserializeIntoWindowsInformationProtection(windowsInformationPr
         "protectedApps": n => { windowsInformationProtection.protectedApps = n.getCollectionOfObjectValues<WindowsInformationProtectionApp>(createWindowsInformationProtectionAppFromDiscriminatorValue); },
         "protectionUnderLockConfigRequired": n => { windowsInformationProtection.protectionUnderLockConfigRequired = n.getBooleanValue(); },
         "revokeOnUnenrollDisabled": n => { windowsInformationProtection.revokeOnUnenrollDisabled = n.getBooleanValue(); },
-        "rightsManagementServicesTemplateId": n => { windowsInformationProtection.rightsManagementServicesTemplateId = n.getStringValue(); },
+        "rightsManagementServicesTemplateId": n => { windowsInformationProtection.rightsManagementServicesTemplateId = n.getGuidValue(); },
         "smbAutoEncryptedFileExtensions": n => { windowsInformationProtection.smbAutoEncryptedFileExtensions = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(createWindowsInformationProtectionResourceCollectionFromDiscriminatorValue); },
     }
 }

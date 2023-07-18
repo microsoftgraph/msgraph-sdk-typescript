@@ -4,12 +4,13 @@ import {ImageTaggingChoice} from './imageTaggingChoice';
 import {SharingCapabilities} from './sharingCapabilities';
 import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface SharepointSettings extends Entity, Parsable {
     /**
      * Collection of trusted domain GUIDs for the OneDrive sync app.
      */
-    allowedDomainGuidsForSyncApp?: string[] | undefined;
+    allowedDomainGuidsForSyncApp?: Guid[] | undefined;
     /**
      * Collection of managed paths available for site creation. Read-only.
      */

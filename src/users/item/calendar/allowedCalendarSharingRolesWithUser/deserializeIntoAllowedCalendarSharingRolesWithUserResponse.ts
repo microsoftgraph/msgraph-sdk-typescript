@@ -6,6 +6,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoAllowedCalendarSharingRolesWithUserResponse(allowedCalendarSharingRolesWithUserResponse: AllowedCalendarSharingRolesWithUserResponse | undefined = {} as AllowedCalendarSharingRolesWithUserResponse) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoBaseCollectionPaginationCountResponse(allowedCalendarSharingRolesWithUserResponse),
-        "value": n => { allowedCalendarSharingRolesWithUserResponse.value = n.getEnumValues<CalendarRoleType>(CalendarRoleType); },
+        "value": n => { allowedCalendarSharingRolesWithUserResponse.value = n.getCollectionOfEnumValues<CalendarRoleType>(CalendarRoleType); },
     }
 }

@@ -22,7 +22,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoCalendar(calendar: Calendar | undefined = {} as Calendar) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(calendar),
-        "allowedOnlineMeetingProviders": n => { calendar.allowedOnlineMeetingProviders = n.getEnumValues<OnlineMeetingProviderType>(OnlineMeetingProviderType); },
+        "allowedOnlineMeetingProviders": n => { calendar.allowedOnlineMeetingProviders = n.getCollectionOfEnumValues<OnlineMeetingProviderType>(OnlineMeetingProviderType); },
         "calendarPermissions": n => { calendar.calendarPermissions = n.getCollectionOfObjectValues<CalendarPermission>(createCalendarPermissionFromDiscriminatorValue); },
         "calendarView": n => { calendar.calendarView = n.getCollectionOfObjectValues<Event>(createEventFromDiscriminatorValue); },
         "canEdit": n => { calendar.canEdit = n.getBooleanValue(); },

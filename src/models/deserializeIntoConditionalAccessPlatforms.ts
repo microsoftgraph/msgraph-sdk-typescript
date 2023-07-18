@@ -4,8 +4,8 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 
 export function deserializeIntoConditionalAccessPlatforms(conditionalAccessPlatforms: ConditionalAccessPlatforms | undefined = {} as ConditionalAccessPlatforms) : Record<string, (node: ParseNode) => void> {
     return {
-        "excludePlatforms": n => { conditionalAccessPlatforms.excludePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); },
-        "includePlatforms": n => { conditionalAccessPlatforms.includePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); },
+        "excludePlatforms": n => { conditionalAccessPlatforms.excludePlatforms = n.getCollectionOfEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); },
+        "includePlatforms": n => { conditionalAccessPlatforms.includePlatforms = n.getCollectionOfEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); },
         "@odata.type": n => { conditionalAccessPlatforms.odataType = n.getStringValue(); },
     }
 }

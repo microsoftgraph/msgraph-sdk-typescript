@@ -55,11 +55,11 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CrossTenantIdentitySyncPolicyPartner>(requestInfo, createCrossTenantIdentitySyncPolicyPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Update the user synchronization policy of a partner-specific configuration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantIdentitySyncPolicyPartner
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-put-identitysynchronization?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/crosstenantidentitysyncpolicypartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CrossTenantIdentitySyncPolicyPartner | undefined, requestConfiguration?: IdentitySynchronizationRequestBuilderPatchRequestConfiguration | undefined) : Promise<CrossTenantIdentitySyncPolicyPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -107,7 +107,7 @@ export class IdentitySynchronizationRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a cross-tenant user synchronization policy for a partner-specific configuration.
+     * Update the user synchronization policy of a partner-specific configuration.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

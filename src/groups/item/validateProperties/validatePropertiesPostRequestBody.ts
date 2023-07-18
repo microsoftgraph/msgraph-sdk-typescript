@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface ValidatePropertiesPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
@@ -16,5 +17,5 @@ export interface ValidatePropertiesPostRequestBody extends AdditionalDataHolder,
     /**
      * The onBehalfOfUserId property
      */
-    onBehalfOfUserId?: string | undefined;
+    onBehalfOfUserId?: Guid | undefined;
 }

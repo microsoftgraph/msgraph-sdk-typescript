@@ -42,6 +42,7 @@ import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {VerifiedPublisher} from './verifiedPublisher';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeServicePrincipal(writer: SerializationWriter, servicePrincipal: ServicePrincipal | undefined = {} as ServicePrincipal) : void {
         serializeDirectoryObject(writer, servicePrincipal)
@@ -53,7 +54,7 @@ export function serializeServicePrincipal(writer: SerializationWriter, servicePr
         writer.writeStringValue("appId", servicePrincipal.appId);
         writer.writeStringValue("applicationTemplateId", servicePrincipal.applicationTemplateId);
         writer.writeCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", servicePrincipal.appManagementPolicies, serializeAppManagementPolicy);
-        writer.writeStringValue("appOwnerOrganizationId", servicePrincipal.appOwnerOrganizationId);
+        writer.writeGuidValue("appOwnerOrganizationId", servicePrincipal.appOwnerOrganizationId);
         writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignedTo", servicePrincipal.appRoleAssignedTo, serializeAppRoleAssignment);
         writer.writeBooleanValue("appRoleAssignmentRequired", servicePrincipal.appRoleAssignmentRequired);
         writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", servicePrincipal.appRoleAssignments, serializeAppRoleAssignment);
@@ -90,7 +91,7 @@ export function serializeServicePrincipal(writer: SerializationWriter, servicePr
         writer.writeStringValue("signInAudience", servicePrincipal.signInAudience);
         writer.writeObjectValue<Synchronization>("synchronization", servicePrincipal.synchronization, serializeSynchronization);
         writer.writeCollectionOfPrimitiveValues<string>("tags", servicePrincipal.tags);
-        writer.writeStringValue("tokenEncryptionKeyId", servicePrincipal.tokenEncryptionKeyId);
+        writer.writeGuidValue("tokenEncryptionKeyId", servicePrincipal.tokenEncryptionKeyId);
         writer.writeCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", servicePrincipal.tokenIssuancePolicies, serializeTokenIssuancePolicy);
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", servicePrincipal.tokenLifetimePolicies, serializeTokenLifetimePolicy);
         writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", servicePrincipal.transitiveMemberOf, serializeDirectoryObject);

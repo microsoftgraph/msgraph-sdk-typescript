@@ -2,6 +2,7 @@ import {AllowInvitesFrom} from './allowInvitesFrom';
 import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {PolicyBase} from './policyBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface AuthorizationPolicy extends Parsable, PolicyBase {
     /**
@@ -35,5 +36,5 @@ export interface AuthorizationPolicy extends Parsable, PolicyBase {
     /**
      * Represents role templateId for the role that should be granted to guest user. Currently following roles are supported:  User (a0b1b346-4d3e-4e8b-98f8-753987be4970), Guest User (10dae51f-b6af-4016-8d66-8c2a99b929b3), and Restricted Guest User (2af84b1e-32c8-42b7-82bc-daa82404023b).
      */
-    guestUserRoleId?: string | undefined;
+    guestUserRoleId?: Guid | undefined;
 }

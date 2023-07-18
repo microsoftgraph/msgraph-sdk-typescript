@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface PermissionScope extends AdditionalDataHolder, Parsable {
     /**
@@ -16,7 +17,7 @@ export interface PermissionScope extends AdditionalDataHolder, Parsable {
     /**
      * Unique delegated permission identifier inside the collection of delegated permissions defined for a resource application.
      */
-    id?: string | undefined;
+    id?: Guid | undefined;
     /**
      * When creating or updating a permission, this property must be set to true (which is the default). To delete a permission, this property must first be set to false.  At that point, in a subsequent call, the permission may be removed.
      */

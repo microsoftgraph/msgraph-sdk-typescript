@@ -122,6 +122,7 @@ import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInfor
 import {WindowsMalwareInformation} from './windowsMalwareInformation';
 import {WindowsMalwareOverview} from './windowsMalwareOverview';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeDeviceManagement(writer: SerializationWriter, deviceManagement: DeviceManagement | undefined = {} as DeviceManagement) : void {
         serializeEntity(writer, deviceManagement)
@@ -141,7 +142,7 @@ export function serializeDeviceManagement(writer: SerializationWriter, deviceMan
         writer.writeObjectValue<DeviceProtectionOverview>("deviceProtectionOverview", deviceManagement.deviceProtectionOverview, serializeDeviceProtectionOverview);
         writer.writeCollectionOfObjectValues<DeviceManagementExchangeConnector>("exchangeConnectors", deviceManagement.exchangeConnectors, serializeDeviceManagementExchangeConnector);
         writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", deviceManagement.importedWindowsAutopilotDeviceIdentities, serializeImportedWindowsAutopilotDeviceIdentity);
-        writer.writeStringValue("intuneAccountId", deviceManagement.intuneAccountId);
+        writer.writeGuidValue("intuneAccountId", deviceManagement.intuneAccountId);
         writer.writeObjectValue<IntuneBrand>("intuneBrand", deviceManagement.intuneBrand, serializeIntuneBrand);
         writer.writeCollectionOfObjectValues<IosUpdateDeviceStatus>("iosUpdateStatuses", deviceManagement.iosUpdateStatuses, serializeIosUpdateDeviceStatus);
         writer.writeObjectValue<ManagedDeviceOverview>("managedDeviceOverview", deviceManagement.managedDeviceOverview, serializeManagedDeviceOverview);

@@ -11,7 +11,7 @@ export interface DirectoryAudit extends Entity, Parsable {
      */
     activityDateTime?: Date | undefined;
     /**
-     * Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
+     * Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For a list of activities logged, refer to Azure AD audit log categories and activities.
      */
     activityDisplayName?: string | undefined;
     /**
@@ -19,7 +19,7 @@ export interface DirectoryAudit extends Entity, Parsable {
      */
     additionalDetails?: KeyValue[] | undefined;
     /**
-     * Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
+     * Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement. For a list of categories for activities logged, refer to Azure AD audit log categories and activities.
      */
     category?: string | undefined;
     /**

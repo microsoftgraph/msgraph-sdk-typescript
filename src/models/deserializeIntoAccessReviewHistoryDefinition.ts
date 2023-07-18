@@ -21,7 +21,7 @@ export function deserializeIntoAccessReviewHistoryDefinition(accessReviewHistory
         ...deserializeIntoEntity(accessReviewHistoryDefinition),
         "createdBy": n => { accessReviewHistoryDefinition.createdBy = n.getObjectValue<UserIdentity>(createUserIdentityFromDiscriminatorValue); },
         "createdDateTime": n => { accessReviewHistoryDefinition.createdDateTime = n.getDateValue(); },
-        "decisions": n => { accessReviewHistoryDefinition.decisions = n.getEnumValues<AccessReviewHistoryDecisionFilter>(AccessReviewHistoryDecisionFilter); },
+        "decisions": n => { accessReviewHistoryDefinition.decisions = n.getCollectionOfEnumValues<AccessReviewHistoryDecisionFilter>(AccessReviewHistoryDecisionFilter); },
         "displayName": n => { accessReviewHistoryDefinition.displayName = n.getStringValue(); },
         "instances": n => { accessReviewHistoryDefinition.instances = n.getCollectionOfObjectValues<AccessReviewHistoryInstance>(createAccessReviewHistoryInstanceFromDiscriminatorValue); },
         "reviewHistoryPeriodEndDateTime": n => { accessReviewHistoryDefinition.reviewHistoryPeriodEndDateTime = n.getDateValue(); },

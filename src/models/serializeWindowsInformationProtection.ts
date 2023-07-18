@@ -16,6 +16,7 @@ import {WindowsInformationProtectionIPRangeCollection} from './windowsInformatio
 import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeWindowsInformationProtection(writer: SerializationWriter, windowsInformationProtection: WindowsInformationProtection | undefined = {} as WindowsInformationProtection) : void {
         serializeManagedAppPolicy(writer, windowsInformationProtection)
@@ -42,6 +43,6 @@ export function serializeWindowsInformationProtection(writer: SerializationWrite
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionApp>("protectedApps", windowsInformationProtection.protectedApps, serializeWindowsInformationProtectionApp);
         writer.writeBooleanValue("protectionUnderLockConfigRequired", windowsInformationProtection.protectionUnderLockConfigRequired);
         writer.writeBooleanValue("revokeOnUnenrollDisabled", windowsInformationProtection.revokeOnUnenrollDisabled);
-        writer.writeStringValue("rightsManagementServicesTemplateId", windowsInformationProtection.rightsManagementServicesTemplateId);
+        writer.writeGuidValue("rightsManagementServicesTemplateId", windowsInformationProtection.rightsManagementServicesTemplateId);
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", windowsInformationProtection.smbAutoEncryptedFileExtensions, serializeWindowsInformationProtectionResourceCollection);
 }

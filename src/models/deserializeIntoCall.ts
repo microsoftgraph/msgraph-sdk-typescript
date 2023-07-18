@@ -71,7 +71,7 @@ export function deserializeIntoCall(call: Call | undefined = {} as Call) : Recor
         "myParticipantId": n => { call.myParticipantId = n.getStringValue(); },
         "operations": n => { call.operations = n.getCollectionOfObjectValues<CommsOperation>(createCommsOperationFromDiscriminatorValue); },
         "participants": n => { call.participants = n.getCollectionOfObjectValues<Participant>(createParticipantFromDiscriminatorValue); },
-        "requestedModalities": n => { call.requestedModalities = n.getEnumValues<Modality>(Modality); },
+        "requestedModalities": n => { call.requestedModalities = n.getCollectionOfEnumValues<Modality>(Modality); },
         "resultInfo": n => { call.resultInfo = n.getObjectValue<ResultInfo>(createResultInfoFromDiscriminatorValue); },
         "source": n => { call.source = n.getObjectValue<ParticipantInfo>(createParticipantInfoFromDiscriminatorValue); },
         "state": n => { call.state = n.getEnumValue<CallState>(CallState); },

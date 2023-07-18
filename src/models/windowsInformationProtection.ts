@@ -8,6 +8,7 @@ import {WindowsInformationProtectionIPRangeCollection} from './windowsInformatio
 import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface WindowsInformationProtection extends ManagedAppPolicy, Parsable {
     /**
@@ -105,7 +106,7 @@ export interface WindowsInformationProtection extends ManagedAppPolicy, Parsable
     /**
      * TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
      */
-    rightsManagementServicesTemplateId?: string | undefined;
+    rightsManagementServicesTemplateId?: Guid | undefined;
     /**
      * Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary
      */

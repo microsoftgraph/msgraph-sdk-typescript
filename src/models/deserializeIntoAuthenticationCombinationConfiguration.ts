@@ -6,6 +6,6 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export function deserializeIntoAuthenticationCombinationConfiguration(authenticationCombinationConfiguration: AuthenticationCombinationConfiguration | undefined = {} as AuthenticationCombinationConfiguration) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoEntity(authenticationCombinationConfiguration),
-        "appliesToCombinations": n => { authenticationCombinationConfiguration.appliesToCombinations = n.getEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
+        "appliesToCombinations": n => { authenticationCombinationConfiguration.appliesToCombinations = n.getCollectionOfEnumValues<AuthenticationMethodModes>(AuthenticationMethodModes); },
     }
 }

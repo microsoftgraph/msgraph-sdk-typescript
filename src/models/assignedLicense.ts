@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface AssignedLicense extends AdditionalDataHolder, Parsable {
     /**
@@ -8,7 +9,7 @@ export interface AssignedLicense extends AdditionalDataHolder, Parsable {
     /**
      * A collection of the unique identifiers for plans that have been disabled.
      */
-    disabledPlans?: string[] | undefined;
+    disabledPlans?: Guid[] | undefined;
     /**
      * The OdataType property
      */
@@ -16,5 +17,5 @@ export interface AssignedLicense extends AdditionalDataHolder, Parsable {
     /**
      * The unique identifier for the SKU.
      */
-    skuId?: string | undefined;
+    skuId?: Guid | undefined;
 }

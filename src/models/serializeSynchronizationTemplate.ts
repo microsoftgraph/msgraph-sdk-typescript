@@ -5,10 +5,11 @@ import {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
 import {SynchronizationSchema} from './synchronizationSchema';
 import {SynchronizationTemplate} from './synchronizationTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export function serializeSynchronizationTemplate(writer: SerializationWriter, synchronizationTemplate: SynchronizationTemplate | undefined = {} as SynchronizationTemplate) : void {
         serializeEntity(writer, synchronizationTemplate)
-        writer.writeStringValue("applicationId", synchronizationTemplate.applicationId);
+        writer.writeGuidValue("applicationId", synchronizationTemplate.applicationId);
         writer.writeBooleanValue("default", synchronizationTemplate.defaultEscaped);
         writer.writeStringValue("description", synchronizationTemplate.description);
         writer.writeBooleanValue("discoverable", synchronizationTemplate.discoverable);

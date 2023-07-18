@@ -1,4 +1,5 @@
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface ServicePlanInfo extends AdditionalDataHolder, Parsable {
     /**
@@ -20,7 +21,7 @@ export interface ServicePlanInfo extends AdditionalDataHolder, Parsable {
     /**
      * The unique identifier of the service plan.
      */
-    servicePlanId?: string | undefined;
+    servicePlanId?: Guid | undefined;
     /**
      * The name of the service plan.
      */

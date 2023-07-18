@@ -15,7 +15,7 @@ export function deserializeIntoPrinterDefaults(printerDefaults: PrinterDefaults 
         "copiesPerJob": n => { printerDefaults.copiesPerJob = n.getNumberValue(); },
         "dpi": n => { printerDefaults.dpi = n.getNumberValue(); },
         "duplexMode": n => { printerDefaults.duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); },
-        "finishings": n => { printerDefaults.finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); },
+        "finishings": n => { printerDefaults.finishings = n.getCollectionOfEnumValues<PrintFinishing>(PrintFinishing); },
         "fitPdfToPage": n => { printerDefaults.fitPdfToPage = n.getBooleanValue(); },
         "inputBin": n => { printerDefaults.inputBin = n.getStringValue(); },
         "mediaColor": n => { printerDefaults.mediaColor = n.getStringValue(); },

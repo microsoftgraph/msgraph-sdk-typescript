@@ -22,7 +22,7 @@ export function deserializeIntoManagedAppRegistration(managedAppRegistration: Ma
         "deviceName": n => { managedAppRegistration.deviceName = n.getStringValue(); },
         "deviceTag": n => { managedAppRegistration.deviceTag = n.getStringValue(); },
         "deviceType": n => { managedAppRegistration.deviceType = n.getStringValue(); },
-        "flaggedReasons": n => { managedAppRegistration.flaggedReasons = n.getEnumValues<ManagedAppFlaggedReason>(ManagedAppFlaggedReason); },
+        "flaggedReasons": n => { managedAppRegistration.flaggedReasons = n.getCollectionOfEnumValues<ManagedAppFlaggedReason>(ManagedAppFlaggedReason); },
         "intendedPolicies": n => { managedAppRegistration.intendedPolicies = n.getCollectionOfObjectValues<ManagedAppPolicy>(createManagedAppPolicyFromDiscriminatorValue); },
         "lastSyncDateTime": n => { managedAppRegistration.lastSyncDateTime = n.getDateValue(); },
         "managementSdkVersion": n => { managedAppRegistration.managementSdkVersion = n.getStringValue(); },

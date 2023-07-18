@@ -11,7 +11,7 @@ export function deserializeIntoAlertEvidence(alertEvidence: AlertEvidence | unde
         "@odata.type": n => { alertEvidence.odataType = n.getStringValue(); },
         "remediationStatus": n => { alertEvidence.remediationStatus = n.getEnumValue<EvidenceRemediationStatus>(EvidenceRemediationStatus); },
         "remediationStatusDetails": n => { alertEvidence.remediationStatusDetails = n.getStringValue(); },
-        "roles": n => { alertEvidence.roles = n.getEnumValues<EvidenceRole>(EvidenceRole); },
+        "roles": n => { alertEvidence.roles = n.getCollectionOfEnumValues<EvidenceRole>(EvidenceRole); },
         "tags": n => { alertEvidence.tags = n.getCollectionOfPrimitiveValues<string>(); },
         "verdict": n => { alertEvidence.verdict = n.getEnumValue<EvidenceVerdict>(EvidenceVerdict); },
     }

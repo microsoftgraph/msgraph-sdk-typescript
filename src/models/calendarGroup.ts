@@ -1,6 +1,7 @@
 import {Calendar} from './calendar';
 import {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
+import {Guid} from 'guid-typescript';
 
 export interface CalendarGroup extends Entity, Parsable {
     /**
@@ -14,7 +15,7 @@ export interface CalendarGroup extends Entity, Parsable {
     /**
      * The class identifier. Read-only.
      */
-    classId?: string | undefined;
+    classId?: Guid | undefined;
     /**
      * The group name.
      */
