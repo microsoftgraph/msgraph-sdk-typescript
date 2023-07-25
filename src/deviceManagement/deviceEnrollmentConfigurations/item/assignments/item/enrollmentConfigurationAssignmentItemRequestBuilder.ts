@@ -24,8 +24,9 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}/assignments/{enrollmentConfigurationAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a enrollmentConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EnrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of group assignments for the device configuration profile
+     * Read properties and relationships of the enrollmentConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EnrollmentConfigurationAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EnrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EnrollmentConfigurationAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
         return this.requestAdapter.sendAsync<EnrollmentConfigurationAssignment>(requestInfo, createEnrollmentConfigurationAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a enrollmentConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EnrollmentConfigurationAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EnrollmentConfigurationAssignment | undefined, requestConfiguration?: EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EnrollmentConfigurationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
         return this.requestAdapter.sendAsync<EnrollmentConfigurationAssignment>(requestInfo, createEnrollmentConfigurationAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property assignments for deviceManagement
+     * Deletes a enrollmentConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * The list of group assignments for the device configuration profile
+     * Read properties and relationships of the enrollmentConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * Update the navigation property assignments in deviceManagement
+     * Update the properties of a enrollmentConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

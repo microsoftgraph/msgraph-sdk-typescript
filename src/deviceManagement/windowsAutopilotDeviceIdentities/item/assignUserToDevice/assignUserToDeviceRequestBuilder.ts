@@ -24,6 +24,7 @@ export class AssignUserToDeviceRequestBuilder extends BaseRequestBuilder {
      * Assigns user to Autopilot devices.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-assignusertodevice?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AssignUserToDevicePostRequestBody | undefined, requestConfiguration?: AssignUserToDeviceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

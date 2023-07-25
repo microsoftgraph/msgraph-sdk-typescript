@@ -24,8 +24,9 @@ export class MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequestB
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors/{mobileThreatDefenseConnector%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property mobileThreatDefenseConnectors for deviceManagement
+     * Deletes a mobileThreatDefenseConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileThreatDefenseConnectorItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of Mobile threat Defense connectors configured by the tenant.
+     * Read properties and relationships of the mobileThreatDefenseConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileThreatDefenseConnector
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileThreatDefenseConnectorItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileThreatDefenseConnector | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<MobileThreatDefenseConnector>(requestInfo, createMobileThreatDefenseConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property mobileThreatDefenseConnectors in deviceManagement
+     * Update the properties of a mobileThreatDefenseConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileThreatDefenseConnector
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileThreatDefenseConnector | undefined, requestConfiguration?: MobileThreatDefenseConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileThreatDefenseConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<MobileThreatDefenseConnector>(requestInfo, createMobileThreatDefenseConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property mobileThreatDefenseConnectors for deviceManagement
+     * Deletes a mobileThreatDefenseConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * The list of Mobile threat Defense connectors configured by the tenant.
+     * Read properties and relationships of the mobileThreatDefenseConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class MobileThreatDefenseConnectorItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Update the navigation property mobileThreatDefenseConnectors in deviceManagement
+     * Update the properties of a mobileThreatDefenseConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

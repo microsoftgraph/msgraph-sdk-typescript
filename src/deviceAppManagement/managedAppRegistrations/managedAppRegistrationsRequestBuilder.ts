@@ -51,9 +51,10 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The managed app registrations.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistrationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppRegistrationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppRegistrationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,10 +67,11 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppRegistrationCollectionResponse>(requestInfo, createManagedAppRegistrationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to managedAppRegistrations for deviceAppManagement
+     * Create a new androidManagedAppRegistration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistration
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -83,7 +85,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The managed app registrations.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -101,7 +103,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to managedAppRegistrations for deviceAppManagement
+     * Create a new androidManagedAppRegistration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

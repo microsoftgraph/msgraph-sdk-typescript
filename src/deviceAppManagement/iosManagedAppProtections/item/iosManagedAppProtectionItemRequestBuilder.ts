@@ -45,8 +45,9 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property iosManagedAppProtections for deviceAppManagement
+     * Deletes a iosManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IosManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -59,9 +60,10 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * iOS managed app policies.
+     * Read properties and relationships of the iosManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosManagedAppProtection
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IosManagedAppProtectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IosManagedAppProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,10 +76,11 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<IosManagedAppProtection>(requestInfo, createIosManagedAppProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property iosManagedAppProtections in deviceAppManagement
+     * Update the properties of a iosManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosManagedAppProtection
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-iosmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IosManagedAppProtection | undefined, requestConfiguration?: IosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IosManagedAppProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -91,7 +94,7 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<IosManagedAppProtection>(requestInfo, createIosManagedAppProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property iosManagedAppProtections for deviceAppManagement
+     * Deletes a iosManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * iOS managed app policies.
+     * Read properties and relationships of the iosManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -125,7 +128,7 @@ export class IosManagedAppProtectionItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the navigation property iosManagedAppProtections in deviceAppManagement
+     * Update the properties of a iosManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

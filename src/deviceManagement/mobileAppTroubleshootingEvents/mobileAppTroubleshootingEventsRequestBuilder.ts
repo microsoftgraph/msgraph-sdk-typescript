@@ -44,9 +44,10 @@ export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The collection property of MobileAppTroubleshootingEvent.
+     * List properties and relationships of the mobileAppTroubleshootingEvent objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEventCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<MobileAppTroubleshootingEventCollectionResponse>(requestInfo, createMobileAppTroubleshootingEventCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to mobileAppTroubleshootingEvents for deviceManagement
+     * Create a new mobileAppTroubleshootingEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEvent
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<MobileAppTroubleshootingEvent>(requestInfo, createMobileAppTroubleshootingEventFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The collection property of MobileAppTroubleshootingEvent.
+     * List properties and relationships of the mobileAppTroubleshootingEvent objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Create new navigation property to mobileAppTroubleshootingEvents for deviceManagement
+     * Create a new mobileAppTroubleshootingEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

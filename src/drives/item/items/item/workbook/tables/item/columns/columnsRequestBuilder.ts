@@ -55,7 +55,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableColumnCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

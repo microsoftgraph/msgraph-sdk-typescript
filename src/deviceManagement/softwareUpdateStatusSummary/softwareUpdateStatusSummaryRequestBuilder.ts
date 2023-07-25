@@ -20,9 +20,10 @@ export class SoftwareUpdateStatusSummaryRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/softwareUpdateStatusSummary{?%24select,%24expand}");
     };
     /**
-     * The software update status summary.
+     * Read properties and relationships of the softwareUpdateStatusSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SoftwareUpdateStatusSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-softwareupdatestatussummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<SoftwareUpdateStatusSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +36,7 @@ export class SoftwareUpdateStatusSummaryRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<SoftwareUpdateStatusSummary>(requestInfo, createSoftwareUpdateStatusSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The software update status summary.
+     * Read properties and relationships of the softwareUpdateStatusSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

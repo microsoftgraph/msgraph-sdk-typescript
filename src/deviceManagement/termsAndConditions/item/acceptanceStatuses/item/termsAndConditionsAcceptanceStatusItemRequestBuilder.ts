@@ -31,8 +31,9 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}/acceptanceStatuses/{termsAndConditionsAcceptanceStatus%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property acceptanceStatuses for deviceManagement
+     * Deletes a termsAndConditionsAcceptanceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of acceptance statuses for this T&C policy.
+     * Read properties and relationships of the termsAndConditionsAcceptanceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditionsAcceptanceStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendAsync<TermsAndConditionsAcceptanceStatus>(requestInfo, createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property acceptanceStatuses in deviceManagement
+     * Update the properties of a termsAndConditionsAcceptanceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditionsAcceptanceStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendAsync<TermsAndConditionsAcceptanceStatus>(requestInfo, createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property acceptanceStatuses for deviceManagement
+     * Deletes a termsAndConditionsAcceptanceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * The list of acceptance statuses for this T&C policy.
+     * Read properties and relationships of the termsAndConditionsAcceptanceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * Update the navigation property acceptanceStatuses in deviceManagement
+     * Update the properties of a termsAndConditionsAcceptanceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -44,9 +44,10 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummary%2Did}/deviceComplianceSettingStates{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Not yet documented
+     * List properties and relationships of the deviceComplianceSettingState objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceSettingStateCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceComplianceSettingStatesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceSettingStateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<DeviceComplianceSettingStateCollectionResponse>(requestInfo, createDeviceComplianceSettingStateCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to deviceComplianceSettingStates for deviceManagement
+     * Create a new deviceComplianceSettingState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceSettingState
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceComplianceSettingState | undefined, requestConfiguration?: DeviceComplianceSettingStatesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceComplianceSettingState | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<DeviceComplianceSettingState>(requestInfo, createDeviceComplianceSettingStateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Not yet documented
+     * List properties and relationships of the deviceComplianceSettingState objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Create new navigation property to deviceComplianceSettingStates for deviceManagement
+     * Create a new deviceComplianceSettingState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

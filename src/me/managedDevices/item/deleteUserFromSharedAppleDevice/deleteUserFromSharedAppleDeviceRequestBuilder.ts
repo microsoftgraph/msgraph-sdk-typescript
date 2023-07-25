@@ -24,6 +24,7 @@ export class DeleteUserFromSharedAppleDeviceRequestBuilder extends BaseRequestBu
      * Delete user from shared Apple device
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-deleteuserfromsharedappledevice?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeleteUserFromSharedAppleDevicePostRequestBody | undefined, requestConfiguration?: DeleteUserFromSharedAppleDeviceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

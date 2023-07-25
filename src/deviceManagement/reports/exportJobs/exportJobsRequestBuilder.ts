@@ -44,9 +44,10 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/reports/exportJobs{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Entity representing a job to export a report
+     * List properties and relationships of the deviceManagementExportJob objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExportJobCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExportJobsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementExportJobCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceManagementExportJobCollectionResponse>(requestInfo, createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to exportJobs for deviceManagement
+     * Create a new deviceManagementExportJob object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExportJob
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceManagementExportJob | undefined, requestConfiguration?: ExportJobsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceManagementExportJob>(requestInfo, createDeviceManagementExportJobFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Entity representing a job to export a report
+     * List properties and relationships of the deviceManagementExportJob objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to exportJobs for deviceManagement
+     * Create a new deviceManagementExportJob object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

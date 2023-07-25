@@ -6,19 +6,19 @@ import {Guid} from 'guid-typescript';
 
 export interface SubscribedSku extends Entity, Parsable {
     /**
-     * The accountId property
+     * The unique ID of the account this SKU belongs to.
      */
     accountId?: string | undefined;
     /**
-     * The accountName property
+     * The name of the account this SKU belongs to.
      */
     accountName?: string | undefined;
     /**
-     * For example, 'User' or 'Company'.
+     * The target class for this SKU. Only SKUs with target class User are assignable. Possible values are: 'User', 'Company'.
      */
     appliesTo?: string | undefined;
     /**
-     * Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription.
+     * Enabled indicates that the prepaidUnits property has at least one unit that is enabled. LockedOut indicates that the customer cancelled their subscription. Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut.
      */
     capabilityStatus?: string | undefined;
     /**
@@ -30,7 +30,7 @@ export interface SubscribedSku extends Entity, Parsable {
      */
     prepaidUnits?: LicenseUnitsDetail | undefined;
     /**
-     * Information about the service plans that are available with the SKU. Not nullable
+     * Information about the service plans that are available with the SKU. Not nullable.
      */
     servicePlans?: ServicePlanInfo[] | undefined;
     /**

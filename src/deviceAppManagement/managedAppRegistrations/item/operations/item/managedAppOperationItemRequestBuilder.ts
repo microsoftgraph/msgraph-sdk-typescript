@@ -24,8 +24,9 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/operations/{managedAppOperation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property operations for deviceAppManagement
+     * Deletes a managedAppOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * Read properties and relationships of the managedAppOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperation
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppOperation>(requestInfo, createManagedAppOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property operations in deviceAppManagement
+     * Update the properties of a managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperation
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedAppOperation | undefined, requestConfiguration?: ManagedAppOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppOperation>(requestInfo, createManagedAppOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property operations for deviceAppManagement
+     * Deletes a managedAppOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * Read properties and relationships of the managedAppOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property operations in deviceAppManagement
+     * Update the properties of a managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

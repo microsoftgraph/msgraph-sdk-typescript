@@ -8,6 +8,7 @@ import {serializeTeamwork} from '../models/serializeTeamwork';
 import {Teamwork} from '../models/teamwork';
 import {DeletedTeamsRequestBuilder} from './deletedTeams/deletedTeamsRequestBuilder';
 import {SendActivityNotificationToRecipientsRequestBuilder} from './sendActivityNotificationToRecipients/sendActivityNotificationToRecipientsRequestBuilder';
+import {TeamsAppSettingsRequestBuilder} from './teamsAppSettings/teamsAppSettingsRequestBuilder';
 import {TeamworkRequestBuilderGetRequestConfiguration} from './teamworkRequestBuilderGetRequestConfiguration';
 import {TeamworkRequestBuilderPatchRequestConfiguration} from './teamworkRequestBuilderPatchRequestConfiguration';
 import {WorkforceIntegrationsRequestBuilder} from './workforceIntegrations/workforceIntegrationsRequestBuilder';
@@ -28,6 +29,12 @@ export class TeamworkRequestBuilder extends BaseRequestBuilder {
      */
     public get sendActivityNotificationToRecipients(): SendActivityNotificationToRecipientsRequestBuilder {
         return new SendActivityNotificationToRecipientsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.
+     */
+    public get teamsAppSettings(): TeamsAppSettingsRequestBuilder {
+        return new TeamsAppSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.

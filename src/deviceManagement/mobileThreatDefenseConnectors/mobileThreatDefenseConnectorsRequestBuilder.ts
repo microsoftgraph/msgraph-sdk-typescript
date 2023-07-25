@@ -44,9 +44,10 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/mobileThreatDefenseConnectors{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The list of Mobile threat Defense connectors configured by the tenant.
+     * List properties and relationships of the mobileThreatDefenseConnector objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileThreatDefenseConnectorCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileThreatDefenseConnectorsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileThreatDefenseConnectorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<MobileThreatDefenseConnectorCollectionResponse>(requestInfo, createMobileThreatDefenseConnectorCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to mobileThreatDefenseConnectors for deviceManagement
+     * Create a new mobileThreatDefenseConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileThreatDefenseConnector
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-mobilethreatdefenseconnector-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileThreatDefenseConnector | undefined, requestConfiguration?: MobileThreatDefenseConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileThreatDefenseConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<MobileThreatDefenseConnector>(requestInfo, createMobileThreatDefenseConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The list of Mobile threat Defense connectors configured by the tenant.
+     * List properties and relationships of the mobileThreatDefenseConnector objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Create new navigation property to mobileThreatDefenseConnectors for deviceManagement
+     * Create a new mobileThreatDefenseConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

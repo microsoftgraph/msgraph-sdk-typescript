@@ -31,8 +31,9 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/roleAssignments/{deviceAndAppManagementRoleAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a deviceAndAppManagementRoleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The Role Assignments.
+     * Read properties and relationships of the deviceAndAppManagementRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAndAppManagementRoleAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
         return this.requestAdapter.sendAsync<DeviceAndAppManagementRoleAssignment>(requestInfo, createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a deviceAndAppManagementRoleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAndAppManagementRoleAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceAndAppManagementRoleAssignment | undefined, requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
         return this.requestAdapter.sendAsync<DeviceAndAppManagementRoleAssignment>(requestInfo, createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a deviceAndAppManagementRoleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
         return requestInfo;
     };
     /**
-     * The Role Assignments.
+     * Read properties and relationships of the deviceAndAppManagementRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
         return requestInfo;
     };
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a deviceAndAppManagementRoleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -24,8 +24,9 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/assignments/{mobileAppAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a mobileAppAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of group assignments for this mobile app.
+     * Read properties and relationships of the mobileAppAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppAssignment>(requestInfo, createMobileAppAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a mobileAppAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileAppAssignment | undefined, requestConfiguration?: MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppAssignment>(requestInfo, createMobileAppAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property assignments for deviceAppManagement
+     * Deletes a mobileAppAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The list of group assignments for this mobile app.
+     * Read properties and relationships of the mobileAppAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property assignments in deviceAppManagement
+     * Update the properties of a mobileAppAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

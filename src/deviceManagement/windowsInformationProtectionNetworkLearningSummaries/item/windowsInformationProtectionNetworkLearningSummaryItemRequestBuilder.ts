@@ -24,8 +24,9 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/windowsInformationProtectionNetworkLearningSummaries/{windowsInformationProtectionNetworkLearningSummary%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+     * Deletes a windowsInformationProtectionNetworkLearningSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The windows information protection network learning summaries.
+     * Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionNetworkLearningSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
         return this.requestAdapter.sendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property windowsInformationProtectionNetworkLearningSummaries in deviceManagement
+     * Update the properties of a windowsInformationProtectionNetworkLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionNetworkLearningSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WindowsInformationProtectionNetworkLearningSummary | undefined, requestConfiguration?: WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
         return this.requestAdapter.sendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+     * Deletes a windowsInformationProtectionNetworkLearningSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
         return requestInfo;
     };
     /**
-     * The windows information protection network learning summaries.
+     * Read properties and relationships of the windowsInformationProtectionNetworkLearningSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the navigation property windowsInformationProtectionNetworkLearningSummaries in deviceManagement
+     * Update the properties of a windowsInformationProtectionNetworkLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

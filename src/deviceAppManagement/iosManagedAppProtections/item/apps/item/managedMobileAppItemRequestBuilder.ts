@@ -24,8 +24,9 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/apps/{managedMobileApp%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property apps for deviceAppManagement
+     * Deletes a managedMobileApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedMobileAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * List of apps to which the policy is deployed.
+     * Read properties and relationships of the managedMobileApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedMobileApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedMobileAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedMobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property apps in deviceAppManagement
+     * Update the properties of a managedMobileApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedMobileApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedMobileApp | undefined, requestConfiguration?: ManagedMobileAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedMobileApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property apps for deviceAppManagement
+     * Deletes a managedMobileApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * List of apps to which the policy is deployed.
+     * Read properties and relationships of the managedMobileApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class ManagedMobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property apps in deviceAppManagement
+     * Update the properties of a managedMobileApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -24,8 +24,9 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/complianceManagementPartners/{complianceManagementPartner%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property complianceManagementPartners for deviceManagement
+     * Deletes a complianceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of Compliance Management Partners configured by the tenant.
+     * Read properties and relationships of the complianceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ComplianceManagementPartner
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<ComplianceManagementPartner>(requestInfo, createComplianceManagementPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property complianceManagementPartners in deviceManagement
+     * Update the properties of a complianceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ComplianceManagementPartner
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<ComplianceManagementPartner>(requestInfo, createComplianceManagementPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property complianceManagementPartners for deviceManagement
+     * Deletes a complianceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * The list of Compliance Management Partners configured by the tenant.
+     * Read properties and relationships of the complianceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Update the navigation property complianceManagementPartners in deviceManagement
+     * Update the properties of a complianceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

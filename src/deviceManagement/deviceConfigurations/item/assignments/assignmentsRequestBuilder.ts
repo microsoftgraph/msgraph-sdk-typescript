@@ -44,9 +44,10 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/assignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The list of assignments for the device configuration profile.
+     * List properties and relationships of the deviceConfigurationAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationAssignmentCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfigurationAssignmentCollectionResponse>(requestInfo, createDeviceConfigurationAssignmentCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new deviceConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceConfigurationAssignment | undefined, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfigurationAssignment>(requestInfo, createDeviceConfigurationAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The list of assignments for the device configuration profile.
+     * List properties and relationships of the deviceConfigurationAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to assignments for deviceManagement
+     * Create a new deviceConfigurationAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

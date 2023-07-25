@@ -44,9 +44,10 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/iosManagedAppProtections/{iosManagedAppProtection%2Did}/apps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List of apps to which the policy is deployed.
+     * List properties and relationships of the managedMobileApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedMobileAppCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedMobileAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedMobileAppCollectionResponse>(requestInfo, createManagedMobileAppCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to apps for deviceAppManagement
+     * Create a new managedMobileApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedMobileApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedmobileapp-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedMobileApp | undefined, requestConfiguration?: AppsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedMobileApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedMobileApp>(requestInfo, createManagedMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List of apps to which the policy is deployed.
+     * List properties and relationships of the managedMobileApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to apps for deviceAppManagement
+     * Create a new managedMobileApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

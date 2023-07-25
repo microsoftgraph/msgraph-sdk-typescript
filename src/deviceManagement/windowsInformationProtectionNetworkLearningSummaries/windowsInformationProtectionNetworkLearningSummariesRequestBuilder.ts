@@ -44,9 +44,10 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/windowsInformationProtectionNetworkLearningSummaries{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The windows information protection network learning summaries.
+     * List properties and relationships of the windowsInformationProtectionNetworkLearningSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionNetworkLearningSummaryCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsInformationProtectionNetworkLearningSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
         return this.requestAdapter.sendAsync<WindowsInformationProtectionNetworkLearningSummaryCollectionResponse>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+     * Create a new windowsInformationProtectionNetworkLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionNetworkLearningSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionnetworklearningsummary-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WindowsInformationProtectionNetworkLearningSummary | undefined, requestConfiguration?: WindowsInformationProtectionNetworkLearningSummariesRequestBuilderPostRequestConfiguration | undefined) : Promise<WindowsInformationProtectionNetworkLearningSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
         return this.requestAdapter.sendAsync<WindowsInformationProtectionNetworkLearningSummary>(requestInfo, createWindowsInformationProtectionNetworkLearningSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The windows information protection network learning summaries.
+     * List properties and relationships of the windowsInformationProtectionNetworkLearningSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class WindowsInformationProtectionNetworkLearningSummariesRequestBuilder 
         return requestInfo;
     };
     /**
-     * Create new navigation property to windowsInformationProtectionNetworkLearningSummaries for deviceManagement
+     * Create a new windowsInformationProtectionNetworkLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

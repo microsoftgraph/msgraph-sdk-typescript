@@ -31,8 +31,9 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property mobileAppTroubleshootingEvents for deviceManagement
+     * Deletes a mobileAppTroubleshootingEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The collection property of MobileAppTroubleshootingEvent.
+     * Read properties and relationships of the mobileAppTroubleshootingEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEvent
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendAsync<MobileAppTroubleshootingEvent>(requestInfo, createMobileAppTroubleshootingEventFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property mobileAppTroubleshootingEvents in deviceManagement
+     * Update the properties of a mobileAppTroubleshootingEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEvent
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendAsync<MobileAppTroubleshootingEvent>(requestInfo, createMobileAppTroubleshootingEventFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property mobileAppTroubleshootingEvents for deviceManagement
+     * Deletes a mobileAppTroubleshootingEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * The collection property of MobileAppTroubleshootingEvent.
+     * Read properties and relationships of the mobileAppTroubleshootingEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Update the navigation property mobileAppTroubleshootingEvents in deviceManagement
+     * Update the properties of a mobileAppTroubleshootingEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

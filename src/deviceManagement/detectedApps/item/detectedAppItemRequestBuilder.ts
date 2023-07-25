@@ -31,8 +31,9 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/detectedApps/{detectedApp%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property detectedApps for deviceManagement
+     * Deletes a detectedApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DetectedAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of detected apps associated with a device.
+     * Read properties and relationships of the detectedApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DetectedApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DetectedAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DetectedApp>(requestInfo, createDetectedAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property detectedApps in deviceManagement
+     * Update the properties of a detectedApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DetectedApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DetectedApp | undefined, requestConfiguration?: DetectedAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DetectedApp>(requestInfo, createDetectedAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property detectedApps for deviceManagement
+     * Deletes a detectedApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The list of detected apps associated with a device.
+     * Read properties and relationships of the detectedApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property detectedApps in deviceManagement
+     * Update the properties of a detectedApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

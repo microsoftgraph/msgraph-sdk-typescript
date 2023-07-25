@@ -31,8 +31,9 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests/{appLogCollectionRequest%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property appLogCollectionRequests for deviceManagement
+     * Deletes a appLogCollectionRequest.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applogcollectionrequest-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Indicates collection of App Log Upload Request.
+     * Read properties and relationships of the appLogCollectionRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppLogCollectionRequest
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applogcollectionrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<AppLogCollectionRequest>(requestInfo, createAppLogCollectionRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property appLogCollectionRequests in deviceManagement
+     * Update the properties of a appLogCollectionRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppLogCollectionRequest
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applogcollectionrequest-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AppLogCollectionRequest | undefined, requestConfiguration?: AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<AppLogCollectionRequest>(requestInfo, createAppLogCollectionRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property appLogCollectionRequests for deviceManagement
+     * Deletes a appLogCollectionRequest.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Indicates collection of App Log Upload Request.
+     * Read properties and relationships of the appLogCollectionRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the navigation property appLogCollectionRequests in deviceManagement
+     * Update the properties of a appLogCollectionRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

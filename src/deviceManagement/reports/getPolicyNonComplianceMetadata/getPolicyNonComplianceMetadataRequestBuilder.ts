@@ -21,10 +21,11 @@ export class GetPolicyNonComplianceMetadataRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/reports/getPolicyNonComplianceMetadata");
     };
     /**
-     * Invoke action getPolicyNonComplianceMetadata
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getpolicynoncompliancemetadata?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetPolicyNonComplianceMetadataPostRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +39,7 @@ export class GetPolicyNonComplianceMetadataRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
-     * Invoke action getPolicyNonComplianceMetadata
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

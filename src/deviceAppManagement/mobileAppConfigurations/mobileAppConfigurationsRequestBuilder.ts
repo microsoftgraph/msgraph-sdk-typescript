@@ -44,9 +44,10 @@ export class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileAppConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The Managed Device Mobile Application Configurations.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfigurationCollectionResponse>(requestInfo, createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to mobileAppConfigurations for deviceAppManagement
+     * Create a new iosMobileAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfiguration
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedDeviceMobileAppConfiguration | undefined, requestConfiguration?: MobileAppConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The Managed Device Mobile Application Configurations.
+     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to mobileAppConfigurations for deviceAppManagement
+     * Create a new iosMobileAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

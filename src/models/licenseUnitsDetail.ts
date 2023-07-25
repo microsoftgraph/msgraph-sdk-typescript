@@ -10,7 +10,7 @@ export interface LicenseUnitsDetail extends AdditionalDataHolder, Parsable {
      */
     enabled?: number | undefined;
     /**
-     * The lockedOut property
+     * The number of units that are locked out because the customer cancelled their subscription of the service SKU.
      */
     lockedOut?: number | undefined;
     /**

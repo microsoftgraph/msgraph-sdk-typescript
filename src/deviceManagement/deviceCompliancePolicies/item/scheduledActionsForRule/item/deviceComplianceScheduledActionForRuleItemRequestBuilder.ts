@@ -31,8 +31,9 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends Ba
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy%2Did}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property scheduledActionsForRule for deviceManagement
+     * Deletes a deviceComplianceScheduledActionForRule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceComplianceScheduledActionForRuleItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends Ba
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * Read properties and relationships of the deviceComplianceScheduledActionForRule object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceScheduledActionForRule
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceScheduledActionForRule | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends Ba
         return this.requestAdapter.sendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property scheduledActionsForRule in deviceManagement
+     * Update the properties of a deviceComplianceScheduledActionForRule object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceScheduledActionForRule
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceComplianceScheduledActionForRule | undefined, requestConfiguration?: DeviceComplianceScheduledActionForRuleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceComplianceScheduledActionForRule | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends Ba
         return this.requestAdapter.sendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property scheduledActionsForRule for deviceManagement
+     * Deletes a deviceComplianceScheduledActionForRule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends Ba
         return requestInfo;
     };
     /**
-     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * Read properties and relationships of the deviceComplianceScheduledActionForRule object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class DeviceComplianceScheduledActionForRuleItemRequestBuilder extends Ba
         return requestInfo;
     };
     /**
-     * Update the navigation property scheduledActionsForRule in deviceManagement
+     * Update the properties of a deviceComplianceScheduledActionForRule object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

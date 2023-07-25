@@ -59,8 +59,9 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property mobileApps for deviceAppManagement
+     * Deletes a androidStoreApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-androidstoreapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -73,9 +74,10 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The mobile apps.
+     * Read properties and relationships of the iosLobApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-ioslobapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,10 +90,11 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property mobileApps in deviceAppManagement
+     * Update the properties of a managedIOSLobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-managedioslobapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileApp | undefined, requestConfiguration?: MobileAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -105,7 +108,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property mobileApps for deviceAppManagement
+     * Deletes a androidStoreApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -121,7 +124,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The mobile apps.
+     * Read properties and relationships of the iosLobApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -139,7 +142,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property mobileApps in deviceAppManagement
+     * Update the properties of a managedIOSLobApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

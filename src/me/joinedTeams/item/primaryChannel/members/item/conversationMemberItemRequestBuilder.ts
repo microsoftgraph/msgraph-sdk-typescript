@@ -55,11 +55,11 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the role of a conversationMember in a team or channel.
+     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/conversationmember-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConversationMember | undefined, requestConfiguration?: ConversationMemberItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -107,7 +107,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the role of a conversationMember in a team or channel.
+     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

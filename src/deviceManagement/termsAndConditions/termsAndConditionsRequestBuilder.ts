@@ -44,9 +44,10 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/termsAndConditions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The terms and conditions associated with device management of the company.
+     * List properties and relationships of the termsAndConditions objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditionsCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditions-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermsAndConditionsRequestBuilderGetRequestConfiguration | undefined) : Promise<TermsAndConditionsCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TermsAndConditionsCollectionResponse>(requestInfo, createTermsAndConditionsCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to termsAndConditions for deviceManagement
+     * Create a new termsAndConditions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditions
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditions-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TermsAndConditions | undefined, requestConfiguration?: TermsAndConditionsRequestBuilderPostRequestConfiguration | undefined) : Promise<TermsAndConditions | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TermsAndConditions>(requestInfo, createTermsAndConditionsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The terms and conditions associated with device management of the company.
+     * List properties and relationships of the termsAndConditions objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to termsAndConditions for deviceManagement
+     * Create a new termsAndConditions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

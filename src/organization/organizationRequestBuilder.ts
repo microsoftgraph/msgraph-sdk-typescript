@@ -72,10 +72,10 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/organization{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of organization objects.
+     * List properties and relationships of the organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrganizationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/organization-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-organization-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrganizationRequestBuilderGetRequestConfiguration | undefined) : Promise<OrganizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -105,7 +105,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Organization>(requestInfo, createOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of organization objects.
+     * List properties and relationships of the organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

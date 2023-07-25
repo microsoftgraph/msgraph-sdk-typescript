@@ -44,9 +44,10 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations/{managedAppRegistration%2Did}/operations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * List properties and relationships of the managedAppOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OperationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppOperationCollectionResponse>(requestInfo, createManagedAppOperationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to operations for deviceAppManagement
+     * Create a new managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperation
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedAppOperation | undefined, requestConfiguration?: OperationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppOperation>(requestInfo, createManagedAppOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Zero or more long running operations triggered on the app registration.
+     * List properties and relationships of the managedAppOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to operations for deviceAppManagement
+     * Create a new managedAppOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

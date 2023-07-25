@@ -44,9 +44,10 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/userStatuses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Device configuration installation status by user.
+     * List properties and relationships of the deviceConfigurationUserStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationUserStatusCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationUserStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfigurationUserStatusCollectionResponse>(requestInfo, createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to userStatuses for deviceManagement
+     * Create a new deviceConfigurationUserStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationUserStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceConfigurationUserStatus | undefined, requestConfiguration?: UserStatusesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfigurationUserStatus>(requestInfo, createDeviceConfigurationUserStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Device configuration installation status by user.
+     * List properties and relationships of the deviceConfigurationUserStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to userStatuses for deviceManagement
+     * Create a new deviceConfigurationUserStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

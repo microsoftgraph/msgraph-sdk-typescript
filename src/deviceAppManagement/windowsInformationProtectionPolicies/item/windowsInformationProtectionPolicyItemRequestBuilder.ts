@@ -45,8 +45,9 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/windowsInformationProtectionPolicies/{windowsInformationProtectionPolicy%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property windowsInformationProtectionPolicies for deviceAppManagement
+     * Deletes a windowsInformationProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-windowsinformationprotectionpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -59,9 +60,10 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Windows information protection for apps running on devices which are not MDM enrolled.
+     * Read properties and relationships of the windowsInformationProtectionPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-windowsinformationprotectionpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsInformationProtectionPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,10 +76,11 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendAsync<WindowsInformationProtectionPolicy>(requestInfo, createWindowsInformationProtectionPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property windowsInformationProtectionPolicies in deviceAppManagement
+     * Update the properties of a windowsInformationProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-windowsinformationprotectionpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WindowsInformationProtectionPolicy | undefined, requestConfiguration?: WindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsInformationProtectionPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -91,7 +94,7 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendAsync<WindowsInformationProtectionPolicy>(requestInfo, createWindowsInformationProtectionPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property windowsInformationProtectionPolicies for deviceAppManagement
+     * Deletes a windowsInformationProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * Windows information protection for apps running on devices which are not MDM enrolled.
+     * Read properties and relationships of the windowsInformationProtectionPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -125,7 +128,7 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * Update the navigation property windowsInformationProtectionPolicies in deviceAppManagement
+     * Update the properties of a windowsInformationProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -38,9 +38,10 @@ export class UserStatusOverviewRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Device Configuration users status overview
+     * Read properties and relationships of the deviceConfigurationUserOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationUserOverview
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStatusOverviewRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationUserOverview | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +54,11 @@ export class UserStatusOverviewRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfigurationUserOverview>(requestInfo, createDeviceConfigurationUserOverviewFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property userStatusOverview in deviceManagement
+     * Update the properties of a deviceConfigurationUserOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationUserOverview
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuseroverview-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfigurationUserOverview | undefined, requestConfiguration?: UserStatusOverviewRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationUserOverview | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -86,7 +88,7 @@ export class UserStatusOverviewRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Device Configuration users status overview
+     * Read properties and relationships of the deviceConfigurationUserOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class UserStatusOverviewRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property userStatusOverview in deviceManagement
+     * Update the properties of a deviceConfigurationUserOverview object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

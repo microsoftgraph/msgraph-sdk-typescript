@@ -44,9 +44,10 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppStatuses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The managed app statuses.
+     * List properties and relationships of the managedAppStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppStatusCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappstatus-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppStatus>(requestInfo, createManagedAppStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The managed app statuses.
+     * List properties and relationships of the managedAppStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

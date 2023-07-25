@@ -45,9 +45,10 @@ export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Managed app policies.
+     * Read properties and relationships of the managedAppPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedapppolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -93,7 +94,7 @@ export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Managed app policies.
+     * Read properties and relationships of the managedAppPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

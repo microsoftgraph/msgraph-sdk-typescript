@@ -208,9 +208,10 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/reports{?%24select,%24expand}");
     };
     /**
-     * Get reports
+     * Read properties and relationships of the reportRoot object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ReportRoot
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-reportroot-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<ReportRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -1087,10 +1088,11 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
-     * Update reports
+     * Update the properties of a reportRoot object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ReportRoot
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-reportroot-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ReportRoot | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined) : Promise<ReportRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -1104,7 +1106,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ReportRoot>(requestInfo, createReportRootFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get reports
+     * Read properties and relationships of the reportRoot object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -1122,7 +1124,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update reports
+     * Update the properties of a reportRoot object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

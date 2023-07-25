@@ -38,8 +38,9 @@ export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/defaultManagedAppProtections/{defaultManagedAppProtection%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property defaultManagedAppProtections for deviceAppManagement
+     * Deletes a defaultManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DefaultManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -52,9 +53,10 @@ export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Default managed app policies.
+     * Read properties and relationships of the defaultManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DefaultManagedAppProtection
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DefaultManagedAppProtectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DefaultManagedAppProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -67,10 +69,11 @@ export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<DefaultManagedAppProtection>(requestInfo, createDefaultManagedAppProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property defaultManagedAppProtections in deviceAppManagement
+     * Update the properties of a defaultManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DefaultManagedAppProtection
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DefaultManagedAppProtection | undefined, requestConfiguration?: DefaultManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DefaultManagedAppProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -84,7 +87,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<DefaultManagedAppProtection>(requestInfo, createDefaultManagedAppProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property defaultManagedAppProtections for deviceAppManagement
+     * Deletes a defaultManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -100,7 +103,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Default managed app policies.
+     * Read properties and relationships of the defaultManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -118,7 +121,7 @@ export class DefaultManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Update the navigation property defaultManagedAppProtections in deviceAppManagement
+     * Update the properties of a defaultManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

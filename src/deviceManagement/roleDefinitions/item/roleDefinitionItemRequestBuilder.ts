@@ -31,8 +31,9 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property roleDefinitions for deviceManagement
+     * Deletes a roleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-roledefinition-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RoleDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The Role Definitions.
+     * Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RoleDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RoleDefinition>(requestInfo, createRoleDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property roleDefinitions in deviceManagement
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleDefinition
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: RoleDefinition | undefined, requestConfiguration?: RoleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RoleDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RoleDefinition>(requestInfo, createRoleDefinitionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property roleDefinitions for deviceManagement
+     * Deletes a roleDefinition.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The Role Definitions.
+     * Read properties and relationships of the deviceAndAppManagementRoleDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class RoleDefinitionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property roleDefinitions in deviceManagement
+     * Update the properties of a deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

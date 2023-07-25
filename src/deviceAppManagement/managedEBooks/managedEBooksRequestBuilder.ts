@@ -44,9 +44,10 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The Managed eBook.
+     * List properties and relationships of the managedEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-managedebook-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedEBooksRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedEBookCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedEBookCollectionResponse>(requestInfo, createManagedEBookCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to managedEBooks for deviceAppManagement
+     * Create a new iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBook
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebook-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedEBook | undefined, requestConfiguration?: ManagedEBooksRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedEBook | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedEBook>(requestInfo, createManagedEBookFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The Managed eBook.
+     * List properties and relationships of the managedEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to managedEBooks for deviceAppManagement
+     * Create a new iosVppEBook object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -43,7 +43,6 @@ import {IdentityProtectionRequestBuilder} from './identityProtection/identityPro
 import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
 import {InformationProtectionRequestBuilder} from './informationProtection/informationProtectionRequestBuilder';
 import {InvitationsRequestBuilder} from './invitations/invitationsRequestBuilder';
-import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {MeRequestBuilder} from './me/meRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import {OrganizationRequestBuilder} from './organization/organizationRequestBuilder';
@@ -331,12 +330,6 @@ export class GraphBaseServiceClient extends BaseRequestBuilder {
      */
     public get invitations(): InvitationsRequestBuilder {
         return new InvitationsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    /**
-     * Provides operations to manage the collection of organizationalBrandingLocalization entities.
-     */
-    public get localizations(): LocalizationsRequestBuilder {
-        return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the user singleton.

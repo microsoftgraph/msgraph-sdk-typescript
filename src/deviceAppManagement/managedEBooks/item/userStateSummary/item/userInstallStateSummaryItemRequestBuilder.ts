@@ -31,8 +31,9 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/userStateSummary/{userInstallStateSummary%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property userStateSummary for deviceAppManagement
+     * Deletes a userInstallStateSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserInstallStateSummaryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of installation states for this eBook.
+     * Read properties and relationships of the userInstallStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserInstallStateSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserInstallStateSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property userStateSummary in deviceAppManagement
+     * Update the properties of a userInstallStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserInstallStateSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: UserInstallStateSummary | undefined, requestConfiguration?: UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserInstallStateSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<UserInstallStateSummary>(requestInfo, createUserInstallStateSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property userStateSummary for deviceAppManagement
+     * Deletes a userInstallStateSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * The list of installation states for this eBook.
+     * Read properties and relationships of the userInstallStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the navigation property userStateSummary in deviceAppManagement
+     * Update the properties of a userInstallStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -24,8 +24,9 @@ export class ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder extends Ba
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/importedWindowsAutopilotDeviceIdentities/{importedWindowsAutopilotDeviceIdentity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property importedWindowsAutopilotDeviceIdentities for deviceManagement
+     * Deletes a importedWindowsAutopilotDeviceIdentity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder extends Ba
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Collection of imported Windows autopilot devices.
+     * Read properties and relationships of the importedWindowsAutopilotDeviceIdentity object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ImportedWindowsAutopilotDeviceIdentity
+     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ImportedWindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ImportedWindowsAutopilotDeviceIdentity | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -70,7 +72,7 @@ export class ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder extends Ba
         return this.requestAdapter.sendAsync<ImportedWindowsAutopilotDeviceIdentity>(requestInfo, createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property importedWindowsAutopilotDeviceIdentities for deviceManagement
+     * Deletes a importedWindowsAutopilotDeviceIdentity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +88,7 @@ export class ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder extends Ba
         return requestInfo;
     };
     /**
-     * Collection of imported Windows autopilot devices.
+     * Read properties and relationships of the importedWindowsAutopilotDeviceIdentity object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

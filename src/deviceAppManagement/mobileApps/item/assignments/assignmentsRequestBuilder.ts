@@ -44,9 +44,10 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}/assignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The list of group assignments for this mobile app.
+     * List properties and relationships of the mobileAppAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppAssignmentCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppAssignmentCollectionResponse>(requestInfo, createMobileAppAssignmentCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to assignments for deviceAppManagement
+     * Create a new mobileAppAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileAppAssignment | undefined, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileAppAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppAssignment>(requestInfo, createMobileAppAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The list of group assignments for this mobile app.
+     * List properties and relationships of the mobileAppAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to assignments for deviceAppManagement
+     * Create a new mobileAppAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

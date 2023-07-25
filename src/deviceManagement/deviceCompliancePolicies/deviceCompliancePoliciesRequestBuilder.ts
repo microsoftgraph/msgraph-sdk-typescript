@@ -44,9 +44,10 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceCompliancePolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The device compliance policies.
+     * List properties and relationships of the windowsPhone81CompliancePolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-windowsphone81compliancepolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceCompliancePoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceCompliancePolicyCollectionResponse>(requestInfo, createDeviceCompliancePolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to deviceCompliancePolicies for deviceManagement
+     * Create a new windows10CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicy
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-windows10compliancepolicy-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceCompliancePolicy | undefined, requestConfiguration?: DeviceCompliancePoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceCompliancePolicy>(requestInfo, createDeviceCompliancePolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The device compliance policies.
+     * List properties and relationships of the windowsPhone81CompliancePolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class DeviceCompliancePoliciesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to deviceCompliancePolicies for deviceManagement
+     * Create a new windows10CompliancePolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

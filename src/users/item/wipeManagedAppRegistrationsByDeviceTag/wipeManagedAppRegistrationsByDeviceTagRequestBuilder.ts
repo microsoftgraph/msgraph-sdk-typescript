@@ -24,6 +24,7 @@ export class WipeManagedAppRegistrationsByDeviceTagRequestBuilder extends BaseRe
      * Issues a wipe operation on an app registration with specified device tag.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-user-wipemanagedappregistrationsbydevicetag?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WipeManagedAppRegistrationsByDeviceTagPostRequestBody | undefined, requestConfiguration?: WipeManagedAppRegistrationsByDeviceTagRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

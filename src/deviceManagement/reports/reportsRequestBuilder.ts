@@ -171,9 +171,10 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Reports singleton
+     * Read properties and relationships of the deviceManagementReports object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementReports
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementReports | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -186,10 +187,11 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceManagementReports>(requestInfo, createDeviceManagementReportsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property reports in deviceManagement
+     * Update the properties of a deviceManagementReports object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementReports
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagementReports | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementReports | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -219,7 +221,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Reports singleton
+     * Read properties and relationships of the deviceManagementReports object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -237,7 +239,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property reports in deviceManagement
+     * Update the properties of a deviceManagementReports object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

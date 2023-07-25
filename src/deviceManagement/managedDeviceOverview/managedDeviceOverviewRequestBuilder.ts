@@ -20,9 +20,10 @@ export class ManagedDeviceOverviewRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/managedDeviceOverview{?%24select,%24expand}");
     };
     /**
-     * Device overview
+     * Read properties and relationships of the managedDeviceOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceOverview
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddeviceoverview-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedDeviceOverviewRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceOverview | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +36,7 @@ export class ManagedDeviceOverviewRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedDeviceOverview>(requestInfo, createManagedDeviceOverviewFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Device overview
+     * Read properties and relationships of the managedDeviceOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

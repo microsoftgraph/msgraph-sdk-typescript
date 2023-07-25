@@ -21,9 +21,10 @@ export class SetPriorityRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}/setPriority");
     };
     /**
-     * Invoke action setPriority
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-deviceenrollmentconfiguration-setpriority?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SetPriorityPostRequestBody | undefined, requestConfiguration?: SetPriorityRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -37,7 +38,7 @@ export class SetPriorityRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Invoke action setPriority
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

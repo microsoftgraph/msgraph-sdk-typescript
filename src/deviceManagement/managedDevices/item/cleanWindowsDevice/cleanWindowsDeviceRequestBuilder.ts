@@ -24,6 +24,7 @@ export class CleanWindowsDeviceRequestBuilder extends BaseRequestBuilder {
      * Clean Windows device
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-cleanwindowsdevice?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CleanWindowsDevicePostRequestBody | undefined, requestConfiguration?: CleanWindowsDeviceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

@@ -31,8 +31,9 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceManagementPartners/{deviceManagementPartner%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property deviceManagementPartners for deviceManagement
+     * Deletes a deviceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of Device Management Partners configured by the tenant.
+     * Read properties and relationships of the deviceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementPartner
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<DeviceManagementPartner>(requestInfo, createDeviceManagementPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property deviceManagementPartners in deviceManagement
+     * Update the properties of a deviceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementPartner
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagementPartner | undefined, requestConfiguration?: DeviceManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<DeviceManagementPartner>(requestInfo, createDeviceManagementPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property deviceManagementPartners for deviceManagement
+     * Deletes a deviceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * The list of Device Management Partners configured by the tenant.
+     * Read properties and relationships of the deviceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Update the navigation property deviceManagementPartners in deviceManagement
+     * Update the properties of a deviceManagementPartner object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

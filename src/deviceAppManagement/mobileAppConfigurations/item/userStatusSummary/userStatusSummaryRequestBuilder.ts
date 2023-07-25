@@ -38,9 +38,10 @@ export class UserStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * App configuration user status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationUserSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStatusSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +54,11 @@ export class UserStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfigurationUserSummary>(requestInfo, createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property userStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationUserSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedDeviceMobileAppConfigurationUserSummary | undefined, requestConfiguration?: UserStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -86,7 +88,7 @@ export class UserStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * App configuration user status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationUserSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class UserStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property userStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationUserSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

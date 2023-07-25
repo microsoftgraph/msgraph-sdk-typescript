@@ -52,9 +52,10 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/auditEvents{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The Audit Events
+     * List properties and relationships of the auditEvent objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuditEventCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuditEventsRequestBuilderGetRequestConfiguration | undefined) : Promise<AuditEventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,10 +77,11 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
         return new GetAuditActivityTypesWithCategoryRequestBuilder(this.pathParameters, this.requestAdapter, category);
     };
     /**
-     * Create new navigation property to auditEvents for deviceManagement
+     * Create a new auditEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuditEvent
+     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AuditEvent | undefined, requestConfiguration?: AuditEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -93,7 +95,7 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AuditEvent>(requestInfo, createAuditEventFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The Audit Events
+     * List properties and relationships of the auditEvent objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +113,7 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to auditEvents for deviceManagement
+     * Create a new auditEvent object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

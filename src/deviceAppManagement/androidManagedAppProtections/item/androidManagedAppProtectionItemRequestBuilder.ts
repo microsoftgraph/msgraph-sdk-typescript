@@ -45,8 +45,9 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property androidManagedAppProtections for deviceAppManagement
+     * Deletes a androidManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -59,9 +60,10 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Android managed app policies.
+     * Read properties and relationships of the androidManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AndroidManagedAppProtection
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AndroidManagedAppProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,10 +76,11 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<AndroidManagedAppProtection>(requestInfo, createAndroidManagedAppProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property androidManagedAppProtections in deviceAppManagement
+     * Update the properties of a androidManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AndroidManagedAppProtection
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AndroidManagedAppProtection | undefined, requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AndroidManagedAppProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -91,7 +94,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<AndroidManagedAppProtection>(requestInfo, createAndroidManagedAppProtectionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property androidManagedAppProtections for deviceAppManagement
+     * Deletes a androidManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +110,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Android managed app policies.
+     * Read properties and relationships of the androidManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -125,7 +128,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Update the navigation property androidManagedAppProtections in deviceAppManagement
+     * Update the properties of a androidManagedAppProtection object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
