@@ -44,9 +44,10 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Targeted managed app configurations.
+     * List properties and relationships of the targetedManagedAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetedManagedAppConfigurationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<TargetedManagedAppConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<TargetedManagedAppConfigurationCollectionResponse>(requestInfo, createTargetedManagedAppConfigurationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to targetedManagedAppConfigurations for deviceAppManagement
+     * Create a new targetedManagedAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetedManagedAppConfiguration
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TargetedManagedAppConfiguration | undefined, requestConfiguration?: TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<TargetedManagedAppConfiguration>(requestInfo, createTargetedManagedAppConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Targeted managed app configurations.
+     * List properties and relationships of the targetedManagedAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Create new navigation property to targetedManagedAppConfigurations for deviceAppManagement
+     * Create a new targetedManagedAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

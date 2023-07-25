@@ -45,9 +45,10 @@ export class WindowsProtectionStateRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The device protection status. This property is read-only.
+     * Read properties and relationships of the windowsProtectionState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsProtectionState
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-windowsprotectionstate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsProtectionStateRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsProtectionState | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +61,11 @@ export class WindowsProtectionStateRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WindowsProtectionState>(requestInfo, createWindowsProtectionStateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property windowsProtectionState in deviceManagement
+     * Update the properties of a windowsProtectionState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsProtectionState
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-windowsprotectionstate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WindowsProtectionState | undefined, requestConfiguration?: WindowsProtectionStateRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsProtectionState | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -93,7 +95,7 @@ export class WindowsProtectionStateRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The device protection status. This property is read-only.
+     * Read properties and relationships of the windowsProtectionState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +113,7 @@ export class WindowsProtectionStateRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property windowsProtectionState in deviceManagement
+     * Update the properties of a windowsProtectionState object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

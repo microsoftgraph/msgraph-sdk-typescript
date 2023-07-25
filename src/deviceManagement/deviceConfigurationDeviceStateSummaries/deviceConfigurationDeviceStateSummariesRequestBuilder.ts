@@ -38,9 +38,10 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The device configuration device state summary for this account.
+     * Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationDeviceStateSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +54,11 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
         return this.requestAdapter.sendAsync<DeviceConfigurationDeviceStateSummary>(requestInfo, createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property deviceConfigurationDeviceStateSummaries in deviceManagement
+     * Update the properties of a deviceConfigurationDeviceStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationDeviceStateSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfigurationDeviceStateSummary | undefined, requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -86,7 +88,7 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * The device configuration device state summary for this account.
+     * Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Update the navigation property deviceConfigurationDeviceStateSummaries in deviceManagement
+     * Update the properties of a deviceConfigurationDeviceStateSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

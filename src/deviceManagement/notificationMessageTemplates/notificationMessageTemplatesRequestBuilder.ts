@@ -44,9 +44,10 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/notificationMessageTemplates{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The Notification Message Templates.
+     * List properties and relationships of the notificationMessageTemplate objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplateCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotificationMessageTemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<NotificationMessageTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendAsync<NotificationMessageTemplateCollectionResponse>(requestInfo, createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to notificationMessageTemplates for deviceManagement
+     * Create a new notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplate
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: NotificationMessageTemplate | undefined, requestConfiguration?: NotificationMessageTemplatesRequestBuilderPostRequestConfiguration | undefined) : Promise<NotificationMessageTemplate | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendAsync<NotificationMessageTemplate>(requestInfo, createNotificationMessageTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The Notification Message Templates.
+     * List properties and relationships of the notificationMessageTemplate objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
         return requestInfo;
     };
     /**
-     * Create new navigation property to notificationMessageTemplates for deviceManagement
+     * Create a new notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

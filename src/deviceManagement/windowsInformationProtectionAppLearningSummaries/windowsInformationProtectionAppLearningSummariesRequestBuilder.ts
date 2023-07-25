@@ -44,9 +44,10 @@ export class WindowsInformationProtectionAppLearningSummariesRequestBuilder exte
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/windowsInformationProtectionAppLearningSummaries{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The windows information protection app learning summaries.
+     * List properties and relationships of the windowsInformationProtectionAppLearningSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionAppLearningSummaryCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionapplearningsummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsInformationProtectionAppLearningSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLearningSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class WindowsInformationProtectionAppLearningSummariesRequestBuilder exte
         return this.requestAdapter.sendAsync<WindowsInformationProtectionAppLearningSummaryCollectionResponse>(requestInfo, createWindowsInformationProtectionAppLearningSummaryCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to windowsInformationProtectionAppLearningSummaries for deviceManagement
+     * Create a new windowsInformationProtectionAppLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionAppLearningSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-wip-windowsinformationprotectionapplearningsummary-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WindowsInformationProtectionAppLearningSummary | undefined, requestConfiguration?: WindowsInformationProtectionAppLearningSummariesRequestBuilderPostRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLearningSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class WindowsInformationProtectionAppLearningSummariesRequestBuilder exte
         return this.requestAdapter.sendAsync<WindowsInformationProtectionAppLearningSummary>(requestInfo, createWindowsInformationProtectionAppLearningSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The windows information protection app learning summaries.
+     * List properties and relationships of the windowsInformationProtectionAppLearningSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class WindowsInformationProtectionAppLearningSummariesRequestBuilder exte
         return requestInfo;
     };
     /**
-     * Create new navigation property to windowsInformationProtectionAppLearningSummaries for deviceManagement
+     * Create a new windowsInformationProtectionAppLearningSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

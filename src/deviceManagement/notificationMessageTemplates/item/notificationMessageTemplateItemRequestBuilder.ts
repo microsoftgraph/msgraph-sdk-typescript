@@ -38,8 +38,9 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property notificationMessageTemplates for deviceManagement
+     * Deletes a notificationMessageTemplate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -52,9 +53,10 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The Notification Message Templates.
+     * Read properties and relationships of the notificationMessageTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplate
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<NotificationMessageTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -67,10 +69,11 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<NotificationMessageTemplate>(requestInfo, createNotificationMessageTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property notificationMessageTemplates in deviceManagement
+     * Update the properties of a notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplate
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: NotificationMessageTemplate | undefined, requestConfiguration?: NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<NotificationMessageTemplate | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -84,7 +87,7 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<NotificationMessageTemplate>(requestInfo, createNotificationMessageTemplateFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property notificationMessageTemplates for deviceManagement
+     * Deletes a notificationMessageTemplate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -100,7 +103,7 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * The Notification Message Templates.
+     * Read properties and relationships of the notificationMessageTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -118,7 +121,7 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Update the navigation property notificationMessageTemplates in deviceManagement
+     * Update the properties of a notificationMessageTemplate object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

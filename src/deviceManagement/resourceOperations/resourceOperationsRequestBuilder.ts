@@ -44,9 +44,10 @@ export class ResourceOperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/resourceOperations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * The Resource Operations.
+     * List properties and relationships of the resourceOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperationCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ResourceOperationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class ResourceOperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ResourceOperationCollectionResponse>(requestInfo, createResourceOperationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to resourceOperations for deviceManagement
+     * Create a new resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperation
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class ResourceOperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * The Resource Operations.
+     * List properties and relationships of the resourceOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class ResourceOperationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to resourceOperations for deviceManagement
+     * Create a new resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

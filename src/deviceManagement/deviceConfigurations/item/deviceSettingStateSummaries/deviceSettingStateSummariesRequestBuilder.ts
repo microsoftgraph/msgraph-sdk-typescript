@@ -44,9 +44,10 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations/{deviceConfiguration%2Did}/deviceSettingStateSummaries{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Device Configuration Setting State Device Summary
+     * List properties and relationships of the settingStateDeviceSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SettingStateDeviceSummaryCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<SettingStateDeviceSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<SettingStateDeviceSummaryCollectionResponse>(requestInfo, createSettingStateDeviceSummaryCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to deviceSettingStateSummaries for deviceManagement
+     * Create a new settingStateDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SettingStateDeviceSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SettingStateDeviceSummary | undefined, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined) : Promise<SettingStateDeviceSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
         return this.requestAdapter.sendAsync<SettingStateDeviceSummary>(requestInfo, createSettingStateDeviceSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Device Configuration Setting State Device Summary
+     * List properties and relationships of the settingStateDeviceSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
         return requestInfo;
     };
     /**
-     * Create new navigation property to deviceSettingStateSummaries for deviceManagement
+     * Create a new settingStateDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -21,10 +21,11 @@ export class GetDeviceManagementIntentPerSettingContributingProfilesRequestBuild
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/reports/getDeviceManagementIntentPerSettingContributingProfiles");
     };
     /**
-     * Invoke action getDeviceManagementIntentPerSettingContributingProfiles
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
+     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdevicemanagementintentpersettingcontributingprofiles?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody | undefined, requestConfiguration?: GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +39,7 @@ export class GetDeviceManagementIntentPerSettingContributingProfilesRequestBuild
         return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
-     * Invoke action getDeviceManagementIntentPerSettingContributingProfiles
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

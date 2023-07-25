@@ -2,11 +2,23 @@ import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {deserializeIntoAmazonResourceEvidence} from './deserializeIntoAmazonResourceEvidence';
 import {deserializeIntoAnalyzedMessageEvidence} from './deserializeIntoAnalyzedMessageEvidence';
 import {deserializeIntoAzureResourceEvidence} from './deserializeIntoAzureResourceEvidence';
+import {deserializeIntoBlobContainerEvidence} from './deserializeIntoBlobContainerEvidence';
+import {deserializeIntoBlobEvidence} from './deserializeIntoBlobEvidence';
 import {deserializeIntoCloudApplicationEvidence} from './deserializeIntoCloudApplicationEvidence';
+import {deserializeIntoContainerEvidence} from './deserializeIntoContainerEvidence';
+import {deserializeIntoContainerImageEvidence} from './deserializeIntoContainerImageEvidence';
+import {deserializeIntoContainerRegistryEvidence} from './deserializeIntoContainerRegistryEvidence';
 import {deserializeIntoDeviceEvidence} from './deserializeIntoDeviceEvidence';
 import {deserializeIntoFileEvidence} from './deserializeIntoFileEvidence';
 import {deserializeIntoGoogleCloudResourceEvidence} from './deserializeIntoGoogleCloudResourceEvidence';
 import {deserializeIntoIpEvidence} from './deserializeIntoIpEvidence';
+import {deserializeIntoKubernetesClusterEvidence} from './deserializeIntoKubernetesClusterEvidence';
+import {deserializeIntoKubernetesControllerEvidence} from './deserializeIntoKubernetesControllerEvidence';
+import {deserializeIntoKubernetesNamespaceEvidence} from './deserializeIntoKubernetesNamespaceEvidence';
+import {deserializeIntoKubernetesPodEvidence} from './deserializeIntoKubernetesPodEvidence';
+import {deserializeIntoKubernetesSecretEvidence} from './deserializeIntoKubernetesSecretEvidence';
+import {deserializeIntoKubernetesServiceAccountEvidence} from './deserializeIntoKubernetesServiceAccountEvidence';
+import {deserializeIntoKubernetesServiceEvidence} from './deserializeIntoKubernetesServiceEvidence';
 import {deserializeIntoMailboxEvidence} from './deserializeIntoMailboxEvidence';
 import {deserializeIntoMailClusterEvidence} from './deserializeIntoMailClusterEvidence';
 import {deserializeIntoOauthApplicationEvidence} from './deserializeIntoOauthApplicationEvidence';
@@ -16,7 +28,7 @@ import {deserializeIntoRegistryValueEvidence} from './deserializeIntoRegistryVal
 import {deserializeIntoSecurityGroupEvidence} from './deserializeIntoSecurityGroupEvidence';
 import {deserializeIntoUrlEvidence} from './deserializeIntoUrlEvidence';
 import {deserializeIntoUserEvidence} from './deserializeIntoUserEvidence';
-import {AlertEvidence, AmazonResourceEvidence, AnalyzedMessageEvidence, AzureResourceEvidence, CloudApplicationEvidence, DeviceEvidence, FileEvidence, GoogleCloudResourceEvidence, IpEvidence, MailboxEvidence, MailClusterEvidence, OauthApplicationEvidence, ProcessEvidence, RegistryKeyEvidence, RegistryValueEvidence, SecurityGroupEvidence, UrlEvidence, UserEvidence} from './index';
+import {AlertEvidence, AmazonResourceEvidence, AnalyzedMessageEvidence, AzureResourceEvidence, BlobContainerEvidence, BlobEvidence, CloudApplicationEvidence, ContainerEvidence, ContainerImageEvidence, ContainerRegistryEvidence, DeviceEvidence, FileEvidence, GoogleCloudResourceEvidence, IpEvidence, KubernetesClusterEvidence, KubernetesControllerEvidence, KubernetesNamespaceEvidence, KubernetesPodEvidence, KubernetesSecretEvidence, KubernetesServiceAccountEvidence, KubernetesServiceEvidence, MailboxEvidence, MailClusterEvidence, OauthApplicationEvidence, ProcessEvidence, RegistryKeyEvidence, RegistryValueEvidence, SecurityGroupEvidence, UrlEvidence, UserEvidence} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
@@ -32,8 +44,18 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoAnalyzedMessageEvidence;
                 case "#microsoft.graph.security.azureResourceEvidence":
                     return deserializeIntoAzureResourceEvidence;
+                case "#microsoft.graph.security.blobContainerEvidence":
+                    return deserializeIntoBlobContainerEvidence;
+                case "#microsoft.graph.security.blobEvidence":
+                    return deserializeIntoBlobEvidence;
                 case "#microsoft.graph.security.cloudApplicationEvidence":
                     return deserializeIntoCloudApplicationEvidence;
+                case "#microsoft.graph.security.containerEvidence":
+                    return deserializeIntoContainerEvidence;
+                case "#microsoft.graph.security.containerImageEvidence":
+                    return deserializeIntoContainerImageEvidence;
+                case "#microsoft.graph.security.containerRegistryEvidence":
+                    return deserializeIntoContainerRegistryEvidence;
                 case "#microsoft.graph.security.deviceEvidence":
                     return deserializeIntoDeviceEvidence;
                 case "#microsoft.graph.security.fileEvidence":
@@ -42,6 +64,20 @@ export function createAlertEvidenceFromDiscriminatorValue(parseNode: ParseNode |
                     return deserializeIntoGoogleCloudResourceEvidence;
                 case "#microsoft.graph.security.ipEvidence":
                     return deserializeIntoIpEvidence;
+                case "#microsoft.graph.security.kubernetesClusterEvidence":
+                    return deserializeIntoKubernetesClusterEvidence;
+                case "#microsoft.graph.security.kubernetesControllerEvidence":
+                    return deserializeIntoKubernetesControllerEvidence;
+                case "#microsoft.graph.security.kubernetesNamespaceEvidence":
+                    return deserializeIntoKubernetesNamespaceEvidence;
+                case "#microsoft.graph.security.kubernetesPodEvidence":
+                    return deserializeIntoKubernetesPodEvidence;
+                case "#microsoft.graph.security.kubernetesSecretEvidence":
+                    return deserializeIntoKubernetesSecretEvidence;
+                case "#microsoft.graph.security.kubernetesServiceAccountEvidence":
+                    return deserializeIntoKubernetesServiceAccountEvidence;
+                case "#microsoft.graph.security.kubernetesServiceEvidence":
+                    return deserializeIntoKubernetesServiceEvidence;
                 case "#microsoft.graph.security.mailboxEvidence":
                     return deserializeIntoMailboxEvidence;
                 case "#microsoft.graph.security.mailClusterEvidence":

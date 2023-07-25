@@ -24,8 +24,9 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/iosUpdateStatuses/{iosUpdateDeviceStatus%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property iosUpdateStatuses for deviceManagement
+     * Deletes a iosUpdateDeviceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The IOS software update installation statuses for this account.
+     * Read properties and relationships of the iosUpdateDeviceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosUpdateDeviceStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<IosUpdateDeviceStatus>(requestInfo, createIosUpdateDeviceStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property iosUpdateStatuses in deviceManagement
+     * Update the properties of a iosUpdateDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosUpdateDeviceStatus
+     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IosUpdateDeviceStatus | undefined, requestConfiguration?: IosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<IosUpdateDeviceStatus>(requestInfo, createIosUpdateDeviceStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property iosUpdateStatuses for deviceManagement
+     * Deletes a iosUpdateDeviceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * The IOS software update installation statuses for this account.
+     * Read properties and relationships of the iosUpdateDeviceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the navigation property iosUpdateStatuses in deviceManagement
+     * Update the properties of a iosUpdateDeviceStatus object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -44,9 +44,10 @@ export class MdmWindowsInformationProtectionPoliciesRequestBuilder extends BaseR
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mdmWindowsInformationProtectionPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Windows information protection for apps running on devices which are MDM enrolled.
+     * List properties and relationships of the mdmWindowsInformationProtectionPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MdmWindowsInformationProtectionPolicyCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<MdmWindowsInformationProtectionPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class MdmWindowsInformationProtectionPoliciesRequestBuilder extends BaseR
         return this.requestAdapter.sendAsync<MdmWindowsInformationProtectionPolicyCollectionResponse>(requestInfo, createMdmWindowsInformationProtectionPolicyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to mdmWindowsInformationProtectionPolicies for deviceAppManagement
+     * Create a new mdmWindowsInformationProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MdmWindowsInformationProtectionPolicy
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MdmWindowsInformationProtectionPolicy | undefined, requestConfiguration?: MdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class MdmWindowsInformationProtectionPoliciesRequestBuilder extends BaseR
         return this.requestAdapter.sendAsync<MdmWindowsInformationProtectionPolicy>(requestInfo, createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Windows information protection for apps running on devices which are MDM enrolled.
+     * List properties and relationships of the mdmWindowsInformationProtectionPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class MdmWindowsInformationProtectionPoliciesRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Create new navigation property to mdmWindowsInformationProtectionPolicies for deviceAppManagement
+     * Create a new mdmWindowsInformationProtectionPolicy object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

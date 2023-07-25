@@ -38,9 +38,10 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * App configuration device status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicesummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceStatusSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +54,11 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfigurationDeviceSummary>(requestInfo, createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property deviceStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceSummary
+     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicesummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined, requestConfiguration?: DeviceStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -86,7 +88,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * App configuration device status summary.
+     * Read properties and relationships of the managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +106,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property deviceStatusSummary in deviceAppManagement
+     * Update the properties of a managedDeviceMobileAppConfigurationDeviceSummary object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

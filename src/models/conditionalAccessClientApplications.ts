@@ -1,3 +1,4 @@
+import {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessClientApplications extends AdditionalDataHolder, Parsable {
@@ -17,4 +18,8 @@ export interface ConditionalAccessClientApplications extends AdditionalDataHolde
      * The OdataType property
      */
     odataType?: string | undefined;
+    /**
+     * The servicePrincipalFilter property
+     */
+    servicePrincipalFilter?: ConditionalAccessFilter | undefined;
 }

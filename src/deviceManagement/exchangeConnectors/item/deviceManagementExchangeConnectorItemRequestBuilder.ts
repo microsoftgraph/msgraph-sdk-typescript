@@ -31,8 +31,9 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/exchangeConnectors/{deviceManagementExchangeConnector%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property exchangeConnectors for deviceManagement
+     * Deletes a deviceManagementExchangeConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of Exchange Connectors configured by the tenant.
+     * Read properties and relationships of the deviceManagementExchangeConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExchangeConnector
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return this.requestAdapter.sendAsync<DeviceManagementExchangeConnector>(requestInfo, createDeviceManagementExchangeConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property exchangeConnectors in deviceManagement
+     * Update the properties of a deviceManagementExchangeConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExchangeConnector
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagementExchangeConnector | undefined, requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return this.requestAdapter.sendAsync<DeviceManagementExchangeConnector>(requestInfo, createDeviceManagementExchangeConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property exchangeConnectors for deviceManagement
+     * Deletes a deviceManagementExchangeConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * The list of Exchange Connectors configured by the tenant.
+     * Read properties and relationships of the deviceManagementExchangeConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
         return requestInfo;
     };
     /**
-     * Update the navigation property exchangeConnectors in deviceManagement
+     * Update the properties of a deviceManagementExchangeConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

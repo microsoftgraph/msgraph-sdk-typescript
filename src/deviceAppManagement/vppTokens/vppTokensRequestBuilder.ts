@@ -44,9 +44,10 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/vppTokens{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List of Vpp tokens for this organization.
+     * List properties and relationships of the vppToken objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VppTokenCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-vpptoken-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: VppTokensRequestBuilderGetRequestConfiguration | undefined) : Promise<VppTokenCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<VppTokenCollectionResponse>(requestInfo, createVppTokenCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to vppTokens for deviceAppManagement
+     * Create a new vppToken object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VppToken
+     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-vpptoken-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: VppToken | undefined, requestConfiguration?: VppTokensRequestBuilderPostRequestConfiguration | undefined) : Promise<VppToken | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<VppToken>(requestInfo, createVppTokenFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List of Vpp tokens for this organization.
+     * List properties and relationships of the vppToken objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to vppTokens for deviceAppManagement
+     * Create a new vppToken object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

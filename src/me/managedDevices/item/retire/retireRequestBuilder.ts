@@ -20,6 +20,7 @@ export class RetireRequestBuilder extends BaseRequestBuilder {
     /**
      * Retire a device
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-retire?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RetireRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

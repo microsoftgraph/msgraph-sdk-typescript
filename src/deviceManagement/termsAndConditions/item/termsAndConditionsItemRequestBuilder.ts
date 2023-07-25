@@ -38,8 +38,9 @@ export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/termsAndConditions/{termsAndConditions%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property termsAndConditions for deviceManagement
+     * Deletes a termsAndConditions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditions-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TermsAndConditionsItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -52,9 +53,10 @@ export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The terms and conditions associated with device management of the company.
+     * Read properties and relationships of the termsAndConditions object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditions
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditions-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermsAndConditionsItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TermsAndConditions | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -67,10 +69,11 @@ export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TermsAndConditions>(requestInfo, createTermsAndConditionsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property termsAndConditions in deviceManagement
+     * Update the properties of a termsAndConditions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditions
+     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditions-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TermsAndConditions | undefined, requestConfiguration?: TermsAndConditionsItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TermsAndConditions | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -84,7 +87,7 @@ export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TermsAndConditions>(requestInfo, createTermsAndConditionsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property termsAndConditions for deviceManagement
+     * Deletes a termsAndConditions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -100,7 +103,7 @@ export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The terms and conditions associated with device management of the company.
+     * Read properties and relationships of the termsAndConditions object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -118,7 +121,7 @@ export class TermsAndConditionsItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property termsAndConditions in deviceManagement
+     * Update the properties of a termsAndConditions object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

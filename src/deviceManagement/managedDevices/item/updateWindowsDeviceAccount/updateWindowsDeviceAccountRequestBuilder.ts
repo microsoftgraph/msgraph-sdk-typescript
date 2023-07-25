@@ -21,9 +21,10 @@ export class UpdateWindowsDeviceAccountRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/updateWindowsDeviceAccount");
     };
     /**
-     * Invoke action updateWindowsDeviceAccount
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-updatewindowsdeviceaccount?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UpdateWindowsDeviceAccountPostRequestBody | undefined, requestConfiguration?: UpdateWindowsDeviceAccountRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -37,7 +38,7 @@ export class UpdateWindowsDeviceAccountRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Invoke action updateWindowsDeviceAccount
+     * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -59,8 +59,9 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property targetedManagedAppConfigurations for deviceAppManagement
+     * Deletes a targetedManagedAppConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -73,9 +74,10 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Targeted managed app configurations.
+     * Read properties and relationships of the targetedManagedAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetedManagedAppConfiguration
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,10 +90,11 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendAsync<TargetedManagedAppConfiguration>(requestInfo, createTargetedManagedAppConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property targetedManagedAppConfigurations in deviceAppManagement
+     * Update the properties of a targetedManagedAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetedManagedAppConfiguration
+     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TargetedManagedAppConfiguration | undefined, requestConfiguration?: TargetedManagedAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TargetedManagedAppConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -105,7 +108,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendAsync<TargetedManagedAppConfiguration>(requestInfo, createTargetedManagedAppConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property targetedManagedAppConfigurations for deviceAppManagement
+     * Deletes a targetedManagedAppConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -121,7 +124,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Targeted managed app configurations.
+     * Read properties and relationships of the targetedManagedAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -139,7 +142,7 @@ export class TargetedManagedAppConfigurationItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Update the navigation property targetedManagedAppConfigurations in deviceAppManagement
+     * Update the properties of a targetedManagedAppConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,3 +1,4 @@
+import {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessApplications extends AdditionalDataHolder, Parsable {
@@ -5,6 +6,10 @@ export interface ConditionalAccessApplications extends AdditionalDataHolder, Par
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */
     additionalData?: Record<string, unknown>;
+    /**
+     * The applicationFilter property
+     */
+    applicationFilter?: ConditionalAccessFilter | undefined;
     /**
      * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
      */

@@ -24,8 +24,9 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/notificationMessageTemplates/{notificationMessageTemplate%2Did}/localizedNotificationMessages/{localizedNotificationMessage%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property localizedNotificationMessages for deviceManagement
+     * Deletes a localizedNotificationMessage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The list of localized messages for this Notification Message Template.
+     * Read properties and relationships of the localizedNotificationMessage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LocalizedNotificationMessage
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LocalizedNotificationMessage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<LocalizedNotificationMessage>(requestInfo, createLocalizedNotificationMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property localizedNotificationMessages in deviceManagement
+     * Update the properties of a localizedNotificationMessage object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LocalizedNotificationMessage
+     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: LocalizedNotificationMessage | undefined, requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LocalizedNotificationMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<LocalizedNotificationMessage>(requestInfo, createLocalizedNotificationMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property localizedNotificationMessages for deviceManagement
+     * Deletes a localizedNotificationMessage.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * The list of localized messages for this Notification Message Template.
+     * Read properties and relationships of the localizedNotificationMessage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Update the navigation property localizedNotificationMessages in deviceManagement
+     * Update the properties of a localizedNotificationMessage object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

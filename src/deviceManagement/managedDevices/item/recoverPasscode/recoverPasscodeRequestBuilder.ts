@@ -20,6 +20,7 @@ export class RecoverPasscodeRequestBuilder extends BaseRequestBuilder {
     /**
      * Recover passcode
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-recoverpasscode?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RecoverPasscodeRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

@@ -31,8 +31,9 @@ export class RoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/roleDefinitions/{roleDefinition%2Did}/roleAssignments/{roleAssignment%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a roleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-roleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RoleAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -45,9 +46,10 @@ export class RoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * List of Role assignments for this role definition.
+     * Read properties and relationships of the roleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-roleassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RoleAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,10 +62,11 @@ export class RoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RoleAssignment>(requestInfo, createRoleAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a roleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleAssignment
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-roleassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: RoleAssignment | undefined, requestConfiguration?: RoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RoleAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -77,7 +80,7 @@ export class RoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RoleAssignment>(requestInfo, createRoleAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property roleAssignments for deviceManagement
+     * Deletes a roleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -93,7 +96,7 @@ export class RoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * List of Role assignments for this role definition.
+     * Read properties and relationships of the roleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -111,7 +114,7 @@ export class RoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property roleAssignments in deviceManagement
+     * Update the properties of a roleAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -44,9 +44,10 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/mobileAppTroubleshootingEvents/{mobileAppTroubleshootingEvent%2Did}/appLogCollectionRequests{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Indicates collection of App Log Upload Request.
+     * List properties and relationships of the appLogCollectionRequest objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppLogCollectionRequestCollectionResponse
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applogcollectionrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppLogCollectionRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<AppLogCollectionRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,10 +60,11 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AppLogCollectionRequestCollectionResponse>(requestInfo, createAppLogCollectionRequestCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to appLogCollectionRequests for deviceManagement
+     * Create a new appLogCollectionRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppLogCollectionRequest
+     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applogcollectionrequest-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AppLogCollectionRequest | undefined, requestConfiguration?: AppLogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +78,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AppLogCollectionRequest>(requestInfo, createAppLogCollectionRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Indicates collection of App Log Upload Request.
+     * List properties and relationships of the appLogCollectionRequest objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +96,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to appLogCollectionRequests for deviceManagement
+     * Create a new appLogCollectionRequest object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

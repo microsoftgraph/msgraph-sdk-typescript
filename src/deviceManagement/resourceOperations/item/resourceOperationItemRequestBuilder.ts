@@ -24,8 +24,9 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property resourceOperations for deviceManagement
+     * Deletes a resourceOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ResourceOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The Resource Operations.
+     * Read properties and relationships of the resourceOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperation
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ResourceOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property resourceOperations in deviceManagement
+     * Update the properties of a resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperation
+     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ResourceOperation>(requestInfo, createResourceOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property resourceOperations for deviceManagement
+     * Deletes a resourceOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * The Resource Operations.
+     * Read properties and relationships of the resourceOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property resourceOperations in deviceManagement
+     * Update the properties of a resourceOperation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
